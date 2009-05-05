@@ -1,0 +1,252 @@
+JavaFIBS internal match representation v1.1
+8:graugnom:3
+13:graugnom: 
+6:You:graugnom
+11:You:3 2
+1:You:13-10 13-11 
+0:graugnom:5 3
+1:graugnom: 17-22 19-22
+0:You:4 4
+1:You:24-20 24-20 8-4 8-4 
+0:graugnom:4 4
+1:graugnom: 1-5 1-5 12-16 12-16
+0:You:4 2
+1:You:10-8 6-2 
+0:graugnom:4 4
+1:graugnom: 5-9 5-9 12-16 19-23
+0:You:4 4
+1:You:11-7 6-2 7-3 6-2 
+0:graugnom:6 4
+1:graugnom: 16-22 19-23
+0:You:6 6
+1:You:20-14 20-14 13-7 7-1 
+0:graugnom:3 2
+1:graugnom: 17-20 22-24
+2:You: 
+5:graugnom:
+7:You:1
+14:sorrytigger-1:graugnom-0
+13:graugnom: 
+6:You:graugnom
+11:graugnom:5 6
+1:graugnom: 1-7 7-12
+0:You:2 6
+1:You:24-18 13-11 
+0:graugnom:4 1
+1:graugnom: 1-5 17-18
+0:You:2 2
+1:You:bar-23 24-22 22-20 20-18 
+0:graugnom:6 6
+15:graugnom: 
+0:You:3 1
+1:You:8-5 6-5 
+0:graugnom:3 4
+1:graugnom: bar-4 bar-3
+0:You:3 1
+1:You:13-10 11-10 
+0:graugnom:1 3
+1:graugnom: 3-4 12-15
+0:You:3 5
+1:You:23-18 6-3 
+0:graugnom:6 1
+1:graugnom: 15-21 19-20
+0:You:3 1
+1:You:13-10 6-5 
+0:graugnom:6 4
+1:graugnom: 12-16 16-22
+0:You:3 6
+1:You:13-7 10-7 
+0:graugnom:3 3
+1:graugnom: 19-22 12-15 12-15 20-23
+0:You:1 3
+1:You:13-10 3-2 
+0:graugnom:3 2
+1:graugnom: 21-23 19-22
+0:You:5 5
+1:You:18-13 18-13 13-8 13-8 
+0:graugnom:1 1
+1:graugnom: 22-23 23-24 17-18 15-16
+0:You:5 1
+1:You:10-5 8-7 
+0:graugnom:5 2
+1:graugnom: 15-20 18-20
+0:You:4 5
+1:You:10-5 10-6 
+0:graugnom:4 3
+1:graugnom: 17-21 21-24
+2:You: 
+5:graugnom:
+7:You:1
+14:sorrytigger-2:graugnom-0
+13:graugnom: 
+6:You:graugnom
+11:You:4 3
+1:You:13-9 13-10 
+0:graugnom:6 5
+1:graugnom: 1-7 7-12
+0:You:2 6
+1:You:13-7 9-7 
+0:graugnom:3 1
+1:graugnom: 17-20 19-20
+0:You:3 3
+1:You:24-21 24-21 21-18 21-18 
+0:graugnom:2 3
+1:graugnom: 1-4 19-21
+0:You:3 4
+1:You:10-7 6-2 
+0:graugnom:4 4
+1:graugnom: 12-16 12-16 12-16 16-20
+0:You:5 4
+1:You:8-3 7-3 
+0:graugnom:3 6
+1:graugnom: 12-15 15-21
+0:You:4 1
+1:You:6-2 2-1 
+0:graugnom:1 4
+1:graugnom: 4-5 5-9
+0:You:5 6
+1:You:7-1 7-2 
+0:graugnom:4 3
+1:graugnom: 9-12 12-16
+0:You:1 2
+1:You:8-7 7-5 
+0:graugnom:6 5
+1:graugnom: 16-22 19-24
+0:You:4 3
+1:You:13-9 13-10 
+0:graugnom:3 6
+1:graugnom: 16-22 16-19
+0:You:6 6
+1:You:10-4 9-3 8-2 
+0:graugnom:6 5
+1:graugnom: 17-23 17-22
+0:You:3 2
+1:You:6-4 5-2 
+0:graugnom:1 2
+1:graugnom: 20-22 22-23
+0:You:1 1
+1:You:18-17 18-17 17-16 17-16 
+0:graugnom:5 5
+1:graugnom: 12-17 12-17 17-22 17-22
+0:You:2 3
+1:You:16-13 13-11 
+0:graugnom:3 5
+1:graugnom: 20-off 22-off
+0:You:6 5
+1:You:11-5 16-11 
+0:graugnom:6 2
+1:graugnom: 19-off 23-off
+0:You:1 5
+1:You:11-6 1-off 
+0:graugnom:4 1
+1:graugnom: 21-off 24-off
+0:You:3 1
+1:You: 3-o 1-o
+0:graugnom:2 2
+1:graugnom: 23-off 21-23 23-off 19-21
+0:You:1 5
+1:You:5-off 2-1 
+0:graugnom:4 4
+1:graugnom: 19-23 20-24 21-off 22-off
+0:You:1 6
+1:You: 6-o 1-o
+0:graugnom:5 4
+1:graugnom: 22-off 22-off
+0:You:6 6
+1:You: 6-off 6-off 4-off 4-off
+0:graugnom:1 6
+1:graugnom: 22-off 24-off
+0:You:5 4
+1:You: 3-off 3-off
+0:graugnom:6 1
+1:graugnom: 23-24 24-off
+7:graugnom:1
+14:graugnom-1:sorrytigger-2
+13:graugnom: 
+6:You:graugnom
+11:You:6 2
+1:You:1-7 12-14 
+2:graugnom: 
+4:You:
+0:graugnom:3 2
+1:graugnom: 24-21 24-22
+0:You:2 6
+1:You:1-7 12-14 
+0:graugnom:3 1
+1:graugnom: 22-21 8-5
+0:You:3 3
+1:You:7-10 7-10 19-22 19-22 
+0:graugnom:6 5
+1:graugnom: 13-7 13-8
+0:You:4 5
+1:You:12-17 19-23 
+0:graugnom:2 3
+1:graugnom: 8-5 6-4
+0:You:5 4
+1:You:10-15 10-14 
+0:graugnom:6 2
+1:graugnom: 21-15 6-4
+0:You:4 4
+15:You: 
+0:graugnom:2 6
+1:graugnom: 13-7 15-13
+0:You:4 5
+15:You: 
+0:graugnom:3 4
+1:graugnom: 21-18 13-9
+0:You:3 5
+1:You:bar-3 17-22 
+0:graugnom:4 6
+1:graugnom: 13-7 13-9
+0:You:5 3
+1:You:14-19 17-20 
+0:graugnom:2 5
+1:graugnom: 18-13 13-11
+0:You:2 3
+1:You:17-20 19-21 
+0:graugnom:1 2
+1:graugnom: 11-9 9-8
+0:You:5 4
+1:You:17-21 12-17 
+0:graugnom:5 6
+1:graugnom: 9-3 8-3
+0:You:1 2
+1:You:bar-2 22-23 
+0:graugnom:2 2
+1:graugnom: 9-7 7-5 6-4 5-3
+0:You:6 4
+1:You:12-18 14-18 
+0:graugnom:2 6
+1:graugnom: 8-2 4-2
+0:You:6 4
+15:You: 
+0:graugnom:2 6
+1:graugnom: 8-2 7-5
+0:You:4 3
+15:You: 
+0:graugnom:6 6
+1:graugnom: 7-1 7-1 6-off 6-off
+0:You:1 4
+15:You: 
+0:graugnom:5 3
+1:graugnom: 5-off 3-off
+0:You:2 3
+15:You: 
+0:graugnom:5 2
+1:graugnom: 5-off 5-3
+0:You:1 3
+15:You: 
+0:graugnom:1 4
+1:graugnom: 4-off 4-3
+0:You:6 6
+1:You:bar-6 14-20 6-12 12-18 
+0:graugnom:2 6
+1:graugnom: 3-off 2-off
+0:You:4 5
+1:You:18-23 17-21 
+0:graugnom:3 4
+1:graugnom: 3-off 3-off
+0:You:4 3
+3:You:2
+7:graugnom:2
+9:graugnom:3

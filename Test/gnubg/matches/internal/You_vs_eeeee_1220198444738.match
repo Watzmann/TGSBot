@@ -1,0 +1,108 @@
+JavaFIBS internal match representation v1.1
+1:You:13-9 13-10 
+0:eeeee:3 6
+1:eeeee: 1-7 7-10
+0:You:5 5
+1:You:bar-20 6-1 6-1 13-8 
+0:eeeee:6 1
+15:eeeee: 
+0:You:1 4
+1:You:9-5 6-5 
+0:eeeee:4 3
+1:eeeee: bar-3 10-14
+0:You:4 1
+1:You:24-20 24-23 
+0:eeeee:6 6
+1:eeeee: 17-23 17-23 3-9 9-15
+0:You:2 6
+15:You: 
+0:eeeee:6 6
+1:eeeee: 12-18 12-18 17-23 12-18
+0:You:2 4
+1:You:bar-21 8-6 
+0:eeeee:4 6
+1:eeeee: 14-18 18-24
+0:You:5 6
+1:You:21-15 15-10 
+0:eeeee:6 2
+1:eeeee: bar-2 18-24
+0:You:2 1
+1:You:8-6 6-5 
+0:eeeee:3 6
+1:eeeee: 18-24 18-21
+0:You:3 4
+1:You:6-2 5-2 
+0:eeeee:2 4
+1:eeeee: bar-4 19-21
+0:You:3 6
+1:You:13-7 10-7 
+0:eeeee:3 2
+1:eeeee: 19-22 19-21
+0:You:4 4
+1:You:8-4 8-4 7-3 7-3 
+0:eeeee:2 2
+15:eeeee: 
+0:You:2 5
+1:You:20-15 13-11 
+0:eeeee:6 5
+15:eeeee: 
+0:You:4 2
+1:You:15-11 20-18 
+0:eeeee:5 2
+15:eeeee: 
+0:You:4 1
+1:You:18-14 14-13 
+0:eeeee:4 2
+15:eeeee: 
+0:You:1 4
+1:You:13-9 11-10 
+0:eeeee:4 2
+15:eeeee: 
+0:You:4 2
+1:You:9-5 10-8 
+0:eeeee:2 4
+15:eeeee: 
+0:You:2 4
+1:You:11-7 7-5 
+0:eeeee:2 2
+15:eeeee: 
+0:You:2 2
+1:You:8-6 6-4 5-3 5-3 
+0:eeeee:4 6
+15:eeeee: 
+0:You:3 2
+1:You:3-off 4-2 
+0:eeeee:5 6
+15:eeeee: 
+0:You:3 2
+1:You:3-off 2-off 
+0:eeeee:2 4
+15:eeeee: 
+0:You:1 6
+1:You:6-off 6-5 
+0:eeeee:3 3
+15:eeeee: 
+0:You:3 5
+1:You:5-off 5-2 
+0:eeeee:4 4
+15:eeeee: 
+0:You:2 2
+1:You:5-3 2-off 4-2 4-2 
+0:eeeee:5 5
+1:eeeee: bar-5 12-17 12-17 5-10
+0:You:1 5
+1:You: 3-o 1-o
+0:eeeee:4 1
+1:eeeee: 10-14 14-15
+0:You:2 1
+1:You: 2-o 1-o
+0:eeeee:6 4
+1:eeeee: 15-19 17-23
+0:You:3 3
+1:You: 3-off 3-off 2-off 2-off
+0:eeeee:6 5
+1:eeeee: 17-22 19-off
+0:You:3 2
+1:You: 2-off
+7:You:1
+9:You:3

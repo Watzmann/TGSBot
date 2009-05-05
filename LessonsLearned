@@ -1,0 +1,33 @@
+03.09.2005 --------------------------------------------------------
+
+Datei lässt sich nicht mehr über ...>./mp3cp2usb.py ausführen, sondern nur noch
+direkt über ...>python mp3cp2usb.py. Begründung:
+bash: ./mp3cp2usb.py: cannot execute binary file
+
+Es liegt an den Umlauten in Kommentaren oder Strings. Man muss die Zeile 
+# -*- coding: utf-8 -*-
+einfügen, was unter 2.4 (im Gegensatz zu 2.3) nicht mehr automatisch
+nachgefragt und eingefügt wird. Im Hexdump sieht das so aus:
+
+Falsch:
+  hausmann@ASUS:~/Python/Test/mp3> od -a mp3cp2usb.py|head
+  0000000   o   ;   ?   #   !   /   u   s   r   /   b   i   n   /   e   n
+  0000020   v  sp   p   y   t   h   o   n  nl  nl   "   "   "   m   p   3
+  0000040   c   p   2   u   s   b   .   p   y  nl   (   c   )  sp   A   n
+
+Korrekt:
+  hausmann@ASUS:~/Python/Test/mp3> od -a mp3cp2usb.py|head
+  0000000   #   !   /   u   s   r   /   b   i   n   /   e   n   v  sp   p
+  0000020   y   t   h   o   n  nl   #  sp   -   *   -  sp   c   o   d   i
+  0000040   n   g   :  sp   u   t   f   -   8  sp   -   *   -  nl  nl   "
+
+03.09.2005 --------------------------------------------------------
+
+print-Zeile aus ID3v2.parse_header() (id3v2.py) entfernt (site-packages)
+
+27.10.2005 --------------------------------------------------------
+
+Weil ich ne ganze Weile gesucht habe: wie komm ich nochmal an die Liste
+  der Attribute eines Objektes?
+
+__dict__: z.B. sys.__dict__.keys() ist das Gleiche wie dir(sys) (sortiert!)

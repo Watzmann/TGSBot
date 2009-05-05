@@ -1,0 +1,180 @@
+JavaFIBS internal match representation v1.1
+8:Kerberos:3
+13:Kerberos: 
+6:You:Kerberos
+11:You:6 5
+1:You:24-18 18-13 
+0:Kerberos:1 1
+1:Kerberos: 19-20 19-20 17-18 17-18
+0:You:2 4
+1:You:8-4 6-4 
+0:Kerberos:4 4
+1:Kerberos: 12-16 12-16 1-5 1-5
+0:You:1 5
+1:You:24-23 13-8 
+0:Kerberos:5 1
+1:Kerberos: 12-17 19-20
+0:You:4 2
+1:You:23-21 8-4 
+0:Kerberos:2 2
+1:Kerberos: 17-19 17-19 19-21 19-21
+0:You:5 4
+15:You: 
+0:Kerberos:2 2
+1:Kerberos: 5-7 5-7 12-14 12-14
+0:You:5 5
+15:You: 
+0:Kerberos:4 6
+1:Kerberos: 7-11 11-17
+0:You:5 2
+1:You:bar-23 13-8 
+0:Kerberos:3 3
+1:Kerberos: 14-17 14-17 20-23 7-10
+0:You:6 5
+15:You: 
+0:Kerberos:3 1
+1:Kerberos: 10-11 11-14
+0:You:6 1
+1:You:bar-24 13-7 
+0:Kerberos:2 2
+1:Kerberos: 14-16 16-18 18-20 17-19
+0:You:2 2
+1:You:13-11 11-9 9-7 13-11 
+0:Kerberos:2 4
+1:Kerberos: 16-20 16-18
+0:You:4 1
+1:You:24-23 11-7 
+0:Kerberos:5 6
+1:Kerberos: bar-5 5-11
+0:You:5 3
+1:You:8-3 6-3 
+0:Kerberos:2 3
+1:Kerberos: 11-13 13-16
+0:You:3 6
+1:You:bar-22 22-16 
+0:Kerberos:3 2
+1:Kerberos: bar-2 2-5
+0:You:6 1
+1:You:23-22 22-16 
+0:Kerberos:6 2
+1:Kerberos: 5-11 19-21
+0:You:6 3
+1:You:7-1 4-1 
+0:Kerberos:4 4
+1:Kerberos: 11-15 15-19 18-22 18-22
+0:You:4 1
+1:You:16-12 7-6 
+0:Kerberos:5 3
+1:Kerberos: 17-22 17-20
+0:You:6 2
+1:You:7-5 16-10 
+0:Kerberos:3 4
+1:Kerberos: 18-22 22-off
+0:You:6 2
+1:You:8-2 8-6 
+0:Kerberos:4 4
+1:Kerberos: 21-off 21-off 21-off 19-23
+0:You:4 5
+1:You:10-5 12-8 
+0:Kerberos:5 5
+1:Kerberos: 20-off 20-off 20-off 20-off
+0:You:3 3
+3:You:1
+7:Kerberos:1
+14:Kerberos-1:sorrytigger-0
+13:Kerberos: 
+6:You:Kerberos
+11:You:2 1
+1:You:12-14 1-2 
+0:Kerberos:5 3
+1:Kerberos: 24-21 13-8
+0:You:4 3
+1:You:1-5 2-5 
+0:Kerberos:6 6
+1:Kerberos: 21-15 13-7 13-7 24-18
+0:You:6 4
+1:You:12-18 14-18 
+0:Kerberos:2 4
+1:Kerberos: bar-21 15-13
+0:You:6 3
+1:You:12-18 19-22 
+0:Kerberos:1 3
+1:Kerberos: 6-3 8-7
+0:You:4 2
+1:You:17-21 19-21 
+0:Kerberos:2 5
+1:Kerberos: bar-23 13-8
+0:You:2 3
+1:You:19-22 18-20 
+0:Kerberos:2 2
+1:Kerberos: 13-11 13-11 6-4 6-4
+0:You:4 3
+1:You:12-16 17-20 
+0:Kerberos:2 6
+1:Kerberos: 23-17 8-6
+0:You:6 6
+15:You: 
+0:Kerberos:4 6
+1:Kerberos: 7-3 17-11
+0:You:5 2
+1:You:bar-5 12-14 
+0:Kerberos:1 3
+1:Kerberos: 11-8 8-7
+0:You:4 2
+1:You:16-20 14-16 
+0:Kerberos:6 3
+1:Kerberos: 7-1 6-3
+0:You:5 2
+1:You:5-10 10-12 
+0:Kerberos:2 4
+1:Kerberos: 8-4 3-1
+0:You:6 2
+1:You:12-18 20-22 
+0:Kerberos:5 2
+1:Kerberos: 8-3 8-6
+0:You:1 6
+1:You:22-23 16-22 
+0:Kerberos:5 1
+1:Kerberos: 6-1 3-2
+0:You:2 2
+1:You:18-20 20-22 22-24 22-24 
+0:Kerberos:5 5
+1:Kerberos: 11-6 11-6 7-2 7-2
+0:You:1 6
+1:You:5-11 18-19 
+0:Kerberos:5 1
+1:Kerberos: 6-5 5-off
+0:You:4 6
+15:You: 
+0:Kerberos:4 5
+1:Kerberos: 6-1 4-off
+0:You:1 4
+15:You: 
+0:Kerberos:2 1
+1:Kerberos: 1-off 2-off
+0:You:1 2
+15:You: 
+0:Kerberos:2 6
+1:Kerberos: 6-off 6-4
+0:You:3 4
+15:You: 
+0:Kerberos:5 4
+1:Kerberos: 4-off 4-off
+0:You:2 1
+15:You: 
+0:Kerberos:6 1
+1:Kerberos: 4-off 1-off
+0:You:5 3
+1:You:bar-5 5-8 
+0:Kerberos:3 4
+1:Kerberos: 3-off 3-off
+0:You:6 3
+1:You:11-17 17-20 
+0:Kerberos:5 2
+1:Kerberos: 2-off 2-off
+0:You:5 5
+1:You:8-13 13-18 18-23 18-23 
+0:Kerberos:1 6
+1:Kerberos: 1-off 1-off
+7:Kerberos:2
+9:Kerberos:3

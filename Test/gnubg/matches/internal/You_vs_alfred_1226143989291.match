@@ -1,0 +1,242 @@
+JavaFIBS internal match representation v1.1
+8:alfred:3
+13:alfred: 
+6:You:alfred
+11:You:4 1
+1:You:13-9 24-23 
+0:alfred:6 1
+1:alfred: 12-18 17-18
+0:You:6 1
+1:You:13-7 8-7 
+0:alfred:1 4
+1:alfred: 1-5 1-2
+0:You:4 6
+1:You:13-7 13-9 
+0:alfred:4 6
+1:alfred: 5-11 11-15
+0:You:1 2
+1:You:24-22 23-22 
+0:alfred:4 4
+1:alfred: 12-16 12-16 15-19 19-23
+0:You:4 5
+1:You:7-2 6-2 
+0:alfred:1 5
+1:alfred: bar-5 12-13
+0:You:2 2
+1:You:bar-23 22-20 7-5 7-5 
+0:alfred:4 1
+1:alfred: bar-1 bar-4
+0:You:5 3
+1:You:20-15 15-12 
+0:alfred:6 3
+1:alfred: bar-3 1-7
+0:You:1 3
+1:You:8-7 7-4 
+0:alfred:6 3
+1:alfred: bar-3
+0:You:4 2
+1:You:6-4 12-8 
+0:alfred:1 2
+1:alfred: bar-1 1-3
+0:You:4 6
+1:You:8-2 8-4 
+0:alfred:1 5
+1:alfred: 3-8 13-14
+0:You:6 6
+15:You: 
+0:alfred:6 3
+1:alfred: 19-22 16-22
+0:You:1 2
+1:You:bar-23 9-8 
+0:alfred:5 1
+1:alfred: bar-1 3-8
+0:You:6 2
+1:You: bar-23 9-3
+0:alfred:4 6
+15:alfred: 
+0:You:1 2
+1:You:4-3 23-21 
+0:alfred:3 4
+15:alfred: 
+0:You:6 4
+1:You:21-15 15-11 
+0:alfred:1 1
+1:alfred: bar-1 8-9 9-10 10-11
+0:You:1 5
+1:You:bar-20 6-5 
+0:alfred:5 6
+1:alfred: 11-16 14-20
+0:You:1 4
+1:You:bar-21 21-20 
+0:alfred:5 3
+15:alfred: 
+0:You:5 2
+1:You:20-15 23-21 
+0:alfred:2 3
+15:alfred: 
+0:You:5 3
+1:You:23-20 20-15 
+0:alfred:2 2
+15:alfred: 
+0:You:3 3
+1:You:15-12 15-12 12-9 9-6 
+0:alfred:2 1
+1:alfred: bar-1 19-21
+0:You:3 6
+15:You: 
+0:alfred:4 2
+1:alfred: 19-21 17-21
+0:You:2 3
+1:You:bar-23 23-20 
+0:alfred:6 1
+1:alfred: 1-7 17-18
+0:You:3 2
+1:You:12-9 9-7 
+0:alfred:2 1
+1:alfred: bar-1 18-20
+0:You:1 1
+1:You:bar-24 24-23 5-4 4-3 
+0:alfred:5 5
+1:alfred: 18-23 18-23 16-21 16-21
+0:You:6 1
+1:You: bar-24 24-18
+0:alfred:1 4
+1:alfred: 21-22 20-24
+0:You:5 5
+1:You: 18-13 13-8 8-3 7-2
+0:alfred:3 6
+1:alfred: 1-7 21-24
+0:You:2 1
+1:You:2-off 3-2 
+0:alfred:4 5
+1:alfred: 7-12 12-16
+0:You:2 2
+1:You:6-4 6-4 6-4 2-off 
+0:alfred:6 5
+1:alfred: 1-7 7-12
+0:You:2 5
+1:You:5-off 5-3 
+0:alfred:4 3
+1:alfred: 12-16 16-19
+0:You:3 1
+1:You:4-1 2-1 
+0:alfred:1 3
+15:alfred: 
+0:You:5 4
+1:You: 4-off 4-off
+0:alfred:1 4
+15:alfred: 
+0:You:1 3
+1:You:3-off 3-2 
+0:alfred:4 5
+1:alfred: bar-5 5-9
+0:You:6 2
+1:You:4-off 2-off 
+0:alfred:4 2
+1:alfred: 9-13 13-15
+0:You:2 6
+1:You: 4-o 2-o
+0:alfred:6 5
+1:alfred: 15-21 16-21
+0:You:2 1
+1:You: 2-o 1-o
+0:alfred:1 4
+1:alfred: 21-off 24-off
+0:You:6 5
+1:You: 3-off 3-off
+0:alfred:2 3
+1:alfred: 22-off 23-off
+0:You:4 4
+1:You: 1-off
+7:You:1
+14:sorrytigger-1:alfred-0
+13:alfred: 
+6:You:alfred
+11:alfred:3 6
+1:alfred: 1-7 1-4
+0:You:5 4
+1:You:24-20 13-8 
+0:alfred:2 2
+1:alfred: 19-21 19-21 12-14 12-14
+0:You:6 6
+1:You:13-7 13-7 8-2 8-2 
+0:alfred:5 2
+1:alfred: bar-5 12-14
+2:You: 
+4:alfred:
+0:You:2 1
+1:You:7-5 6-5 
+0:alfred:6 5
+15:alfred: 
+0:You:4 4
+1:You:24-20 8-4 8-4 13-9 
+0:alfred:4 5
+15:alfred: 
+0:You:5 3
+1:You:13-10 9-4 
+0:alfred:4 6
+15:alfred: 
+0:You:6 5
+1:You:20-15 15-9 
+0:alfred:1 3
+1:alfred: bar-3 bar-1
+0:You:5 3
+1:You:6-1 4-1 
+0:alfred:1 6
+15:alfred: 
+0:You:2 1
+1:You:9-7 6-5 
+0:alfred:3 6
+1:alfred: bar-3 14-20
+0:You:1 4
+1:You:bar-24 24-20 
+0:alfred:6 1
+15:alfred: 
+0:You:3 2
+1:You:20-18 18-15 
+0:alfred:2 2
+15:alfred: 
+0:You:4 3
+1:You:15-11 10-7 
+0:alfred:1 2
+15:alfred: 
+0:You:5 2
+1:You:11-6 7-5 
+0:alfred:3 1
+1:alfred: bar-3 19-20
+0:You:1 6
+1:You:7-1 7-6 
+0:alfred:3 6
+1:alfred: 12-18 12-15
+0:You:1 6
+1:You:6-off 1-off 
+0:alfred:4 3
+1:alfred: 17-20 14-18
+0:You:4 3
+1:You:6-2 5-2 
+0:alfred:2 6
+1:alfred: 3-9 9-11
+0:You:2 2
+1:You:6-4 6-4 2-off 2-off 
+0:alfred:5 2
+1:alfred: 11-16 14-16
+0:You:6 5
+1:You: 5-off 5-off
+0:alfred:5 5
+1:alfred: 17-22 17-22 18-23 18-23
+0:You:6 6
+1:You: 5-off 4-off 4-off 4-off
+0:alfred:6 4
+1:alfred: 15-21 16-20
+0:You:4 2
+1:You:4-off 2-off 
+0:alfred:1 5
+1:alfred: 3-8 3-4
+0:You:2 4
+1:You: 2-off 1-off
+0:alfred:1 4
+1:alfred: 4-8 8-9
+0:You:3 6
+1:You: 1-off
+7:You:4
+9:You:3

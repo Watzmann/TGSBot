@@ -1,0 +1,200 @@
+JavaFIBS internal match representation v1.1
+8:quisanfu:3
+13:quisanfu: 
+6:You:quisanfu
+11:quisanfu:5 6
+1:quisanfu: 1-7 7-12
+0:You:1 2
+1:You:13-11 24-23 
+0:quisanfu:3 6
+1:quisanfu: 1-7 7-10
+0:You:6 3
+1:You:13-10 24-18 
+0:quisanfu:5 6
+1:quisanfu: bar-5 5-11
+0:You:4 3
+1:You:bar-21 21-18 
+0:quisanfu:4 6
+1:quisanfu: 17-23 19-23
+0:You:5 4
+1:You:bar-21 10-5 
+0:quisanfu:6 2
+1:quisanfu: 11-17 19-21
+0:You:4 1
+1:You:bar-21 6-5 
+0:quisanfu:3 4
+1:quisanfu: bar-3 17-21
+0:You:6 3
+1:You:bar-22 22-16 
+0:quisanfu:3 6
+1:quisanfu: 3-9 9-12
+0:You:3 4
+1:You:16-13 8-4 
+2:quisanfu: 
+4:You:
+0:quisanfu:3 1
+1:quisanfu: 19-22 21-22
+0:You:6 5
+1:You:13-7 13-8 
+0:quisanfu:3 3
+1:quisanfu: 12-15 12-15 12-15 12-15
+0:You:6 2
+1:You:8-2 6-4 
+0:quisanfu:5 1
+1:quisanfu: 15-20 19-20
+0:You:4 4
+1:You:18-14 18-14 14-10 14-10 
+0:quisanfu:2 6
+1:quisanfu: 12-18 17-19
+0:You:4 2
+1:You:8-4 7-5 
+0:quisanfu:6 1
+1:quisanfu: 15-21 18-19
+0:You:4 1
+1:You:10-6 4-3 
+0:quisanfu:1 4
+1:quisanfu: 17-21 15-16
+0:You:3 3
+1:You:13-10 13-10 10-7 7-4 
+0:quisanfu:6 6
+1:quisanfu: 12-18 12-18 16-22 15-21
+0:You:2 1
+1:You:8-6 4-3 
+0:quisanfu:3 3
+1:quisanfu: 18-21 18-21 22-off 22-off
+0:You:6 4
+1:You:10-4 10-6 
+0:quisanfu:6 6
+1:quisanfu: 19-off 19-off 19-off 20-off
+0:You:4 5
+1:You: 5-o 4-o
+0:quisanfu:3 2
+1:quisanfu: 22-off 23-off
+0:You:4 4
+1:You:4-off 4-off 6-2 6-2 
+0:quisanfu:2 2
+1:quisanfu: 21-23 20-22 23-off 23-off
+0:You:1 6
+1:You:6-off 2-1 
+0:quisanfu:3 2
+1:quisanfu: 22-off 21-23
+0:You:4 1
+1:You:5-1 1-off 
+0:quisanfu:5 1
+1:quisanfu: 21-off 21-22
+0:You:4 4
+1:You: 6-2 6-2 6-2 5-1
+0:quisanfu:3 5
+1:quisanfu: 21-off 22-off
+0:You:4 5
+1:You: 3-off 3-off
+0:quisanfu:2 6
+1:quisanfu: 23-off
+7:quisanfu:2
+14:quisanfu-2:sorrytigger-0
+13:quisanfu: 
+6:You:quisanfu
+11:quisanfu:2 4
+1:quisanfu: 8-4 6-4
+0:You:2 4
+1:You:17-21 19-21 
+0:quisanfu:3 6
+1:quisanfu: 24-18 18-15
+0:You:2 5
+1:You:12-17 1-3 
+0:quisanfu:6 5
+1:quisanfu: 24-18 18-13
+0:You:1 6
+1:You:12-18 17-18 
+0:quisanfu:5 2
+1:quisanfu: 15-10 10-8
+0:You:4 1
+1:You:1-5 19-20 
+0:quisanfu:1 1
+1:quisanfu: 6-5 6-5 4-3 4-3
+0:You:5 2
+1:You: bar-2
+0:quisanfu:2 3
+1:quisanfu: 13-10 13-11
+0:You:3 5
+15:You: 
+0:quisanfu:4 3
+1:quisanfu: 11-7 10-7
+0:You:1 1
+1:You:bar-1 1-2 19-20 17-18 
+0:quisanfu:3 6
+1:quisanfu: 13-7 8-5
+0:You:1 1
+1:You:18-19 19-20 20-21 21-22 
+0:quisanfu:5 5
+1:quisanfu: 13-8 13-8 13-8 8-3
+0:You:1 2
+1:You:12-14 14-15 
+0:quisanfu:3 3
+1:quisanfu: 8-5 8-5 7-4 4-1
+0:You:2 2
+1:You:15-17 12-14 14-16 16-18 
+0:quisanfu:3 4
+1:quisanfu: 8-4 4-1
+0:You:5 3
+1:You:17-22 12-15 
+0:quisanfu:5 5
+1:quisanfu: 8-3 6-1 6-1
+0:You:2 5
+1:You:15-17 18-23 
+0:quisanfu:1 2
+1:quisanfu: 5-3 5-4
+0:You:4 6
+1:You:17-23 17-21 
+0:quisanfu:5 2
+1:quisanfu: 5-3
+0:You:1 6
+1:You:18-24 21-22 
+0:quisanfu:3 1
+1:quisanfu: 7-4 7-6
+0:You:2 1
+1:You:22-24 18-19 
+0:quisanfu:5 3
+1:quisanfu: 6-1 3-off
+0:You:3 4
+1:You:2-6 6-9 
+0:quisanfu:4 1
+1:quisanfu: 5-1 5-4
+0:You:1 2
+1:You:9-11 11-12 
+0:quisanfu:3 2
+1:quisanfu: 4-1 3-1
+0:You:3 2
+1:You:19-22 22-24 
+0:quisanfu:6 3
+1:quisanfu: 4-off 4-1
+0:You:3 5
+1:You:12-17 17-20 
+0:quisanfu:1 2
+1:quisanfu: 3-2 2-off
+0:You:4 4
+1:You:bar-4 4-8 8-12 12-16 
+0:quisanfu:2 5
+1:quisanfu: 3-off 3-1
+0:You:2 1
+1:You:16-18 18-19 
+0:quisanfu:3 1
+1:quisanfu: 3-off 1-off
+0:You:3 2
+1:You: 22-o 23-o
+0:quisanfu:5 4
+1:quisanfu: 1-off 1-off
+0:You:3 4
+1:You: 21-o 22-o
+0:quisanfu:4 6
+1:quisanfu: 1-off 1-off
+0:You:2 6
+1:You: 19-o 23-o
+0:quisanfu:1 1
+1:quisanfu: 1-off 1-off 1-off 1-off
+0:You:5 6
+1:You: 19-o 20-o
+0:quisanfu:1 5
+1:quisanfu: 1-off
+7:quisanfu:1
+9:quisanfu:3

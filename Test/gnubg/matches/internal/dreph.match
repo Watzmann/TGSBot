@@ -1,0 +1,73 @@
+JavaFIBS internal match representation v1.1
+8:dreph:3
+13:dreph: 
+6:You:dreph
+11:dreph:1 2
+1:dreph: 12-14 14-15
+0:You:6 3
+1:You:24-18 18-15 
+0:dreph:5 2
+1:dreph: bar-5 5-7
+2:You: 
+4:dreph:
+0:You:5 3
+1:You:15-10 13-10 
+2:dreph: 
+4:You:
+0:dreph:1 2
+1:dreph: 7-9 19-20
+0:You:6 4
+1:You:24-20 20-14 
+0:dreph:4 6
+1:dreph: bar-4 9-15
+0:You:4 1
+1:You:8-4 14-13 
+0:dreph:5 1
+1:dreph: bar-5 19-20
+0:You:5 1
+1:You:10-5 6-5 
+0:dreph:5 6
+15:dreph: 
+0:You:6 5
+1:You:10-4 13-8 
+0:dreph:1 3
+1:dreph: bar-1 17-20
+0:You:5 6
+1:You:13-7 7-2 
+0:dreph:5 5
+1:dreph: 17-22 17-22 12-17 17-22
+0:You:2 6
+1:You:8-2 6-4 
+0:dreph:5 2
+1:dreph: 12-17 15-17
+0:You:6 5
+1:You:13-7 7-2 
+0:dreph:1 5
+1:dreph: 17-18 17-22
+0:You:2 3
+1:You:13-10 10-8 
+0:dreph:6 5
+1:dreph: 1-7 7-12
+0:You:5 2
+1:You:13-8 8-6 
+0:dreph:3 4
+1:dreph: 12-15 15-19
+0:You:4 2
+1:You:8-4 4-2 
+0:dreph:2 3
+1:dreph: 18-21 19-21
+0:You:5 2
+1:You:8-3 8-6 
+0:dreph:1 3
+1:dreph: 12-13 13-16
+0:You:2 2
+1:You:5-3 5-3 2-off 2-off 
+0:dreph:5 3
+1:dreph: 12-15 16-21
+0:You:4 1
+1:You:6-2 3-2 
+0:dreph:6 1
+1:dreph: 15-16 16-22
+0:You:5 6
+1:You: 6-off
+0:dreph:6 3

@@ -1,0 +1,432 @@
+JavaFIBS internal match representation v1.1
+8:Charmaine:3
+13:Charmaine: 
+6:You:Charmaine
+11:Charmaine:2 3
+1:Charmaine: 13-10 10-8
+0:You:4 6
+1:You:17-23 19-23 
+0:Charmaine:2 4
+1:Charmaine: 8-4 6-4
+0:You:5 1
+1:You:12-17 1-2 
+0:Charmaine:4 4
+1:Charmaine: 24-20 24-20 20-16 20-16
+0:You:2 4
+1:You:17-21 19-21 
+0:Charmaine:3 3
+1:Charmaine: 13-10 13-10 6-3 6-3
+0:You:2 5
+1:You:12-17 17-19 
+0:Charmaine:5 4
+1:Charmaine: 13-8 13-9
+0:You:1 5
+1:You:1-2 17-22 
+0:Charmaine:2 3
+1:Charmaine: 9-6 8-6
+0:You:2 2
+1:You:19-21 22-24 17-19 19-21 
+0:Charmaine:2 2
+1:Charmaine: 16-14 16-14 3-1 3-1
+0:You:1 2
+1:You:21-23 23-24 
+0:Charmaine:5 3
+1:Charmaine: 8-3 6-3
+0:You:3 4
+1:You:12-16 19-22 
+0:Charmaine:1 2
+1:Charmaine: 10-8 10-9
+0:You:2 3
+1:You:19-22 16-18 
+0:Charmaine:6 4
+1:Charmaine: 9-3 8-4
+0:You:6 3
+1:You:12-18 12-15 
+0:Charmaine:5 2
+1:Charmaine: 8-3 8-6
+0:You:4 6
+1:You:15-19 18-24 
+0:Charmaine:2 2
+1:Charmaine: 14-12 14-12 12-10 12-10
+0:You:5 4
+1:You:18-23 19-23 
+0:Charmaine:2 6
+1:Charmaine: 10-4 3-1
+0:You:5 1
+1:You:19-24 21-22 
+0:Charmaine:6 2
+1:Charmaine: 10-4 3-1
+0:You:3 1
+1:You:21-24 21-22 
+0:Charmaine:4 1
+1:Charmaine: 4-off 1-off
+0:You:6 6
+1:You:2-8 2-8 8-14 8-14 
+0:Charmaine:2 5
+1:Charmaine: 6-1 4-2
+0:You:6 4
+1:You:14-20 14-18 
+0:Charmaine:6 1
+1:Charmaine: 6-off 1-off
+0:You:5 4
+1:You:18-22 20-off 
+0:Charmaine:1 3
+1:Charmaine: 3-off 1-off
+0:You:3 5
+1:You: 22-off 22-off
+0:Charmaine:2 1
+1:Charmaine: 2-off 1-off
+0:You:5 2
+1:You:22-off 23-off 
+0:Charmaine:3 5
+1:Charmaine: 6-1 3-off
+0:You:2 6
+1:You: 22-o 23-o
+0:Charmaine:5 2
+1:Charmaine: 6-1 4-2
+2:You: 
+4:Charmaine:
+0:You:4 4
+1:You: 22-off 23-off 23-off 24-off
+0:Charmaine:4 5
+1:Charmaine: 4-off 4-off
+0:You:3 1
+1:You: 24-off 24-off
+0:Charmaine:3 2
+1:Charmaine: 2-off 1-off
+0:You:5 6
+1:You: 24-off 24-off
+7:You:2
+14:sorrytigger-2:Charmaine-0
+13:Charmaine: 
+6:You:Charmaine
+11:You:4 1
+1:You:13-9 24-23 
+0:Charmaine:3 3
+1:Charmaine: 1-4 1-4 19-22 19-22
+0:You:4 3
+1:You:24-20 23-20 
+0:Charmaine:6 5
+1:Charmaine: 4-10 4-9
+0:You:1 6
+1:You:bar-24 13-7 
+0:Charmaine:2 3
+1:Charmaine: 10-12 9-12
+0:You:4 4
+1:You:24-20 13-9 9-5 8-4 
+0:Charmaine:1 5
+1:Charmaine: 12-17 22-23
+0:You:4 2
+1:You:6-4 7-3 
+0:Charmaine:5 3
+1:Charmaine: 17-22 19-22
+0:You:3 5
+1:You:8-3 6-3 
+0:Charmaine:6 3
+1:Charmaine: 12-18 18-21
+0:You:1 5
+1:You:8-3 3-2 
+0:Charmaine:5 1
+1:Charmaine: 17-22 22-23
+0:You:3 4
+1:You:20-16 16-13 
+0:Charmaine:4 3
+1:Charmaine: 12-16 16-19
+0:You:1 1
+1:You:3-2 6-5 2-1 2-1 
+0:Charmaine:3 2
+1:Charmaine: 19-22 22-24
+0:You:6 1
+1:You:13-7 7-6 
+0:Charmaine:2 6
+1:Charmaine: 17-23 17-19
+0:You:3 3
+1:You:13-10 13-10 10-7 7-4 
+0:Charmaine:4 1
+1:Charmaine: 23-24 19-23
+0:You:1 3
+1:You:6-3 3-2 
+0:Charmaine:4 3
+1:Charmaine: 12-16 16-19
+0:You:4 1
+1:You:10-6 4-3 
+0:Charmaine:3 3
+1:Charmaine: 12-15 12-15 12-15 21-24
+0:You:2 5
+1:You:20-18 18-13 
+0:Charmaine:5 4
+1:Charmaine: 15-20 20-24
+0:You:4 3
+1:You:bar-21 13-10 
+0:Charmaine:3 2
+1:Charmaine: 19-21 21-24
+0:You:2 5
+1:You:bar-20 10-8 
+0:Charmaine:6 5
+1:Charmaine: 15-21 15-20
+0:You:1 2
+15:You: 
+0:Charmaine:1 1
+1:Charmaine: 20-21 24-off 24-off 24-off
+0:You:3 2
+15:You: 
+0:Charmaine:1 4
+1:Charmaine: 21-off 21-22
+0:You:2 2
+15:You: 
+0:Charmaine:3 3
+1:Charmaine: 22-off 22-off 19-22 19-22
+0:You:4 4
+1:You:bar-21 21-17 17-13 13-9 
+0:Charmaine:5 4
+1:Charmaine: 22-off 22-off
+0:You:3 1
+1:You:8-5 9-8 
+0:Charmaine:1 2
+1:Charmaine: 23-off 24-off
+0:You:5 5
+1:You:8-3 5-off 5-off 5-off 
+0:Charmaine:3 4
+1:Charmaine: 22-off 22-off
+0:You:6 1
+1:You: 6-o 1-o
+0:Charmaine:3 5
+1:Charmaine: 23-off 23-off
+0:You:2 2
+1:You:2-off 4-2 2-off 4-2 
+0:Charmaine:3 5
+1:Charmaine: 24-off
+7:Charmaine:1
+14:Charmaine-1:sorrytigger-2
+13:Charmaine: 
+6:You:Charmaine
+11:You:2 1
+1:You:12-14 1-2 
+0:Charmaine:6 3
+1:Charmaine: 24-18 24-21
+0:You:4 5
+1:You:14-18 2-7 
+0:Charmaine:4 2
+1:Charmaine: bar-21 8-6
+0:You:5 3
+1:You:17-22 19-22 
+0:Charmaine:4 1
+1:Charmaine: 13-9 9-8
+0:You:1 6
+1:You:1-7 17-18 
+0:Charmaine:5 1
+1:Charmaine: 6-1 6-5
+0:You:1 3
+1:You:17-20 19-20 
+0:Charmaine:2 1
+1:Charmaine: 8-6 6-5
+0:You:4 3
+1:You:19-23 12-15 
+0:Charmaine:5 6
+1:Charmaine: 8-2 8-3
+0:You:3 1
+1:You:12-15 23-24 
+0:Charmaine:6 4
+1:Charmaine: 13-9 9-3
+0:You:6 3
+1:You:12-18 12-15 
+0:Charmaine:6 6
+15:Charmaine: 
+0:You:6 3
+1:You:18-24 7-10 
+0:Charmaine:2 2
+1:Charmaine: 13-11 13-11 13-11 6-4
+0:You:4 4
+1:You:10-14 14-18 15-19 19-23 
+0:Charmaine:5 6
+1:Charmaine: 11-5 6-1
+0:You:1 3
+1:You:7-10 18-19 
+0:Charmaine:4 1
+1:Charmaine: 5-4 6-2
+0:You:4 1
+1:You:10-14 14-15 
+0:Charmaine:3 6
+1:Charmaine: 11-5 11-8
+0:You:4 5
+1:You:15-20 19-23 
+0:Charmaine:4 3
+1:Charmaine: 8-4 6-3
+0:You:3 5
+1:You:15-20 15-18 
+0:Charmaine:5 5
+1:Charmaine: 21-16 21-16 16-11 16-11
+0:You:2 3
+1:You:18-21 18-20 
+0:Charmaine:6 4
+1:Charmaine: 11-5 11-7
+0:You:5 1
+1:You:18-23 24-off 
+0:Charmaine:3 6
+1:Charmaine: 7-1 3-off
+0:You:2 6
+1:You: 19-o 23-o
+0:Charmaine:4 2
+1:Charmaine: 4-off 2-off
+0:You:6 2
+1:You: 19-o 23-o
+0:Charmaine:3 4
+1:Charmaine: 4-off 3-off
+0:You:5 6
+1:You: 20-off 20-off
+0:Charmaine:2 4
+1:Charmaine: 4-off 2-off
+0:You:1 1
+1:You:24-off 23-24 24-off 22-23 
+0:Charmaine:4 4
+1:Charmaine: 5-1 5-1 5-1 5-1
+0:You:6 3
+1:You: 20-o 22-o
+0:Charmaine:4 3
+1:Charmaine: 3-off 1-off
+0:You:3 1
+1:You:21-24 24-off 
+0:Charmaine:2 4
+1:Charmaine: 1-off 1-off
+0:You:4 3
+1:You: 20-23 20-24
+0:Charmaine:2 5
+1:Charmaine: 1-off 1-off
+0:You:2 5
+1:You: 23-off 23-off
+0:Charmaine:5 4
+1:Charmaine: 1-off 1-off
+7:Charmaine:1
+14:Charmaine-2:sorrytigger-2
+13:Charmaine: 
+6:You:Charmaine
+11:Charmaine:1 5
+1:Charmaine: 13-8 24-23
+0:You:3 2
+1:You:12-15 12-14 
+0:Charmaine:6 6
+1:Charmaine: 13-7 13-7 8-2 8-2
+0:You:1 2
+1:You:14-16 15-16 
+0:Charmaine:1 2
+1:Charmaine: 24-22 23-22
+0:You:3 1
+1:You:17-20 19-20 
+0:Charmaine:5 5
+1:Charmaine: 13-8 13-8 8-3 8-3
+0:You:2 6
+1:You:12-18 18-20 
+0:Charmaine:1 2
+1:Charmaine: 6-5 7-5
+0:You:3 1
+1:You:12-15 15-16 
+0:Charmaine:5 4
+1:Charmaine: 6-2 7-2
+0:You:3 4
+1:You:19-23 20-23 
+0:Charmaine:4 4
+1:Charmaine: 22-18 22-18 18-14 18-14
+0:You:4 6
+1:You:16-22 17-21 
+0:Charmaine:1 3
+1:Charmaine: 8-5 8-7
+0:You:6 1
+1:You:1-7 21-22 
+0:Charmaine:4 4
+1:Charmaine: bar-21 21-17 5-1 5-1
+0:You:4 4
+1:You:bar-4 bar-4 12-16 16-20 
+0:Charmaine:1 4
+1:Charmaine: 17-13 6-5
+0:You:6 4
+1:You:7-13 13-17 
+0:Charmaine:2 2
+15:Charmaine: 
+0:You:4 1
+1:You:17-21 20-21 
+0:Charmaine:3 1
+1:Charmaine: bar-24 5-2
+0:You:3 1
+1:You:4-5 5-8 
+0:Charmaine:4 3
+15:Charmaine: 
+0:You:5 3
+1:You:19-24 16-19 
+0:Charmaine:6 3
+15:Charmaine: 
+0:You:3 1
+1:You:4-7 7-8 
+0:Charmaine:1 3
+1:Charmaine: bar-24
+0:You:2 4
+1:You:bar-4 19-21 
+0:Charmaine:3 3
+15:Charmaine: 
+0:You:1 6
+1:You:16-22 4-5 
+0:Charmaine:3 2
+15:Charmaine: 
+0:You:3 2
+1:You:21-24 22-24 
+0:Charmaine:4 3
+15:Charmaine: 
+0:You:6 5
+1:You:5-11 8-13 
+0:Charmaine:1 6
+15:Charmaine: 
+0:You:1 3
+1:You:13-16 11-12 
+0:Charmaine:2 1
+15:Charmaine: 
+0:You:1 6
+1:You:8-9 9-15 
+0:Charmaine:6 6
+15:Charmaine: 
+0:You:2 5
+1:You:12-17 17-19 
+0:Charmaine:1 2
+15:Charmaine: 
+0:You:2 5
+1:You:16-21 15-17 
+0:Charmaine:1 2
+15:Charmaine: 
+0:You:2 4
+1:You:17-19 21-off 
+0:Charmaine:5 5
+15:Charmaine: 
+0:You:5 2
+1:You:19-24 19-21 
+0:Charmaine:2 5
+15:Charmaine: 
+0:You:3 6
+1:You:19-off 19-22 
+0:Charmaine:1 3
+15:Charmaine: 
+0:You:4 3
+1:You:21-off 22-off 
+0:Charmaine:5 2
+15:Charmaine: 
+0:You:5 4
+1:You:20-off 20-24 
+0:Charmaine:1 2
+15:Charmaine: 
+0:You:2 2
+1:You:21-23 21-23 23-off 23-off 
+0:Charmaine:1 2
+15:Charmaine: 
+0:You:3 6
+1:You: 22-off 22-off
+0:Charmaine:1 6
+1:Charmaine: bar-19
+0:You:1 1
+1:You:24-off 24-off 23-24 23-24 
+0:Charmaine:1 4
+1:Charmaine: bar-21 21-20
+0:You:6 4
+1:You: 24-off 24-off
+0:Charmaine:4 6
+1:Charmaine: 20-14 19-15
+0:You:3 1
+1:You: 24-off 24-off
+7:You:2
+9:You:3

@@ -1,0 +1,74 @@
+-------------------------------------------------- 1
+Zeile: ['start']
+Command ('start', [])
+-------------------------------------------------- 2
+Zeile: ['start', 'xxx', 'ste']
+Command ('start', ['xxx', 'ste'])
+-------------------------------------------------- 3
+Zeile: ['start', 'xxx', 'show', 'stop']
+Command ('start', ['xxx'])
+Command ('show', [])
+Command ('stop', [])
+-------------------------------------------------- 4
+Zeile: ['---', 'start', 'xxx', 'show', 'xxx', 'yyy', 'zzz', 'stop', 'start', 'aaa', 'bbb', 'ccc', 'stop', 'xxx', 'show']
+Command ('start', ['xxx'])
+Command ('show', ['xxx', 'yyy', 'zzz'])
+Command ('stop', [])
+Command ('start', ['aaa', 'bbb', 'ccc'])
+Command ('stop', ['xxx'])
+Command ('show', [])
+Left over ['---']
+-------------------------------------------------- 5
+Zeile: []
+-------------------------------------------------- 6
+Zeile: ['start']
+Command ('start', [])
+-------------------------------------------------- 7
+Zeile: ['---']
+Left over ['---']
+-------------------------------------------------- 8
+Zeile: ['start', 'stop']
+Command ('start', [])
+Command ('stop', [])
+-------------------------------------------------- 9
+Zeile: ['start', '----']
+Command ('start', ['----'])
+-------------------------------------------------- 10
+Zeile: ['-----', 'stop']
+Command ('stop', [])
+Left over ['-----']
+-------------------------------------------------- 11
+Zeile: ['-----', 'yyyy']
+Left over ['-----', 'yyyy']
+-------------------------------------------------- 12
+Zeile: ['start', 'stop', 'show']
+Command ('start', [])
+Command ('stop', [])
+Command ('show', [])
+-------------------------------------------------- 13
+Zeile: ['start', 'stop', '----']
+Command ('start', [])
+Command ('stop', ['----'])
+-------------------------------------------------- 14
+Zeile: ['start', '----', 'show']
+Command ('start', ['----'])
+Command ('show', [])
+-------------------------------------------------- 15
+Zeile: ['start', '----', 'yyyy']
+Command ('start', ['----', 'yyyy'])
+-------------------------------------------------- 16
+Zeile: ['xxxxx', 'stop', 'show']
+Command ('stop', [])
+Command ('show', [])
+Left over ['xxxxx']
+-------------------------------------------------- 17
+Zeile: ['xxxxx', 'stop', '----']
+Command ('stop', ['----'])
+Left over ['xxxxx']
+-------------------------------------------------- 18
+Zeile: ['xxxxx', '----', 'show']
+Command ('show', [])
+Left over ['xxxxx', '----']
+-------------------------------------------------- 19
+Zeile: ['xxxxx', '----', 'yyyy']
+Left over ['xxxxx', '----', 'yyyy']

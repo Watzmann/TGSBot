@@ -1,0 +1,79 @@
+JavaFIBS internal match representation v1.1
+13:morgothrules: 
+6:You:morgothrules
+11:morgothrules:1 4
+1:morgothrules: 1-5 1-2
+0:You:3 2
+1:You:24-21 24-22 
+0:morgothrules:3 2
+1:morgothrules: 2-5 12-14
+0:You:4 4
+1:You:22-18 18-14 6-2 6-2 
+0:morgothrules:2 1
+1:morgothrules: bar-1 12-14
+0:You:2 1
+1:You:bar-23 21-20 
+0:morgothrules:2 4
+1:morgothrules: 17-21 19-21
+0:You:4 5
+1:You:23-18 18-14 
+0:morgothrules:5 6
+1:morgothrules: bar-5 1-7
+0:You:3 6
+1:You:20-14 6-3 
+0:morgothrules:6 2
+1:morgothrules: 5-7 12-18
+0:You:1 1
+1:You:14-13 14-13 2-1 2-1 
+0:morgothrules:6 3
+1:morgothrules: 12-18 12-15
+2:You: 
+4:morgothrules:
+0:You:6 1
+1:You:13-12 12-6 
+2:morgothrules: 
+4:You:
+0:morgothrules:2 5
+1:morgothrules: 15-20 18-20
+0:You:1 6
+1:You:13-12 12-6 
+0:morgothrules:2 6
+1:morgothrules: 18-24 19-21
+0:You:4 2
+1:You:8-4 6-4 
+0:morgothrules:2 3
+1:morgothrules: 19-22 22-24
+0:You:6 3
+1:You:13-10 10-4 
+0:morgothrules:3 4
+1:morgothrules: 7-11 11-14
+0:You:3 1
+1:You:6-3 4-3 
+0:morgothrules:5 1
+1:morgothrules: 17-22 21-22
+0:You:5 1
+1:You:13-8 3-2 
+0:morgothrules:5 5
+1:morgothrules: 7-12 12-17 17-22 14-19
+0:You:5 4
+1:You:13-8 8-4 
+0:morgothrules:5 4
+1:morgothrules: 17-22 19-23
+0:You:5 6
+1:You:13-7 7-2 
+0:morgothrules:5 2
+1:morgothrules: 19-24 19-21
+0:You:5 2
+1:You:13-8 8-6 
+0:morgothrules:3 5
+1:morgothrules: 5-10 10-13
+0:You:4 4
+1:You:8-4 8-4 8-4 4-off 
+0:morgothrules:4 1
+1:morgothrules: 13-17 22-23
+0:You:5 5
+1:You: 6-1 6-1 6-1 4-off
+0:morgothrules:3 2
+3:morgothrules:12
+7:You:12
+9:You:3

@@ -1,0 +1,166 @@
+JavaFIBS internal match representation v1.1
+8:eski:3
+13:eski: 
+6:You:eski
+11:eski:2 3
+1:eski: 24-21 13-11
+0:You:5 1
+1:You:19-24 1-2 
+0:eski:1 3
+1:eski: bar-24 24-21
+0:You:5 2
+1:You:bar-2 2-7 
+0:eski:3 3
+1:eski: 13-10 10-7 13-10 10-7
+0:You:5 4
+1:You:bar-5 5-9 
+0:eski:5 6
+1:eski: 11-6 21-15
+0:You:2 4
+1:You:19-21 17-21 
+0:eski:4 6
+15:eski: 
+0:You:2 1
+1:You:12-14 14-15 
+0:eski:2 1
+1:eski: bar-24 bar-23
+0:You:3 4
+1:You:2-5 1-5 
+0:eski:2 6
+1:eski: 24-22 8-2
+0:You:4 4
+1:You:19-23 19-23 15-19 12-16 
+0:eski:2 2
+15:eski: 
+0:You:3 1
+1:You:16-19 9-10 
+0:eski:2 1
+1:eski: bar-24 24-22
+0:You:5 6
+1:You:10-16 16-21 
+0:eski:2 3
+1:eski: 6-3 6-4
+0:You:5 5
+1:You:5-10 5-10 10-15 10-15 
+0:eski:6 2
+1:eski: 8-2 6-4
+2:You: 
+5:eski:
+7:You:1
+14:checkejon-1:eski-0
+13:eski: 
+6:You:eski
+11:eski:4 6
+1:eski: 1-5 12-18
+0:You:4 4
+1:You:13-9 13-9 9-5 9-5 
+0:eski:5 4
+1:eski: bar-4 12-17
+0:You:1 6
+1:You:13-7 8-7 
+0:eski:5 2
+1:eski: 1-3 12-17
+2:You: 
+4:eski:
+0:You:5 2
+1:You:8-3 5-3 
+0:eski:1 3
+1:eski: bar-1 1-4
+0:You:5 4
+1:You:5-1 6-1 
+0:eski:3 2
+1:eski: 18-20 17-20
+0:You:6 1
+1:You:8-7 24-18 
+0:eski:2 3
+1:eski: 17-20 17-19
+0:You:1 6
+1:You:24-18 7-6 
+0:eski:4 2
+1:eski: 19-23 19-21
+0:You:2 1
+1:You:6-5 7-5 
+0:eski:3 3
+1:eski: 4-7 20-23 19-22 19-22
+0:You:4 1
+1:You:bar-21 6-5 
+0:eski:3 4
+1:eski: bar-4 7-10
+0:You:4 2
+1:You:5-1 18-16 
+0:eski:6 2
+1:eski: 10-16 16-18
+0:You:5 1
+1:You:bar-24 
+2:eski: 
+4:You:
+0:eski:6 2
+1:eski: 12-18 12-14
+0:You:6 5
+15:You: 
+0:eski:5 2
+1:eski: 14-19 17-19
+0:You:6 5
+15:You: 
+0:eski:3 3
+1:eski: 18-21 18-21 4-7 4-7
+0:You:1 5
+1:You:bar-24 
+0:eski:3 1
+1:eski: 17-20 19-20
+0:You:4 4
+15:You: 
+0:eski:4 2
+1:eski: 7-11 7-9
+0:You:3 4
+15:You: 
+0:eski:1 6
+1:eski: 11-17 9-10
+0:You:2 3
+15:You: 
+0:eski:6 2
+1:eski: 10-16 17-19
+0:You:4 3
+15:You: 
+0:eski:1 3
+1:eski: 16-19 20-21
+0:You:3 4
+15:You: 
+0:eski:3 6
+1:eski: 19-off 19-22
+0:You:1 2
+1:You:bar-24 13-11 
+0:eski:5 5
+1:eski: 20-off 20-off 20-off
+0:You:4 1
+1:You:13-9 11-10 
+0:eski:3 2
+1:eski: 19-22 21-23
+0:You:2 2
+1:You:9-7 10-8 7-5 8-6 
+0:eski:2 5
+1:eski: 23-off
+0:You:1 2
+1:You:5-4 6-4 
+0:eski:1 5
+1:eski: 19-20 20-off
+0:You:4 4
+1:You:24-20 20-16 16-12 12-8 
+0:eski:2 6
+1:eski: 19-off 23-off
+0:You:3 5
+1:You:24-19 8-5 
+0:eski:5 1
+1:eski: 21-off 21-22
+0:You:5 5
+1:You:19-14 14-9 9-4 24-19 
+0:eski:5 4
+1:eski: 22-off 22-off
+0:You:4 2
+1:You:19-15 15-13 
+0:eski:3 5
+1:eski: 22-o 22-o
+0:You:2 3
+3:You:4
+7:eski:4
+9:eski:3

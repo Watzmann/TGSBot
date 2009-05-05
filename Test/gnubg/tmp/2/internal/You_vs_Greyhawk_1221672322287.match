@@ -1,0 +1,152 @@
+JavaFIBS internal match representation v1.1
+8:Greyhawk:3
+13:Greyhawk: 
+6:You:Greyhawk
+11:Greyhawk:5 6
+1:Greyhawk: 12-18 12-17
+0:You:6 3
+1:You:24-18 13-10 
+0:Greyhawk:3 2
+1:Greyhawk: bar-3 1-3
+0:You:2 1
+1:You:13-11 11-10 
+0:Greyhawk:2 1
+1:Greyhawk: 17-18 12-14
+0:You:1 1
+1:You:bar-24 6-5 6-5 24-23 
+0:Greyhawk:3 4
+1:Greyhawk: 14-18 1-4
+0:You:1 1
+1:You:23-22 24-23 23-22 6-5 
+0:Greyhawk:4 6
+1:Greyhawk: 12-18 12-16
+0:You:1 3
+1:You:5-4 13-10 
+0:Greyhawk:1 3
+1:Greyhawk: bar-3 3-4
+0:You:5 2
+1:You:bar-20 22-20 
+0:Greyhawk:5 1
+1:Greyhawk: 16-21 21-22
+0:You:5 3
+1:You:bar-22 10-5 
+0:Greyhawk:6 1
+1:Greyhawk: bar-1 1-7
+0:You:5 5
+1:You:20-15 20-15 15-10 15-10 
+0:Greyhawk:1 3
+1:Greyhawk: 4-7 17-18
+0:You:1 2
+1:You:22-20 5-4 
+0:Greyhawk:3 4
+1:Greyhawk: 18-22 19-22
+0:You:3 5
+1:You:20-15 4-1 
+0:Greyhawk:4 6
+1:Greyhawk: 17-23 19-23
+0:You:1 4
+1:You:15-11 11-10 
+0:Greyhawk:3 2
+1:Greyhawk: 17-20 18-20
+0:You:5 1
+1:You:10-5 5-4 
+0:Greyhawk:4 5
+1:Greyhawk: 19-24 20-24
+0:You:4 3
+1:You:10-6 4-1 
+0:Greyhawk:6 3
+1:Greyhawk: 3-9 9-12
+0:You:2 5
+1:You:8-3 3-1 
+0:Greyhawk:5 6
+15:Greyhawk: 
+0:You:5 5
+1:You:13-8 13-8 8-3 8-3 
+0:Greyhawk:1 2
+1:Greyhawk: bar-2 12-13
+2:You: 
+5:Greyhawk:
+7:You:1
+14:sorrytigger-1:Greyhawk-0
+13:Greyhawk: 
+6:You:Greyhawk
+11:Greyhawk:1 4
+1:Greyhawk: 12-16 19-20
+0:You:3 1
+1:You:24-21 21-20 
+0:Greyhawk:2 3
+1:Greyhawk: bar-2 17-20
+0:You:4 6
+1:You:bar-21 8-2 
+0:Greyhawk:3 6
+1:Greyhawk: bar-3 1-7
+0:You:5 1
+1:You:6-1 2-1 
+0:Greyhawk:3 2
+1:Greyhawk: bar-3 7-9
+0:You:2 5
+1:You:21-16 16-14 
+0:Greyhawk:1 6
+15:Greyhawk: 
+0:You:4 3
+1:You:24-20 14-11 
+0:Greyhawk:3 4
+1:Greyhawk: bar-4 bar-3
+0:You:6 6
+1:You:13-7 13-7 20-14 11-5 
+0:Greyhawk:1 6
+1:Greyhawk: 3-4 9-15
+0:You:3 1
+1:You:6-5 14-11 
+0:Greyhawk:3 4
+1:Greyhawk: 17-21 17-20
+0:You:5 1
+1:You:13-8 6-5 
+0:Greyhawk:2 1
+1:Greyhawk: 19-21 19-20
+0:You:4 1
+1:You:11-7 7-6 
+0:Greyhawk:1 5
+1:Greyhawk: 12-17 17-18
+0:You:1 5
+1:You:8-7 7-2 
+0:Greyhawk:5 3
+1:Greyhawk: 15-18 12-17
+0:You:5 5
+1:You:13-8 13-8 7-2 7-2 
+0:Greyhawk:3 1
+1:Greyhawk: 12-15 12-13
+0:You:4 5
+1:You:6-1 5-1 
+0:Greyhawk:5 1
+1:Greyhawk: 17-22 15-16
+0:You:6 1
+1:You:8-2 8-7 
+0:Greyhawk:4 2
+1:Greyhawk: 16-20 20-22
+0:You:6 2
+1:You:8-2 8-6 
+0:Greyhawk:1 1
+1:Greyhawk: 13-14 14-15 15-16 16-17
+0:You:4 2
+1:You:7-5 6-2 
+0:Greyhawk:2 1
+1:Greyhawk: 17-19 19-20
+0:You:5 6
+1:You:6-off 6-1 
+0:Greyhawk:1 2
+1:Greyhawk: 3-4 4-6
+0:You:6 2
+1:You:5-off 2-off 
+0:Greyhawk:2 2
+1:Greyhawk: 4-6 6-8 6-8 8-10
+0:You:2 2
+1:You:5-3 5-3 2-off 2-off 
+0:Greyhawk:5 2
+1:Greyhawk: bar-5 5-7
+0:You:1 3
+1:You:3-off 1-off 
+0:Greyhawk:2 3
+3:Greyhawk:2
+7:You:2
+9:You:3

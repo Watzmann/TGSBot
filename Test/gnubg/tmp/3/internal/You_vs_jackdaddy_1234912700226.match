@@ -1,0 +1,220 @@
+JavaFIBS internal match representation v1.1
+8:jackdaddy:3
+13:jackdaddy: 
+6:You:jackdaddy
+11:jackdaddy:1 6
+1:jackdaddy: 12-18 17-18
+0:You:3 2
+1:You:24-21 13-11 
+0:jackdaddy:4 5
+1:jackdaddy: 12-17 1-5
+0:You:4 5
+1:You:6-1 24-20 
+0:jackdaddy:1 1
+1:jackdaddy: bar-1 19-20 19-20 1-2
+0:You:2 5
+1:You: bar-23
+0:jackdaddy:6 4
+1:jackdaddy: 17-23 19-23
+0:You:1 4
+1:You: bar-21 bar-24
+0:jackdaddy:3 6
+1:jackdaddy: 5-11 11-14
+0:You:6 4
+1:You:bar-21 8-2 
+0:jackdaddy:6 1
+1:jackdaddy: bar-1 12-18
+0:You:3 1
+1:You:6-3 3-2 
+2:jackdaddy: 
+5:You:
+7:jackdaddy:1
+14:jackdaddy-1:sorrytigger-0
+13:jackdaddy: 
+6:You:jackdaddy
+11:jackdaddy:1 3
+1:jackdaddy: 8-5 6-5
+0:You:4 5
+1:You:12-17 12-16 
+0:jackdaddy:5 6
+1:jackdaddy: 24-18 18-13
+0:You:1 4
+1:You:16-20 19-20 
+0:jackdaddy:5 2
+1:jackdaddy: 13-8 13-11
+0:You:5 2
+1:You:19-24 1-3 
+0:jackdaddy:2 1
+1:jackdaddy: bar-24 13-11
+0:You:3 4
+1:You:bar-4 1-4 
+2:jackdaddy: 
+4:You:
+0:jackdaddy:2 2
+1:jackdaddy: 24-22 11-9 11-9 13-11
+0:You:4 1
+1:You:17-21 21-22 
+0:jackdaddy:3 6
+1:jackdaddy: bar-22 22-16
+0:You:6 6
+15:You: 
+0:jackdaddy:6 4
+1:jackdaddy: 8-2 6-2
+0:You:2 2
+15:You: 
+0:jackdaddy:5 3
+1:jackdaddy: 8-3 6-3
+0:You:4 5
+1:You: bar-4
+0:jackdaddy:6 5
+1:jackdaddy: 16-10 13-8
+0:You:5 1
+1:You:bar-1 17-22 
+0:jackdaddy:1 4
+1:jackdaddy: 13-9 11-10
+0:You:6 2
+1:You:12-18 12-14 
+0:jackdaddy:3 5
+1:jackdaddy: 8-3 8-5
+0:You:3 5
+1:You:17-22 18-21 
+0:jackdaddy:3 2
+1:jackdaddy: 9-6 3-1
+0:You:4 3
+1:You:bar-4 14-17 
+0:jackdaddy:5 4
+1:jackdaddy: 10-5 10-6
+0:You:2 1
+1:You:19-21 12-13 
+0:jackdaddy:1 6
+1:jackdaddy: 9-3 3-2
+0:You:5 3
+1:You:4-9 4-7 
+0:jackdaddy:6 5
+15:jackdaddy: 
+0:You:2 4
+1:You:9-13 13-15 
+0:jackdaddy:6 6
+15:jackdaddy: 
+0:You:4 2
+1:You:7-11 11-13 
+0:jackdaddy:1 6
+1:jackdaddy: bar-24 24-18
+0:You:2 1
+1:You:15-17 17-18 
+0:jackdaddy:4 6
+15:jackdaddy: 
+0:You:4 6
+1:You:4-10 4-8 
+0:jackdaddy:6 3
+15:jackdaddy: 
+0:You:3 3
+1:You:17-20 17-20 20-23 20-23 
+0:jackdaddy:5 2
+15:jackdaddy: 
+2:You: 
+5:jackdaddy:
+7:You:2
+14:sorrytigger-2:jackdaddy-1
+13:jackdaddy: 
+6:You:jackdaddy
+11:jackdaddy:1 6
+1:jackdaddy: 12-18 17-18
+0:You:6 1
+1:You:13-7 8-7 
+0:jackdaddy:1 6
+1:jackdaddy: 12-18 1-2
+0:You:6 1
+1:You:13-7 24-23 
+0:jackdaddy:6 4
+1:jackdaddy: 17-23 19-23
+0:You:2 5
+1:You:bar-20 24-22 
+0:jackdaddy:1 5
+1:jackdaddy: 12-17 2-3
+0:You:5 5
+1:You:6-1 6-1 8-3 8-3 
+0:jackdaddy:2 6
+1:jackdaddy: bar-2
+0:You:5 4
+1:You:7-2 6-2 
+0:jackdaddy:2 1
+15:jackdaddy: 
+0:You:2 4
+1:You:22-20 13-9 
+0:jackdaddy:6 2
+15:jackdaddy: 
+0:You:5 2
+1:You:20-15 15-13 
+0:jackdaddy:5 5
+1:jackdaddy: bar-5 bar-5 5-10 5-10
+0:You:1 3
+1:You:9-6 6-5 
+0:jackdaddy:4 5
+1:jackdaddy: 18-23 18-22
+0:You:2 4
+1:You:20-18 18-14 
+0:jackdaddy:2 6
+15:jackdaddy: 
+0:You:6 2
+1:You:13-7 7-5 
+0:jackdaddy:4 4
+1:jackdaddy: bar-4 10-14 17-21 17-21
+0:You:3 1
+1:You:bar-22 7-6 
+0:jackdaddy:3 6
+15:jackdaddy: 
+0:You:6 2
+1:You:22-16 16-14 
+0:jackdaddy:3 2
+15:jackdaddy: 
+0:You:6 1
+1:You:13-7 14-13 
+0:jackdaddy:6 5
+15:jackdaddy: 
+0:You:5 4
+1:You:13-8 8-4 
+0:jackdaddy:2 2
+15:jackdaddy: 
+0:You:4 3
+1:You:7-4 6-2 
+0:jackdaddy:4 6
+15:jackdaddy: 
+0:You:4 3
+1:You:13-10 7-3 
+0:jackdaddy:2 1
+15:jackdaddy: 
+0:You:5 2
+1:You:10-5 5-3 
+0:jackdaddy:4 2
+15:jackdaddy: 
+0:You:2 3
+1:You:3-off 2-off 
+0:jackdaddy:4 3
+15:jackdaddy: 
+0:You:4 5
+1:You:6-1 6-2 
+0:jackdaddy:3 1
+15:jackdaddy: 
+0:You:6 6
+1:You: 5-off 5-off 4-off 4-off
+0:jackdaddy:5 1
+1:jackdaddy: bar-5
+0:You:5 3
+1:You: 3-off 3-off
+0:jackdaddy:4 2
+1:jackdaddy: bar-4
+0:You:1 2
+1:You:3-1 2-1 
+0:jackdaddy:5 4
+1:jackdaddy: bar-4 bar-5
+0:You:2 3
+1:You: 2-off 2-off
+0:jackdaddy:3 3
+1:jackdaddy: 4-7 4-7 5-8 5-8
+0:You:2 1
+1:You: 1-off 1-off
+0:jackdaddy:1 5
+3:jackdaddy:2
+7:You:2
+9:You:3

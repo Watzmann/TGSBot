@@ -1,0 +1,142 @@
+JavaFIBS internal match representation v1.1
+8:frankie_:3
+13:frankie_: 
+6:You:frankie_
+11:frankie_:2 5
+1:frankie_: 12-17 12-14
+0:You:6 4
+1:You:24-18 18-14 
+0:frankie_:1 6
+1:frankie_: bar-1 1-7
+0:You:4 5
+1:You:13-8 24-20 
+0:frankie_:4 3
+1:frankie_: 1-5 12-15
+0:You:1 5
+1:You:20-15 8-7 
+0:frankie_:5 5
+1:frankie_: bar-5 bar-5 5-10 5-10
+0:You:6 5
+1:You:13-7 14-9 
+0:frankie_:6 6
+1:frankie_: 5-11 11-17 10-16 10-16
+0:You:2 2
+1:You:15-13 13-11 6-4 6-4 
+0:frankie_:3 5
+1:frankie_: 12-15 12-17
+0:You:3 4
+1:You:9-5 8-5 
+0:frankie_:1 2
+1:frankie_: 15-17 17-18
+2:You: 
+4:frankie_:
+0:You:3 6
+1:You:13-7 11-8 
+0:frankie_:5 5
+1:frankie_: 16-21 17-22 16-21 17-22
+0:You:3 6
+1:You:13-7 13-10 
+0:frankie_:4 3
+1:frankie_: 18-22 17-20
+0:You:4 2
+1:You:7-3 3-1 
+0:frankie_:1 1
+1:frankie_: bar-1 19-20 17-18 17-18
+0:You:6 3
+15:You: 
+0:frankie_:3 2
+1:frankie_: 1-3 17-20
+0:You:3 2
+1:You:bar-23 6-3 
+0:frankie_:5 4
+15:frankie_: 
+0:You:1 4
+1:You:7-3 8-7 
+2:frankie_: 
+4:You:
+0:frankie_:4 2
+1:frankie_: bar-2 19-23
+0:You:1 6
+1:You:bar-24 10-4 
+0:frankie_:3 2
+1:frankie_: 22-24 20-23
+0:You:2 2
+15:You: 
+0:frankie_:2 2
+1:frankie_: 18-20 18-20 20-22 22-24
+0:You:2 4
+15:You: 
+0:frankie_:1 3
+1:frankie_: 20-21 19-22
+0:You:2 6
+15:You: 
+0:frankie_:6 2
+1:frankie_: 22-24
+0:You:3 6
+15:You: 
+0:frankie_:4 3
+1:frankie_: 20-23 20-24
+0:You:3 5
+1:You:bar-20 20-17 
+0:frankie_:4 3
+1:frankie_: 19-23 19-22
+0:You:1 5
+1:You:7-2 17-16 
+0:frankie_:3 4
+15:frankie_: 
+0:You:6 5
+1:You:8-2 16-11 
+0:frankie_:5 4
+15:frankie_: 
+0:You:2 5
+1:You:8-3 3-1 
+0:frankie_:3 2
+15:frankie_: 
+0:You:3 4
+1:You:4-1 7-3 
+0:frankie_:4 2
+15:frankie_: 
+0:You:3 6
+1:You:11-5 7-4 
+0:frankie_:3 1
+15:frankie_: 
+0:You:1 5
+1:You:5-off 4-3 
+0:frankie_:5 3
+15:frankie_: 
+0:You:1 6
+1:You:6-off 6-5 
+0:frankie_:2 5
+15:frankie_: 
+2:You: 
+4:frankie_:
+0:You:2 2
+1:You:5-3 3-1 5-3 5-3 
+0:frankie_:5 1
+1:frankie_: bar-5 5-6
+0:You:2 4
+1:You: 4-o 2-o
+2:frankie_: 
+4:You:
+0:frankie_:5 4
+1:frankie_: 6-11 11-15
+0:You:3 6
+1:You: 4-o 3-o
+0:frankie_:3 1
+1:frankie_: 15-18 18-19
+0:You:3 6
+1:You: 3-off 3-off
+0:frankie_:5 1
+1:frankie_: 24-off 19-24
+0:You:1 6
+1:You: 3-o 1-o
+0:frankie_:5 3
+1:frankie_: 21-24 21-off
+0:You:6 6
+1:You: 3-off 3-off 2-off 1-off
+0:frankie_:5 2
+1:frankie_: 23-off 21-off
+0:You:2 1
+1:You: 1-off
+7:You:16
+9:You:3

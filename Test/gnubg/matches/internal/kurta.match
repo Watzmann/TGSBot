@@ -1,0 +1,11 @@
+JavaFIBS internal match representation v1.1
+8:kurta:1
+13:kurta: 
+6:You:kurta
+11:kurta:1 6
+1:kurta: 13-7 8-7
+0:You:5 1
+1:You:12-17 17-18 
+0:kurta:5 6
+1:kurta: 24-18 18-13
+0:You:3 5

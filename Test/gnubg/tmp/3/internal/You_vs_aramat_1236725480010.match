@@ -1,0 +1,476 @@
+JavaFIBS internal match representation v1.1
+8:aramat:3
+13:aramat: 
+6:You:aramat
+11:You:6 3
+1:You:24-18 13-10 
+0:aramat:1 6
+1:aramat: 12-18 17-18
+0:You:5 1
+1:You:bar-20 24-23 
+0:aramat:3 5
+1:aramat: 12-17 17-20
+0:You:3 3
+1:You:bar-22 23-20 8-5 8-5 
+0:aramat:3 5
+1:aramat: bar-3 3-8
+0:You:6 1
+1:You:bar-24 10-4 
+0:aramat:2 2
+1:aramat: 18-20 18-20 8-10 10-12
+0:You:3 6
+1:You:bar-22 24-18 
+0:aramat:3 1
+1:aramat: 1-4 17-18
+0:You:4 1
+1:You: bar-24 bar-21
+0:aramat:4 2
+1:aramat: 17-21 19-21
+0:You:6 5
+15:You: 
+0:aramat:2 3
+1:aramat: 18-20 1-4
+0:You:5 2
+1:You:bar-23 13-8 
+0:aramat:6 4
+1:aramat: 4-10 4-8
+0:You:3 6
+1:You:bar-22 13-7 
+0:aramat:2 5
+1:aramat: 8-10 19-24
+0:You:4 3
+1:You:bar-22 7-3 
+0:aramat:4 3
+1:aramat: 19-23 20-23
+0:You:5 3
+1:You:bar-22 6-1 
+0:aramat:3 5
+1:aramat: 12-17 17-20
+0:You:1 2
+1:You:6-4 4-3 
+0:aramat:4 5
+1:aramat: 12-17 17-21
+0:You:2 5
+1:You:22-17 6-4 
+0:aramat:3 6
+1:aramat: 10-16 16-19
+0:You:3 6
+1:You:13-10 10-4 
+0:aramat:1 1
+1:aramat: bar-1 23-24 23-24 12-13
+0:You:6 6
+15:You: 
+0:aramat:1 2
+1:aramat: 12-14 1-2
+0:You:2 1
+1:You: bar-23
+0:aramat:6 3
+1:aramat: 14-17 2-8
+0:You:2 6
+1:You: bar-23
+0:aramat:1 4
+1:aramat: 13-17 8-9
+0:You:5 6
+15:You: 
+0:aramat:1 1
+1:aramat: 17-18 17-18 9-10 10-11
+0:You:3 1
+1:You:bar-22 3-2 
+0:aramat:3 5
+1:aramat: 11-16 16-19
+0:You:4 4
+1:You: 6-2 6-2 5-1 5-1
+0:aramat:3 4
+1:aramat: 20-24 21-24
+0:You:6 1
+1:You:22-16 16-15 
+0:aramat:4 3
+1:aramat: 18-21 20-24
+0:You:2 6
+1:You:22-20 15-9 
+0:aramat:4 6
+1:aramat: bar-6 6-10
+0:You:3 1
+1:You:9-6 4-3 
+0:aramat:3 4
+1:aramat: 18-21 10-14
+0:You:2 1
+1:You:6-4 2-1 
+0:aramat:2 3
+1:aramat: 14-17 17-19
+0:You:6 3
+1:You:22-16 16-13 
+0:aramat:5 5
+1:aramat: 19-24 19-24 19-24 19-24
+0:You:2 5
+1:You:13-8 8-6 
+0:aramat:1 6
+1:aramat: 19-20 20-off
+0:You:2 1
+1:You:bar-23 23-22 
+0:aramat:2 5
+1:aramat: 21-off
+0:You:2 1
+1:You:22-20 20-19 
+0:aramat:2 4
+1:aramat: 21-off
+0:You:6 3
+1:You:23-17 19-16 
+0:aramat:5 6
+1:aramat: 21-off 21-off
+0:You:6 6
+1:You:23-17 22-16 22-16 16-10 
+0:aramat:2 1
+1:aramat: 24-off 24-off
+0:You:4 3
+1:You:10-6 16-13 
+0:aramat:3 3
+1:aramat: 24-off 24-off 24-off 24-off
+0:You:3 4
+1:You:16-12 13-10 
+0:aramat:4 1
+1:aramat: 24-off 24-off
+0:You:6 5
+1:You:12-6 17-12 
+0:aramat:2 6
+1:aramat: 24-off 24-off
+7:aramat:2
+14:aramat-2:sorrytigger-0
+13:aramat: 
+6:You:aramat
+11:You:5 3
+1:You:17-22 19-22 
+0:aramat:4 3
+1:aramat: 24-20 24-21
+0:You:5 3
+1:You:12-17 17-20 
+0:aramat:4 5
+1:aramat: bar-20 20-16
+0:You:1 6
+1:You:bar-1 1-7 
+0:aramat:4 3
+1:aramat: 21-18 18-14
+0:You:2 3
+1:You:12-14 14-17 
+0:aramat:6 5
+1:aramat: bar-20 13-7
+0:You:6 5
+1:You:bar-5 1-7 
+0:aramat:1 3
+1:aramat: bar-24 16-13
+0:You:2 6
+1:You:1-7 12-14 
+0:aramat:4 3
+1:aramat: 24-20 8-5
+0:You:3 5
+1:You:bar-5 19-22 
+0:aramat:5 2
+1:aramat: bar-20 6-4
+0:You:1 2
+1:You:5-7 14-15 
+0:aramat:5 2
+1:aramat: 20-15 6-4
+0:You:4 4
+15:You: 
+0:aramat:2 4
+1:aramat: 15-11 13-11
+0:You:2 4
+1:You:bar-2 17-21 
+0:aramat:4 5
+1:aramat: 20-15 15-11
+0:You:5 4
+1:You:7-12 17-21 
+0:aramat:5 2
+1:aramat: 20-15 15-13
+0:You:3 1
+1:You:17-20 19-20 
+0:aramat:3 1
+1:aramat: 13-10 11-10
+0:You:2 1
+1:You:12-14 14-15 
+0:aramat:6 1
+1:aramat: 11-5 6-5
+0:You:1 4
+1:You:7-11 2-3 
+0:aramat:6 6
+15:aramat: 
+0:You:6 1
+1:You:15-21 11-12 
+0:aramat:6 1
+1:aramat: bar-24 13-7
+0:You:6 1
+1:You:bar-1 1-7 
+0:aramat:2 6
+1:aramat: bar-23 13-7
+0:You:1 3
+1:You:bar-3 22-23 
+0:aramat:3 1
+1:aramat: bar-24 10-7
+0:You:3 5
+1:You:12-17 17-20 
+0:aramat:2 6
+1:aramat: 13-7 13-11
+0:You:1 6
+1:You:3-9 9-10 
+0:aramat:2 2
+1:aramat: bar-23 5-3 5-3 11-9
+0:You:6 1
+1:You: bar-1
+0:aramat:4 1
+1:aramat: 9-5 5-4
+0:You:3 6
+15:You: 
+0:aramat:3 4
+1:aramat: 8-4 7-4
+0:You:4 2
+1:You:bar-2 1-5 
+0:aramat:2 6
+1:aramat: 8-2 4-2
+0:You:1 2
+1:You:bar-1 21-23 
+0:aramat:4 3
+15:aramat: 
+0:You:1 1
+1:You:20-21 21-22 22-23 12-13 
+0:aramat:6 4
+15:aramat: 
+0:You:1 3
+1:You:5-8 12-13 
+0:aramat:3 2
+15:aramat: 
+0:You:4 2
+1:You:8-12 10-12 
+0:aramat:4 4
+15:aramat: 
+0:You:2 6
+1:You:13-19 19-21 
+0:aramat:2 2
+15:aramat: 
+0:You:6 6
+1:You:12-18 12-18 13-19 
+0:aramat:3 5
+15:aramat: 
+0:You:5 1
+1:You:18-23 18-19 
+0:aramat:1 4
+1:aramat: bar-24 7-3
+0:You:1 1
+1:You:21-22 22-23 19-20 20-21 
+0:aramat:1 3
+1:aramat: 4-1 7-6
+0:You:1 3
+1:You:bar-1 19-22 
+0:aramat:3 3
+15:aramat: 
+0:You:5 1
+1:You:22-23 
+0:aramat:3 2
+15:aramat: 
+0:You:1 6
+1:You:1-7 7-8 
+0:aramat:1 1
+1:aramat: bar-24 6-5 6-5 6-5
+0:You:2 4
+1:You:8-12 12-14 
+0:aramat:3 5
+1:aramat: 5-2
+0:You:4 4
+1:You:14-18 18-22 19-23 19-23 
+0:aramat:5 3
+1:aramat: 24-19 19-16
+0:You:1 4
+1:You:21-off 22-23 
+0:aramat:3 1
+1:aramat: 16-13 13-12
+0:You:1 3
+1:You:20-23 20-21 
+0:aramat:3 1
+1:aramat: 12-9 9-8
+0:You:1 3
+1:You:22-off 22-23 
+0:aramat:4 6
+1:aramat: 24-18 18-14
+0:You:6 6
+1:You: 21-off 21-off 21-off 23-off
+0:aramat:1 1
+1:aramat: 14-13 13-12 12-11 11-10
+0:You:6 4
+1:You: 23-off 23-off
+0:aramat:5 6
+1:aramat: 24-18 24-19
+0:You:3 6
+1:You: 23-off 23-off
+0:aramat:6 3
+1:aramat: 19-13 18-15
+0:You:6 6
+1:You: 23-off 23-off 23-off 23-off
+0:aramat:2 3
+1:aramat: 13-10 15-13
+0:You:2 1
+1:You: 23-24 24-off
+7:You:2
+14:sorrytigger-2:aramat-2
+13:aramat: 
+6:You:aramat
+11:aramat:2 6
+1:aramat: 1-7 7-9
+0:You:2 2
+1:You:13-11 11-9 6-4 6-4 
+0:aramat:6 6
+15:aramat: 
+0:You:5 4
+1:You:13-9 6-1 
+0:aramat:2 1
+1:aramat: bar-2 bar-1
+0:You:4 6
+1:You:bar-21 8-2 
+0:aramat:3 5
+1:aramat: bar-3 12-17
+0:You:2 1
+1:You:4-2 4-3 
+0:aramat:4 3
+1:aramat: bar-3 17-21
+0:You:2 2
+1:You:bar-23 bar-23 23-21 23-21 
+0:aramat:2 4
+1:aramat: bar-4 1-3
+0:You:5 3
+1:You:9-4 13-10 
+0:aramat:3 2
+1:aramat: bar-3 17-19
+0:You:4 6
+1:You:10-4 13-9 
+0:aramat:6 1
+1:aramat: 12-13 13-19
+0:You:6 2
+1:You:bar-23 24-18 
+0:aramat:5 1
+1:aramat: 17-18 18-23
+0:You:1 6
+1:You: bar-24
+0:aramat:6 1
+1:aramat: 17-23 12-13
+0:You:1 4
+1:You:bar-21 21-20 
+0:aramat:3 2
+1:aramat: 12-15 13-15
+0:You:1 5
+1:You:21-16 21-20 
+0:aramat:4 5
+1:aramat: 3-7 7-12
+0:You:5 4
+1:You:16-11 11-7 
+0:aramat:3 2
+1:aramat: 12-15 12-14
+0:You:6 3
+1:You:20-14 24-21 
+0:aramat:1 2
+1:aramat: bar-1 1-3
+0:You:6 1
+1:You:14-8 8-7 
+0:aramat:6 1
+1:aramat: 19-20 15-21
+0:You:5 4
+1:You: bar-21 bar-20
+0:aramat:4 2
+15:aramat: 
+0:You:2 5
+1:You:21-16 16-14 
+0:aramat:5 6
+1:aramat: bar-5
+0:You:6 6
+1:You:24-18 18-12 20-14 14-8 
+0:aramat:3 3
+1:aramat: bar-3 19-22 19-22 19-22
+0:You:1 3
+1:You:8-5 12-11 
+0:aramat:2 3
+1:aramat: bar-3 3-5
+0:You:5 4
+1:You:bar-20 11-7 
+0:aramat:2 3
+1:aramat: 3-5 19-22
+0:You:5 5
+1:You:14-9 9-4 9-4 9-4 
+0:aramat:4 4
+1:aramat: 5-9 5-9 9-13 9-13
+0:You:5 5
+1:You:7-2 7-2 7-2 6-1 
+0:aramat:6 2
+1:aramat: 3-9 9-11
+0:You:4 2
+1:You:20-16 16-14 
+0:aramat:4 6
+1:aramat: 13-19 15-19
+0:You:3 2
+1:You:14-11 8-6 
+0:aramat:1 3
+1:aramat: bar-1 19-22
+0:You:6 3
+15:You: 
+0:aramat:1 5
+1:aramat: 3-8 8-9
+0:You:4 3
+1:You: bar-21
+0:aramat:3 1
+1:aramat: 13-16 15-16
+0:You:6 5
+1:You:bar-20 11-5 
+0:aramat:6 3
+1:aramat: 1-7 7-10
+0:You:1 2
+1:You:5-3 4-3 
+0:aramat:6 2
+15:aramat: 
+0:You:6 6
+1:You:21-15 15-9 20-14 14-8 
+0:aramat:2 3
+15:aramat: 
+0:You:4 1
+1:You:8-4 4-3 
+0:aramat:2 1
+1:aramat: bar-1
+0:You:3 2
+1:You:4-1 3-1 
+0:aramat:4 2
+15:aramat: 
+0:You:2 4
+1:You:9-5 5-3 
+0:aramat:5 5
+1:aramat: bar-5 bar-5 16-21 16-21
+0:You:4 4
+1:You:6-2 6-2 4-off 4-off 
+0:aramat:1 3
+1:aramat: 10-13 13-14
+0:You:2 1
+1:You: 2-o 1-o
+0:aramat:2 5
+1:aramat: 14-19 5-7
+0:You:1 3
+1:You: 3-o 1-o
+0:aramat:5 2
+1:aramat: 5-10 10-12
+0:You:4 5
+1:You: 4-off 3-off
+0:aramat:6 2
+1:aramat: 7-13 12-14
+0:You:2 1
+1:You:2-off 2-1 
+0:aramat:6 3
+1:aramat: 13-19 14-17
+0:You:1 3
+1:You: 3-o 1-o
+0:aramat:6 4
+1:aramat: 17-23 21-off
+0:You:5 4
+1:You: 2-off 2-off
+0:aramat:1 4
+1:aramat: 21-off 23-24
+0:You:4 1
+1:You: 2-1 2-off
+0:aramat:6 2
+1:aramat: 19-off 23-off
+0:You:3 5
+1:You: 1-off
+7:You:1
+9:You:3

@@ -1,0 +1,135 @@
+JavaFIBS internal match representation v1.1
+8:Doubleorquits:1
+13:Doubleorquits: 
+6:You:Doubleorquits
+11:You:6 3
+1:You:24-18 13-10 
+0:Doubleorquits:4 5
+1:Doubleorquits: 1-5 5-10
+0:You:3 4
+1:You:bar-21 13-10 
+0:Doubleorquits:5 2
+1:Doubleorquits: bar-5 1-3
+0:You:2 3
+1:You:8-5 5-3 
+0:Doubleorquits:6 4
+1:Doubleorquits: bar-4
+0:You:3 3
+1:You:6-3 8-5 8-5 21-18 
+0:Doubleorquits:2 5
+1:Doubleorquits: bar-2 2-7
+0:You:3 4
+1:You:13-9 10-7 
+0:Doubleorquits:2 5
+1:Doubleorquits: bar-2 2-7
+0:You:6 6
+15:You: 
+0:Doubleorquits:2 4
+1:Doubleorquits: 4-8 7-9
+0:You:2 2
+1:You:bar-23 bar-23 13-11 11-9 
+0:Doubleorquits:5 6
+15:Doubleorquits: 
+0:You:1 6
+1:You:13-7 9-8 
+0:Doubleorquits:4 6
+1:Doubleorquits: bar-4
+0:You:2 5
+1:You:6-4 23-18 
+0:Doubleorquits:2 1
+1:Doubleorquits: bar-2 bar-1
+0:You:1 2
+1:You:6-4 8-7 
+0:Doubleorquits:5 3
+1:Doubleorquits: 17-22 19-22
+0:You:5 3
+1:You:18-13 13-10 
+0:Doubleorquits:6 2
+1:Doubleorquits: 2-8 8-10
+0:You:2 1
+1:You:bar-24 23-21 
+0:Doubleorquits:5 6
+1:Doubleorquits: 12-17 10-16
+0:You:5 5
+1:You:21-16 7-2 7-2 16-11 
+0:Doubleorquits:3 5
+15:Doubleorquits: 
+0:You:3 6
+1:You:24-18 24-21 
+0:Doubleorquits:6 4
+15:Doubleorquits: 
+0:You:2 4
+1:You:11-7 7-5 
+0:Doubleorquits:5 1
+1:Doubleorquits: bar-1 12-17
+0:You:1 1
+1:You:5-4 4-3 3-2 21-20 
+0:Doubleorquits:5 6
+1:Doubleorquits: 1-7 7-12
+0:You:2 5
+1:You:20-15 15-13 
+0:Doubleorquits:5 4
+1:Doubleorquits: 12-17 17-21
+0:You:4 2
+1:You:18-14 13-11 
+0:Doubleorquits:5 3
+1:Doubleorquits: 19-24 21-24
+0:You:5 6
+1:You:14-8 11-6 
+0:Doubleorquits:4 1
+1:Doubleorquits: 17-21 19-20
+0:You:6 5
+1:You:8-2 6-1 
+0:Doubleorquits:1 2
+1:Doubleorquits: bar-1 20-22
+0:You:5 4
+1:You:bar-21 21-16 
+0:Doubleorquits:5 5
+15:Doubleorquits: 
+0:You:5 2
+1:You:16-11 11-9 
+0:Doubleorquits:1 3
+1:Doubleorquits: bar-1 17-20
+0:You:6 3
+1:You:18-15 15-9 
+0:Doubleorquits:6 2
+1:Doubleorquits: 12-18 18-20
+0:You:5 1
+15:You: 
+0:Doubleorquits:2 5
+1:Doubleorquits: 12-17 17-19
+0:You:2 1
+1:You:bar-23 9-8 
+0:Doubleorquits:4 3
+1:Doubleorquits: 12-16 16-19
+0:You:2 6
+1:You:23-21 21-15 
+0:Doubleorquits:1 4
+1:Doubleorquits: 17-21 19-20
+0:You:2 5
+1:You:15-10 10-8 
+0:Doubleorquits:2 3
+1:Doubleorquits: 19-21 17-20
+0:You:2 2
+1:You:9-7 7-5 8-6 8-6 
+0:Doubleorquits:5 5
+1:Doubleorquits: 19-24 19-24
+0:You:6 5
+1:You: 5-off 6-off
+0:Doubleorquits:3 1
+1:Doubleorquits: 20-23 22-23
+0:You:1 5
+1:You:6-5 5-off 
+0:Doubleorquits:3 5
+1:Doubleorquits: 20-23
+0:You:1 2
+1:You:6-4 6-5 
+0:Doubleorquits:3 2
+1:Doubleorquits: 20-23 20-22
+0:You:4 6
+1:You: 5-off 4-off
+0:Doubleorquits:1 3
+1:Doubleorquits: 21-24 21-22
+0:You:6 1
+1:You:5-off 5-4 
+0:Doubleorquits:5 1

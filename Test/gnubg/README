@@ -1,0 +1,89 @@
+Notizen zu Package gnubg
+========================
+
+TODOs:
+------
+
+- Die zahlreichen Ausgaben in den Modulen mgnubg, ... müssen für unittests
+  unterdrückt werden können.
+  Vorschlag: hierfür werden in den Modulen Funktionen angelegt, die ein 
+    modulweites Quiet-Flag setzen.
+
+- purge: hier muss löschen der Dateien (Platte) eingebaut werden
+
+- mgnubg.Match: hier sollten alle Operationen, die nur auf der match_id beruhen,
+    herausgelöst werden. Dazu gehören time(), ...., vielleicht locate in 
+    matches, ...
+
+Fehler:
+-------
+
+LESEFEHLER-mgnubg-You_vs_yup_1219395387151.mat
+Hier bleibt mgnubg hängen, weil wohl die falschen Ausgaben von gnubg
+kommen. Das sollte man analysieren. Die Datei muss aus dem Archiv
+geholt werden (eines der tar-files).
+
+fehler-mit-diesen-matches.tar.gz
+Wenn diese Matches in dem entsprechenden Directory liegen, bleibt
+control irgendwann hängen. Auch das sollte man mal analysieren.
+
+Im Batch-Mode bleibt control nach etwa 100 (oder 200?) hängen.
+
+Use Cases:
+----------
+    Directory Services:
+	melde		noch nicht konvertiert				check
+	purge 		(*.mat nicht korrekt: delete *.mat{,ch})	purge
+	delete 		alle *.mat{,ch} von fremdem user		-d
+	rename 		mit fehlendem timestamp	    			??
+	archiviere 	(und lösche) bereits korrekt konvertiertes	-a
+	rename 		opponent nicht korrekt in Filename		??
+
+1) Ich sitze an Fibs und möchte aus möglichst wenig Matches auswählen,
+   um zu konvertieren.
+   -> control.check_matches()
+2) Konvertierte Matches sollen archiviert werden.
+   -> control.check_matches(archive=True)
+3) Jellyfish-Dateien sollen analysiert und dann archiviert werden.
+x) Die Archive sollen bei Start/Ende ent-/komprimiert werden.
+   -> erledigt (in archive.py)
+5) Ich werde auf fehlerhafte/nicht konvertierte Matches aufmerksam gemacht.
+   -> purge und check
+6) Fehlerhafte Matches werden auf Wunsch gelöscht.
+   -> purge --delete
+7) ..
+	
+Unittests:
+----------
+control:	  directory-services
+		x   notconverted
+		x   purge
+		x config
+		    settings_correct() (vielleicht sogar eigene Suite)
+		  elementaryActions
+		x   file_ignored
+		x   match in list
+		x   match complete
+		  Matches
+		    init
+		    del
+		    my_filter
+		    purge
+		  MatchEntry
+		    init
+		    is_complete
+		    archive
+		    _str_time
+		    process
+		    rename_match
+		  Information.load_match()
+
+mgnubg:  	  analyse von match und game
+	 	  summary
+	 
+my_matches:   	x average
+	      	  gliding average
+
+archive:	Kleine Module wie "archive" könnten mit *doctest* getestet
+		werden.
+	      

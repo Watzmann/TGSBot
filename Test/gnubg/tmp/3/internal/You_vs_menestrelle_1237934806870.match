@@ -1,0 +1,276 @@
+JavaFIBS internal match representation v1.1
+8:menestrelle:3
+13:menestrelle: 
+6:You:menestrelle
+11:You:3 1
+1:You:8-5 6-5 
+0:menestrelle:3 4
+1:menestrelle: 12-16 16-19
+0:You:3 1
+1:You:13-10 6-5 
+0:menestrelle:4 2
+1:menestrelle: 17-21 19-21
+0:You:6 2
+1:You:10-4 6-4 
+0:menestrelle:5 5
+1:menestrelle: 12-17 12-17 17-22 17-22
+0:You:5 5
+1:You:13-8 13-8 8-3 8-3 
+0:menestrelle:4 2
+1:menestrelle: 12-16 12-14
+0:You:2 2
+1:You:13-11 13-11 11-9 11-9 
+0:menestrelle:2 5
+1:menestrelle: 14-19 19-21
+0:You:6 1
+1:You:24-18 5-4 
+0:menestrelle:3 5
+1:menestrelle: 19-24 21-24
+0:You:5 1
+1:You:bar-20 4-3 
+0:menestrelle:1 2
+1:menestrelle: 16-18 17-18
+0:You:3 1
+15:You: 
+0:menestrelle:4 2
+1:menestrelle: 17-21 19-21
+0:You:3 5
+1:You:bar-20 9-6 
+0:menestrelle:4 2
+1:menestrelle: 19-23 21-23
+0:You:3 1
+1:You:9-6 6-5 
+0:menestrelle:3 1
+1:menestrelle: 21-24 21-22
+0:You:2 2
+1:You:8-6 8-6 6-4 6-4 
+0:menestrelle:2 2
+1:menestrelle: 19-21 19-21 21-23 22-24
+0:You:3 3
+1:You:20-17 17-14 14-11 11-8 
+0:menestrelle:4 2
+1:menestrelle: 18-22 18-20
+0:You:4 4
+15:You: 
+0:menestrelle:3 2
+1:menestrelle: 20-23 22-24
+0:You:6 5
+1:You:bar-19 19-14 
+0:menestrelle:5 3
+1:menestrelle: 21-24
+0:You:5 4
+1:You:14-9 9-5 
+0:menestrelle:3 2
+1:menestrelle: 21-24 22-24
+0:You:5 1
+1:You:8-3 3-2 
+0:menestrelle:3 4
+15:menestrelle: 
+0:You:2 4
+1:You:2-off 4-off 
+0:menestrelle:1 3
+1:menestrelle: 22-23
+0:You:1 6
+1:You:6-off 3-2 
+0:menestrelle:3 6
+1:menestrelle: 1-7 7-10
+0:You:2 3
+1:You:5-2 5-3 
+0:menestrelle:4 1
+1:menestrelle: 10-14 14-15
+2:You: 
+5:menestrelle:
+7:You:1
+14:sorrytigger-1:menestrelle-0
+13:menestrelle: 
+6:You:menestrelle
+11:menestrelle:1 2
+1:menestrelle: 1-3 1-2
+0:You:5 5
+1:You:13-8 13-8 8-3 8-3 
+0:menestrelle:5 2
+1:menestrelle: bar-2 12-17
+2:You: 
+4:menestrelle:
+0:You:2 6
+1:You:24-18 18-16 
+0:menestrelle:5 6
+1:menestrelle: 12-18 12-17
+0:You:2 3
+1:You:16-13 13-11 
+0:menestrelle:6 5
+1:menestrelle: 18-24 19-24
+0:You:1 3
+1:You:bar-22 22-21 
+0:menestrelle:5 4
+1:menestrelle: 2-7 7-11
+0:You:3 1
+1:You:bar-22 22-21 
+0:menestrelle:5 6
+1:menestrelle: 11-17 17-22
+0:You:5 2
+1:You:6-1 13-11 
+0:menestrelle:2 5
+1:menestrelle: 17-22 2-4
+0:You:3 6
+1:You:11-5 8-5 
+0:menestrelle:1 3
+1:menestrelle: 17-20 19-20
+0:You:5 3
+1:You:6-1 6-3 
+0:menestrelle:2 5
+1:menestrelle: 4-9 17-19
+0:You:1 1
+1:You:8-7 7-6 6-5 3-2 
+0:menestrelle:1 3
+1:menestrelle: 9-12 19-20
+0:You:4 6
+1:You:13-7 13-9 
+0:menestrelle:1 6
+1:menestrelle: 12-18 18-19
+0:You:2 5
+1:You:7-2 9-7 
+0:menestrelle:5 6
+1:menestrelle: 17-23 17-22
+0:You:4 3
+1:You:8-4 7-4 
+0:menestrelle:5 2
+1:menestrelle: 12-17 17-19
+0:You:4 6
+1:You:21-15 15-11 
+0:menestrelle:6 4
+1:menestrelle: 12-18 18-22
+0:You:4 1
+1:You:11-7 7-6 
+0:menestrelle:4 4
+1:menestrelle: 19-23 19-23 19-23 20-24
+0:You:1 1
+1:You:5-4 4-3 3-2 2-1 
+0:menestrelle:4 2
+1:menestrelle: 20-24 20-22
+0:You:3 5
+1:You:6-1 4-1 
+0:menestrelle:4 5
+1:menestrelle: 19-24 19-23
+0:You:6 5
+1:You:21-15 15-10 
+0:menestrelle:4 1
+1:menestrelle: 22-off 24-off
+0:You:4 4
+1:You:10-6 4-off 6-2 6-2 
+0:menestrelle:6 1
+1:menestrelle: 22-off 24-off
+0:You:3 1
+1:You: 3-o 1-o
+0:menestrelle:6 5
+1:menestrelle: 22-off 22-off
+0:You:3 2
+1:You: 3-o 2-o
+0:menestrelle:6 5
+1:menestrelle: 22-off 23-off
+0:You:5 1
+1:You: 5-o 1-o
+0:menestrelle:6 6
+1:menestrelle: 23-off 23-off 23-off 23-off
+0:You:4 4
+1:You: 6-2 5-1 2-off 2-off
+0:menestrelle:2 2
+1:menestrelle: 24-off 24-off 24-off
+7:menestrelle:2
+14:menestrelle-2:sorrytigger-1
+13:menestrelle: 
+6:You:menestrelle
+11:You:5 4
+1:You:12-17 12-16 
+0:menestrelle:5 4
+1:menestrelle: 24-20 20-15
+0:You:2 5
+1:You:16-21 19-21 
+0:menestrelle:6 3
+1:menestrelle: 24-18 18-15
+0:You:6 6
+1:You:1-7 1-7 17-23 17-23 
+0:menestrelle:1 4
+1:menestrelle: 8-4 6-5
+0:You:5 4
+1:You:17-22 12-16 
+0:menestrelle:4 6
+1:menestrelle: 15-9 13-9
+0:You:6 1
+1:You:16-22 19-20 
+0:menestrelle:2 6
+1:menestrelle: 15-9 6-4
+0:You:1 1
+1:You:19-20 17-18 18-19 19-20 
+0:menestrelle:3 6
+1:menestrelle: 9-3 6-3
+0:You:6 1
+1:You:12-18 18-19 
+0:menestrelle:5 3
+1:menestrelle: 13-8 8-5
+0:You:3 4
+1:You:12-15 20-24 
+0:menestrelle:2 3
+1:menestrelle: 13-10 10-8
+0:You:1 5
+1:You:19-24 15-16 
+0:menestrelle:1 5
+1:menestrelle: 8-3 3-2
+0:You:3 4
+1:You:16-20 20-23 
+0:menestrelle:1 1
+1:menestrelle: 13-12 13-12 12-11 12-11
+0:You:4 3
+1:You:7-10 10-14 
+0:menestrelle:2 5
+1:menestrelle: 9-7 7-2
+0:You:3 2
+15:You: 
+0:menestrelle:2 2
+1:menestrelle: 9-7 7-5 11-9 11-9
+0:You:5 2
+15:You: 
+0:menestrelle:1 1
+1:menestrelle: 9-8 9-8 8-7 8-7
+0:You:4 5
+15:You: 
+0:menestrelle:6 6
+1:menestrelle: 8-2 8-2 7-1 7-1
+0:You:5 2
+15:You: 
+0:menestrelle:4 5
+1:menestrelle: 5-off 4-off
+0:You:2 6
+15:You: 
+0:menestrelle:2 4
+1:menestrelle: 4-off 2-off
+0:You:5 3
+15:You: 
+0:menestrelle:3 2
+1:menestrelle: 3-off 3-1
+0:You:4 1
+1:You:bar-4 14-15 
+0:menestrelle:2 4
+1:menestrelle: 5-1 5-3
+0:You:6 6
+1:You: 4-10 10-16 15-21 16-22
+0:menestrelle:3 1
+1:menestrelle: 3-off 1-off
+0:You:3 4
+1:You:21-off 22-off 
+0:menestrelle:4 4
+1:menestrelle: 6-2 6-2 2-off 2-off
+0:You:1 3
+1:You: 22-o 24-o
+0:menestrelle:4 6
+1:menestrelle: 2-off 2-off
+0:You:5 4
+1:You: 20-o 21-o
+0:menestrelle:1 4
+1:menestrelle: 2-off 1-off
+0:You:6 6
+1:You: 19-off 19-off 20-off 21-off
+0:menestrelle:5 6
+1:menestrelle: 1-off 1-off
+7:menestrelle:1
+9:menestrelle:3

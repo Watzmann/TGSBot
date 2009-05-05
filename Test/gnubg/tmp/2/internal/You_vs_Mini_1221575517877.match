@@ -1,0 +1,94 @@
+JavaFIBS internal match representation v1.1
+8:Mini:1
+13:Mini: 
+6:You:Mini
+11:Mini:1 5
+1:Mini: 13-8 24-23
+0:You:4 6
+1:You:17-23 19-23 
+0:Mini:2 6
+15:Mini: 
+0:You:5 5
+1:You:19-24 19-24 17-22 17-22 
+0:Mini:5 1
+1:Mini: bar-20
+0:You:2 1
+1:You:12-14 1-2 
+0:Mini:4 3
+1:Mini: bar-21 13-10
+0:You:1 4
+1:You:1-5 2-3 
+0:Mini:3 5
+1:Mini: 10-5 8-5
+0:You:2 5
+1:You:bar-2 14-19 
+0:Mini:3 5
+1:Mini: 6-3 8-3
+0:You:4 6
+1:You:bar-4 12-18 
+0:Mini:6 6
+1:Mini: 8-2 8-2 20-14 14-8
+0:You:3 2
+15:You: 
+0:Mini:6 4
+1:Mini: 21-15 15-11
+0:You:3 6
+15:You: 
+0:Mini:1 4
+1:Mini: 11-7 8-7
+0:You:4 4
+1:You:bar-4 12-16 4-8 4-8 
+0:Mini:1 5
+1:Mini: 6-1 6-5
+0:You:5 1
+1:You:16-21 19-20 
+0:Mini:6 4
+1:Mini: 7-1 13-9
+0:You:6 4
+1:You:12-18 12-16 
+0:Mini:5 3
+1:Mini: 9-4 7-4
+0:You:5 2
+1:You:16-21 18-20 
+0:Mini:6 2
+1:Mini: 13-7 7-5
+0:You:4 3
+1:You:18-22 19-22 
+0:Mini:1 2
+1:Mini: 13-11 5-4
+0:You:1 2
+1:You:8-10 10-11 
+0:Mini:2 3
+15:Mini: 
+0:You:4 6
+1:You:19-23 8-14 
+0:Mini:6 2
+1:Mini: bar-19 4-2
+0:You:5 4
+1:You:14-19 19-23 
+0:Mini:3 4
+15:Mini: 
+0:You:5 5
+1:You: 11-16 16-21 20-off 20-off
+0:Mini:6 5
+1:Mini: bar-19 19-14
+0:You:2 6
+1:You: 21-o 23-o
+0:Mini:5 2
+1:Mini: 14-9 9-7
+0:You:1 4
+1:You: 21-o 24-o
+0:Mini:3 2
+1:Mini: 7-4 2-off
+0:You:4 3
+1:You: 21-o 22-o
+0:Mini:1 2
+1:Mini: 2-off 1-off
+0:You:3 3
+1:You: 22-off 22-off 22-off 23-off
+0:Mini:3 6
+1:Mini: 6-off 3-off
+0:You:5 5
+1:You: 23-off 23-off 24-off
+7:You:1
+9:You:1

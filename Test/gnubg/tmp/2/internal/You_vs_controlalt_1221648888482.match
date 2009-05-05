@@ -1,0 +1,358 @@
+JavaFIBS internal match representation v1.1
+8:controlalt:3
+13:controlalt: 
+6:You:controlalt
+11:controlalt:3 4
+1:controlalt: 13-9 24-21
+0:You:4 6
+1:You:17-23 19-23 
+0:controlalt:5 1
+1:controlalt: 13-8 21-20
+0:You:4 1
+1:You:19-20 20-24 
+0:controlalt:4 1
+1:controlalt: bar-21 bar-24
+0:You:3 3
+1:You:bar-3 1-4 1-4 12-15 
+0:controlalt:1 4
+1:controlalt: 9-5 6-5
+0:You:2 1
+1:You:12-14 14-15 
+0:controlalt:4 4
+1:controlalt: 6-2 6-2 24-20 20-16
+0:You:6 6
+1:You:15-21 15-21 12-18 12-18 
+0:controlalt:3 6
+1:controlalt: bar-22 22-16
+0:You:5 6
+1:You:3-9 12-17 
+0:controlalt:1 6
+1:controlalt: 16-10 10-9
+0:You:6 6
+15:You: 
+0:controlalt:1 5
+1:controlalt: 9-8 16-11
+0:You:3 6
+1:You:bar-3 17-23 
+0:controlalt:1 2
+1:controlalt: 8-6 6-5
+0:You:4 2
+1:You:3-7 7-9 
+0:controlalt:1 5
+1:controlalt: 11-6 6-5
+0:You:5 1
+1:You:9-14 19-20 
+0:controlalt:1 2
+1:controlalt: 5-3 3-2
+0:You:4 4
+1:You:18-22 18-22 14-18 17-21 
+0:controlalt:1 1
+1:controlalt: 8-7 8-7 2-1 2-1
+0:You:1 2
+1:You:18-20 23-24 
+0:controlalt:3 3
+1:controlalt: 13-10 13-10 13-10 5-2
+0:You:6 6
+1:You: 17-23
+0:controlalt:4 3
+1:controlalt: 10-6 6-3
+0:You:2 2
+1:You:20-22 20-22 22-24 22-24 
+0:controlalt:4 5
+1:controlalt: 10-5 10-6
+0:You:4 3
+1:You:19-23 21-24 
+2:controlalt: 
+5:You:
+7:controlalt:1
+14:controlalt-1:sorrytigger-0
+13:controlalt: 
+6:You:controlalt
+11:controlalt:5 6
+1:controlalt: 24-18 18-13
+0:You:1 1
+1:You:19-20 19-20 17-18 17-18 
+0:controlalt:3 6
+1:controlalt: 13-7 13-10
+0:You:5 3
+1:You:17-22 19-22 
+0:controlalt:3 3
+1:controlalt: 10-7 6-3 6-3 24-21
+0:You:1 3
+1:You:1-4 4-5 
+0:controlalt:1 5
+1:controlalt: 13-8 8-7
+0:You:3 2
+1:You:1-4 12-14 
+0:controlalt:1 1
+1:controlalt: 7-6 6-5 6-5 8-7
+0:You:3 3
+15:You: 
+0:controlalt:5 6
+1:controlalt: 21-15 15-10
+0:You:3 2
+1:You:bar-2 12-15 
+0:controlalt:5 6
+1:controlalt: 8-2 7-2
+0:You:5 3
+15:You: 
+0:controlalt:5 2
+1:controlalt: 10-8 13-8
+0:You:1 1
+1:You:bar-1 15-16 14-15 15-16 
+0:controlalt:4 5
+1:controlalt: 13-8 8-4
+0:You:1 2
+1:You:bar-1 12-14 
+0:controlalt:3 2
+1:controlalt: 13-10 4-2
+0:You:1 2
+1:You:14-16 16-17 
+0:controlalt:3 5
+1:controlalt: 10-5 8-5
+0:You:3 2
+1:You:12-15 15-17 
+0:controlalt:2 3
+1:controlalt: 8-5 8-6
+0:You:1 2
+1:You:12-14 14-15 
+2:controlalt: 
+5:You:
+7:controlalt:1
+14:controlalt-2:sorrytigger-0
+13:controlalt: 
+6:You:controlalt
+11:You:6 1
+1:You:12-18 17-18 
+0:controlalt:5 3
+1:controlalt: 8-3 6-3
+0:You:5 6
+1:You:1-7 7-12 
+0:controlalt:5 6
+1:controlalt: 13-7 6-1
+0:You:5 1
+1:You:bar-1 12-17 
+0:controlalt:6 6
+15:controlalt: 
+0:You:2 4
+1:You:17-21 19-21 
+0:controlalt:5 2
+1:controlalt: bar-23 6-1
+0:You:3 1
+1:You:bar-1 12-15 
+0:controlalt:4 3
+1:controlalt: bar-22 13-9
+0:You:2 4
+1:You:1-5 5-7 
+0:controlalt:1 1
+1:controlalt: bar-24 24-23 8-7 8-7
+0:You:5 5
+1:You:bar-5 5-10 10-15 12-17 
+0:controlalt:2 5
+1:controlalt: 9-4 24-22
+0:You:2 4
+1:You:12-16 16-18 
+0:controlalt:6 5
+1:controlalt: 13-7 7-2
+0:You:6 6
+1:You:12-18 18-24 18-24 15-21 
+0:controlalt:2 5
+1:controlalt: bar-20 4-2
+0:You:2 2
+1:You:18-20 18-20 17-19 19-21 
+0:controlalt:3 2
+1:controlalt: bar-22 7-5
+0:You:4 6
+1:You:15-21 17-21 
+0:controlalt:6 3
+1:controlalt: 23-17 5-2
+0:You:1 1
+1:You:bar-1 19-20 19-20 20-21 
+0:controlalt:2 4
+1:controlalt: 13-9 9-7
+0:You:2 2
+1:You:21-23 21-23 21-23 21-23 
+0:controlalt:1 1
+15:controlalt: 
+0:You:2 5
+1:You:19-24 19-21 
+0:controlalt:3 6
+1:controlalt: bar-19 22-19
+0:You:2 6
+1:You: 21-23
+0:controlalt:4 2
+1:controlalt: 19-15 15-13
+0:You:2 6
+1:You: 21-23
+0:controlalt:6 1
+1:controlalt: 7-1 2-1
+0:You:3 3
+15:You: 
+0:controlalt:5 4
+1:controlalt: 22-17 22-18
+0:You:3 1
+15:You: 
+0:controlalt:4 4
+1:controlalt: 13-9 13-9 9-5 9-5
+0:You:1 4
+1:You:bar-4 23-24 
+0:controlalt:6 2
+1:controlalt: 19-13 7-5
+0:You:1 1
+1:You:21-22 21-22 20-21 20-21 
+0:controlalt:5 1
+1:controlalt: 17-12 5-4
+0:You:4 4
+1:You:bar-4 20-24 4-8 8-12 
+0:controlalt:6 3
+1:controlalt: bar-19
+0:You:3 1
+1:You:12-13 13-16 
+0:controlalt:4 2
+15:controlalt: 
+0:You:3 2
+1:You:16-18 18-21 
+0:controlalt:6 4
+1:controlalt: bar-19
+0:You:3 6
+1:You:21-off 21-24 
+0:controlalt:1 4
+1:controlalt: bar-21
+0:You:6 3
+15:You: 
+0:controlalt:6 2
+1:controlalt: bar-19 19-17
+0:You:1 6
+15:You: 
+0:controlalt:4 3
+1:controlalt: 17-13 17-14
+0:You:3 5
+15:You: 
+0:controlalt:4 2
+1:controlalt: 13-9 14-12
+0:You:3 1
+15:You: 
+0:controlalt:6 4
+1:controlalt: 12-6 9-5
+0:You:4 5
+1:You: bar-4 4-9
+0:controlalt:1 5
+1:controlalt: 6-1 5-4
+0:You:1 5
+1:You:9-14 23-24 
+0:controlalt:1 2
+1:controlalt: 6-4 6-5
+0:You:1 3
+1:You:14-17 17-18 
+0:controlalt:5 3
+1:controlalt: 21-18 19-14
+0:You:2 1
+15:You: 
+0:controlalt:1 5
+1:controlalt: 18-13 5-4
+0:You:6 4
+1:You: bar-6 6-10
+0:controlalt:6 5
+1:controlalt: 13-7 14-9
+0:You:2 5
+1:You:10-15 15-17 
+0:controlalt:5 3
+1:controlalt: 7-2 9-6
+0:You:3 4
+1:You:17-21 22-off 
+0:controlalt:6 4
+1:controlalt: 19-13 13-9
+0:You:5 2
+1:You: 21-o 23-o
+0:controlalt:1 3
+1:controlalt: 9-6 1-off
+0:You:2 2
+1:You: 22-24 23-off 23-off 23-off
+0:controlalt:6 4
+1:controlalt: 6-o 4-o
+0:You:6 3
+1:You: 24-off 24-off
+0:controlalt:6 4
+1:controlalt: 6-o 4-o
+0:You:6 6
+1:You: 24-off 24-off 24-off 24-off
+0:controlalt:4 5
+1:controlalt: 5-o 4-o
+0:You:3 5
+1:You: 24-off 24-off
+7:You:1
+14:sorrytigger-1:controlalt-2
+13:controlalt: 
+6:You:controlalt
+11:You:4 3
+1:You:13-9 13-10 
+0:controlalt:4 4
+1:controlalt: 1-5 5-9 12-16 12-16
+2:You: 
+4:controlalt:
+0:You:5 6
+1:You:bar-20 10-4 
+0:controlalt:6 4
+1:controlalt: 9-15 12-16
+0:You:6 4
+1:You:8-4 20-14 
+0:controlalt:4 3
+1:controlalt: 16-20 17-20
+0:You:4 4
+1:You:14-10 10-6 6-2 6-2 
+0:controlalt:4 1
+1:controlalt: 1-5 19-20
+0:You:6 1
+1:You:24-18 6-5 
+0:controlalt:1 3
+1:controlalt: bar-1 15-18
+0:You:2 4
+1:You:bar-21 5-3 
+0:controlalt:6 6
+1:controlalt: 12-18 18-24 18-24 1-7
+0:You:4 1
+1:You:bar-21 13-12 
+0:controlalt:3 3
+1:controlalt: bar-3 19-22 19-22 7-10
+0:You:6 2
+1:You:bar-23 12-6 
+0:controlalt:4 5
+1:controlalt: 10-15 15-19
+0:You:6 5
+1:You:23-18 18-12 
+0:controlalt:5 1
+1:controlalt: 19-24 22-23
+0:You:6 6
+1:You:13-7 13-7 21-15 21-15 
+0:controlalt:1 2
+1:controlalt: 20-22 17-18
+0:You:3 2
+1:You:6-3 15-13 
+0:controlalt:2 4
+15:controlalt: 
+0:You:6 3
+1:You:6-3 12-6 
+0:controlalt:2 6
+15:controlalt: 
+0:You:4 3
+1:You:15-11 11-8 
+0:controlalt:2 2
+15:controlalt: 
+0:You:6 6
+1:You:7-1 7-1 13-7 7-1 
+0:controlalt:4 2
+15:controlalt: 
+0:You:4 4
+1:You:8-4 8-4 8-4 6-2 
+0:controlalt:6 4
+15:controlalt: 
+0:You:6 6
+1:You: 6-off 6-off 4-off 4-off
+0:controlalt:5 4
+1:controlalt: bar-5 5-9
+0:You:3 2
+1:You: 3-o 2-o
+0:controlalt:3 1
+3:controlalt:4
+7:You:4
+9:You:3

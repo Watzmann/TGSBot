@@ -1,0 +1,18 @@
+JavaFIBS internal match representation v1.1
+8:cupra:3
+13:cupra: 
+6:You:cupra
+11:cupra:5 6
+1:cupra: 24-18 18-13
+0:You:4 1
+1:You:12-16 1-2 
+0:cupra:4 3
+1:cupra: 13-9 13-10
+0:You:1 2
+1:You:16-18 17-18 
+0:cupra:1 1
+1:cupra: 9-8 8-7 8-7 24-23
+0:You:5 4
+1:You:1-5 5-10 
+0:cupra:1 6
+1:cupra: bar-24 13-7

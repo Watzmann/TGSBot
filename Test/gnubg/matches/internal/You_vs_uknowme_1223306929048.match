@@ -1,0 +1,374 @@
+JavaFIBS internal match representation v1.1
+8:uknowme:3
+13:uknowme: 
+6:You:uknowme
+11:You:4 3
+1:You:13-9 13-10 
+0:uknowme:2 2
+1:uknowme: 1-3 1-3 19-21 19-21
+0:You:3 1
+1:You:8-5 6-5 
+0:uknowme:6 6
+1:uknowme: 3-9 3-9 12-18 12-18
+0:You:4 4
+15:You: 
+0:uknowme:2 5
+1:uknowme: 9-14 9-11
+0:You:1 1
+1:You:bar-24 24-23 23-22 6-5 
+0:uknowme:5 1
+1:uknowme: 11-12 14-19
+0:You:6 2
+1:You:24-22 10-4 
+0:uknowme:4 1
+1:uknowme: 12-16 16-17
+0:You:1 4
+1:You:24-20 5-4 
+0:uknowme:5 2
+1:uknowme: 17-19 19-24
+0:You:6 3
+1:You:20-14 14-11 
+0:uknowme:2 6
+1:uknowme: 12-18 19-21
+0:You:3 5
+1:You:8-3 6-3 
+0:uknowme:3 2
+1:uknowme: 17-20 18-20
+0:You:6 1
+1:You:13-7 8-7 
+2:uknowme: 
+5:You:
+7:uknowme:1
+14:uknowme-1:sorrytigger-0
+13:uknowme: 
+6:You:uknowme
+11:uknowme:5 6
+1:uknowme: 24-18 18-13
+0:You:3 6
+1:You:1-7 12-15 
+0:uknowme:4 3
+1:uknowme: 13-9 9-6
+0:You:3 4
+1:You:1-5 12-15 
+0:uknowme:2 4
+1:uknowme: 8-4 6-4
+0:You:6 5
+1:You:5-11 7-12 
+0:uknowme:2 3
+1:uknowme: 13-11 13-10
+0:You:4 6
+15:You: 
+0:uknowme:3 6
+1:uknowme: 13-7 10-7
+0:You:4 5
+1:You:bar-5 12-16 
+0:uknowme:2 4
+1:uknowme: 13-9 11-9
+0:You:4 6
+1:You:17-23 19-23 
+0:uknowme:6 4
+1:uknowme: 24-20 13-7
+0:You:4 5
+1:You:15-20 16-20 
+0:uknowme:6 3
+1:uknowme: bar-22 22-16
+0:You:6 3
+1:You:12-18 15-18 
+0:uknowme:6 1
+1:uknowme: 16-10 10-9
+0:You:3 5
+1:You:5-10 18-21 
+0:uknowme:5 3
+1:uknowme: 8-3 8-5
+0:You:1 2
+1:You:19-21 12-13 
+0:uknowme:5 3
+1:uknowme: 9-4 6-3
+0:You:5 1
+1:You:17-22 18-19 
+0:uknowme:1 5
+1:uknowme: 7-2 6-5
+0:You:5 2
+1:You:10-15 12-14 
+0:uknowme:3 3
+1:uknowme: 7-4 9-6 6-3 4-1
+0:You:4 5
+1:You:17-22 15-19 
+0:uknowme:4 1
+1:uknowme: 9-5 7-6
+0:You:6 4
+1:You:13-17 14-20 
+0:uknowme:6 4
+1:uknowme: 6-off 4-off
+0:You:4 3
+1:You:17-21 22-off 
+0:uknowme:1 3
+1:uknowme: 3-off 1-off
+0:You:4 1
+1:You:21-off 23-24 
+0:uknowme:1 1
+1:uknowme: 2-1 1-off 3-2 2-1
+0:You:4 3
+1:You: 21-o 22-o
+0:uknowme:2 2
+1:uknowme: 4-2 2-off 6-4 4-2
+0:You:2 2
+1:You:23-off 21-23 20-22 19-21 
+0:uknowme:6 6
+1:uknowme: 6-off 6-off 5-off 5-off
+0:You:1 1
+1:You:24-off 23-24 24-off 22-23 
+0:uknowme:2 4
+1:uknowme: 4-off 2-off
+0:You:4 6
+1:You: 19-o 21-o
+0:uknowme:1 4
+1:uknowme: 5-1 1-off
+0:You:3 6
+1:You:19-off 19-22 
+0:uknowme:1 1
+1:uknowme: 3-2 2-1 1-off 1-off
+7:uknowme:1
+14:uknowme-2:sorrytigger-0
+13:uknowme: 
+6:You:uknowme
+11:You:6 5
+1:You:1-7 7-12 
+0:uknowme:5 1
+1:uknowme: 13-8 24-23
+0:You:1 6
+1:You:12-18 17-18 
+0:uknowme:1 5
+1:uknowme: 23-22 13-8
+0:You:1 5
+1:You:12-17 1-2 
+0:uknowme:4 5
+1:uknowme: 24-20 20-15
+0:You:4 3
+1:You:12-15 15-19 
+0:uknowme:1 5
+1:uknowme: bar-20 22-21
+0:You:3 6
+1:You:2-5 5-11 
+0:uknowme:2 4
+1:uknowme: 13-11 13-9
+0:You:3 1
+1:You:bar-3 12-13 
+0:uknowme:3 4
+1:uknowme: bar-21 9-6
+0:You:1 1
+1:You:19-20 19-20 3-4 19-20 
+0:uknowme:1 6
+1:uknowme: bar-24 11-5
+0:You:4 2
+1:You:13-17 17-19 
+0:uknowme:5 3
+1:uknowme: 8-5 8-3
+0:You:5 1
+1:You:4-9 9-10 
+0:uknowme:5 3
+1:uknowme: 6-1 6-3
+0:You:3 1
+1:You:10-13 12-13 
+0:uknowme:4 1
+1:uknowme: 6-2 2-1
+0:You:4 2
+1:You:12-16 16-18 
+0:uknowme:2 3
+1:uknowme: 6-4 8-5
+0:You:6 1
+1:You:13-19 19-20 
+0:uknowme:6 5
+1:uknowme: 8-2 8-3
+0:You:5 1
+1:You:13-18 18-19 
+0:uknowme:5 6
+1:uknowme: 21-15 21-16
+0:You:2 6
+1:You:17-23 18-20 
+0:uknowme:1 4
+1:uknowme: 5-4 16-12
+0:You:3 6
+1:You:17-23 17-20 
+0:uknowme:1 5
+1:uknowme: 3-2 15-10
+0:You:4 3
+1:You:19-23 20-23 
+0:uknowme:5 4
+1:uknowme: 10-5 12-8
+0:You:1 1
+1:You:23-24 23-24 20-21 20-21 
+0:uknowme:3 4
+1:uknowme: bar-22 5-1
+0:You:4 1
+1:You:20-24 19-20 
+0:uknowme:3 4
+1:uknowme: 6-2 6-3
+0:You:6 6
+1:You: 18-24 18-24 19-off 19-off
+0:uknowme:1 2
+1:uknowme: 3-1 2-1
+0:You:3 4
+1:You:19-23 20-23 
+0:uknowme:5 2
+1:uknowme: 8-3 3-1
+0:You:3 4
+1:You:20-24 20-23 
+0:uknowme:4 5
+1:uknowme: 22-17 17-13
+0:You:3 2
+1:You:21-24 23-off 
+0:uknowme:4 5
+1:uknowme: 13-8 8-4
+0:You:1 4
+1:You: 21-o 24-o
+0:uknowme:1 4
+1:uknowme: 4-off 1-off
+0:You:1 4
+1:You: 23-o 24-o
+0:uknowme:3 6
+1:uknowme: 5-off 3-off
+0:You:6 1
+1:You: 23-o 24-o
+0:uknowme:1 2
+1:uknowme: 2-off 1-off
+0:You:3 2
+1:You: 23-off 23-off
+0:uknowme:4 3
+1:uknowme: 4-off 3-off
+0:You:6 1
+1:You: 24-off 24-off
+0:uknowme:4 6
+1:uknowme: 5-off 4-off
+0:You:5 6
+1:You: 24-off 24-off
+7:You:1
+14:sorrytigger-1:uknowme-2
+13:uknowme: 
+6:You:uknowme
+11:You:3 2
+1:You:13-10 13-11 
+0:uknowme:3 6
+1:uknowme: 1-7 7-10
+2:You: 
+4:uknowme:
+0:You:5 6
+1:You:bar-20 11-5 
+0:uknowme:2 5
+1:uknowme: 10-12 12-17
+0:You:1 6
+1:You:13-7 6-5 
+0:uknowme:4 2
+1:uknowme: 1-3 3-7
+0:You:4 3
+1:You:bar-22 24-20 
+0:uknowme:5 4
+1:uknowme: 12-17 7-11
+0:You:4 5
+1:You:20-15 15-11 
+0:uknowme:2 3
+1:uknowme: bar-3 17-19
+0:You:2 2
+1:You:22-20 6-4 6-4 24-22 
+0:uknowme:2 1
+1:uknowme: 19-21 21-22
+0:You:3 2
+1:You:bar-22 22-20 
+0:uknowme:6 5
+15:uknowme: 
+0:You:2 4
+1:You:13-9 11-9 
+0:uknowme:2 3
+1:uknowme: bar-3 19-21
+0:You:5 1
+1:You:13-8 8-7 
+0:uknowme:3 6
+1:uknowme: 12-18 18-21
+0:You:1 5
+1:You:8-7 20-15 
+0:uknowme:1 2
+1:uknowme: 12-14 14-15
+0:You:5 5
+1:You:bar-20 20-15 15-10 10-5 
+0:uknowme:2 2
+1:uknowme: bar-2 12-14 12-14 19-21
+0:You:3 6
+1:You:8-2 5-2 
+0:uknowme:5 2
+15:uknowme: 
+0:You:5 4
+1:You:20-15 15-11 
+0:uknowme:4 5
+15:uknowme: 
+0:You:3 3
+1:You:7-4 7-4 4-1 4-1 
+0:uknowme:1 2
+15:uknowme: 
+0:You:3 1
+1:You:8-5 5-4 
+0:uknowme:1 6
+15:uknowme: 
+0:You:3 5
+1:You:20-15 15-12 
+0:uknowme:2 4
+15:uknowme: 
+0:You:5 2
+1:You:12-7 9-7 
+0:uknowme:2 3
+1:uknowme: bar-3 14-16
+0:You:1 3
+1:You:11-8 9-8 
+0:uknowme:3 5
+1:uknowme: 17-22 19-22
+0:You:1 3
+1:You:8-5 8-7 
+0:uknowme:2 6
+1:uknowme: 14-20 16-18
+0:You:4 5
+1:You:7-2 5-1 
+0:uknowme:3 2
+1:uknowme: 18-20 17-20
+0:You:5 2
+1:You:7-2 7-5 
+0:uknowme:3 5
+1:uknowme: 3-8 20-23
+0:You:6 5
+1:You:6-off 6-1 
+0:uknowme:4 3
+1:uknowme: 17-21 21-24
+0:You:3 1
+1:You:5-2 1-off 
+0:uknowme:4 5
+1:uknowme: 17-22 8-12
+0:You:1 3
+1:You:5-2 5-4 
+0:uknowme:5 5
+1:uknowme: 12-17 19-24 19-24 17-22
+0:You:2 1
+1:You:2-off 1-off 
+0:uknowme:6 5
+1:uknowme: 3-9 9-14
+0:You:2 1
+1:You:2-off 1-off 
+0:uknowme:5 4
+1:uknowme: 20-24 14-19
+0:You:4 3
+1:You: 4-1 4-off
+0:uknowme:1 2
+1:uknowme: 19-20 21-23
+0:You:4 1
+1:You:4-off 4-3 
+0:uknowme:4 2
+1:uknowme: bar-4 4-6
+0:You:1 6
+1:You: 3-o 1-o
+0:uknowme:3 4
+1:uknowme: 6-10 10-13
+0:You:4 6
+1:You: 2-off 2-off
+0:uknowme:3 5
+1:uknowme: 13-18 18-21
+0:You:5 5
+1:You: 2-off 2-off 1-off
+7:You:4
+9:You:3

@@ -1,0 +1,311 @@
+JavaFIBS internal match representation v1.1
+8:yamgay:3
+13:yamgay: 
+6:You:yamgay
+11:yamgay:1 4
+1:yamgay: 24-20 24-23
+0:You:3 6
+1:You:1-7 7-10 
+0:yamgay:3 2
+1:yamgay: 13-10 13-11
+0:You:2 3
+1:You:bar-3 1-3 
+0:yamgay:6 2
+1:yamgay: 10-4 6-4
+0:You:2 2
+1:You:19-21 19-21 3-5 3-5 
+2:yamgay: 
+4:You:
+0:yamgay:2 2
+1:yamgay: 13-11 20-18 18-16 16-14
+0:You:5 5
+1:You:12-17 12-17 17-22 17-22 
+0:yamgay:5 6
+1:yamgay: 23-18 14-8
+0:You:6 3
+1:You:12-18 18-21 
+0:yamgay:4 5
+1:yamgay: bar-20 20-16
+0:You:5 4
+1:You:12-16 12-17 
+0:yamgay:1 3
+1:yamgay: bar-24 6-3
+0:You:3 5
+1:You:19-24 21-24 
+0:yamgay:3 3
+15:yamgay: 
+0:You:3 4
+1:You:16-20 17-20 
+0:yamgay:1 1
+15:yamgay: 
+2:You: 
+5:yamgay:
+7:You:2
+14:sorrytigger-2:yamgay-0
+13:yamgay: 
+6:You:yamgay
+11:yamgay:3 6
+1:yamgay: 1-7 1-4
+0:You:4 4
+1:You:24-20 24-20 13-9 13-9 
+0:yamgay:4 2
+1:yamgay: 7-11 19-21
+0:You:1 6
+1:You:13-7 8-7 
+0:yamgay:6 6
+1:yamgay: 4-10 10-16 16-22 11-17
+0:You:1 1
+1:You:6-5 6-5 6-5 5-4 
+0:yamgay:5 5
+1:yamgay: 12-17 12-17 12-17 17-22
+0:You:5 6
+1:You:9-3 9-4 
+0:yamgay:1 6
+1:yamgay: 17-23 22-23
+0:You:6 2
+1:You:13-7 13-11 
+0:yamgay:2 1
+1:yamgay: 17-19 21-22
+0:You:1 5
+1:You:8-3 11-10 
+0:yamgay:4 3
+1:yamgay: 17-21 19-22
+0:You:2 3
+1:You:10-8 7-4 
+0:yamgay:3 1
+1:yamgay: 17-18 18-21
+0:You:1 4
+1:You:8-4 4-3 
+0:yamgay:5 5
+1:yamgay: 12-17 12-17 17-22 17-22
+0:You:5 1
+1:You:7-2 3-2 
+0:yamgay:6 3
+1:yamgay: 17-23 19-22
+0:You:1 5
+1:You:8-7 7-2 
+0:yamgay:1 6
+1:yamgay: 17-23 23-24
+0:You:4 2
+1:You:7-3 3-1 
+0:yamgay:6 5
+1:yamgay: 19-off 19-24
+0:You:2 5
+1:You:20-15 15-13 
+0:yamgay:6 6
+1:yamgay: 19-off 21-off 21-off 22-off
+0:You:4 1
+1:You:20-16 13-12 
+0:yamgay:1 6
+1:yamgay: 22-o 24-o
+0:You:1 3
+1:You:12-9 16-15 
+0:yamgay:2 6
+1:yamgay: 22-o 23-o
+0:You:2 3
+1:You:9-6 15-13 
+0:yamgay:4 5
+1:yamgay: 22-o 22-o
+0:You:5 4
+1:You:13-8 8-4 
+0:yamgay:2 4
+1:yamgay: 22-o 23-o
+0:You:6 3
+1:You: 6-o 3-o
+0:yamgay:3 3
+1:yamgay: 23-o 24-o
+7:yamgay:1
+14:yamgay-1:sorrytigger-2
+13:yamgay: 
+6:You:yamgay
+11:yamgay:5 6
+1:yamgay: 24-18 18-13
+0:You:1 1
+1:You:19-20 19-20 17-18 17-18 
+0:yamgay:4 2
+1:yamgay: 8-4 6-4
+0:You:1 3
+1:You:1-2 2-5 
+2:yamgay: 
+5:You:
+7:yamgay:1
+14:yamgay-2:sorrytigger-2
+13:yamgay: 
+6:You:yamgay
+11:yamgay:3 4
+1:yamgay: 24-20 13-10
+0:You:2 3
+1:You:1-4 1-3 
+0:yamgay:4 5
+1:yamgay: 24-20 13-8
+0:You:1 6
+1:You:4-10 10-11 
+0:yamgay:6 5
+1:yamgay: bar-20 13-7
+0:You:1 6
+1:You:12-18 17-18 
+0:yamgay:6 2
+1:yamgay: 13-7 13-11
+0:You:6 6
+15:You: 
+0:yamgay:2 4
+1:yamgay: 8-4 6-4
+0:You:6 4
+15:You: 
+0:yamgay:6 1
+1:yamgay: 11-5 6-5
+0:You:6 2
+1:You:bar-2 12-18 
+0:yamgay:1 4
+1:yamgay: 8-4 4-3
+0:You:2 1
+1:You:bar-2 2-3 
+0:yamgay:1 2
+1:yamgay: bar-23 23-22
+0:You:4 3
+1:You:18-22 19-22 
+0:yamgay:3 1
+1:yamgay: bar-24 6-3
+0:You:5 3
+1:You:bar-3 19-24 
+0:yamgay:2 4
+1:yamgay: bar-21 bar-23
+0:You:6 3
+1:You:3-9 19-22 
+0:yamgay:6 6
+1:yamgay: 8-2 8-2 21-15 15-9
+0:You:1 2
+1:You: bar-1
+0:yamgay:4 3
+1:yamgay: 20-16 23-20
+0:You:1 5
+1:You:bar-1 12-17 
+0:yamgay:3 5
+1:yamgay: 16-11 11-8
+0:You:2 5
+1:You:1-3 3-8 
+0:yamgay:1 5
+1:yamgay: bar-24 20-15
+0:You:6 3
+1:You:bar-3 3-9 
+0:yamgay:1 3
+1:yamgay: bar-24 24-21
+0:You:6 5
+1:You:9-15 12-17 
+0:yamgay:6 6
+15:yamgay: 
+0:You:4 1
+1:You:17-21 21-22 
+0:yamgay:6 6
+15:yamgay: 
+0:You:1 1
+1:You:22-23 22-23 15-16 16-17 
+0:yamgay:6 5
+1:yamgay: bar-20
+0:You:1 6
+1:You:17-23 17-18 
+0:yamgay:1 6
+1:yamgay: bar-24 20-14
+0:You:5 2
+1:You:12-14 14-19 
+0:yamgay:3 1
+1:yamgay: bar-24 24-21
+0:You:3 1
+1:You:18-21 8-9 
+0:yamgay:3 1
+1:yamgay: bar-24 24-21
+0:You:2 2
+15:You: 
+0:yamgay:3 5
+1:yamgay: 21-16 16-13
+0:You:1 4
+1:You:bar-1 9-13 
+0:yamgay:3 1
+1:yamgay: bar-24 24-21
+0:You:6 6
+1:You:13-19 17-23 17-23 
+0:yamgay:6 1
+1:yamgay: 21-15 15-14
+0:You:1 5
+1:You:18-23 18-19 
+0:yamgay:1 4
+1:yamgay: 14-10 10-9
+0:You:2 6
+1:You: 1-3 3-9
+0:yamgay:5 4
+1:yamgay: bar-20 20-16
+0:You:3 6
+1:You:9-15 15-18 
+0:yamgay:1 5
+1:yamgay: 16-11 11-10
+0:You:5 1
+1:You: 22-23 18-23
+0:yamgay:4 2
+1:yamgay: 24-22 22-18
+0:You:6 6
+15:You: 
+0:yamgay:6 4
+1:yamgay: 18-12 12-8
+0:You:3 3
+1:You: bar-3 19-22 19-22 19-22
+0:yamgay:2 6
+1:yamgay: 10-8 20-14
+0:You:2 6
+1:You:1-3 3-9 
+0:yamgay:6 2
+1:yamgay: 14-8 8-6
+0:You:3 3
+1:You:9-12 12-15 15-18 18-21 
+0:yamgay:6 6
+1:yamgay: 20-14 24-18 14-8 8-2
+0:You:4 1
+1:You:23-24 19-23 
+0:yamgay:6 2
+1:yamgay: 18-12 6-4
+0:You:2 1
+1:You:23-24 19-21 
+0:yamgay:4 6
+1:yamgay: 12-6 6-2
+0:You:1 2
+1:You:22-24 23-24 
+0:yamgay:2 5
+1:yamgay: 8-3 8-6
+0:You:5 2
+15:You: 
+0:yamgay:6 3
+1:yamgay: 7-1 6-3
+0:You:6 5
+15:You: 
+0:yamgay:6 1
+1:yamgay: 7-1 2-1
+0:You:1 6
+15:You: 
+0:yamgay:1 2
+1:yamgay: 2-off 1-off
+0:You:6 2
+15:You: 
+0:yamgay:1 5
+1:yamgay: 5-off 5-4
+0:You:2 4
+15:You: 
+0:yamgay:3 4
+1:yamgay: 4-off 4-1
+0:You:3 3
+15:You: 
+0:yamgay:4 4
+1:yamgay: 6-2 6-2 4-off 4-off
+0:You:2 6
+1:You:bar-6 6-8 
+0:yamgay:4 3
+1:yamgay: 3-o 3-o
+0:You:2 2
+1:You:8-10 10-12 12-14 14-16 
+0:yamgay:2 4
+1:yamgay: 2-o 2-o
+0:You:5 1
+1:You:16-21 24-off 
+0:yamgay:6 6
+1:yamgay: 2-o 2-o 1-o 1-o
+3:You:1
+7:yamgay:1
+9:yamgay:3

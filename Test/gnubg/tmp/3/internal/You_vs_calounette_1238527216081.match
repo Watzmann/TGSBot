@@ -1,0 +1,280 @@
+JavaFIBS internal match representation v1.1
+8:calounette:3
+13:calounette: 
+6:You:calounette
+11:calounette:1 5
+1:calounette: 12-17 1-2
+0:You:5 4
+1:You:13-8 24-20 
+0:calounette:2 5
+1:calounette: 12-17 1-3
+0:You:3 2
+1:You:24-21 13-11 
+0:calounette:3 3
+1:calounette: 17-20 17-20 19-22 19-22
+0:You:1 5
+1:You:bar-24 21-16 
+0:calounette:4 4
+1:calounette: 20-24 20-24 12-16 12-16
+0:You:6 2
+1:You: bar-23
+0:calounette:6 6
+1:calounette: 17-23 17-23 3-9 9-15
+0:You:2 4
+1:You: bar-21
+0:calounette:5 6
+1:calounette: 15-21 16-21
+0:You:2 3
+15:You: 
+0:calounette:4 4
+1:calounette: 12-16 16-20 16-20 19-23
+0:You:4 5
+15:You: 
+0:calounette:6 5
+1:calounette: 2-7 17-23
+0:You:1 2
+15:You: 
+0:calounette:4 6
+1:calounette: 7-11 11-17
+0:You:3 5
+15:You: 
+0:calounette:2 5
+1:calounette: 17-22 23-off
+0:You:3 3
+15:You: 
+0:calounette:5 6
+1:calounette: 19-off 19-24
+0:You:5 6
+1:You: bar-19
+0:calounette:4 3
+1:calounette: 20-24 20-23
+0:You:4 5
+1:You: bar-20
+0:calounette:1 2
+1:calounette: 22-24 24-off
+0:You:5 1
+1:You:bar-20 13-12 
+0:calounette:1 1
+1:calounette: 24-off 24-off 24-off 24-off
+0:You:2 2
+1:You:20-18 20-18 8-6 8-6 
+0:calounette:5 2
+1:calounette: 21-o 23-o
+0:You:6 6
+1:You:19-13 13-7 13-7 18-12 
+0:calounette:4 6
+1:calounette: 21-off 22-off
+0:You:1 2
+1:You:8-6 7-6 
+0:calounette:2 4
+1:calounette: 22-o 23-o
+0:You:3 6
+3:You:2
+7:calounette:2
+14:calounette-2:sorrytigger-0
+13:calounette: 
+6:You:calounette
+11:calounette:5 6
+1:calounette: 24-18 18-13
+0:You:3 2
+1:You:12-15 12-14 
+0:calounette:5 5
+1:calounette: 13-8 13-8 8-3 8-3
+0:You:1 6
+1:You:14-20 19-20 
+0:calounette:4 6
+1:calounette: 24-18 18-14
+0:You:4 4
+1:You:17-21 17-21 1-5 1-5 
+0:calounette:1 2
+1:calounette: 14-13 6-4
+0:You:1 5
+1:You:17-22 19-20 
+0:calounette:5 1
+1:calounette: 13-8 4-3
+0:You:5 2
+1:You:20-22 12-17 
+0:calounette:6 4
+1:calounette: 8-2 6-2
+0:You:4 5
+1:You:17-22 19-23 
+0:calounette:1 2
+1:calounette: 8-6 3-2
+0:You:1 4
+1:You:22-23 15-19 
+0:calounette:3 5
+1:calounette: 13-8 6-3
+0:You:4 6
+1:You:12-18 12-16 
+0:calounette:2 4
+1:calounette: 8-4 6-4
+0:You:3 3
+1:You:18-21 21-24 16-19 19-22 
+0:calounette:4 4
+1:calounette: 13-9 13-9 8-4 8-4
+0:You:5 4
+1:You:5-10 10-14 
+0:calounette:6 2
+1:calounette: 13-7 7-5
+0:You:5 5
+1:You:bar-5 19-24 5-10 10-15 
+0:calounette:6 2
+15:calounette: 
+0:You:4 4
+1:You:15-19 14-18 18-22 19-23 
+0:calounette:2 1
+15:calounette: 
+0:You:1 4
+1:You:21-off 21-22 
+0:calounette:1 3
+15:calounette: 
+0:You:1 2
+1:You:23-off 22-23 
+0:calounette:3 2
+15:calounette: 
+0:You:6 3
+1:You:19-off 19-22 
+0:calounette:6 6
+1:calounette: bar-19 19-13 13-7 9-3
+0:You:2 6
+1:You:20-off 23-off 
+0:calounette:3 4
+1:calounette: 9-5 7-4
+0:You:5 3
+1:You: 20-o 22-o
+0:calounette:6 3
+1:calounette: 6-o 3-o
+0:You:3 3
+1:You: 22-off 22-off 22-off 22-off
+0:calounette:2 5
+1:calounette: 5-o 2-o
+0:You:6 3
+1:You: 23-off 23-off
+0:calounette:5 2
+1:calounette: 6-1 2-off
+0:You:4 5
+1:You: 24-off 24-off
+7:You:1
+14:sorrytigger-1:calounette-2
+13:calounette: 
+6:You:calounette
+11:calounette:3 4
+1:calounette: 1-5 1-4
+2:You: 
+4:calounette:
+0:You:4 4
+1:You:13-9 13-9 9-5 9-5 
+0:calounette:2 1
+1:calounette: bar-2 2-3
+0:You:1 1
+1:You:6-5 6-5 5-4 5-4 
+0:calounette:6 6
+15:calounette: 
+0:You:3 4
+1:You:6-3 8-4 
+0:calounette:1 3
+1:calounette: bar-3 bar-1
+0:You:5 5
+1:You:bar-20 8-3 8-3 13-8 
+0:calounette:4 2
+1:calounette: bar-2 12-16
+0:You:4 1
+1:You:20-16 24-23 
+0:calounette:3 3
+15:calounette: 
+0:You:3 3
+1:You:13-10 13-10 10-7 10-7 
+0:calounette:6 5
+15:calounette: 
+0:You:3 1
+1:You:16-13 23-22 
+0:calounette:2 5
+1:calounette: bar-2 12-17
+0:You:4 3
+1:You:4-1 13-9 
+0:calounette:1 5
+1:calounette: bar-1 12-17
+0:You:3 4
+1:You:bar-21 24-21 
+0:calounette:2 5
+1:calounette: 17-19 19-24
+0:You:2 2
+1:You:9-7 7-5 5-3 3-1 
+0:calounette:2 5
+1:calounette: bar-2 19-24
+0:You:2 4
+1:You:22-18 18-16 
+0:calounette:4 2
+1:calounette: 12-16 17-19
+0:You:2 2
+1:You:bar-23 8-6 23-21 6-4 
+0:calounette:1 5
+1:calounette: 12-17 16-17
+0:You:5 5
+1:You:21-16 21-16 21-16 16-11 
+0:calounette:6 3
+1:calounette: 2-8 8-11
+0:You:4 5
+1:You:bar-21 16-11 
+0:calounette:6 4
+15:calounette: 
+0:You:4 1
+1:You:16-12 12-11 
+0:calounette:5 3
+15:calounette: 
+0:You:3 5
+1:You:4-1 21-16 
+0:calounette:1 6
+15:calounette: 
+0:You:3 3
+1:You:11-8 11-8 16-13 13-10 
+0:calounette:1 2
+1:calounette: bar-2 17-18
+0:You:2 6
+1:You:10-4 8-6 
+0:calounette:4 3
+1:calounette: 17-21 18-21
+0:You:5 2
+1:You:8-3 6-4 
+0:calounette:6 3
+1:calounette: 2-8 8-11
+0:You:4 6
+1:You:7-1 7-3 
+0:calounette:4 6
+1:calounette: 17-23 19-23
+0:You:4 1
+1:You:4-off 1-off 
+0:calounette:1 3
+1:calounette: 17-20 19-20
+0:You:2 4
+1:You:4-off 3-1 
+0:calounette:3 3
+1:calounette: 11-14 14-17 17-20 20-23
+0:You:3 1
+1:You:6-3 6-5 
+0:calounette:1 3
+1:calounette: 19-22 17-18
+0:You:6 3
+1:You:5-off 3-off 
+0:calounette:6 6
+1:calounette: 2-8 2-8 8-14 8-14
+0:You:4 1
+1:You:4-off 1-off 
+0:calounette:5 4
+1:calounette: 14-19 18-22
+0:You:5 6
+1:You: 5-off 5-off
+0:calounette:6 5
+1:calounette: 14-20 20-off
+0:You:6 5
+1:You: 4-off 3-off
+0:calounette:5 5
+1:calounette: 20-off 20-off 19-24 19-24
+0:You:3 4
+1:You: 3-off 3-off
+0:calounette:4 1
+1:calounette: 21-o 24-o
+0:You:3 2
+1:You: 1-off 1-off
+7:You:2
+9:You:3

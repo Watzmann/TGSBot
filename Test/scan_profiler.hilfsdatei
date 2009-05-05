@@ -1,0 +1,283 @@
+2007-09-12 13:37:47,151 WARNING  scan_client DmsFrame::__init__ ScanClient kann nur über ein AHa.Doc. DMS aufgerufen werden!
+2007-09-12 13:37:51,479 ERROR    dms DMS::openImage <type 'exceptions.AttributeError'>
+2007-09-12 13:38:37,578 INFO     scan_client DmsFrame::MnuAcquire Scanvorgang wird ausgeführt...
+2007-09-12 13:40:22,214 ERROR    scan_client DmsFrame::ProcessXFer <class 'twain.excDSTransferCancelled'>
+2007-09-12 13:40:30,683 ERROR    scan_client DmsFrame::ProcessXFer <class 'twain.excDSTransferCancelled'>
+2007-09-12 13:40:51,290 ERROR    scan_client DmsFrame::ProcessXFer <class 'twain.excDSTransferCancelled'>
+2007-09-12 13:41:19,585 ERROR    scan_client DmsFrame::ProcessXFer <class 'twain.excDSTransferCancelled'>
+2007-09-12 13:41:40,145 ERROR    scan_client DmsFrame::ProcessXFer <class 'twain.excDSTransferCancelled'>
+2007-09-12 13:42:02,894 INFO     dms DMS::convertImage Bilder werden verarbeitet
+2007-09-12 13:42:03,237 INFO     dms DMS::convertImage Bilder werden verarbeitet
+2007-09-12 13:42:03,315 INFO     dms DMS::putImage Die gescannten Seiten werden übertragen
+2007-09-12 13:42:06,440 INFO     scan_client DmsFrame::ProcessXFer Enthält das Dokument weitere Seiten, können diese jetzt gescannt werden.
+2007-09-12 13:44:27,539 INFO     scan_client DmsFrame::MnuAcquire Scanvorgang wird ausgeführt...
+2007-09-12 13:44:50,960 ERROR    scan_client DmsFrame::ProcessXFer <class 'twain.excDSTransferCancelled'>
+2007-09-12 13:45:05,584 ERROR    scan_client DmsFrame::ProcessXFer <class 'twain.excDSTransferCancelled'>
+2007-09-12 13:45:30,005 ERROR    scan_client DmsFrame::ProcessXFer <class 'twain.excDSTransferCancelled'>
+2007-09-12 13:45:40,536 ERROR    scan_client DmsFrame::ProcessXFer <class 'twain.excDSTransferCancelled'>
+2007-09-12 13:45:46,769 ERROR    scan_client DmsFrame::ProcessXFer <class 'twain.excDSTransferCancelled'>
+2007-09-12 13:46:01,301 INFO     dms DMS::convertImage Bilder werden verarbeitet
+2007-09-12 13:46:01,644 INFO     dms DMS::convertImage Bilder werden verarbeitet
+2007-09-12 13:46:01,723 INFO     dms DMS::putImage Die gescannten Seiten werden übertragen
+2007-09-12 13:46:09,285 INFO     scan_client DmsFrame::ProcessXFer Enthält das Dokument weitere Seiten, können diese jetzt gescannt werden.
+2007-09-12 13:49:20,719 INFO     scan_client DmsFrame::MnuAcquire Scanvorgang wird ausgeführt...
+2007-09-12 13:50:15,651 INFO     dms DMS::convertImage Bilder werden verarbeitet
+2007-09-12 13:50:15,806 INFO     dms DMS::putImage Die gescannten Seiten werden übertragen
+2007-09-12 13:50:18,572 INFO     scan_client DmsFrame::ProcessXFer Enthält das Dokument weitere Seiten, können diese jetzt gescannt werden.
+2007-09-12 13:51:08,503 INFO     dms DMS::convertImage Bilder werden verarbeitet
+2007-09-12 13:51:08,628 INFO     dms DMS::putImage Die gescannten Seiten werden übertragen
+2007-09-12 13:51:12,924 INFO     scan_client DmsFrame::ProcessXFer Enthält das Dokument weitere Seiten, können diese jetzt gescannt werden.
+
+
+
+2007-09-12 13:53:37,848 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner von DmsFrame
+2007-09-12 13:53:37,911 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner vor Delegate Ontwain
+2007-09-12 13:54:03,142 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner nach Delegate OntwainEvent
+2007-09-12 13:54:03,142 INFO     scan_client DmsFrame::MnuAcquire Scanvorgang wird ausgeführt...
+2007-09-12 13:54:07,767 DEBUG    scan_client DmsFrame::ProcessXFer ============================================================
+2007-09-12 13:54:07,767 DEBUG    scan_client DmsFrame::ProcessXFer OnTwainEvent von DmsFrame
+2007-09-12 13:54:07,767 DEBUG    scan_client DmsFrame::ProcessXFer Caught event 257
+2007-09-12 13:54:13,970 ERROR    scan_client DmsFrame::ProcessXFer <class 'twain.excDSTransferCancelled'>
+2007-09-12 13:54:21,578 DEBUG    scan_client DmsFrame::ProcessXFer ============================================================
+2007-09-12 13:54:21,578 DEBUG    scan_client DmsFrame::ProcessXFer OnTwainEvent von DmsFrame
+2007-09-12 13:54:21,595 DEBUG    scan_client DmsFrame::ProcessXFer Caught event 258
+2007-09-12 13:54:22,391 DEBUG    scan_client DmsFrame::ProcessXFer about to quit
+2007-09-12 14:05:37,686 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner von DmsFrame
+2007-09-12 14:05:37,747 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner vor Delegate Ontwain
+2007-09-12 14:05:49,280 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner nach Delegate OntwainEvent
+2007-09-12 14:05:49,280 INFO     scan_client DmsFrame::MnuAcquire Scanvorgang wird ausgeführt...
+2007-09-12 14:05:58,220 DEBUG    scan_client DmsFrame::ProcessXFer ============================================================
+2007-09-12 14:05:58,220 DEBUG    scan_client DmsFrame::ProcessXFer OnTwainEvent von DmsFrame
+2007-09-12 14:05:58,220 DEBUG    scan_client DmsFrame::ProcessXFer Caught event 257
+2007-09-12 14:06:09,220 DEBUG    scan_client DmsFrame::ProcessXFer more_to_come 1
+2007-09-12 14:06:09,236 INFO     dms DMS::convertImage Bilder werden verarbeitet
+2007-09-12 14:06:09,236 DEBUG    dms DMS::convertImage Src: tmp.bmp Dest: tmp1.tif
+2007-09-12 14:06:09,236 DEBUG    dms DMS::convertImage Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+2007-09-12 14:06:09,315 DEBUG    scan_client DmsFrame::ProcessXFer Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+2007-09-12 14:06:09,579 DEBUG    scan_client DmsFrame::ProcessXFer more_to_come 60416
+2007-09-12 14:06:09,595 INFO     dms DMS::convertImage Bilder werden verarbeitet
+2007-09-12 14:06:09,595 DEBUG    dms DMS::convertImage Src: tmp.bmp Dest: tmp2.tif
+2007-09-12 14:06:09,595 DEBUG    dms DMS::convertImage Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+2007-09-12 14:06:09,658 DEBUG    scan_client DmsFrame::ProcessXFer Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+2007-09-12 14:06:09,674 INFO     dms DMS::putImage Die gescannten Seiten werden übertragen
+2007-09-12 14:06:09,674 DEBUG    dms DMS::putImage Datei c:\dokume~1\bruck\lokale~1\temp\tmpkiwo4k-172.20.68.8,8080,Plone,scan,plonearticle.2006-06-29.4054701510.scan_request.scn wurde geöffnet
+2007-09-12 14:06:09,690 DEBUG    ftp Transfer::ftpConnect in der funktion ftpConnect
+2007-09-12 14:06:09,704 DEBUG    ftp Transfer::ftpConnect FTP-Status: 220 pg-webexplorer FTP server (Medusa Async V1.23 [experimental]) ready.
+2007-09-12 14:06:09,704 DEBUG    ftp Transfer::ftpConnect Verbindung= True
+2007-09-12 14:06:09,720 DEBUG    ftp Transfer::ftpConnect FTP-Status: 230 Login successful.
+2007-09-12 14:06:09,720 DEBUG    ftp Transfer::ftpCwd Current FTP-Dir: /
+2007-09-12 14:06:09,720 DEBUG    ftp Transfer::ftpCwd Try to enter FTP-Dir: scan
+2007-09-12 14:06:09,736 DEBUG    ftp Transfer::ftpCwd 250 CWD command successful.
+2007-09-12 14:06:09,736 DEBUG    ftp Transfer::ftpCwd Current FTP-Dir: /scan
+2007-09-12 14:06:09,736 DEBUG    ftp Transfer::ftpTransfer In ftpTransfer
+2007-09-12 14:06:09,736 DEBUG    ftp Transfer::ftpTransfer Verbindung OK
+2007-09-12 14:06:09,752 DEBUG    ftp Transfer::ftpTransfer Bild wird komprimiert.. yes
+2007-09-12 14:06:09,799 DEBUG    ftp Transfer::ftpTransfer Try to transfer imagefile..
+2007-09-12 14:06:10,142 DEBUG    ftp Transfer::ftpTransfer 226 Transfer complete.
+2007-09-12 14:06:10,142 DEBUG    ftp Transfer::ftpTransfer In ftpTransfer
+2007-09-12 14:06:10,142 DEBUG    ftp Transfer::ftpTransfer Verbindung OK
+2007-09-12 14:06:10,142 DEBUG    ftp Transfer::ftpTransfer Bild wird komprimiert.. yes
+2007-09-12 14:06:10,190 DEBUG    ftp Transfer::ftpTransfer Try to transfer imagefile..
+2007-09-12 14:06:10,533 DEBUG    ftp Transfer::ftpTransfer 226 Transfer complete.
+2007-09-12 14:06:10,533 DEBUG    ftp Transfer::ftpTransferToServer2 Bilder wurden gesendet
+2007-09-12 14:06:10,674 DEBUG    ftp Transfer::ftpTransferToServer2 226 Transfer complete.
+2007-09-12 14:06:10,674 DEBUG    ftp Transfer::ftpTransferToServer2 Antwortdatei wurde gesendet
+2007-09-12 14:06:10,674 DEBUG    ftp Transfer::ftpClose ftp verbindung beendet
+2007-09-12 14:06:10,674 DEBUG    dms DMS::putImage Antwort URL: http://admin:adminste@172.20.68.8:8080/Plone/hausakten/walter-gropius-strasse-59/plonearticle.2006-06-29.4054701510/plonearticle_scan_xfer
+2007-09-12 14:06:13,236 DEBUG    dms DMS::Static_Delete_Image Temporaere Bilddaten werden gelöscht...
+2007-09-12 14:06:13,253 INFO     scan_client DmsFrame::ProcessXFer Enthält das Dokument weitere Seiten, können diese jetzt gescannt werden.
+
+2007-09-12 14:06:45,210 DEBUG    scan_client DmsFrame::ProcessXFer ============================================================
+2007-09-12 14:06:45,210 DEBUG    scan_client DmsFrame::ProcessXFer OnTwainEvent von DmsFrame
+2007-09-12 14:06:45,210 DEBUG    scan_client DmsFrame::ProcessXFer Caught event 258
+2007-09-12 14:06:46,006 DEBUG    scan_client DmsFrame::ProcessXFer about to quit
+
+
+
+
+start -----------------------------
+2007-09-12 14:09:46,184 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner von DmsFrame
+2007-09-12 14:09:46,246 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner vor Delegate Ontwain
+2007-09-12 14:09:55,278 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner nach Delegate OntwainEvent
+2007-09-12 14:09:55,278 INFO     scan_client DmsFrame::MnuAcquire Scanvorgang wird ausgeführt...
+process -----------------------------
+2007-09-12 14:11:20,280 DEBUG    scan_client DmsFrame::ProcessXFer ============================================================
+2007-09-12 14:11:20,280 DEBUG    scan_client DmsFrame::ProcessXFer OnTwainEvent von DmsFrame
+2007-09-12 14:11:20,280 DEBUG    scan_client DmsFrame::ProcessXFer Caught event 257
+convert -----------------------------
+2007-09-12 14:11:31,280 DEBUG    scan_client DmsFrame::ProcessXFer more_to_come 1
+2007-09-12 14:11:31,296 INFO     dms DMS::convertImage Bilder werden verarbeitet
+2007-09-12 14:11:31,296 DEBUG    dms DMS::convertImage Src: tmp.bmp Dest: tmp1.tif
+2007-09-12 14:11:31,296 DEBUG    dms DMS::convertImage Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+2007-09-12 14:11:31,375 DEBUG    scan_client DmsFrame::ProcessXFer Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+convert -----------------------------
+2007-09-12 14:11:31,640 DEBUG    scan_client DmsFrame::ProcessXFer more_to_come 60416
+2007-09-12 14:11:31,655 INFO     dms DMS::convertImage Bilder werden verarbeitet
+2007-09-12 14:11:31,655 DEBUG    dms DMS::convertImage Src: tmp.bmp Dest: tmp2.tif
+2007-09-12 14:11:31,655 DEBUG    dms DMS::convertImage Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+2007-09-12 14:11:31,733 DEBUG    scan_client DmsFrame::ProcessXFer Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+transfer -----------------------------
+2007-09-12 14:11:31,733 INFO     dms DMS::putImage Die gescannten Seiten werden übertragen
+2007-09-12 14:11:31,733 DEBUG    dms DMS::putImage Datei c:\dokume~1\bruck\lokale~1\temp\tmpsuilcx-172.20.68.8,8080,Plone,scan,plonearticle.2006-12-05.5114156379.scan_request.scn wurde geöffnet
+2007-09-12 14:11:31,765 DEBUG    ftp Transfer::ftpConnect in der funktion ftpConnect
+2007-09-12 14:11:31,780 DEBUG    ftp Transfer::ftpConnect FTP-Status: 220 pg-webexplorer FTP server (Medusa Async V1.23 [experimental]) ready.
+2007-09-12 14:11:31,780 DEBUG    ftp Transfer::ftpConnect Verbindung= True
+2007-09-12 14:11:31,780 DEBUG    ftp Transfer::ftpConnect FTP-Status: 230 Login successful.
+2007-09-12 14:11:31,780 DEBUG    ftp Transfer::ftpCwd Current FTP-Dir: /
+2007-09-12 14:11:31,780 DEBUG    ftp Transfer::ftpCwd Try to enter FTP-Dir: scan
+2007-09-12 14:11:31,796 DEBUG    ftp Transfer::ftpCwd 250 CWD command successful.
+2007-09-12 14:11:31,796 DEBUG    ftp Transfer::ftpCwd Current FTP-Dir: /scan
+2007-09-12 14:11:31,796 DEBUG    ftp Transfer::ftpTransfer In ftpTransfer
+2007-09-12 14:11:31,796 DEBUG    ftp Transfer::ftpTransfer Verbindung OK
+2007-09-12 14:11:31,812 DEBUG    ftp Transfer::ftpTransfer Bild wird komprimiert.. yes
+2007-09-12 14:11:31,858 DEBUG    ftp Transfer::ftpTransfer Try to transfer imagefile..
+2007-09-12 14:11:32,155 DEBUG    ftp Transfer::ftpTransfer 226 Transfer complete.
+2007-09-12 14:11:32,155 DEBUG    ftp Transfer::ftpTransfer In ftpTransfer
+2007-09-12 14:11:32,155 DEBUG    ftp Transfer::ftpTransfer Verbindung OK
+2007-09-12 14:11:32,155 DEBUG    ftp Transfer::ftpTransfer Bild wird komprimiert.. yes
+2007-09-12 14:11:32,203 DEBUG    ftp Transfer::ftpTransfer Try to transfer imagefile..
+2007-09-12 14:11:32,515 DEBUG    ftp Transfer::ftpTransfer 226 Transfer complete.
+2007-09-12 14:11:32,515 DEBUG    ftp Transfer::ftpTransferToServer2 Bilder wurden gesendet
+2007-09-12 14:11:32,703 DEBUG    ftp Transfer::ftpTransferToServer2 226 Transfer complete.
+2007-09-12 14:11:32,703 DEBUG    ftp Transfer::ftpTransferToServer2 Antwortdatei wurde gesendet
+2007-09-12 14:11:32,703 DEBUG    ftp Transfer::ftpClose ftp verbindung beendet
+XFer DMS -----------------------------
+2007-09-12 14:11:32,703 DEBUG    dms DMS::putImage Antwort URL: http://admin:adminste@172.20.68.8:8080/Plone/hausakten/walter-gropius-strasse-59/plonearticle.2006-12-05.5114156379/plonearticle_scan_xfer
+delete -----------------------------
+2007-09-12 14:11:35,483 DEBUG    dms DMS::Static_Delete_Image Temporaere Bilddaten werden gelöscht...
+2007-09-12 14:11:35,483 INFO     scan_client DmsFrame::ProcessXFer Enthält das Dokument weitere Seiten, können diese jetzt gescannt werden.
+process -----------------------------
+2007-09-12 14:11:36,483 DEBUG    scan_client DmsFrame::ProcessXFer ============================================================
+2007-09-12 14:11:36,483 DEBUG    scan_client DmsFrame::ProcessXFer OnTwainEvent von DmsFrame
+2007-09-12 14:11:36,483 DEBUG    scan_client DmsFrame::ProcessXFer Caught event 258
+2007-09-12 14:11:37,780 DEBUG    scan_client DmsFrame::ProcessXFer about to quit
+
+
+
+
+
+2007-09-12 14:11:45,016 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner von DmsFrame
+2007-09-12 14:11:45,094 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner vor Delegate Ontwain
+2007-09-12 14:11:52,937 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner nach Delegate OntwainEvent
+2007-09-12 14:11:52,937 INFO     scan_client DmsFrame::MnuAcquire Scanvorgang wird ausgeführt...
+2007-09-12 14:12:33,532 DEBUG    scan_client DmsFrame::ProcessXFer ============================================================
+2007-09-12 14:12:33,532 DEBUG    scan_client DmsFrame::ProcessXFer OnTwainEvent von DmsFrame
+2007-09-12 14:12:33,532 DEBUG    scan_client DmsFrame::ProcessXFer Caught event 258
+2007-09-12 14:12:33,611 DEBUG    scan_client DmsFrame::ProcessXFer about to quit
+2007-09-12 14:12:40,111 DEBUG    scan_client DmsFrame::OnClose Event:<wx._core.CloseEvent; proxy of <Swig Object of type 'wxCloseEvent *' at 0x12f0f0> >
+2007-09-12 14:12:40,111 DEBUG    dms DMS::cleanupScanDir Datei c:\dokume~1\bruck\lokale~1\temp\tmpux-tpb-172.20.68.8,8080,Plone,scan,plonearticle.2006-12-05.5114156379.scan_request.scn wurde geöffnet
+2007-09-12 14:12:40,111 DEBUG    dms DMS::cleanupScanDir Antwort URL: http://admin:adminste@172.20.68.8:8080/Plone/hausakten/walter-gropius-strasse-59/plonearticle.2006-12-05.5114156379/plonearticle_scan_cleanup
+2007-09-12 14:12:40,361 DEBUG    dms DMS::cleanupScanDir errCode:
+2007-09-12 14:12:40,361 DEBUG    scanner MainFrame::OnClose Event:<wx._core.CloseEvent; proxy of <Swig Object of type 'wxCloseEvent *' at 0x12f0f0> >
+
+
+
+
+2007-09-21 07:44:44,523 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner von DmsFrame
+2007-09-21 07:44:44,694 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner vor Delegate Ontwain
+2007-09-21 07:44:54,592 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner nach Delegate OntwainEvent
+2007-09-21 07:44:54,624 INFO     scan_client DmsFrame::MnuAcquire Scanvorgang wird ausgeführt...
+2007-09-21 07:46:46,723 DEBUG    scan_client DmsFrame::ProcessXFer ============================================================
+2007-09-21 07:46:46,723 DEBUG    scan_client DmsFrame::ProcessXFer OnTwainEvent von DmsFrame
+2007-09-21 07:46:46,723 DEBUG    scan_client DmsFrame::ProcessXFer Caught event 257
+2007-09-21 07:47:22,812 DEBUG    scan_client DmsFrame::ProcessXFer more_to_come 0
+2007-09-21 07:47:23,453 INFO     dms DMS::convertImage Bilder werden verarbeitet
+2007-09-21 07:47:23,453 DEBUG    dms DMS::convertImage Src: tmp.bmp Dest: tmp1.tif
+2007-09-21 07:47:23,453 DEBUG    dms DMS::convertImage Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+2007-09-21 07:47:25,483 DEBUG    scan_client DmsFrame::ProcessXFer Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+2007-09-21 07:47:25,483 INFO     dms DMS::putImage Die gescannten Seiten werden übertragen
+2007-09-21 07:47:25,483 DEBUG    dms DMS::putImage Datei c:\dokume~1\bruck\lokale~1\temp\tmpjks_kx-172.20.68.8,8080,Plone,scan,plonearticle.2007-09-10.3545705413.scan_request.scn wurde geöffnet
+2007-09-21 07:47:25,515 DEBUG    ftp Transfer::ftpConnect in der funktion ftpConnect
+2007-09-21 07:47:25,592 DEBUG    ftp Transfer::ftpConnect FTP-Status: 220 pg-webexplorer FTP server (Medusa Async V1.23 [experimental]) ready.
+2007-09-21 07:47:25,592 DEBUG    ftp Transfer::ftpConnect Verbindung= True
+2007-09-21 07:47:25,592 DEBUG    ftp Transfer::ftpConnect FTP-Status: 230 Login successful.
+2007-09-21 07:47:25,592 DEBUG    ftp Transfer::ftpCwd Current FTP-Dir: /
+2007-09-21 07:47:25,592 DEBUG    ftp Transfer::ftpCwd Try to enter FTP-Dir: scan
+2007-09-21 07:47:25,640 DEBUG    ftp Transfer::ftpCwd 250 CWD command successful.
+2007-09-21 07:47:25,640 DEBUG    ftp Transfer::ftpCwd Current FTP-Dir: /scan
+2007-09-21 07:47:25,640 DEBUG    ftp Transfer::ftpTransfer In ftpTransfer
+2007-09-21 07:47:25,640 DEBUG    ftp Transfer::ftpTransfer Verbindung OK
+2007-09-21 07:47:25,654 DEBUG    ftp Transfer::ftpTransfer Bild wird komprimiert.. yes
+2007-09-21 07:47:43,184 DEBUG    ftp Transfer::ftpTransfer Try to transfer imagefile..
+2007-09-21 07:47:56,808 DEBUG    ftp Transfer::ftpTransfer 226 Transfer complete.
+2007-09-21 07:47:56,808 DEBUG    ftp Transfer::ftpTransferToServer2 Bilder wurden gesendet
+2007-09-21 07:47:57,026 DEBUG    ftp Transfer::ftpTransferToServer2 226 Transfer complete.
+2007-09-21 07:47:57,026 DEBUG    ftp Transfer::ftpTransferToServer2 Antwortdatei wurde gesendet
+2007-09-21 07:47:57,026 DEBUG    ftp Transfer::ftpClose ftp verbindung beendet
+2007-09-21 07:47:57,026 DEBUG    dms DMS::putImage Antwort URL: http://admin:adminste@172.20.68.8:8080/Plone/hausaktena/lothringer-dell-48/plonearticle.2007-09-10.3545705413/plonearticle_scan_xfer
+2007-09-21 07:48:28,740 DEBUG    dms DMS::Static_Delete_Image Temporaere Bilddaten werden gelöscht...
+2007-09-21 07:48:28,740 INFO     scan_client DmsFrame::ProcessXFer Enthält das Dokument weitere Seiten, können diese jetzt gescannt werden.
+2007-09-21 07:48:28,849 DEBUG    scan_client DmsFrame::ProcessXFer ============================================================
+2007-09-21 07:48:28,849 DEBUG    scan_client DmsFrame::ProcessXFer OnTwainEvent von DmsFrame
+2007-09-21 07:48:28,849 DEBUG    scan_client DmsFrame::ProcessXFer Caught event 258
+2007-09-21 07:48:28,913 DEBUG    scan_client DmsFrame::ProcessXFer about to quit
+2007-09-21 07:48:49,848 DEBUG    scan_client DmsFrame::OnClose Event:<wx._core.CloseEvent; proxy of <Swig Object of type 'wxCloseEvent *' at 0x12eddc> >
+
+2007-09-21 07:48:49,848 DEBUG    dms DMS::cleanupScanDir Datei c:\dokume~1\bruck\lokale~1\temp\tmpjks_kx-172.20.68.8,8080,Plone,scan,plonearticle.2007-09-10.3545705413.scan_request.scn wurde geöffnet
+2007-09-21 07:48:49,862 DEBUG    dms DMS::cleanupScanDir Antwort URL: http://admin:adminste@172.20.68.8:8080/Plone/hausaktena/lothringer-dell-48/plonearticle.2007-09-10.3545705413/plonearticle_scan_cleanup
+2007-09-21 07:48:50,065 DEBUG    dms DMS::cleanupScanDir errCode:
+2007-09-21 07:48:50,065 DEBUG    scanner MainFrame::OnClose Event:<wx._core.CloseEvent; proxy of <Swig Object of type 'wxCloseEvent *' at 0x12eddc> >
+
+
+
+
+
+
+
+
+
+2007-09-21 07:51:20,344 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner von DmsFrame
+2007-09-21 07:51:20,407 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner vor Delegate Ontwain
+2007-09-21 07:51:28,046 DEBUG    scan_client DmsFrame::MnuOpenScanner MnuOpenScanner nach Delegate OntwainEvent
+2007-09-21 07:51:28,046 INFO     scan_client DmsFrame::MnuAcquire Scanvorgang wird ausgeführt...
+2007-09-21 07:52:36,365 DEBUG    scan_client DmsFrame::ProcessXFer ============================================================
+2007-09-21 07:52:36,365 DEBUG    scan_client DmsFrame::ProcessXFer OnTwainEvent von DmsFrame
+2007-09-21 07:52:36,365 DEBUG    scan_client DmsFrame::ProcessXFer Caught event 257
+2007-09-21 07:53:11,621 DEBUG    scan_client DmsFrame::ProcessXFer more_to_come 0
+2007-09-21 07:53:11,653 INFO     dms DMS::convertImage Bilder werden verarbeitet
+2007-09-21 07:53:11,653 DEBUG    dms DMS::convertImage Src: tmp.bmp Dest: tmp1.tif
+2007-09-21 07:53:11,653 DEBUG    dms DMS::convertImage Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+2007-09-21 07:53:11,778 DEBUG    scan_client DmsFrame::ProcessXFer Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+2007-09-21 07:53:11,778 INFO     dms DMS::putImage Die gescannten Seiten werden übertragen
+2007-09-21 07:53:11,778 DEBUG    dms DMS::putImage Datei c:\dokume~1\bruck\lokale~1\temp\tmpo1hfyx-172.20.68.8,8080,Plone,scan,plonearticle.2007-09-10.8163209328.scan_request.scn wurde geöffnet
+2007-09-21 07:53:11,809 DEBUG    ftp Transfer::ftpConnect in der funktion ftpConnect
+2007-09-21 07:53:11,825 DEBUG    ftp Transfer::ftpConnect FTP-Status: 220 pg-webexplorer FTP server (Medusa Async V1.23 [experimental]) ready.
+2007-09-21 07:53:11,825 DEBUG    ftp Transfer::ftpConnect Verbindung= True
+2007-09-21 07:53:11,825 DEBUG    ftp Transfer::ftpConnect FTP-Status: 230 Login successful.
+2007-09-21 07:53:11,825 DEBUG    ftp Transfer::ftpCwd Current FTP-Dir: /
+2007-09-21 07:53:11,825 DEBUG    ftp Transfer::ftpCwd Try to enter FTP-Dir: scan
+2007-09-21 07:53:11,841 DEBUG    ftp Transfer::ftpCwd 250 CWD command successful.
+2007-09-21 07:53:11,841 DEBUG    ftp Transfer::ftpCwd Current FTP-Dir: /scan
+2007-09-21 07:53:11,841 DEBUG    ftp Transfer::ftpTransfer In ftpTransfer
+2007-09-21 07:53:11,841 DEBUG    ftp Transfer::ftpTransfer Verbindung OK
+2007-09-21 07:53:11,855 DEBUG    ftp Transfer::ftpTransfer Bild wird komprimiert.. yes
+2007-09-21 07:53:12,105 DEBUG    ftp Transfer::ftpTransfer Try to transfer imagefile..
+2007-09-21 07:53:12,621 DEBUG    ftp Transfer::ftpTransfer 226 Transfer complete.
+2007-09-21 07:53:12,621 DEBUG    ftp Transfer::ftpTransferToServer2 Bilder wurden gesendet
+2007-09-21 07:53:12,778 DEBUG    ftp Transfer::ftpTransferToServer2 226 Transfer complete.
+2007-09-21 07:53:12,778 DEBUG    ftp Transfer::ftpTransferToServer2 Antwortdatei wurde gesendet
+2007-09-21 07:53:12,778 DEBUG    ftp Transfer::ftpClose ftp verbindung beendet
+2007-09-21 07:53:12,778 DEBUG    dms DMS::putImage Antwort URL: http://admin:adminste@172.20.68.8:8080/Plone/hausaktena/lothringer-dell-48/plonearticle.2007-09-10.8163209328/plonearticle_scan_xfer
+2007-09-21 07:53:15,841 DEBUG    dms DMS::Static_Delete_Image Temporaere Bilddaten werden gelöscht...
+2007-09-21 07:53:15,841 INFO     scan_client DmsFrame::ProcessXFer Enthält das Dokument weitere Seiten, können diese jetzt gescannt werden.
+
+2007-09-21 07:54:30,213 DEBUG    scan_client DmsFrame::ProcessXFer ============================================================
+2007-09-21 07:54:30,213 DEBUG    scan_client DmsFrame::ProcessXFer OnTwainEvent von DmsFrame
+2007-09-21 07:54:30,213 DEBUG    scan_client DmsFrame::ProcessXFer Caught event 257
+2007-09-21 07:55:05,483 DEBUG    scan_client DmsFrame::ProcessXFer more_to_come 0
+2007-09-21 07:55:05,516 INFO     dms DMS::convertImage Bilder werden verarbeitet
+2007-09-21 07:55:05,516 DEBUG    dms DMS::convertImage Src: tmp.bmp Dest: tmp1.tif
+2007-09-21 07:55:05,516 DEBUG    dms DMS::convertImage Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+2007-09-21 07:55:05,641 DEBUG    scan_client DmsFrame::ProcessXFer Aktueller Pfad: C:\Dokumente und Einstellungen\bruck\Desktop
+2007-09-21 07:55:05,641 INFO     dms DMS::putImage Die gescannten Seiten werden übertragen
+2007-09-21 07:55:05,641 DEBUG    dms DMS::putImage Datei c:\dokume~1\bruck\lokale~1\temp\tmpo1hfyx-172.20.68.8,8080,Plone,scan,plonearticle.2007-09-10.8163209328.scan_request.scn wurde geöffnet
+2007-09-21 07:55:05,655 DEBUG    ftp Transfer::ftpConnect in der funktion ftpConnect
+2007-09-21 07:55:05,671 DEBUG    ftp Transfer::ftpConnect FTP-Status: 220 pg-webexplorer FTP server (Medusa Async V1.23 [experimental]) ready.
+2007-09-21 07:55:05,671 DEBUG    ftp Transfer::ftpConnect Verbindung= True
+2007-09-21 07:55:05,671 DEBUG    ftp Transfer::ftpConnect FTP-Status: 230 Login successful.
+2007-09-21 07:55:05,671 DEBUG    ftp Transfer::ftpCwd Current FTP-Dir: /
+2007-09-21 07:55:05,671 DEBUG    ftp Transfer::ftpCwd Try to enter FTP-Dir: scan
+2007-09-21 07:55:05,687 DEBUG    ftp Transfer::ftpCwd 250 CWD command successful.
+2007-09-21 07:55:05,687 DEBUG    ftp Transfer::ftpCwd Current FTP-Dir: /scan
+2007-09-21 07:55:05,687 DEBUG    ftp Transfer::ftpTransfer In ftpTransfer
+2007-09-21 07:55:05,687 DEBUG    ftp Transfer::ftpTransfer Verbindung OK

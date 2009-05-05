@@ -1,0 +1,334 @@
+JavaFIBS internal match representation v1.1
+8:Treasures:3
+13:Treasures: 
+6:You:Treasures
+11:Treasures:2 5
+1:Treasures: 12-17 17-19
+0:You:3 6
+1:You:24-18 13-10 
+0:Treasures:6 3
+1:Treasures: 12-18 1-4
+0:You:2 2
+1:You:bar-23 6-4 6-4 23-21 
+0:Treasures:3 6
+1:Treasures: bar-3 3-9
+0:You:4 2
+1:You:13-9 24-22 
+0:Treasures:5 2
+1:Treasures: bar-2 18-23
+0:You:4 4
+1:You:10-6 6-2 6-2 13-9 
+0:Treasures:3 1
+1:Treasures: bar-1 12-15
+0:You:4 1
+1:You:22-18 21-20 
+0:Treasures:5 6
+1:Treasures: 12-18 18-23
+0:You:4 2
+1:You:bar-21 20-18 
+0:Treasures:2 6
+1:Treasures: 12-18 15-17
+0:You:5 4
+1:You:bar-21 13-8 
+0:Treasures:1 2
+1:Treasures: 18-20 19-20
+0:You:6 2
+1:You:13-7 9-7 
+0:Treasures:1 4
+1:Treasures: 19-23 19-20
+0:You:5 2
+1:You:9-4 8-6 
+0:Treasures:5 6
+1:Treasures: 17-23 17-22
+0:You:3 4
+1:You:21-18 18-14 
+0:Treasures:2 5
+1:Treasures: 17-22 17-19
+0:You:2 5
+1:You:21-16 14-12 
+0:Treasures:4 3
+1:Treasures: 19-23 20-23
+0:You:3 4
+1:You:12-9 16-12 
+0:Treasures:1 2
+1:Treasures: 19-21 21-22
+0:You:2 2
+1:You:12-10 10-8 8-6 9-7 
+0:Treasures:1 6
+1:Treasures: 22-23
+0:You:4 3
+1:You:7-3 6-3 
+0:Treasures:6 3
+1:Treasures: 20-23
+2:You: 
+5:Treasures:
+7:You:1
+14:sorrytigger-1:Treasures-0
+13:Treasures: 
+6:You:Treasures
+11:Treasures:4 5
+1:Treasures: 1-5 5-10
+0:You:6 1
+1:You:13-7 8-7 
+0:Treasures:4 1
+1:Treasures: 10-14 1-2
+0:You:5 4
+1:You:13-8 24-20 
+0:Treasures:3 5
+1:Treasures: 14-19 2-5
+0:You:2 6
+1:You:24-18 20-18 
+0:Treasures:3 2
+1:Treasures: 12-15 15-17
+0:You:6 4
+1:You:8-2 6-2 
+0:Treasures:5 1
+1:Treasures: 5-10 10-11
+0:You:6 4
+1:You:13-7 7-3 
+0:Treasures:6 4
+1:Treasures: 11-17 17-21
+0:You:4 3
+1:You:6-3 8-4 
+0:Treasures:4 2
+1:Treasures: 17-21 19-21
+0:You:3 4
+1:You:13-9 13-10 
+0:Treasures:6 2
+1:Treasures: 12-14 14-20
+0:You:3 4
+1:You:9-5 8-5 
+0:Treasures:4 1
+1:Treasures: 17-21 20-21
+0:You:5 1
+1:You:10-5 5-4 
+0:Treasures:3 2
+1:Treasures: 12-15 15-17
+0:You:6 3
+1:You:18-15 15-9 
+0:Treasures:2 3
+1:Treasures: 17-20 19-21
+0:You:6 2
+1:You:18-16 16-10 
+0:Treasures:5 1
+1:Treasures: 12-17 12-13
+0:You:4 3
+1:You:9-5 7-4 
+0:Treasures:3 5
+1:Treasures: 13-18 17-20
+0:You:6 1
+1:You:10-4 7-6 
+0:Treasures:5 3
+1:Treasures: 17-22 17-20
+0:You:4 6
+1:You: 6-o 4-o
+0:Treasures:2 4
+1:Treasures: 18-22 21-23
+0:You:3 1
+1:You:3-off 2-1 
+0:Treasures:4 1
+1:Treasures: 21-off 23-24
+2:You: 
+5:Treasures:
+7:You:1
+14:sorrytigger-2:Treasures-0
+13:Treasures: 
+6:You:Treasures
+11:Treasures:1 2
+1:Treasures: 12-14 14-15
+0:You:4 1
+1:You:13-9 24-23 
+0:Treasures:1 5
+1:Treasures: 19-24 15-16
+0:You:2 6
+1:You:bar-23 13-7 
+0:Treasures:2 6
+1:Treasures: 12-18 16-18
+0:You:6 6
+1:You:13-7 8-2 8-2 9-3 
+0:Treasures:6 5
+1:Treasures: 12-18 19-24
+0:You:6 6
+1:You:13-7 13-7 8-2 
+0:Treasures:5 5
+1:Treasures: 12-17 12-17 17-22 17-22
+0:You:2 5
+1:You:23-21 21-16 
+0:Treasures:3 3
+1:Treasures: 1-4 1-4 17-20 20-23
+0:You:2 3
+1:You:bar-23 6-3 
+0:Treasures:5 3
+1:Treasures: bar-5 5-8
+0:You:1 2
+1:You:7-5 6-5 
+0:Treasures:4 4
+1:Treasures: 8-12 12-16 4-8 4-8
+0:You:1 3
+15:You: 
+0:Treasures:6 2
+1:Treasures: 8-14 14-16
+0:You:2 1
+1:You:bar-23 6-5 
+0:Treasures:6 3
+1:Treasures: 8-14 14-17
+0:You:5 6
+1:You:7-1 7-2 
+0:Treasures:4 3
+1:Treasures: 17-21 18-21
+0:You:6 5
+1:You: 6-1 7-1
+0:Treasures:2 6
+1:Treasures: 16-22 16-18
+0:You:6 3
+1:You: 23-20 20-14
+0:Treasures:4 3
+1:Treasures: 17-21 21-24
+0:You:2 6
+1:You:23-17 14-12 
+0:Treasures:1 3
+15:Treasures: 
+0:You:5 5
+1:You:17-12 12-7 12-7 6-1 
+0:Treasures:6 6
+1:Treasures: bar-6 6-12 12-18 18-24
+0:You:3 2
+1:You:7-4 7-5 
+0:Treasures:5 3
+1:Treasures: 18-23 18-21
+0:You:6 2
+1:You: 5-o 2-o
+0:Treasures:3 3
+1:Treasures: 18-21 22-off 22-off 22-off
+0:You:5 4
+1:You: 5-o 4-o
+0:Treasures:6 4
+1:Treasures: 19-off 21-off
+0:You:3 6
+1:You: 5-o 3-o
+0:Treasures:1 4
+1:Treasures: 21-off 24-off
+0:You:2 3
+1:You: 3-o 2-o
+0:Treasures:5 4
+1:Treasures: 19-24 21-off
+0:You:5 6
+1:You: 5-off 2-off
+0:Treasures:6 6
+1:Treasures: 19-off 21-off 23-off 24-off
+0:You:2 4
+1:You: 2-off 1-off
+0:Treasures:6 2
+1:Treasures: 24-off 24-off
+0:You:1 5
+1:You: 1-off 1-off
+0:Treasures:3 1
+1:Treasures: 24-off
+7:Treasures:1
+14:Treasures-1:sorrytigger-2
+13:Treasures: 
+6:You:Treasures
+11:You:5 3
+1:You:17-22 19-22 
+0:Treasures:4 1
+1:Treasures: 13-9 9-8
+0:You:2 2
+1:You:1-3 1-3 19-21 19-21 
+0:Treasures:2 5
+1:Treasures: 13-8 8-6
+0:You:1 4
+1:You:12-16 16-17 
+0:Treasures:3 3
+1:Treasures: 13-10 13-10 13-10 10-7
+0:You:4 1
+1:You:3-7 12-13 
+0:Treasures:3 4
+15:Treasures: 
+0:You:1 6
+1:You:12-18 17-18 
+0:Treasures:6 5
+1:Treasures: bar-20 20-14
+0:You:5 5
+1:You:7-12 13-18 12-17 17-22 
+0:Treasures:2 1
+1:Treasures: 14-13 13-11
+0:You:1 4
+1:You:3-7 18-19 
+0:Treasures:5 4
+1:Treasures: 11-7 10-5
+0:You:5 1
+1:You:bar-5 12-13 
+0:Treasures:1 3
+1:Treasures: bar-24 10-7
+0:You:3 6
+1:You:5-11 11-14 
+0:Treasures:1 4
+1:Treasures: 8-4 6-5
+0:You:1 3
+1:You:17-20 19-20 
+0:Treasures:4 3
+1:Treasures: 8-4 8-5
+0:You:6 3
+1:You:14-17 12-18 
+0:Treasures:5 6
+1:Treasures: 8-2 7-2
+0:You:2 2
+1:You:13-15 15-17 17-19 19-21 
+0:Treasures:1 4
+1:Treasures: 7-3 3-2
+0:You:1 2
+1:You:21-23 22-23 
+0:Treasures:2 2
+1:Treasures: 6-4 6-4 4-2 4-2
+0:You:1 1
+1:You:18-19 17-18 18-19 17-18 
+0:Treasures:2 5
+1:Treasures: 6-1 4-2
+0:You:3 2
+1:You:18-21 19-21 
+0:Treasures:2 3
+1:Treasures: 4-1 6-4
+0:You:3 2
+1:You:18-21 18-20 
+0:Treasures:1 6
+1:Treasures: 24-18 4-3
+0:You:5 6
+1:You: 19-off 20-off
+0:Treasures:1 6
+1:Treasures: 18-12 12-11
+0:You:5 1
+1:You:20-off 20-21 
+0:Treasures:2 3
+1:Treasures: 11-8 8-6
+0:You:6 2
+1:You:19-off 19-21 
+0:Treasures:4 2
+1:Treasures: 5-1 5-3
+0:You:1 2
+1:You:21-23 21-22 
+0:Treasures:4 5
+1:Treasures: 6-1 6-2
+0:You:5 4
+1:You: 21-off 21-off
+0:Treasures:1 4
+1:Treasures: 24-20 3-2
+0:You:4 2
+1:You:21-off 23-off 
+0:Treasures:1 2
+1:Treasures: 3-1 20-19
+0:You:5 1
+1:You:21-off 21-22 
+0:Treasures:3 2
+1:Treasures: 19-16 16-14
+0:You:3 3
+1:You: 22-off 22-off 22-off 22-off
+0:Treasures:6 6
+1:Treasures: 14-8 8-2 24-18 18-12
+0:You:2 1
+1:You: 23-24 23-off
+0:Treasures:1 3
+1:Treasures: 12-9 9-8
+0:You:5 5
+1:You: 24-off
+7:You:2
+9:You:3

@@ -1,0 +1,99 @@
+JavaFIBS internal match representation v1.1
+8:peckerone:3
+13:peckerone: 
+6:You:peckerone
+11:peckerone:2 4
+1:peckerone: 8-4 6-4
+0:You:5 1
+1:You:12-17 19-20 
+0:peckerone:6 4
+1:peckerone: 24-18 24-20
+0:You:5 6
+1:You:bar-5 12-18 
+0:peckerone:4 5
+1:peckerone: bar-20 13-9
+0:You:6 5
+1:You:12-18 17-22 
+0:peckerone:5 6
+1:peckerone: 20-14 14-9
+0:You:4 1
+1:You:18-22 19-20 
+0:peckerone:1 1
+1:peckerone: bar-24 6-5 6-5 24-23
+0:You:5 6
+15:You: 
+2:peckerone: 
+4:You:
+0:peckerone:2 4
+1:peckerone: 13-9 23-21
+0:You:2 6
+1:You:bar-2 12-18 
+0:peckerone:5 3
+1:peckerone: 21-16 16-13
+0:You:6 6
+1:You:1-7 1-7 12-18 17-23 
+0:peckerone:2 4
+1:peckerone: 9-5 5-3
+0:You:4 5
+1:You:18-23 17-21 
+0:peckerone:6 2
+1:peckerone: 13-11 11-5
+0:You:4 2
+1:You:17-21 18-20 
+0:peckerone:4 2
+1:peckerone: 5-3 13-9
+0:You:5 2
+1:You:2-7 18-20 
+0:peckerone:5 2
+1:peckerone: 9-4 4-2
+0:You:1 4
+1:You:20-24 19-20 
+0:peckerone:4 5
+1:peckerone: 13-8 13-9
+0:You:3 1
+1:You:7-10 20-21 
+0:peckerone:6 3
+1:peckerone: 8-2 9-6
+0:You:4 1
+1:You:10-14 21-22 
+0:peckerone:1 2
+1:peckerone: 6-4 4-3
+0:You:5 3
+1:You:19-24 14-17 
+0:peckerone:3 4
+1:peckerone: 9-5 9-6
+0:You:1 5
+1:You:17-18 19-24 
+0:peckerone:5 2
+1:peckerone: 8-3 8-6
+0:You:4 3
+1:You:7-11 11-14 
+0:peckerone:3 1
+1:peckerone: 3-off 2-1
+0:You:6 6
+1:You: 7-13 13-19 14-20 18-24
+0:peckerone:3 5
+1:peckerone: 5-o 3-o
+0:You:2 2
+1:You:23-off 23-off 21-23 23-off 
+0:peckerone:6 3
+1:peckerone: 6-o 3-o
+0:You:1 1
+1:You: 24-o 24-o 24-o 24-o
+0:peckerone:4 5
+1:peckerone: 5-o 4-o
+0:You:4 3
+1:You: 21-o 22-o
+0:peckerone:6 1
+1:peckerone: 6-o 1-o
+0:You:4 4
+1:You: 19-23 20-24 20-24 20-24
+0:peckerone:6 3
+1:peckerone: 6-o 3-o
+2:You: 
+5:peckerone:
+7:You:2
+14:sorrytigger-2:peckerone-0
+13:peckerone: 
+6:You:peckerone
+11:peckerone:1 6

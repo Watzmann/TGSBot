@@ -1,0 +1,176 @@
+JavaFIBS internal match representation v1.1
+8:Kyalia:3
+13:Kyalia: 
+6:You:Kyalia
+11:Kyalia:3 5
+1:Kyalia: 17-22 19-22
+0:You:1 1
+1:You:6-5 6-5 8-7 8-7 
+0:Kyalia:5 6
+1:Kyalia: 12-18 12-17
+0:You:2 3
+1:You:13-10 10-8 
+0:Kyalia:4 2
+1:Kyalia: 12-16 16-18
+0:You:6 4
+1:You:24-20 20-14 
+0:Kyalia:6 2
+1:Kyalia: 12-14 12-18
+0:You:6 2
+1:You:bar-23 13-7 
+0:Kyalia:1 5
+1:Kyalia: 14-19 1-2
+0:You:1 1
+1:You:24-23 6-5 7-6 13-12 
+0:Kyalia:2 6
+1:Kyalia: 1-3 3-9
+0:You:6 3
+1:You:12-9 13-7 
+0:Kyalia:2 2
+1:Kyalia: bar-2 19-21 19-21 19-21
+0:You:4 4
+1:You:13-9 8-4 8-4 5-1 
+0:Kyalia:4 5
+1:Kyalia: 18-22 17-22
+0:You:2 6
+1:You:7-1 6-4 
+0:Kyalia:6 4
+1:Kyalia: 2-8 8-12
+0:You:4 4
+1:You:6-2 6-2 7-3 7-3 
+0:Kyalia:5 4
+15:Kyalia: 
+0:You:5 3
+1:You:23-20 20-15 
+0:Kyalia:3 2
+15:Kyalia: 
+0:You:6 4
+1:You:15-9 9-5 
+0:Kyalia:4 3
+15:Kyalia: 
+0:You:1 2
+1:You:4-2 2-1 
+0:Kyalia:5 5
+15:Kyalia: 
+0:You:1 2
+1:You:5-3 3-2 
+0:Kyalia:6 2
+1:Kyalia: bar-6 6-8
+0:You:1 2
+1:You:9-8 9-7 
+0:Kyalia:4 3
+15:Kyalia: 
+0:You:2 2
+1:You:7-5 8-6 6-4 4-2 
+0:Kyalia:4 4
+15:Kyalia: 
+0:You:5 5
+15:You: 
+0:Kyalia:2 1
+15:Kyalia: 
+0:You:5 3
+1:You: 23-20 20-15
+0:Kyalia:6 4
+1:Kyalia: bar-6 12-16
+0:You:6 5
+1:You: 15-10 10-4
+0:Kyalia:4 2
+1:Kyalia: 16-20 18-20
+0:You:2 1
+1:You: 2-o 1-o
+0:Kyalia:1 5
+1:Kyalia: 6-11 18-19
+0:You:2 2
+1:You:2-off 2-off 2-off 4-2 
+0:Kyalia:4 6
+1:Kyalia: 11-17 17-21
+0:You:3 6
+1:You: 5-o 3-o
+0:Kyalia:1 4
+1:Kyalia: 17-21 17-18
+0:You:6 2
+1:You: 5-o 2-o
+0:Kyalia:5 4
+1:Kyalia: 18-23 21-off
+2:You: 
+5:Kyalia:
+7:You:1
+14:sorrytigger-1:Kyalia-0
+13:Kyalia: 
+6:You:Kyalia
+11:You:6 4
+1:You:8-2 6-2 
+0:Kyalia:5 6
+1:Kyalia: 1-7 7-12
+0:You:2 4
+1:You:8-4 6-4 
+0:Kyalia:2 6
+1:Kyalia: 1-7 7-9
+0:You:6 2
+1:You:13-7 7-5 
+0:Kyalia:1 3
+1:Kyalia: 17-20 19-20
+0:You:4 2
+1:You:13-9 8-6 
+0:Kyalia:4 4
+15:Kyalia: 
+0:You:4 4
+1:You:9-5 13-9 13-9 13-9 
+0:Kyalia:2 5
+15:Kyalia: 
+0:You:4 4
+1:You:9-5 9-5 5-1 5-1 
+0:Kyalia:2 6
+15:Kyalia: 
+0:You:1 1
+1:You:24-23 23-22 24-23 6-5 
+0:Kyalia:1 1
+15:Kyalia: 
+0:You:4 5
+1:You:23-18 22-18 
+0:Kyalia:3 2
+1:Kyalia: bar-3 19-21
+0:You:5 5
+1:You:18-13 18-13 9-4 6-1 
+0:Kyalia:3 4
+1:Kyalia: 17-21 19-22
+0:You:1 3
+1:You:4-3 13-10 
+0:Kyalia:1 4
+15:Kyalia: 
+0:You:2 6
+1:You:5-3 13-7 
+0:Kyalia:4 4
+15:Kyalia: 
+0:You:5 2
+1:You:10-5 7-5 
+0:Kyalia:4 4
+15:Kyalia: 
+0:You:6 1
+1:You:6-off 6-5 
+0:Kyalia:6 3
+1:Kyalia: bar-6 17-20
+0:You:5 5
+1:You: 5-off 5-off 5-off 5-off
+0:Kyalia:6 1
+1:Kyalia: 12-18 18-19
+0:You:6 3
+1:You: 5-o 3-o
+0:Kyalia:4 6
+1:Kyalia: 12-18 12-16
+0:You:5 4
+1:You: 4-off 4-off
+0:Kyalia:3 2
+1:Kyalia: 6-9 18-20
+0:You:6 5
+1:You: 3-off 2-off
+0:Kyalia:5 1
+1:Kyalia: 12-17 17-18
+0:You:1 1
+1:You: 2-1 1-off 1-off 1-off
+0:Kyalia:3 5
+1:Kyalia: 16-21 18-21
+0:You:1 6
+1:You: 1-off
+7:You:2
+9:You:3

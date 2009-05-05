@@ -1,0 +1,389 @@
+JavaFIBS internal match representation v1.1
+8:Iceborg:7
+13:Iceborg: 
+6:You:Iceborg
+11:You:5 4
+1:You:12-17 12-16 
+0:Iceborg:5 4
+1:Iceborg: 24-20 20-15
+0:You:6 3
+1:You:16-22 19-22 
+0:Iceborg:5 2
+1:Iceborg: 15-13 13-8
+0:You:3 2
+1:You:1-4 12-14 
+0:Iceborg:6 2
+1:Iceborg: 24-18 18-16
+0:You:5 4
+1:You:12-16 14-19 
+0:Iceborg:6 2
+1:Iceborg: bar-23 8-2
+0:You:1 1
+1:You:1-2 4-5 19-20 19-20 
+0:Iceborg:5 5
+15:Iceborg: 
+0:You:3 4
+1:You:19-23 17-20 
+0:Iceborg:4 3
+1:Iceborg: bar-21
+0:You:4 4
+1:You:17-21 17-21 17-21 12-16 
+0:Iceborg:1 3
+1:Iceborg: bar-24
+0:You:1 4
+1:You:20-24 23-24 
+0:Iceborg:1 1
+15:Iceborg: 
+0:You:3 5
+1:You:2-7 16-19 
+0:Iceborg:2 5
+1:Iceborg: bar-23
+0:You:2 4
+1:You:19-23 21-23 
+0:Iceborg:4 1
+15:Iceborg: 
+0:You:6 6
+1:You: 5-11 11-17 16-22 17-23
+0:Iceborg:6 3
+15:Iceborg: 
+0:You:6 3
+1:You: 7-10 10-16
+0:Iceborg:3 4
+15:Iceborg: 
+0:You:1 1
+1:You:16-17 17-18 18-19 19-20 
+0:Iceborg:4 4
+15:Iceborg: 
+0:You:2 5
+1:You:20-off 23-off 
+0:Iceborg:2 4
+15:Iceborg: 
+0:You:1 4
+1:You:19-23 19-20 
+0:Iceborg:1 5
+15:Iceborg: 
+0:You:6 4
+1:You:20-off 21-off 
+0:Iceborg:4 1
+1:Iceborg: bar-21
+0:You:3 3
+1:You: bar-3 20-23 20-23
+0:Iceborg:3 6
+1:Iceborg: bar-19 13-10
+0:You:1 3
+1:You: 3-4 4-7
+0:Iceborg:4 6
+1:Iceborg: 13-7 19-15
+0:You:6 1
+1:You: bar-1 1-7
+0:Iceborg:4 3
+1:Iceborg: bar-21 10-7
+0:You:1 5
+1:You:bar-5 23-24 
+0:Iceborg:3 4
+1:Iceborg: 7-3 6-3
+0:You:4 4
+1:You: 5-9
+0:Iceborg:3 5
+1:Iceborg: 15-10 10-7
+0:You:3 5
+1:You: 9-14 14-17
+0:Iceborg:5 3
+1:Iceborg: 13-8 8-5
+0:You:6 3
+1:You:17-23 22-off 
+0:Iceborg:1 4
+1:Iceborg: 8-4 7-6
+0:You:1 4
+1:You: 22-o 24-o
+0:Iceborg:1 5
+1:Iceborg: 13-8 13-12
+0:You:3 5
+1:You: 22-off 23-off
+0:Iceborg:1 3
+1:Iceborg: 21-18 21-20
+3:Iceborg:2
+7:You:2
+14:sorrytigger-2:Iceborg-0
+13:Iceborg: 
+6:You:Iceborg
+11:You:2 1
+1:You:13-11 24-23 
+0:Iceborg:3 3
+1:Iceborg: 19-22 19-22 12-15 12-15
+0:You:2 4
+1:You:8-4 6-4 
+0:Iceborg:4 5
+1:Iceborg: 1-5 5-10
+0:You:2 3
+1:You:13-10 23-21 
+0:Iceborg:1 3
+1:Iceborg: bar-3 1-2
+0:You:6 6
+1:You:8-2 8-2 13-7 13-7 
+0:Iceborg:3 1
+1:Iceborg: bar-3 12-13
+0:You:6 6
+15:You: 
+0:Iceborg:1 6
+1:Iceborg: 3-9 9-10
+0:You:1 1
+1:You:bar-24 bar-24 6-5 6-5 
+0:Iceborg:5 5
+1:Iceborg: 3-8 8-13 10-15 17-22
+0:You:2 3
+1:You:24-21 11-9 
+2:Iceborg: 
+5:You:
+7:Iceborg:1
+14:Iceborg-1:sorrytigger-2
+13:Iceborg: 
+6:You:Iceborg
+11:Iceborg:3 4
+1:Iceborg: 13-9 24-21
+0:You:3 5
+1:You:1-4 4-9 
+0:Iceborg:2 1
+1:Iceborg: bar-23 24-23
+0:You:3 5
+1:You:1-4 4-9 
+0:Iceborg:5 5
+1:Iceborg: 21-16 23-18 23-18 16-11
+0:You:2 3
+1:You:9-12 9-11 
+0:Iceborg:3 3
+1:Iceborg: bar-22 8-5 8-5 6-3
+0:You:2 5
+1:You:17-22 22-24 
+0:Iceborg:4 5
+1:Iceborg: bar-21 8-3
+0:You:2 1
+1:You:19-20 20-22 
+0:Iceborg:1 6
+1:Iceborg: 13-7 6-5
+0:You:2 4
+1:You:11-15 15-17 
+0:Iceborg:6 6
+1:Iceborg: 21-15 15-9 13-7 7-1
+0:You:6 3
+1:You:12-15 15-21 
+0:Iceborg:4 1
+1:Iceborg: 5-1 9-8
+0:You:1 1
+1:You:19-20 19-20 22-23 23-24 
+0:Iceborg:2 3
+1:Iceborg: 7-4 6-4
+0:You:4 1
+1:You:12-16 16-17 
+0:Iceborg:4 4
+1:Iceborg: 18-14 18-14 14-10 14-10
+0:You:5 4
+1:You:17-22 17-21 
+2:Iceborg: 
+5:You:
+7:Iceborg:1
+14:Iceborg-2:sorrytigger-2
+13:Iceborg: 
+6:You:Iceborg
+11:Iceborg:5 6
+1:Iceborg: 24-18 18-13
+0:You:2 6
+1:You:1-7 12-14 
+0:Iceborg:5 1
+1:Iceborg: 8-7 6-1
+0:You:1 4
+1:You: bar-4 bar-1
+0:Iceborg:3 6
+1:Iceborg: bar-22 13-7
+0:You:4 4
+1:You:12-16 12-16 16-20 16-20 
+0:Iceborg:4 5
+1:Iceborg: 22-18 18-13
+0:You:4 1
+1:You:14-18 17-18 
+0:Iceborg:1 2
+1:Iceborg: 24-22 22-21
+0:You:2 4
+1:You:17-21 19-21 
+0:Iceborg:2 1
+1:Iceborg: bar-23 23-22
+2:You: 
+5:Iceborg:
+7:You:1
+14:sorrytigger-3:Iceborg-2
+13:Iceborg: 
+6:You:Iceborg
+11:You:2 1
+1:You:13-11 24-23 
+0:Iceborg:1 4
+1:Iceborg: 19-23 23-24
+0:You:6 3
+1:You: bar-22
+0:Iceborg:5 3
+1:Iceborg: 17-22 19-22
+0:You:3 2
+1:You: bar-23
+2:Iceborg: 
+4:You:
+0:Iceborg:5 2
+1:Iceborg: 19-24 1-3
+0:You:6 5
+1:You:bar-20 20-14 
+0:Iceborg:6 4
+1:Iceborg: 1-7 7-11
+0:You:5 3
+1:You:bar-20 14-11 
+0:Iceborg:1 1
+1:Iceborg: bar-1 22-23 22-23 3-4
+0:You:3 6
+1:You:bar-22 20-14 
+0:Iceborg:1 1
+1:Iceborg: 17-18 17-18 1-2 2-3
+0:You:4 4
+1:You:8-4 8-4 6-2 6-2 
+0:Iceborg:2 6
+15:Iceborg: 
+0:You:3 4
+1:You:11-8 14-10 
+0:Iceborg:1 1
+1:Iceborg: bar-1 18-19 18-19 19-20
+2:You: 
+5:Iceborg:
+7:You:2
+14:sorrytigger-5:Iceborg-2
+13:Iceborg: 
+6:You:Iceborg
+11:Iceborg:3 4
+1:Iceborg: 12-16 1-4
+0:You:1 3
+1:You:8-5 6-5 
+0:Iceborg:2 2
+1:Iceborg: 12-14 14-16 16-18 16-18
+0:You:2 3
+1:You:6-4 4-1 
+0:Iceborg:1 3
+1:Iceborg: bar-3 bar-1
+0:You:6 3
+1:You:bar-22 22-16 
+0:Iceborg:4 1
+1:Iceborg: 12-16 3-4
+0:You:3 3
+1:You:bar-22 24-21 24-21 13-10 
+0:Iceborg:3 6
+1:Iceborg: 16-22 19-22
+0:You:2 2
+1:You:bar-23 6-4 8-6 6-4 
+0:Iceborg:2 5
+1:Iceborg: bar-2 17-22
+0:You:3 2
+1:You:10-8 23-20 
+0:Iceborg:6 6
+1:Iceborg: 12-18 12-18 18-24 18-24
+0:You:5 3
+1:You:20-15 15-12 
+0:Iceborg:1 1
+1:Iceborg: 19-20 19-20 1-2 2-3
+0:You:4 4
+1:You:13-9 13-9 12-8 8-4 
+0:Iceborg:3 6
+1:Iceborg: 17-23 17-20
+0:You:1 1
+1:You:4-3 3-2 2-1 13-12 
+0:Iceborg:3 4
+1:Iceborg: bar-3
+0:You:2 3
+1:You:13-10 12-10 
+0:Iceborg:2 5
+1:Iceborg: bar-2 2-7
+0:You:5 1
+1:You:8-7 8-3 
+0:Iceborg:3 3
+1:Iceborg: bar-3 bar-3 20-23 20-23
+0:You:3 2
+15:You: 
+0:Iceborg:1 5
+1:Iceborg: 3-8 19-20
+0:You:4 4
+1:You:bar-21 7-3 9-5 5-1 
+0:Iceborg:1 6
+15:Iceborg: 
+0:You:4 4
+1:You:10-6 10-6 6-2 6-2 
+0:Iceborg:5 4
+15:Iceborg: 
+0:You:3 2
+1:You:21-19 19-16 
+0:Iceborg:3 5
+1:Iceborg: bar-3
+0:You:3 1
+15:You: 
+0:Iceborg:6 3
+1:Iceborg: bar-3 3-9
+0:You:6 3
+1:You: bar-19
+2:Iceborg: 
+4:You:
+0:Iceborg:2 4
+1:Iceborg: 3-7 7-9
+0:You:6 6
+1:You:bar-19 19-13 19-13 16-10 
+0:Iceborg:1 5
+1:Iceborg: 9-10 10-15
+0:You:6 6
+1:You:bar-19 21-15 15-9 21-15 
+0:Iceborg:5 6
+15:Iceborg: 
+0:You:2 4
+1:You:13-9 13-11 
+0:Iceborg:1 4
+15:Iceborg: 
+0:You:1 6
+1:You:15-9 9-8 
+0:Iceborg:3 1
+1:Iceborg: bar-3
+0:You:1 3
+1:You:8-5 9-8 
+0:Iceborg:2 2
+15:Iceborg: 
+0:You:3 3
+1:You:9-6 6-3 11-8 19-16 
+0:Iceborg:4 4
+15:Iceborg: 
+0:You:2 1
+1:You:5-3 16-15 
+0:Iceborg:2 4
+15:Iceborg: 
+0:You:1 6
+1:You:15-9 8-7 
+0:Iceborg:3 3
+15:Iceborg: 
+0:You:5 3
+1:You:9-4 7-4 
+0:Iceborg:4 2
+15:Iceborg: 
+0:You:5 4
+1:You:8-3 4-off 
+0:Iceborg:6 5
+15:Iceborg: 
+0:You:4 5
+1:You:6-1 6-2 
+0:Iceborg:1 6
+1:Iceborg: bar-6
+0:You:3 6
+1:You:5-off 5-2 
+0:Iceborg:1 1
+15:Iceborg: 
+0:You:2 4
+1:You:4-off 3-1 
+0:Iceborg:1 1
+15:Iceborg: 
+0:You:3 2
+1:You:4-1 4-2 
+0:Iceborg:3 2
+15:Iceborg: 
+0:You:4 1
+1:You:3-off 3-2 
+0:Iceborg:4 4
+3:Iceborg:6
+7:You:6
+9:You:7

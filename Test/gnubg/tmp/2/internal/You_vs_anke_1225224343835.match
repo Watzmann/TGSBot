@@ -1,0 +1,250 @@
+JavaFIBS internal match representation v1.1
+8:anke:5
+13:anke: 
+6:You:anke
+11:You:4 3
+1:You:12-16 12-15 
+0:anke:4 3
+1:anke: 24-20 13-10
+0:You:6 4
+1:You:15-21 17-21 
+0:anke:2 2
+1:anke: 20-18 18-16 6-4 6-4
+0:You:4 3
+1:You:bar-3 12-16 
+0:anke:2 2
+1:anke: bar-23 13-11 13-11 24-22
+0:You:3 4
+1:You:3-7 7-10 
+0:anke:6 2
+1:anke: bar-23 22-16
+0:You:2 6
+1:You:bar-2 10-16 
+0:anke:6 5
+1:anke: bar-20 8-2
+0:You:6 2
+1:You:bar-2 1-7 
+0:anke:3 3
+1:anke: bar-22 13-10 10-7 13-10
+0:You:6 5
+1:You:bar-5 1-7 
+0:anke:2 6
+1:anke: bar-23 22-16
+0:You:5 3
+1:You:bar-5 7-10 
+0:anke:4 5
+1:anke: bar-20 20-16
+0:You:2 1
+1:You:10-12 19-20 
+0:anke:3 5
+1:anke: bar-20 23-20
+0:You:6 3
+1:You:bar-3 3-9 
+0:anke:1 6
+1:anke: 16-15 15-9
+0:You:4 3
+1:You:bar-3 5-9 
+0:anke:2 4
+1:anke: bar-23 20-16
+0:You:3 1
+1:You:17-20 19-20 
+0:anke:3 4
+1:anke: bar-22 6-2
+0:You:5 6
+1:You:bar-5 3-9 
+0:anke:2 4
+1:anke: 22-18 18-16
+0:You:6 2
+1:You:9-15 15-17 
+0:anke:4 2
+1:anke: 16-14 14-10
+0:You:2 1
+1:You:9-10 10-12 
+0:anke:6 1
+1:anke: bar-24 8-2
+0:You:6 5
+1:You:12-18 19-24 
+0:anke:2 5
+1:anke: bar-23 23-18
+0:You:3 1
+1:You:bar-3 12-13 
+0:anke:5 5
+1:anke: 23-18 18-13 13-8 8-3
+0:You:4 2
+15:You: 
+2:anke: 
+4:You:
+0:anke:4 5
+1:anke: 23-18 18-14
+0:You:4 4
+15:You: 
+0:anke:4 4
+1:anke: 11-7 7-3 18-14 11-7
+0:You:1 6
+1:You: bar-1
+0:anke:1 2
+1:anke: 8-7 16-14
+0:You:4 3
+15:You: 
+0:anke:3 4
+1:anke: 14-11 11-7
+0:You:5 3
+1:You:bar-5 17-20 
+0:anke:6 4
+1:anke: 23-17 17-13
+0:You:4 2
+15:You: 
+0:anke:4 5
+1:anke: 13-9 14-9
+0:You:6 2
+15:You: 
+0:anke:5 1
+1:anke: 14-9 16-15
+0:You:1 1
+1:You:bar-1 20-21 21-22 22-23 
+0:anke:6 3
+1:anke: 15-9 9-6
+0:You:4 6
+1:You:5-11 12-16 
+0:anke:6 1
+1:anke: 9-8 8-2
+0:You:1 6
+1:You:12-18 16-17 
+0:anke:6 6
+1:anke: 9-3 9-3
+0:You:1 3
+1:You:17-18 11-14 
+0:anke:5 6
+1:anke: 7-2
+0:You:5 6
+1:You:18-24 18-23 
+0:anke:1 4
+1:anke: 7-6 7-3
+0:You:3 3
+1:You:5-8 8-11 14-17 11-14 
+0:anke:6 4
+1:anke: 6-off 6-2
+0:You:4 1
+1:You:17-21 21-22 
+0:anke:5 2
+1:anke: 2-off
+0:You:5 4
+1:You:5-10 14-18 
+0:anke:4 2
+1:anke: 6-2 6-4
+0:You:2 6
+1:You:10-16 18-20 
+0:anke:4 1
+1:anke: 4-off 3-2
+0:You:3 1
+1:You:16-19 20-21 
+0:anke:5 5
+1:anke: 4-off 4-off 3-off 3-off
+0:You:1 1
+1:You:21-22 19-20 20-21 21-22 
+0:anke:3 5
+1:anke: 3-off 3-off
+0:You:5 6
+1:You:1-7 7-12 
+0:anke:6 6
+1:anke: 2-off 2-off 2-off 2-off
+0:You:5 3
+1:You:1-6 6-9 
+0:anke:6 3
+1:anke: 2-off 2-off
+7:anke:4
+14:anke-4:sorrytigger-0
+13:anke: 
+6:You:anke
+11:You:6 1
+1:You:12-18 17-18 
+0:anke:2 1
+1:anke: 24-23 13-11
+0:You:3 5
+1:You:12-17 1-4 
+0:anke:3 6
+1:anke: 11-5 8-5
+0:You:2 2
+1:You:19-21 19-21 21-23 21-23 
+0:anke:6 4
+1:anke: bar-21 21-15
+0:You:1 1
+1:You:17-18 18-19 19-20 19-20 
+0:anke:3 1
+1:anke: 6-5 24-21
+0:You:6 1
+1:You:12-18 1-2 
+0:anke:2 2
+1:anke: 6-4 6-4 4-2 4-2
+0:You:6 3
+1:You: bar-3
+0:anke:3 2
+1:anke: 13-11 11-8
+0:You:5 2
+15:You: 
+0:anke:6 4
+1:anke: 15-9 13-9
+0:You:4 1
+1:You:bar-4 3-4 
+0:anke:3 6
+1:anke: 21-15 5-2
+0:You:3 1
+1:You:12-15 18-19 
+0:anke:3 6
+1:anke: bar-22 22-16
+0:You:6 4
+1:You:12-16 15-21 
+0:anke:5 4
+1:anke: bar-21 21-16
+0:You:3 5
+1:You: bar-3
+0:anke:6 1
+1:anke: 13-7 8-7
+0:You:6 5
+15:You: 
+0:anke:4 6
+1:anke: 9-3 7-3
+0:You:6 4
+1:You: bar-4
+0:anke:2 1
+1:anke: 9-7 13-12
+0:You:3 2
+15:You: 
+0:anke:6 1
+1:anke: 12-6 16-15
+0:You:2 5
+15:You: 
+0:anke:5 6
+1:anke: 7-1 6-1
+0:You:1 3
+15:You: 
+0:anke:5 6
+1:anke: 15-10 7-1
+0:You:1 4
+1:You:bar-4 19-20 
+0:anke:2 3
+1:anke: 10-8 8-5
+0:You:2 5
+1:You:4-9 9-11 
+0:anke:2 1
+1:anke: 5-3 3-2
+0:You:1 6
+1:You:11-17 17-18 
+0:anke:5 1
+1:anke: 6-5 6-1
+0:You:1 4
+1:You:17-21 20-21 
+0:anke:4 6
+1:anke: 8-2 5-1
+0:You:6 6
+1:You:18-24 18-24 4-10 10-16 
+0:anke:5 3
+1:anke: 8-3 3-off
+0:You:3 6
+1:You:16-22 17-20 
+0:anke:3 6
+1:anke: 5-2 5-off
+0:You:2 4
+3:You:2
+7:anke:2
+9:anke:5

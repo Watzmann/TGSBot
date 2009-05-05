@@ -1,0 +1,54 @@
+JavaFIBS internal match representation v1.1
+8:VarunM:3
+13:VarunM: 
+6:You:VarunM
+11:VarunM:3 4
+1:VarunM: 12-16 16-19
+0:You:6 2
+1:You:24-18 13-11 
+0:VarunM:2 3
+1:VarunM: 17-19 17-20
+0:You:3 4
+1:You:24-20 20-17 
+0:VarunM:1 1
+1:VarunM: bar-1 bar-1 19-20 19-20
+0:You:5 2
+1:You:18-13 17-15 
+0:VarunM:6 3
+1:VarunM: 12-15 12-18
+0:You:3 3
+1:You:bar-22 8-5 8-5 11-8 
+0:VarunM:3 1
+1:VarunM: 19-22 18-19
+2:You: 
+4:VarunM:
+0:You:3 5
+1:You:bar-22 13-8 
+0:VarunM:4 3
+1:VarunM: bar-4 4-7
+0:You:6 1
+1:You:13-7 8-7 
+0:VarunM:5 1
+1:VarunM: bar-1 15-20
+0:You:6 2
+1:You:22-16 16-14 
+0:VarunM:5 6
+1:VarunM: 19-24 12-18
+0:You:1 2
+1:You:14-12 13-12 
+0:VarunM:6 5
+15:VarunM: 
+0:You:2 5
+1:You:13-8 13-11 
+0:VarunM:5 1
+1:VarunM: bar-1 19-24
+0:You:4 6
+1:You:8-2 6-2 
+0:VarunM:4 1
+1:VarunM: 18-19 20-24
+0:You:1 1
+1:You:6-5 6-5 5-4 5-4 
+0:VarunM:5 4
+1:VarunM: 19-24 20-24
+0:You:4 4
+1:You:7-3 7-3 11-7 7-3 

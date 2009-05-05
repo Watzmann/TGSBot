@@ -1,0 +1,160 @@
+JavaFIBS internal match representation v1.1
+8:tangoo:3
+13:tangoo: 
+6:You:tangoo
+11:You:4 3
+1:You:13-9 13-10 
+0:tangoo:6 3
+1:tangoo: 1-7 7-10
+0:You:4 6
+1:You:bar-21 24-18 
+0:tangoo:5 2
+1:tangoo: 10-15 15-17
+0:You:6 2
+1:You:13-7 9-7 
+0:tangoo:3 3
+1:tangoo: 17-20 17-20 19-22 19-22
+0:You:5 5
+1:You:6-1 6-1 21-16 18-13 
+0:tangoo:5 2
+1:tangoo: bar-5 17-19
+0:You:5 6
+1:You:16-10 10-5 
+0:tangoo:1 5
+1:tangoo: bar-5 19-20
+0:You:4 4
+1:You:bar-21 21-17 13-9 9-5 
+0:tangoo:1 1
+15:tangoo: 
+0:You:3 5
+1:You:8-5 13-8 
+0:tangoo:6 2
+1:tangoo: bar-2
+0:You:4 4
+1:You:6-2 8-4 8-4 17-13 
+0:tangoo:5 5
+15:tangoo: 
+0:You:5 4
+1:You:7-2 8-4 
+0:tangoo:3 2
+1:tangoo: bar-3
+0:You:4 2
+1:You:7-3 13-11 
+0:tangoo:4 6
+15:tangoo: 
+0:You:6 1
+1:You:4-3 24-18 
+0:tangoo:4 6
+15:tangoo: 
+0:You:4 3
+1:You:18-14 14-11 
+0:tangoo:5 3
+15:tangoo: 
+0:You:3 6
+1:You:13-7 11-8 
+0:tangoo:3 2
+15:tangoo: 
+0:You:5 4
+1:You:11-6 8-4 
+0:tangoo:6 5
+15:tangoo: 
+0:You:5 3
+1:You:7-4 6-1 
+0:tangoo:1 6
+15:tangoo: 
+0:You:6 5
+1:You:6-off 6-1 
+0:tangoo:3 5
+15:tangoo: 
+0:You:2 6
+1:You:5-off 5-3 
+0:tangoo:3 3
+15:tangoo: 
+0:You:2 2
+1:You:4-2 4-2 2-off 2-off 
+0:tangoo:2 2
+15:tangoo: 
+0:You:2 6
+1:You:4-off 4-2 
+0:tangoo:5 2
+1:tangoo: bar-5
+0:You:5 6
+1:You: 3-off 3-off
+0:tangoo:3 6
+1:tangoo: bar-3 3-9
+0:You:4 3
+1:You: bar-21 21-18
+0:tangoo:3 4
+1:tangoo: 12-15 15-19
+0:You:4 2
+1:You: 18-14
+0:tangoo:5 6
+1:tangoo: 9-14 14-20
+0:You:3 2
+1:You: bar-23
+0:tangoo:6 1
+1:tangoo: 5-11 11-12
+0:You:4 4
+15:You: 
+0:tangoo:2 1
+1:tangoo: 19-21 20-21
+0:You:6 1
+1:You:23-17 17-16 
+0:tangoo:2 4
+1:tangoo: 12-16 16-18
+0:You:4 2
+1:You: bar-23
+0:tangoo:4 6
+1:tangoo: 19-23 12-18
+0:You:6 5
+15:You: 
+0:tangoo:6 6
+1:tangoo: 18-24 18-24 12-18 18-24
+2:You: 
+4:tangoo:
+0:You:2 6
+1:You: bar-23 23-17
+0:tangoo:2 5
+1:tangoo: bar-5 20-22
+0:You:5 5
+15:You: 
+0:tangoo:4 6
+1:tangoo: 12-18 18-22
+0:You:6 1
+1:You:17-11 11-10 
+0:tangoo:5 5
+1:tangoo: 5-10 10-15 15-20 12-17
+0:You:5 1
+15:You: 
+0:tangoo:6 4
+1:tangoo: 17-23 19-23
+0:You:5 5
+15:You: 
+0:tangoo:4 3
+1:tangoo: 19-23 22-off
+0:You:1 6
+1:You:bar-19 19-18 
+2:tangoo: 
+4:You:
+0:tangoo:3 5
+1:tangoo: 20-off 22-off
+0:You:2 5
+1:You: 18-13 13-11
+0:tangoo:5 3
+1:tangoo: 20-off 22-off
+0:You:4 5
+1:You: 11-6 6-2
+0:tangoo:6 4
+1:tangoo: 20-off 21-off
+0:You:4 4
+1:You: 2-off 2-off 2-off 2-off
+0:tangoo:3 6
+1:tangoo: 21-off 22-off
+0:You:2 1
+1:You: 1-off 1-off
+0:tangoo:5 6
+1:tangoo: 23-off 23-off
+0:You:5 5
+1:You: 1-off 1-off
+7:You:4
+9:You:3

@@ -1,0 +1,350 @@
+JavaFIBS internal match representation v1.1
+8:simplicity:3
+13:simplicity: 
+6:You:simplicity
+11:You:6 4
+1:You:17-23 19-23 
+0:simplicity:3 1
+1:simplicity: 8-5 6-5
+0:You:4 4
+1:You:12-16 12-16 16-20 16-20 
+0:simplicity:5 5
+1:simplicity: 13-8 13-8 8-3 8-3
+0:You:5 4
+1:You:12-17 12-16 
+0:simplicity:1 1
+1:simplicity: 8-7 8-7 6-5 13-12
+0:You:6 5
+15:You: 
+0:simplicity:1 5
+1:simplicity: 13-8 8-7
+0:You:5 6
+15:You: 
+0:simplicity:3 5
+1:simplicity: 7-2 5-2
+0:You:4 3
+1:You:bar-4 1-4 
+0:simplicity:2 1
+1:simplicity: 13-11 12-11
+0:You:3 2
+1:You:1-4 19-21 
+0:simplicity:5 3
+1:simplicity: 24-21 21-16
+0:You:5 2
+15:You: 
+0:simplicity:6 5
+1:simplicity: 7-1 6-1
+0:You:6 6
+15:You: 
+0:simplicity:6 5
+1:simplicity: 24-18 16-11
+0:You:1 5
+15:You: 
+0:simplicity:5 1
+1:simplicity: 18-13 13-12
+0:You:4 4
+1:You:bar-4 bar-4 4-8 4-8 
+0:simplicity:1 3
+1:simplicity: 11-10 10-7
+0:You:3 2
+1:You:19-21 17-20 
+0:simplicity:1 4
+1:simplicity: 12-11 11-7
+0:You:5 2
+1:You:17-22 20-22 
+0:simplicity:2 5
+1:simplicity: 11-6 7-5
+0:You:5 5
+1:You:4-9 9-14 14-19 17-22 
+0:simplicity:1 5
+1:simplicity: 11-6 6-5
+0:You:2 1
+1:You:19-21 8-9 
+0:simplicity:6 2
+1:simplicity: 7-1 7-5
+0:You:5 3
+1:You:9-14 14-17 
+0:simplicity:2 6
+1:simplicity: 6-off 5-3
+0:You:5 5
+1:You:8-13 13-18 18-23 17-22 
+0:simplicity:1 5
+1:simplicity: 5-off 1-off
+0:You:3 3
+1:You:4-7 7-10 10-13 13-16 
+0:simplicity:2 6
+1:simplicity: 6-off 6-4
+0:You:4 5
+1:You:bar-4 16-21 
+0:simplicity:2 5
+15:simplicity: 
+0:You:5 6
+1:You:4-10 10-15 
+0:simplicity:5 1
+1:simplicity: bar-24
+0:You:5 4
+1:You:15-20 20-24 
+0:simplicity:6 2
+15:simplicity: 
+0:You:2 3
+1:You:22-off 22-24 
+0:simplicity:2 6
+15:simplicity: 
+0:You:6 5
+1:You:19-off 19-24 
+0:simplicity:4 3
+15:simplicity: 
+0:You:3 3
+1:You:20-23 20-23 22-off 22-off 
+0:simplicity:5 1
+1:simplicity: bar-20 20-19
+0:You:2 2
+1:You: 23-o 23-o 23-o 23-o
+0:simplicity:4 4
+1:simplicity: 19-15 15-11 11-7 7-3
+0:You:3 5
+1:You: 21-off 21-24
+0:simplicity:5 2
+1:simplicity: 5-off 2-off
+0:You:1 3
+1:You:21-24 24-off 
+0:simplicity:2 5
+1:simplicity: 5-off 2-off
+2:You: 
+5:simplicity:
+7:You:1
+14:sorrytigger-1:simplicity-0
+13:simplicity: 
+6:You:simplicity
+11:simplicity:4 6
+1:simplicity: 1-7 12-16
+0:You:6 5
+1:You:13-7 6-1 
+0:simplicity:4 4
+1:simplicity: bar-4 bar-4 12-16 12-16
+0:You:6 3
+1:You:13-7 6-3 
+0:simplicity:6 3
+1:simplicity: 16-22 19-22
+0:You:2 3
+1:You:24-21 3-1 
+0:simplicity:2 5
+1:simplicity: 16-21 19-21
+0:You:4 4
+15:You: 
+0:simplicity:4 5
+1:simplicity: 12-17 12-16
+0:You:2 1
+1:You:bar-23 24-23 
+0:simplicity:3 2
+1:simplicity: 17-20 20-22
+0:You:6 5
+1:You:13-7 8-3 
+0:simplicity:1 2
+1:simplicity: 16-18 17-18
+0:You:6 6
+1:You:8-2 8-2 13-7 13-7 
+0:simplicity:5 4
+1:simplicity: 4-9 4-8
+0:You:4 1
+1:You:7-3 6-5 
+0:simplicity:5 1
+1:simplicity: 9-14 16-17
+0:You:3 1
+1:You:23-20 7-6 
+0:simplicity:3 2
+1:simplicity: 17-20 18-20
+0:You:6 5
+15:You: 
+0:simplicity:4 6
+1:simplicity: 17-23 19-23
+0:You:4 2
+15:You: 
+0:simplicity:4 6
+1:simplicity: 14-20 17-21
+0:You:5 6
+15:You: 
+0:simplicity:5 1
+1:simplicity: 8-13 13-14
+0:You:1 3
+1:You: bar-24
+0:simplicity:6 4
+1:simplicity: 18-24 20-24
+0:You:3 3
+15:You: 
+0:simplicity:2 1
+1:simplicity: 21-23 23-24
+0:You:2 3
+15:You: 
+0:simplicity:3 5
+1:simplicity: 14-19 19-22
+0:You:6 1
+15:You: 
+0:simplicity:4 6
+1:simplicity: 19-off 19-23
+0:You:5 1
+15:You: 
+0:simplicity:4 2
+1:simplicity: 20-24 20-22
+0:You:4 6
+1:You: bar-19
+0:simplicity:4 6
+1:simplicity: 21-off 21-off
+0:You:3 5
+1:You:bar-20 19-16 
+0:simplicity:1 1
+1:simplicity: 24-off 24-off 24-off 24-off
+0:You:5 2
+1:You:20-18 16-11 
+0:simplicity:5 3
+1:simplicity: 22-off 22-off
+0:You:4 1
+1:You:18-14 7-6 
+0:simplicity:2 6
+1:simplicity: 22-off 23-off
+0:You:2 1
+1:You:7-6 14-12 
+0:simplicity:6 2
+1:simplicity: 22-off 23-off
+0:You:6 1
+1:You:12-6 7-6 
+0:simplicity:6 6
+1:simplicity: 22-off 23-off
+7:simplicity:2
+14:simplicity-2:sorrytigger-1
+13:simplicity: 
+6:You:simplicity
+11:You:5 4
+1:You:12-17 12-16 
+0:simplicity:5 3
+1:simplicity: 24-21 21-16
+0:You:1 6
+1:You:bar-1 1-7 
+0:simplicity:3 5
+1:simplicity: 24-21 21-16
+0:You:4 6
+1:You:1-7 1-5 
+0:simplicity:3 1
+1:simplicity: 8-5 6-5
+0:You:2 2
+1:You:bar-2 19-21 19-21 2-4 
+0:simplicity:5 5
+1:simplicity: 13-8 13-8 8-3 8-3
+0:You:6 6
+1:You:17-23 17-23 12-18 18-24 
+0:simplicity:3 5
+1:simplicity: 13-8 8-5
+0:You:6 4
+1:You:4-10 10-14 
+0:simplicity:2 3
+1:simplicity: 16-13 16-14
+0:You:3 5
+15:You: 
+0:simplicity:4 1
+1:simplicity: 8-4 5-4
+0:You:2 2
+1:You:bar-2 12-14 12-14 19-21 
+0:simplicity:5 6
+1:simplicity: bar-20 8-2
+0:You:1 4
+1:You:bar-1 19-23 
+0:simplicity:5 1
+1:simplicity: 6-1 2-1
+0:You:1 5
+15:You: 
+0:simplicity:2 6
+1:simplicity: 13-11 11-5
+0:You:1 3
+15:You: 
+0:simplicity:2 4
+1:simplicity: 13-9 13-11
+0:You:2 4
+1:You:bar-2 7-11 
+0:simplicity:1 6
+1:simplicity: bar-19 20-19
+0:You:4 4
+15:You: 
+0:simplicity:1 5
+1:simplicity: 9-4 19-18
+0:You:1 5
+15:You: 
+0:simplicity:1 1
+1:simplicity: 4-3 3-2 2-1 5-4
+0:You:4 5
+15:You: 
+0:simplicity:1 4
+1:simplicity: 19-15 4-3
+0:You:2 1
+1:You: bar-2
+0:simplicity:2 2
+1:simplicity: 15-13 13-11 11-9 9-7
+0:You:2 6
+1:You: bar-2
+0:simplicity:1 1
+1:simplicity: 7-6 6-5 5-4 6-5
+0:You:3 1
+15:You: 
+0:simplicity:1 4
+1:simplicity: 5-1 4-3
+0:You:5 1
+15:You: 
+0:simplicity:5 6
+1:simplicity: 18-12 12-7
+0:You:5 5
+15:You: 
+0:simplicity:5 2
+1:simplicity: 7-5 5-off
+0:You:2 2
+1:You:bar-2 bar-2 17-19 17-19 
+0:simplicity:1 6
+1:simplicity: 6-off 6-5
+0:You:4 1
+1:You:23-24 14-18 
+0:simplicity:5 1
+1:simplicity: 5-off 1-off
+0:You:6 5
+1:You:14-20 2-7 
+0:simplicity:1 2
+1:simplicity: 3-1 1-off
+0:You:4 6
+1:You:18-22 7-13 
+0:simplicity:5 3
+1:simplicity: 5-off 3-off
+0:You:2 6
+1:You:2-8 13-15 
+0:simplicity:6 6
+1:simplicity: 5-off 4-off 4-off 3-off
+0:You:6 1
+1:You:2-3 8-14 
+0:simplicity:5 2
+1:simplicity: bar-20 20-18
+0:You:5 3
+1:You:bar-5 15-18 
+0:simplicity:2 5
+1:simplicity: bar-20 20-18
+0:You:5 6
+1:You:bar-6 2-7 
+0:simplicity:2 3
+1:simplicity: 18-15 15-13
+0:You:4 1
+1:You:21-22 3-7 
+0:simplicity:5 3
+1:simplicity: 13-10 10-5
+0:You:6 5
+1:You:bar-5 7-13 
+0:simplicity:3 1
+15:simplicity: 
+0:You:3 2
+1:You:13-16 14-16 
+0:simplicity:5 3
+1:simplicity: bar-20 20-17
+0:You:1 5
+1:You:16-17 7-12 
+0:simplicity:5 5
+1:simplicity: bar-20 20-15 15-10 10-5
+0:You:4 6
+3:You:2
+12:simplicity: 
+3:You:2
+7:simplicity:2
+9:simplicity:3

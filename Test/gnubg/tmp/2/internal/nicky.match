@@ -1,0 +1,288 @@
+JavaFIBS internal match representation v1.1
+8:nicky:3
+13:nicky: 
+6:You:nicky
+11:You:5 1
+1:You:12-17 1-2 
+0:nicky:4 2
+1:nicky: 8-4 6-4
+0:You:6 1
+1:You:12-18 17-18 
+0:nicky:1 1
+1:nicky: 6-5 6-5 8-7 8-7
+0:You:4 1
+1:You:12-16 1-2 
+2:nicky: 
+4:You:
+0:nicky:6 4
+1:nicky: 24-20 20-14
+0:You:2 4
+1:You:12-16 12-14 
+0:nicky:3 1
+1:nicky: bar-22 22-21
+0:You:3 1
+1:You:17-20 19-20 
+0:nicky:3 1
+1:nicky: 24-21 13-12
+0:You:4 5
+1:You:14-18 18-23 
+0:nicky:6 3
+1:nicky: 21-15 15-12
+0:You:6 2
+1:You:17-23 19-21 
+0:nicky:1 2
+1:nicky: bar-24 24-22
+0:You:6 2
+1:You:16-22 19-21 
+0:nicky:3 4
+1:nicky: bar-22 13-9
+0:You:3 5
+1:You:bar-3 17-22 
+0:nicky:6 4
+15:nicky: 
+0:You:1 4
+1:You:16-20 2-3 
+0:nicky:1 3
+1:nicky: bar-22 13-12
+0:You:1 6
+1:You:bar-1 3-9 
+0:nicky:4 1
+1:nicky: bar-24 13-9
+0:You:4 2
+1:You:bar-2 18-22 
+0:nicky:2 2
+15:nicky: 
+0:You:3 6
+1:You:3-9 18-21 
+0:nicky:2 5
+15:nicky: 
+0:You:4 5
+1:You:9-13 13-18 
+0:nicky:6 4
+15:nicky: 
+0:You:1 4
+1:You:2-3 18-22 
+0:nicky:6 6
+15:nicky: 
+0:You:2 5
+1:You:3-8 1-3 
+0:nicky:3 1
+1:nicky: bar-24
+0:You:4 5
+1:You:8-13 13-17 
+0:nicky:1 4
+1:nicky: bar-24
+0:You:2 4
+1:You:21-23 17-21 
+0:nicky:3 1
+1:nicky: bar-24 12-9
+0:You:6 1
+1:You:3-9 2-3 
+0:nicky:2 3
+15:nicky: 
+0:You:4 1
+1:You:9-13 21-22 
+0:nicky:2 5
+15:nicky: 
+0:You:1 2
+1:You:22-23 20-22 
+0:nicky:6 1
+1:nicky: bar-24 12-6
+0:You:4 5
+1:You:3-8 8-12 
+0:nicky:2 3
+15:nicky: 
+0:You:5 6
+1:You:12-18 13-18 
+0:nicky:5 5
+15:nicky: 
+0:You:5 4
+1:You:18-23 18-22 
+0:nicky:1 4
+1:nicky: bar-24 7-3
+0:You:3 6
+1:You:19-off 19-22 
+0:nicky:2 3
+1:nicky: 6-3 7-5
+0:You:4 1
+1:You:21-off 21-22 
+0:nicky:2 1
+1:nicky: 5-3 3-2
+0:You:6 2
+1:You:20-off 20-22 
+0:nicky:2 2
+1:nicky: 3-1 3-1 5-3 4-2
+0:You:3 5
+1:You: 22-off 22-off
+0:nicky:1 6
+1:nicky: 24-18 18-17
+0:You:6 6
+1:You: 22-off 22-off 22-off 22-off
+0:nicky:3 5
+1:nicky: 24-21 24-19
+0:You:2 2
+1:You: 23-off 23-off 23-off 23-off
+0:nicky:1 4
+1:nicky: 24-23 24-20
+0:You:4 3
+1:You:bar-3 3-7 
+0:nicky:1 6
+1:nicky: bar-19 23-22
+0:You:3 5
+1:You:bar-5 5-8 
+0:nicky:5 6
+1:nicky: bar-19 19-14
+0:You:3 6
+1:You:8-14 14-17 
+0:nicky:4 6
+1:nicky: bar-19 bar-21
+0:You:5 1
+1:You:17-18 18-23 
+0:nicky:3 6
+1:nicky: 19-13 19-16
+0:You:3 4
+1:You: 7-11 11-14
+0:nicky:4 3
+1:nicky: 21-17 17-14
+0:You:1 2
+15:You: 
+0:nicky:4 5
+1:nicky: 13-8 8-4
+0:You:3 2
+1:You: bar-3 3-5
+0:nicky:2 4
+1:nicky: 21-17 20-18
+0:You:1 6
+1:You:5-11 23-24 
+0:nicky:2 4
+1:nicky: bar-21 14-12
+0:You:2 3
+1:You: 11-14 14-16
+0:nicky:1 3
+1:nicky: bar-24 19-16
+0:You:4 6
+15:You: 
+0:nicky:6 3
+1:nicky: 12-6 16-13
+0:You:6 1
+15:You: 
+0:nicky:6 4
+1:nicky: 13-7 24-20
+0:You:2 3
+1:You: bar-3
+0:nicky:3 1
+1:nicky: 6-3 7-6
+0:You:6 4
+15:You: 
+0:nicky:2 2
+1:nicky: 17-15 15-13 21-19 19-17
+0:You:5 3
+1:You: bar-3 bar-5
+0:nicky:1 5
+1:nicky: bar-20 6-5
+0:You:2 3
+1:You: bar-3 3-5
+0:nicky:2 6
+1:nicky: bar-19 20-18
+0:You:4 2
+1:You:3-7 5-7 
+0:nicky:1 6
+1:nicky: 18-12 22-21
+0:You:6 3
+1:You:7-13 7-10 
+0:nicky:1 1
+1:nicky: bar-24 12-11 11-10 17-16
+0:You:1 2
+15:You: 
+0:nicky:6 6
+1:nicky: 24-18 18-12 18-12 12-6
+0:You:1 6
+15:You: 
+0:nicky:1 6
+1:nicky: 19-13 13-12
+0:You:3 1
+1:You: bar-3
+0:nicky:5 2
+1:nicky: 10-5 5-3
+0:You:3 4
+1:You: bar-3
+0:nicky:1 5
+1:nicky: bar-20 20-19
+0:You:1 1
+15:You: 
+0:nicky:3 1
+1:nicky: 6-3 12-11
+0:You:6 6
+15:You: 
+0:nicky:2 3
+1:nicky: 11-8 8-6
+0:You:6 5
+1:You: bar-5
+0:nicky:1 5
+1:nicky: 16-11 12-11
+0:You:4 6
+15:You: 
+0:nicky:5 2
+1:nicky: 11-6 6-4
+0:You:6 4
+15:You: 
+0:nicky:1 6
+1:nicky: 11-5 4-3
+0:You:3 6
+15:You: 
+0:nicky:2 2
+1:nicky: 19-17 17-15 15-13 13-11
+0:You:1 4
+15:You: 
+0:nicky:4 5
+1:nicky: 20-15 11-7
+0:You:1 3
+15:You: 
+0:nicky:6 4
+1:nicky: 15-9 9-5
+0:You:6 3
+15:You: 
+0:nicky:4 2
+1:nicky: 21-17 17-15
+0:You:2 6
+15:You: 
+0:nicky:1 5
+1:nicky: 15-10 7-6
+0:You:6 6
+15:You: 
+0:nicky:4 2
+1:nicky: 10-6 6-4
+0:You:5 3
+15:You: 
+0:nicky:2 2
+1:nicky: 2-off 2-off 4-2 2-off
+0:You:2 6
+1:You: bar-2
+0:nicky:4 3
+1:nicky: 4-off 4-1
+0:You:6 6
+15:You: 
+0:nicky:3 5
+1:nicky: 6-1 6-3
+0:You:5 4
+1:You:bar-4 2-7 
+0:nicky:3 6
+1:nicky: 6-off 6-3
+2:You: 
+4:nicky:
+0:You:6 6
+1:You:4-10 10-16 7-13 13-19 
+0:nicky:4 6
+1:nicky: 5-off 5-1
+0:You:6 4
+1:You:16-20 19-off 
+0:nicky:2 5
+1:nicky: 3-off 3-1
+0:You:3 1
+1:You: 20-21 21-24
+0:nicky:1 3
+1:nicky: 3-off 1-off
+0:You:6 4
+1:You: 24-off
+7:You:4
+9:You:3

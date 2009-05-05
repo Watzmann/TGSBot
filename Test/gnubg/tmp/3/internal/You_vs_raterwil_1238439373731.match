@@ -1,0 +1,276 @@
+JavaFIBS internal match representation v1.1
+8:raterwil:3
+13:raterwil: 
+6:You:raterwil
+11:You:6 2
+1:You:24-18 13-11 
+0:raterwil:6 3
+1:raterwil: 12-18 1-4
+0:You:5 3
+1:You:bar-20 11-8 
+0:raterwil:2 6
+1:raterwil: 12-18 1-3
+0:You:3 3
+1:You:8-5 8-5 6-3 6-3 
+0:raterwil:3 5
+15:raterwil: 
+0:You:3 4
+1:You:8-4 13-10 
+0:raterwil:6 2
+1:raterwil: bar-2
+0:You:3 2
+1:You:6-4 13-10 
+0:raterwil:2 4
+1:raterwil: bar-2 19-23
+2:You: 
+5:raterwil:
+7:You:1
+14:sorrytigger-1:raterwil-0
+13:raterwil: 
+6:You:raterwil
+11:raterwil:3 4
+1:raterwil: 1-5 12-15
+0:You:6 3
+1:You:24-18 18-15 
+0:raterwil:2 1
+1:raterwil: bar-2 1-2
+0:You:4 5
+1:You:24-20 20-15 
+0:raterwil:6 4
+1:raterwil: 12-18 17-21
+0:You:4 2
+1:You:8-4 6-4 
+0:raterwil:4 5
+1:raterwil: 12-17 17-21
+0:You:6 3
+1:You:13-7 7-4 
+0:raterwil:4 5
+1:raterwil: 17-22 18-22
+0:You:2 2
+1:You:13-11 13-11 15-13 15-13 
+0:raterwil:3 6
+1:raterwil: 12-18 12-15
+0:You:3 2
+1:You:13-10 10-8 
+0:raterwil:1 4
+1:raterwil: 15-19 19-20
+0:You:2 2
+1:You:11-9 11-9 9-7 9-7 
+0:raterwil:2 5
+1:raterwil: 19-24 18-20
+0:You:6 5
+1:You:13-7 13-8 
+0:raterwil:2 3
+1:raterwil: 2-5 19-21
+0:You:6 4
+1:You:8-2 6-2 
+0:raterwil:6 6
+15:raterwil: 
+2:You: 
+5:raterwil:
+7:You:1
+14:sorrytigger-2:raterwil-0
+13:raterwil: 
+6:You:raterwil
+11:You:6 5
+1:You:24-18 18-13 
+0:raterwil:5 2
+1:raterwil: 12-17 1-3
+0:You:5 5
+1:You:8-3 8-3 6-1 6-1 
+0:raterwil:2 5
+1:raterwil: bar-5 bar-2
+0:You:2 6
+1:You:13-7 7-5 
+0:raterwil:5 2
+1:raterwil: bar-5 2-4
+0:You:2 6
+1:You:bar-23 8-2 
+0:raterwil:2 5
+1:raterwil: 5-10 10-12
+0:You:3 4
+1:You:24-20 23-20 
+0:raterwil:6 5
+1:raterwil: 12-18 18-23
+0:You:6 5
+1:You:13-7 7-2 
+0:raterwil:5 4
+1:raterwil: 12-17 19-23
+0:You:6 6
+1:You:13-7 13-7 20-14 20-14 
+0:raterwil:4 5
+1:raterwil: 12-17 17-21
+0:You:2 1
+1:You:6-4 4-3 
+0:raterwil:3 5
+1:raterwil: bar-5 17-20
+0:You:6 6
+1:You:14-8 14-8 13-7 13-7 
+0:raterwil:4 1
+1:raterwil: 17-21 19-20
+0:You:1 4
+1:You:7-3 7-6 
+0:raterwil:3 4
+1:raterwil: 12-16 19-22
+0:You:1 2
+1:You:8-6 8-7 
+0:raterwil:2 2
+1:raterwil: 16-18 18-20 20-22 12-14
+0:You:3 5
+1:You:7-2 6-3 
+0:raterwil:2 3
+1:raterwil: 14-17 17-19
+0:You:2 6
+1:You:7-1 7-5 
+0:raterwil:5 4
+1:raterwil: bar-5 5-9
+0:You:2 4
+15:You: 
+0:raterwil:1 3
+1:raterwil: 9-12 17-18
+0:You:2 5
+15:You: 
+0:raterwil:2 1
+1:raterwil: 12-14 17-18
+0:You:3 1
+1:You: bar-24 6-3
+0:raterwil:6 2
+1:raterwil: 14-20 19-21
+0:You:6 2
+1:You:3-1 
+0:raterwil:3 3
+1:raterwil: 21-24 18-21 21-24 18-21
+0:You:1 2
+15:You: 
+0:raterwil:6 5
+1:raterwil: 17-23 20-off
+0:You:2 4
+15:You: 
+0:raterwil:1 6
+1:raterwil: 19-off 19-20
+0:You:3 5
+15:You: 
+0:raterwil:4 2
+1:raterwil: 20-24 21-23
+0:You:2 3
+15:You: 
+0:raterwil:4 4
+1:raterwil: 20-24 20-24 21-off 21-off
+0:You:5 5
+1:You:bar-20 20-15 15-10 10-5 
+0:raterwil:1 1
+1:raterwil: 24-o 24-o 24-o 24-o
+0:You:6 1
+1:You: 6-o 1-o
+0:raterwil:1 5
+1:raterwil: 22-o 24-o
+0:You:2 6
+1:You: 6-o 2-o
+0:raterwil:3 1
+1:raterwil: 22-off 23-24
+0:You:6 6
+1:You: 5-off 3-off 3-off 3-off
+0:raterwil:3 6
+1:raterwil: 23-off 23-off
+0:You:6 5
+1:You: 3-off 3-off
+0:raterwil:1 6
+1:raterwil: 23-o 24-o
+7:raterwil:1
+14:raterwil-1:sorrytigger-2
+13:raterwil: 
+6:You:raterwil
+11:You:5 3
+1:You:17-22 19-22 
+2:raterwil: 
+4:You:
+0:raterwil:2 6
+1:raterwil: 24-18 13-11
+0:You:2 4
+1:You:12-16 16-18 
+0:raterwil:5 5
+1:raterwil: bar-20 13-8 8-3 8-3
+0:You:6 2
+1:You:12-18 12-14 
+0:raterwil:1 4
+1:raterwil: 24-20 11-10
+0:You:2 5
+1:You:14-19 19-21 
+0:raterwil:5 4
+1:raterwil: 13-8 10-6
+0:You:4 3
+1:You:1-5 19-22 
+0:raterwil:3 4
+1:raterwil: 8-4 4-1
+0:You:6 5
+1:You:bar-5 12-18 
+0:raterwil:1 4
+1:raterwil: 13-12 12-8
+0:You:5 3
+1:You:bar-5 18-21 
+0:raterwil:2 3
+1:raterwil: 13-10 10-8
+0:You:3 4
+1:You:5-9 9-12 
+0:raterwil:1 5
+1:raterwil: 8-3 3-2
+0:You:2 6
+1:You:12-18 19-21 
+0:raterwil:3 2
+1:raterwil: 6-3 3-1
+0:You:6 2
+1:You:18-24 22-24 
+0:raterwil:6 4
+1:raterwil: 20-14 20-16
+0:You:5 1
+1:You:18-23 18-19 
+0:raterwil:1 1
+1:raterwil: 16-15 15-14 14-13 14-13
+0:You:2 3
+1:You:21-23 17-20 
+0:raterwil:5 1
+1:raterwil: 8-3 3-2
+0:You:4 5
+1:You:5-10 10-14 
+0:raterwil:3 6
+1:raterwil: 13-7 7-4
+0:You:6 3
+1:You:5-11 11-14 
+0:raterwil:5 2
+1:raterwil: 13-8 8-6
+0:You:2 6
+1:You:14-20 17-19 
+0:raterwil:5 1
+1:raterwil: 8-3 6-5
+0:You:4 1
+1:You:14-18 18-19 
+0:raterwil:6 5
+1:raterwil: 8-3 6-off
+0:You:4 2
+1:You: 21-o 23-o
+0:raterwil:6 6
+1:raterwil: 6-off 6-off 6-off 6-off
+0:You:6 6
+1:You: 19-off 19-off 19-off 19-off
+0:raterwil:1 2
+1:raterwil: 2-off 1-off
+0:You:5 6
+1:You: 19-o 20-o
+0:raterwil:5 1
+1:raterwil: 5-off 1-off
+0:You:2 2
+1:You:23-off 21-23 23-off 20-22 
+0:raterwil:1 5
+1:raterwil: 4-off 3-2
+0:You:2 6
+1:You: 22-off 22-24
+0:raterwil:6 3
+1:raterwil: 3-off 3-off
+0:You:1 6
+1:You: 22-o 24-o
+0:raterwil:2 6
+1:raterwil: 3-off 2-off
+0:You:6 6
+1:You: 24-off 24-off
+7:You:2
+9:You:3

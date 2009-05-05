@@ -1,0 +1,304 @@
+JavaFIBS internal match representation v1.1
+8:talya:3
+13:talya: 
+6:You:talya
+11:talya:3 4
+1:talya: 24-20 24-21
+0:You:4 4
+1:You:12-16 12-16 16-20 16-20 
+0:talya:1 3
+1:talya: bar-22 22-21
+0:You:6 1
+1:You:12-18 17-18 
+0:talya:1 3
+1:talya: 8-5 6-5
+0:You:1 4
+1:You:19-23 1-2 
+0:talya:3 4
+1:talya: 13-9 13-10
+0:You:4 3
+1:You:1-4 19-23 
+0:talya:4 5
+1:talya: 10-5 13-9
+0:You:3 1
+1:You:4-7 2-3 
+0:talya:1 6
+1:talya: 13-7 8-7
+0:You:4 3
+1:You:bar-3 19-23 
+0:talya:1 4
+1:talya: 13-9 9-8
+0:You:4 2
+1:You:12-16 16-18 
+0:talya:1 2
+1:talya: 6-4 5-4
+0:You:4 1
+1:You:18-22 23-24 
+0:talya:6 5
+1:talya: 7-1 7-2
+0:You:3 5
+1:You:12-17 17-20 
+0:talya:5 4
+1:talya: 9-4 9-5
+0:You:3 1
+1:You:20-23 23-24 
+0:talya:2 2
+1:talya: 4-2 6-4 6-4 6-4
+0:You:2 4
+1:You:3-7 7-9 
+0:talya:4 3
+1:talya: 4-1 5-1
+0:You:2 4
+1:You:3-7 7-9 
+0:talya:4 6
+1:talya: 8-2 8-4
+0:You:2 6
+1:You:9-15 15-17 
+0:talya:4 6
+1:talya: 21-15 15-11
+0:You:6 4
+1:You:9-15 15-19 
+0:talya:5 2
+1:talya: 21-16 16-14
+0:You:4 5
+1:You:17-22 17-21 
+0:talya:2 5
+1:talya: 14-9 9-7
+0:You:2 3
+1:You:18-21 18-20 
+0:talya:2 6
+1:talya: 11-5 7-5
+0:You:4 4
+1:You:17-21 21-off 21-off 21-off 
+0:talya:3 3
+1:talya: 5-2 5-2 5-2 5-2
+0:You:2 6
+1:You: 19-o 23-o
+0:talya:6 1
+1:talya: 4-off 1-off
+0:You:4 3
+1:You:19-23 22-off 
+0:talya:4 3
+1:talya: 4-1 4-off
+0:You:3 3
+1:You:22-off 19-22 22-off 20-23 
+0:talya:1 5
+1:talya: 4-off 1-off
+2:You: 
+5:talya:
+7:You:1
+14:sorrytigger-1:talya-0
+13:talya: 
+6:You:talya
+11:You:2 1
+1:You:13-11 24-23 
+0:talya:2 1
+1:talya: 1-3 1-2
+0:You:1 6
+1:You:13-7 8-7 
+0:talya:5 6
+1:talya: 3-9 9-14
+0:You:6 4
+1:You:24-18 18-14 
+0:talya:3 4
+1:talya: bar-4 2-5
+0:You:4 5
+1:You:14-9 13-9 
+0:talya:2 3
+1:talya: 12-15 12-14
+0:You:1 1
+1:You:6-5 6-5 23-22 22-21 
+0:talya:4 3
+1:talya: bar-4 12-15
+0:You:2 1
+1:You:11-9 21-20 
+0:talya:1 6
+1:talya: 14-20 19-20
+0:You:5 3
+1:You:bar-22 6-1 
+0:talya:1 2
+1:talya: 17-19 19-20
+0:You:2 2
+1:You:13-11 13-11 9-7 7-5 
+0:talya:5 5
+1:talya: 17-22 17-22 12-17 12-17
+0:You:5 6
+15:You: 
+0:talya:3 3
+1:talya: 15-18 15-18 18-21 18-21
+0:You:3 5
+15:You: 
+0:talya:1 2
+1:talya: 20-22 19-20
+0:You:6 2
+1:You:bar-23 11-5 
+0:talya:5 5
+1:talya: 19-24 19-24 19-24 17-22
+0:You:4 4
+1:You:23-19 19-15 15-11 5-1 
+0:talya:5 3
+1:talya: 17-22 20-23
+0:You:2 1
+1:You:5-3 3-2 
+0:talya:2 1
+1:talya: 22-24 22-23
+0:You:2 1
+1:You:11-9 9-8 
+0:talya:1 4
+1:talya: 20-24 20-21
+0:You:4 5
+1:You:11-6 6-2 
+0:talya:2 5
+1:talya: 21-23
+0:You:6 2
+1:You:9-3 9-7 
+0:talya:2 1
+1:talya: 21-23 21-22
+0:You:2 3
+1:You:8-5 5-3 
+0:talya:2 6
+1:talya: 4-10 10-12
+0:You:2 4
+1:You:8-4 4-2 
+0:talya:5 4
+1:talya: bar-4 4-9
+0:You:2 2
+1:You:8-6 7-5 7-5 7-5 
+0:talya:6 1
+1:talya: 9-15 15-16
+0:You:2 4
+1:You:5-1 2-off 
+0:talya:2 3
+1:talya: 16-19 12-14
+0:You:2 6
+1:You: 6-o 2-o
+0:talya:1 5
+1:talya: 14-19 24-off
+0:You:5 1
+1:You: 5-o 1-o
+0:talya:1 2
+1:talya: 23-off 24-off
+0:You:5 5
+1:You:5-off 5-off 5-off 6-1 
+0:talya:6 3
+1:talya: 19-off 22-off
+0:You:6 1
+1:You: 6-o 1-o
+0:talya:1 5
+1:talya: 19-24 24-off
+0:You:3 6
+1:You: 3-off 3-off
+0:talya:3 4
+1:talya: 22-off 22-off
+0:You:5 2
+1:You: 2-off 1-off
+0:talya:3 6
+1:talya: 22-off 23-off
+0:You:5 4
+1:You: 1-off
+7:You:1
+14:sorrytigger-2:talya-0
+13:talya: 
+6:You:talya
+11:talya:2 4
+1:talya: 17-21 19-21
+0:You:4 4
+1:You:24-20 24-20 13-9 13-9 
+0:talya:6 4
+1:talya: 1-7 7-11
+0:You:5 1
+1:You:13-8 6-5 
+0:talya:6 5
+1:talya: 1-7 7-12
+0:You:2 6
+1:You:13-11 11-5 
+0:talya:4 6
+1:talya: bar-4 4-10
+0:You:2 3
+1:You:13-10 8-6 
+0:talya:2 2
+1:talya: bar-2 12-14 12-14 2-4
+0:You:3 4
+1:You:10-6 6-3 
+0:talya:6 4
+1:talya: 4-10 10-14
+0:You:6 2
+1:You:8-2 6-4 
+0:talya:5 5
+1:talya: 12-17 12-17 17-22 17-22
+0:You:6 2
+1:You:9-3 6-4 
+0:talya:6 6
+1:talya: 12-18 12-18 17-23 17-23
+0:You:4 5
+1:You:9-4 6-2 
+0:talya:6 2
+1:talya: 14-16 16-22
+0:You:2 5
+1:You:8-3 3-1 
+0:talya:3 4
+1:talya: 19-23 19-22
+0:You:2 6
+1:You:8-2 4-2 
+0:talya:5 1
+1:talya: 18-23 18-19
+0:You:5 4
+1:You:20-15 15-11 
+0:talya:4 6
+1:talya: 14-20 19-23
+0:You:5 1
+1:You:bar-20 2-1 
+0:talya:3 6
+15:talya: 
+0:You:2 6
+1:You:20-14 11-9 
+0:talya:3 2
+15:talya: 
+0:You:5 2
+1:You:9-4 14-12 
+0:talya:5 6
+15:talya: 
+0:You:3 5
+1:You:12-7 7-4 
+0:talya:2 4
+15:talya: 
+0:You:1 1
+1:You:4-3 3-2 2-1 4-3 
+0:talya:4 5
+15:talya: 
+0:You:4 4
+1:You:6-2 6-2 5-1 5-1 
+0:talya:4 4
+15:talya: 
+0:You:1 5
+1:You:4-off 4-3 
+0:talya:6 4
+1:talya: bar-4 bar-6
+0:You:1 6
+1:You:3-off 1-off 
+0:talya:4 5
+1:talya: 6-11 11-15
+0:You:3 6
+1:You: 3-off 3-off
+0:talya:1 6
+1:talya: 4-10 10-11
+0:You:2 4
+1:You: 3-o 2-o
+0:talya:5 1
+1:talya: 15-20 11-12
+0:You:1 3
+1:You: 2-o 1-o
+0:talya:3 6
+1:talya: 12-18 18-21
+0:You:3 4
+1:You: 2-off 2-off
+0:talya:6 6
+1:talya: 19-off 19-off 20-off 21-off
+0:You:4 1
+1:You: 2-o 1-o
+0:talya:4 5
+1:talya: 21-off 21-off
+0:You:4 5
+1:You: 1-off 1-off
+7:You:1
+9:You:3

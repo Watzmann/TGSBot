@@ -1,0 +1,265 @@
+JavaFIBS internal match representation v1.1
+8:rif_raf:5
+13:rif_raf: 
+6:You:rif_raf
+11:rif_raf:5 6
+1:rif_raf: 24-18 18-13
+0:You:2 5
+1:You:12-17 17-19 
+0:rif_raf:3 1
+1:rif_raf: 8-5 6-5
+0:You:1 3
+1:You:19-20 17-20 
+0:rif_raf:2 6
+1:rif_raf: 24-18 13-11
+0:You:3 6
+1:You:1-7 7-10 
+0:rif_raf:6 1
+1:rif_raf: 13-7 11-10
+0:You:4 3
+1:You:bar-4 4-7 
+0:rif_raf:6 1
+1:rif_raf: bar-24 24-18
+0:You:5 1
+1:You:7-12 19-20 
+0:rif_raf:5 3
+1:rif_raf: 8-3 6-3
+0:You:2 6
+1:You:12-14 14-20 
+0:rif_raf:6 5
+1:rif_raf: 10-4 8-3
+0:You:6 5
+1:You:1-7 7-12 
+0:rif_raf:2 1
+1:rif_raf: 13-11 11-10
+0:You:6 1
+1:You:17-23 20-21 
+0:rif_raf:2 4
+1:rif_raf: 6-4 13-9
+0:You:4 5
+1:You:17-21 12-17 
+0:rif_raf:6 2
+1:rif_raf: 13-7 13-11
+2:You: 
+4:rif_raf:
+0:You:1 1
+1:You:19-20 20-21 21-22 22-23 
+0:rif_raf:6 2
+1:rif_raf: 11-5 9-7
+0:You:1 5
+1:You:12-17 20-21 
+0:rif_raf:1 3
+1:rif_raf: 10-7 7-6
+0:You:3 3
+1:You:12-15 12-15 12-15 19-22 
+0:rif_raf:1 2
+1:rif_raf: 7-5 5-4
+0:You:3 4
+1:You:15-19 19-22 
+0:rif_raf:5 3
+1:rif_raf: 7-2 5-2
+0:You:4 5
+1:You:15-20 15-19 
+0:rif_raf:4 6
+1:rif_raf: 18-12 12-8
+0:You:1 3
+1:You:17-18 18-21 
+0:rif_raf:3 2
+15:rif_raf: 
+0:You:4 4
+1:You:17-21 21-off 21-off 21-off 
+0:rif_raf:5 2
+15:rif_raf: 
+0:You:5 6
+1:You:19-off 20-off 
+0:rif_raf:2 2
+15:rif_raf: 
+0:You:6 2
+1:You:19-off 19-21 
+0:rif_raf:4 4
+15:rif_raf: 
+0:You:2 5
+1:You:20-off 20-22 
+0:rif_raf:2 6
+1:rif_raf: bar-19 19-17
+0:You:6 2
+1:You:21-off 23-off 
+0:rif_raf:1 6
+1:rif_raf: 17-11 11-10
+0:You:1 6
+1:You:21-off 23-24 
+0:rif_raf:6 6
+1:rif_raf: 10-4 8-2 6-off 6-off
+0:You:1 6
+1:You: 21-o 24-o
+0:rif_raf:2 2
+1:rif_raf: 2-off 2-off 2-off 3-1
+0:You:6 5
+1:You: 22-o 22-o
+0:rif_raf:5 3
+1:rif_raf: 5-off 3-off
+0:You:6 6
+1:You: 22-o
+7:You:2
+14:checkejon-2:rif_raf-0
+13:rif_raf: 
+6:You:rif_raf
+11:rif_raf:2 3
+1:rif_raf: 12-15 12-14
+0:You:3 1
+1:You:6-5 8-5 
+0:rif_raf:1 2
+1:rif_raf: 12-14 1-2
+0:You:2 1
+1:You:24-22 22-21 
+0:rif_raf:5 6
+1:rif_raf: 1-7 2-7
+0:You:2 5
+1:You:13-8 6-4 
+0:rif_raf:6 5
+1:rif_raf: 14-20 15-20
+0:You:4 2
+1:You:8-4 24-22 
+0:rif_raf:1 5
+1:rif_raf: 14-19 19-20
+0:You:6 4
+1:You:21-15 22-18 
+0:rif_raf:1 6
+1:rif_raf: 12-18 17-18
+0:You:2 3
+1:You:bar-23 15-12 
+0:rif_raf:1 3
+1:rif_raf: bar-3 19-20
+0:You:6 6
+1:You:8-2 8-2 12-6 
+0:rif_raf:1 1
+1:rif_raf: 19-20 20-21 20-21 20-21
+2:You: 
+4:rif_raf:
+0:You:3 5
+1:You:13-8 8-5 
+2:rif_raf: 
+4:You:
+0:rif_raf:1 3
+1:rif_raf: 19-22 21-22
+0:You:6 3
+1:You:13-10 10-4 
+0:rif_raf:1 6
+1:rif_raf: 3-9 9-10
+0:You:3 2
+1:You:13-10 10-8 
+0:rif_raf:5 6
+15:rif_raf: 
+0:You:1 2
+1:You:4-3 5-3 
+0:rif_raf:6 6
+15:rif_raf: 
+0:You:5 2
+1:You:13-8 6-4 
+0:rif_raf:1 2
+1:rif_raf: bar-1 7-9
+0:You:4 3
+1:You:8-4 8-5 
+0:rif_raf:4 2
+1:rif_raf: 7-11 11-13
+0:You:1 4
+1:You:4-3 6-2 
+0:rif_raf:1 5
+1:rif_raf: 9-14 14-15
+0:You:5 5
+1:You:6-1 6-1 
+0:rif_raf:3 5
+15:rif_raf: 
+0:You:6 2
+1:You:5-3 
+0:rif_raf:1 5
+15:rif_raf: 
+0:You:2 6
+1:You:3-1 
+0:rif_raf:3 5
+15:rif_raf: 
+0:You:2 3
+1:You:4-1 3-1 
+0:rif_raf:5 5
+15:rif_raf: 
+0:You:6 5
+15:You: 
+0:rif_raf:2 5
+15:rif_raf: 
+0:You:3 5
+1:You:5-2 
+0:rif_raf:4 1
+15:rif_raf: 
+0:You:6 2
+1:You:5-3 
+0:rif_raf:6 3
+1:rif_raf: bar-6 6-9
+0:You:2 4
+1:You:4-2 
+0:rif_raf:5 2
+1:rif_raf: 9-14 14-16
+0:You:5 6
+15:You: 
+0:rif_raf:5 2
+1:rif_raf: 13-18 18-20
+0:You:4 3
+1:You:4-1 
+0:rif_raf:2 3
+1:rif_raf: 16-19 20-22
+0:You:2 2
+1:You:3-1 3-1 3-1 
+0:rif_raf:2 4
+1:rif_raf: 15-19 19-21
+0:You:6 1
+1:You:2-1 
+0:rif_raf:1 3
+1:rif_raf: 21-24 19-20
+0:You:1 2
+1:You:2-1 
+0:rif_raf:2 6
+1:rif_raf: 17-23 22-24
+0:You:6 1
+15:You: 
+0:rif_raf:5 5
+1:rif_raf: 18-23 18-23 17-22 20-off
+0:You:1 4
+15:You: 
+0:rif_raf:5 1
+1:rif_raf: 19-24 19-20
+0:You:6 1
+1:You:bar-19 19-18 
+0:rif_raf:3 3
+1:rif_raf: 22-off 22-off 22-off 20-23
+0:You:1 3
+1:You:18-15 15-14 
+0:rif_raf:1 5
+1:rif_raf: 20-off 24-off
+0:You:6 6
+1:You:14-8 8-2 2-off 2-off 
+0:rif_raf:1 2
+1:rif_raf: 23-off 24-off
+0:You:6 5
+1:You: 2-o 2-o
+0:rif_raf:4 5
+1:rif_raf: 20-off 21-off
+0:You:4 5
+1:You: 1-o 1-o
+0:rif_raf:3 4
+1:rif_raf: 21-off 23-off
+0:You:2 4
+1:You: 1-o 1-o
+0:rif_raf:4 3
+1:rif_raf: 23-off 23-off
+0:You:4 5
+1:You: 1-o 1-o
+0:rif_raf:3 6
+1:rif_raf: 24-off
+7:rif_raf:4
+14:rif_raf-4:checkejon-2
+13:rif_raf: 
+6:You:rif_raf
+11:rif_raf:3 6
+1:rif_raf: 24-18 18-15
+0:You:1 3
+1:You:19-20 17-20 
+0:rif_raf:6 1

@@ -1,0 +1,54 @@
+#!/usr/bin/python2.5
+# -*- coding: utf-8 -*-
+u"""verarbeitet BG-Matches zu Statistiken"""
+
+import sys
+import os
+sys.path.append(os.path.dirname(os.getcwd()))
+import unittest
+import control
+from test_tools import *
+
+class TestMatches(unittest.TestCase):
+    
+    def setUp(self):
+        self.config = control.Config(**test_configuration())
+        self.matches = self.config.get('matches')
+
+    def testnr_of_entries(self):
+        self.assert_(len(self.matches) == 128)
+
+    def testaverages(self):
+        # make sure averages are calculated correctly
+        spans = (3,5,10,20,50,100,128)
+        sums = [2,3,6,12,29,61,71]
+        deltas = [i+'./...' for i in ['  8.96','  3.68','  3.84',
+                                      '  4.20','  3.25',' 19.75',]] + ['',]
+        avgs = [float(s)/p for p,s in zip(spans,sums)]
+        soll = zip(spans,avgs,deltas)
+        avg = self.matches.get_averages()
+        self.assert_(avg == soll,'avg,soll\n%s\n%s'%(avg,soll))
+
+class TestRatings(unittest.TestCase):
+    
+    def setUp(self):
+        self.config = control.Config(**test_configuration())
+        self.matches = self.config.get('matches')
+        self.ratings = self.config.get('ratings')
+
+    def testnr_of_entries(self):
+        self.assert_(len(self.ratings) == 338)
+
+    def testmatch_rating(self):
+        # make sure rating is found correctly
+        rating = self.ratings.match_rating(1206345788892,)
+        self.assert_(long(rating.experience) == 383)
+
+if __name__ == "__main__":
+    print control.Config(**test_configuration())
+    do_suites = (len(sys.argv) > 1) and (sys.argv[1] == 'suites')
+
+    if not do_suites:
+        run_test(TestElementaryActions('testnotconverted'))
+    else:
+        run_suites(globals())

@@ -1,0 +1,268 @@
+JavaFIBS internal match representation v1.1
+8:crazy:5
+13:crazy: 
+6:You:crazy
+11:crazy:3 5
+1:crazy: 8-3 6-3
+0:You:1 2
+1:You:12-14 1-2 
+0:crazy:4 4
+1:crazy: 8-4 8-4 6-2 6-2
+0:You:4 5
+1:You:bar-5 1-5 
+0:crazy:6 6
+1:crazy: 24-18 24-18 13-7 13-7
+0:You:5 1
+1:You:14-19 19-20 
+0:crazy:1 4
+1:crazy: 13-9 9-8
+0:You:3 6
+1:You:12-15 15-21 
+0:crazy:3 1
+1:crazy: 18-15 8-7
+0:You:2 6
+1:You:12-18 18-20 
+0:crazy:2 5
+1:crazy: bar-23 23-18
+0:You:2 4
+1:You:19-21 17-21 
+0:crazy:1 4
+1:crazy: 18-14 15-14
+0:You:3 4
+1:You:19-23 21-24 
+0:crazy:2 3
+1:crazy: 7-4 4-2
+0:You:5 2
+1:You:17-22 22-24 
+2:crazy: 
+5:You:
+7:crazy:1
+14:crazy-1:sorrytigger-0
+13:crazy: 
+6:You:crazy
+11:crazy:4 6
+1:crazy: 24-18 13-9
+0:You:5 6
+1:You:12-18 19-24 
+0:crazy:4 6
+1:crazy: bar-21
+0:You:6 1
+1:You:12-18 1-2 
+0:crazy:5 4
+1:crazy: bar-20 13-9
+0:You:4 6
+1:You:1-7 7-11 
+0:crazy:5 3
+1:crazy: 8-3 6-3
+0:You:1 1
+1:You:19-20 19-20 11-12 17-18 
+0:crazy:5 6
+15:crazy: 
+0:You:2 5
+1:You:2-4 12-17 
+0:crazy:4 4
+1:crazy: bar-21 8-4 8-4 13-9
+0:You:3 4
+15:You: 
+0:crazy:2 3
+1:crazy: 6-3 6-4
+0:You:5 4
+1:You:bar-5 18-22 
+0:crazy:1 1
+1:crazy: 6-5 6-5 9-8 9-8
+0:You:2 3
+1:You:bar-2 17-20 
+0:crazy:1 5
+1:crazy: 3-2 21-16
+0:You:1 2
+1:You:bar-1 22-24 
+0:crazy:6 4
+1:crazy: 8-2 9-5
+0:You:6 1
+1:You:1-7 7-8 
+0:crazy:5 6
+15:crazy: 
+2:You: 
+4:crazy:
+0:You:4 5
+1:You:12-16 16-21 
+0:crazy:3 2
+1:crazy: bar-23 bar-22
+0:You:3 1
+1:You:18-21 17-18 
+0:crazy:2 4
+1:crazy: bar-23 13-9
+0:You:1 6
+1:You:12-13 8-14 
+0:crazy:4 5
+15:crazy: 
+0:You:3 6
+1:You:14-17 12-18 
+0:crazy:3 2
+1:crazy: bar-22 5-3
+0:You:2 4
+1:You:13-17 17-19 
+0:crazy:2 5
+1:crazy: 9-4 3-1
+0:You:3 4
+1:You:20-24 18-21 
+0:crazy:1 6
+1:crazy: 22-16 23-22
+0:You:4 4
+1:You:19-23 19-23 19-23 17-21 
+0:crazy:5 6
+1:crazy: bar-19 22-17
+0:You:5 3
+15:You: 
+0:crazy:6 3
+1:crazy: 4-1 22-16
+0:You:1 5
+15:You: 
+0:crazy:2 6
+1:crazy: 16-10 10-8
+0:You:6 1
+1:You:bar-6 18-19 
+0:crazy:6 5
+1:crazy: bar-19 16-11
+0:You:3 5
+15:You: 
+0:crazy:4 3
+1:crazy: 17-13 11-8
+0:You:3 5
+15:You: 
+0:crazy:1 4
+1:crazy: 19-18 13-9
+0:You:1 2
+15:You: 
+0:crazy:6 2
+1:crazy: 18-12 12-10
+0:You:6 4
+1:You: bar-6
+0:crazy:2 5
+1:crazy: 9-4 10-8
+0:You:4 6
+1:You:bar-6 6-10 
+0:crazy:4 1
+1:crazy: 8-4 4-3
+0:You:4 3
+1:You:10-14 14-17 
+2:crazy: 
+5:You:
+7:crazy:2
+14:crazy-3:sorrytigger-0
+13:crazy: 
+6:You:crazy
+11:You:5 4
+1:You:12-17 12-16 
+0:crazy:5 5
+1:crazy: 8-3 8-3 13-8 13-8
+0:You:4 2
+1:You:17-21 19-21 
+0:crazy:3 1
+1:crazy: 13-10 10-9
+0:You:5 6
+1:You:1-7 7-12 
+0:crazy:6 4
+1:crazy: 24-18 18-14
+0:You:2 5
+1:You:12-14 19-24 
+0:crazy:1 5
+1:crazy: bar-20 bar-24
+0:You:6 4
+1:You:bar-4 14-20 
+0:crazy:4 6
+15:crazy: 
+0:You:1 1
+1:You:19-20 16-17 17-18 17-18 
+0:crazy:2 6
+1:crazy: bar-23 9-3
+2:You: 
+5:crazy:
+7:You:1
+14:sorrytigger-1:crazy-3
+13:crazy: 
+6:You:crazy
+11:You:3 1
+1:You:8-5 6-5 
+0:crazy:4 1
+1:crazy: 12-16 1-2
+0:You:4 5
+1:You:24-20 13-8 
+0:crazy:5 6
+1:crazy: 1-7 2-7
+0:You:1 6
+1:You:20-14 14-13 
+0:crazy:4 4
+1:crazy: 12-16 17-21 17-21 12-16
+0:You:5 6
+1:You:24-18 18-13 
+0:crazy:5 4
+1:crazy: 17-22 16-20
+0:You:6 5
+1:You:13-8 8-2 
+0:crazy:1 5
+1:crazy: 19-20 16-21
+0:You:5 3
+1:You:13-8 8-5 
+0:crazy:1 2
+1:crazy: 21-22 19-21
+0:You:6 4
+1:You:13-9 9-3 
+0:crazy:1 4
+1:crazy: 19-23 21-22
+0:You:2 6
+1:You:13-11 11-5 
+0:crazy:4 5
+1:crazy: 7-12 12-16
+0:You:6 2
+1:You:8-2 5-3 
+0:crazy:5 2
+1:crazy: 7-12 12-14
+2:You: 
+4:crazy:
+0:You:6 3
+1:You:13-7 13-10 
+0:crazy:3 6
+1:crazy: 12-18 16-19
+0:You:4 2
+1:You:8-4 7-5 
+0:crazy:5 4
+1:crazy: 14-19 16-20
+0:You:6 1
+1:You:10-4 8-7 
+0:crazy:2 1
+1:crazy: 18-20 12-13
+0:You:1 4
+1:You:7-3 2-1 
+0:crazy:3 3
+1:crazy: 13-16 16-19 22-off 22-off
+0:You:5 6
+1:You: 6-o 5-o
+0:crazy:5 5
+1:crazy: 20-off 20-off 20-off 20-off
+0:You:5 2
+1:You: 5-o 2-o
+0:crazy:4 5
+1:crazy: 19-24 21-off
+0:You:4 1
+1:You: 4-o 1-o
+0:crazy:5 3
+1:crazy: 19-24 22-off
+0:You:1 4
+1:You:4-off 3-2 
+0:crazy:5 6
+1:crazy: 19-off 19-24
+0:You:1 4
+1:You:5-1 1-off 
+0:crazy:6 5
+1:crazy: 19-off 21-off
+0:You:4 3
+1:You:6-2 3-off 
+0:crazy:6 1
+1:crazy: 23-o 24-o
+0:You:4 3
+1:You:3-off 6-2 
+0:crazy:5 2
+1:crazy: 24-off 24-off
+7:crazy:2
+9:crazy:5

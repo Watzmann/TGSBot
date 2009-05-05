@@ -1,0 +1,350 @@
+JavaFIBS internal match representation v1.1
+8:_kenzo_:3
+13:_kenzo_: 
+6:You:_kenzo_
+11:_kenzo_:1 4
+1:_kenzo_: 1-5 19-20
+0:You:6 5
+1:You:24-18 18-13 
+0:_kenzo_:5 6
+1:_kenzo_: 1-7 7-12
+0:You:6 3
+1:You:24-21 13-7 
+0:_kenzo_:4 5
+1:_kenzo_: 5-10 10-14
+0:You:3 4
+1:You:21-18 18-14 
+0:_kenzo_:6 3
+1:_kenzo_: bar-3 12-18
+0:You:6 6
+1:You:13-7 14-8 13-7 13-7 
+0:_kenzo_:5 3
+1:_kenzo_: 17-22 19-22
+2:You: 
+5:_kenzo_:
+7:You:1
+14:sorrytigger-1:_kenzo_-0
+13:_kenzo_: 
+6:You:_kenzo_
+11:You:2 1
+1:You:13-11 24-23 
+0:_kenzo_:5 5
+1:_kenzo_: 19-24 19-24 17-22 17-22
+0:You:6 6
+15:You: 
+0:_kenzo_:3 6
+1:_kenzo_: 17-23 1-4
+0:You:6 1
+15:You: 
+0:_kenzo_:6 3
+1:_kenzo_: 1-7 4-7
+0:You:1 6
+15:You: 
+0:_kenzo_:3 4
+1:_kenzo_: 19-23 12-15
+0:You:2 6
+15:You: 
+0:_kenzo_:3 1
+1:_kenzo_: 7-10 10-11
+0:You:5 6
+1:You: bar-20
+0:_kenzo_:4 1
+1:_kenzo_: 7-11 15-16
+0:You:6 4
+1:You: bar-21
+0:_kenzo_:3 3
+1:_kenzo_: 11-14 11-14 12-15 12-15
+0:You:2 3
+15:You: 
+0:_kenzo_:4 3
+1:_kenzo_: 12-16 12-15
+0:You:3 4
+1:You:bar-21 13-10 
+0:_kenzo_:2 2
+1:_kenzo_: 16-18 16-18 18-20 18-20
+0:You:2 4
+1:You:bar-21 13-11 
+0:_kenzo_:1 1
+1:_kenzo_: 14-15 14-15 15-16 15-16
+0:You:3 4
+1:You:11-7 10-7 
+0:_kenzo_:2 4
+1:_kenzo_: 20-24 20-22
+0:You:3 2
+1:You:8-5 13-11 
+0:_kenzo_:1 2
+1:_kenzo_: 15-16 22-24
+0:You:2 3
+1:You:8-5 6-4 
+0:_kenzo_:6 5
+1:_kenzo_: 16-22 19-24
+0:You:6 3
+1:You:13-7 7-4 
+0:_kenzo_:6 2
+1:_kenzo_: 16-22 16-18
+0:You:2 2
+1:You:21-19 6-4 11-9 9-7 
+0:_kenzo_:2 2
+1:_kenzo_: bar-2 18-20 20-22 22-24
+0:You:5 6
+1:You:8-2 7-2 
+0:_kenzo_:6 4
+15:_kenzo_: 
+0:You:5 5
+1:You:21-16 16-11 11-6 21-16 
+0:_kenzo_:4 5
+15:_kenzo_: 
+0:You:2 6
+1:You:19-13 16-14 
+0:_kenzo_:1 1
+1:_kenzo_: bar-1 22-23 15-16 16-17
+0:You:4 1
+1:You:6-2 2-1 
+0:_kenzo_:3 4
+1:_kenzo_: bar-3 15-19
+0:You:3 5
+1:You:6-3 13-8 
+0:_kenzo_:2 6
+15:_kenzo_: 
+0:You:2 3
+1:You:4-1 8-6 
+0:_kenzo_:5 3
+1:_kenzo_: bar-3 19-24
+0:You:5 5
+1:You:bar-20 14-9 9-4 20-15 
+0:_kenzo_:3 5
+1:_kenzo_: 3-8 17-20
+0:You:6 2
+1:You:15-9 9-7 
+0:_kenzo_:4 5
+1:_kenzo_: 8-13 13-17
+0:You:6 6
+1:You: 7-1 7-1 7-1 6-off
+2:_kenzo_: 
+4:You:
+0:_kenzo_:5 3
+1:_kenzo_: 17-22 22-off
+0:You:6 2
+1:You: 6-o 2-o
+0:_kenzo_:6 2
+1:_kenzo_: 20-off 23-off
+0:You:4 6
+1:You: 6-o 4-o
+0:_kenzo_:4 5
+1:_kenzo_: 22-o 22-o
+0:You:2 1
+1:You: 2-o 1-o
+0:_kenzo_:2 4
+1:_kenzo_: 22-o 23-o
+0:You:1 5
+1:You: 5-o 1-o
+0:_kenzo_:5 2
+1:_kenzo_: 23-o 24-o
+0:You:2 1
+1:You:4-2 1-off 
+0:_kenzo_:6 4
+1:_kenzo_: 24-o 24-o
+0:You:5 3
+1:You:5-off 4-1 
+0:_kenzo_:2 2
+1:_kenzo_: 24-o 24-o 24-o 24-o
+7:_kenzo_:2
+14:_kenzo_-2:sorrytigger-1
+13:_kenzo_: 
+6:You:_kenzo_
+11:You:4 1
+1:You:12-16 1-2 
+0:_kenzo_:1 2
+1:_kenzo_: 13-11 24-23
+0:You:5 2
+1:You:16-21 19-21 
+0:_kenzo_:5 3
+1:_kenzo_: 8-3 6-3
+0:You:6 6
+1:You:12-18 12-18 17-23 17-23 
+0:_kenzo_:3 2
+1:_kenzo_: bar-22 24-22
+0:You:5 6
+1:You:1-7 2-7 
+0:_kenzo_:3 3
+1:_kenzo_: 11-8 8-5 13-10 13-10
+0:You:1 1
+1:You:19-20 19-20 23-24 23-24 
+0:_kenzo_:1 5
+1:_kenzo_: 22-17 6-5
+0:You:2 2
+1:You:bar-2 2-4 20-22 20-22 
+0:_kenzo_:1 3
+15:_kenzo_: 
+0:You:2 4
+1:You:12-16 16-18 
+0:_kenzo_:5 6
+1:_kenzo_: bar-20 10-4
+0:You:4 6
+1:You:bar-4 4-10 
+0:_kenzo_:1 6
+15:_kenzo_: 
+0:You:2 4
+1:You:10-14 12-14 
+0:_kenzo_:1 5
+1:_kenzo_: bar-20
+0:You:3 1
+1:You:14-17 18-19 
+0:_kenzo_:1 6
+15:_kenzo_: 
+0:You:5 5
+1:You:7-12 7-12 12-17 12-17 
+0:_kenzo_:4 6
+15:_kenzo_: 
+0:You:1 4
+1:You:17-21 21-22 
+0:_kenzo_:2 6
+1:_kenzo_: bar-23
+0:You:4 2
+1:You:14-18 22-24 
+0:_kenzo_:5 5
+1:_kenzo_: bar-20 20-15 13-8 15-10
+0:You:2 2
+1:You:17-19 17-19 19-21 19-21 
+0:_kenzo_:1 3
+1:_kenzo_: 13-12 8-5
+0:You:3 5
+1:You:19-24 18-21 
+0:_kenzo_:4 5
+1:_kenzo_: 8-4 10-5
+0:You:3 4
+1:You:18-22 18-21 
+0:_kenzo_:5 6
+1:_kenzo_: 12-6 8-3
+0:You:1 5
+1:You:19-24 24-off 
+0:_kenzo_:3 1
+1:_kenzo_: 20-19 23-20
+0:You:5 3
+15:You: 
+0:_kenzo_:2 5
+1:_kenzo_: 6-4 20-15
+0:You:2 6
+1:You: bar-2 2-8
+0:_kenzo_:5 5
+1:_kenzo_: 20-15 19-14 14-9 9-4
+0:You:6 1
+1:You:8-14 22-23 
+0:_kenzo_:4 2
+1:_kenzo_: 15-11 15-13
+0:You:6 5
+1:You: 14-19 19-off
+0:_kenzo_:2 4
+1:_kenzo_: 13-9 9-7
+0:You:1 1
+1:You: 24-o 24-o 24-o 24-o
+0:_kenzo_:3 2
+1:_kenzo_: 11-8 8-6
+0:You:3 4
+1:You: 21-o 22-o
+0:_kenzo_:2 3
+1:_kenzo_: 7-5 3-off
+0:You:2 5
+1:You: 21-o 23-o
+0:_kenzo_:5 6
+1:_kenzo_: 6-off 5-off
+0:You:1 5
+1:You:21-off 22-23 
+0:_kenzo_:1 6
+1:_kenzo_: 6-off 3-2
+0:You:5 6
+1:You: 21-off 21-off
+0:_kenzo_:2 2
+3:_kenzo_:1
+7:You:1
+14:sorrytigger-2:_kenzo_-2
+13:_kenzo_: 
+6:You:_kenzo_
+11:_kenzo_:1 6
+1:_kenzo_: 12-18 17-18
+0:You:6 1
+1:You:13-7 8-7 
+0:_kenzo_:1 3
+1:_kenzo_: 1-4 4-5
+0:You:1 6
+1:You:13-7 24-23 
+0:_kenzo_:3 3
+1:_kenzo_: 19-22 19-22 12-15 12-15
+0:You:4 6
+1:You:24-20 13-7 
+0:_kenzo_:5 5
+1:_kenzo_: 15-20 15-20 18-23 18-23
+0:You:5 1
+1:You: bar-24
+0:_kenzo_:4 1
+1:_kenzo_: 1-5 19-20
+0:You:4 6
+1:You:bar-21 7-1 
+0:_kenzo_:5 1
+1:_kenzo_: 5-10 20-21
+0:You:2 3
+15:You: 
+0:_kenzo_:5 4
+1:_kenzo_: 17-21 5-10
+0:You:3 6
+15:You: 
+0:_kenzo_:4 2
+1:_kenzo_: 10-14 10-12
+0:You:1 2
+1:You:bar-24 6-4 
+0:_kenzo_:1 5
+1:_kenzo_: 12-17 14-15
+0:You:1 1
+1:You:6-5 6-5 7-6 6-5 
+0:_kenzo_:5 6
+1:_kenzo_: 12-17 15-21
+0:You:2 6
+1:You:7-1 8-6 
+0:_kenzo_:4 6
+1:_kenzo_: 12-18 18-22
+0:You:6 6
+1:You:13-7 13-7 8-2 7-1 
+0:_kenzo_:2 4
+1:_kenzo_: 17-21 21-23
+0:You:3 4
+1:You:6-2 7-4 
+0:_kenzo_:1 2
+1:_kenzo_: 21-23 22-23
+0:You:2 5
+1:You:7-2 5-3 
+0:_kenzo_:1 6
+1:_kenzo_: 17-23 17-18
+0:You:4 2
+1:You:5-3 5-1 
+0:_kenzo_:4 6
+1:_kenzo_: 18-22 19-off
+0:You:3 5
+1:You:24-19 19-16 
+0:_kenzo_:5 5
+1:_kenzo_: bar-5 5-10 10-15 15-20
+0:You:2 1
+1:You:16-14 14-13 
+0:_kenzo_:3 4
+1:_kenzo_: 20-24 22-off
+0:You:4 3
+15:You: 
+0:_kenzo_:1 6
+1:_kenzo_: 20-off 23-24
+0:You:1 6
+1:You:bar-19 19-18 
+0:_kenzo_:5 3
+1:_kenzo_: 20-off 22-off
+0:You:5 6
+1:You:18-12 13-8 
+0:_kenzo_:5 2
+1:_kenzo_: 21-off 23-off
+0:You:3 1
+1:You:8-5 12-11 
+0:_kenzo_:5 4
+1:_kenzo_: 21-o 22-o
+0:You:4 3
+1:You:11-7 7-4 
+0:_kenzo_:1 1
+3:You:1
+7:_kenzo_:1
+9:_kenzo_:3

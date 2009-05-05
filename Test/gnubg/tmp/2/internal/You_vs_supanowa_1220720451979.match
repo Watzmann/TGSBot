@@ -1,0 +1,348 @@
+JavaFIBS internal match representation v1.1
+8:supanowa:3
+13:supanowa: 
+6:You:supanowa
+11:supanowa:4 5
+1:supanowa: 12-17 12-16
+0:You:3 2
+1:You:13-10 13-11 
+0:supanowa:3 1
+1:supanowa: 12-15 15-16
+0:You:1 6
+1:You:11-5 6-5 
+0:supanowa:4 4
+1:supanowa: 17-21 17-21 19-23 19-23
+0:You:1 4
+1:You:13-9 10-9 
+0:supanowa:5 6
+1:supanowa: 1-7 7-12
+0:You:4 2
+1:You:8-4 6-4 
+0:supanowa:3 4
+1:supanowa: 16-20 17-20
+0:You:2 3
+1:You:13-10 13-11 
+0:supanowa:6 5
+1:supanowa: 1-7 7-12
+0:You:3 3
+1:You:9-6 6-3 9-6 6-3 
+0:supanowa:3 4
+1:supanowa: 12-16 17-20
+0:You:3 3
+1:You:8-5 5-2 8-5 5-2 
+0:supanowa:6 1
+1:supanowa: 12-18 18-19
+0:You:4 4
+1:You:11-7 10-6 6-2 7-3 
+0:supanowa:4 4
+1:supanowa: 19-23 12-16 12-16 16-20
+0:You:5 2
+1:You:6-1 3-1 
+0:supanowa:3 3
+1:supanowa: 16-19 19-22 19-22 20-23
+0:You:3 5
+1:You:6-1 6-3 
+0:supanowa:2 1
+1:supanowa: 20-22 22-23
+0:You:6 6
+1:You:24-18 24-18 18-12 18-12 
+2:supanowa: 
+4:You:
+0:supanowa:5 5
+1:supanowa: 16-21 16-21 19-24 20-off
+0:You:4 3
+1:You:12-8 12-9 
+0:supanowa:6 4
+1:supanowa: 19-off 21-off
+0:You:5 6
+1:You:8-2 9-4 
+0:supanowa:2 2
+1:supanowa: 23-off 23-off 23-off 23-off
+0:You:6 6
+1:You: 5-off 5-off 4-off 4-off
+0:supanowa:4 5
+1:supanowa: 20-off 21-off
+0:You:5 3
+1:You: 4-o 3-o
+0:supanowa:3 4
+1:supanowa: 21-o 22-o
+0:You:6 2
+1:You: 3-o 2-o
+0:supanowa:6 3
+1:supanowa: 21-o 22-o
+0:You:2 5
+1:You: 3-o 2-o
+0:supanowa:5 4
+1:supanowa: 23-off 24-off
+7:supanowa:2
+14:supanowa-2:sorrytigger-0
+13:supanowa: 
+6:You:supanowa
+11:You:5 4
+1:You:12-17 12-16 
+0:supanowa:4 4
+1:supanowa: 24-20 20-16 13-9 13-9
+0:You:3 4
+1:You:bar-3 12-16 
+0:supanowa:3 6
+1:supanowa: bar-22 22-16
+0:You:5 4
+1:You:bar-5 12-16 
+0:supanowa:3 5
+1:supanowa: bar-20 6-3
+0:You:3 3
+1:You:bar-3 17-20 17-20 12-15 
+0:supanowa:4 5
+1:supanowa: bar-21
+0:You:3 1
+1:You:15-18 17-18 
+0:supanowa:2 3
+1:supanowa: bar-23 24-21
+0:You:1 3
+1:You:16-17 1-4 
+0:supanowa:2 5
+1:supanowa: 23-21 21-16
+0:You:4 2
+1:You:3-5 19-23 
+0:supanowa:4 1
+1:supanowa: 13-9 16-15
+0:You:5 5
+1:You:5-10 10-15 19-24 19-24 
+0:supanowa:4 1
+1:supanowa: bar-21 6-5
+0:You:3 1
+1:You:bar-3 4-5 
+0:supanowa:5 2
+1:supanowa: bar-23 21-16
+0:You:3 6
+1:You:bar-3 1-7 
+0:supanowa:4 5
+1:supanowa: 16-11 11-7
+0:You:4 3
+1:You:bar-3 3-7 
+0:supanowa:6 6
+15:supanowa: 
+0:You:2 4
+1:You:5-7 15-19 
+0:supanowa:6 2
+1:supanowa: bar-23 8-2
+0:You:3 4
+1:You:18-22 19-22 
+0:supanowa:6 1
+1:supanowa: 9-8 8-2
+0:You:1 3
+1:You:3-4 4-7 
+0:supanowa:1 3
+1:supanowa: 6-3 3-2
+0:You:1 3
+1:You:bar-3 17-18 
+0:supanowa:5 1
+1:supanowa: 8-3 3-2
+0:You:4 4
+1:You:bar-4 4-8 8-12 12-16 
+0:supanowa:2 1
+1:supanowa: bar-23 2-1
+0:You:4 3
+1:You:16-20 17-20 
+0:supanowa:3 1
+1:supanowa: 9-6 2-1
+0:You:4 1
+1:You:7-11 11-12 
+0:supanowa:3 1
+1:supanowa: 13-12 12-9
+0:You:5 2
+1:You:bar-5 5-7 
+0:supanowa:2 5
+1:supanowa: 13-8 23-21
+0:You:2 5
+1:You:7-12 20-22 
+0:supanowa:2 1
+1:supanowa: 8-6 6-5
+0:You:4 2
+1:You:20-24 12-14 
+0:supanowa:3 3
+1:supanowa: 6-3 6-3 9-6 9-6
+0:You:6 2
+1:You:14-20 7-9 
+0:supanowa:4 6
+1:supanowa: 23-17 21-17
+0:You:3 3
+1:You:20-23 9-12 12-15 15-18 
+0:supanowa:6 6
+15:supanowa: 
+0:You:3 3
+1:You:7-10 10-13 13-16 16-19 
+0:supanowa:6 1
+15:supanowa: 
+0:You:4 4
+1:You:19-23 18-22 18-22 18-22 
+0:supanowa:6 3
+15:supanowa: 
+0:You:1 6
+1:You:19-off 19-20 
+0:supanowa:6 3
+1:supanowa: bar-19 17-14
+0:You:1 5
+1:You:20-off 24-off 
+0:supanowa:2 1
+1:supanowa: 14-12 6-5
+0:You:4 3
+1:You:20-24 20-23 
+0:supanowa:6 3
+1:supanowa: 19-13 17-14
+0:You:3 2
+1:You: 22-o 23-o
+0:supanowa:4 6
+1:supanowa: 12-6 21-17
+0:You:6 6
+1:You: 22-off 22-off 22-off 22-off
+0:supanowa:6 6
+1:supanowa: 21-15 17-11 15-9 14-8
+0:You:3 1
+1:You: 22-o 24-o
+0:supanowa:4 1
+1:supanowa: 11-7 7-6
+0:You:5 2
+1:You: 23-off 23-off
+0:supanowa:3 1
+1:supanowa: 9-6 6-5
+0:You:2 4
+1:You: 24-off 24-off
+7:You:2
+14:sorrytigger-2:supanowa-2
+13:supanowa: 
+6:You:supanowa
+11:supanowa:3 4
+1:supanowa: 1-4 12-16
+0:You:5 4
+1:You:13-8 24-20 
+0:supanowa:2 1
+1:supanowa: 16-18 17-18
+0:You:1 6
+1:You:13-7 8-7 
+0:supanowa:6 2
+1:supanowa: 12-14 14-20
+0:You:5 4
+1:You:bar-20 24-20 
+0:supanowa:3 6
+1:supanowa: bar-3 12-18
+0:You:2 2
+1:You:6-4 6-4 7-5 7-5 
+0:supanowa:4 3
+1:supanowa: bar-3 19-23
+0:You:4 2
+1:You:13-9 9-7 
+0:supanowa:5 5
+1:supanowa: 19-24 19-24 18-23 12-17
+0:You:5 4
+1:You:7-2 6-2 
+0:supanowa:5 2
+1:supanowa: 12-17 17-19
+0:You:6 3
+1:You:20-14 14-11 
+0:supanowa:5 2
+1:supanowa: 18-20 17-22
+0:You:2 5
+1:You:bar-20 20-18 
+0:supanowa:5 4
+15:supanowa: 
+0:You:1 4
+1:You:11-7 8-7 
+0:supanowa:2 1
+1:supanowa: bar-1
+0:You:2 1
+1:You:18-16 13-12 
+0:supanowa:6 4
+15:supanowa: 
+0:You:5 4
+1:You:13-8 16-12 
+0:supanowa:2 5
+15:supanowa: 
+0:You:2 2
+1:You:12-10 12-10 8-6 6-4 
+0:supanowa:5 2
+15:supanowa: 
+0:You:5 1
+1:You:10-5 5-4 
+0:supanowa:2 2
+15:supanowa: 
+0:You:4 3
+1:You:8-4 8-5 
+0:supanowa:6 4
+15:supanowa: 
+0:You:5 2
+1:You:10-5 4-2 
+0:supanowa:5 6
+15:supanowa: 
+0:You:1 5
+1:You:7-2 7-6 
+0:supanowa:2 2
+15:supanowa: 
+0:You:6 5
+1:You: 5-off 6-off
+0:supanowa:5 4
+15:supanowa: 
+0:You:1 3
+1:You:5-2 6-5 
+0:supanowa:5 1
+1:supanowa: bar-1 1-6
+0:You:6 6
+15:You: 
+0:supanowa:2 6
+1:supanowa: 6-12 22-24
+0:You:6 6
+15:You: 
+0:supanowa:2 5
+1:supanowa: 3-8 8-10
+0:You:5 2
+1:You:bar-20 20-18 
+0:supanowa:4 2
+1:supanowa: 12-16 16-18
+0:You:3 6
+1:You: bar-22 22-16
+0:supanowa:6 1
+1:supanowa: 10-16 16-17
+0:You:2 3
+1:You:bar-22 5-3 
+0:supanowa:6 5
+1:supanowa: bar-6 17-22
+0:You:1 1
+15:You: 
+0:supanowa:1 4
+1:supanowa: 18-22 19-20
+0:You:4 5
+1:You:bar-20 20-16 
+0:supanowa:2 4
+15:supanowa: 
+0:You:6 1
+1:You:4-3 16-10 
+0:supanowa:2 5
+15:supanowa: 
+0:You:3 4
+1:You:10-6 6-3 
+0:supanowa:1 6
+1:supanowa: bar-6 bar-1
+0:You:4 4
+1:You: 4-off 4-off 4-off
+0:supanowa:4 3
+1:supanowa: 1-4 6-10
+0:You:1 4
+1:You: 5-4 4-off
+0:supanowa:6 1
+1:supanowa: bar-6 17-18
+0:You:1 5
+1:You:5-off 3-2 
+0:supanowa:3 2
+1:supanowa: 17-20 18-20
+0:You:3 6
+1:You: 3-off 3-off
+0:supanowa:3 1
+1:supanowa: 10-13 6-7
+0:You:3 3
+1:You: 2-off 2-off 2-off 2-off
+0:supanowa:5 5
+1:supanowa: 1-6 6-11 11-16 16-21
+0:You:3 4
+1:You: 2-off 2-off
+7:You:3
+9:You:3

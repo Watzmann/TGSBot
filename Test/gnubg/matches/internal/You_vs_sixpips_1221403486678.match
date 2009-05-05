@@ -1,0 +1,238 @@
+JavaFIBS internal match representation v1.1
+8:sixpips:3
+13:sixpips: 
+6:You:sixpips
+11:sixpips:3 5
+1:sixpips: 17-22 19-22
+0:You:4 6
+1:You:8-2 6-2 
+0:sixpips:6 1
+1:sixpips: 12-18 17-18
+0:You:1 3
+1:You:8-5 6-5 
+0:sixpips:6 2
+1:sixpips: 1-7 17-19
+0:You:1 2
+1:You:8-7 7-5 
+0:sixpips:4 2
+1:sixpips: bar-4 1-3
+0:You:6 1
+1:You:13-7 5-4 
+0:sixpips:6 3
+1:sixpips: bar-3 12-18
+0:You:6 6
+1:You:13-7 13-7 13-7 7-1 
+0:sixpips:3 6
+1:sixpips: 3-9 9-12
+0:You:2 6
+1:You:13-7 6-4 
+0:sixpips:2 4
+1:sixpips: 12-16 16-18
+0:You:3 4
+1:You:24-20 24-21 
+0:sixpips:2 1
+1:sixpips: 18-20 20-21
+0:You:5 3
+1:You: bar-20
+0:sixpips:2 6
+1:sixpips: 3-9 19-21
+0:You:2 5
+1:You:bar-20 7-5 
+0:sixpips:3 6
+1:sixpips: 9-15 12-15
+0:You:4 5
+1:You:5-1 7-2 
+0:sixpips:3 6
+1:sixpips: 18-24 19-22
+0:You:1 6
+1:You:20-14 14-13 
+0:sixpips:4 2
+1:sixpips: 18-20 20-24
+0:You:2 4
+1:You:bar-23 13-9 
+0:sixpips:2 2
+1:sixpips: 12-14 14-16 16-18 19-21
+0:You:5 3
+1:You:23-20 9-4 
+0:sixpips:6 1
+1:sixpips: 12-18 18-19
+0:You:6 6
+1:You:20-14 14-8 8-2 7-1 
+0:sixpips:2 5
+1:sixpips: 15-20 18-20
+2:You: 
+5:sixpips:
+7:You:1
+14:sorrytigger-1:sixpips-0
+13:sixpips: 
+6:You:sixpips
+11:You:6 4
+1:You:8-2 6-2 
+0:sixpips:1 1
+1:sixpips: 19-20 19-20 17-18 17-18
+0:You:4 2
+1:You:8-4 6-4 
+0:sixpips:2 5
+1:sixpips: 1-3 3-8
+0:You:2 2
+1:You:bar-23 24-22 24-22 23-21 
+0:sixpips:2 2
+1:sixpips: 17-19 19-21 19-21 1-3
+0:You:1 4
+1:You:bar-24 6-2 
+0:sixpips:6 6
+1:sixpips: 18-24 18-24 3-9 8-14
+0:You:4 1
+15:You: 
+0:sixpips:5 5
+1:sixpips: 12-17 12-17 9-14 12-17
+0:You:4 1
+15:You: 
+2:sixpips: 
+5:You:
+7:sixpips:1
+14:sixpips-1:sorrytigger-1
+13:sixpips: 
+6:You:sixpips
+11:You:4 3
+1:You:12-16 12-15 
+0:sixpips:5 2
+1:sixpips: 13-8 13-11
+0:You:3 3
+1:You:1-4 1-4 19-22 19-22 
+0:sixpips:4 1
+1:sixpips: 11-7 8-7
+0:You:5 3
+1:You:15-20 17-20 
+0:sixpips:2 5
+1:sixpips: 8-3 3-1
+0:You:3 3
+1:You:12-15 12-15 15-18 15-18 
+0:sixpips:3 2
+1:sixpips: 6-3 3-1
+0:You:5 5
+1:You:4-9 4-9 12-17 17-22 
+0:sixpips:5 2
+1:sixpips: 13-8 8-6
+0:You:3 5
+1:You:9-14 9-12 
+0:sixpips:1 3
+1:sixpips: 13-12 24-21
+0:You:4 2
+1:You:bar-4 14-16 
+0:sixpips:4 4
+1:sixpips: 8-4 8-4 7-3 7-3
+0:You:1 2
+1:You:bar-2 19-20 
+0:sixpips:5 1
+1:sixpips: 6-1 13-12
+0:You:6 5
+1:You:2-8 8-13 
+0:sixpips:1 1
+1:sixpips: 6-5 6-5 12-11 12-11
+0:You:5 3
+1:You:13-18 18-21 
+0:sixpips:1 6
+1:sixpips: bar-24 11-5
+0:You:1 3
+1:You:20-21 16-19 
+0:sixpips:4 4
+1:sixpips: 6-2 6-2 11-7 5-1
+0:You:2 1
+1:You:22-23 19-21 
+0:sixpips:5 6
+1:sixpips: 7-1
+0:You:3 6
+1:You:17-23 16-19 
+0:sixpips:5 6
+15:sixpips: 
+0:You:1 4
+1:You:17-21 21-22 
+0:sixpips:6 2
+1:sixpips: 5-3
+2:You: 
+5:sixpips:
+7:You:1
+14:sorrytigger-2:sixpips-1
+13:sixpips: 
+6:You:sixpips
+11:You:2 1
+1:You:13-11 24-23 
+0:sixpips:4 4
+1:sixpips: 1-5 1-5 12-16 12-16
+0:You:3 1
+1:You:13-10 11-10 
+0:sixpips:1 2
+1:sixpips: 16-18 17-18
+0:You:2 3
+1:You:24-21 23-21 
+0:sixpips:5 4
+1:sixpips: 12-16 19-24
+0:You:6 2
+1:You:10-4 10-8 
+0:sixpips:4 5
+1:sixpips: 19-24 5-9
+0:You:4 6
+1:You:8-2 6-2 
+0:sixpips:6 1
+1:sixpips: 5-11 11-12
+0:You:4 6
+1:You:13-7 8-4 
+0:sixpips:6 1
+1:sixpips: 9-15 15-16
+0:You:2 6
+1:You:13-7 13-11 
+0:sixpips:2 4
+1:sixpips: 12-16 16-18
+0:You:6 3
+1:You:11-5 8-5 
+0:sixpips:6 5
+1:sixpips: 12-18 12-17
+0:You:5 3
+1:You:6-3 8-3 
+0:sixpips:1 4
+1:sixpips: 16-20 19-20
+0:You:4 6
+1:You:21-15 15-11 
+0:sixpips:1 2
+1:sixpips: 18-20 18-19
+0:You:6 1
+1:You:21-15 7-6 
+0:sixpips:1 1
+1:sixpips: 18-19 18-19 17-18 18-19
+0:You:6 4
+1:You:15-9 9-5 
+0:sixpips:2 1
+1:sixpips: 17-19 17-18
+0:You:6 3
+1:You:11-5 7-4 
+0:sixpips:6 2
+1:sixpips: 16-22 19-21
+0:You:3 5
+1:You: 5-o 3-o
+0:sixpips:5 5
+1:sixpips: 16-21 18-23 20-off 20-off
+0:You:2 2
+1:You:2-off 2-off 4-2 2-off 
+0:sixpips:4 5
+1:sixpips: 20-off 21-off
+0:You:5 6
+1:You: 6-o 5-o
+0:sixpips:1 5
+1:sixpips: 19-24 24-off
+0:You:6 3
+1:You: 6-o 3-o
+0:sixpips:2 3
+1:sixpips: 22-off 23-off
+0:You:4 6
+1:You: 6-o 4-o
+0:sixpips:4 5
+1:sixpips: 19-24 21-off
+0:You:6 4
+1:You: 6-o 4-o
+0:sixpips:4 2
+1:sixpips: 19-23 23-off
+0:You:3 3
+1:You: 5-2 5-2 2-off 2-off
+7:You:1
+9:You:3

@@ -1,0 +1,135 @@
+JavaFIBS internal match representation v1.1
+8:diddlebug:3
+13:diddlebug: 
+6:You:diddlebug
+11:diddlebug:1 6
+1:diddlebug: 12-18 17-18
+0:You:6 4
+1:You:8-2 6-2 
+0:diddlebug:2 2
+1:diddlebug: 1-3 1-3 19-21 19-21
+0:You:5 5
+1:You:6-1 6-1 13-8 13-8 
+0:diddlebug:1 2
+1:diddlebug: 12-14 14-15
+0:You:3 1
+1:You:8-5 24-23 
+0:diddlebug:3 1
+1:diddlebug: 17-20 19-20
+0:You:4 1
+1:You:8-4 5-4 
+0:diddlebug:6 2
+1:diddlebug: 12-18 15-17
+0:You:2 3
+1:You:24-22 13-10 
+0:diddlebug:6 2
+1:diddlebug: 12-18 12-14
+0:You:3 4
+1:You:13-9 13-10 
+0:diddlebug:4 2
+1:diddlebug: 3-5 5-9
+0:You:1 4
+1:You:bar-24 10-6 
+2:diddlebug: 
+5:You:
+7:diddlebug:1
+14:diddlebug-1:sorrytigger-0
+13:diddlebug: 
+6:You:diddlebug
+11:You:5 2
+1:You:12-17 12-14 
+0:diddlebug:5 4
+1:diddlebug: 13-8 13-9
+0:You:1 1
+1:You:19-20 19-20 17-18 17-18 
+0:diddlebug:4 3
+1:diddlebug: 9-5 8-5
+0:You:4 4
+1:You:17-21 17-21 12-16 12-16 
+0:diddlebug:4 3
+1:diddlebug: 13-9 8-5
+2:You: 
+5:diddlebug:
+7:You:1
+14:sorrytigger-1:diddlebug-1
+13:diddlebug: 
+6:You:diddlebug
+11:diddlebug:4 6
+1:diddlebug: 17-23 19-23
+0:You:1 3
+1:You:8-5 6-5 
+0:diddlebug:3 1
+1:diddlebug: 17-20 19-20
+0:You:1 4
+1:You:13-9 9-8 
+0:diddlebug:2 5
+1:diddlebug: 12-17 12-14
+0:You:5 6
+1:You:24-18 18-13 
+0:diddlebug:1 3
+1:diddlebug: 12-15 14-15
+0:You:6 6
+1:You:24-18 13-7 13-7 13-7 
+0:diddlebug:1 6
+1:diddlebug: 12-18 17-18
+0:You:5 1
+1:You:bar-24 7-2 
+0:diddlebug:5 1
+1:diddlebug: 12-17 1-2
+0:You:2 1
+1:You:bar-24 13-11 
+2:diddlebug: 
+4:You:
+0:diddlebug:5 5
+1:diddlebug: 17-22 17-22 15-20 15-20
+0:You:3 4
+1:You:24-21 21-17 
+0:diddlebug:4 1
+1:diddlebug: 20-24 2-3
+0:You:5 6
+15:You: 
+0:diddlebug:3 4
+1:diddlebug: 20-24 1-4
+0:You:1 5
+15:You: 
+0:diddlebug:6 6
+1:diddlebug: 3-9 4-10 9-15 10-16
+0:You:1 5
+15:You: 
+0:diddlebug:3 1
+1:diddlebug: 16-17 17-20
+0:You:4 4
+1:You:bar-21 bar-21 8-4 8-4 
+0:diddlebug:6 2
+1:diddlebug: 15-17 17-23
+0:You:1 6
+1:You:6-5 13-7 
+0:diddlebug:1 6
+1:diddlebug: 18-24 18-19
+0:You:6 1
+1:You:8-2 7-6 
+0:diddlebug:1 6
+1:diddlebug: 19-off 24-off
+0:You:4 4
+1:You:6-2 7-3 7-3 11-7 
+0:diddlebug:2 2
+1:diddlebug: 23-off 23-off 23-off 22-24
+0:You:5 4
+1:You:6-1 5-1 
+0:diddlebug:4 3
+1:diddlebug: 19-23 20-23
+0:You:6 3
+1:You:21-15 7-4 
+0:diddlebug:2 3
+1:diddlebug: 22-off 23-off
+0:You:2 4
+1:You:15-11 4-2 
+0:diddlebug:2 1
+1:diddlebug: 23-off 24-off
+0:You:1 6
+1:You:2-1 11-5 
+0:diddlebug:3 3
+1:diddlebug: 19-22 19-22 20-23 20-23
+3:You:2
+7:diddlebug:2
+9:diddlebug:3

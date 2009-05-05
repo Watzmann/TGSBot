@@ -1,0 +1,152 @@
+JavaFIBS internal match representation v1.1
+8:NassimSabba:3
+13:NassimSabba: 
+6:You:NassimSabba
+11:NassimSabba:5 6
+1:NassimSabba: 1-7 7-12
+0:You:2 1
+1:You:13-11 24-23 
+0:NassimSabba:1 2
+1:NassimSabba: 12-14 1-2
+0:You:4 6
+1:You:13-7 11-7 
+0:NassimSabba:2 6
+1:NassimSabba: 2-4 4-10
+0:You:3 2
+1:You:13-10 23-21 
+0:NassimSabba:3 5
+1:NassimSabba: bar-3 19-24
+0:You:4 4
+1:You:bar-21 7-3 7-3 10-6 
+0:NassimSabba:6 6
+15:NassimSabba: 
+0:You:3 4
+1:You:21-18 18-14 
+0:NassimSabba:2 2
+1:NassimSabba: bar-2 bar-2 12-14 12-14
+0:You:1 5
+1:You:bar-24 6-1 
+0:NassimSabba:6 1
+1:NassimSabba: bar-1 1-7
+0:You:4 4
+1:You:bar-21 8-4 8-4 24-20 
+0:NassimSabba:6 2
+1:NassimSabba: 12-18 18-20
+0:You:4 1
+1:You:bar-24 24-20 
+0:NassimSabba:5 2
+1:NassimSabba: bar-5 5-7
+0:You:5 4
+1:You:13-8 13-9 
+0:NassimSabba:3 4
+1:NassimSabba: 17-20 7-11
+0:You:2 1
+1:You:bar-23 21-20 
+0:NassimSabba:3 6
+15:NassimSabba: 
+0:You:2 1
+1:You:9-7 21-20 
+0:NassimSabba:4 3
+15:NassimSabba: 
+0:You:3 4
+1:You:20-16 16-13 
+0:NassimSabba:1 3
+1:NassimSabba: bar-1
+0:You:6 4
+1:You:13-7 20-16 
+0:NassimSabba:1 3
+1:NassimSabba: bar-1 11-14
+0:You:3 5
+1:You:16-11 11-8 
+0:NassimSabba:4 1
+1:NassimSabba: 19-23 12-13
+2:You: 
+4:NassimSabba:
+0:You:1 5
+1:You:bar-20 6-5 
+0:NassimSabba:6 6
+1:NassimSabba: 14-20 14-20 17-23 14-20
+0:You:5 2
+15:You: 
+0:NassimSabba:6 3
+1:NassimSabba: 2-5 5-11
+0:You:5 3
+1:You: bar-22
+0:NassimSabba:5 6
+1:NassimSabba: 12-18 13-18
+0:You:4 6
+1:You:bar-21 8-2 
+0:NassimSabba:1 3
+1:NassimSabba: bar-1 18-21
+0:You:3 6
+1:You:bar-22 8-2 
+0:NassimSabba:2 1
+1:NassimSabba: 19-21 17-18
+0:You:5 6
+1:You:22-16 16-11 
+0:NassimSabba:1 1
+1:NassimSabba: bar-1 20-21 21-22 18-19
+0:You:6 4
+15:You: 
+0:NassimSabba:5 5
+1:NassimSabba: 18-23 19-24 19-24 19-24
+0:You:5 3
+1:You:bar-22 8-3 
+0:NassimSabba:4 6
+15:NassimSabba: 
+0:You:1 3
+1:You:22-19 19-18 
+0:NassimSabba:1 2
+1:NassimSabba: bar-1 21-23
+0:You:2 4
+1:You:11-7 18-16 
+0:NassimSabba:2 1
+1:NassimSabba: 21-23 23-24
+0:You:4 5
+1:You:16-11 11-7 
+0:NassimSabba:2 1
+1:NassimSabba: 20-22 20-21
+0:You:2 5
+1:You:7-2 7-5 
+0:NassimSabba:2 6
+1:NassimSabba: 21-23
+0:You:1 4
+1:You:6-5 6-2 
+0:NassimSabba:4 6
+15:NassimSabba: 
+0:You:3 4
+1:You:7-3 7-4 
+0:NassimSabba:4 3
+15:NassimSabba: 
+0:You:1 5
+1:You:5-off 5-4 
+0:NassimSabba:3 6
+1:NassimSabba: 1-7 7-10
+0:You:4 1
+1:You:4-off 3-2 
+0:NassimSabba:4 5
+1:NassimSabba: 1-5 10-15
+0:You:1 2
+1:You:2-off 4-3 
+0:NassimSabba:5 2
+1:NassimSabba: 15-20 20-22
+0:You:6 5
+1:You: 6-off
+0:NassimSabba:4 6
+1:NassimSabba: 1-7 7-11
+0:You:3 3
+1:You:6-3 3-off 3-off 3-off 
+0:NassimSabba:3 4
+1:NassimSabba: 5-9 11-14
+0:You:2 2
+1:You:4-2 4-2 2-off 2-off 
+0:NassimSabba:5 4
+1:NassimSabba: 9-14 14-18
+0:You:4 5
+1:You: 3-off 3-off
+0:NassimSabba:6 1
+1:NassimSabba: 14-20 23-24
+0:You:3 3
+1:You: 2-off 2-off 2-off 2-off
+7:You:6
+9:You:3

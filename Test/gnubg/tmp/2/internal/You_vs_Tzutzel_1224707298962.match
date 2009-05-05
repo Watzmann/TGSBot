@@ -1,0 +1,104 @@
+JavaFIBS internal match representation v1.1
+8:Tzutzel:3
+13:Tzutzel: 
+6:You:Tzutzel
+11:Tzutzel:1 5
+1:Tzutzel: 12-17 1-2
+0:You:2 4
+1:You:8-4 6-4 
+0:Tzutzel:4 3
+1:Tzutzel: 1-5 2-5
+0:You:1 6
+1:You:13-7 24-23 
+0:Tzutzel:4 6
+1:Tzutzel: 17-23 19-23
+0:You:3 1
+1:You:bar-22 22-21 
+0:Tzutzel:1 4
+1:Tzutzel: 12-16 16-17
+0:You:6 1
+1:You:13-7 21-20 
+0:Tzutzel:4 3
+1:Tzutzel: 5-9 9-12
+0:You:6 6
+1:You:20-14 14-8 13-7 24-18 
+2:Tzutzel: 
+4:You:
+0:Tzutzel:6 2
+1:Tzutzel: 12-18 12-14
+0:You:3 2
+1:You:bar-22 22-20 
+0:Tzutzel:4 4
+1:Tzutzel: 12-16 12-16 16-20 16-20
+0:You:1 2
+1:You:bar-24 7-5 
+0:Tzutzel:3 3
+1:Tzutzel: bar-3 19-22 19-22 18-21
+0:You:4 4
+1:You:7-3 7-3 13-9 9-5 
+0:Tzutzel:4 6
+15:Tzutzel: 
+0:You:1 5
+1:You:8-3 6-5 
+0:Tzutzel:6 1
+1:Tzutzel: bar-1 14-20
+0:You:2 6
+1:You:24-18 18-16 
+0:Tzutzel:3 6
+1:Tzutzel: 1-7 17-20
+0:You:3 1
+1:You:8-7 7-4 
+0:Tzutzel:2 5
+1:Tzutzel: bar-2 2-7
+0:You:3 5
+1:You:16-13 8-3 
+0:Tzutzel:2 4
+1:Tzutzel: 7-11 17-19
+0:You:4 6
+1:You:13-7 13-9 
+0:Tzutzel:1 4
+1:Tzutzel: 17-21 20-21
+2:You: 
+4:Tzutzel:
+0:You:2 4
+1:You:9-5 7-5 
+0:Tzutzel:1 5
+1:Tzutzel: 11-16 17-18
+0:You:1 1
+1:You:3-2 3-2 2-1 1-off 
+0:Tzutzel:3 4
+1:Tzutzel: 16-20 18-21
+0:You:4 4
+1:You:4-off 4-off 4-off 5-1 
+0:Tzutzel:6 3
+1:Tzutzel: 19-off 22-off
+0:You:5 2
+1:You: 5-o 2-o
+0:Tzutzel:2 4
+1:Tzutzel: 21-off 23-off
+0:You:4 3
+1:You:6-2 3-off 
+0:Tzutzel:5 3
+1:Tzutzel: 20-off 22-off
+0:You:4 5
+1:You:5-off 6-2 
+0:Tzutzel:3 4
+1:Tzutzel: 21-off 19-22
+0:You:2 1
+1:You: 2-o 1-o
+0:Tzutzel:4 2
+1:Tzutzel: 21-off 23-off
+0:You:1 2
+1:You:2-off 5-4 
+0:Tzutzel:6 4
+1:Tzutzel: 19-off 21-off
+0:You:2 1
+1:You:3-1 1-off 
+0:Tzutzel:1 4
+1:Tzutzel: 20-24 24-off
+0:You:6 3
+1:You:6-off 5-2 
+0:Tzutzel:6 6
+1:Tzutzel: 20-off 20-off 22-off
+7:Tzutzel:4
+9:Tzutzel:3

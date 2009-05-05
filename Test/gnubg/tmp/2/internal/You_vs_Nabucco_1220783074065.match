@@ -1,0 +1,204 @@
+JavaFIBS internal match representation v1.1
+8:Nabucco:3
+13:Nabucco: 
+6:You:Nabucco
+11:Nabucco:1 2
+1:Nabucco: 12-14 1-2
+0:You:1 1
+1:You:6-5 6-5 8-7 8-7 
+0:Nabucco:5 4
+1:Nabucco: 14-19 12-16
+0:You:4 1
+1:You:13-9 9-8 
+0:Nabucco:3 5
+1:Nabucco: 17-22 19-22
+0:You:1 4
+1:You:24-20 6-5 
+0:Nabucco:3 4
+1:Nabucco: 16-20 17-20
+0:You:3 3
+15:You: 
+0:Nabucco:1 6
+1:Nabucco: 12-18 17-18
+0:You:2 1
+1:You:bar-23 24-23 
+0:Nabucco:6 3
+1:Nabucco: 1-4 4-10
+0:You:5 1
+1:You:13-8 8-7 
+0:Nabucco:4 2
+1:Nabucco: 2-4 10-14
+0:You:2 1
+1:You:5-4 13-11 
+0:Nabucco:1 6
+1:Nabucco: bar-1 14-20
+0:You:3 6
+1:You:7-4 11-5 
+0:Nabucco:3 2
+1:Nabucco: 1-3 19-22
+0:You:1 1
+1:You:4-3 4-3 5-4 4-3 
+0:Nabucco:4 2
+1:Nabucco: bar-4 22-24
+0:You:6 1
+1:You:13-7 3-2 
+0:Nabucco:3 2
+1:Nabucco: 19-22 22-24
+0:You:6 4
+1:You:23-17 17-13 
+0:Nabucco:5 4
+1:Nabucco: 4-9 19-23
+0:You:4 6
+1:You:bar-21 8-2 
+0:Nabucco:2 6
+1:Nabucco: 9-15 15-17
+0:You:3 5
+1:You:21-16 16-13 
+0:Nabucco:5 1
+1:Nabucco: 17-22 22-23
+0:You:1 5
+1:You:7-6 13-8 
+0:Nabucco:3 2
+1:Nabucco: 12-15 12-14
+0:You:1 2
+1:You:7-5 7-6 
+0:Nabucco:1 2
+1:Nabucco: 18-20 18-19
+0:You:5 2
+1:You:13-8 8-6 
+0:Nabucco:5 2
+1:Nabucco: 15-20 19-21
+0:You:3 4
+1:You:8-4 13-10 
+0:Nabucco:2 6
+1:Nabucco: 14-20 23-off
+0:You:4 4
+1:You:8-4 10-6 4-off 4-off 
+0:Nabucco:1 4
+1:Nabucco: 21-o 24-o
+0:You:4 3
+1:You:5-1 3-off 
+0:Nabucco:5 4
+1:Nabucco: 20-off 20-24
+0:You:6 4
+1:You:6-off 6-2 
+0:Nabucco:1 4
+1:Nabucco: 20-24 24-off
+0:You:6 6
+1:You: 6-off 6-off 6-off 6-off
+0:Nabucco:2 1
+1:Nabucco: 23-o 24-o
+2:You: 
+4:Nabucco:
+0:You:2 6
+1:You: 5-o 2-o
+0:Nabucco:3 4
+1:Nabucco: 19-23 22-off
+0:You:3 4
+1:You:5-1 3-off 
+0:Nabucco:2 5
+1:Nabucco: 20-o 23-o
+0:You:3 6
+1:You: 2-off 2-off
+0:Nabucco:4 6
+1:Nabucco: 19-off 20-24
+0:You:5 5
+1:You: 1-off 1-off
+7:You:2
+14:sorrytigger-2:Nabucco-0
+13:Nabucco: 
+6:You:Nabucco
+11:Nabucco:3 6
+1:Nabucco: 1-7 1-4
+0:You:1 4
+1:You:24-20 8-7 
+0:Nabucco:4 5
+1:Nabucco: bar-4 19-24
+0:You:4 2
+1:You:bar-21 7-5 
+0:Nabucco:3 4
+1:Nabucco: 12-15 15-19
+0:You:1 2
+1:You:6-5 13-11 
+0:Nabucco:1 6
+1:Nabucco: 12-18 17-18
+0:You:4 3
+1:You:11-8 6-2 
+0:Nabucco:5 4
+1:Nabucco: 19-23 19-24
+0:You:3 2
+1:You:13-11 6-3 
+0:Nabucco:2 3
+1:Nabucco: 18-21 21-23
+0:You:5 4
+1:You:bar-20 11-7 
+0:Nabucco:6 1
+1:Nabucco: 4-10 18-19
+0:You:1 4
+1:You:13-9 8-7 
+0:Nabucco:5 3
+1:Nabucco: 4-9 9-12
+0:You:2 2
+15:You: 
+0:Nabucco:5 3
+1:Nabucco: 10-15 12-15
+0:You:5 5
+1:You:bar-20 8-3 13-8 13-8 
+0:Nabucco:1 1
+1:Nabucco: 12-13 12-13 13-14 13-14
+0:You:4 6
+1:You:8-2 8-4 
+0:Nabucco:1 5
+1:Nabucco: 12-17 17-18
+0:You:4 5
+1:You:20-16 16-11 
+0:Nabucco:1 4
+1:Nabucco: 14-18 14-15
+0:You:4 6
+1:You:8-4 11-5 
+0:Nabucco:3 6
+1:Nabucco: 15-21 19-22
+0:You:5 4
+1:You:7-2 5-1 
+0:Nabucco:2 2
+1:Nabucco: 15-17 15-17 17-19 19-21
+0:You:4 4
+1:You:20-16 20-16 16-12 16-12 
+0:Nabucco:5 2
+1:Nabucco: 18-23 17-19
+0:You:6 3
+1:You:12-6 12-9 
+0:Nabucco:4 6
+1:Nabucco: 17-23 18-22
+0:You:2 6
+1:You:9-3 7-5 
+0:Nabucco:5 2
+1:Nabucco: 17-22 23-off
+0:You:5 3
+1:You: 5-o 3-o
+0:Nabucco:6 3
+1:Nabucco: 19-o 22-o
+0:You:1 6
+1:You: 6-o 1-o
+0:Nabucco:3 4
+1:Nabucco: 21-o 22-o
+0:You:6 2
+1:You: 6-o 2-o
+0:Nabucco:1 4
+1:Nabucco: 21-o 24-o
+0:You:1 6
+1:You:6-off 2-1 
+0:Nabucco:2 2
+1:Nabucco: 19-21 19-21 23-off 23-off
+0:You:6 6
+1:You: 5-off 5-off 4-off 4-off
+0:Nabucco:1 2
+1:Nabucco: 23-o 24-o
+0:You:5 4
+1:You: 3-off 3-off
+0:Nabucco:6 4
+1:Nabucco: 19-o 21-o
+0:You:5 3
+1:You: 2-off 1-off
+7:You:1
+9:You:3

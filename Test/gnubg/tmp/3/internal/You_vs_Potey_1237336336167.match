@@ -1,0 +1,194 @@
+JavaFIBS internal match representation v1.1
+8:Potey:3
+13:Potey: 
+6:You:Potey
+11:Potey:1 5
+1:Potey: 13-8 24-23
+0:You:3 5
+1:You:17-22 19-22 
+0:Potey:3 5
+1:Potey: 8-3 6-3
+0:You:1 1
+1:You:19-20 19-20 22-23 22-23 
+0:Potey:6 6
+15:Potey: 
+0:You:3 2
+1:You:1-4 12-14 
+0:Potey:3 2
+1:Potey: bar-22 24-22
+0:You:4 6
+1:You:12-18 14-18 
+0:Potey:1 6
+1:Potey: 13-7 8-7
+0:You:6 1
+1:You:12-18 4-5 
+0:Potey:2 6
+1:Potey: 13-7 7-5
+0:You:6 5
+1:You:bar-5 5-11 
+0:Potey:2 4
+1:Potey: bar-21 13-11
+0:You:2 4
+1:You:bar-4 18-20 
+0:Potey:5 3
+1:Potey: 13-8 6-3
+0:You:3 4
+1:You:1-4 17-21 
+0:Potey:2 2
+15:Potey: 
+0:You:6 3
+1:You:12-18 18-21 
+0:Potey:6 3
+1:Potey: bar-22 8-2
+0:You:6 2
+1:You:4-10 10-12 
+0:Potey:3 3
+1:Potey: 7-4 7-4 8-5 5-2
+0:You:6 1
+1:You:bar-1 17-23 
+0:Potey:4 4
+1:Potey: 8-4 11-7 7-3 6-2
+0:You:6 6
+1:You:1-7 7-13 13-19 12-18 
+0:Potey:3 2
+1:Potey: 4-1 3-1
+2:You: 
+5:Potey:
+7:You:1
+14:sorrytigger-1:Potey-0
+13:Potey: 
+6:You:Potey
+11:Potey:1 2
+1:Potey: 1-2 12-14
+0:You:1 2
+1:You:24-23 13-11 
+0:Potey:1 5
+1:Potey: 1-2 12-17
+0:You:3 5
+1:You:8-3 6-3 
+0:Potey:4 2
+1:Potey: 12-16 14-16
+0:You:2 3
+1:You:24-21 23-21 
+0:Potey:5 6
+1:Potey: 2-7 17-23
+0:You:5 3
+1:You:13-8 11-8 
+0:Potey:4 3
+1:Potey: 19-23 19-22
+0:You:3 3
+1:You:8-5 8-5 13-10 10-7 
+0:Potey:3 5
+15:Potey: 
+0:You:3 5
+1:You:7-2 21-18 
+0:Potey:4 2
+1:Potey: bar-4 bar-2
+0:You:4 6
+1:You:bar-21 8-2 
+0:Potey:2 3
+1:Potey: bar-2 19-22
+0:You:4 5
+1:You:bar-21 13-8 
+2:Potey: 
+4:You:
+0:Potey:4 2
+1:Potey: 12-16 16-18
+0:You:4 4
+1:You:bar-21 8-4 8-4 6-2 
+0:Potey:1 3
+1:Potey: bar-1
+0:You:1 4
+1:You:6-2 13-12 
+0:Potey:2 2
+15:Potey: 
+0:You:5 2
+1:You:12-7 7-5 
+0:Potey:4 3
+15:Potey: 
+0:You:4 2
+1:You:5-1 3-1 
+0:Potey:3 5
+1:Potey: bar-3
+0:You:3 6
+15:You: 
+0:Potey:1 3
+1:Potey: bar-3
+0:You:1 4
+1:You:bar-21 21-20 
+0:Potey:2 2
+15:Potey: 
+0:You:3 3
+1:You:21-18 21-18 21-18 18-15 
+0:Potey:2 3
+1:Potey: bar-3
+0:You:1 2
+1:You:21-20 15-13 
+0:Potey:3 4
+1:Potey: bar-3 17-21
+0:You:3 3
+1:You:18-15 18-15 15-12 15-12 
+0:Potey:1 1
+1:Potey: 21-22 22-23 23-24 23-24
+0:You:6 5
+1:You:20-14 20-15 
+0:Potey:1 3
+1:Potey: 19-22 22-23
+0:You:1 3
+1:You:14-13 15-12 
+0:Potey:5 6
+1:Potey: 3-9 9-14
+0:You:4 3
+1:You:13-9 12-9 
+0:Potey:6 4
+1:Potey: 3-7 7-13
+0:You:3 3
+15:You: 
+0:Potey:1 4
+1:Potey: 14-18 18-19
+0:You:3 5
+1:You:bar-20 12-9 
+0:Potey:2 3
+1:Potey: 17-20 13-15
+0:You:5 4
+1:You:bar-20 9-5 
+0:Potey:2 6
+15:Potey: 
+0:You:4 5
+1:You:20-15 12-8 
+0:Potey:2 5
+15:Potey: 
+0:You:3 2
+1:You:8-6 15-12 
+0:Potey:1 1
+15:Potey: 
+0:You:5 1
+1:You:9-4 12-11 
+0:Potey:4 3
+1:Potey: bar-3
+0:You:2 5
+1:You:11-6 9-7 
+0:Potey:6 1
+15:Potey: 
+0:You:1 2
+1:You:7-6 6-4 
+0:Potey:5 4
+15:Potey: 
+0:You:5 4
+1:You:4-off 5-off 
+0:Potey:3 5
+1:Potey: bar-3 3-8
+0:You:5 4
+1:You:6-1 4-off 
+0:Potey:4 1
+1:Potey: 8-12 12-13
+0:You:6 6
+1:You: 6-off 6-off 6-off 5-off
+0:Potey:4 3
+1:Potey: 17-20 16-20
+0:You:6 6
+1:You: 5-off 4-off 4-off 2-off
+0:Potey:3 5
+3:Potey:4
+7:You:4
+9:You:3

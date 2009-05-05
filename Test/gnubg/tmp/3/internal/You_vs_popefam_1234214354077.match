@@ -1,0 +1,106 @@
+JavaFIBS internal match representation v1.1
+8:popefam:3
+13:popefam: 
+6:You:popefam
+11:popefam:1 2
+1:popefam: 12-14 1-2
+0:You:5 1
+1:You:6-1 24-23 
+0:popefam:2 3
+1:popefam: bar-3 12-14
+0:You:6 2
+1:You:23-21 21-15 
+0:popefam:2 4
+1:popefam: 17-21 19-21
+0:You:5 2
+1:You:8-3 3-1 
+0:popefam:1 1
+15:popefam: 
+0:You:5 2
+1:You:13-8 15-13 
+0:popefam:4 5
+1:popefam: bar-5 12-16
+0:You:3 4
+1:You:24-20 8-5 
+0:popefam:5 6
+1:popefam: bar-5 5-11
+0:You:6 2
+1:You:bar-23 8-2 
+0:popefam:5 6
+1:popefam: bar-5 5-11
+0:You:2 3
+1:You:23-20 6-4 
+0:popefam:2 4
+1:popefam: 12-16 12-14
+0:You:6 3
+1:You:13-7 7-4 
+0:popefam:4 4
+1:popefam: 11-15 11-15 14-18 18-22
+0:You:5 4
+1:You:13-8 6-2 
+2:popefam: 
+4:You:
+0:popefam:2 6
+1:popefam: 17-23 17-19
+0:You:6 2
+1:You:13-7 7-5 
+0:popefam:1 4
+1:popefam: 19-23 21-22
+0:You:2 4
+1:You:13-9 13-11 
+0:popefam:1 1
+1:popefam: 16-17 16-17 17-18 17-18
+0:You:4 4
+1:You:20-16 20-16 9-5 8-4 
+0:popefam:4 5
+1:popefam: 15-20 15-19
+0:You:3 2
+1:You:11-8 8-6 
+0:popefam:2 3
+1:popefam: 18-21 18-20
+0:You:2 3
+1:You:6-3 8-6 
+0:popefam:5 1
+1:popefam: 19-24 19-20
+0:You:2 5
+1:You:6-1 4-2 
+0:popefam:3 1
+1:popefam: 20-23 23-24
+0:You:5 3
+1:You:16-11 16-13 
+0:popefam:5 6
+1:popefam: 14-20 14-19
+0:You:5 4
+1:You:13-9 11-6 
+0:popefam:2 5
+1:popefam: 20-o 23-o
+0:You:6 6
+1:You: 9-3 6-off 6-off 6-off
+0:popefam:4 2
+1:popefam: 21-o 23-o
+2:You: 
+4:popefam:
+0:You:1 2
+1:You:2-off 1-off 
+0:popefam:5 4
+1:popefam: 20-o 21-o
+0:You:4 1
+1:You:4-off 1-off 
+0:popefam:3 4
+1:popefam: 22-off 19-23
+0:You:1 5
+1:You: 5-o 1-o
+0:popefam:1 1
+1:popefam: 24-off 24-off 23-24 24-off
+0:You:4 5
+1:You: 5-o 4-o
+0:popefam:4 5
+1:popefam: 20-off 19-23
+0:You:6 3
+1:You: 3-off 3-off
+0:popefam:5 5
+1:popefam: 19-24 19-24 22-off 23-off
+0:You:4 4
+1:You: 2-off 2-off
+7:You:4
+9:You:3

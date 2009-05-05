@@ -1,0 +1,286 @@
+JavaFIBS internal match representation v1.1
+8:anti:3
+13:anti: 
+6:You:anti
+11:You:2 1
+1:You:12-14 1-2 
+0:anti:6 5
+1:anti: 24-18 18-13
+0:You:2 3
+1:You:1-4 2-4 
+0:anti:2 2
+1:anti: 13-11 13-11 24-22 22-20
+0:You:2 4
+1:You:12-16 14-16 
+0:anti:5 1
+1:anti: 20-15 15-14
+0:You:5 6
+1:You:12-18 16-21 
+0:anti:2 3
+1:anti: 14-11 13-11
+0:You:2 4
+1:You:19-21 16-20 
+0:anti:4 1
+1:anti: 11-7 8-7
+0:You:3 4
+1:You:17-20 18-22 
+0:anti:1 2
+1:anti: 11-10 10-8
+0:You:5 1
+1:You:17-22 19-20 
+0:anti:4 1
+1:anti: 13-9 9-8
+0:You:2 2
+1:You:12-14 12-14 14-16 16-18 
+0:anti:2 6
+1:anti: 13-7 13-11
+0:You:4 2
+1:You:14-18 20-22 
+0:anti:6 6
+1:anti: 11-5 11-5 11-5 8-2
+0:You:6 4
+1:You:17-23 19-23 
+0:anti:1 5
+1:anti: 8-7 7-2
+0:You:1 5
+1:You:4-9 9-10 
+0:anti:1 3
+1:anti: 7-4 5-4
+0:You:3 6
+1:You:bar-3 10-16 
+0:anti:2 5
+1:anti: 6-1 6-4
+0:You:6 3
+1:You:18-24 18-21 
+0:anti:5 1
+1:anti: 8-3 4-3
+0:You:5 4
+15:You: 
+0:anti:5 6
+1:anti: 7-1 6-1
+0:You:6 6
+15:You: 
+0:anti:3 1
+1:anti: 7-6 6-3
+0:You:2 1
+15:You: 
+0:anti:3 5
+1:anti: 8-5 5-off
+0:You:6 6
+15:You: 
+0:anti:3 2
+1:anti: 6-3 6-4
+0:You:6 6
+1:You:bar-6 6-12 12-18 16-22 
+0:anti:6 6
+1:anti: 5-off 5-off 4-off 4-off
+0:You:4 4
+1:You:18-22 21-off 21-off 21-off 
+0:anti:1 3
+1:anti: 1-off 3-off
+0:You:1 1
+1:You:24-off 20-21 23-24 24-off 
+0:anti:1 2
+1:anti: 1-off 2-off
+0:You:2 4
+1:You:21-off 23-off 
+0:anti:5 4
+1:anti: 4-off 3-off
+0:You:5 6
+1:You: 19-o 20-o
+0:anti:3 3
+1:anti: 3-off 3-off 2-off 1-off
+7:anti:1
+14:anti-1:sorrytigger-0
+13:anti: 
+6:You:anti
+11:anti:1 2
+1:anti: 24-23 23-21
+0:You:4 1
+1:You:1-5 1-2 
+0:anti:1 1
+1:anti: 6-5 6-5 8-7 8-7
+0:You:1 4
+1:You:bar-4 2-3 
+0:anti:2 5
+1:anti: 13-8 24-22
+0:You:2 6
+1:You:4-10 10-12 
+0:anti:2 4
+1:anti: 13-11 11-7
+0:You:4 1
+1:You:17-21 21-22 
+0:anti:4 3
+1:anti: bar-22 bar-21
+0:You:2 3
+1:You:bar-3 12-14 
+0:anti:6 2
+1:anti: 22-20 20-14
+0:You:2 2
+1:You:bar-2 12-14 19-21 19-21 
+0:anti:3 3
+1:anti: bar-22 bar-22 7-4 4-1
+0:You:6 2
+1:You:2-4 4-10 
+0:anti:5 3
+1:anti: 13-10 6-1
+0:You:5 3
+1:You:bar-3 12-17 
+0:anti:3 3
+1:anti: 13-10 13-10 7-4 7-4
+0:You:2 4
+1:You:12-16 14-16 
+0:anti:2 1
+1:anti: 6-5 6-4
+0:You:5 6
+1:You:3-9 9-14 
+0:anti:4 1
+1:anti: 10-9 9-5
+0:You:5 5
+1:You:14-19 19-24 19-24 12-17 
+0:anti:5 1
+1:anti: 10-9 9-4
+0:You:6 6
+1:You:3-9 3-9 17-23 17-23 
+0:anti:1 3
+1:anti: 10-7 8-7
+0:You:1 1
+1:You:9-10 10-11 11-12 9-10 
+0:anti:2 1
+1:anti: 4-3 5-3
+0:You:3 3
+1:You:12-15 12-15 15-18 15-18 
+0:anti:1 5
+1:anti: 7-2 8-7
+0:You:3 2
+1:You:10-13 13-15 
+0:anti:6 5
+1:anti: 7-2 7-1
+0:You:4 1
+1:You:15-19 19-20 
+0:anti:5 4
+1:anti: 5-1
+0:You:6 3
+1:You:17-23 17-20 
+0:anti:2 4
+1:anti: 5-3 5-1
+0:You:1 6
+1:You:18-24 18-19 
+0:anti:1 2
+1:anti: 3-2 4-2
+0:You:1 4
+1:You:19-23 23-24 
+0:anti:6 1
+1:anti: 2-1
+0:You:5 6
+1:You:16-21 
+0:anti:1 2
+1:anti: 4-3 4-2
+0:You:6 3
+1:You: 16-19 19-off
+0:anti:2 6
+1:anti: 22-16 16-14
+0:You:6 6
+1:You: 19-off 19-off 20-off 20-off
+0:anti:5 3
+1:anti: 14-11 11-6
+0:You:1 1
+1:You:21-22 21-22 21-22 24-off 
+0:anti:1 4
+1:anti: bar-21 21-20
+0:You:2 5
+1:You:22-off 23-off 
+0:anti:6 6
+1:anti: 20-14 14-8 8-2 6-off
+0:You:2 6
+3:anti:1
+7:You:1
+14:sorrytigger-1:anti-1
+13:anti: 
+6:You:anti
+11:anti:1 3
+1:anti: 17-20 19-20
+0:You:1 5
+1:You:13-8 24-23 
+0:anti:5 2
+1:anti: 1-3 12-17
+0:You:1 4
+1:You:23-22 13-9 
+0:anti:5 1
+1:anti: 3-4 4-9
+0:You:6 3
+1:You:bar-22 24-18 
+0:anti:3 1
+1:anti: 17-18 9-12
+0:You:5 4
+1:You:bar-21 6-1 
+0:anti:2 4
+1:anti: bar-4 18-20
+0:You:3 3
+1:You:8-5 8-5 6-3 6-3 
+0:anti:4 1
+1:anti: 12-16 16-17
+0:You:5 3
+1:You:21-16 16-13 
+0:anti:1 4
+1:anti: 17-21 20-21
+0:You:3 5
+1:You:13-8 8-5 
+0:anti:5 5
+1:anti: 4-9 9-14 14-19 12-17
+0:You:3 4
+1:You:5-1 13-10 
+0:anti:6 5
+1:anti: 12-18 18-23
+0:You:5 3
+1:You:10-5 5-2 
+2:anti: 
+4:You:
+0:anti:5 6
+1:anti: 17-23 19-24
+0:You:2 5
+1:You:13-8 13-11 
+0:anti:3 6
+1:anti: 12-18 18-21
+0:You:4 5
+1:You:11-6 6-2 
+0:anti:5 5
+1:anti: 19-24 19-24 19-24 19-24
+0:You:4 3
+1:You:8-4 8-5 
+0:anti:5 3
+1:anti: 12-17 17-20
+0:You:6 3
+1:You:22-16 16-13 
+0:anti:4 4
+1:anti: 17-21 17-21 21-off 21-off
+0:You:1 6
+1:You:5-4 8-2 
+0:anti:5 4
+1:anti: 20-off 21-off
+0:You:1 6
+1:You:13-7 2-1 
+0:anti:3 5
+1:anti: 20-23 20-off
+0:You:5 1
+1:You:7-2 2-1 
+0:anti:5 2
+1:anti: 21-off 21-23
+0:You:5 3
+1:You:22-17 17-14 
+0:anti:2 2
+1:anti: 23-off 23-off 23-off 23-off
+0:You:2 4
+1:You:14-10 10-8 
+0:anti:2 1
+1:anti: 24-off 24-off
+0:You:1 4
+1:You:8-4 1-off 
+0:anti:1 5
+1:anti: 24-off 24-off
+0:You:2 6
+1:You:6-off 2-off 
+0:anti:1 4
+1:anti: 24-off
+7:anti:2
+9:anti:3

@@ -1,0 +1,86 @@
+JavaFIBS internal match representation v1.1
+8:lazaualin:3
+13:lazaualin: 
+6:You:lazaualin
+11:You:3 2
+1:You:13-10 13-11 
+0:lazaualin:1 5
+1:lazaualin: 1-2 12-17
+0:You:1 5
+1:You:10-5 6-5 
+0:lazaualin:5 1
+1:lazaualin: 1-2 12-17
+0:You:1 2
+1:You:13-11 6-5 
+0:lazaualin:2 6
+1:lazaualin: 2-4 4-10
+0:You:6 6
+1:You:24-18 24-18 13-7 13-7 
+0:lazaualin:1 3
+1:lazaualin: 10-13 12-13
+2:You: 
+4:lazaualin:
+0:You:5 4
+1:You:7-2 6-2 
+0:lazaualin:5 5
+15:lazaualin: 
+0:You:5 6
+1:You:7-1 6-1 
+0:lazaualin:3 4
+1:lazaualin: bar-3 17-21
+0:You:6 2
+1:You:8-6 11-5 
+0:lazaualin:1 2
+1:lazaualin: 19-21 19-20
+0:You:2 2
+1:You:5-3 5-3 18-16 18-16 
+0:lazaualin:4 2
+1:lazaualin: bar-4 17-19
+0:You:6 5
+1:You:16-10 16-11 
+0:lazaualin:2 4
+1:lazaualin: 12-16 16-18
+0:You:6 5
+1:You:10-4 11-6 
+0:lazaualin:1 5
+15:lazaualin: 
+0:You:1 6
+1:You:11-5 5-4 
+0:lazaualin:6 2
+15:lazaualin: 
+0:You:5 1
+1:You:8-3 3-2 
+0:lazaualin:6 4
+15:lazaualin: 
+0:You:4 4
+1:You:8-4 6-2 6-2 6-2 
+0:lazaualin:2 3
+15:lazaualin: 
+0:You:1 1
+1:You:4-3 2-1 1-off 2-1 
+0:lazaualin:5 3
+15:lazaualin: 
+0:You:1 1
+1:You:2-1 1-off 1-off 3-2 
+0:lazaualin:2 3
+15:lazaualin: 
+0:You:5 4
+1:You:5-off 5-1 
+0:lazaualin:3 6
+1:lazaualin: bar-6 17-20
+0:You:3 2
+1:You: 3-o 2-o
+0:lazaualin:2 2
+1:lazaualin: 18-20 17-19 17-19 13-15
+0:You:5 5
+1:You: 4-off 4-off 3-off 2-off
+0:lazaualin:5 5
+1:lazaualin: 6-11 11-16 16-21 12-17
+0:You:2 2
+1:You: 2-off 2-off 1-off 1-off
+0:lazaualin:5 2
+1:lazaualin: 15-20 17-19
+0:You:6 2
+1:You: 1-off
+7:You:4
+9:You:3

@@ -1,0 +1,252 @@
+JavaFIBS internal match representation v1.1
+8:firatbingollu:3
+13:firatbingollu: 
+6:You:firatbingollu
+11:firatbingollu:5 6
+1:firatbingollu: 1-7 7-12
+0:You:5 6
+1:You:24-18 18-13 
+0:firatbingollu:1 4
+1:firatbingollu: 12-16 16-17
+0:You:3 4
+1:You:13-9 9-6 
+0:firatbingollu:2 6
+1:firatbingollu: 1-7 7-9
+0:You:6 2
+1:You:8-2 6-4 
+0:firatbingollu:1 2
+1:firatbingollu: 9-11 11-12
+0:You:2 1
+1:You:6-4 24-23 
+0:firatbingollu:3 5
+1:firatbingollu: 17-22 19-22
+0:You:5 3
+1:You:23-20 20-15 
+0:firatbingollu:5 6
+1:firatbingollu: 12-18 12-17
+0:You:2 3
+1:You:15-13 13-10 
+0:firatbingollu:6 1
+1:firatbingollu: 12-18 18-19
+0:You:3 1
+1:You:6-3 3-2 
+0:firatbingollu:2 3
+1:firatbingollu: 12-15 18-20
+0:You:6 2
+1:You:10-4 13-11 
+0:firatbingollu:3 6
+1:firatbingollu: 15-21 17-20
+0:You:3 2
+1:You:8-5 13-11 
+2:firatbingollu: 
+5:You:
+7:firatbingollu:1
+14:firatbingollu-1:checkejon-0
+13:firatbingollu: 
+6:You:firatbingollu
+11:You:3 1
+1:You:19-20 17-20 
+0:firatbingollu:2 6
+1:firatbingollu: 24-18 18-16
+0:You:2 1
+1:You:1-3 3-4 
+0:firatbingollu:3 4
+1:firatbingollu: 16-13 13-9
+0:You:5 2
+1:You:4-9 9-11 
+0:firatbingollu:2 4
+1:firatbingollu: bar-21 13-11
+0:You:6 2
+1:You:bar-2 1-7 
+0:firatbingollu:2 1
+1:firatbingollu: 13-11 24-23
+0:You:4 6
+1:You:19-23 17-23 
+0:firatbingollu:6 4
+1:firatbingollu: bar-21 13-7
+0:You:4 6
+1:You:bar-4 17-23 
+0:firatbingollu:3 4
+1:firatbingollu: 7-4 8-4
+2:You: 
+4:firatbingollu:
+0:You:5 1
+1:You:bar-5 2-3 
+0:firatbingollu:1 3
+1:firatbingollu: 6-5 8-5
+0:You:2 3
+1:You:bar-3 12-14 
+0:firatbingollu:4 3
+1:firatbingollu: 21-17 17-14
+0:You:3 6
+1:You:bar-3 3-9 
+0:firatbingollu:1 5
+1:firatbingollu: 14-9 9-8
+0:You:5 1
+1:You:bar-1 12-17 
+0:firatbingollu:4 4
+1:firatbingollu: 21-17 6-2 6-2 17-13
+0:You:1 4
+1:You:bar-1 3-7 
+0:firatbingollu:6 3
+1:firatbingollu: 13-7 7-4
+0:You:5 4
+15:You: 
+0:firatbingollu:1 2
+1:firatbingollu: 13-11 11-10
+0:You:3 1
+1:You:bar-3 12-13 
+0:firatbingollu:1 5
+1:firatbingollu: bar-24 10-5
+0:You:6 2
+1:You:1-7 7-9 
+0:firatbingollu:4 5
+1:firatbingollu: 11-6 11-7
+0:You:1 6
+1:You:1-7 12-13 
+0:firatbingollu:3 5
+1:firatbingollu: bar-22 22-17
+0:You:4 5
+1:You:12-17 13-17 
+0:firatbingollu:4 6
+1:firatbingollu: bar-21 24-18
+0:You:4 6
+1:You:17-21 13-19 
+0:firatbingollu:2 5
+15:firatbingollu: 
+0:You:3 5
+1:You:21-24 19-24 
+0:firatbingollu:5 2
+15:firatbingollu: 
+0:You:3 2
+1:You:7-9 17-20 
+0:firatbingollu:2 5
+15:firatbingollu: 
+0:You:5 4
+1:You:9-14 14-18 
+0:firatbingollu:3 2
+1:firatbingollu: bar-22
+0:You:3 6
+1:You:9-15 15-18 
+0:firatbingollu:5 3
+1:firatbingollu: bar-22 6-1
+0:You:3 4
+1:You:20-24 18-21 
+0:firatbingollu:4 3
+1:firatbingollu: 22-18 4-1
+0:You:1 4
+15:You: 
+0:firatbingollu:3 1
+1:firatbingollu: 22-21 21-18
+0:You:2 5
+15:You: 
+0:firatbingollu:4 3
+1:firatbingollu: 18-14 14-11
+0:You:6 4
+15:You: 
+0:firatbingollu:5 4
+1:firatbingollu: 18-13 13-9
+0:You:6 2
+15:You: 
+0:firatbingollu:1 5
+1:firatbingollu: 11-6 8-7
+0:You:6 2
+15:You: 
+0:firatbingollu:1 3
+1:firatbingollu: 9-6 7-6
+0:You:6 4
+15:You: 
+0:firatbingollu:1 5
+1:firatbingollu: 8-7 7-2
+0:You:2 4
+15:You: 
+0:firatbingollu:3 1
+1:firatbingollu: 5-2 2-1
+0:You:5 5
+15:You: 
+0:firatbingollu:3 2
+1:firatbingollu: 6-4 4-1
+0:You:6 5
+15:You: 
+0:firatbingollu:1 4
+1:firatbingollu: 6-2 1-off
+0:You:2 5
+15:You: 
+0:firatbingollu:6 2
+1:firatbingollu: 6-off 2-off
+0:You:5 3
+1:You:bar-3 
+0:firatbingollu:4 2
+1:firatbingollu: 4-off 4-2
+0:You:3 1
+1:You:bar-3 3-4 
+0:firatbingollu:5 2
+1:firatbingollu: 5-off 2-off
+0:You:2 3
+1:You:3-5 4-7 
+0:firatbingollu:1 1
+15:firatbingollu: 
+0:You:5 5
+1:You:3-8 3-8 8-13 8-13 
+2:firatbingollu: 
+4:You:
+0:firatbingollu:6 2
+15:firatbingollu: 
+0:You:2 4
+1:You:7-11 5-7 
+0:firatbingollu:5 3
+1:firatbingollu: bar-22 22-17
+0:You:6 1
+1:You:11-17 17-18 
+0:firatbingollu:3 3
+1:firatbingollu: bar-22 6-3 6-3
+0:You:2 3
+1:You:13-16 16-18 
+0:firatbingollu:2 4
+1:firatbingollu: 3-1
+0:You:3 4
+1:You:19-22 18-22 
+0:firatbingollu:6 5
+15:firatbingollu: 
+0:You:4 5
+1:You:13-17 7-12 
+0:firatbingollu:6 5
+15:firatbingollu: 
+0:You:4 6
+1:You:12-18 18-22 
+0:firatbingollu:6 1
+15:firatbingollu: 
+0:You:6 4
+1:You:17-23 18-22 
+0:firatbingollu:3 1
+15:firatbingollu: 
+0:You:5 1
+1:You:19-24 19-20 
+0:firatbingollu:1 6
+1:firatbingollu: bar-19 19-18
+0:You:6 5
+1:You: 20-o 20-o
+0:firatbingollu:3 4
+1:firatbingollu: 18-14 14-11
+0:You:4 6
+1:You: 20-o 22-o
+0:firatbingollu:1 3
+1:firatbingollu: 11-8 8-7
+0:You:4 6
+1:You: 22-o 22-o
+0:firatbingollu:4 6
+1:firatbingollu: 7-1 3-off
+0:You:2 5
+1:You: 22-o 23-o
+0:firatbingollu:6 5
+1:firatbingollu: 2-off 2-off
+0:You:4 3
+1:You: 23-o 23-o
+0:firatbingollu:5 5
+1:firatbingollu: 2-off 1-off 1-off 1-off
+0:You:3 4
+1:You: 23-o 24-o
+0:firatbingollu:4 4
+1:firatbingollu: 1-off 1-off
+7:firatbingollu:4
+9:firatbingollu:3

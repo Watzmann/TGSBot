@@ -1,0 +1,189 @@
+JavaFIBS internal match representation v1.1
+8:Usigma:3
+13:Usigma: 
+6:You:Usigma
+11:Usigma:2 5
+1:Usigma: 13-11 13-8
+0:You:5 3
+1:You:19-22 17-22 
+0:Usigma:6 1
+1:Usigma: 13-7 8-7
+0:You:5 4
+1:You:1-5 5-10 
+0:Usigma:4 4
+1:Usigma: 24-20 24-20 20-16 20-16
+0:You:5 1
+1:You:10-11 12-17 
+0:Usigma:1 2
+1:Usigma: bar-24 13-11
+0:You:3 3
+1:You:bar-3 12-15 12-15 15-18 
+0:Usigma:3 5
+1:Usigma: 13-8 11-8
+0:You:3 2
+1:You:15-18 1-3 
+0:Usigma:6 3
+1:Usigma: 24-21 21-15
+2:You: 
+4:Usigma:
+0:You:2 5
+1:You:3-5 5-10 
+0:Usigma:1 6
+1:Usigma: 16-10 16-15
+0:You:2 6
+1:You:bar-2 3-9 
+0:Usigma:2 3
+1:Usigma: 10-7 8-6
+0:You:3 4
+1:You:2-5 5-9 
+0:Usigma:1 3
+1:Usigma: 8-5 6-5
+0:You:1 4
+1:You:22-23 19-23 
+0:Usigma:4 2
+1:Usigma: 8-4 6-4
+0:You:5 2
+1:You:17-22 19-21 
+0:Usigma:2 1
+1:Usigma: 6-4 7-6
+0:You:3 2
+1:You:18-21 18-20 
+0:Usigma:5 1
+1:Usigma: 8-3 8-7
+0:You:1 1
+1:You:17-18 18-19 19-20 17-18 
+0:Usigma:4 6
+1:Usigma: 7-1 7-3
+0:You:5 4
+1:You:12-17 12-16 
+0:Usigma:2 1
+1:Usigma: 6-4 4-3
+0:You:6 3
+1:You:18-24 17-20 
+0:Usigma:3 3
+1:Usigma: 15-12 15-12 6-3 6-3
+0:You:6 1
+1:You:16-22 22-23 
+0:Usigma:6 3
+1:Usigma: 7-1 5-2
+0:You:5 1
+1:You:23-24 9-14 
+0:Usigma:3 6
+1:Usigma: 5-2 12-6
+0:You:6 2
+1:You:9-15 14-16 
+0:Usigma:6 2
+1:Usigma: 12-6 6-4
+0:You:3 3
+1:You:16-19 15-18 18-21 21-24 
+0:Usigma:6 5
+1:Usigma: 6-off 6-1
+0:You:2 2
+1:You:19-21 21-23 23-off 23-off 
+0:Usigma:4 6
+1:Usigma: 4-off 4-off
+0:You:2 4
+1:You:21-off 23-off 
+0:Usigma:1 2
+1:Usigma: 2-off 1-off
+0:You:5 3
+1:You:20-off 22-off 
+0:Usigma:6 3
+1:Usigma: 3-off 4-off
+0:You:2 3
+1:You:22-off 20-22 
+0:Usigma:2 4
+1:Usigma: 4-off 2-off
+0:You:1 6
+1:You:19-off 24-off 
+0:Usigma:2 2
+1:Usigma: 3-1 3-1 3-1 3-1
+0:You:4 3
+1:You:21-off 22-off 
+0:Usigma:5 2
+1:Usigma: 1-off 1-off
+0:You:6 2
+1:You:19-off 20-22 
+0:Usigma:5 2
+1:Usigma: 1-off 1-off
+0:You:2 5
+1:You:22-off 24-off 
+0:Usigma:1 1
+1:Usigma: 1-off 1-off
+7:Usigma:2
+14:Usigma-2:checkejon-0
+13:Usigma: 
+6:You:Usigma
+11:Usigma:5 6
+1:Usigma: 24-18 18-13
+0:You:2 6
+1:You:1-7 7-9 
+0:Usigma:1 6
+1:Usigma: 8-7 13-7
+0:You:5 5
+1:You:19-24 19-24 9-14 14-19 
+0:Usigma:4 4
+1:Usigma: bar-21 13-9 13-9 6-2
+0:You:1 1
+1:You:19-20 19-20 20-21 20-21 
+0:Usigma:6 2
+1:Usigma: bar-23 8-2
+0:You:2 2
+1:You:21-23 21-23 12-14 12-14 
+0:Usigma:3 6
+1:Usigma: bar-22 22-16
+0:You:2 4
+1:You:14-16 14-18 
+0:Usigma:6 4
+1:Usigma: bar-21 8-2
+0:You:3 3
+1:You:17-20 17-20 18-21 21-24 
+0:Usigma:5 5
+15:Usigma: 
+0:You:3 2
+1:You:17-19 16-19 
+0:Usigma:4 4
+1:Usigma: bar-21 9-5 9-5 13-9
+0:You:4 6
+1:You:12-18 18-22 
+0:Usigma:6 5
+1:Usigma: 21-15 15-10
+0:You:1 3
+1:You:19-22 19-20 
+0:Usigma:6 2
+1:Usigma: 10-4 6-4
+0:You:1 3
+1:You:20-23 23-24 
+0:Usigma:4 1
+1:Usigma: 9-5 5-4
+0:You:1 6
+1:You:12-18 18-19 
+0:Usigma:1 2
+1:Usigma: 13-12 13-11
+0:You:4 4
+15:You: 
+0:Usigma:4 2
+1:Usigma: 11-7 7-5
+0:You:5 2
+15:You: 
+0:Usigma:4 4
+1:Usigma: 7-3 7-3 12-8 8-4
+0:You:3 2
+15:You: 
+0:Usigma:5 5
+1:Usigma: 6-1 6-1 6-1 5-off
+0:You:4 2
+15:You: 
+0:Usigma:4 2
+1:Usigma: 4-off 2-off
+0:You:1 5
+15:You: 
+0:Usigma:3 5
+1:Usigma: 5-off 5-2
+0:You:2 5
+1:You:bar-5 
+0:Usigma:1 4
+1:Usigma: 4-off 1-off
+0:You:1 6
+3:You:1
+12:Usigma: 

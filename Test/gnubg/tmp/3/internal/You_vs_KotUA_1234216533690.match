@@ -1,0 +1,182 @@
+JavaFIBS internal match representation v1.1
+8:KotUA:3
+13:KotUA: 
+6:You:KotUA
+11:KotUA:2 6
+1:KotUA: 24-18 13-11
+0:You:2 1
+1:You:17-18 1-3 
+0:KotUA:2 6
+1:KotUA: bar-23 24-18
+0:You:2 5
+1:You:bar-5 3-5 
+0:KotUA:3 2
+1:KotUA: 18-15 13-11
+0:You:2 4
+1:You:19-23 1-3 
+0:KotUA:6 3
+1:KotUA: bar-22 15-9
+0:You:6 2
+1:You:3-9 12-14 
+0:KotUA:4 4
+1:KotUA: bar-21 22-18 18-14 13-9
+0:You:1 6
+1:You: bar-1
+0:KotUA:2 5
+1:KotUA: 9-4 6-4
+0:You:6 2
+1:You:bar-2 1-7 
+0:KotUA:1 6
+1:KotUA: 13-7 8-7
+0:You:2 3
+1:You:bar-3 12-14 
+0:KotUA:4 3
+1:KotUA: bar-21 13-10
+0:You:5 2
+1:You:5-10 3-5 
+0:KotUA:1 5
+1:KotUA: bar-20 11-10
+0:You:2 1
+1:You:bar-1 12-14 
+0:KotUA:4 1
+1:KotUA: 6-2 2-1
+0:You:2 6
+1:You: bar-2
+0:KotUA:5 4
+1:KotUA: 6-1 20-16
+0:You:4 2
+1:You:bar-2 19-23 
+0:KotUA:5 5
+1:KotUA: 21-16 21-16 16-11 16-11
+0:You:2 3
+1:You:14-16 16-19 
+0:KotUA:2 3
+1:KotUA: bar-22 10-8
+0:You:4 6
+1:You:12-18 14-18 
+0:KotUA:2 4
+1:KotUA: 22-20 20-16
+0:You:4 1
+1:You:12-16 2-3 
+0:KotUA:6 2
+15:KotUA: 
+0:You:2 5
+1:You:16-21 19-21 
+0:KotUA:5 3
+1:KotUA: bar-20 11-8
+0:You:5 2
+1:You:3-5 5-10 
+0:KotUA:1 6
+1:KotUA: 8-2 2-1
+0:You:4 4
+15:You: 
+0:KotUA:6 1
+1:KotUA: 20-14 11-10
+0:You:5 6
+1:You: bar-5
+0:KotUA:5 5
+1:KotUA: 14-9 9-4 11-6 6-1
+0:You:4 4
+15:You: 
+0:KotUA:6 4
+1:KotUA: 10-4 8-4
+0:You:1 5
+1:You:bar-5 19-20 
+2:KotUA: 
+5:You:
+7:KotUA:1
+14:KotUA-1:sorrytigger-0
+13:KotUA: 
+6:You:KotUA
+11:You:2 1
+1:You:12-14 1-2 
+0:KotUA:6 1
+1:KotUA: 13-7 8-7
+0:You:4 6
+1:You:12-18 14-18 
+0:KotUA:6 4
+1:KotUA: 24-20 20-14
+0:You:1 2
+1:You:12-14 2-3 
+0:KotUA:3 3
+1:KotUA: bar-22 24-21 6-3 6-3
+0:You:2 2
+1:You:bar-2 19-21 19-21 2-4 
+0:KotUA:2 3
+1:KotUA: bar-22 13-11
+0:You:3 6
+1:You:1-4 14-20 
+0:KotUA:2 2
+1:KotUA: 22-20 22-20 11-9 9-7
+0:You:6 2
+1:You:bar-2 17-23 
+2:KotUA: 
+5:You:
+7:KotUA:1
+14:KotUA-2:sorrytigger-0
+13:KotUA: 
+6:You:KotUA
+11:KotUA:1 5
+1:KotUA: 13-8 24-23
+0:You:1 4
+1:You:19-23 23-24 
+0:KotUA:1 2
+1:KotUA: bar-23 bar-24
+0:You:6 5
+1:You:bar-5 1-7 
+0:KotUA:3 3
+1:KotUA: 13-10 10-7 13-10 10-7
+0:You:1 4
+1:You:bar-4 4-5 
+0:KotUA:2 3
+1:KotUA: 24-21 23-21
+0:You:1 2
+1:You:1-2 12-14 
+0:KotUA:3 2
+1:KotUA: 6-3 3-1
+0:You:2 1
+1:You:12-14 2-3 
+0:KotUA:5 2
+1:KotUA: 8-3 3-1
+0:You:5 5
+1:You:bar-5 5-10 5-10 5-10 
+0:KotUA:5 6
+1:KotUA: 8-2 7-2
+0:You:1 4
+1:You:10-14 19-20 
+0:KotUA:3 3
+1:KotUA: 21-18 21-18 18-15 18-15
+0:You:4 3
+1:You:14-18 17-20 
+0:KotUA:4 3
+1:KotUA: 7-3 6-3
+0:You:1 4
+1:You:17-21 17-18 
+0:KotUA:6 6
+1:KotUA: 15-9 15-9 13-7 13-7
+0:You:3 4
+1:You:14-18 18-21 
+0:KotUA:3 6
+1:KotUA: 9-3 8-5
+0:You:4 3
+1:You:12-16 18-21 
+0:KotUA:6 1
+1:KotUA: 9-3 7-6
+0:You:5 3
+1:You:14-19 16-19 
+0:KotUA:2 6
+1:KotUA: 8-2 7-5
+0:You:3 2
+1:You:12-15 12-14 
+0:KotUA:6 2
+1:KotUA: 6-off 2-off
+0:You:5 2
+1:You:14-19 18-20 
+0:KotUA:3 2
+1:KotUA: 3-off 2-off
+0:You:2 3
+1:You:10-13 10-12 
+0:KotUA:3 3
+3:You:1
+7:KotUA:1
+9:KotUA:3

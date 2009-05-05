@@ -1,0 +1,160 @@
+JavaFIBS internal match representation v1.1
+8:zonkey:3
+13:zonkey: 
+6:You:zonkey
+11:You:3 2
+1:You:12-15 12-14 
+0:zonkey:3 6
+1:zonkey: 24-18 18-15
+0:You:2 5
+1:You:bar-5 12-14 
+0:zonkey:4 3
+1:zonkey: 15-11 11-8
+0:You:2 5
+1:You:19-24 1-3 
+0:zonkey:1 4
+1:zonkey: bar-24 24-20
+0:You:2 4
+1:You:bar-2 1-5 
+0:zonkey:5 3
+1:zonkey: 8-3 6-3
+0:You:6 3
+15:You: 
+0:zonkey:3 5
+1:zonkey: 13-8 6-3
+0:You:6 1
+1:You:bar-1 14-20 
+0:zonkey:2 3
+1:zonkey: bar-22 22-20
+0:You:6 4
+1:You:bar-4 14-20 
+0:zonkey:3 4
+1:zonkey: bar-21 6-3
+0:You:2 6
+1:You:12-18 18-20 
+2:zonkey: 
+4:You:
+0:zonkey:6 4
+1:zonkey: 13-7 7-3
+0:You:2 4
+1:You:17-21 19-21 
+0:zonkey:5 1
+1:zonkey: bar-24 13-8
+0:You:3 4
+1:You:1-4 12-16 
+0:zonkey:6 6
+1:zonkey: 8-2 8-2 13-7 13-7
+0:You:3 4
+1:You:bar-4 16-19 
+0:zonkey:1 3
+1:zonkey: 8-7 6-3
+0:You:3 6
+1:You:4-10 10-13 
+0:zonkey:6 3
+1:zonkey: 7-1 6-3
+0:You:1 2
+1:You:19-21 13-14 
+0:zonkey:3 6
+1:zonkey: 24-18 18-15
+0:You:1 5
+1:You:14-15 15-20 
+0:zonkey:5 4
+15:zonkey: 
+0:You:4 1
+1:You:5-9 5-6 
+0:zonkey:3 6
+1:zonkey: bar-22 22-16
+0:You:1 2
+1:You:20-22 21-22 
+0:zonkey:4 3
+1:zonkey: 16-12 12-9
+0:You:2 1
+1:You:bar-1 19-21 
+0:zonkey:3 4
+15:zonkey: 
+0:You:6 2
+1:You:17-23 21-23 
+0:zonkey:4 6
+15:zonkey: 
+0:You:1 5
+1:You:4-9 4-5 
+0:zonkey:3 1
+1:zonkey: bar-24
+0:You:6 6
+1:You:6-12 12-18 18-24 5-11 
+0:zonkey:5 2
+15:zonkey: 
+0:You:3 2
+1:You:17-20 11-13 
+0:zonkey:1 2
+1:zonkey: bar-24
+0:You:5 2
+1:You:bar-5 13-15 
+0:zonkey:6 4
+15:zonkey: 
+0:You:1 6
+1:You:15-21 5-6 
+0:zonkey:3 1
+1:zonkey: bar-24 7-4
+0:You:5 3
+1:You:1-4 9-14 
+0:zonkey:2 4
+15:zonkey: 
+0:You:2 1
+1:You:6-7 7-9 
+0:zonkey:6 5
+15:zonkey: 
+0:You:6 3
+1:You:4-10 10-13 
+0:zonkey:2 1
+1:zonkey: bar-24
+2:You: 
+4:zonkey:
+0:You:6 6
+1:You: 9-15 13-19 14-20 15-21
+0:zonkey:4 6
+15:zonkey: 
+0:You:1 3
+1:You:21-22 22-off 
+0:zonkey:2 5
+15:zonkey: 
+0:You:2 3
+1:You:20-23 23-off 
+0:zonkey:4 1
+1:zonkey: bar-24 8-4
+0:You:4 3
+1:You:21-off 20-23 
+0:zonkey:1 1
+1:zonkey: 3-2 3-2 2-1 2-1
+0:You:2 4
+1:You:19-21 21-off 
+0:zonkey:5 4
+1:zonkey: 8-3
+0:You:1 1
+1:You:19-20 19-20 20-21 20-21 
+0:zonkey:2 3
+1:zonkey: 4-1 3-1
+0:You:1 1
+1:You:20-21 20-21 21-22 21-22 
+0:zonkey:6 4
+1:zonkey: 24-18 24-20
+0:You:3 6
+1:You: 21-off 22-off
+0:zonkey:6 6
+1:zonkey: 20-14 14-8 18-12 12-6
+0:You:2 6
+1:You:21-off 23-off 
+0:zonkey:3 1
+1:zonkey: 8-5 6-5
+0:You:3 5
+1:You: 21-off 22-off
+0:zonkey:4 6
+1:zonkey: 24-18 18-14
+0:You:4 3
+1:You:21-off 22-off 
+0:zonkey:3 3
+1:zonkey: 14-11 11-8 8-5 5-2
+0:You:6 6
+1:You: 22-off 23-off 23-off
+7:You:12
+9:You:3

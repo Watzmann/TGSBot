@@ -1,0 +1,303 @@
+JavaFIBS internal match representation v1.1
+8:renjack:3
+13:renjack: 
+6:You:renjack
+11:renjack:1 3
+1:renjack: 17-20 19-20
+0:You:6 1
+1:You:13-7 8-7 
+0:renjack:2 5
+1:renjack: 12-17 12-14
+0:You:6 5
+1:You:24-18 13-8 
+0:renjack:6 5
+1:renjack: 12-18 19-24
+0:You:2 2
+1:You:bar-23 bar-23 6-4 6-4 
+0:renjack:2 3
+1:renjack: 18-21 19-21
+0:You:4 5
+1:You:23-18 18-14 
+0:renjack:1 2
+1:renjack: bar-1 12-14
+0:You:4 3
+1:You:bar-22 13-9 
+0:renjack:6 1
+1:renjack: 17-23 23-24
+0:You:6 1
+15:You: 
+0:renjack:4 6
+1:renjack: 12-18 14-18
+0:You:6 5
+15:You: 
+0:renjack:2 2
+1:renjack: 20-22 22-24 18-20 1-3
+0:You:4 3
+1:You: bar-22
+0:renjack:4 2
+1:renjack: 3-5 5-9
+0:You:5 6
+15:You: 
+0:renjack:3 2
+1:renjack: 9-12 12-14
+0:You:3 4
+1:You: bar-22
+0:renjack:3 2
+1:renjack: 14-17 18-20
+0:You:3 5
+1:You:bar-22 13-8 
+0:renjack:2 4
+1:renjack: 1-5 1-3
+0:You:4 2
+1:You:22-18 18-16 
+0:renjack:6 3
+1:renjack: 17-23 20-23
+0:You:5 6
+1:You:16-10 10-5 
+0:renjack:1 2
+1:renjack: bar-1 3-5
+0:You:1 3
+1:You:bar-22 8-7 
+0:renjack:6 4
+1:renjack: 5-11 11-15
+0:You:2 5
+1:You:6-1 8-6 
+0:renjack:1 3
+1:renjack: bar-1 15-18
+0:You:6 4
+15:You: 
+0:renjack:3 5
+1:renjack: 17-20 18-23
+0:You:2 4
+15:You: 
+0:renjack:3 1
+1:renjack: 1-2 17-20
+0:You:3 2
+1:You:bar-22 6-4 
+0:renjack:6 6
+15:renjack: 
+0:You:6 2
+1:You:8-2 4-2 
+0:renjack:4 2
+15:renjack: 
+0:You:4 3
+1:You:22-18 18-15 
+0:renjack:6 1
+1:renjack: bar-1
+0:You:3 6
+1:You:22-16 16-13 
+0:renjack:6 5
+1:renjack: 19-24
+0:You:2 1
+1:You:8-6 15-14 
+0:renjack:1 2
+1:renjack: 1-3 19-20
+0:You:2 6
+1:You:14-8 8-6 
+0:renjack:5 2
+1:renjack: 3-8 8-10
+0:You:3 6
+1:You:13-10 10-4 
+0:renjack:1 4
+1:renjack: bar-1 1-5
+0:You:5 4
+1:You:6-1 7-3 
+0:renjack:4 5
+1:renjack: 5-10 10-14
+0:You:1 5
+1:You:6-1 4-3 
+0:renjack:1 2
+1:renjack: 20-21 21-23
+0:You:4 5
+1:You:13-8 7-3 
+0:renjack:3 1
+1:renjack: 20-23 23-24
+0:You:2 3
+1:You:8-5 7-5 
+0:renjack:5 1
+1:renjack: 14-19 19-20
+0:You:3 6
+1:You:22-16 16-13 
+0:renjack:6 2
+1:renjack: 20-off 23-off
+0:You:4 4
+1:You:13-9 9-5 22-18 18-14 
+0:renjack:1 2
+1:renjack: 23-off 24-off
+0:You:3 2
+1:You:14-11 11-9 
+0:renjack:3 6
+1:renjack: 20-off 20-23
+0:You:5 1
+1:You:9-4 1-off 
+0:renjack:1 1
+1:renjack: 24-off 24-off 24-off 24-off
+0:You:2 2
+1:You:2-off 2-off 4-2 2-off 
+0:renjack:3 5
+1:renjack: 20-off 21-24
+0:You:6 5
+1:You: 6-o 5-o
+0:renjack:5 2
+1:renjack: 21-off 23-off
+0:You:6 2
+1:You:6-off 4-2 
+3:You:1
+7:renjack:1
+14:renjack-1:sorrytigger-0
+13:renjack: 
+6:You:renjack
+11:renjack:2 6
+1:renjack: 24-18 18-16
+0:You:5 2
+1:You:12-17 1-3 
+0:renjack:1 3
+1:renjack: 8-5 6-5
+0:You:3 6
+1:You:3-9 9-12 
+0:renjack:4 4
+1:renjack: 24-20 20-16 13-9 13-9
+0:You:6 3
+1:You:1-7 7-10 
+0:renjack:4 6
+1:renjack: 16-10 13-9
+0:You:2 3
+1:You:bar-2 17-20 
+0:renjack:6 5
+1:renjack: 16-10 6-1
+0:You:4 2
+1:You:17-21 19-21 
+0:renjack:1 2
+1:renjack: 9-7 7-6
+0:You:1 4
+1:You:12-16 19-20 
+0:renjack:1 4
+1:renjack: 6-2 2-1
+0:You:4 2
+1:You:bar-2 12-16 
+0:renjack:2 4
+1:renjack: 13-9 13-11
+0:You:3 2
+1:You:12-15 12-14 
+0:renjack:5 5
+1:renjack: 11-6 9-4 9-4 9-4
+0:You:3 2
+1:You:15-18 14-16 
+0:renjack:6 3
+1:renjack: 10-4 4-1
+0:You:1 2
+1:You:16-18 12-13 
+0:renjack:3 2
+1:renjack: 10-7 7-5
+0:You:2 6
+1:You:13-19 19-21 
+2:renjack: 
+5:You:
+7:renjack:1
+14:renjack-2:sorrytigger-0
+13:renjack: 
+6:You:renjack
+11:renjack:2 4
+1:renjack: 8-4 6-4
+0:You:2 3
+1:You:12-15 12-14 
+0:renjack:3 2
+1:renjack: 13-10 10-8
+0:You:5 2
+1:You:15-20 1-3 
+0:renjack:3 2
+1:renjack: 6-3 3-1
+0:You:5 3
+1:You: bar-3 bar-5
+0:renjack:6 5
+1:renjack: 24-18 18-13
+0:You:1 4
+1:You:19-20 3-7 
+0:renjack:2 6
+1:renjack: 8-2 6-4
+0:You:1 4
+1:You:14-18 17-18 
+0:renjack:6 3
+1:renjack: 24-21 21-15
+0:You:3 2
+1:You:12-15 5-7 
+0:renjack:2 2
+1:renjack: bar-23 4-2 13-11 11-9
+0:You:6 6
+1:You:17-23 17-23 18-24 18-24 
+0:renjack:5 4
+1:renjack: bar-21 9-4
+0:You:6 6
+1:You:12-18 12-18 15-21 18-24 
+0:renjack:3 1
+1:renjack: bar-22 22-21
+0:You:4 3
+1:You:bar-3 18-22 
+0:renjack:6 1
+1:renjack: 21-15 2-1
+0:You:5 4
+1:You:3-7 19-24 
+0:renjack:4 3
+1:renjack: 15-11 11-8
+0:You:5 3
+1:You:7-12 12-15 
+0:renjack:3 4
+1:renjack: 13-9 9-6
+0:You:5 3
+1:You:15-20 19-22 
+0:renjack:1 5
+1:renjack: 13-8 6-5
+0:You:4 2
+1:You:19-23 19-21 
+0:renjack:1 1
+1:renjack: 13-12 13-12 4-3 3-2
+0:You:2 4
+1:You:7-11 11-13 
+0:renjack:3 4
+1:renjack: 8-4 8-5
+0:You:1 6
+1:You:7-13 13-14 
+0:renjack:4 6
+1:renjack: 12-6 12-8
+0:You:3 5
+1:You:14-19 13-16 
+0:renjack:6 1
+1:renjack: 8-2 8-7
+0:You:5 1
+1:You:16-21 24-off 
+0:renjack:2 4
+1:renjack: 8-4 7-5
+0:You:5 5
+1:You: 19-24 20-off 20-off 20-off
+0:renjack:4 2
+1:renjack: 4-off 2-off
+0:You:6 4
+1:You: 21-off 21-off
+0:renjack:2 3
+1:renjack: 4-1 2-off
+0:You:2 6
+1:You: 22-o 23-o
+0:renjack:2 3
+1:renjack: 4-1 2-off
+0:You:3 4
+1:You: 22-off 23-off
+0:renjack:2 5
+1:renjack: 5-off 5-3
+0:You:6 3
+1:You: 23-off 24-off
+0:renjack:2 1
+1:renjack: 4-2 1-off
+0:You:3 6
+1:You: 24-off 24-off
+0:renjack:1 4
+1:renjack: 5-1 1-off
+0:You:2 1
+1:You: 24-off
+7:You:1
+14:sorrytigger-1:renjack-2
+13:renjack: 
+6:You:renjack
+11:renjack:4 5
+3:renjack:3
+7:You:3
+9:You:3

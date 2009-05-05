@@ -1,0 +1,138 @@
+JavaFIBS internal match representation v1.1
+8:balloonatic:3
+13:balloonatic: 
+6:You:balloonatic
+11:You:6 1
+1:You:13-7 8-7 
+0:balloonatic:5 6
+1:balloonatic: 12-18 12-17
+0:You:2 3
+1:You:24-21 13-11 
+0:balloonatic:1 2
+1:balloonatic: 18-20 19-20
+0:You:1 4
+1:You:13-9 24-23 
+0:balloonatic:3 5
+1:balloonatic: 17-22 19-22
+0:You:6 3
+1:You:9-3 6-3 
+0:balloonatic:3 4
+1:balloonatic: 1-5 1-4
+0:You:5 1
+1:You:6-5 23-18 
+0:balloonatic:3 6
+15:balloonatic: 
+0:You:3 5
+1:You:8-5 13-8 
+0:balloonatic:3 3
+15:balloonatic: 
+0:You:4 1
+1:You:8-4 11-10 
+0:balloonatic:6 3
+15:balloonatic: 
+0:You:6 4
+1:You:10-4 13-9 
+0:balloonatic:5 3
+15:balloonatic: 
+0:You:1 2
+1:You:9-8 18-16 
+0:balloonatic:1 3
+1:balloonatic: bar-1
+0:You:3 1
+1:You:21-18 16-15 
+0:balloonatic:1 5
+1:balloonatic: bar-1 12-17
+0:You:6 2
+1:You:15-9 18-16 
+0:balloonatic:1 6
+1:balloonatic: 17-23 19-20
+0:You:1 5
+1:You:16-11 9-8 
+0:balloonatic:5 2
+1:balloonatic: 12-17 12-14
+0:You:3 5
+1:You:11-6 6-3 
+0:balloonatic:5 5
+1:balloonatic: 14-19 17-22 17-22 19-24
+0:You:5 3
+1:You:8-3 6-3 
+0:balloonatic:5 4
+1:balloonatic: 19-24 19-23
+0:You:3 5
+1:You:8-3 8-5 
+0:balloonatic:5 3
+1:balloonatic: 17-22 17-20
+2:You: 
+4:balloonatic:
+0:You:5 6
+1:You: 7-2
+0:balloonatic:6 3
+1:balloonatic: 1-7 7-10
+0:You:5 1
+15:You: 
+0:balloonatic:3 1
+1:balloonatic: 1-2 10-13
+0:You:3 4
+1:You: bar-21
+0:balloonatic:5 2
+1:balloonatic: 2-7 7-9
+0:You:1 6
+1:You:bar-19 3-2 
+0:balloonatic:4 5
+1:balloonatic: 9-14 13-17
+0:You:2 3
+1:You:19-17 5-2 
+0:balloonatic:4 1
+1:balloonatic: bar-1 20-24
+0:You:5 2
+1:You:21-16 16-14 
+0:balloonatic:2 3
+15:balloonatic: 
+0:You:3 1
+1:You:3-2 14-11 
+0:balloonatic:6 6
+15:balloonatic: 
+0:You:6 2
+1:You:3-1 17-11 
+0:balloonatic:2 2
+15:balloonatic: 
+0:You:6 5
+1:You:11-6 11-5 
+0:balloonatic:5 6
+15:balloonatic: 
+0:You:4 2
+1:You:5-1 6-4 
+0:balloonatic:5 3
+15:balloonatic: 
+0:You:2 3
+1:You:3-off 2-off 
+0:balloonatic:4 1
+15:balloonatic: 
+0:You:1 1
+1:You:6-5 6-5 5-4 5-4 
+0:balloonatic:3 6
+1:balloonatic: bar-6
+0:You:2 5
+1:You:5-off 5-3 
+0:balloonatic:2 5
+1:balloonatic: bar-5 5-7
+0:You:2 3
+1:You: 3-o 2-o
+0:balloonatic:3 2
+1:balloonatic: 6-9 7-9
+0:You:1 2
+1:You: 2-o 1-o
+0:balloonatic:1 4
+1:balloonatic: 9-13 13-14
+0:You:5 6
+1:You: 4-off 4-off
+0:balloonatic:2 3
+1:balloonatic: 9-12 12-14
+0:You:6 6
+1:You: 4-off 4-off 4-off 3-off
+0:balloonatic:3 5
+1:balloonatic: 14-19 14-17
+0:You:1 6
+1:You: 3-o 1-o
+7:You:4
+9:You:3

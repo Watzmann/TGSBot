@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-3.7.dtd">
+<!-- Project file for project ListDiff -->
+<!-- Saved: 2006-03-12, 17:36:56 -->
+<!-- Copyright (C) 2006 Andreas Hausmann,  -->
+<Project version="3.7">
+  <ProgLanguage mixed="0">Python</ProgLanguage>
+  <UIType>Qt</UIType>
+  <Description>Stellt einen Vergleich zwischen Listen an.</Description>
+  <Version>0.1</Version>
+  <Author>Andreas Hausmann</Author>
+  <Email></Email>
+  <Sources>
+    <Source>
+      <Name>dsync.py</Name>
+    </Source>
+    <Source>
+      <Name>test</Name>
+    </Source>
+  </Sources>
+  <Forms>
+  </Forms>
+  <Translations>
+  </Translations>
+  <Interfaces>
+  </Interfaces>
+  <Others>
+  </Others>
+  <MainScript>
+    <Name>dsync.py</Name>
+  </MainScript>
+  <Vcs>
+    <VcsType>Subversion</VcsType>
+    <VcsOptions>{'status': [''], 'log': [''], 'global': [''], 'update': [''], 'remove': [''], 'add': [''], 'tag': [''], 'export': [''], 'diff': [''], 'commit': [''], 'checkout': [''], 'history': ['']}</VcsOptions>
+    <VcsOtherData>{'standardLayout': 1}</VcsOtherData>
+  </Vcs>
+</Project>

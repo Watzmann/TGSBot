@@ -1,0 +1,594 @@
+JavaFIBS internal match representation v1.1
+8:johnwayne:7
+13:johnwayne: 
+6:You:johnwayne
+11:You:5 4
+1:You:13-8 13-9 
+0:johnwayne:1 4
+1:johnwayne: 12-16 1-2
+0:You:1 4
+1:You:9-5 6-5 
+0:johnwayne:2 1
+1:johnwayne: 1-3 2-3
+0:You:5 4
+1:You:24-20 6-1 
+0:johnwayne:3 1
+1:johnwayne: 17-20 19-20
+0:You:2 3
+1:You:bar-22 24-22 
+0:johnwayne:4 3
+1:johnwayne: 12-16 12-15
+0:You:5 3
+1:You:6-1 8-5 
+0:johnwayne:3 4
+1:johnwayne: 12-16 12-15
+0:You:4 3
+1:You:13-9 5-2 
+0:johnwayne:3 3
+1:johnwayne: 15-18 15-18 18-21 18-21
+0:You:2 6
+1:You:13-7 9-7 
+0:johnwayne:1 5
+1:johnwayne: 16-21 19-20
+0:You:2 4
+1:You:8-4 4-2 
+0:johnwayne:2 2
+1:johnwayne: 16-18 16-18 19-21 21-23
+0:You:4 6
+1:You:22-16 16-12 
+0:johnwayne:5 2
+1:johnwayne: 17-22 20-22
+0:You:1 5
+1:You:bar-24 12-7 
+0:johnwayne:5 4
+1:johnwayne: 18-23 18-22
+0:You:2 4
+1:You:13-9 9-7 
+0:johnwayne:2 1
+1:johnwayne: 22-24 3-4
+0:You:5 3
+15:You: 
+2:johnwayne: 
+5:You:
+7:johnwayne:1
+14:johnwayne-1:sorrytigger-0
+13:johnwayne: 
+6:You:johnwayne
+11:You:3 1
+1:You:17-20 19-20 
+0:johnwayne:4 2
+1:johnwayne: 8-4 6-4
+0:You:5 3
+1:You:17-22 19-22 
+0:johnwayne:6 5
+1:johnwayne: 24-18 18-13
+0:You:6 2
+1:You:1-7 12-14 
+0:johnwayne:3 5
+1:johnwayne: 24-21 13-8
+0:You:2 2
+1:You:17-19 19-21 19-21 1-3 
+0:johnwayne:1 1
+1:johnwayne: bar-24 8-7 4-3 4-3
+0:You:5 6
+1:You: bar-5
+0:johnwayne:4 1
+1:johnwayne: 24-23 7-3
+0:You:5 4
+1:You:bar-5 12-16 
+0:johnwayne:3 3
+1:johnwayne: 13-10 13-10 13-10 6-3
+0:You:6 6
+1:You:12-18 12-18 14-20 16-22 
+0:johnwayne:3 2
+1:johnwayne: 6-3 3-1
+0:You:2 1
+1:You:22-23 12-14 
+0:johnwayne:3 1
+1:johnwayne: bar-24 13-10
+0:You:4 6
+1:You:18-24 20-24 
+0:johnwayne:1 2
+1:johnwayne: bar-23 13-12
+0:You:4 1
+1:You:bar-1 14-18 
+0:johnwayne:2 2
+1:johnwayne: bar-23 3-1 3-1 10-8
+0:You:4 6
+1:You:bar-4 5-11 
+0:johnwayne:6 1
+1:johnwayne: 12-11 11-5
+0:You:6 4
+1:You: bar-4
+0:johnwayne:3 2
+1:johnwayne: 8-5 10-8
+0:You:6 5
+15:You: 
+0:johnwayne:1 4
+1:johnwayne: 8-7 7-3
+0:You:4 4
+1:You:bar-4 18-22 18-22 20-24 
+2:johnwayne: 
+4:You:
+0:johnwayne:3 6
+1:johnwayne: 23-20 23-17
+0:You:1 2
+1:You:bar-2 22-23 
+0:johnwayne:4 4
+1:johnwayne: 10-6 10-6 6-2 6-2
+0:You:1 3
+15:You: 
+0:johnwayne:2 4
+1:johnwayne: 17-13 13-11
+0:You:3 6
+15:You: 
+0:johnwayne:1 1
+1:johnwayne: 8-7 8-7 3-2 2-1
+0:You:4 5
+1:You:bar-4 4-9 
+0:johnwayne:4 2
+1:johnwayne: 20-16 11-9
+0:You:4 3
+1:You:bar-4 19-22 
+0:johnwayne:1 3
+1:johnwayne: 9-6 16-15
+0:You:2 6
+1:You:4-10 10-12 
+0:johnwayne:6 2
+1:johnwayne: 15-9 9-7
+0:You:1 1
+1:You:22-23 12-13 13-14 14-15 
+0:johnwayne:3 4
+1:johnwayne: 7-3 6-3
+0:You:6 2
+1:You:4-10 10-12 
+0:johnwayne:2 4
+1:johnwayne: 7-3 7-5
+0:You:4 1
+1:You:15-19 12-13 
+0:johnwayne:2 4
+1:johnwayne: 5-1 2-off
+0:You:6 3
+1:You:4-10 13-16 
+0:johnwayne:1 3
+1:johnwayne: 3-off 1-off
+0:You:2 1
+1:You:16-18 18-19 
+0:johnwayne:3 4
+1:johnwayne: 6-2 6-3
+0:You:2 3
+1:You:10-13 13-15 
+0:johnwayne:1 1
+1:johnwayne: 5-4 5-4 3-2 1-off
+0:You:5 4
+1:You:bar-5 15-19 
+0:johnwayne:3 5
+1:johnwayne: 4-off 3-off
+0:You:5 5
+1:You:5-10 10-15 15-20 20-off 
+0:johnwayne:6 3
+1:johnwayne: 4-o 3-o
+0:You:4 5
+1:You:19-24 21-off 
+0:johnwayne:4 3
+1:johnwayne: 3-off 3-off
+0:You:6 3
+1:You: 19-o 22-o
+0:johnwayne:6 1
+1:johnwayne: 2-o 1-o
+0:You:3 5
+1:You:19-24 22-off 
+0:johnwayne:2 3
+1:johnwayne: 2-off 2-off
+0:You:2 6
+1:You: 19-o 23-o
+0:johnwayne:3 6
+1:johnwayne: 1-off
+7:johnwayne:2
+14:johnwayne-3:sorrytigger-0
+13:johnwayne: 
+6:You:johnwayne
+11:johnwayne:4 5
+1:johnwayne: 13-8 13-9
+0:You:5 1
+1:You:12-17 1-2 
+0:johnwayne:4 1
+1:johnwayne: 9-5 6-5
+0:You:2 1
+1:You:1-3 2-3 
+0:johnwayne:1 3
+1:johnwayne: 6-5 13-10
+0:You:3 3
+1:You:17-20 17-20 19-22 19-22 
+0:johnwayne:4 6
+1:johnwayne: 10-4 8-4
+0:You:3 1
+1:You:12-15 15-16 
+0:johnwayne:1 3
+1:johnwayne: 6-5 5-2
+0:You:4 6
+1:You:12-18 12-16 
+0:johnwayne:2 4
+1:johnwayne: 8-4 4-2
+0:You:1 6
+1:You:12-18 19-20 
+0:johnwayne:2 2
+1:johnwayne: 13-11 13-11 11-9 11-9
+0:You:4 2
+1:You:3-7 20-22 
+0:johnwayne:6 6
+1:johnwayne: 9-3 9-3 8-2 8-2
+0:You:6 1
+1:You:bar-1 1-7 
+0:johnwayne:3 3
+1:johnwayne: 24-21 24-21 4-1 4-1
+2:You: 
+5:johnwayne:
+7:You:1
+14:sorrytigger-1:johnwayne-3
+13:johnwayne: 
+6:You:johnwayne
+11:johnwayne:3 5
+1:johnwayne: 17-22 19-22
+0:You:6 6
+1:You:24-18 24-18 13-7 13-7 
+0:johnwayne:5 3
+1:johnwayne: 12-17 17-20
+2:You: 
+4:johnwayne:
+0:You:2 4
+1:You:8-4 6-4 
+0:johnwayne:1 4
+1:johnwayne: 1-5 19-20
+0:You:1 6
+1:You:13-7 6-5 
+0:johnwayne:1 6
+1:johnwayne: bar-1 17-23
+0:You:1 1
+1:You:6-5 18-17 18-17 7-6 
+0:johnwayne:6 2
+1:johnwayne: bar-2 12-18
+0:You:2 6
+1:You:13-7 13-11 
+0:johnwayne:3 1
+1:johnwayne: 1-2 18-21
+0:You:1 5
+1:You:11-6 6-5 
+0:johnwayne:3 5
+1:johnwayne: 19-24 21-24
+0:You:2 6
+1:You:17-11 17-15 
+0:johnwayne:6 1
+1:johnwayne: 1-2 12-18
+0:You:2 4
+1:You:15-11 6-4 
+0:johnwayne:2 5
+1:johnwayne: 12-17 12-14
+0:You:2 1
+1:You:5-3 4-3 
+0:johnwayne:2 5
+1:johnwayne: 18-23 14-16
+0:You:5 3
+1:You:11-6 6-3 
+0:johnwayne:6 6
+1:johnwayne: 16-22 17-23
+0:You:5 6
+1:You:7-1 11-6 
+0:johnwayne:1 3
+1:johnwayne: 20-23 23-24
+0:You:4 5
+1:You:8-3 8-4 
+0:johnwayne:6 4
+1:johnwayne: 2-8 8-12
+0:You:3 6
+1:You:7-1 7-4 
+0:johnwayne:1 5
+1:johnwayne: 12-17 23-24
+0:You:4 1
+1:You:4-off 6-5 
+0:johnwayne:1 2
+1:johnwayne: 17-19 19-20
+0:You:5 4
+1:You:5-off 4-off 
+0:johnwayne:4 1
+1:johnwayne: 19-23 19-20
+0:You:6 6
+1:You: 6-off 6-off 5-off 5-off
+0:johnwayne:3 6
+1:johnwayne: 2-8 8-11
+0:You:5 2
+1:You:4-off 4-2 
+0:johnwayne:6 5
+1:johnwayne: bar-6 6-11
+0:You:6 6
+1:You: 3-off 3-off 3-off 3-off
+0:johnwayne:4 4
+1:johnwayne: 11-15 11-15 15-19 15-19
+0:You:5 2
+1:You: 2-off 1-off
+0:johnwayne:2 5
+1:johnwayne: 20-off 23-off
+0:You:5 3
+1:You: 1-off
+7:You:2
+14:sorrytigger-3:johnwayne-3
+13:johnwayne: 
+6:You:johnwayne
+11:johnwayne:2 5
+1:johnwayne: 12-17 12-14
+0:You:4 2
+1:You:8-4 6-4 
+0:johnwayne:2 5
+1:johnwayne: 1-3 12-17
+0:You:2 1
+1:You:6-4 24-23 
+0:johnwayne:2 1
+1:johnwayne: 1-3 14-15
+0:You:5 4
+1:You:13-8 24-20 
+0:johnwayne:1 5
+1:johnwayne: 15-20 19-20
+0:You:2 4
+1:You:bar-21 23-21 
+0:johnwayne:3 6
+1:johnwayne: 3-9 9-12
+0:You:4 4
+1:You:13-9 13-9 9-5 9-5 
+0:johnwayne:4 3
+1:johnwayne: 3-7 7-10
+0:You:6 4
+1:You:8-2 6-2 
+0:johnwayne:4 5
+1:johnwayne: 10-15 15-19
+0:You:3 5
+1:You:8-3 8-5 
+0:johnwayne:1 1
+1:johnwayne: 17-18 17-18 19-20 19-20
+0:You:6 2
+1:You:21-15 15-13 
+0:johnwayne:3 6
+1:johnwayne: 17-23 20-23
+0:You:2 6
+1:You:21-15 15-13 
+0:johnwayne:3 6
+1:johnwayne: 12-18 18-21
+2:You: 
+4:johnwayne:
+0:You:4 2
+1:You:13-9 5-3 
+0:johnwayne:5 4
+1:johnwayne: 17-22 18-22
+0:You:5 3
+1:You:13-8 9-6 
+0:johnwayne:4 3
+1:johnwayne: 17-21 19-22
+0:You:3 3
+1:You:13-10 13-10 10-7 10-7 
+0:johnwayne:2 3
+1:johnwayne: 12-15 18-20
+0:You:5 6
+1:You:7-1 8-3 
+0:johnwayne:4 2
+1:johnwayne: 15-19 12-14
+0:You:4 1
+1:You:7-6 4-off 
+0:johnwayne:3 4
+1:johnwayne: 14-18 18-21
+0:You:1 6
+1:You: 6-o 1-o
+0:johnwayne:5 3
+1:johnwayne: 20-off 22-off
+0:You:3 5
+1:You: 5-o 3-o
+0:johnwayne:6 5
+1:johnwayne: 19-o 20-o
+0:You:6 5
+1:You: 6-o 5-o
+0:johnwayne:3 1
+1:johnwayne: 22-off 23-24
+0:You:3 1
+1:You:3-off 2-1 
+0:johnwayne:6 3
+1:johnwayne: 19-o 22-o
+0:You:5 3
+1:You:6-1 3-off 
+0:johnwayne:2 3
+1:johnwayne: 23-off 19-22
+0:You:4 1
+1:You: 4-o 1-o
+0:johnwayne:4 3
+1:johnwayne: 21-o 22-o
+0:You:3 1
+1:You:6-3 1-off 
+0:johnwayne:3 4
+1:johnwayne: 21-off 20-23
+0:You:2 1
+1:You:2-off 3-2 
+0:johnwayne:3 2
+1:johnwayne: 23-off 21-24
+0:You:2 2
+1:You:2-off 4-2 2-off 
+7:You:2
+14:sorrytigger-5:johnwayne-3
+13:johnwayne: 
+6:You:johnwayne
+11:johnwayne:2 5
+1:johnwayne: 12-17 12-14
+0:You:5 3
+1:You:8-3 6-3 
+0:johnwayne:5 1
+1:johnwayne: 12-17 1-2
+0:You:2 4
+1:You:8-4 6-4 
+0:johnwayne:6 6
+1:johnwayne: 2-8 8-14 14-20 14-20
+0:You:6 1
+1:You:bar-24 24-18 
+0:johnwayne:2 1
+1:johnwayne: 17-18 18-20
+0:You:1 5
+1:You:bar-24 13-8 
+0:johnwayne:1 6
+1:johnwayne: 1-7 7-8
+0:You:2 5
+1:You:bar-23 13-8 
+0:johnwayne:5 2
+1:johnwayne: bar-5 17-19
+0:You:4 6
+1:You:8-2 6-2 
+0:johnwayne:5 5
+1:johnwayne: 5-10 10-15 12-17 12-17
+0:You:3 6
+1:You:24-18 18-15 
+0:johnwayne:5 5
+1:johnwayne: bar-5 5-10 10-15 15-20
+0:You:5 3
+1:You:bar-22 13-8 
+0:johnwayne:5 5
+1:johnwayne: 17-22 17-22 17-22 17-22
+0:You:1 2
+1:You:bar-23 13-12 
+0:johnwayne:6 5
+1:johnwayne: 17-22 19-off
+0:You:4 5
+1:You:12-7 13-9 
+0:johnwayne:6 2
+1:johnwayne: 19-off 20-22
+0:You:1 3
+1:You:8-5 9-8 
+0:johnwayne:2 5
+1:johnwayne: 19-21 20-off
+0:You:4 1
+1:You:6-5 8-4 
+0:johnwayne:1 1
+1:johnwayne: 19-20 20-21 19-20 19-20
+0:You:6 3
+1:You:7-1 4-1 
+0:johnwayne:2 1
+1:johnwayne: 20-22 20-21
+0:You:6 4
+1:You:23-17 17-13 
+0:johnwayne:3 5
+1:johnwayne: 20-off 20-23
+0:You:2 2
+1:You:bar-23 13-11 11-9 9-7 
+0:johnwayne:4 6
+1:johnwayne: bar-6 6-10
+0:You:5 6
+1:You:bar-19 23-18 
+0:johnwayne:4 4
+1:johnwayne: 10-14 14-18 18-22 21-off
+0:You:5 3
+1:You:bar-20 19-16 
+0:johnwayne:4 6
+1:johnwayne: 21-off 21-off
+0:You:2 6
+1:You:16-10 10-8 
+0:johnwayne:2 1
+1:johnwayne: 22-23 23-off
+0:You:5 1
+1:You:7-6 20-15 
+0:johnwayne:3 1
+1:johnwayne: 22-23 22-off
+0:You:4 6
+1:You:24-18 15-11 
+0:johnwayne:6 2
+1:johnwayne: 22-off 23-off
+0:You:2 2
+1:You:8-6 11-9 9-7 18-16 
+0:johnwayne:6 6
+1:johnwayne: 22-off 22-off 22-off 22-off
+7:johnwayne:3
+14:johnwayne-6:sorrytigger-5
+13:johnwayne: 
+6:You:johnwayne
+11:You:3 1
+1:You:17-20 19-20 
+0:johnwayne:3 1
+1:johnwayne: 8-5 6-5
+0:You:5 1
+1:You:12-17 19-20 
+0:johnwayne:3 3
+1:johnwayne: 13-10 13-10 24-21 24-21
+0:You:5 6
+1:You:1-7 7-12 
+0:johnwayne:3 5
+1:johnwayne: 13-8 8-5
+0:You:1 3
+1:You:1-4 19-20 
+0:johnwayne:1 2
+1:johnwayne: 6-4 5-4
+0:You:3 1
+1:You:bar-1 20-23 
+0:johnwayne:2 1
+1:johnwayne: 10-8 10-9
+0:You:2 5
+1:You:1-3 17-22 
+0:johnwayne:3 6
+1:johnwayne: 9-3 6-3
+0:You:6 5
+15:You: 
+0:johnwayne:1 1
+1:johnwayne: 8-7 8-7 8-7 7-6
+0:You:6 5
+15:You: 
+0:johnwayne:6 3
+1:johnwayne: 13-7 6-3
+0:You:4 2
+1:You:bar-2 20-24 
+0:johnwayne:3 3
+1:johnwayne: 21-18 21-18 13-10 7-4
+0:You:4 6
+1:You:2-8 8-12 
+0:johnwayne:5 5
+1:johnwayne: 18-13 18-13 13-8 13-8
+0:You:1 1
+1:You:12-13 12-13 17-18 18-19 
+0:johnwayne:3 3
+1:johnwayne: 10-7 8-5 8-5 7-4
+0:You:1 6
+1:You:12-18 12-13 
+0:johnwayne:4 3
+1:johnwayne: 7-3 7-4
+0:You:1 6
+1:You:12-18 18-19 
+0:johnwayne:6 5
+1:johnwayne: 6-off 5-off
+0:You:2 1
+1:You:17-19 18-19 
+0:johnwayne:4 2
+1:johnwayne: 4-off 4-2
+0:You:2 2
+1:You:13-15 13-15 15-17 17-19 
+0:johnwayne:1 2
+1:johnwayne: 2-off 3-2
+0:You:4 4
+1:You:15-19 12-16 16-20 13-17 
+0:johnwayne:4 3
+1:johnwayne: 4-o 3-o
+0:You:5 6
+1:You:17-23 20-off 
+0:johnwayne:4 6
+1:johnwayne: 6-o 4-o
+0:You:1 3
+1:You: 22-o 24-o
+0:johnwayne:2 3
+1:johnwayne: 3-o 2-o
+0:You:1 4
+1:You:20-24 24-off 
+0:johnwayne:6 4
+1:johnwayne: 5-o 4-o
+0:You:6 5
+1:You: 19-o 20-o
+0:johnwayne:1 3
+1:johnwayne: 3-off 5-4
+0:You:6 4
+1:You: 19-23 19-off
+0:johnwayne:6 3
+1:johnwayne: 5-off 4-1
+0:You:6 4
+1:You: 19-23 19-off
+0:johnwayne:5 2
+1:johnwayne: 1-off
+7:johnwayne:1
+9:johnwayne:7

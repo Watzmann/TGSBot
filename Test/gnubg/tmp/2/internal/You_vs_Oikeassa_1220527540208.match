@@ -1,0 +1,140 @@
+JavaFIBS internal match representation v1.1
+8:Oikeassa:3
+13:Oikeassa: 
+6:You:Oikeassa
+11:Oikeassa:1 4
+1:Oikeassa: 12-16 1-2
+0:You:2 2
+1:You:6-4 6-4 24-22 24-22 
+0:Oikeassa:3 6
+1:Oikeassa: 1-7 16-19
+0:You:5 5
+1:You:13-8 13-8 8-3 8-3 
+0:Oikeassa:3 3
+1:Oikeassa: 12-15 12-15 15-18 15-18
+0:You:2 2
+1:You:13-11 11-9 9-7 22-20 
+0:Oikeassa:3 5
+1:Oikeassa: bar-5 2-5
+0:You:2 1
+1:You:22-20 8-7 
+0:Oikeassa:6 3
+1:Oikeassa: 17-23 19-22
+0:You:6 5
+1:You:13-7 13-8 
+0:Oikeassa:1 2
+1:Oikeassa: 19-21 21-22
+0:You:5 5
+1:You:20-15 20-15 15-10 15-10 
+0:Oikeassa:6 2
+1:Oikeassa: 17-23 19-21
+2:You: 
+5:Oikeassa:
+7:You:1
+14:sorrytigger-1:Oikeassa-0
+13:Oikeassa: 
+6:You:Oikeassa
+11:Oikeassa:2 3
+1:Oikeassa: 12-15 12-14
+0:You:6 6
+1:You:24-18 24-18 13-7 13-7 
+0:Oikeassa:6 2
+1:Oikeassa: 12-14 15-21
+2:You: 
+4:Oikeassa:
+0:You:4 6
+1:You:8-2 6-2 
+2:Oikeassa: 
+4:You:
+0:Oikeassa:6 1
+1:Oikeassa: 17-23 19-20
+0:You:4 5
+1:You:13-8 6-2 
+0:Oikeassa:2 6
+1:Oikeassa: 17-23 19-21
+0:You:3 6
+1:You:13-7 13-10 
+0:Oikeassa:6 5
+1:Oikeassa: 17-23 19-24
+0:You:6 1
+1:You:10-4 4-3 
+0:Oikeassa:6 6
+1:Oikeassa: 14-20 14-20
+0:You:4 3
+1:You:6-3 8-4 
+0:Oikeassa:1 6
+1:Oikeassa: 12-13 13-19
+0:You:5 2
+1:You:8-3 8-6 
+0:Oikeassa:6 2
+1:Oikeassa: 12-14 14-20
+0:You:2 2
+1:You:6-4 18-16 18-16 16-14 
+0:Oikeassa:5 6
+1:Oikeassa: 19-24
+0:You:5 6
+1:You:14-8 8-3 
+0:Oikeassa:5 2
+1:Oikeassa: 19-24 19-21
+0:You:5 5
+1:You:16-11 7-2 7-2 7-2 
+0:Oikeassa:6 5
+1:Oikeassa: 1-7 7-12
+0:You:5 6
+1:You:11-6 6-off 
+0:Oikeassa:1 3
+1:Oikeassa: 12-15 15-16
+0:You:5 4
+1:You:6-1 6-2 
+0:Oikeassa:5 1
+1:Oikeassa: bar-1 1-6
+0:You:1 3
+1:You:bar-22 2-1 
+0:Oikeassa:5 4
+1:Oikeassa: 6-11 16-20
+0:You:5 6
+1:You: 22-16 16-11
+0:Oikeassa:4 3
+15:Oikeassa: 
+0:You:3 3
+1:You:11-8 8-5 5-2 3-off 
+0:Oikeassa:4 3
+15:Oikeassa: 
+0:You:2 5
+1:You:4-off 4-2 
+0:Oikeassa:2 2
+15:Oikeassa: 
+0:You:6 3
+1:You: 3-off 3-off
+0:Oikeassa:3 6
+1:Oikeassa: bar-3 3-9
+0:You:5 1
+15:You: 
+0:Oikeassa:2 2
+1:Oikeassa: 20-22 20-22 9-11 11-13
+0:You:4 4
+15:You: 
+0:Oikeassa:6 6
+1:Oikeassa: 13-19 19-off 20-off 20-off
+0:You:2 4
+15:You: 
+0:Oikeassa:5 5
+1:Oikeassa: 20-off 21-off 21-off 21-off
+0:You:6 4
+1:You: bar-21 21-15
+0:Oikeassa:5 4
+1:Oikeassa: 22-off 22-off
+0:You:5 4
+1:You: 15-11 11-6
+0:Oikeassa:2 5
+1:Oikeassa: 23-off 23-off
+0:You:5 3
+1:You:6-1 2-off 
+0:Oikeassa:4 2
+1:Oikeassa: 23-off 24-off
+0:You:5 2
+1:You: 2-off 2-off
+0:Oikeassa:2 5
+1:Oikeassa: 24-off 24-off
+7:Oikeassa:4
+9:Oikeassa:3

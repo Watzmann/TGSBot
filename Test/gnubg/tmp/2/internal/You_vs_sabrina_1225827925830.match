@@ -1,0 +1,216 @@
+JavaFIBS internal match representation v1.1
+8:sabrina:3
+13:sabrina: 
+6:You:sabrina
+11:sabrina:1 6
+1:sabrina: 12-18 17-18
+0:You:5 6
+1:You:13-7 13-8 
+0:sabrina:6 1
+1:sabrina: 1-7 1-2
+0:You:4 6
+1:You:bar-21 13-7 
+0:sabrina:4 4
+1:sabrina: bar-4 17-21 17-21 12-16
+0:You:6 6
+15:You: 
+0:sabrina:6 1
+1:sabrina: 4-10 10-11
+0:You:2 3
+1:You:bar-22 13-11 
+0:sabrina:2 5
+1:sabrina: bar-5 5-7
+0:You:3 2
+1:You:bar-22 13-11 
+0:sabrina:1 4
+1:sabrina: 12-16 2-3
+0:You:5 3
+1:You:8-3 6-3 
+0:sabrina:1 2
+1:sabrina: bar-1 7-9
+0:You:6 6
+1:You:11-5 11-5 8-2 8-2 
+0:sabrina:3 2
+1:sabrina: 1-4 9-11
+0:You:5 5
+1:You:22-17 22-17 6-1 6-1 
+0:sabrina:1 6
+1:sabrina: 4-10 10-11
+0:You:3 1
+1:You:24-23 23-20 
+0:sabrina:2 3
+1:sabrina: 16-19 16-18
+0:You:4 6
+1:You:20-14 8-4 
+0:sabrina:6 5
+1:sabrina: 18-24 19-24
+0:You:3 2
+1:You:bar-23 17-14 
+0:sabrina:1 5
+1:sabrina: 12-17 17-18
+0:You:1 6
+15:You: 
+0:sabrina:1 2
+1:sabrina: 18-20 19-20
+0:You:6 3
+1:You:bar-22 23-17 
+0:sabrina:5 2
+1:sabrina: 12-17 17-19
+0:You:2 2
+1:You:bar-23 14-12 14-12 6-4 
+0:sabrina:4 1
+1:sabrina: 19-23 23-24
+0:You:2 3
+1:You:bar-22 12-10 
+0:sabrina:5 6
+1:sabrina: 18-24 18-23
+0:You:2 4
+1:You:12-8 8-6 
+0:sabrina:1 6
+1:sabrina: 11-17 23-24
+0:You:3 5
+1:You:22-17 10-7 
+0:sabrina:4 6
+15:sabrina: 
+2:You: 
+4:sabrina:
+0:You:3 2
+1:You:7-4 4-2 
+0:sabrina:1 1
+15:sabrina: 
+0:You:6 3
+1:You:17-11 11-8 
+0:sabrina:5 2
+15:sabrina: 
+0:You:5 2
+1:You:22-17 8-6 
+0:sabrina:6 1
+15:sabrina: 
+0:You:2 6
+1:You:17-11 6-4 
+0:sabrina:1 6
+15:sabrina: 
+0:You:4 4
+1:You:11-7 7-3 6-2 6-2 
+0:sabrina:2 1
+15:sabrina: 
+0:You:6 5
+1:You: 5-off 5-off
+0:sabrina:6 6
+1:sabrina: bar-6 bar-6 6-12 6-12
+0:You:3 5
+1:You: 4-o 3-o
+0:sabrina:6 3
+1:sabrina: 12-18 18-21
+0:You:1 6
+1:You: 4-o 1-o
+0:sabrina:2 6
+1:sabrina: 12-18 18-20
+0:You:4 6
+1:You: 4-off 3-off
+0:sabrina:1 2
+1:sabrina: 21-23 24-off
+0:You:3 1
+1:You: 3-o 1-o
+0:sabrina:3 5
+1:sabrina: 20-off 21-24
+0:You:6 3
+1:You: 2-off 2-off
+0:sabrina:3 2
+1:sabrina: 21-24 23-off
+0:You:4 2
+1:You: 2-off 2-off
+0:sabrina:5 2
+1:sabrina: 20-off 19-21
+0:You:5 6
+1:You: 2-off
+7:You:2
+14:sorrytigger-2:sabrina-0
+13:sabrina: 
+6:You:sabrina
+11:sabrina:3 4
+1:sabrina: 12-16 16-19
+0:You:6 3
+1:You:24-18 13-10 
+0:sabrina:4 4
+1:sabrina: 1-5 1-5 5-9 5-9
+0:You:2 4
+1:You:24-20 20-18 
+0:sabrina:3 2
+1:sabrina: 12-15 15-17
+0:You:3 6
+1:You:13-10 13-7 
+0:sabrina:2 3
+1:sabrina: 12-15 15-17
+0:You:4 2
+1:You:8-4 6-4 
+0:sabrina:1 3
+1:sabrina: 17-20 19-20
+0:You:5 6
+1:You:8-2 7-2 
+0:sabrina:4 5
+1:sabrina: 19-24 19-23
+0:You:5 6
+1:You:13-7 13-8 
+0:sabrina:4 6
+1:sabrina: 17-23 19-23
+0:You:1 2
+1:You:7-5 6-5 
+0:sabrina:3 4
+1:sabrina: 17-21 21-24
+0:You:3 5
+1:You:8-3 6-3 
+0:sabrina:5 5
+1:sabrina: 9-14 9-14 12-17 12-17
+0:You:1 3
+1:You:10-7 8-7 
+0:sabrina:3 5
+1:sabrina: 14-19 14-17
+0:You:3 6
+1:You:10-4 4-1 
+0:sabrina:2 3
+1:sabrina: 17-20 17-19
+0:You:5 4
+1:You:18-13 13-9 
+0:sabrina:1 4
+1:sabrina: 19-23 23-24
+0:You:2 2
+1:You:7-5 5-3 3-1 9-7 
+0:sabrina:4 4
+1:sabrina: 17-21 17-21 17-21 21-off
+0:You:3 6
+1:You:18-12 12-9 
+0:sabrina:1 5
+1:sabrina: 19-24 24-off
+0:You:5 3
+1:You:9-6 7-2 
+0:sabrina:2 1
+1:sabrina: 23-o 24-o
+0:You:4 3
+1:You:7-4 4-off 
+0:sabrina:1 1
+1:sabrina: 21-22 21-22 24-off 24-off
+0:You:6 6
+1:You: 6-off 6-off 6-off 5-off
+0:sabrina:1 1
+1:sabrina: 23-24 23-24 24-off 24-off
+0:You:6 2
+1:You: 5-o 2-o
+0:sabrina:3 1
+1:sabrina: 20-23 23-24
+0:You:1 2
+1:You: 2-o 1-o
+0:sabrina:4 6
+1:sabrina: 19-off 20-24
+0:You:2 5
+1:You: 4-o 2-o
+0:sabrina:1 2
+1:sabrina: 22-24 24-off
+0:You:3 4
+1:You: 4-o 3-o
+0:sabrina:3 3
+1:sabrina: 20-23 22-off 19-22 22-off
+0:You:5 3
+1:You: 3-off 1-off
+7:You:1
+9:You:3

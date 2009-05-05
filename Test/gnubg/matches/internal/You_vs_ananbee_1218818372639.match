@@ -1,0 +1,370 @@
+JavaFIBS internal match representation v1.1
+8:ananbee:3
+13:ananbee: 
+6:You:ananbee
+11:You:4 3
+1:You:24-20 13-10 
+0:ananbee:3 1
+1:ananbee: 17-20 19-20
+0:You:5 5
+15:You: 
+0:ananbee:2 2
+1:ananbee: 19-21 19-21 12-14 1-3
+0:You:5 6
+15:You: 
+0:ananbee:2 4
+1:ananbee: 3-7 1-3
+0:You:5 2
+1:You:bar-23 10-5 
+0:ananbee:3 3
+1:ananbee: 12-15 12-15 15-18 15-18
+0:You:6 6
+1:You:13-7 13-7 8-2 8-2 
+0:ananbee:3 1
+1:ananbee: bar-3 14-15
+0:You:6 2
+1:You:13-7 7-5 
+0:ananbee:3 4
+1:ananbee: 12-16 12-15
+0:You:6 6
+1:You:13-7 7-1 7-1 8-2 
+0:ananbee:2 5
+1:ananbee: 15-20 16-18
+0:You:6 5
+1:You: 6-1 7-1
+0:ananbee:6 4
+1:ananbee: 18-24 20-24
+0:You:2 5
+1:You: bar-23 6-1
+0:ananbee:5 4
+1:ananbee: 3-8 8-12
+0:You:4 3
+1:You:5-1 5-2 
+0:ananbee:1 1
+1:ananbee: 15-16 16-17 17-18 18-19
+0:You:3 3
+1:You: 6-3 6-3 6-3
+0:ananbee:1 3
+15:ananbee: 
+0:You:1 1
+1:You:23-22 23-22 2-1 3-2 
+0:ananbee:2 1
+15:ananbee: 
+0:You:1 1
+1:You:3-2 3-2 2-1 2-1 
+0:ananbee:4 2
+1:ananbee: bar-4 4-6
+0:You:4 1
+1:You: 2-1
+0:ananbee:6 6
+1:ananbee: 12-18 18-24 6-12 12-18
+0:You:5 5
+15:You: 
+0:ananbee:6 3
+1:ananbee: 17-23 17-20
+0:You:2 3
+15:You: 
+0:ananbee:2 4
+1:ananbee: 19-23 18-20
+0:You:3 5
+1:You: 22-17 17-14
+0:ananbee:5 4
+1:ananbee: 18-23 18-22
+0:You:3 4
+1:You:bar-22 22-18 
+0:ananbee:6 3
+1:ananbee: bar-6 20-23
+0:You:2 5
+1:You:14-9 9-7 
+0:ananbee:1 3
+1:ananbee: 6-7 20-23
+0:You:4 5
+15:You: 
+0:ananbee:2 3
+1:ananbee: 7-10 10-12
+0:You:3 1
+1:You:bar-22 18-17 
+0:ananbee:5 1
+1:ananbee: 12-17 23-24
+0:You:4 6
+15:You: 
+0:ananbee:1 6
+1:ananbee: 17-23 24-off
+0:You:3 6
+1:You: bar-22 22-16
+0:ananbee:3 3
+1:ananbee: 19-22 19-22 22-off 22-off
+0:You:4 1
+15:You: 
+0:ananbee:2 5
+1:ananbee: 20-off 23-off
+0:You:2 1
+15:You: 
+0:ananbee:6 5
+1:ananbee: 20-off 21-off
+0:You:3 1
+1:You:bar-22 22-21 
+2:ananbee: 
+5:You:
+7:ananbee:1
+14:ananbee-1:sorrytigger-0
+13:ananbee: 
+6:You:ananbee
+11:You:5 3
+1:You:17-22 19-22 
+0:ananbee:2 5
+1:ananbee: 13-8 13-11
+0:You:2 5
+1:You:12-17 12-14 
+0:ananbee:4 3
+1:ananbee: 24-20 24-21
+0:You:5 5
+1:You:19-24 19-24 14-19 17-22 
+0:ananbee:5 1
+1:ananbee: 21-20 13-8
+0:You:3 5
+1:You:1-4 12-17 
+0:ananbee:1 2
+1:ananbee: 6-4 4-3
+0:You:3 2
+1:You:bar-3 3-5 
+0:ananbee:3 3
+15:ananbee: 
+2:You: 
+5:ananbee:
+7:You:1
+14:sorrytigger-1:ananbee-1
+13:ananbee: 
+6:You:ananbee
+11:ananbee:1 4
+1:ananbee: 12-16 1-2
+0:You:5 3
+1:You:8-3 6-3 
+0:ananbee:3 3
+1:ananbee: 19-22 19-22 17-20 17-20
+0:You:2 2
+1:You:6-4 6-4 13-11 13-11 
+0:ananbee:5 6
+1:ananbee: 1-7 2-7
+0:You:2 2
+1:You:11-9 11-9 13-11 11-9 
+0:ananbee:4 6
+1:ananbee: 17-23 19-23
+0:You:1 5
+1:You:9-4 4-3 
+0:ananbee:6 3
+1:ananbee: 12-15 16-22
+0:You:3 3
+1:You:24-21 24-21 8-5 8-5 
+0:ananbee:2 4
+1:ananbee: 15-19 22-24
+0:You:6 1
+1:You:9-8 8-2 
+0:ananbee:5 5
+1:ananbee: 7-12 7-12 12-17 12-17
+0:You:2 6
+1:You:13-7 13-11 
+0:ananbee:3 5
+1:ananbee: 12-17 19-22
+0:You:3 2
+1:You:7-4 4-2 
+2:ananbee: 
+5:You:
+7:ananbee:1
+14:ananbee-2:sorrytigger-1
+13:ananbee: 
+6:You:ananbee
+11:ananbee:1 5
+1:ananbee: 13-8 24-23
+0:You:2 5
+1:You:12-17 12-14 
+0:ananbee:2 6
+1:ananbee: 23-21 21-15
+0:You:1 4
+1:You:14-18 17-18 
+0:ananbee:3 4
+1:ananbee: 15-11 24-21
+0:You:5 6
+1:You:1-7 7-12 
+0:ananbee:2 4
+1:ananbee: 8-4 6-4
+0:You:1 4
+1:You:1-5 19-20 
+0:ananbee:2 2
+1:ananbee: 11-9 9-7 7-5 13-11
+0:You:4 1
+1:You:bar-1 1-5 
+0:ananbee:6 2
+1:ananbee: bar-23 11-5
+0:You:2 4
+1:You:bar-2 20-24 
+0:ananbee:2 6
+1:ananbee: 13-7 7-5
+0:You:2 3
+1:You:19-21 21-24 
+0:ananbee:6 4
+1:ananbee: bar-21 8-2
+0:You:2 1
+1:You:bar-2 2-3 
+0:ananbee:3 1
+1:ananbee: bar-22 22-21
+0:You:4 5
+1:You:3-7 7-12 
+0:ananbee:4 2
+1:ananbee: 8-4 4-2
+0:You:2 6
+1:You:12-18 12-14 
+0:ananbee:5 3
+1:ananbee: 23-20 20-15
+0:You:2 5
+1:You:17-22 12-14 
+0:ananbee:1 4
+1:ananbee: 15-11 6-5
+0:You:1 6
+1:You:14-20 19-20 
+0:ananbee:2 4
+1:ananbee: 6-2 5-3
+0:You:6 4
+1:You:14-20 18-22 
+0:ananbee:3 2
+1:ananbee: 8-5 5-3
+0:You:1 4
+1:You:18-22 18-19 
+0:ananbee:3 3
+1:ananbee: 21-18 21-18 11-8 8-5
+0:You:3 5
+1:You:12-17 12-15 
+0:ananbee:6 3
+1:ananbee: 18-15 18-12
+0:You:4 1
+1:You:bar-1 17-21 
+0:ananbee:2 3
+1:ananbee: 13-10 12-10
+0:You:4 6
+1:You:1-7 7-11 
+0:ananbee:6 1
+1:ananbee: 15-9 9-8
+0:You:1 6
+1:You:11-17 17-18 
+0:ananbee:4 6
+1:ananbee: 13-7 10-6
+0:You:3 5
+1:You:18-21 17-22 
+0:ananbee:5 6
+1:ananbee: 10-4 8-3
+0:You:6 6
+1:You: 17-23 19-off 19-off 19-off
+0:ananbee:3 2
+1:ananbee: 7-5 3-off
+0:You:5 3
+1:You: 20-o 22-o
+0:ananbee:2 5
+1:ananbee: 5-off 2-off
+0:You:5 2
+1:You: 20-o 23-o
+0:ananbee:2 4
+1:ananbee: 4-off 2-off
+0:You:6 6
+1:You: 20-off 21-off 21-off 22-off
+0:ananbee:1 2
+1:ananbee: 3-1 1-off
+0:You:1 4
+1:You: 22-o 24-o
+0:ananbee:5 6
+1:ananbee: 6-off 5-off
+0:You:3 5
+1:You: 22-off 24-off
+7:You:1
+14:sorrytigger-2:ananbee-2
+13:ananbee: 
+6:You:ananbee
+11:ananbee:1 3
+1:ananbee: 17-20 19-20
+0:You:2 1
+1:You:13-11 6-5 
+0:ananbee:2 5
+1:ananbee: 12-17 1-3
+0:You:2 1
+1:You:6-5 13-11 
+0:ananbee:4 6
+1:ananbee: 1-7 3-7
+0:You:2 5
+1:You:8-3 6-4 
+0:ananbee:6 6
+1:ananbee: 12-18 12-18 17-23 17-23
+0:You:4 2
+1:You:8-4 8-6 
+0:ananbee:3 5
+1:ananbee: 17-22 19-22
+0:You:2 2
+1:You:13-11 11-9 11-9 11-9 
+0:ananbee:2 6
+1:ananbee: 12-18 12-14
+0:You:5 4
+1:You:9-4 6-2 
+0:ananbee:1 2
+1:ananbee: 18-20 14-15
+0:You:2 5
+1:You:6-1 4-2 
+0:ananbee:3 3
+1:ananbee: 7-10 7-10 15-18 19-22
+0:You:2 4
+1:You:9-5 3-1 
+0:ananbee:5 2
+1:ananbee: 10-15 10-12
+0:You:6 5
+1:You:13-7 13-8 
+2:ananbee: 
+4:You:
+0:ananbee:2 5
+1:ananbee: 12-17 15-17
+0:You:6 2
+1:You:9-3 5-3 
+0:ananbee:4 2
+1:ananbee: 18-22 20-22
+0:You:6 5
+1:You:8-2 7-2 
+0:ananbee:1 2
+1:ananbee: 17-19 17-18
+0:You:4 1
+1:You:2-1 6-2 
+0:ananbee:2 2
+1:ananbee: 18-20 18-20 18-20 20-22
+0:You:6 5
+1:You: 24-18 18-13
+0:ananbee:3 1
+1:ananbee: 22-off 22-23
+0:You:1 2
+1:You:13-11 11-10 
+0:ananbee:2 3
+1:ananbee: 22-off 23-off
+0:You:2 5
+1:You:10-5 5-3 
+0:ananbee:2 6
+1:ananbee: 19-off 20-22
+0:You:2 1
+1:You:3-1 2-1 
+0:ananbee:4 6
+1:ananbee: 19-off 19-23
+0:You:3 5
+1:You:24-19 19-16 
+0:ananbee:2 6
+1:ananbee: 20-off 23-off
+0:You:6 3
+1:You:16-10 10-7 
+0:ananbee:2 2
+1:ananbee: 23-off 23-off 22-24 22-24
+0:You:1 1
+1:You:7-6 1-off 1-off 1-off 
+0:ananbee:5 3
+1:ananbee: 20-off 22-off
+0:You:1 6
+1:You: 6-o 1-o
+0:ananbee:4 4
+1:ananbee: 20-24 22-off 24-off 24-off
+0:You:1 2
+1:You: 2-o 1-o
+0:ananbee:5 6
+1:ananbee: 24-off
+7:ananbee:2
+9:ananbee:3

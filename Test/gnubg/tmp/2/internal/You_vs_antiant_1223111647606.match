@@ -1,0 +1,209 @@
+JavaFIBS internal match representation v1.1
+13:antiant: 
+6:You:antiant
+11:You:6 1
+1:You:12-18 17-18 
+0:antiant:3 3
+1:antiant: 24-21 24-21 13-10 13-10
+0:You:3 2
+1:You:19-22 1-3 
+0:antiant:2 3
+1:antiant: 13-10 10-8
+0:You:2 6
+1:You:12-18 1-3 
+0:antiant:1 5
+1:antiant: 10-5 6-5
+0:You:4 3
+1:You:19-22 12-16 
+0:antiant:3 6
+1:antiant: 10-4 4-1
+0:You:1 1
+1:You:18-19 19-20 19-20 16-17 
+0:antiant:3 5
+1:antiant: 8-5 6-1
+0:You:2 2
+1:You:12-14 12-14 14-16 14-16 
+0:antiant:6 1
+1:antiant: 13-7 8-7
+0:You:4 2
+1:You:17-19 19-23 
+0:antiant:5 1
+1:antiant: 13-8 8-7
+0:You:2 5
+1:You:16-18 18-23 
+0:antiant:1 1
+1:antiant: 5-4 6-5 5-4 7-6
+0:You:4 6
+1:You:3-9 16-20 
+0:antiant:3 4
+1:antiant: 7-3 6-3
+0:You:4 2
+1:You:bar-2 9-13 
+0:antiant:1 2
+1:antiant: 8-7 8-6
+0:You:6 1
+1:You:2-8 8-9 
+0:antiant:5 2
+1:antiant: 7-2 6-4
+0:You:6 2
+1:You:9-15 13-15 
+0:antiant:6 3
+1:antiant: 7-1 4-1
+0:You:4 4
+1:You:15-19 15-19 19-23 20-24 
+0:antiant:2 1
+1:antiant: 4-2 5-4
+0:You:5 5
+1:You:17-22 17-22 18-23 18-23 
+0:antiant:4 2
+1:antiant: 21-17 17-15
+2:You: 
+5:antiant:
+7:You:1
+14:sorrytigger-1:antiant-0
+13:antiant: 
+6:You:antiant
+11:antiant:1 4
+1:antiant: 12-16 16-17
+0:You:3 4
+1:You:13-9 13-10 
+0:antiant:2 1
+1:antiant: 12-14 14-15
+0:You:5 4
+1:You:24-20 20-15 
+0:antiant:4 2
+1:antiant: bar-4 17-19
+0:You:1 1
+1:You:6-5 6-5 10-9 15-14 
+0:antiant:5 1
+1:antiant: 19-24 1-2
+0:You:1 5
+1:You:bar-24 14-9 
+0:antiant:3 5
+1:antiant: bar-3 12-17
+2:You: 
+5:antiant:
+7:You:1
+14:sorrytigger-2:antiant-0
+13:antiant: 
+6:You:antiant
+11:You:5 4
+1:You:13-8 13-9 
+0:antiant:5 1
+1:antiant: 12-17 1-2
+0:You:6 4
+1:You:8-2 6-2 
+0:antiant:3 6
+1:antiant: bar-3 3-9
+0:You:3 5
+1:You:bar-22 6-1 
+0:antiant:6 1
+1:antiant: bar-1 9-15
+0:You:4 2
+1:You:bar-21 13-11 
+0:antiant:2 3
+1:antiant: 12-15 1-3
+0:You:5 6
+1:You:24-18 18-13 
+0:antiant:6 5
+1:antiant: 3-9 9-14
+0:You:4 6
+1:You:24-18 18-14 
+0:antiant:6 5
+1:antiant: bar-5 5-11
+0:You:5 4
+1:You:bar-21 14-9 
+0:antiant:3 3
+1:antiant: 19-22 19-22 17-20 17-20
+0:You:1 1
+1:You:bar-24 6-5 9-8 8-7 
+0:antiant:4 6
+1:antiant: 11-17 15-19
+0:You:5 2
+1:You:13-8 8-6 
+0:antiant:4 2
+1:antiant: 17-19 15-19
+0:You:3 2
+1:You:24-21 6-4 
+0:antiant:6 6
+1:antiant: 12-18 12-18 12-18 18-24
+0:You:2 5
+1:You:8-6 21-16 
+0:antiant:3 3
+1:antiant: 17-20 17-20 20-23 20-23
+0:You:6 5
+1:You:13-7 16-11 
+0:antiant:5 6
+1:antiant: 18-24 18-23
+0:You:6 1
+1:You:11-5 13-12 
+0:antiant:3 3
+1:antiant: 22-off 22-off 19-22 19-22
+0:You:2 1
+1:You:6-4 12-11 
+0:antiant:5 4
+1:antiant: 19-24 19-23
+0:You:2 3
+1:You:11-8 8-6 
+0:antiant:6 2
+1:antiant: 19-off 23-off
+0:You:5 2
+1:You:21-19 19-14 
+0:antiant:4 4
+15:antiant: 
+0:You:4 3
+1:You:14-10 10-7 
+0:antiant:4 3
+1:antiant: bar-3 20-24
+0:You:2 2
+1:You:7-5 5-3 7-5 5-3 
+0:antiant:2 1
+1:antiant: bar-1 20-22
+0:You:6 3
+1:You:7-1 8-5 
+0:antiant:5 6
+15:antiant: 
+0:You:4 5
+1:You:5-1 21-16 
+0:antiant:5 1
+15:antiant: 
+0:You:1 1
+1:You:8-7 7-6 16-15 15-14 
+0:antiant:1 5
+15:antiant: 
+0:You:6 2
+1:You:14-8 8-6 
+0:antiant:5 1
+15:antiant: 
+0:You:2 6
+1:You:6-off 6-4 
+0:antiant:2 2
+15:antiant: 
+0:You:6 6
+1:You: 6-off 6-off 6-off 5-off
+0:antiant:4 4
+15:antiant: 
+0:You:4 3
+1:You:4-off 5-2 
+0:antiant:1 5
+1:antiant: bar-5 5-6
+0:You:3 1
+1:You: 3-o 1-o
+0:antiant:2 4
+1:antiant: 6-10 10-12
+0:You:5 6
+1:You: 4-off 4-off
+0:antiant:6 3
+1:antiant: 12-15 15-21
+0:You:3 4
+1:You: 3-off 2-off
+0:antiant:6 3
+1:antiant: 21-off 22-off
+0:You:1 4
+1:You: 2-o 1-o
+0:antiant:2 4
+1:antiant: 22-off 23-off
+0:You:3 5
+1:You: 2-off
+7:You:1
+9:You:3

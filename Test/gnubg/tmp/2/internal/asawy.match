@@ -1,0 +1,11 @@
+JavaFIBS internal match representation v1.1
+8:asawy:3
+13:asawy: 
+6:You:asawy
+11:You:5 2
+1:You:13-8 13-11 
+0:asawy:6 6
+1:asawy: 1-7 1-7 12-18 12-18
+0:You:2 6
+1:You:13-11 8-2 
+2:asawy: 

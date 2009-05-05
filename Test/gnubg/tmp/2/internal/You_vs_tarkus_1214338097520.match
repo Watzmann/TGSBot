@@ -1,0 +1,70 @@
+JavaFIBS internal match representation v1.1
+8:tarkus:1
+13:tarkus: 
+6:You:tarkus
+11:tarkus:1 5
+1:tarkus: 1-2 2-7
+0:You:5 4
+1:You:24-20 20-15 
+0:tarkus:6 3
+1:tarkus: 1-7 12-15
+0:You:1 1
+1:You:bar-24 6-5 6-5 24-23 
+0:tarkus:5 2
+1:tarkus: 12-17 12-14
+0:You:4 4
+1:You:13-9 13-9 24-20 20-16 
+0:tarkus:5 5
+1:tarkus: 17-22 17-22 14-19 15-20
+0:You:6 6
+1:You:16-10 10-4 9-3 9-3 
+0:tarkus:4 4
+1:tarkus: 12-16 16-20 19-23 19-23
+0:You:6 5
+15:You: 
+0:tarkus:5 5
+1:tarkus: 19-24 19-24 7-12 7-12
+0:You:1 1
+15:You: 
+0:tarkus:3 2
+1:tarkus: 12-15 15-17
+0:You:4 1
+1:You:bar-21 6-5 
+0:tarkus:4 5
+1:tarkus: 12-17 17-21
+0:You:1 1
+15:You: 
+0:tarkus:3 1
+1:tarkus: 17-20 20-21
+0:You:5 3
+15:You: 
+0:tarkus:4 2
+1:tarkus: 12-16 16-18
+0:You:2 5
+15:You: 
+0:tarkus:3 3
+1:tarkus: 18-21 17-20 17-20 20-23
+0:You:6 5
+15:You: 
+0:tarkus:5 6
+1:tarkus: 19-off 19-24
+0:You:5 1
+15:You: 
+0:tarkus:5 2
+1:tarkus: 20-off 23-off
+0:You:1 1
+15:You: 
+0:tarkus:5 4
+1:tarkus: 20-off 20-24
+0:You:4 3
+15:You: 
+0:tarkus:1 6
+1:tarkus: 21-off 24-off
+0:You:3 1
+15:You: 
+0:tarkus:4 6
+1:tarkus: 21-off 21-off
+0:You:3 5
+3:You:1
+7:tarkus:1
+9:tarkus:1

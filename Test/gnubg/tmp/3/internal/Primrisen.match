@@ -1,0 +1,65 @@
+JavaFIBS internal match representation v1.1
+8:Primrisen:3
+13:Primrisen: 
+6:You:Primrisen
+11:You:6 4
+1:You:1-7 12-16 
+0:Primrisen:4 1
+1:Primrisen: 13-9 9-8
+0:You:5 1
+1:You:1-2 2-7 
+0:Primrisen:6 3
+1:Primrisen: 24-18 18-15
+0:You:5 1
+1:You:12-17 19-20 
+0:Primrisen:6 6
+1:Primrisen: 15-9 9-3 8-2 8-2
+0:You:4 2
+1:You:16-20 12-14 
+0:Primrisen:2 2
+1:Primrisen: 24-22 13-11 13-11 3-1
+0:You:5 5
+1:You:17-22 17-22 19-24 19-24 
+0:Primrisen:4 1
+1:Primrisen: bar-21 2-1
+0:You:1 4
+1:You:17-21 14-15 
+0:Primrisen:4 1
+1:Primrisen: bar-21 2-1
+0:You:3 4
+1:You:bar-3 17-21 
+0:Primrisen:6 2
+1:Primrisen: bar-23 23-17
+0:You:5 3
+1:You:12-17 12-15 
+0:Primrisen:3 2
+1:Primrisen: bar-23 6-3
+0:You:2 5
+1:You:bar-5 21-23 
+0:Primrisen:2 6
+1:Primrisen: bar-23 23-17
+0:You:5 6
+1:You: bar-5
+2:Primrisen: 
+4:You:
+0:Primrisen:3 1
+1:Primrisen: 6-3 17-16
+0:You:3 6
+15:You: 
+0:Primrisen:5 6
+1:Primrisen: 16-10 11-6
+0:You:2 4
+1:You:bar-2 7-11 
+0:Primrisen:5 3
+15:Primrisen: 
+0:You:1 2
+1:You:7-9 9-10 
+0:Primrisen:3 5
+15:Primrisen: 
+0:You:6 3
+1:You:10-16 2-5 
+0:Primrisen:5 1
+15:Primrisen: 
+0:You:4 1
+1:You:11-15 15-16 
+0:Primrisen:4 2

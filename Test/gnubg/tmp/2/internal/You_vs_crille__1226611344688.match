@@ -1,0 +1,590 @@
+JavaFIBS internal match representation v1.1
+8:crille_:7
+13:crille_: 
+6:You:crille_
+11:You:6 5
+1:You:24-18 18-13 
+0:crille_:6 6
+1:crille_: 1-7 1-7 12-18 12-18
+0:You:2 5
+1:You:24-22 13-8 
+0:crille_:5 6
+1:crille_: 12-18 19-24
+0:You:4 4
+1:You:13-9 13-9 8-4 8-4 
+0:crille_:3 2
+1:crille_: 17-20 18-20
+0:You:5 2
+1:You:13-8 6-4 
+0:crille_:4 5
+1:crille_: 7-12 7-11
+0:You:5 2
+1:You:13-11 13-8 
+0:crille_:2 2
+1:crille_: bar-2 19-21 19-21 12-14
+0:You:1 4
+1:You:9-5 6-5 
+0:crille_:6 6
+1:crille_: 17-23 17-23 18-24 18-24
+0:You:3 6
+1:You:9-3 6-3 
+0:crille_:6 2
+1:crille_: 14-20 20-22
+0:You:4 4
+15:You: 
+0:crille_:4 3
+1:crille_: 12-16 16-19
+0:You:3 1
+1:You:bar-22 4-3 
+0:crille_:1 2
+1:crille_: bar-2 19-20
+0:You:6 1
+1:You:8-7 7-1 
+0:crille_:1 3
+1:crille_: 12-15 20-21
+0:You:4 6
+1:You:22-16 16-12 
+0:crille_:5 5
+1:crille_: 2-7 2-7 7-12 7-12
+0:You:3 3
+1:You:bar-22 11-8 8-5 5-2 
+2:crille_: 
+5:You:
+7:crille_:1
+14:crille_-1:sorrytigger-0
+13:crille_: 
+6:You:crille_
+11:You:4 2
+1:You:17-21 19-21 
+0:crille_:3 4
+1:crille_: 13-9 13-10
+0:You:5 2
+1:You:12-17 12-14 
+0:crille_:3 2
+1:crille_: 13-10 24-22
+0:You:5 4
+1:You:1-5 17-22 
+0:crille_:1 4
+1:crille_: bar-24 9-5
+0:You:5 3
+1:You:bar-5 19-22 
+0:crille_:2 3
+1:crille_: bar-23 8-5
+0:You:6 2
+1:You:bar-2 17-23 
+0:crille_:1 3
+1:crille_: bar-24 8-5
+0:You:1 6
+1:You:1-2 2-8 
+0:crille_:3 5
+1:crille_: bar-20 20-17
+0:You:6 3
+1:You:bar-3 2-8 
+0:crille_:5 4
+1:crille_: 17-13 6-1
+0:You:1 3
+1:You:19-22 22-23 
+0:crille_:3 5
+1:crille_: 13-10 10-5
+0:You:1 1
+1:You:8-9 8-9 3-4 14-15 
+0:crille_:2 6
+1:crille_: 10-4 6-4
+0:You:1 4
+1:You:bar-1 12-16 
+0:crille_:4 1
+1:crille_: bar-24 10-6
+2:You: 
+5:crille_:
+7:You:1
+14:sorrytigger-1:crille_-1
+13:crille_: 
+6:You:crille_
+11:You:5 4
+1:You:13-8 13-9 
+0:crille_:4 5
+1:crille_: 12-17 12-16
+0:You:1 5
+1:You:24-23 23-18 
+0:crille_:6 2
+1:crille_: 12-18 16-18
+0:You:1 3
+1:You:bar-22 22-21 
+0:crille_:6 2
+1:crille_: 1-7 7-9
+0:You:2 5
+1:You:bar-20 24-22 
+0:crille_:2 6
+1:crille_: 1-7 7-9
+0:You:6 3
+1:You:22-16 16-13 
+0:crille_:5 6
+1:crille_: 17-23 17-22
+0:You:5 3
+1:You:8-3 6-3 
+0:crille_:5 4
+1:crille_: 18-23 18-22
+0:You:5 2
+1:You:13-8 6-4 
+0:crille_:2 6
+1:crille_: 9-15 15-17
+0:You:5 4
+1:You:13-9 9-4 
+0:crille_:5 4
+1:crille_: bar-5 5-9
+0:You:4 4
+1:You:13-9 13-9 9-5 9-5 
+0:crille_:2 3
+1:crille_: bar-2 17-20
+0:You:2 3
+15:You: 
+0:crille_:2 3
+1:crille_: 17-20 19-21
+0:You:2 5
+15:You: 
+0:crille_:1 2
+1:crille_: 19-21 12-13
+0:You:5 4
+15:You: 
+0:crille_:2 4
+1:crille_: 12-16 13-15
+0:You:1 2
+1:You: bar-24
+0:crille_:6 2
+1:crille_: 15-21 21-23
+0:You:2 3
+15:You: 
+0:crille_:3 2
+1:crille_: 17-20 19-21
+0:You:4 1
+1:You:bar-24 8-4 
+0:crille_:5 4
+1:crille_: 2-7 7-11
+0:You:2 2
+1:You:6-4 4-2 4-2 8-6 
+0:crille_:5 3
+1:crille_: 11-16 16-19
+0:You:6 2
+1:You:24-18 18-16 
+0:crille_:5 1
+1:crille_: bar-1 19-24
+0:You:4 3
+15:You: 
+2:crille_: 
+4:You:
+0:crille_:1 1
+1:crille_: 23-24 21-22 22-23 23-24
+0:You:1 4
+15:You: 
+0:crille_:6 1
+1:crille_: 1-7 20-21
+0:You:4 2
+15:You: 
+0:crille_:5 4
+1:crille_: 7-12 12-16
+0:You:4 6
+15:You: 
+0:crille_:3 2
+1:crille_: 16-19 19-21
+0:You:2 3
+15:You: 
+0:crille_:1 6
+1:crille_: 19-off 19-20
+0:You:6 1
+1:You: bar-19
+0:crille_:6 3
+1:crille_: 20-off 21-24
+0:You:5 2
+15:You: 
+0:crille_:3 5
+1:crille_: 20-off 20-23
+0:You:5 2
+1:You:bar-20 8-6 
+0:crille_:5 6
+1:crille_: 21-off 21-off
+0:You:1 3
+1:You:20-17 19-18 
+0:crille_:2 3
+1:crille_: 22-o 23-o
+0:You:5 6
+1:You:17-11 11-6 
+0:crille_:4 5
+1:crille_: 21-off 22-off
+0:You:5 4
+1:You:18-13 13-9 
+0:crille_:4 2
+1:crille_: 23-off 23-off
+0:You:6 3
+1:You:9-3 8-5 
+0:crille_:6 3
+1:crille_: 24-off 24-off
+0:You:4 6
+1:You:6-off 4-off 
+0:crille_:3 2
+1:crille_: 24-off 24-off
+7:crille_:2
+14:crille_-3:sorrytigger-1
+13:crille_: 
+6:You:crille_
+11:You:3 1
+1:You:17-20 19-20 
+0:crille_:4 4
+1:crille_: 13-9 13-9 9-5 9-5
+0:You:1 1
+1:You:17-18 17-18 19-20 1-2 
+0:crille_:1 1
+1:crille_: 6-5 5-4 6-5 5-4
+0:You:4 4
+1:You:12-16 12-16 12-16 16-20 
+0:crille_:3 2
+1:crille_: 13-10 10-8
+0:You:4 4
+1:You:18-22 18-22 12-16 12-16 
+0:crille_:4 3
+1:crille_: 8-4 8-5
+0:You:2 2
+1:You:16-18 16-18 1-3 20-22 
+0:crille_:4 4
+1:crille_: 13-9 13-9 9-5 9-5
+0:You:4 1
+1:You:2-3 19-23 
+0:crille_:3 5
+1:crille_: 6-1 4-1
+0:You:5 1
+1:You:22-23 16-21 
+0:crille_:4 1
+1:crille_: 5-1 5-4
+0:You:6 5
+1:You:3-9 16-21 
+0:crille_:4 4
+1:crille_: 8-4 8-4 6-2 6-2
+2:You: 
+5:crille_:
+7:You:1
+14:sorrytigger-2:crille_-3
+13:crille_: 
+6:You:crille_
+11:crille_:2 5
+1:crille_: 12-17 1-3
+0:You:1 2
+1:You:24-23 13-11 
+0:crille_:1 4
+1:crille_: 19-23 23-24
+0:You:1 1
+1:You:bar-24 bar-24 6-5 6-5 
+0:crille_:4 5
+1:crille_: bar-4 12-17
+2:You: 
+4:crille_:
+0:You:6 6
+1:You:24-18 24-18 13-7 13-7 
+0:crille_:4 6
+1:crille_: 4-10 10-14
+0:You:6 6
+1:You:13-7 13-7 7-1 7-1 
+0:crille_:1 1
+15:crille_: 
+0:You:2 5
+1:You:8-3 18-16 
+0:crille_:4 2
+1:crille_: bar-2 bar-4
+0:You:3 6
+1:You:6-3 11-5 
+0:crille_:5 6
+1:crille_: 12-18 4-9
+0:You:1 5
+1:You:bar-24 16-11 
+0:crille_:1 5
+1:crille_: 17-18 9-14
+0:You:2 3
+1:You:11-8 24-22 
+0:crille_:1 3
+1:crille_: 17-20 19-20
+0:You:3 5
+1:You:8-3 5-2 
+0:crille_:6 6
+15:crille_: 
+0:You:6 6
+1:You:22-16 16-10 8-2 8-2 
+0:crille_:2 5
+15:crille_: 
+0:You:3 4
+1:You:10-6 6-3 
+0:crille_:6 1
+15:crille_: 
+0:You:2 3
+1:You:7-4 4-2 
+0:crille_:4 6
+1:crille_: bar-4 14-20
+0:You:3 1
+1:You:7-4 4-3 
+0:crille_:2 1
+15:crille_: 
+0:You:5 6
+1:You:6-off 6-1 
+0:crille_:3 5
+15:crille_: 
+0:You:2 3
+1:You:5-2 5-3 
+0:crille_:3 3
+15:crille_: 
+0:You:6 5
+1:You: 3-off 3-off
+0:crille_:3 3
+15:crille_: 
+0:You:2 2
+1:You:2-off 2-off 3-1 3-1 
+0:crille_:1 2
+15:crille_: 
+0:You:3 4
+1:You: 3-off 3-off
+0:crille_:2 1
+15:crille_: 
+0:You:3 4
+1:You: 2-off 2-off
+0:crille_:1 2
+1:crille_: bar-2 12-13
+0:You:2 4
+1:You: bar-21
+0:crille_:1 6
+1:crille_: 12-18 20-21
+0:You:2 2
+1:You: bar-23 23-21
+0:crille_:4 5
+1:crille_: bar-5 17-21
+0:You:1 4
+1:You: bar-21
+0:crille_:5 3
+1:crille_: bar-5 18-21
+0:You:2 1
+1:You: bar-24 24-22
+0:crille_:3 6
+1:crille_: 13-19 19-22
+0:You:3 1
+1:You:bar-22 22-21 
+0:crille_:3 5
+1:crille_: bar-5 bar-3
+0:You:5 5
+1:You: 21-16 16-11 11-6 6-1
+0:crille_:6 3
+1:crille_: 2-8 5-8
+0:You:2 6
+1:You: 1-off 1-off
+0:crille_:4 1
+1:crille_: 3-7 5-6
+0:You:1 6
+1:You: 1-off 1-off
+0:crille_:2 1
+1:crille_: 5-7 6-7
+0:You:4 3
+1:You: 1-off 1-off
+7:You:4
+14:sorrytigger-6:crille_-3
+13:crille_: 
+6:You:crille_
+11:You:4 2
+1:You:8-4 6-4 
+0:crille_:3 4
+1:crille_: 12-16 12-15
+0:You:5 5
+1:You:13-8 13-8 8-3 8-3 
+0:crille_:3 5
+1:crille_: 15-20 17-20
+0:You:1 4
+1:You:13-9 24-23 
+0:crille_:6 6
+1:crille_: 1-7 1-7 17-23 17-23
+0:You:2 1
+1:You:bar-24 24-22 
+0:crille_:5 2
+1:crille_: 7-12 7-9
+0:You:3 5
+1:You:bar-22 6-1 
+0:crille_:5 2
+1:crille_: 16-21 19-21
+0:You:4 2
+1:You:24-22 13-9 
+0:crille_:4 1
+1:crille_: bar-1 1-5
+0:You:1 2
+1:You:bar-24 9-7 
+0:crille_:1 5
+1:crille_: 12-13 19-24
+0:You:2 2
+15:You: 
+0:crille_:6 1
+1:crille_: 13-19 19-20
+0:You:6 1
+1:You: bar-24
+0:crille_:4 3
+15:crille_: 
+0:You:2 4
+15:You: 
+0:crille_:6 5
+1:crille_: bar-5 12-18
+0:You:5 4
+15:You: 
+0:crille_:5 6
+1:crille_: 18-24 19-24
+0:You:5 2
+15:You: 
+0:crille_:4 2
+1:crille_: 5-9 5-7
+0:You:4 6
+15:You: 
+0:crille_:1 4
+1:crille_: 7-11 11-12
+0:You:5 5
+15:You: 
+0:crille_:3 6
+1:crille_: 9-15 15-18
+0:You:1 3
+1:You: bar-22
+0:crille_:1 6
+1:crille_: 12-18 12-13
+0:You:4 6
+15:You: 
+0:crille_:2 4
+1:crille_: 13-17 17-19
+0:You:5 2
+15:You: 
+0:crille_:2 6
+1:crille_: 18-24 18-20
+0:You:5 1
+15:You: 
+0:crille_:3 2
+1:crille_: 12-15 15-17
+0:You:6 2
+15:You: 
+0:crille_:1 6
+1:crille_: 17-23 24-off
+0:You:6 2
+15:You: 
+0:crille_:6 5
+1:crille_: 19-off 20-off
+0:You:5 6
+15:You: 
+0:crille_:1 3
+1:crille_: 20-23 23-24
+0:You:6 6
+15:You: 
+0:crille_:3 5
+1:crille_: 20-off 20-23
+0:You:3 3
+1:You:bar-22 bar-22 8-5 8-5 
+0:crille_:5 2
+1:crille_: 19-24 19-21
+0:You:2 5
+1:You:22-17 22-20 
+0:crille_:6 1
+1:crille_: 21-off 24-off
+0:You:1 2
+1:You:22-20 20-19 
+0:crille_:4 6
+1:crille_: 21-off 21-off
+0:You:6 6
+1:You:22-16 22-16 22-16 20-14 
+0:crille_:2 2
+1:crille_: 23-off 23-off 23-off 23-off
+0:You:2 3
+1:You:19-17 14-11 
+0:crille_:2 2
+1:crille_: 24-off 24-off 24-off
+7:crille_:2
+14:crille_-5:sorrytigger-6
+13:crille_: 
+6:You:crille_
+11:crille_:1 6
+1:crille_: 13-7 8-7
+0:You:6 2
+1:You:1-3 3-9 
+2:crille_: 
+4:You:
+0:crille_:3 6
+1:crille_: 13-7 24-21
+0:You:4 5
+1:You:1-5 9-14 
+0:crille_:5 3
+1:crille_: 13-8 8-5
+0:You:2 3
+1:You:bar-3 3-5 
+0:crille_:6 3
+1:crille_: bar-22 21-15
+0:You:1 1
+1:You:14-15 19-20 19-20 19-20 
+0:crille_:4 3
+1:crille_: bar-21 24-21
+0:You:1 4
+1:You:12-16 15-16 
+0:crille_:2 1
+1:crille_: 7-5 6-5
+0:You:5 6
+15:You: 
+0:crille_:2 1
+1:crille_: 13-11 22-21
+0:You:5 5
+15:You: 
+0:crille_:3 5
+1:crille_: 21-18 18-13
+0:You:2 2
+1:You:bar-2 12-14 12-14 2-4 
+0:crille_:5 6
+1:crille_: 13-7 13-8
+0:You:5 4
+1:You:4-9 9-13 
+0:crille_:3 6
+1:crille_: 11-5 7-4
+0:You:4 6
+1:You:13-17 17-23 
+0:crille_:2 3
+1:crille_: 6-3 6-4
+0:You:4 5
+1:You:12-17 12-16 
+0:crille_:5 6
+1:crille_: 8-2 8-3
+0:You:3 4
+1:You:17-20 20-24 
+0:crille_:4 1
+1:crille_: 7-3 3-2
+0:You:1 6
+1:You:17-23 23-24 
+0:crille_:6 5
+1:crille_: 21-15 15-10
+0:You:1 4
+1:You:16-17 20-24 
+0:crille_:1 2
+1:crille_: 10-8 8-7
+0:You:4 5
+1:You:16-21 17-21 
+0:crille_:4 4
+15:crille_: 
+0:You:6 5
+1:You:17-23 16-21 
+0:crille_:5 5
+15:crille_: 
+0:You:3 3
+1:You:14-17 14-17 17-20 20-23 
+0:crille_:6 1
+15:crille_: 
+0:You:1 5
+1:You:17-22 21-22 
+0:crille_:2 3
+15:crille_: 
+0:You:4 3
+1:You:17-21 21-24 
+0:crille_:6 5
+15:crille_: 
+0:You:5 5
+1:You: 19-24 19-24 20-off 20-off
+0:crille_:3 2
+15:crille_: 
+0:You:3 1
+1:You:21-24 21-22 
+0:crille_:3 1
+15:crille_: 
+0:You:5 5
+1:You: 22-off 22-off 22-off 23-off
+0:crille_:5 3
+3:crille_:2
+7:You:2
+9:You:7

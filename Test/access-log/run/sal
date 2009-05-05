@@ -1,0 +1,10 @@
+212.43.71.34 - - [06/Jul/2006:14:51:16 +0200] "GET / HTTP/1.0" 200 3059
+212.43.71.34 - - [06/Jul/2006:14:51:54 +0200] "GET /ib-ee HTTP/1.0" 200 24331
+212.43.71.34 - - [06/Jul/2006:14:54:33 +0200] "GET /ib-ee HTTP/1.1" 200 24221
+212.43.71.34 - - [06/Jul/2006:14:54:36 +0200] "GET /ib-ee/portal_javascripts/Plone%20Default/ploneScripts3211.js HTTP/1.1" 200 92189
+212.43.71.34 - - [06/Jul/2006:14:54:40 +0200] "GET /ib-ee/portal_javascripts/Plone%20Default/ploneScripts2925.js HTTP/1.1" 200 613
+212.43.71.34 - - [06/Jul/2006:14:54:40 +0200] "GET /ib-ee/portal_css/Plone%20Default/ploneStyles1166.css HTTP/1.1" 200 81837
+212.43.71.34 - - [06/Jul/2006:14:54:43 +0200] "GET /ib-ee/portal_css/Plone%20Default/ploneStyles4036.css HTTP/1.1" 200 93
+212.43.71.34 - - [06/Jul/2006:14:54:46 +0200] "GET /ib-ee/portal_css/Plone%20Default/ploneStyles5170.css HTTP/1.1" 200 3054
+212.43.71.34 - - [06/Jul/2006:14:54:46 +0200] "GET /ib-ee/favicon.ico HTTP/1.1" 200 2294
+212.43.71.34 - - [06/Jul/2006:14:54:46 +0200] "GET /ib-ee/info_icon.gif HTTP/1.1" 200 996

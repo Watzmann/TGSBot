@@ -1,0 +1,274 @@
+JavaFIBS internal match representation v1.1
+8:lazaualin:3
+13:lazaualin: 
+6:You:lazaualin
+11:You:5 3
+1:You:17-22 19-22 
+0:lazaualin:4 1
+1:lazaualin: 24-20 24-23
+0:You:1 1
+1:You:19-20 19-20 17-18 17-18 
+0:lazaualin:6 3
+15:lazaualin: 
+0:You:3 4
+1:You:1-5 1-4 
+0:lazaualin:3 1
+1:lazaualin: bar-24 24-21
+0:You:1 1
+1:You:22-23 22-23 20-21 20-21 
+0:lazaualin:3 5
+1:lazaualin: bar-20 bar-22
+0:You:3 3
+1:You:12-15 12-15 19-22 19-22 
+0:lazaualin:3 6
+1:lazaualin: bar-19 19-16
+0:You:1 5
+1:You:4-5 12-17 
+0:lazaualin:3 4
+1:lazaualin: 20-17 17-13
+0:You:5 3
+1:You:bar-5 15-18 
+0:lazaualin:1 5
+1:lazaualin: 16-15 13-8
+0:You:5 6
+1:You:bar-5 18-24 
+0:lazaualin:4 6
+1:lazaualin: 15-9 13-9
+0:You:5 6
+1:You:5-11 11-16 
+0:lazaualin:4 1
+1:lazaualin: 13-9 9-8
+0:You:6 5
+1:You:5-11 11-16 
+0:lazaualin:3 5
+1:lazaualin: 8-3 6-3
+0:You:2 4
+1:You:16-20 18-20 
+0:lazaualin:1 1
+1:lazaualin: 8-7 8-7 3-2 3-2
+0:You:3 1
+1:You:16-19 18-19 
+0:lazaualin:2 5
+1:lazaualin: 13-8 6-4
+0:You:3 3
+1:You:12-15 12-15 15-18 18-21 
+0:lazaualin:6 6
+1:lazaualin: 13-7 13-7 9-3 9-3
+0:You:4 5
+1:You:15-20 20-24 
+0:lazaualin:3 6
+1:lazaualin: 8-2 7-4
+0:You:3 2
+1:You:19-22 21-23 
+0:lazaualin:1 5
+1:lazaualin: 8-3 8-7
+0:You:6 2
+1:You:5-11 11-13 
+0:lazaualin:3 3
+1:lazaualin: 7-4 7-4 7-4 7-4
+0:You:1 3
+1:You:13-16 16-17 
+2:lazaualin: 
+5:You:
+7:lazaualin:1
+14:lazaualin-1:sorrytigger-0
+13:lazaualin: 
+6:You:lazaualin
+11:lazaualin:2 6
+1:lazaualin: 24-18 18-16
+0:You:2 6
+1:You:1-7 12-14 
+0:lazaualin:4 3
+1:lazaualin: 16-13 24-20
+0:You:6 1
+1:You:14-20 19-20 
+0:lazaualin:6 1
+1:lazaualin: bar-24 13-7
+0:You:3 2
+1:You:bar-3 12-14 
+0:lazaualin:2 6
+1:lazaualin: 13-7 24-22
+0:You:2 2
+1:You:19-21 19-21 1-3 12-14 
+0:lazaualin:2 4
+1:lazaualin: 8-4 6-4
+0:You:6 3
+1:You:12-18 18-21 
+0:lazaualin:4 4
+1:lazaualin: 13-9 13-9 6-2 6-2
+0:You:2 2
+1:You:14-16 14-16 3-5 3-5 
+0:lazaualin:6 5
+1:lazaualin: 13-7 13-8
+0:You:3 2
+1:You:17-20 12-14 
+0:lazaualin:2 5
+1:lazaualin: 7-2 8-6
+0:You:5 5
+1:You:17-22 17-22 5-10 5-10 
+0:lazaualin:2 6
+1:lazaualin: bar-23 9-3
+0:You:2 4
+1:You:10-14 10-12 
+0:lazaualin:4 2
+1:lazaualin: 9-5 7-5
+0:You:2 5
+1:You:12-17 17-19 
+0:lazaualin:2 5
+1:lazaualin: 8-3 7-5
+0:You:6 6
+1:You: 14-20 14-20 16-22 16-22
+0:lazaualin:5 6
+1:lazaualin: 8-2 6-1
+0:You:2 2
+1:You:19-21 21-23 21-23 20-22 
+0:lazaualin:1 3
+1:lazaualin: bar-24 5-2
+0:You:5 3
+1:You:20-off 22-off 
+0:lazaualin:3 4
+1:lazaualin: 5-1 5-2
+2:You: 
+5:lazaualin:
+7:You:1
+14:sorrytigger-1:lazaualin-1
+13:lazaualin: 
+6:You:lazaualin
+11:You:3 2
+1:You:13-10 13-11 
+0:lazaualin:5 4
+1:lazaualin: 1-5 5-10
+0:You:6 3
+1:You:bar-22 24-18 
+0:lazaualin:2 2
+1:lazaualin: 10-12 12-14 12-14 12-14
+0:You:2 2
+1:You:22-20 20-18 6-4 6-4 
+0:lazaualin:3 1
+1:lazaualin: 17-20 19-20
+0:You:6 3
+1:You:11-5 8-5 
+0:lazaualin:4 2
+1:lazaualin: 12-16 14-16
+0:You:1 1
+1:You:8-7 8-7 24-23 23-22 
+0:lazaualin:1 1
+1:lazaualin: 19-20 20-21 19-20 20-21
+0:You:2 2
+1:You:13-11 13-11 11-9 11-9 
+0:lazaualin:2 6
+1:lazaualin: 14-20 14-16
+0:You:1 6
+1:You:13-7 6-5 
+0:lazaualin:4 4
+1:lazaualin: 12-16 12-16 16-20 16-20
+0:You:5 3
+1:You:7-2 5-2 
+0:lazaualin:5 4
+1:lazaualin: 17-22 17-21
+0:You:4 4
+15:You: 
+0:lazaualin:1 4
+1:lazaualin: 21-22 16-20
+0:You:6 4
+15:You: 
+0:lazaualin:1 1
+1:lazaualin: 16-17 16-17 20-21 20-21
+0:You:3 4
+15:You: 
+0:lazaualin:3 6
+1:lazaualin: 17-23 20-23
+0:You:3 2
+15:You: 
+0:lazaualin:5 5
+1:lazaualin: 17-22 19-24 19-24
+0:You:4 2
+15:You: 
+0:lazaualin:6 4
+1:lazaualin: 20-24
+0:You:3 1
+15:You: 
+0:lazaualin:4 3
+1:lazaualin: 20-24 20-23
+0:You:6 2
+1:You:bar-19 19-17 
+0:lazaualin:6 3
+1:lazaualin: 21-24
+0:You:1 2
+1:You:17-15 15-14 
+0:lazaualin:3 4
+1:lazaualin: 21-24
+0:You:3 4
+1:You:14-10 10-7 
+0:lazaualin:1 1
+1:lazaualin: 21-22 21-22 22-23 22-23
+0:You:3 2
+1:You:18-15 18-16 
+0:lazaualin:5 2
+1:lazaualin: 1-3 3-8
+0:You:1 4
+1:You:9-8 8-4 
+0:lazaualin:3 5
+1:lazaualin: bar-3 3-8
+0:You:2 2
+1:You:16-14 14-12 12-10 10-8 
+0:lazaualin:2 2
+15:lazaualin: 
+0:You:6 3
+1:You:7-1 4-1 
+0:lazaualin:2 3
+1:lazaualin: bar-3 22-24
+0:You:3 4
+1:You:15-11 11-8 
+0:lazaualin:4 2
+1:lazaualin: 22-24
+0:You:4 1
+1:You:7-3 3-2 
+0:lazaualin:2 4
+15:lazaualin: 
+0:You:3 2
+1:You:9-6 7-5 
+0:lazaualin:4 4
+15:lazaualin: 
+2:You: 
+4:lazaualin:
+0:You:2 3
+1:You:6-3 5-3 
+0:lazaualin:6 1
+15:lazaualin: 
+0:You:4 3
+1:You:8-4 8-5 
+0:lazaualin:4 5
+15:lazaualin: 
+0:You:6 4
+1:You:6-off 6-2 
+0:lazaualin:6 5
+1:lazaualin: bar-6 6-11
+0:You:5 2
+1:You: 5-o 2-o
+0:lazaualin:4 2
+1:lazaualin: 11-15 15-17
+0:You:2 3
+1:You: 3-o 2-o
+0:lazaualin:4 1
+1:lazaualin: 17-21 24-off
+0:You:6 2
+1:You: 5-o 2-o
+0:lazaualin:6 1
+1:lazaualin: 21-off 24-off
+0:You:2 3
+1:You: 3-o 2-o
+0:lazaualin:5 3
+1:lazaualin: 22-off 23-off
+0:You:2 2
+1:You:4-2 4-2 2-off 2-off 
+0:lazaualin:5 3
+1:lazaualin: 23-off 23-off
+0:You:6 4
+1:You: 5-o 4-o
+0:lazaualin:5 1
+1:lazaualin: 23-off 24-off
+0:You:2 3
+1:You: 1-off 1-off
+7:You:2
+9:You:3

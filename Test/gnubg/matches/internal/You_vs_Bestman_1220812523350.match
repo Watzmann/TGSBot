@@ -1,0 +1,211 @@
+JavaFIBS internal match representation v1.1
+8:Bestman:3
+13:Bestman: 
+6:You:Bestman
+11:Bestman:3 6
+1:Bestman: 1-7 7-10
+0:You:6 6
+1:You:24-18 24-18 13-7 13-7 
+0:Bestman:5 5
+1:Bestman: 10-15 15-20 19-24 19-24
+0:You:6 3
+1:You:13-7 6-3 
+0:Bestman:2 2
+1:Bestman: 1-3 20-22 22-24 3-5
+0:You:2 1
+1:You:bar-23 6-5 
+0:Bestman:1 6
+1:Bestman: bar-1 17-23
+0:You:6 2
+1:You:bar-23 13-7 
+0:Bestman:1 4
+1:Bestman: bar-4 4-5
+0:You:3 1
+1:You:bar-22 23-22 
+2:Bestman: 
+4:You:
+0:Bestman:2 2
+1:Bestman: 1-3 3-5 12-14 12-14
+0:You:5 5
+1:You:13-8 8-3 8-3 7-2 
+0:Bestman:1 6
+1:Bestman: 5-11 11-12
+0:You:4 3
+1:You:6-2 7-4 
+0:Bestman:2 6
+1:Bestman: 5-11 12-14
+0:You:6 4
+1:You:22-16 8-4 
+0:Bestman:4 1
+1:Bestman: 12-16 16-17
+0:You:6 1
+15:You: 
+0:Bestman:1 3
+1:Bestman: 17-20 19-20
+0:You:5 6
+15:You: 
+0:Bestman:4 5
+1:Bestman: 11-16 12-16
+0:You:2 6
+1:You:bar-23 18-12 
+0:Bestman:4 6
+15:Bestman: 
+0:You:6 3
+1:You:18-12 12-9 
+0:Bestman:6 5
+1:Bestman: bar-5 5-11
+0:You:2 4
+1:You:9-5 12-10 
+0:Bestman:3 6
+1:Bestman: 11-17 17-20
+0:You:2 5
+1:You:10-5 23-21 
+0:Bestman:1 5
+1:Bestman: 14-19 19-20
+0:You:2 1
+1:You:22-21 8-6 
+0:Bestman:3 3
+1:Bestman: 14-17 14-17 16-19 16-19
+0:You:5 5
+1:You:21-16 21-16 16-11 16-11 
+0:Bestman:2 3
+1:Bestman: 17-20 17-19
+0:You:5 1
+1:You:11-6 7-6 
+0:Bestman:4 3
+1:Bestman: 17-21 17-20
+0:You:4 2
+1:You:11-7 7-5 
+0:Bestman:4 4
+1:Bestman: 21-off 19-23 19-23 19-23
+0:You:1 5
+1:You:7-6 5-off 
+0:Bestman:3 1
+1:Bestman: 19-22 24-off
+0:You:5 1
+1:You:5-off 2-1 
+0:Bestman:3 1
+1:Bestman: 22-o 24-o
+0:You:6 2
+1:You: 6-o 2-o
+0:Bestman:1 1
+1:Bestman: 24-off 23-24 24-off 20-21
+0:You:4 5
+1:You: 5-o 4-o
+0:Bestman:2 5
+1:Bestman: 20-o 23-o
+0:You:1 5
+1:You:6-1 6-5 
+0:Bestman:6 2
+1:Bestman: 19-o 23-o
+0:You:6 3
+1:You: 6-o 3-o
+0:Bestman:4 2
+1:Bestman: 21-off 20-22
+0:You:1 2
+1:You:4-2 1-off 
+0:Bestman:5 3
+1:Bestman: 20-o 22-o
+0:You:2 5
+1:You: 5-o 2-o
+0:Bestman:4 1
+1:Bestman: 20-24 24-off
+0:You:2 3
+1:You:3-off 6-4 
+0:Bestman:6 5
+1:Bestman: 20-o
+7:Bestman:2
+14:Bestman-2:sorrytigger-0
+13:Bestman: 
+6:You:Bestman
+11:Bestman:2 4
+1:Bestman: 8-4 6-4
+0:You:4 5
+1:You:12-17 12-16 
+0:Bestman:6 3
+1:Bestman: 24-18 18-15
+0:You:2 2
+1:You:1-3 1-3 19-21 19-21 
+0:Bestman:5 1
+1:Bestman: 15-10 24-23
+0:You:3 6
+1:You:16-22 19-22 
+0:Bestman:3 6
+1:Bestman: 13-7 10-7
+0:You:6 5
+1:You:12-18 18-23 
+0:Bestman:2 2
+1:Bestman: bar-23 13-11 13-11 6-4
+0:You:4 6
+15:You: 
+0:Bestman:3 6
+1:Bestman: 23-20 20-14
+0:You:3 6
+1:You:bar-3 17-23 
+0:Bestman:4 3
+1:Bestman: 14-11 11-7
+0:You:6 2
+1:You:17-23 17-19 
+0:Bestman:5 4
+1:Bestman: 7-2 6-2
+0:You:2 2
+1:You:3-5 3-5 3-5 19-21 
+0:Bestman:4 1
+1:Bestman: 7-3 7-6
+0:You:6 5
+1:You:5-10 10-16 
+0:Bestman:4 5
+1:Bestman: 8-3 8-4
+0:You:2 5
+1:You:12-17 12-14 
+0:Bestman:6 4
+1:Bestman: 13-9 9-3
+0:You:2 4
+1:You:16-20 17-19 
+0:Bestman:6 1
+1:Bestman: 13-12 12-6
+0:You:5 2
+1:You:14-16 17-22 
+0:Bestman:4 1
+1:Bestman: 6-2 4-3
+0:You:2 5
+1:You:19-24 22-24 
+0:Bestman:4 6
+1:Bestman: 11-7 7-1
+0:You:6 2
+1:You:5-11 11-13 
+0:Bestman:2 4
+15:Bestman: 
+0:You:6 5
+1:You:5-11 13-18 
+0:Bestman:6 6
+15:Bestman: 
+0:You:1 5
+1:You:11-16 20-21 
+0:Bestman:2 5
+1:Bestman: bar-20 20-18
+0:You:2 6
+15:You: 
+0:Bestman:6 6
+1:Bestman: 18-12 12-6 6-off 6-off
+0:You:6 4
+15:You: 
+0:Bestman:5 1
+1:Bestman: 6-1 6-5
+0:You:2 3
+15:You: 
+0:Bestman:1 5
+1:Bestman: 5-off 4-3
+0:You:1 2
+15:You: 
+0:Bestman:2 6
+1:Bestman: 4-off 4-2
+0:You:3 2
+15:You: 
+0:Bestman:6 4
+1:Bestman: 3-off 3-off
+0:You:3 1
+15:You: 
+3:You:2
+7:Bestman:2
+9:Bestman:3

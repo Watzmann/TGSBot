@@ -1,0 +1,140 @@
+JavaFIBS internal match representation v1.1
+8:zetetic:3
+13:zetetic: 
+6:You:zetetic
+11:zetetic:3 5
+1:zetetic: 8-3 6-3
+0:You:4 5
+1:You:12-17 1-5 
+0:zetetic:6 6
+1:zetetic: 13-7 13-7 24-18 24-18
+0:You:3 3
+1:You:12-15 12-15 17-20 17-20 
+0:zetetic:2 2
+1:zetetic: 6-4 6-4 18-16 18-16
+0:You:4 4
+1:You:1-5 19-23 19-23 17-21 
+0:zetetic:2 6
+1:zetetic: 16-10 10-8
+0:You:1 2
+1:You:15-16 19-21 
+0:zetetic:1 2
+1:zetetic: bar-24 24-22
+0:You:3 6
+1:You:16-19 17-23 
+0:zetetic:3 1
+1:zetetic: 8-7 7-4
+0:You:5 1
+1:You:15-20 23-24 
+0:zetetic:4 3
+1:zetetic: 22-18 18-15
+0:You:3 4
+1:You:12-15 20-24 
+0:zetetic:1 6
+15:zetetic: 
+0:You:4 1
+1:You:12-16 15-16 
+0:zetetic:6 5
+15:zetetic: 
+2:You: 
+5:zetetic:
+7:You:1
+14:sorrytigger-1:zetetic-0
+13:zetetic: 
+6:You:zetetic
+11:You:6 3
+1:You:24-18 13-10 
+0:zetetic:2 1
+1:zetetic: 1-3 3-4
+0:You:5 6
+1:You:24-18 13-8 
+0:zetetic:5 1
+1:zetetic: 4-5 5-10
+0:You:4 6
+1:You:bar-21 13-7 
+0:zetetic:1 5
+1:zetetic: 1-2 2-7
+0:You:2 2
+1:You:bar-23 23-21 6-4 6-4 
+0:zetetic:6 6
+1:zetetic: 10-16 16-22 17-23 17-23
+0:You:6 5
+1:You:13-7 13-8 
+0:zetetic:5 4
+1:zetetic: bar-5 5-9
+0:You:6 3
+1:You:8-2 8-5 
+2:zetetic: 
+4:You:
+0:zetetic:4 6
+1:zetetic: 17-23 9-13
+0:You:4 3
+1:You:6-2 8-5 
+0:zetetic:3 3
+1:zetetic: 13-16 16-19 12-15 12-15
+0:You:1 4
+1:You:8-7 8-4 
+0:zetetic:2 5
+1:zetetic: 12-17 17-19
+0:You:4 5
+1:You:7-2 7-3 
+0:zetetic:6 6
+15:zetetic: 
+0:You:2 3
+1:You:4-1 3-1 
+0:zetetic:5 4
+1:zetetic: 19-24 19-23
+0:You:4 3
+1:You:18-14 14-11 
+0:zetetic:3 4
+1:zetetic: 19-23 19-22
+0:You:4 1
+1:You:18-14 14-13 
+0:zetetic:3 4
+1:zetetic: 12-16 16-19
+0:You:1 5
+1:You:13-12 11-6 
+0:zetetic:5 2
+15:zetetic: 
+0:You:1 4
+1:You:21-17 17-16 
+0:zetetic:4 5
+15:zetetic: 
+0:You:5 4
+1:You:12-7 7-3 
+0:zetetic:4 6
+15:zetetic: 
+0:You:3 4
+1:You:6-3 21-17 
+0:zetetic:6 4
+15:zetetic: 
+0:You:1 6
+1:You:17-11 11-10 
+0:zetetic:2 1
+15:zetetic: 
+0:You:4 4
+1:You:16-12 10-6 12-8 8-4 
+0:zetetic:3 6
+15:zetetic: 
+0:You:6 1
+1:You:6-off 4-3 
+0:zetetic:4 1
+15:zetetic: 
+0:You:2 5
+1:You:6-1 6-4 
+0:zetetic:5 5
+15:zetetic: 
+0:You:2 5
+1:You:5-off 5-3 
+0:zetetic:6 3
+1:zetetic: bar-6 6-9
+0:You:2 3
+1:You: 3-o 2-o
+0:zetetic:1 4
+1:zetetic: 9-13 15-16
+0:You:2 2
+1:You:4-2 2-off 2-off 2-off 
+0:zetetic:4 2
+3:zetetic:2
+7:You:2
+9:You:3

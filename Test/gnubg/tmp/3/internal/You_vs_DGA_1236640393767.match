@@ -1,0 +1,96 @@
+JavaFIBS internal match representation v1.1
+8:DGA:3
+13:DGA: 
+6:You:DGA
+11:You:4 3
+1:You:12-16 12-15 
+0:DGA:4 5
+1:DGA: 24-20 20-15
+0:You:6 5
+1:You:bar-5 1-7 
+0:DGA:4 4
+1:DGA: 24-20 20-16 15-11 11-7
+0:You:2 5
+1:You: bar-5 bar-2
+0:DGA:2 3
+1:DGA: 7-4 6-4
+0:You:3 2
+1:You:17-20 1-3 
+0:DGA:1 3
+1:DGA: 6-3 3-2
+0:You:4 1
+1:You: bar-1
+0:DGA:6 2
+1:DGA: 8-2 16-14
+0:You:6 3
+1:You:bar-3 12-18 
+2:DGA: 
+4:You:
+0:DGA:1 5
+1:DGA: 14-9 9-8
+0:You:6 1
+1:You:12-18 19-20 
+0:DGA:1 4
+1:DGA: 13-12 12-8
+0:You:1 2
+1:You:bar-1 19-21 
+0:DGA:5 3
+1:DGA: 8-3 6-3
+0:You:5 1
+1:You:bar-5 19-20 
+0:DGA:4 1
+1:DGA: 13-9 9-8
+0:You:6 1
+1:You:5-11 20-21 
+0:DGA:6 6
+1:DGA: 13-7 13-7 13-7 8-2
+0:You:1 2
+1:You:11-13 13-14 
+0:DGA:3 1
+1:DGA: 8-7 7-4
+0:You:5 2
+1:You:14-19 19-21 
+0:DGA:4 6
+1:DGA: 8-2 8-4
+0:You:6 5
+1:You:17-23 18-23 
+0:DGA:6 1
+1:DGA: 7-6
+0:You:5 4
+1:You:17-22 18-22 
+0:DGA:3 6
+1:DGA: 6-3
+0:You:5 1
+1:You:5-10 10-11 
+0:DGA:3 4
+1:DGA: 7-3 7-4
+0:You:4 1
+1:You:11-15 15-16 
+0:DGA:1 6
+1:DGA: 6-off 6-5
+0:You:6 1
+1:You:bar-6 6-7 
+0:DGA:5 6
+1:DGA: 5-off 4-off
+0:You:6 3
+1:You:7-13 16-19 
+0:DGA:3 3
+1:DGA: 3-off 3-off 3-off 3-off
+0:You:3 3
+1:You:13-16 16-19 21-24 19-22 
+0:DGA:5 1
+1:DGA: 4-off 4-3
+0:You:3 3
+1:You:21-24 21-24 19-22 19-22 
+0:DGA:5 4
+1:DGA: 4-off 4-off
+0:You:1 4
+1:You:1-5 5-6 
+0:DGA:3 5
+1:DGA: 3-off 2-off
+0:You:2 6
+1:You:6-12 12-14 
+0:DGA:4 4
+1:DGA: 2-off 2-off 2-off
+7:DGA:6
+9:DGA:3

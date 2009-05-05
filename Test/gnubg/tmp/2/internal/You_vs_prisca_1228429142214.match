@@ -1,0 +1,123 @@
+JavaFIBS internal match representation v1.1
+8:prisca:3
+13:prisca: 
+6:You:prisca
+11:You:3 1
+1:You:17-20 19-20 
+0:prisca:6 1
+1:prisca: 13-7 8-7
+0:You:5 5
+1:You:12-17 12-17 17-22 17-22 
+0:prisca:5 1
+1:prisca: 24-23 23-18
+0:You:4 3
+1:You:1-5 1-4 
+0:prisca:4 3
+1:prisca: 24-21 18-14
+0:You:1 2
+1:You:19-21 4-5 
+0:prisca:3 4
+1:prisca: bar-21 21-18
+0:You:6 3
+1:You:bar-3 12-18 
+0:prisca:2 4
+1:prisca: bar-23 14-10
+0:You:5 4
+1:You:5-10 10-14 
+0:prisca:3 5
+15:prisca: 
+0:You:2 6
+1:You:12-18 3-5 
+0:prisca:4 5
+1:prisca: bar-21 13-8
+2:You: 
+5:prisca:
+7:You:1
+14:sorrytigger-1:prisca-0
+13:prisca: 
+6:You:prisca
+11:prisca:3 4
+1:prisca: 1-4 12-16
+0:You:3 2
+1:You:6-4 4-1 
+0:prisca:4 2
+1:prisca: bar-4 bar-2
+0:You:1 2
+1:You:24-22 22-21 
+0:prisca:2 5
+1:prisca: 16-21 19-21
+0:You:5 5
+1:You:bar-20 13-8 8-3 8-3 
+0:prisca:4 2
+1:prisca: 2-4 12-16
+0:You:4 3
+1:You:24-20 13-10 
+0:prisca:2 4
+1:prisca: 12-16 19-21
+0:You:1 5
+1:You:6-1 10-9 
+0:prisca:6 1
+1:prisca: 12-18 17-18
+0:You:3 1
+1:You:13-12 12-9 
+0:prisca:3 3
+15:prisca: 
+0:You:6 4
+1:You:8-2 6-2 
+0:prisca:1 2
+15:prisca: 
+0:You:3 1
+1:You:9-8 9-6 
+0:prisca:5 1
+1:prisca: bar-5 21-22
+0:You:1 6
+1:You:6-5 20-14 
+0:prisca:1 2
+15:prisca: 
+0:You:2 6
+1:You:13-7 7-5 
+0:prisca:3 6
+15:prisca: 
+0:You:4 2
+1:You:14-10 10-8 
+0:prisca:5 4
+1:prisca: bar-4 4-9
+2:You: 
+4:prisca:
+0:You:6 2
+1:You:13-7 7-5 
+0:prisca:5 1
+1:prisca: 19-20 17-22
+0:You:5 4
+1:You:bar-20 5-1 
+0:prisca:1 3
+15:prisca: 
+0:You:3 3
+1:You:20-17 17-14 14-11 8-5 
+0:prisca:4 6
+1:prisca: bar-4
+0:You:1 3
+1:You:5-2 2-1 
+0:prisca:5 6
+15:prisca: 
+0:You:4 5
+1:You:11-6 6-2 
+0:prisca:2 4
+1:prisca: bar-4 16-18
+0:You:3 3
+1:You:8-5 8-5 6-3 6-3 
+0:prisca:2 5
+1:prisca: 9-14 18-20
+0:You:4 2
+1:You:5-1 5-3 
+0:prisca:3 6
+1:prisca: 14-20 4-7
+0:You:1 1
+1:You:1-off 1-off 2-1 1-off 
+0:prisca:4 1
+1:prisca: 7-11 11-12
+0:You:3 6
+1:You:5-off 5-2 
+3:prisca:2
+7:You:2
+9:You:3

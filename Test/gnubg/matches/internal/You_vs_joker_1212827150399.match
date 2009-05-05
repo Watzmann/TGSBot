@@ -1,0 +1,122 @@
+JavaFIBS internal match representation v1.1
+8:joker:3
+13:joker: 
+6:You:joker
+11:joker:2 6
+1:joker: 24-18 18-16
+0:You:5 3
+1:You:19-22 17-22 
+0:joker:6 3
+1:joker: 16-10 13-10
+0:You:3 5
+1:You:1-4 4-9 
+0:joker:2 5
+1:joker: 13-8 8-6
+0:You:3 1
+1:You:19-20 17-20 
+0:joker:3 5
+1:joker: 24-21 21-16
+0:You:3 4
+1:You:9-12 1-5 
+0:joker:5 5
+1:joker: 10-5 10-5 16-11 13-8
+0:You:5 6
+15:You: 
+0:joker:1 3
+1:joker: 8-5 6-5
+0:You:1 1
+1:You:bar-1 17-18 18-19 19-20 
+0:joker:4 6
+1:joker: 8-2 6-2
+0:You:2 4
+1:You:1-3 3-7 
+0:joker:1 6
+1:joker: 13-7 8-7
+0:You:2 4
+1:You:bar-4 19-21 
+0:joker:1 1
+1:joker: 6-5 5-4 5-4 5-4
+0:You:4 4
+15:You: 
+0:joker:4 4
+1:joker: 7-3 7-3 13-9 9-5
+0:You:3 5
+15:You: 
+0:joker:6 4
+1:joker: 11-5 8-4
+0:You:6 3
+15:You: 
+0:joker:1 6
+1:joker: 6-off 4-3
+0:You:2 1
+1:You:bar-1 12-14 
+0:joker:6 2
+1:joker: 6-off 6-4
+0:You:3 4
+1:You:14-18 18-21 
+0:joker:1 5
+1:joker: 5-off 4-3
+0:You:4 2
+1:You:12-16 16-18 
+0:joker:1 3
+1:joker: 3-off 5-4
+0:You:4 4
+1:You:12-16 12-16 18-22 20-24 
+0:joker:1 2
+1:joker: 3-1 1-off
+0:You:6 3
+3:You:1
+7:joker:1
+14:joker-1:checkejon-0
+13:joker: 
+6:You:joker
+11:joker:2 3
+1:joker: 13-11 24-21
+0:You:5 2
+1:You:19-21 12-17 
+0:joker:6 3
+1:joker: bar-22 24-18
+0:You:2 1
+1:You:19-21 17-18 
+0:joker:6 6
+15:joker: 
+0:You:5 1
+1:You:17-18 12-17 
+0:joker:4 4
+15:joker: 
+0:You:1 6
+1:You:12-18 18-19 
+0:joker:5 5
+1:joker: bar-20 13-8 8-3 8-3
+0:You:3 5
+1:You:19-22 17-22 
+0:joker:6 5
+1:joker: bar-20 13-7
+0:You:2 3
+1:You:12-15 12-14 
+0:joker:3 1
+1:joker: 11-8 8-7
+0:You:5 3
+1:You:1-4 4-9 
+0:joker:2 2
+1:joker: 13-11 11-9 6-4 6-4
+2:You: 
+4:joker:
+0:You:2 4
+1:You:bar-2 14-18 
+0:joker:6 6
+1:joker: 8-2 8-2 7-1 7-1
+0:You:6 4
+15:You: 
+0:joker:4 5
+1:joker: 20-15 15-11
+0:You:3 4
+15:You: 
+0:joker:4 6
+1:joker: 11-5 9-5
+0:You:6 2
+15:You: 
+0:joker:4 5
+3:You:2
+7:joker:2
+9:joker:3

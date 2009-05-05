@@ -1,0 +1,128 @@
+JavaFIBS internal match representation v1.1
+8:jamesgammon:3
+13:jamesgammon: 
+6:You:jamesgammon
+11:You:5 4
+1:You:13-8 13-9 
+0:jamesgammon:6 4
+1:jamesgammon: 17-23 19-23
+0:You:4 4
+1:You:13-9 9-5 9-5 24-20 
+0:jamesgammon:6 3
+1:jamesgammon: 1-7 7-10
+0:You:4 2
+1:You:8-4 6-4 
+0:jamesgammon:3 3
+1:jamesgammon: 17-20 17-20 19-22 19-22
+0:You:1 6
+1:You:bar-24 8-2 
+0:jamesgammon:3 6
+1:jamesgammon: 1-7 7-10
+0:You:2 1
+1:You:6-4 8-7 
+0:jamesgammon:1 6
+1:jamesgammon: 12-18 18-19
+0:You:6 6
+1:You:24-18 24-18 8-2 7-1 
+0:jamesgammon:1 6
+1:jamesgammon: 10-16 16-17
+0:You:3 5
+1:You:6-1 13-10 
+0:jamesgammon:5 4
+15:jamesgammon: 
+0:You:4 6
+1:You:13-7 10-6 
+0:jamesgammon:3 1
+1:jamesgammon: bar-3 19-20
+0:You:6 1
+1:You:18-17 17-11 
+0:jamesgammon:3 4
+1:jamesgammon: bar-3 3-7
+0:You:2 4
+1:You:bar-21 18-16 
+0:jamesgammon:2 3
+1:jamesgammon: 7-10 10-12
+0:You:5 2
+1:You:21-16 4-2 
+0:jamesgammon:6 2
+1:jamesgammon: 3-9 9-11
+0:You:6 4
+1:You:bar-21 21-15 
+0:jamesgammon:4 2
+1:jamesgammon: 11-15 20-22
+0:You:1 6
+1:You:bar-24 24-18 
+0:jamesgammon:6 4
+1:jamesgammon: 12-18 15-19
+0:You:5 2
+15:You: 
+0:jamesgammon:5 2
+1:jamesgammon: 12-17 18-20
+0:You:2 3
+15:You: 
+0:jamesgammon:1 2
+1:jamesgammon: 19-21 20-21
+0:You:4 3
+15:You: 
+2:jamesgammon: 
+5:You:
+7:jamesgammon:1
+14:jamesgammon-1:sorrytigger-0
+13:jamesgammon: 
+6:You:jamesgammon
+11:You:4 2
+1:You:17-21 19-21 
+0:jamesgammon:5 6
+1:jamesgammon: 24-18 18-13
+0:You:5 2
+1:You:12-17 12-14 
+0:jamesgammon:2 4
+1:jamesgammon: 8-4 6-4
+0:You:1 5
+1:You:19-24 1-2 
+0:jamesgammon:5 5
+1:jamesgammon: bar-20 20-15 6-1 6-1
+0:You:3 5
+1:You:bar-5 2-5 
+0:jamesgammon:6 4
+1:jamesgammon: 15-9 13-9
+0:You:3 1
+1:You:17-20 19-20 
+2:jamesgammon: 
+5:You:
+7:jamesgammon:1
+14:jamesgammon-2:sorrytigger-0
+13:jamesgammon: 
+6:You:jamesgammon
+11:You:5 3
+1:You:17-22 19-22 
+0:jamesgammon:1 2
+1:jamesgammon: 24-23 23-21
+0:You:4 4
+1:You:1-5 1-5 17-21 17-21 
+0:jamesgammon:6 6
+15:jamesgammon: 
+0:You:3 3
+1:You:12-15 12-15 15-18 15-18 
+0:jamesgammon:2 2
+1:jamesgammon: bar-23 13-11 13-11 8-6
+0:You:5 5
+1:You:19-24 19-24 18-23 18-23 
+0:jamesgammon:6 6
+15:jamesgammon: 
+0:You:2 5
+1:You:5-10 10-12 
+0:jamesgammon:3 6
+15:jamesgammon: 
+0:You:6 3
+1:You:12-18 12-15 
+0:jamesgammon:1 4
+15:jamesgammon: 
+0:You:4 4
+1:You:12-16 12-16 16-20 16-20 
+0:jamesgammon:5 4
+15:jamesgammon: 
+0:You:1 6
+3:jamesgammon:3
+7:You:3
+9:You:3

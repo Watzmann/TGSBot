@@ -1,0 +1,88 @@
+JavaFIBS internal match representation v1.1
+8:berliner:3
+13:berliner: 
+6:You:berliner
+11:You:4 2
+1:You:8-4 6-4 
+0:berliner:3 6
+1:berliner: 1-7 7-10
+0:You:3 5
+1:You:13-10 13-8 
+0:berliner:2 6
+1:berliner: bar-2 12-18
+0:You:3 5
+1:You:10-5 8-5 
+0:berliner:6 2
+1:berliner: 12-18 1-3
+0:You:1 5
+1:You:13-8 6-5 
+0:berliner:6 1
+1:berliner: 2-3 12-18
+0:You:3 5
+1:You:24-21 21-16 
+0:berliner:4 5
+1:berliner: 12-16 19-24
+0:You:4 4
+1:You:bar-21 bar-21 13-9 13-9 
+0:berliner:5 3
+1:berliner: 16-19 19-24
+0:You:5 4
+1:You:21-16 16-12 
+0:berliner:5 2
+1:berliner: bar-2 2-7
+0:You:2 4
+1:You:12-8 6-4 
+0:berliner:5 6
+1:berliner: 7-13 13-18
+0:You:4 2
+1:You:5-1 4-2 
+0:berliner:4 1
+1:berliner: 3-7 18-19
+0:You:1 1
+1:You:8-7 8-7 21-20 2-1 
+0:berliner:5 4
+15:berliner: 
+0:You:4 2
+1:You:20-16 16-14 
+0:berliner:3 6
+1:berliner: bar-3 17-23
+0:You:6 5
+1:You:14-8 9-4 
+0:berliner:5 4
+1:berliner: 17-22 19-23
+0:You:6 5
+1:You:9-4 8-2 
+0:berliner:1 6
+1:berliner: 18-24 19-20
+2:You: 
+4:berliner:
+0:You:2 6
+1:You:8-2 8-6 
+0:berliner:6 2
+1:berliner: 3-9 18-20
+0:You:4 1
+1:You:7-3 4-3 
+0:berliner:4 6
+15:berliner: 
+0:You:2 2
+1:You:7-5 6-4 5-3 3-1 
+0:berliner:4 3
+15:berliner: 
+0:You:1 4
+1:You:4-off 4-3 
+0:berliner:2 6
+15:berliner: 
+0:You:3 6
+1:You:6-off 6-3 
+0:berliner:1 2
+15:berliner: 
+0:You:2 1
+1:You:3-1 1-off 
+0:berliner:1 5
+15:berliner: 
+0:You:3 4
+1:You:5-1 5-2 
+0:berliner:6 3
+3:berliner:6
+7:You:6
+9:You:3

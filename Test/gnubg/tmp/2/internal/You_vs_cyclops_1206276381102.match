@@ -1,0 +1,340 @@
+JavaFIBS internal match representation v1.1
+8:cyclops:3
+13:cyclops: 
+6:You:cyclops
+11:cyclops:5 6
+1:cyclops: 24-18 18-13
+0:You:2 3
+1:You:12-15 12-14 
+0:cyclops:5 5
+1:cyclops: 13-8 8-3 13-8 8-3
+0:You:5 4
+1:You:19-24 1-5 
+0:cyclops:2 1
+1:cyclops: bar-24 24-22
+0:You:2 1
+1:You:bar-2 14-15 
+0:cyclops:5 3
+1:cyclops: 6-1 13-10
+0:You:6 3
+15:You: 
+0:cyclops:5 3
+1:cyclops: 6-1 13-10
+0:You:3 5
+1:You:bar-5 2-5 
+0:cyclops:5 2
+1:cyclops: 22-20 8-3
+0:You:6 2
+1:You:17-23 19-21 
+0:cyclops:4 5
+1:cyclops: 20-16 16-11
+0:You:3 3
+1:You:17-20 17-20 15-18 15-18 
+0:cyclops:6 6
+1:cyclops: 10-4 10-4 13-7 13-7
+0:You:4 1
+1:You:19-23 12-13 
+0:cyclops:6 4
+1:cyclops: 11-7 7-1
+0:You:6 3
+1:You:18-21 12-18 
+0:cyclops:5 1
+1:cyclops: 8-3 8-7
+0:You:2 5
+1:You:12-17 17-19 
+0:cyclops:5 4
+1:cyclops: 7-2 6-2
+0:You:2 6
+1:You:13-19 19-21 
+0:cyclops:6 2
+1:cyclops: 7-1 3-1
+0:You:3 3
+1:You:5-8 19-22 8-11 11-14 
+0:cyclops:2 2
+1:cyclops: 6-4 4-2 6-4 4-2
+0:You:1 6
+1:You:21-22 5-11 
+0:cyclops:5 2
+1:cyclops: 7-5 5-off
+0:You:5 5
+1:You:bar-5 5-10 11-16 14-19 
+0:cyclops:1 4
+3:You:1
+7:cyclops:1
+14:cyclops-1:sorrytigger-0
+13:cyclops: 
+6:You:cyclops
+11:You:6 4
+1:You:1-7 7-11 
+0:cyclops:6 6
+1:cyclops: 24-18 24-18 13-7 13-7
+0:You:4 4
+1:You:12-16 12-16 19-23 19-23 
+0:cyclops:1 3
+1:cyclops: 8-5 6-5
+0:You:1 3
+1:You:1-4 11-12 
+0:cyclops:5 4
+1:cyclops: 13-9 9-4
+0:You:4 4
+1:You:bar-4 16-20 16-20 12-16 
+0:cyclops:2 2
+15:cyclops: 
+0:You:4 4
+1:You:12-16 17-21 17-21 12-16 
+0:cyclops:3 3
+1:cyclops: bar-22 18-15 15-12 18-15
+0:You:3 3
+1:You:bar-3 16-19 19-22 19-22 
+0:cyclops:3 2
+15:cyclops: 
+0:You:5 2
+1:You:4-9 17-19 
+0:cyclops:5 6
+15:cyclops: 
+0:You:4 4
+1:You:16-20 16-20 20-24 20-24 
+0:cyclops:2 2
+15:cyclops: 
+0:You:4 3
+1:You:9-12 19-23 
+0:cyclops:3 4
+15:cyclops: 
+0:You:3 3
+1:You:12-15 15-18 18-21 21-24 
+0:cyclops:1 4
+15:cyclops: 
+0:You:1 6
+1:You:3-9 9-10 
+0:cyclops:3 1
+15:cyclops: 
+0:You:3 3
+1:You:19-22 19-22 20-23 20-23 
+0:cyclops:3 5
+1:cyclops: bar-20
+0:You:2 1
+1:You:10-12 23-24 
+0:cyclops:4 6
+1:cyclops: bar-19
+0:You:3 3
+1:You:12-15 15-18 18-21 21-24 
+0:cyclops:3 6
+1:cyclops: bar-19 20-17
+0:You:6 3
+3:cyclops:1
+1:You:21-off 22-off 
+0:cyclops:1 4
+1:cyclops: 19-15 19-18
+0:You:2 6
+1:You: 21-o 23-o
+0:cyclops:4 1
+1:cyclops: 7-6 18-14
+0:You:3 1
+1:You: 22-o 24-o
+0:cyclops:6 5
+3:cyclops:2
+7:You:2
+14:sorrytigger-2:cyclops-1
+13:cyclops: 
+6:You:cyclops
+11:cyclops:1 4
+1:cyclops: 12-16 16-17
+0:You:2 1
+1:You:13-11 24-23 
+0:cyclops:5 4
+1:cyclops: 12-16 12-17
+0:You:6 5
+1:You:24-18 18-13 
+0:cyclops:1 1
+1:cyclops: 19-20 19-20 17-18 17-18
+0:You:1 3
+1:You:8-5 6-5 
+0:cyclops:1 4
+1:cyclops: 12-16 17-18
+0:You:1 2
+1:You:13-12 23-21 
+0:cyclops:3 6
+1:cyclops: bar-3 3-9
+0:You:4 6
+1:You:13-9 11-5 
+0:cyclops:4 1
+1:cyclops: bar-4 19-20
+0:You:5 1
+1:You:9-4 5-4 
+0:cyclops:3 1
+1:cyclops: bar-1 18-21
+0:You:2 1
+1:You:bar-23 6-5 
+0:cyclops:1 3
+1:cyclops: 20-21 16-19
+0:You:6 2
+1:You:12-6 6-4 
+0:cyclops:6 6
+1:cyclops: 17-23 17-23 18-24 18-24
+0:You:6 6
+15:You: 
+0:cyclops:3 4
+1:cyclops: 16-20 20-23
+0:You:1 1
+15:You: 
+0:cyclops:3 6
+1:cyclops: 1-7 7-10
+0:You:2 5
+15:You: 
+0:cyclops:3 5
+1:cyclops: 10-15 15-18
+0:You:2 6
+15:You: 
+0:cyclops:2 3
+1:cyclops: 1-3 18-21
+0:You:2 5
+15:You: 
+0:cyclops:3 1
+1:cyclops: 21-22 19-22
+0:You:3 3
+15:You: 
+0:cyclops:6 6
+1:cyclops: 3-9 9-15 15-21 1-7
+0:You:5 4
+15:You: 
+0:cyclops:3 6
+1:cyclops: 7-10 10-16
+0:You:5 6
+15:You: 
+0:cyclops:3 6
+1:cyclops: 16-22 21-24
+0:You:3 1
+15:You: 
+0:cyclops:4 3
+1:cyclops: 21-off 21-24
+0:You:1 1
+15:You: 
+0:cyclops:4 5
+1:cyclops: 19-23 19-24
+0:You:3 4
+1:You:bar-21 13-10 
+0:cyclops:4 3
+1:cyclops: 20-24 20-23
+0:You:3 3
+1:You:21-18 13-10 10-7 18-15 
+0:cyclops:5 4
+1:cyclops: 22-off 22-off
+0:You:5 2
+1:You:8-6 15-10 
+0:cyclops:3 6
+1:cyclops: 22-off 23-off
+0:You:2 1
+1:You:8-6 7-6 
+0:cyclops:1 2
+1:cyclops: 24-off 23-off
+0:You:3 4
+1:You:10-6 10-7 
+0:cyclops:2 4
+1:cyclops: 23-off 23-off
+0:You:6 5
+1:You:13-8 8-2 
+0:cyclops:3 2
+1:cyclops: 23-off 24-off
+0:You:5 2
+1:You:7-2 2-off 
+0:cyclops:1 2
+1:cyclops: 24-off 24-off
+0:You:2 6
+1:You:6-off 2-off 
+3:You:1
+7:cyclops:1
+14:cyclops-2:sorrytigger-2
+13:cyclops: 
+6:You:cyclops
+11:cyclops:4 6
+1:cyclops: 8-2 6-2
+0:You:3 5
+1:You:17-22 19-22 
+0:cyclops:2 2
+1:cyclops: 6-4 6-4 13-11 13-11
+0:You:5 3
+1:You:12-17 12-15 
+0:cyclops:3 1
+1:cyclops: 24-21 24-23
+0:You:5 6
+1:You:1-7 7-12 
+0:cyclops:5 5
+1:cyclops: 11-6 6-1 11-6 6-1
+0:You:3 6
+1:You:bar-3 17-23 
+0:cyclops:3 1
+1:cyclops: bar-24 24-21
+0:You:1 1
+1:You:19-20 19-20 15-16 16-17 
+0:cyclops:5 6
+1:cyclops: 21-16 21-15
+0:You:4 6
+1:You:12-16 17-23 
+0:cyclops:6 2
+15:cyclops: 
+0:You:5 5
+1:You:12-17 12-17 12-17 17-22 
+0:cyclops:3 1
+1:cyclops: bar-24 24-21
+0:You:2 5
+1:You:16-21 21-23 
+0:cyclops:4 6
+1:cyclops: bar-21 21-15
+0:You:3 3
+1:You:17-20 17-20 20-23 17-20 
+0:cyclops:3 1
+1:cyclops: 13-12 15-12
+0:You:4 2
+1:You:3-7 7-9 
+0:cyclops:1 2
+1:cyclops: 12-11 11-9
+0:You:5 2
+1:You:bar-5 22-24 
+0:cyclops:6 5
+1:cyclops: 15-9 13-8
+0:You:2 1
+1:You:23-24 5-7 
+0:cyclops:5 1
+1:cyclops: 12-7 8-7
+0:You:5 3
+1:You:bar-5 20-23 
+0:cyclops:3 3
+1:cyclops: 8-5 8-5 13-10 10-7
+0:You:5 5
+15:You: 
+0:cyclops:3 3
+1:cyclops: 9-6 6-3 9-6 6-3
+0:You:3 4
+15:You: 
+0:cyclops:2 6
+1:cyclops: 7-1 7-5
+0:You:5 5
+15:You: 
+0:cyclops:1 1
+1:cyclops: 7-6 1-off 1-off 1-off
+0:You:4 1
+1:You:bar-1 17-21 
+0:cyclops:6 6
+1:cyclops: 6-off 6-off 6-off 5-off
+0:You:5 5
+1:You:1-6 6-11 11-16 16-21 
+0:cyclops:5 4
+1:cyclops: 5-off 4-off
+0:You:6 2
+1:You: 19-o 23-o
+0:cyclops:6 3
+1:cyclops: 5-off 3-off
+0:You:3 2
+1:You: 22-o 23-o
+0:cyclops:1 1
+1:cyclops: 2-1 1-off 2-1 1-off
+0:You:4 3
+1:You: 21-o 22-o
+0:cyclops:2 4
+1:cyclops: 4-off 3-1
+0:You:1 6
+1:You: 19-o 24-o
+0:cyclops:3 5
+1:cyclops: 1-off
+7:cyclops:1
+9:cyclops:3

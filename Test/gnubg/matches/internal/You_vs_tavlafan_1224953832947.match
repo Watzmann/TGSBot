@@ -1,0 +1,198 @@
+JavaFIBS internal match representation v1.1
+8:tavlafan:3
+13:tavlafan: 
+6:You:tavlafan
+11:tavlafan:2 5
+1:tavlafan: 13-8 13-11
+0:You:5 5
+1:You:12-17 12-17 17-22 17-22 
+0:tavlafan:4 3
+1:tavlafan: 13-9 24-21
+0:You:2 3
+1:You:19-21 21-24 
+0:tavlafan:2 3
+1:tavlafan: bar-23
+0:You:6 6
+1:You:1-7 1-7 17-23 17-23 
+0:tavlafan:5 5
+1:tavlafan: bar-20 bar-20 11-6 9-4
+2:You: 
+4:tavlafan:
+0:You:4 5
+1:You:12-17 19-23 
+0:tavlafan:5 3
+1:tavlafan: 8-3 6-3
+0:You:5 3
+1:You:7-12 7-10 
+0:tavlafan:5 5
+1:tavlafan: 20-15 15-10 20-15 15-10
+0:You:4 4
+1:You:bar-4 12-16 16-20 20-24 
+0:tavlafan:2 3
+15:tavlafan: 
+0:You:1 3
+1:You:17-20 19-20 
+0:tavlafan:5 4
+1:tavlafan: bar-21 8-3
+0:You:2 5
+1:You:12-17 12-14 
+0:tavlafan:5 6
+1:tavlafan: 21-15 15-10
+0:You:1 3
+1:You:17-20 4-5 
+0:tavlafan:5 1
+1:tavlafan: 10-5 6-5
+0:You:2 2
+1:You:bar-2 2-4 17-19 19-21 
+0:tavlafan:5 3
+1:tavlafan: 13-10 10-5
+0:You:5 1
+1:You:4-9 20-21 
+0:tavlafan:3 5
+1:tavlafan: 13-8 8-5
+0:You:1 2
+1:You:9-11 14-15 
+0:tavlafan:1 5
+1:tavlafan: 10-5 8-7
+0:You:4 5
+1:You:11-16 15-19 
+0:tavlafan:6 2
+1:tavlafan: 10-4 8-6
+0:You:3 4
+1:You:16-20 22-off 
+0:tavlafan:1 3
+1:tavlafan: 7-6 3-off
+0:You:3 3
+1:You:22-off 19-22 22-off 19-22 
+0:tavlafan:3 5
+1:tavlafan: 5-off 3-off
+0:You:4 5
+1:You:20-off 21-off 
+0:tavlafan:2 4
+1:tavlafan: 4-off 6-4
+0:You:2 4
+1:You:21-off 23-off 
+0:tavlafan:1 5
+1:tavlafan: 5-off 6-5
+0:You:4 4
+1:You: 19-23 20-24 20-24 22-off
+0:tavlafan:6 4
+1:tavlafan: 6-off 4-off
+0:You:6 4
+1:You: 23-off 23-off
+0:tavlafan:4 1
+1:tavlafan: 5-1 1-off
+0:You:4 6
+1:You: 23-off 24-off
+0:tavlafan:4 6
+1:tavlafan: 6-off 5-1
+0:You:1 5
+1:You: 24-off 24-off
+0:tavlafan:6 6
+1:tavlafan: 6-off 6-off 5-off 5-off
+0:You:1 2
+1:You: 24-off
+7:You:2
+14:sorrytigger-2:tavlafan-0
+13:tavlafan: 
+6:You:tavlafan
+11:tavlafan:1 3
+1:tavlafan: 17-20 19-20
+0:You:1 1
+1:You:6-5 6-5 8-7 8-7 
+0:tavlafan:3 4
+1:tavlafan: 1-4 4-8
+0:You:5 4
+1:You:bar-21 13-8 
+0:tavlafan:3 2
+1:tavlafan: bar-3 1-3
+0:You:5 6
+1:You:13-8 24-18 
+0:tavlafan:2 3
+1:tavlafan: 19-21 21-24
+0:You:2 4
+1:You: bar-21 bar-23
+0:tavlafan:4 3
+1:tavlafan: 17-21 21-24
+0:You:4 5
+1:You:bar-21 23-18 
+0:tavlafan:1 4
+1:tavlafan: 17-21 19-20
+0:You:3 1
+1:You:bar-22 22-21 
+0:tavlafan:6 6
+15:tavlafan: 
+0:You:6 5
+1:You:21-15 15-10 
+0:tavlafan:5 1
+1:tavlafan: bar-1 12-17
+0:You:4 2
+1:You:13-9 10-8 
+0:tavlafan:2 3
+1:tavlafan: 12-15 15-17
+0:You:5 5
+1:You:18-13 18-13 13-8 13-8 
+0:tavlafan:3 6
+1:tavlafan: 3-9 9-12
+0:You:5 6
+15:You: 
+0:tavlafan:5 4
+1:tavlafan: 12-17 12-16
+0:You:4 5
+1:You:bar-21 21-16 
+0:tavlafan:1 3
+1:tavlafan: bar-3 17-18
+0:You:3 6
+1:You:16-10 10-7 
+0:tavlafan:3 5
+1:tavlafan: 18-23 20-23
+0:You:3 3
+1:You:13-10 13-10 8-5 8-5 
+0:tavlafan:2 4
+1:tavlafan: 17-21 12-14
+0:You:5 2
+1:You:10-5 10-8 
+0:tavlafan:6 3
+1:tavlafan: 12-18 18-21
+0:You:3 1
+1:You:7-4 5-4 
+0:tavlafan:4 5
+1:tavlafan: 17-22 14-18
+0:You:4 2
+1:You:8-4 8-6 
+0:tavlafan:5 4
+1:tavlafan: 18-22 19-24
+0:You:5 4
+1:You:6-1 5-1 
+0:tavlafan:3 3
+1:tavlafan: bar-3 19-22 20-23 20-23
+0:You:6 2
+1:You:8-2 8-6 
+0:tavlafan:3 3
+1:tavlafan: 21-24 21-24
+0:You:3 1
+1:You:5-2 6-5 
+0:tavlafan:3 2
+1:tavlafan: 22-24
+0:You:3 5
+1:You:7-2 7-4 
+0:tavlafan:5 5
+1:tavlafan: 3-8 8-13 13-18 18-23
+0:You:5 3
+1:You:5-off 4-1 
+0:tavlafan:2 4
+1:tavlafan: 3-7 7-9
+0:You:6 4
+1:You:6-off 4-off 
+0:tavlafan:3 1
+1:tavlafan: 9-12 23-24
+0:You:6 3
+1:You:6-off 6-3 
+0:tavlafan:1 6
+1:tavlafan: bar-6 12-13
+0:You:2 6
+1:You:5-off 2-off 
+0:tavlafan:1 2
+3:tavlafan:1
+7:You:1
+9:You:3

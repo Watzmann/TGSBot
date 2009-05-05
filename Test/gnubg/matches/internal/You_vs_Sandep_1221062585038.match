@@ -1,0 +1,158 @@
+JavaFIBS internal match representation v1.1
+8:Sandep:3
+13:Sandep: 
+6:You:Sandep
+11:You:5 2
+1:You:12-17 12-14 
+0:Sandep:5 1
+1:Sandep: 13-8 24-23
+0:You:6 5
+1:You:1-7 7-12 
+0:Sandep:6 3
+1:Sandep: 23-20 20-14
+0:You:1 1
+1:You:bar-1 19-20 19-20 1-2 
+0:Sandep:3 5
+1:Sandep: 8-3 6-3
+0:You:4 6
+1:You:17-23 19-23 
+0:Sandep:1 6
+1:Sandep: 13-7 8-7
+0:You:3 3
+1:You:12-15 12-15 15-18 15-18 
+0:Sandep:1 6
+1:Sandep: 14-8 8-7
+0:You:1 1
+1:You:1-2 23-24 23-24 17-18 
+0:Sandep:1 4
+1:Sandep: bar-21 7-6
+0:You:3 3
+1:You:2-5 2-5 12-15 12-15 
+0:Sandep:3 4
+1:Sandep: 13-9 9-6
+0:You:2 1
+1:You:18-20 20-21 
+0:Sandep:5 4
+1:Sandep: bar-21 21-16
+0:You:6 2
+1:You:bar-2 15-21 
+0:Sandep:6 6
+1:Sandep: 8-2 8-2 7-1 7-1
+0:You:4 5
+1:You:bar-5 15-19 
+2:Sandep: 
+5:You:
+7:Sandep:1
+14:Sandep-1:sorrytigger-0
+13:Sandep: 
+6:You:Sandep
+11:Sandep:2 5
+1:Sandep: 13-8 13-11
+0:You:6 4
+1:You:1-7 7-11 
+0:Sandep:1 3
+1:Sandep: bar-22 24-23
+0:You:2 1
+1:You:11-12 1-3 
+0:Sandep:4 6
+1:Sandep: 24-18 22-18
+0:You:1 6
+1:You:17-23 3-4 
+0:Sandep:4 1
+1:Sandep: bar-24 8-4
+0:You:5 6
+1:You:bar-5 17-23 
+0:Sandep:5 3
+1:Sandep: 8-3 6-3
+0:You:2 6
+1:You:5-11 17-19 
+0:Sandep:3 3
+1:Sandep: 8-5 8-5 13-10 10-7
+0:You:2 1
+1:You:11-12 19-21 
+0:Sandep:4 1
+1:Sandep: 7-3 6-5
+0:You:4 5
+1:You:12-17 17-21 
+0:Sandep:1 2
+1:Sandep: 5-4 24-22
+0:You:3 2
+1:You:19-21 21-24 
+0:Sandep:5 4
+1:Sandep: 22-18 18-13
+0:You:3 1
+1:You:19-20 19-22 
+0:Sandep:3 6
+1:Sandep: 13-7 7-4
+0:You:3 2
+1:You:22-24 19-22 
+0:Sandep:4 3
+1:Sandep: 5-1 4-1
+0:You:1 6
+1:You:19-20 
+0:Sandep:4 2
+1:Sandep: 13-9 13-11
+0:You:3 5
+1:You:12-17 17-20 
+0:Sandep:4 1
+1:Sandep: 6-2 3-2
+0:You:5 2
+1:You:12-17 17-19 
+0:Sandep:2 6
+1:Sandep: 11-5 6-4
+0:You:4 1
+1:You:20-24 21-22 
+0:Sandep:3 1
+1:Sandep: 4-1 5-4
+0:You:6 2
+1:You: 12-14 14-20
+0:Sandep:3 2
+1:Sandep: 4-1 5-3
+0:You:4 4
+1:You:12-16 12-16 12-16 16-20 
+0:Sandep:4 4
+1:Sandep: 18-14 18-14 14-10 14-10
+0:You:4 1
+1:You:16-20 20-21 
+0:Sandep:2 5
+1:Sandep: 10-5 9-7
+2:You: 
+4:Sandep:
+0:You:3 4
+1:You:16-19 21-off 
+0:Sandep:3 2
+1:Sandep: 10-7 7-5
+0:You:1 5
+1:You: 20-o 24-o
+0:Sandep:6 2
+1:Sandep: 7-5 6-off
+0:You:1 3
+1:You: 22-o 24-o
+0:Sandep:4 3
+1:Sandep: 4-off 3-off
+0:You:5 2
+1:You: 20-o 23-o
+0:Sandep:2 2
+1:Sandep: 4-2 2-off 2-off 2-off
+0:You:3 2
+1:You: 22-o 23-o
+0:Sandep:6 1
+1:Sandep: 5-off 1-off
+0:You:2 5
+1:You:20-off 20-22 
+0:Sandep:6 2
+1:Sandep: 5-off 3-1
+0:You:4 5
+1:You:19-24 21-off 
+0:Sandep:1 6
+1:Sandep: 5-off 1-off
+0:You:4 2
+1:You:19-23 23-off 
+0:Sandep:4 2
+1:Sandep: 3-off 1-off
+0:You:5 3
+1:You: 22-off 24-off
+0:Sandep:6 5
+1:Sandep: 1-off 1-off
+7:Sandep:2
+9:Sandep:3

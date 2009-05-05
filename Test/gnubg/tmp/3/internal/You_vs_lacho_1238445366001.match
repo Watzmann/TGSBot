@@ -1,0 +1,78 @@
+JavaFIBS internal match representation v1.1
+8:lacho:1
+13:lacho: 
+6:You:lacho
+11:You:4 2
+1:You:17-21 19-21 
+0:lacho:1 6
+1:lacho: 13-7 8-7
+0:You:1 4
+1:You:12-16 1-2 
+0:lacho:5 2
+1:lacho: 24-22 13-8
+0:You:4 1
+1:You:16-20 19-20 
+0:lacho:6 6
+1:lacho: 13-7 8-2 8-2 7-1
+0:You:2 3
+1:You: bar-3
+0:lacho:6 1
+1:lacho: 8-2 2-1
+0:You:6 3
+1:You:bar-3 3-9 
+0:lacho:2 3
+1:lacho: 6-3 3-1
+0:You:5 2
+1:You:bar-5 9-11 
+0:lacho:6 3
+1:lacho: 22-16 16-13
+0:You:2 3
+1:You:11-14 12-14 
+0:lacho:2 4
+1:lacho: 13-9 9-7
+0:You:2 1
+1:You:12-14 19-20 
+0:lacho:1 1
+1:lacho: 7-6 6-5 6-5 24-23
+0:You:5 1
+15:You: 
+0:lacho:4 6
+1:lacho: 13-7 13-9
+0:You:6 4
+1:You:bar-4 4-10 
+0:lacho:2 5
+1:lacho: 23-18 7-5
+0:You:1 2
+1:You:17-19 17-18 
+0:lacho:6 2
+1:lacho: bar-23 9-3
+0:You:3 6
+1:You:12-18 10-13 
+0:lacho:6 6
+1:lacho: 23-17 17-11 11-5 7-1
+0:You:6 4
+1:You:13-19 18-22 
+0:lacho:4 4
+1:lacho: 7-3 6-2 5-1 5-1
+0:You:5 6
+1:You:14-20 14-19 
+0:lacho:4 5
+1:lacho: 5-off 6-2
+0:You:4 2
+1:You:18-22 14-16 
+0:lacho:6 5
+1:lacho: 6-off 5-off
+0:You:3 1
+1:You:16-19 12-13 
+0:lacho:3 1
+1:lacho: 3-off 1-off
+0:You:5 6
+1:You:13-19 20-off 
+0:lacho:6 1
+1:lacho: 3-off 1-off
+0:You:1 4
+1:You:21-off 22-23 
+0:lacho:6 6
+3:You:1
+7:lacho:1
+9:lacho:1

@@ -1,0 +1,14 @@
+Matches geladen; internal (18) jellyfish (17)
+purging ahead
+check_matches() ahead
+Abgleich der Verzeichnisse
+  /opt/JavaFIBS2001/matches/internal  (18)
+  /opt/JavaFIBS2001/matches/jellyfish  (17)
+noch nicht konvertiert: doit
+clear_matches() ahead
+Suche Zombies in /opt/JavaFIBS2001/matches/internal
+test_matches() ahead
+Lade anasimcar.mat
+{'match_id': 'anasimcar', 'extension': 'mat', 'ftime': 1234033620.0, 'time': '1234033620000', 'str_time': '07.02.09 20:07', 'opponent': 'anasimcar'}
+## CLOSING GNUBG
+DELETING INFORMATION

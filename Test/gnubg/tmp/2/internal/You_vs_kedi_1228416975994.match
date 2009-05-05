@@ -1,0 +1,270 @@
+JavaFIBS internal match representation v1.1
+8:kedi:3
+13:kedi: 
+6:You:kedi
+11:You:4 2
+1:You:17-21 19-21 
+0:kedi:5 2
+1:kedi: 13-8 13-11
+0:You:2 1
+1:You:12-14 1-2 
+0:kedi:3 5
+1:kedi: 8-3 6-3
+0:You:6 4
+1:You:1-7 7-11 
+0:kedi:6 5
+1:kedi: bar-20 20-14
+0:You:1 6
+1:You:bar-1 11-17 
+0:kedi:1 1
+1:kedi: 6-5 6-5 8-7 8-7
+0:You:6 6
+1:You:2-8 12-18 12-18 8-14 
+0:kedi:2 2
+1:kedi: bar-23 bar-23 24-22 24-22
+2:You: 
+4:kedi:
+0:You:3 2
+1:You:1-4 19-21 
+0:kedi:1 3
+1:kedi: 7-4 4-3
+0:You:2 4
+1:You:bar-4 12-14 
+0:kedi:4 3
+1:kedi: 7-4 13-9
+0:You:1 6
+1:You:bar-1 12-18 
+0:kedi:3 5
+1:kedi: 9-4 13-10
+0:You:4 2
+1:You:14-18 18-20 
+0:kedi:4 2
+1:kedi: 5-1 3-1
+0:You:1 3
+15:You: 
+0:kedi:1 3
+1:kedi: 23-20 5-4
+0:You:6 5
+1:You: bar-5
+0:kedi:2 3
+1:kedi: 10-7 7-5
+0:You:1 4
+15:You: 
+0:kedi:6 5
+1:kedi: 20-14 14-9
+0:You:6 2
+1:You: bar-2
+0:kedi:3 6
+1:kedi: 23-20 20-14
+0:You:1 4
+15:You: 
+0:kedi:4 6
+1:kedi: 9-5 22-16
+0:You:3 2
+1:You: bar-2
+0:kedi:5 2
+1:kedi: 22-20 20-15
+0:You:6 4
+15:You: 
+0:kedi:3 4
+1:kedi: 14-10 13-10
+0:You:2 3
+1:You:bar-2 17-20 
+0:kedi:5 5
+1:kedi: 15-10 10-5 16-11 11-6
+0:You:1 2
+1:You:18-20 21-22 
+0:kedi:1 5
+1:kedi: 10-5 6-5
+0:You:5 1
+1:You:17-22 17-18 
+0:kedi:6 2
+1:kedi: 10-4 5-3
+0:You:3 4
+1:You:19-23 18-21 
+0:kedi:3 3
+1:kedi: 6-3 3-off 6-3 3-off
+0:You:5 1
+1:You:2-7 7-8 
+0:kedi:4 2
+1:kedi: 4-off 3-1
+0:You:6 2
+1:You:21-23 8-14 
+0:kedi:6 5
+1:kedi: 5-off 5-off
+0:You:2 1
+1:You:14-16 16-17 
+0:kedi:5 1
+1:kedi: 5-off 5-4
+0:You:4 4
+1:You:2-6 6-10 10-14 14-18 
+0:kedi:6 3
+1:kedi: 4-off 4-1
+0:You:3 2
+1:You:18-21 17-19 
+0:kedi:5 2
+1:kedi: 4-off 4-2
+0:You:2 5
+1:You:bar-2 19-24 
+0:kedi:1 2
+1:kedi: bar-24 3-1
+0:You:5 2
+1:You:bar-5 5-7 
+0:kedi:1 3
+1:kedi: 3-2
+0:You:1 6
+1:You:bar-6 7-8 
+0:kedi:1 6
+1:kedi: 2-1
+0:You:2 4
+1:You:8-12 12-14 
+0:kedi:4 5
+15:kedi: 
+0:You:5 1
+1:You:14-19 6-7 
+0:kedi:6 3
+15:kedi: 
+0:You:2 2
+1:You:7-9 9-11 11-13 13-15 
+0:kedi:6 2
+15:kedi: 
+0:You:3 3
+1:You:21-24 18-21 21-24 18-21 
+0:kedi:1 5
+15:kedi: 
+0:You:6 5
+1:You:15-21 19-24 
+0:kedi:3 1
+15:kedi: 
+0:You:1 3
+1:You:21-24 24-off 
+0:kedi:3 2
+15:kedi: 
+0:You:5 2
+1:You:19-24 19-21 
+0:kedi:4 6
+1:kedi: bar-19 19-15
+0:You:1 6
+1:You: 20-o 24-o
+0:kedi:2 3
+1:kedi: 15-12 12-10
+0:You:4 5
+1:You: 20-o 21-o
+0:kedi:3 2
+1:kedi: 10-7 7-5
+0:You:4 5
+1:You: 21-off 21-off
+0:kedi:2 4
+1:kedi: 5-1 1-off
+0:You:4 5
+1:You: 21-off 22-off
+0:kedi:1 6
+1:kedi: 1-off 1-off
+0:You:5 3
+1:You: 22-off 23-off
+0:kedi:2 2
+1:kedi: 1-off 1-off 1-off 1-off
+7:kedi:2
+14:kedi-2:sorrytigger-0
+13:kedi: 
+6:You:kedi
+11:You:6 5
+1:You:1-7 7-12 
+0:kedi:5 3
+1:kedi: 8-3 6-3
+0:You:2 1
+1:You:12-14 1-2 
+0:kedi:3 1
+1:kedi: 13-10 24-23
+0:You:2 5
+1:You:12-17 12-14 
+0:kedi:1 2
+1:kedi: 13-11 11-10
+0:You:1 5
+1:You:19-24 17-18 
+0:kedi:2 1
+1:kedi: bar-24 24-22
+0:You:4 3
+1:You:bar-4 2-5 
+0:kedi:2 3
+1:kedi: 23-21 21-18
+0:You:4 2
+1:You:bar-2 14-18 
+0:kedi:3 5
+1:kedi: bar-22 13-8
+0:You:4 3
+1:You:14-18 2-5 
+0:kedi:1 5
+1:kedi: 22-21 21-16
+0:You:1 5
+1:You:12-17 4-5 
+0:kedi:5 1
+1:kedi: 22-21 21-16
+0:You:2 3
+1:You:17-20 19-21 
+0:kedi:4 1
+1:kedi: 16-15 15-11
+0:You:4 2
+1:You:12-16 19-21 
+0:kedi:2 3
+1:kedi: bar-23 23-20
+0:You:2 6
+1:You:bar-2 5-11 
+0:kedi:6 2
+1:kedi: bar-23 8-2
+0:You:6 6
+15:You: 
+0:kedi:6 4
+1:kedi: 20-16 8-2
+0:You:6 5
+1:You: bar-5
+0:kedi:2 5
+1:kedi: 16-11 13-11
+0:You:2 3
+15:You: 
+0:kedi:1 4
+1:kedi: 13-12 12-8
+0:You:6 2
+15:You: 
+0:kedi:4 4
+1:kedi: 8-4 8-4 11-7 11-7
+0:You:4 6
+15:You: 
+0:kedi:5 4
+1:kedi: 7-2 7-3
+0:You:3 5
+1:You: bar-5
+0:kedi:1 2
+1:kedi: 3-1 2-1
+0:You:2 6
+15:You: 
+0:kedi:1 1
+1:kedi: 23-22 10-9 10-9 9-8
+0:You:1 4
+15:You: 
+0:kedi:3 1
+1:kedi: 6-3 9-8
+0:You:3 4
+15:You: 
+0:kedi:6 3
+1:kedi: 22-16 16-13
+0:You:3 1
+15:You: 
+0:kedi:4 4
+1:kedi: 8-4 8-4 13-9 6-2
+0:You:3 4
+15:You: 
+0:kedi:3 5
+1:kedi: 9-4 4-1
+0:You:6 6
+15:You: 
+0:kedi:5 1
+1:kedi: 6-1 1-off
+0:You:5 5
+1:You:bar-5 bar-5 17-22 17-22 
+0:kedi:3 6
+1:kedi: 6-off 3-off
+0:You:1 2
+3:You:2
+7:kedi:2
+9:kedi:3

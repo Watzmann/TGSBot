@@ -1,0 +1,296 @@
+JavaFIBS internal match representation v1.1
+8:HalRoth:3
+13:HalRoth: 
+6:You:HalRoth
+11:HalRoth:1 3
+1:HalRoth: 8-5 6-5
+0:You:1 3
+1:You:19-20 17-20 
+0:HalRoth:1 3
+1:HalRoth: 24-21 24-23
+0:You:4 5
+1:You:12-17 12-16 
+0:HalRoth:6 1
+1:HalRoth: 23-22 22-16
+0:You:3 5
+1:You:bar-3 17-22 
+0:HalRoth:6 5
+1:HalRoth: 21-16 13-7
+0:You:1 4
+1:You:3-7 19-20 
+0:HalRoth:4 5
+1:HalRoth: bar-21 21-16
+0:You:2 3
+1:You:19-22 7-9 
+0:HalRoth:4 4
+1:HalRoth: 13-9 13-9 8-4 8-4
+0:You:1 3
+1:You:bar-1 12-15 
+0:HalRoth:3 5
+1:HalRoth: 13-8 13-10
+0:You:3 5
+1:You:12-15 12-17 
+0:HalRoth:3 5
+1:HalRoth: 16-13 13-8
+0:You:6 5
+1:You:1-7 7-12 
+0:HalRoth:2 1
+1:HalRoth: 10-8 6-5
+0:You:6 6
+1:You:15-21 15-21 1-7 1-7 
+0:HalRoth:1 5
+1:HalRoth: 8-3 5-4
+0:You:1 4
+1:You:12-13 13-17 
+0:HalRoth:5 2
+1:HalRoth: 8-3 8-6
+0:You:3 2
+1:You:17-20 20-22 
+0:HalRoth:6 5
+1:HalRoth: 9-3 9-4
+0:You:5 3
+1:You:17-20 17-22 
+0:HalRoth:6 5
+1:HalRoth: 16-11 11-5
+0:You:1 4
+1:You:17-21 22-23 
+0:HalRoth:2 5
+1:HalRoth: 16-14 14-9
+0:You:1 2
+1:You:7-9 22-23 
+0:HalRoth:3 3
+15:HalRoth: 
+0:You:6 1
+1:You:9-15 7-8 
+0:HalRoth:1 6
+1:HalRoth: bar-24 24-18
+0:You:5 2
+1:You:15-20 20-22 
+0:HalRoth:6 2
+1:HalRoth: 18-12 4-2
+0:You:1 1
+1:You:8-9 9-10 10-11 11-12 
+0:HalRoth:1 3
+1:HalRoth: bar-24 5-2
+0:You:5 2
+1:You:12-17 17-19 
+0:HalRoth:1 2
+1:HalRoth: 3-1 6-5
+0:You:6 3
+1:You:19-off 22-off 
+0:HalRoth:2 5
+1:HalRoth: 6-1 4-2
+0:You:5 1
+1:You:20-off 21-22 
+0:HalRoth:4 4
+1:HalRoth: 6-2 6-2 5-1 5-1
+0:You:5 4
+1:You:19-24 19-23 
+0:HalRoth:4 2
+15:HalRoth: 
+0:You:2 3
+1:You:22-24 20-23 
+0:HalRoth:6 1
+1:HalRoth: bar-19 19-18
+0:You:2 4
+1:You:21-off 23-off 
+0:HalRoth:2 6
+1:HalRoth: 18-16 16-10
+0:You:1 1
+1:You:20-21 20-21 24-off 23-24 
+0:HalRoth:5 5
+1:HalRoth: 10-5 5-off 5-off 4-off
+0:You:3 1
+1:You: 22-o 24-o
+0:HalRoth:2 4
+1:HalRoth: 4-off 2-off
+0:You:2 3
+1:You: 22-o 23-o
+0:HalRoth:2 2
+1:HalRoth: 2-off 2-off 2-off 2-off
+0:You:6 6
+1:You: 21-o 21-o 21-o 23-o
+0:HalRoth:5 1
+1:HalRoth: 3-off 1-off
+0:You:2 6
+1:You: 24-o
+7:You:1
+14:checkejon-1:HalRoth-0
+13:HalRoth: 
+6:You:HalRoth
+11:HalRoth:1 6
+1:HalRoth: 12-18 17-18
+0:You:2 6
+1:You:24-22 22-16 
+0:HalRoth:6 6
+1:HalRoth: 1-7 1-7 12-18 12-18
+0:You:2 5
+1:You:16-11 11-9 
+0:HalRoth:2 6
+1:HalRoth: 7-9 9-15
+0:You:1 1
+1:You:bar-24 8-7 8-7 8-7 
+0:HalRoth:5 2
+1:HalRoth: bar-5 15-17
+0:You:3 3
+1:You:24-21 24-21 13-10 13-10 
+0:HalRoth:2 3
+1:HalRoth: 17-20 18-20
+0:You:6 2
+1:You:21-15 15-13 
+0:HalRoth:3 6
+1:HalRoth: 5-11 11-14
+0:You:3 4
+1:You:6-3 7-3 
+0:HalRoth:1 5
+1:HalRoth: 14-19 19-20
+0:You:2 3
+1:You:13-10 10-8 
+0:HalRoth:2 4
+1:HalRoth: 17-21 19-21
+0:You:1 3
+1:You:bar-22 8-7 
+0:HalRoth:4 6
+1:HalRoth: 17-23 19-23
+0:You:2 5
+1:You:22-17 17-15 
+0:HalRoth:5 5
+3:You:1
+7:HalRoth:1
+14:HalRoth-1:checkejon-1
+13:HalRoth: 
+6:You:HalRoth
+11:HalRoth:1 6
+1:HalRoth: 13-7 8-7
+0:You:6 3
+1:You:1-4 4-10 
+0:HalRoth:2 1
+1:HalRoth: 13-11 11-10
+0:You:1 5
+1:You:bar-1 12-17 
+0:HalRoth:1 6
+1:HalRoth: 13-7 10-9
+0:You:6 6
+1:You:12-18 12-18 17-23 17-23 
+0:HalRoth:1 1
+1:HalRoth: 6-5 6-5 9-8 6-5
+0:You:4 4
+1:You:12-16 12-16 16-20 16-20 
+0:HalRoth:4 6
+1:HalRoth: 13-7 13-9
+2:You: 
+4:HalRoth:
+0:You:5 1
+1:You:17-18 17-22 
+0:HalRoth:6 3
+1:HalRoth: 24-21 21-15
+0:You:3 6
+1:You:19-22 18-24 
+0:HalRoth:4 1
+1:HalRoth: bar-24 9-5
+0:You:3 4
+1:You:bar-4 1-4 
+0:HalRoth:4 3
+1:HalRoth: 24-21 21-17
+0:You:3 3
+1:You:1-4 18-21 18-21 19-22 
+0:HalRoth:4 5
+1:HalRoth: 15-11 11-6
+0:You:5 5
+1:You:4-9 4-9 4-9 9-14 
+0:HalRoth:3 2
+1:HalRoth: 17-14 14-12
+0:You:3 2
+1:You:bar-2 9-12 
+0:HalRoth:1 2
+1:HalRoth: bar-24 8-6
+0:You:5 3
+1:You:12-17 9-12 
+0:HalRoth:5 1
+1:HalRoth: 7-2 2-1
+0:You:5 6
+15:You: 
+0:HalRoth:4 1
+1:HalRoth: 5-1 6-5
+0:You:3 1
+1:You:bar-3 17-18 
+0:HalRoth:3 6
+1:HalRoth: 24-18 18-15
+0:You:6 4
+1:You:bar-4 4-10 
+0:HalRoth:1 4
+1:HalRoth: 15-14 14-10
+0:You:4 1
+1:You:bar-4 12-13 
+0:HalRoth:6 5
+1:HalRoth: 10-5 7-1
+0:You:1 3
+1:You:3-4 13-16 
+0:HalRoth:2 5
+1:HalRoth: 8-3 8-6
+0:You:2 5
+1:You:16-21 21-23 
+0:HalRoth:5 2
+1:HalRoth: 6-1 5-3
+0:You:2 2
+1:You:19-21 19-21 19-21 21-23 
+0:HalRoth:2 1
+1:HalRoth: 6-5 5-3
+0:You:1 4
+1:You:23-24 4-8 
+0:HalRoth:6 1
+1:HalRoth: 7-1 7-6
+0:You:6 5
+1:You:8-14 14-19 
+0:HalRoth:3 2
+1:HalRoth: 3-off 6-4
+0:You:6 3
+15:You: 
+0:HalRoth:3 1
+1:HalRoth: 4-3 3-off
+0:You:1 3
+15:You: 
+0:HalRoth:4 3
+1:HalRoth: 5-1 3-off
+0:You:4 3
+1:You:bar-3 19-23 
+0:HalRoth:2 6
+1:HalRoth: bar-19 19-17
+0:You:4 6
+1:You:3-9 9-13 
+0:HalRoth:5 3
+1:HalRoth: 17-14 14-9
+0:You:1 3
+1:You:13-16 16-17 
+0:HalRoth:6 2
+1:HalRoth: 9-3 6-4
+0:You:1 5
+1:You:17-22 24-off 
+0:HalRoth:4 6
+1:HalRoth: 4-off 6-off
+0:You:6 5
+1:You: 20-o 20-o
+0:HalRoth:6 2
+1:HalRoth: 5-off 5-3
+0:You:6 4
+1:You: 21-o 21-o
+0:HalRoth:3 4
+1:HalRoth: 3-off 5-1
+0:You:6 4
+1:You: 21-o 21-o
+0:HalRoth:2 6
+1:HalRoth: 3-off 1-off
+0:You:2 4
+1:You: 22-o 23-o
+0:HalRoth:1 5
+1:HalRoth: 1-off 1-off
+0:You:6 1
+1:You:23-24 22-off 
+0:HalRoth:1 6
+1:HalRoth: 1-off 1-off
+0:You:6 4
+1:You: 22-o 22-o
+0:HalRoth:1 2
+1:HalRoth: 1-off 1-off
+7:HalRoth:2
+9:HalRoth:3

@@ -1,0 +1,202 @@
+JavaFIBS internal match representation v1.1
+8:Geoft_Parast:5
+13:Geoft_Parast: 
+6:You:Geoft_Parast
+11:You:3 1
+1:You:17-20 19-20 
+0:Geoft_Parast:6 4
+1:Geoft_Parast: 24-18 18-14
+0:You:1 1
+1:You:19-20 20-21 19-20 20-21 
+0:Geoft_Parast:4 1
+1:Geoft_Parast: 14-10 10-9
+0:You:3 5
+1:You:1-4 4-9 
+0:Geoft_Parast:4 2
+1:Geoft_Parast: bar-23 13-9
+2:You: 
+4:Geoft_Parast:
+0:You:6 6
+15:You: 
+0:Geoft_Parast:4 6
+1:Geoft_Parast: 13-9 24-18
+0:You:2 1
+1:You:bar-2 17-18 
+0:Geoft_Parast:6 1
+1:Geoft_Parast: bar-24 24-18
+0:You:6 4
+1:You:bar-4 12-18 
+0:Geoft_Parast:5 4
+15:Geoft_Parast: 
+0:You:3 1
+1:You:17-18 1-4 
+0:Geoft_Parast:1 5
+1:Geoft_Parast: bar-24 13-8
+0:You:3 6
+1:You:2-5 12-18 
+0:Geoft_Parast:1 2
+1:Geoft_Parast: 24-22 23-22
+0:You:1 4
+1:You:4-5 12-16 
+0:Geoft_Parast:1 6
+1:Geoft_Parast: 22-16 16-15
+0:You:4 1
+1:You:bar-1 18-22 
+0:Geoft_Parast:4 1
+1:Geoft_Parast: bar-24 8-4
+0:You:1 4
+1:You:bar-4 1-2 
+0:Geoft_Parast:2 1
+1:Geoft_Parast: bar-23 23-22
+0:You:4 3
+1:You:bar-4 12-15 
+0:Geoft_Parast:1 5
+1:Geoft_Parast: bar-24 6-1
+0:You:6 5
+1:You:4-10 10-15 
+0:Geoft_Parast:4 4
+1:Geoft_Parast: 8-4 8-4 6-2 6-2
+0:You:4 1
+1:You: bar-1
+0:Geoft_Parast:6 6
+15:Geoft_Parast: 
+0:You:1 1
+1:You:bar-1 21-22 21-22 15-16 
+0:Geoft_Parast:1 5
+1:Geoft_Parast: bar-24
+0:You:3 1
+1:You:5-8 15-16 
+0:Geoft_Parast:4 1
+1:Geoft_Parast: bar-24 bar-21
+0:You:6 1
+1:You:1-7 7-8 
+0:Geoft_Parast:1 3
+1:Geoft_Parast: 13-12 24-21
+0:You:5 1
+1:You:bar-1 8-13 
+0:Geoft_Parast:4 6
+1:Geoft_Parast: bar-21 12-6
+0:You:4 6
+1:You:1-7 1-5 
+0:Geoft_Parast:4 5
+1:Geoft_Parast: 21-17 17-12
+0:You:5 1
+1:You:7-12 12-13 
+0:Geoft_Parast:5 5
+15:Geoft_Parast: 
+0:You:6 6
+1:You:5-11 5-11 8-14 14-20 
+0:Geoft_Parast:4 2
+1:Geoft_Parast: bar-21 9-7
+0:You:1 2
+1:You:11-13 11-12 
+0:Geoft_Parast:3 5
+1:Geoft_Parast: 6-1 9-6
+0:You:1 3
+1:You:12-15 15-16 
+0:Geoft_Parast:2 4
+1:Geoft_Parast: 7-3 3-1
+0:You:2 1
+1:You:16-18 18-19 
+0:Geoft_Parast:4 5
+1:Geoft_Parast: 21-17 17-12
+0:You:3 2
+1:You:13-16 16-18 
+0:Geoft_Parast:4 5
+1:Geoft_Parast: 12-7 6-2
+0:You:2 6
+1:You:13-19 20-22 
+0:Geoft_Parast:1 1
+1:Geoft_Parast: 4-3 4-3 3-2 2-1
+0:You:5 2
+1:You:13-18 18-20 
+0:Geoft_Parast:6 2
+1:Geoft_Parast: 7-1 3-1
+0:You:4 1
+1:You:19-23 22-23 
+0:Geoft_Parast:4 6
+1:Geoft_Parast: 21-15 21-17
+0:You:4 4
+1:You:16-20 16-20 18-22 19-23 
+0:Geoft_Parast:6 5
+1:Geoft_Parast: 17-11 15-10
+0:You:4 1
+1:You:18-22 18-19 
+0:Geoft_Parast:2 2
+1:Geoft_Parast: 11-9 9-7 7-5 5-3
+0:You:4 3
+1:You:19-23 22-off 
+0:Geoft_Parast:2 6
+1:Geoft_Parast: 24-18 3-1
+0:You:3 3
+1:You:19-22 19-22 22-off 22-off 
+0:Geoft_Parast:2 2
+1:Geoft_Parast: 18-16 16-14 14-12 10-8
+0:You:1 6
+1:You:20-off 22-23 
+0:Geoft_Parast:1 4
+1:Geoft_Parast: 12-8 8-7
+0:You:1 6
+1:You:20-off 20-21 
+0:Geoft_Parast:1 3
+1:Geoft_Parast: 24-21 8-7
+0:You:6 3
+1:You: bar-3 3-9
+0:Geoft_Parast:2 2
+1:Geoft_Parast: 7-5 7-5 6-4 6-4
+0:You:3 6
+1:You:9-15 15-18 
+0:Geoft_Parast:2 6
+1:Geoft_Parast: 24-18 21-19
+0:You:1 1
+15:You: 
+0:Geoft_Parast:2 3
+1:Geoft_Parast: 19-16 18-16
+0:You:4 4
+15:You: 
+0:Geoft_Parast:2 2
+1:Geoft_Parast: 16-14 14-12 16-14 12-10
+0:You:2 1
+15:You: 
+0:Geoft_Parast:4 6
+1:Geoft_Parast: 14-8 8-4
+0:You:2 2
+15:You: 
+0:Geoft_Parast:1 4
+1:Geoft_Parast: 10-9 9-5
+0:You:6 1
+1:You:bar-6 6-7 
+0:Geoft_Parast:4 2
+1:Geoft_Parast: 4-off 2-off
+0:You:1 3
+1:You:7-10 10-11 
+2:Geoft_Parast: 
+4:You:
+0:Geoft_Parast:5 2
+1:Geoft_Parast: 5-off 2-off
+0:You:5 6
+1:You: 11-17 17-22
+0:Geoft_Parast:2 3
+1:Geoft_Parast: 5-2 2-off
+0:You:6 3
+1:You: 20-o 22-o
+0:Geoft_Parast:6 1
+1:Geoft_Parast: 5-off 1-off
+0:You:3 3
+1:You: 20-23 22-off 22-off 23-off
+0:Geoft_Parast:3 2
+1:Geoft_Parast: 2-off 4-1
+2:You: 
+4:Geoft_Parast:
+0:You:4 5
+1:You: 23-off 23-off
+0:Geoft_Parast:2 1
+1:Geoft_Parast: 1-off 4-2
+0:You:3 4
+1:You: 23-off 23-off
+0:Geoft_Parast:4 5
+1:Geoft_Parast: 2-off 1-off
+0:You:6 4
+1:You: 23-off
+7:You:8
+9:You:5

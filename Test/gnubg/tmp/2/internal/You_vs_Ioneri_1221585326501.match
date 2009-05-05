@@ -1,0 +1,122 @@
+JavaFIBS internal match representation v1.1
+8:Ioneri:3
+13:Ioneri: 
+6:You:Ioneri
+11:You:6 3
+1:You:24-18 13-10 
+0:Ioneri:1 4
+1:Ioneri: 17-18 1-5
+0:You:6 5
+1:You:bar-20 24-18 
+0:Ioneri:3 1
+1:Ioneri: bar-3 19-20
+0:You:2 4
+1:You:bar-21 10-8 
+0:Ioneri:2 1
+1:Ioneri: 17-18 18-20
+0:You:4 1
+1:You:bar-24 21-17 
+0:Ioneri:2 6
+1:Ioneri: bar-2 1-7
+2:You: 
+4:Ioneri:
+0:You:5 2
+1:You:24-22 22-17 
+0:Ioneri:1 1
+1:Ioneri: 19-20 19-20 20-21 20-21
+0:You:1 1
+1:You:6-5 6-5 8-7 8-7 
+0:Ioneri:5 1
+1:Ioneri: bar-1
+0:You:1 4
+1:You:6-2 2-1 
+0:Ioneri:6 1
+1:Ioneri: bar-1
+0:You:1 4
+1:You:bar-24 13-9 
+0:Ioneri:2 4
+1:Ioneri: bar-4 bar-2
+0:You:2 2
+1:You:8-6 8-6 6-4 6-4 
+0:Ioneri:2 4
+1:Ioneri: bar-2 12-16
+0:You:1 6
+1:You:24-18 18-17 
+0:Ioneri:3 4
+1:Ioneri: 12-16 12-15
+0:You:5 3
+1:You:17-14 14-9 
+0:Ioneri:2 1
+1:Ioneri: 15-16 16-18
+0:You:3 1
+1:You:13-10 10-9 
+0:Ioneri:2 1
+1:Ioneri: 1-3 18-19
+0:You:1 6
+1:You:13-7 7-6 
+0:Ioneri:2 6
+1:Ioneri: 16-22 16-18
+0:You:6 4
+1:You:17-11 17-13 
+0:Ioneri:5 4
+1:Ioneri: 3-8 8-12
+0:You:5 6
+1:You:9-3 11-6 
+0:Ioneri:1 1
+1:Ioneri: bar-1 2-3 2-3 1-2
+0:You:2 4
+1:You:bar-23 6-2 
+0:Ioneri:6 5
+15:Ioneri: 
+0:You:4 1
+1:You:23-22 6-2 
+0:Ioneri:4 4
+15:Ioneri: 
+0:You:3 6
+1:You:22-16 16-13 
+0:Ioneri:3 5
+1:Ioneri: bar-3
+0:You:6 3
+1:You:13-7 7-4 
+0:Ioneri:4 5
+15:Ioneri: 
+0:You:6 6
+1:You:13-7 13-7 7-1 7-1 
+0:Ioneri:1 6
+15:Ioneri: 
+0:You:5 5
+1:You:9-4 9-4 7-2 7-2 
+0:Ioneri:6 4
+15:Ioneri: 
+0:You:4 2
+1:You:4-off 2-off 
+0:Ioneri:4 1
+15:Ioneri: 
+0:You:4 4
+1:You:6-2 6-2 5-1 5-1 
+0:Ioneri:3 6
+1:Ioneri: bar-6 19-22
+0:You:5 3
+1:You: 4-1 4-off
+0:Ioneri:2 6
+1:Ioneri: 12-18 6-8
+0:You:4 4
+1:You: 4-off 4-off 2-off 2-off
+0:Ioneri:1 6
+1:Ioneri: 8-14 18-19
+0:You:1 5
+1:You: 2-o 1-o
+0:Ioneri:3 3
+1:Ioneri: 14-17 17-20 18-21 3-6
+0:You:4 3
+1:You: 2-off 2-off
+0:Ioneri:3 2
+1:Ioneri: 3-6 3-5
+0:You:4 2
+1:You: 1-off 1-off
+0:Ioneri:3 6
+1:Ioneri: 5-11 6-9
+0:You:4 3
+1:You: 1-off 1-off
+7:You:6
+9:You:3

@@ -1,0 +1,442 @@
+JavaFIBS internal match representation v1.1
+8:Flegreo:3
+13:Flegreo: 
+6:You:Flegreo
+11:Flegreo:1 2
+1:Flegreo: 12-14 1-2
+0:You:4 3
+1:You:13-10 24-20 
+0:Flegreo:3 2
+1:Flegreo: 1-4 2-4
+0:You:5 4
+1:You:24-20 10-5 
+0:Flegreo:6 1
+1:Flegreo: 12-18 17-18
+0:You:6 5
+1:You:13-7 7-2 
+0:Flegreo:3 6
+1:Flegreo: 14-17 17-23
+0:You:5 3
+1:You:6-1 5-2 
+0:Flegreo:2 6
+1:Flegreo: 4-10 10-12
+0:You:1 2
+1:You:13-11 2-1 
+0:Flegreo:1 3
+1:Flegreo: 19-22 22-23
+0:You:6 5
+1:You:8-2 11-6 
+0:Flegreo:1 6
+1:Flegreo: 4-10 10-11
+0:You:5 2
+1:You:13-8 13-11 
+0:Flegreo:6 3
+1:Flegreo: bar-3 3-9
+0:You:4 4
+1:You:11-7 20-16 20-16 8-4 
+0:Flegreo:4 1
+1:Flegreo: 9-13 12-13
+0:You:6 5
+1:You:16-10 16-11 
+0:Flegreo:1 4
+1:Flegreo: 12-16 13-14
+0:You:3 1
+1:You:8-5 6-5 
+0:Flegreo:4 3
+1:Flegreo: 16-20 17-20
+2:You: 
+5:Flegreo:
+7:You:1
+14:sorrytigger-1:Flegreo-0
+13:Flegreo: 
+6:You:Flegreo
+11:You:5 3
+1:You:8-3 6-3 
+0:Flegreo:5 4
+1:Flegreo: 12-17 1-5
+0:You:6 4
+1:You:24-18 24-20 
+0:Flegreo:6 2
+1:Flegreo: 12-18 18-20
+0:You:2 1
+1:You: bar-24 bar-23
+0:Flegreo:1 6
+1:Flegreo: 1-7 19-20
+0:You:6 3
+1:You:13-7 7-4 
+0:Flegreo:3 1
+1:Flegreo: bar-1 1-4
+0:You:3 1
+1:You:bar-22 23-22 
+0:Flegreo:2 1
+1:Flegreo: 4-5 12-14
+0:You:3 2
+1:You:24-21 6-4 
+0:Flegreo:2 3
+1:Flegreo: 19-21 21-24
+0:You:1 6
+1:You:bar-24 24-18 
+0:Flegreo:4 5
+1:Flegreo: bar-4 14-19
+0:You:1 4
+1:You:bar-24 22-18 
+0:Flegreo:4 5
+1:Flegreo: 4-9 5-9
+0:You:1 3
+1:You:24-21 22-21 
+0:Flegreo:6 4
+1:Flegreo: 17-23 19-23
+0:You:3 6
+1:You:13-7 7-4 
+0:Flegreo:3 4
+1:Flegreo: 5-9 9-12
+0:You:6 6
+1:You:8-2 8-2 13-7 7-1 
+0:Flegreo:6 4
+1:Flegreo: 12-16 16-22
+0:You:1 5
+1:You:6-1 4-3 
+0:Flegreo:6 3
+1:Flegreo: 9-15 12-15
+0:You:3 4
+1:You:13-9 9-6 
+0:Flegreo:1 6
+15:Flegreo: 
+0:You:5 2
+1:You:18-13 18-16 
+0:Flegreo:2 2
+15:Flegreo: 
+0:You:4 1
+1:You:16-12 13-12 
+0:Flegreo:6 1
+15:Flegreo: 
+0:You:3 2
+1:You:13-10 12-10 
+0:Flegreo:3 4
+1:Flegreo: bar-4
+0:You:1 6
+1:You:10-4 3-2 
+0:Flegreo:3 5
+1:Flegreo: bar-5
+0:You:4 1
+1:You:4-3 10-6 
+0:Flegreo:4 5
+1:Flegreo: bar-5 19-23
+0:You:6 4
+1:You:12-6 6-2 
+0:Flegreo:2 5
+1:Flegreo: 5-10 5-7
+0:You:5 2
+1:You:21-16 6-4 
+0:Flegreo:3 6
+1:Flegreo: 10-16 16-19
+0:You:1 5
+1:You:bar-24 21-16 
+0:Flegreo:4 4
+1:Flegreo: 20-24 20-24 17-21 17-21
+0:You:4 6
+15:You: 
+0:Flegreo:3 3
+1:Flegreo: 19-22 7-10 10-13 13-16
+0:You:5 5
+1:You: bar-20 bar-20 6-1 6-1
+0:Flegreo:1 3
+1:Flegreo: 16-17 21-24
+0:You:3 2
+1:You:6-3 3-1 
+0:Flegreo:5 4
+1:Flegreo: 17-22 17-21
+0:You:5 4
+1:You: 20-16 16-11
+0:Flegreo:5 4
+1:Flegreo: 15-20 20-24
+0:You:4 5
+1:You:bar-20 20-16 
+0:Flegreo:2 6
+1:Flegreo: 15-21 23-off
+0:You:6 2
+1:You:16-10 10-8 
+2:Flegreo: 
+5:You:
+7:Flegreo:1
+14:Flegreo-1:sorrytigger-1
+13:Flegreo: 
+6:You:Flegreo
+11:Flegreo:4 5
+1:Flegreo: 13-8 24-20
+0:You:6 6
+1:You:1-7 1-7 12-18 12-18 
+0:Flegreo:6 1
+1:Flegreo: 20-14 14-13
+0:You:6 2
+1:You:12-18 17-19 
+0:Flegreo:1 2
+1:Flegreo: 6-4 6-5
+0:You:2 1
+1:You:18-20 19-20 
+0:Flegreo:4 6
+1:Flegreo: 13-9 9-3
+0:You:6 2
+1:You:12-18 12-14 
+0:Flegreo:3 3
+1:Flegreo: 13-10 13-10 8-5 6-3
+0:You:6 6
+1:You:17-23 17-23 18-24 18-24 
+0:Flegreo:4 4
+1:Flegreo: bar-21 21-17 17-13 8-4
+0:You:2 2
+1:You:7-9 7-9 9-11 9-11 
+0:Flegreo:4 2
+1:Flegreo: 13-9 9-7
+0:You:1 5
+1:You:14-19 19-20 
+0:Flegreo:4 6
+1:Flegreo: 10-4 10-6
+0:You:1 2
+1:You:19-21 20-21 
+0:Flegreo:1 2
+1:Flegreo: 8-6 7-6
+0:You:3 4
+1:You:11-15 11-14 
+0:Flegreo:1 2
+1:Flegreo: 13-11 13-12
+0:You:5 5
+1:You:14-19 15-20 18-23 20-off 
+0:Flegreo:6 3
+1:Flegreo: 12-6 8-5
+0:You:5 1
+1:You:20-off 24-off 
+0:Flegreo:5 1
+1:Flegreo: 11-6 3-2
+2:You: 
+5:Flegreo:
+7:You:1
+14:sorrytigger-2:Flegreo-1
+13:Flegreo: 
+6:You:Flegreo
+11:Flegreo:3 4
+1:Flegreo: 1-5 12-15
+0:You:2 3
+1:You:24-21 13-11 
+0:Flegreo:2 1
+1:Flegreo: 12-14 14-15
+0:You:2 4
+1:You:13-9 11-9 
+0:Flegreo:3 2
+1:Flegreo: 19-21 21-24
+0:You:1 4
+1:You: bar-21 bar-24
+0:Flegreo:2 1
+1:Flegreo: bar-2 1-2
+0:You:1 3
+1:You:24-21 6-5 
+0:Flegreo:1 2
+1:Flegreo: bar-1 12-14
+0:You:3 2
+1:You:8-5 13-11 
+0:Flegreo:1 1
+1:Flegreo: 2-3 2-3 19-20 19-20
+0:You:5 4
+1:You:13-8 13-9 
+0:Flegreo:1 6
+1:Flegreo: 12-18 17-18
+0:You:1 2
+1:You:9-7 8-7 
+0:Flegreo:5 2
+1:Flegreo: 1-3 12-17
+0:You:4 4
+1:You:6-2 6-2 8-4 8-4 
+0:Flegreo:5 3
+1:Flegreo: 3-8 8-11
+0:You:4 6
+1:You: bar-21 7-1
+0:Flegreo:2 4
+1:Flegreo: 3-7 11-13
+0:You:2 1
+1:You:bar-23 2-1 
+0:Flegreo:2 3
+1:Flegreo: 13-16 14-16
+0:You:6 1
+1:You:9-3 3-2 
+0:Flegreo:4 3
+1:Flegreo: bar-3 3-7
+0:You:4 2
+1:You:23-21 9-5 
+0:Flegreo:6 1
+1:Flegreo: 7-13 7-8
+0:You:5 4
+1:You:6-1 6-2 
+0:Flegreo:4 1
+1:Flegreo: 8-12 12-13
+0:You:5 4
+1:You: 5-1
+0:Flegreo:4 1
+1:Flegreo: 17-18 18-22
+0:You:6 5
+15:You: 
+0:Flegreo:3 1
+1:Flegreo: 13-16 16-17
+0:You:1 4
+1:You:5-1 5-4 
+0:Flegreo:3 2
+1:Flegreo: 13-16 16-18
+0:You:5 3
+1:You: 4-1
+0:Flegreo:6 5
+1:Flegreo: 17-23 18-23
+0:You:6 5
+15:You: 
+0:Flegreo:3 6
+1:Flegreo: 16-22 16-19
+0:You:6 6
+15:You: 
+0:Flegreo:4 6
+1:Flegreo: 18-24 18-22
+0:You:6 6
+15:You: 
+0:Flegreo:6 6
+1:Flegreo: 17-23 17-23
+0:You:3 3
+1:You:21-18 21-18 4-1 4-1 
+0:Flegreo:3 1
+1:Flegreo: 19-22 23-24
+0:You:3 6
+1:You:18-12 12-9 
+0:Flegreo:1 1
+1:Flegreo: 15-16 16-17 17-18 18-19
+0:You:1 3
+15:You: 
+0:Flegreo:3 1
+1:Flegreo: 15-18 18-19
+0:You:2 4
+1:You: bar-21 9-7
+0:Flegreo:4 1
+1:Flegreo: 19-23 24-off
+0:You:2 5
+1:You:21-16 16-14 
+0:Flegreo:1 3
+1:Flegreo: 19-22 24-off
+0:You:2 5
+1:You:14-9 7-5 
+0:Flegreo:4 4
+1:Flegreo: 19-23 19-23 20-24 20-24
+0:You:5 5
+1:You:21-16 21-16 16-11 11-6 
+0:Flegreo:4 3
+1:Flegreo: 22-off 22-off
+0:You:3 2
+1:You:9-6 16-14 
+0:Flegreo:3 2
+1:Flegreo: 22-off 23-off
+0:You:2 1
+1:You:14-12 12-11 
+0:Flegreo:2 5
+1:Flegreo: 22-off 23-off
+0:You:2 6
+1:You:11-5 2-off 
+0:Flegreo:3 2
+3:You:1
+7:Flegreo:1
+14:Flegreo-2:sorrytigger-2
+13:Flegreo: 
+6:You:Flegreo
+11:Flegreo:2 4
+1:Flegreo: 8-4 6-4
+0:You:5 4
+1:You:12-17 12-16 
+0:Flegreo:6 3
+1:Flegreo: 24-18 24-21
+0:You:3 4
+1:You:16-20 17-20 
+0:Flegreo:3 4
+1:Flegreo: 21-18 13-9
+0:You:6 2
+1:You:1-7 7-9 
+0:Flegreo:5 6
+15:Flegreo: 
+0:You:4 6
+1:You:9-15 15-19 
+0:Flegreo:3 1
+1:Flegreo: bar-24 13-10
+0:You:2 3
+1:You:1-3 17-20 
+0:Flegreo:1 4
+1:Flegreo: 13-9 10-9
+0:You:6 4
+1:You:17-23 19-23 
+0:Flegreo:5 5
+1:Flegreo: 8-3 8-3 6-1 6-1
+0:You:6 3
+15:You: 
+0:Flegreo:4 1
+1:Flegreo: 18-17 17-13
+0:You:6 6
+15:You: 
+0:Flegreo:4 2
+1:Flegreo: 24-22 22-18
+0:You:3 3
+15:You: 
+0:Flegreo:1 2
+1:Flegreo: 13-11 11-10
+0:You:1 2
+1:You: bar-2
+0:Flegreo:2 2
+1:Flegreo: 9-7 9-7 7-5 7-5
+0:You:1 5
+15:You: 
+0:Flegreo:4 4
+1:Flegreo: 6-2 6-2 13-9 13-9
+0:You:2 5
+15:You: 
+0:Flegreo:3 2
+1:Flegreo: 10-7 9-7
+0:You:1 3
+15:You: 
+0:Flegreo:2 1
+1:Flegreo: 9-7 18-17
+0:You:1 5
+15:You: 
+0:Flegreo:1 4
+1:Flegreo: 17-13 18-17
+0:You:1 4
+15:You: 
+0:Flegreo:5 1
+1:Flegreo: 17-16 16-11
+0:You:6 4
+1:You: bar-6
+0:Flegreo:6 3
+1:Flegreo: 13-7 7-4
+0:You:2 1
+15:You: 
+0:Flegreo:1 5
+1:Flegreo: 11-6 7-6
+0:You:6 3
+15:You: 
+0:Flegreo:2 2
+1:Flegreo: 7-5 7-5 5-3 5-3
+0:You:3 4
+15:You: 
+0:Flegreo:1 1
+1:Flegreo: 3-2 3-2 2-1 2-1
+0:You:6 5
+15:You: 
+0:Flegreo:5 2
+1:Flegreo: 6-1 6-4
+0:You:4 3
+15:You: 
+0:Flegreo:1 2
+1:Flegreo: 4-2 4-3
+0:You:4 2
+15:You: 
+0:Flegreo:5 6
+1:Flegreo: 5-off 5-off
+0:You:4 5
+1:You: bar-5
+0:Flegreo:5 1
+1:Flegreo: 4-off 4-3
+0:You:2 6
+1:You:bar-6 6-8 
+0:Flegreo:6 2
+3:You:2
+7:Flegreo:2
+9:Flegreo:3

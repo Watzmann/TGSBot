@@ -1,0 +1,524 @@
+JavaFIBS internal match representation v1.1
+8:DarkMoon:3
+13:DarkMoon: 
+6:You:DarkMoon
+11:You:3 1
+1:You:17-20 19-20 
+0:DarkMoon:1 5
+1:DarkMoon: 13-8 8-7
+0:You:2 2
+1:You:19-21 19-21 1-3 1-3 
+0:DarkMoon:3 1
+1:DarkMoon: 8-7 13-10
+0:You:2 6
+1:You:12-18 18-20 
+0:DarkMoon:2 6
+1:DarkMoon: 10-4 6-4
+0:You:4 5
+1:You:12-17 12-16 
+0:DarkMoon:5 5
+1:DarkMoon: 13-8 13-8 13-8 6-1
+0:You:3 2
+1:You:17-19 12-15 
+0:DarkMoon:4 1
+1:DarkMoon: 6-2 2-1
+0:You:3 2
+1:You:15-18 16-18 
+0:DarkMoon:2 4
+1:DarkMoon: 24-22 8-4
+0:You:6 1
+1:You:12-18 20-21 
+0:DarkMoon:4 6
+1:DarkMoon: 22-16 8-4
+0:You:1 4
+1:You:18-22 21-22 
+0:DarkMoon:1 5
+1:DarkMoon: 24-23 16-11
+0:You:3 6
+1:You:3-9 9-12 
+0:DarkMoon:2 3
+1:DarkMoon: 11-8 8-6
+0:You:1 3
+1:You:19-22 22-23 
+0:DarkMoon:4 6
+15:DarkMoon: 
+0:You:3 2
+1:You:3-5 12-15 
+0:DarkMoon:6 5
+15:DarkMoon: 
+0:You:4 5
+1:You:15-20 5-9 
+0:DarkMoon:3 5
+15:DarkMoon: 
+0:You:1 2
+1:You:20-22 22-23 
+0:DarkMoon:4 3
+15:DarkMoon: 
+0:You:1 4
+1:You:17-21 17-18 
+0:DarkMoon:3 5
+15:DarkMoon: 
+0:You:4 1
+1:You:18-22 22-23 
+0:DarkMoon:6 1
+1:DarkMoon: bar-24 8-2
+0:You:3 2
+1:You:21-24 9-11 
+0:DarkMoon:6 4
+15:DarkMoon: 
+0:You:3 5
+1:You:11-16 16-19 
+0:DarkMoon:2 6
+15:DarkMoon: 
+0:You:3 4
+1:You:18-22 18-21 
+0:DarkMoon:3 6
+15:DarkMoon: 
+0:You:6 6
+1:You: 19-off 19-off 19-off 20-off
+0:DarkMoon:3 1
+1:DarkMoon: bar-24 4-1
+2:You: 
+5:DarkMoon:
+7:You:1
+14:sorrytigger-1:DarkMoon-0
+13:DarkMoon: 
+6:You:DarkMoon
+11:DarkMoon:4 5
+1:DarkMoon: 12-17 12-16
+0:You:3 6
+1:You:24-18 13-10 
+0:DarkMoon:3 2
+1:DarkMoon: 16-18 1-4
+0:You:5 4
+1:You:bar-20 24-20 
+0:DarkMoon:1 5
+1:DarkMoon: 4-9 9-10
+0:You:3 5
+1:You:bar-20 13-10 
+0:DarkMoon:4 2
+1:DarkMoon: bar-2 18-22
+0:You:4 6
+1:You:8-2 6-2 
+0:DarkMoon:4 2
+1:DarkMoon: bar-4 1-3
+0:You:5 6
+1:You:20-14 13-8 
+0:DarkMoon:2 6
+1:DarkMoon: 4-10 12-14
+0:You:2 5
+1:You: bar-20 bar-23
+0:DarkMoon:1 2
+1:DarkMoon: 12-14 22-23
+0:You:6 5
+1:You:bar-20 8-2 
+0:DarkMoon:3 2
+1:DarkMoon: 10-12 19-22
+0:You:5 2
+1:You:20-15 15-13 
+0:DarkMoon:1 4
+1:DarkMoon: 3-7 22-23
+0:You:1 2
+1:You:6-4 6-5 
+0:DarkMoon:1 2
+1:DarkMoon: 7-9 9-10
+0:You:1 5
+1:You:13-8 5-4 
+0:DarkMoon:4 2
+1:DarkMoon: 10-14 19-21
+0:You:6 3
+1:You:13-7 13-10 
+0:DarkMoon:2 2
+1:DarkMoon: 19-21 17-19 17-19 19-21
+0:You:1 2
+1:You:7-5 8-7 
+0:DarkMoon:5 2
+1:DarkMoon: 12-17 12-14
+0:You:1 5
+1:You:10-5 8-7 
+0:DarkMoon:1 1
+1:DarkMoon: 14-15 14-15 17-18 18-19
+0:You:6 4
+1:You:20-16 16-10 
+0:DarkMoon:4 4
+1:DarkMoon: 14-18 14-18 19-23 19-23
+0:You:6 5
+1:You:8-3 10-4 
+0:DarkMoon:4 6
+1:DarkMoon: 15-21 15-19
+0:You:2 1
+1:You:4-3 7-5 
+0:DarkMoon:1 6
+1:DarkMoon: 17-23 17-18
+0:You:5 4
+1:You:20-15 15-11 
+0:DarkMoon:5 3
+1:DarkMoon: 19-24 18-21
+0:You:5 4
+1:You:5-1 11-6 
+0:DarkMoon:5 1
+1:DarkMoon: 18-23 18-19
+0:You:3 1
+1:You:20-17 7-6 
+0:DarkMoon:2 4
+1:DarkMoon: 21-off 23-off
+0:You:4 1
+1:You:17-13 13-12 
+0:DarkMoon:6 2
+1:DarkMoon: 19-off 23-off
+0:You:5 6
+1:You:12-6 5-off 
+0:DarkMoon:4 1
+1:DarkMoon: 21-off 24-off
+0:You:2 3
+1:You: 3-o 2-o
+0:DarkMoon:1 6
+1:DarkMoon: 19-off 23-24
+0:You:2 4
+1:You: 4-o 2-o
+0:DarkMoon:6 1
+1:DarkMoon: 19-off 24-off
+0:You:3 1
+1:You: 3-o 1-o
+0:DarkMoon:2 6
+1:DarkMoon: 21-off 23-off
+0:You:3 1
+1:You:6-3 6-5 
+0:DarkMoon:5 3
+1:DarkMoon: 21-24 21-off
+0:You:1 6
+1:You:6-off 2-1 
+0:DarkMoon:2 5
+1:DarkMoon: 23-off 23-off
+0:You:6 6
+1:You: 6-off 6-off 5-off 5-off
+0:DarkMoon:1 5
+1:DarkMoon: 24-off
+7:DarkMoon:1
+14:DarkMoon-1:sorrytigger-1
+13:DarkMoon: 
+6:You:DarkMoon
+11:You:3 2
+1:You:12-15 12-14 
+0:DarkMoon:5 3
+1:DarkMoon: 8-3 6-3
+0:You:3 1
+1:You:17-20 19-20 
+0:DarkMoon:6 3
+1:DarkMoon: 24-18 18-15
+0:You:6 4
+1:You:bar-4 14-20 
+0:DarkMoon:3 6
+1:DarkMoon: 24-18 18-15
+0:You:2 5
+1:You:17-22 20-22 
+0:DarkMoon:5 4
+1:DarkMoon: 15-10 10-6
+0:You:2 2
+1:You:19-21 19-21 12-14 14-16 
+0:DarkMoon:3 3
+1:DarkMoon: 13-10 13-10 6-3 6-3
+0:You:6 5
+1:You:1-7 7-12 
+0:DarkMoon:5 1
+1:DarkMoon: 6-1 15-14
+0:You:5 5
+1:You:bar-5 4-9 9-14 12-17 
+0:DarkMoon:1 6
+1:DarkMoon: bar-24 24-18
+0:You:6 2
+1:You:12-18 16-18 
+0:DarkMoon:3 4
+15:DarkMoon: 
+0:You:2 6
+1:You:5-11 12-14 
+0:DarkMoon:5 4
+15:DarkMoon: 
+0:You:2 2
+1:You:14-16 16-18 18-20 14-16 
+0:DarkMoon:4 6
+15:DarkMoon: 
+0:You:3 4
+1:You:16-19 11-15 
+0:DarkMoon:4 2
+1:DarkMoon: bar-23 13-9
+0:You:4 1
+1:You:19-23 15-16 
+0:DarkMoon:2 6
+1:DarkMoon: bar-23 9-3
+0:You:6 3
+15:You: 
+0:DarkMoon:5 5
+1:DarkMoon: 6-1 6-1 10-5 10-5
+0:You:6 6
+1:You:bar-6 17-23 17-23 6-12 
+0:DarkMoon:6 5
+15:DarkMoon: 
+0:You:2 3
+1:You:16-19 20-22 
+0:DarkMoon:2 2
+15:DarkMoon: 
+0:You:3 2
+1:You:12-15 15-17 
+0:DarkMoon:4 6
+15:DarkMoon: 
+0:You:5 3
+1:You:19-24 17-20 
+0:DarkMoon:5 1
+1:DarkMoon: bar-24 13-8
+0:You:2 3
+1:You:bar-2 20-23 
+0:DarkMoon:4 3
+1:DarkMoon: 5-1 8-5
+0:You:4 1
+1:You:2-6 23-24 
+0:DarkMoon:5 3
+15:DarkMoon: 
+0:You:5 1
+1:You:18-23 23-24 
+0:DarkMoon:1 5
+15:DarkMoon: 
+0:You:5 6
+1:You:6-11 18-24 
+0:DarkMoon:5 2
+15:DarkMoon: 
+0:You:1 1
+1:You:11-12 12-13 22-23 23-24 
+0:DarkMoon:1 1
+15:DarkMoon: 
+0:You:6 2
+1:You:13-19 19-21 
+0:DarkMoon:1 5
+15:DarkMoon: 
+0:You:6 3
+1:You:19-off 19-22 
+0:DarkMoon:1 6
+1:DarkMoon: bar-19
+0:You:6 4
+1:You:20-off 20-24 
+0:DarkMoon:2 4
+15:DarkMoon: 
+0:You:6 3
+1:You:21-off 22-off 
+0:DarkMoon:1 5
+1:DarkMoon: bar-20 19-18
+0:You:5 1
+1:You: 21-o 24-o
+0:DarkMoon:5 4
+1:DarkMoon: 20-15 8-4
+0:You:5 2
+1:You: 21-o 23-o
+0:DarkMoon:5 6
+1:DarkMoon: 15-9 18-13
+0:You:6 2
+1:You: 22-o 23-o
+0:DarkMoon:3 5
+1:DarkMoon: 13-8 9-6
+0:You:5 5
+1:You: 22-off 24-off 24-off 24-off
+0:DarkMoon:5 5
+1:DarkMoon: 8-3 8-3 5-off 5-off
+0:You:5 1
+1:You: 24-off
+7:You:1
+14:sorrytigger-2:DarkMoon-1
+13:DarkMoon: 
+6:You:DarkMoon
+11:You:5 2
+1:You:13-8 13-11 
+0:DarkMoon:1 6
+1:DarkMoon: 12-18 17-18
+0:You:2 4
+1:You:8-4 6-4 
+0:DarkMoon:1 5
+1:DarkMoon: 1-2 2-7
+0:You:1 1
+1:You:6-5 6-5 8-7 8-7 
+0:DarkMoon:6 3
+1:DarkMoon: bar-3 3-9
+0:You:3 2
+1:You:11-9 24-21 
+0:DarkMoon:3 2
+1:DarkMoon: bar-3 1-3
+0:You:6 2
+1:You:8-2 9-7 
+0:DarkMoon:4 2
+1:DarkMoon: 17-21 19-21
+0:You:3 4
+1:You:bar-22 24-20 
+0:DarkMoon:3 5
+1:DarkMoon: 17-22 19-22
+0:You:1 1
+1:You:bar-24 7-6 24-23 6-5 
+0:DarkMoon:4 4
+1:DarkMoon: 12-16 12-16 16-20 16-20
+0:You:1 2
+1:You:bar-23 5-4 
+0:DarkMoon:4 6
+1:DarkMoon: 12-18 12-16
+0:You:4 6
+1:You:13-7 13-9 
+0:DarkMoon:1 1
+1:DarkMoon: 16-17 17-18 19-20 18-19
+0:You:5 6
+1:You:13-7 9-4 
+0:DarkMoon:2 5
+1:DarkMoon: 19-24 20-22
+0:You:5 5
+1:You:7-2 7-2 7-2 7-2 
+0:DarkMoon:6 4
+1:DarkMoon: 3-9 3-7
+0:You:1 2
+1:You:2-1 4-2 
+0:DarkMoon:6 5
+1:DarkMoon: 9-15 15-20
+0:You:2 5
+1:You:6-1 6-4 
+0:DarkMoon:6 5
+1:DarkMoon: 7-13 13-18
+0:You:2 2
+1:You:5-3 5-3 4-2 4-2 
+0:DarkMoon:2 3
+1:DarkMoon: 18-21 18-20
+0:You:1 3
+1:You:4-1 4-3 
+0:DarkMoon:6 3
+1:DarkMoon: 18-24 18-21
+0:You:6 6
+1:You:23-17 23-17 17-11 17-11 
+0:DarkMoon:6 3
+1:DarkMoon: 19-off 22-off
+0:You:5 1
+1:You:11-6 11-10 
+0:DarkMoon:4 4
+1:DarkMoon: 21-off 21-off 21-off 19-23
+0:You:1 1
+1:You:10-9 9-8 8-7 7-6 
+0:DarkMoon:5 4
+1:DarkMoon: 20-off 21-off
+0:You:1 6
+1:You: 6-o 1-o
+0:DarkMoon:5 6
+1:DarkMoon: 20-off 20-off
+0:You:1 3
+1:You: 3-o 1-o
+0:DarkMoon:3 6
+1:DarkMoon: 20-off 22-off
+0:You:1 3
+1:You: 3-o 1-o
+0:DarkMoon:3 4
+1:DarkMoon: 22-off 23-off
+0:You:1 6
+1:You:6-off 2-1 
+0:DarkMoon:2 5
+1:DarkMoon: 24-off 24-off
+7:DarkMoon:1
+14:DarkMoon-2:sorrytigger-2
+13:DarkMoon: 
+6:You:DarkMoon
+11:DarkMoon:2 5
+1:DarkMoon: 13-8 13-11
+0:You:1 6
+1:You:12-18 17-18 
+0:DarkMoon:1 6
+1:DarkMoon: 13-7 8-7
+0:You:2 6
+1:You:12-18 1-3 
+0:DarkMoon:1 2
+1:DarkMoon: 11-9 9-8
+0:You:5 6
+1:You:3-9 9-14 
+0:DarkMoon:1 1
+1:DarkMoon: 6-5 6-5 24-23 24-23
+0:You:3 6
+1:You:1-4 4-10 
+0:DarkMoon:3 6
+1:DarkMoon: 13-10 13-7
+0:You:1 3
+1:You:bar-3 3-4 
+0:DarkMoon:2 5
+1:DarkMoon: 10-5 6-4
+0:You:5 1
+1:You:bar-1 12-17 
+0:DarkMoon:6 2
+1:DarkMoon: 8-2 4-2
+0:You:1 2
+1:You:18-20 19-20 
+0:DarkMoon:1 3
+1:DarkMoon: 7-4 5-4
+0:You:6 2
+1:You:1-3 3-9 
+0:DarkMoon:4 3
+1:DarkMoon: 7-3 7-4
+0:You:3 5
+1:You:17-22 19-22 
+0:DarkMoon:6 2
+1:DarkMoon: 23-21 21-15
+0:You:3 2
+1:You:12-15 15-17 
+0:DarkMoon:3 3
+15:DarkMoon: 
+0:You:2 1
+1:You:12-14 9-10 
+0:DarkMoon:4 5
+1:DarkMoon: bar-21 21-16
+0:You:4 4
+1:You:10-14 17-21 17-21 17-21 
+0:DarkMoon:5 4
+1:DarkMoon: 16-12 8-3
+0:You:5 1
+1:You:14-19 19-20 
+0:DarkMoon:2 3
+1:DarkMoon: 4-1 8-6
+0:You:1 3
+1:You:14-17 17-18 
+0:DarkMoon:5 3
+1:DarkMoon: 6-1 8-5
+0:You:5 1
+1:You:14-19 19-20 
+0:DarkMoon:3 5
+1:DarkMoon: 12-7 7-4
+0:You:1 2
+1:You:20-22 18-19 
+0:DarkMoon:6 1
+1:DarkMoon: 23-17 17-16
+0:You:6 6
+1:You: 18-24 18-24 19-off 19-off
+0:DarkMoon:6 1
+1:DarkMoon: 16-10 10-9
+0:You:5 1
+1:You: 20-o 24-o
+0:DarkMoon:1 3
+1:DarkMoon: 9-6 1-off
+0:You:5 3
+1:You: 20-o 22-o
+0:DarkMoon:3 5
+1:DarkMoon: 5-off 3-off
+0:You:3 1
+1:You: 22-o 24-o
+0:DarkMoon:6 5
+1:DarkMoon: 6-off 5-off
+0:You:1 2
+1:You:21-23 23-24 
+0:DarkMoon:6 5
+1:DarkMoon: 6-off 5-off
+0:You:4 2
+1:You:21-off 21-23 
+0:DarkMoon:3 6
+1:DarkMoon: 6-off 3-off
+0:You:4 6
+1:You:19-off 19-23 
+0:DarkMoon:2 3
+1:DarkMoon: 2-off 4-1
+0:You:3 2
+1:You: 22-o 23-o
+0:DarkMoon:4 5
+1:DarkMoon: 4-off 4-off
+0:You:5 3
+1:You: 20-o 23-o
+0:DarkMoon:4 2
+1:DarkMoon: 2-off 1-off
+0:You:3 2
+1:You: 24-off
+7:You:1
+9:You:3

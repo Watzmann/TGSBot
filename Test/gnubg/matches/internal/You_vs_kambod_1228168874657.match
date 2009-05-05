@@ -1,0 +1,110 @@
+JavaFIBS internal match representation v1.1
+8:kambod:3
+13:kambod: 
+6:You:kambod
+11:kambod:3 5
+1:kambod: 17-22 19-22
+0:You:3 5
+1:You:8-3 6-3 
+0:kambod:1 1
+1:kambod: 19-20 19-20 17-18 17-18
+0:You:3 2
+1:You:24-21 13-11 
+0:kambod:2 6
+1:kambod: 12-18 18-20
+0:You:5 5
+1:You:21-16 16-11 13-8 8-3 
+0:kambod:1 4
+1:kambod: 1-5 1-2
+0:You:2 4
+1:You:13-9 11-9 
+0:kambod:3 6
+1:kambod: 5-11 11-14
+0:You:4 2
+1:You:bar-21 13-11 
+0:kambod:4 4
+1:kambod: 20-24 20-24 12-16 16-20
+0:You:4 3
+1:You:bar-21 13-10 
+0:kambod:1 3
+1:kambod: 2-5 12-13
+0:You:2 1
+1:You:6-5 5-3 
+0:kambod:6 6
+15:kambod: 
+0:You:1 3
+1:You:8-5 6-5 
+0:kambod:2 2
+1:kambod: bar-2 2-4 12-14 12-14
+0:You:1 5
+1:You:9-4 9-8 
+0:kambod:4 6
+1:kambod: bar-4 4-10
+0:You:2 1
+1:You: bar-23
+0:kambod:6 4
+1:kambod: 10-16 16-20
+0:You:2 5
+1:You:bar-23 11-6 
+0:kambod:1 1
+1:kambod: 13-14 18-19 18-19 19-20
+0:You:4 1
+1:You:8-4 3-2 
+0:kambod:5 2
+1:kambod: 14-19 20-22
+0:You:2 1
+1:You:3-2 6-4 
+0:kambod:5 6
+1:kambod: 14-20 19-24
+0:You:2 1
+1:You:8-6 6-5 
+2:kambod: 
+4:You:
+0:kambod:2 2
+1:kambod: 14-16 14-16 16-18 16-18
+0:You:6 5
+1:You:21-15 21-16 
+0:kambod:2 2
+1:kambod: 18-20 18-20 20-22 20-22
+0:You:2 4
+1:You:15-11 11-9 
+0:kambod:5 3
+1:kambod: 20-off 22-off
+0:You:4 5
+1:You:16-11 5-1 
+0:kambod:1 5
+1:kambod: 20-off 19-20
+0:You:2 2
+1:You:9-7 11-9 9-7 23-21 
+0:kambod:2 2
+1:kambod: 19-21 19-21 21-23 21-23
+0:You:5 1
+15:You: 
+0:kambod:4 6
+1:kambod: 20-off 20-24
+0:You:4 4
+1:You:bar-21 bar-21 21-17 17-13 
+0:kambod:1 4
+1:kambod: 20-21 21-off
+0:You:2 3
+15:You: 
+0:kambod:4 1
+1:kambod: 22-off 24-off
+0:You:3 4
+1:You:bar-21 21-18 
+0:kambod:2 2
+1:kambod: 23-off 23-off 22-24 22-24
+0:You:4 1
+1:You:7-6 13-9 
+0:kambod:3 1
+1:kambod: 22-off 24-off
+0:You:1 2
+1:You:7-6 18-16 
+0:kambod:5 3
+1:kambod: 24-off 24-off
+0:You:5 4
+1:You:16-11 9-5 
+0:kambod:5 4
+1:kambod: 24-off 24-off
+7:kambod:4
+9:kambod:3

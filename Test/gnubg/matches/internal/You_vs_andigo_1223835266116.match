@@ -1,0 +1,138 @@
+JavaFIBS internal match representation v1.1
+8:andigo:3
+13:andigo: 
+6:You:andigo
+11:You:3 2
+1:You:13-10 13-11 
+0:andigo:2 2
+1:andigo: 1-3 1-3 19-21 19-21
+0:You:5 2
+1:You:10-5 13-11 
+0:andigo:2 2
+1:andigo: 3-5 3-5 12-14 12-14
+0:You:5 4
+1:You:bar-20 24-20 
+0:andigo:5 4
+1:andigo: 19-24 17-21
+0:You:6 1
+1:You:bar-24 24-18 
+0:andigo:4 3
+1:andigo: bar-3 14-18
+0:You:6 3
+1:You:bar-22 20-14 
+0:andigo:4 6
+1:andigo: bar-4 12-18
+0:You:2 2
+1:You:6-4 6-4 22-20 6-4 
+0:andigo:6 6
+15:andigo: 
+2:You: 
+4:andigo:
+0:You:1 1
+1:You:4-3 14-13 8-7 8-7 
+0:andigo:6 4
+15:andigo: 
+0:You:3 6
+1:You:11-8 13-7 
+0:andigo:3 1
+1:andigo: bar-3 bar-1
+0:You:4 6
+15:You: 
+0:andigo:4 6
+1:andigo: 1-5 5-11
+0:You:1 3
+1:You: bar-22 bar-24
+0:andigo:2 3
+1:andigo: 11-14 3-5
+0:You:1 1
+1:You:24-23 23-22 4-3 4-3 
+0:andigo:4 1
+1:andigo: 5-9 9-10
+0:You:6 5
+1:You:20-14 14-9 
+0:andigo:3 5
+1:andigo: bar-5 17-20
+0:You:6 6
+15:You: 
+0:andigo:3 3
+1:andigo: 17-20 12-15 12-15 15-18
+0:You:3 2
+1:You:bar-23 13-10 
+0:andigo:4 2
+1:andigo: bar-2 5-9
+0:You:5 4
+15:You: 
+0:andigo:6 3
+1:andigo: 9-15 2-5
+0:You:1 1
+1:You:bar-24 24-23 10-9 9-8 
+0:andigo:5 6
+1:andigo: 5-10 18-24
+0:You:2 2
+1:You:13-11 11-9 9-7 8-6 
+0:andigo:3 1
+1:andigo: 21-24 10-11
+0:You:3 2
+1:You:7-4 6-4 
+0:andigo:4 6
+1:andigo: 5-9 5-11
+0:You:6 1
+1:You:8-2 7-6 
+0:andigo:4 2
+1:andigo: 15-19 19-21
+0:You:1 3
+1:You:8-5 6-5 
+0:andigo:5 1
+1:andigo: 9-14 14-15
+0:You:4 3
+1:You:7-3 7-4 
+0:andigo:3 3
+1:andigo: 11-14 11-14 14-17 14-17
+0:You:6 1
+1:You:22-16 3-2 
+0:andigo:5 3
+1:andigo: 15-20 15-18
+0:You:4 5
+1:You:16-11 11-7 
+0:andigo:2 3
+1:andigo: 17-19 17-20
+0:You:5 2
+1:You:22-17 4-2 
+0:andigo:1 1
+1:andigo: 20-21 21-22 21-22 20-21
+0:You:5 3
+1:You:17-12 12-9 
+0:andigo:6 1
+1:andigo: 18-24 21-22
+0:You:1 5
+1:You:7-2 2-1 
+2:andigo: 
+4:You:
+0:andigo:4 2
+1:andigo: 18-22 18-20
+0:You:5 6
+1:You:9-3 6-1 
+0:andigo:5 3
+1:andigo: 20-off 19-22
+0:You:2 5
+1:You:6-1 3-1 
+0:andigo:3 2
+1:andigo: 19-22 19-21
+0:You:4 2
+1:You:23-19 19-17 
+0:andigo:4 1
+1:andigo: 21-off 24-off
+0:You:1 6
+1:You:17-11 11-10 
+0:andigo:5 4
+1:andigo: 20-off 20-24
+0:You:5 2
+1:You:10-5 5-3 
+0:andigo:5 3
+1:andigo: 21-off 21-24
+0:You:5 6
+1:You: 23-17 17-12
+0:andigo:6 5
+3:You:4
+7:andigo:4
+9:andigo:3

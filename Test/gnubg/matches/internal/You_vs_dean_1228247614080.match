@@ -1,0 +1,132 @@
+JavaFIBS internal match representation v1.1
+8:dean:3
+13:dean: 
+6:You:dean
+11:dean:1 3
+1:dean: 17-20 19-20
+0:You:1 5
+1:You:13-8 24-23 
+0:dean:1 2
+1:dean: 12-14 19-20
+0:You:4 5
+1:You:23-18 18-14 
+0:dean:3 1
+1:dean: bar-3 3-4
+0:You:6 2
+1:You:14-8 24-22 
+0:dean:2 3
+1:dean: 19-22 20-22
+0:You:1 5
+1:You:bar-24 13-8 
+0:dean:2 3
+1:dean: 1-4 12-14
+0:You:1 6
+1:You:13-7 8-7 
+0:dean:6 1
+1:dean: 12-18 17-18
+0:You:2 3
+1:You:24-21 8-6 
+0:dean:3 5
+1:dean: 12-17 1-4
+0:You:2 1
+1:You:13-12 13-11 
+0:dean:6 6
+15:dean: 
+0:You:6 2
+1:You:21-15 15-13 
+0:dean:6 5
+1:dean: bar-5 5-11
+0:You:6 5
+15:You: 
+0:dean:3 1
+1:dean: 11-12 12-15
+0:You:3 6
+15:You: 
+0:dean:2 4
+1:dean: 15-19 14-16
+0:You:5 5
+15:You: 
+0:dean:2 3
+1:dean: 18-21 19-21
+0:You:3 6
+15:You: 
+0:dean:4 5
+1:dean: 4-9 9-13
+0:You:1 6
+1:You: bar-24
+0:dean:3 1
+1:dean: 17-18 13-16
+0:You:5 3
+15:You: 
+0:dean:5 1
+1:dean: 16-17 4-9
+0:You:6 5
+15:You: 
+0:dean:3 6
+1:dean: 4-10 10-13
+0:You:3 3
+15:You: 
+0:dean:2 5
+1:dean: 13-18 18-20
+0:You:1 3
+1:You: bar-24
+0:dean:3 2
+1:dean: 9-12 12-14
+0:You:1 6
+1:You:bar-24 8-2 
+0:dean:2 1
+1:dean: 14-16 16-17
+0:You:1 3
+1:You:8-5 6-5 
+0:dean:3 5
+1:dean: 16-21 17-20
+0:You:1 1
+1:You:6-5 6-5 5-4 5-4 
+0:dean:6 4
+1:dean: 17-23 17-21
+0:You:3 2
+1:You:8-5 8-6 
+0:dean:4 1
+1:dean: 18-22 18-19
+0:You:5 4
+1:You:7-2 7-3 
+0:dean:1 3
+1:dean: 20-23 19-20
+0:You:5 3
+1:You:6-1 6-3 
+0:dean:3 3
+1:dean: 19-22 19-22 22-off 22-off
+0:You:1 1
+1:You:5-4 4-3 3-2 2-1 
+0:dean:1 5
+1:dean: 20-off 20-21
+0:You:3 2
+1:You:6-3 6-4 
+0:dean:5 1
+1:dean: 20-off 20-21
+0:You:1 3
+1:You:4-1 3-2 
+0:dean:2 4
+1:dean: 21-off 21-23
+0:You:3 4
+1:You:24-20 20-17 
+0:dean:3 5
+1:dean: 21-off 22-off
+0:You:4 6
+1:You:17-11 11-7 
+0:dean:2 6
+1:dean: 21-off 23-off
+0:You:1 6
+1:You:24-18 7-6 
+0:dean:5 6
+1:dean: 21-off 21-off
+0:You:2 1
+1:You:18-16 16-15 
+0:dean:1 1
+1:dean: 23-24 23-24 24-off 24-off
+0:You:1 1
+1:You:bar-24 15-14 14-13 13-12 
+0:dean:2 2
+1:dean: 22-24 22-24 24-off 24-off
+7:dean:3
+9:dean:3

@@ -1,0 +1,123 @@
+JavaFIBS internal match representation v1.1
+1:You:24-22 13-11 13-11 6-4 
+0:hasret:1 5
+1:hasret: 17-22 22-23
+0:You:5 4
+15:You: 
+0:hasret:4 5
+1:hasret: 19-23 12-17
+0:You:4 4
+15:You: 
+0:hasret:5 1
+1:hasret: 2-3 12-17
+0:You:1 4
+1:You: bar-24
+0:hasret:6 3
+1:hasret: 3-9 9-12
+0:You:6 2
+15:You: 
+0:hasret:6 2
+1:hasret: 12-18 18-20
+0:You:3 3
+1:You:bar-22 4-1 4-1 11-8 
+0:hasret:1 6
+1:hasret: 2-3 3-9
+0:You:5 5
+1:You:11-6 8-3 8-3 7-2 
+0:hasret:2 3
+1:hasret: 19-22 20-22
+0:You:6 3
+15:You: 
+0:hasret:4 6
+1:hasret: 9-15 15-19
+0:You:3 2
+15:You: 
+0:hasret:5 6
+1:hasret: 17-23 17-22
+0:You:4 3
+15:You: 
+0:hasret:2 6
+1:hasret: 17-23 19-21
+0:You:6 4
+15:You: 
+0:hasret:1 1
+1:hasret: 23-24 23-24 21-22 22-23
+0:You:6 5
+15:You: 
+0:hasret:6 3
+1:hasret: 19-off 19-22
+0:You:6 5
+1:You: bar-19
+0:hasret:2 2
+1:hasret: 20-22 22-24 22-24 22-24
+0:You:5 3
+15:You: 
+0:hasret:3 6
+1:hasret: 20-off 20-23
+0:You:4 6
+1:You:bar-19 19-15 
+0:hasret:4 5
+1:hasret: 21-off 21-off
+0:You:3 5
+1:You:19-16 15-10 
+0:hasret:1 2
+1:hasret: 23-off 24-off
+0:You:1 2
+1:You:8-6 7-6 
+0:hasret:6 3
+1:hasret: 22-off 22-off
+0:You:2 4
+1:You:10-6 16-14 
+0:hasret:6 1
+1:hasret: 23-off 24-off
+0:You:6 1
+1:You:14-8 6-5 
+0:hasret:5 4
+1:hasret: 23-off 23-off
+0:You:1 5
+1:You:8-3 1-off 
+0:hasret:6 1
+1:hasret: 24-off 24-off
+0:You:4 1
+1:You: 4-o 1-o
+0:hasret:4 5
+1:hasret: 24-off
+7:hasret:1
+14:hasret-1:sorrytigger-0
+13:hasret: 
+6:You:hasret
+11:You:3 2
+1:You:12-15 12-14 
+0:hasret:3 2
+1:hasret: 13-10 13-11
+0:You:3 2
+1:You:1-4 15-17 
+0:hasret:5 1
+1:hasret: 10-5 6-5
+0:You:3 2
+1:You:1-4 12-14 
+0:hasret:3 2
+1:hasret: 11-8 8-6
+0:You:5 5
+1:You:17-22 17-22 4-9 4-9 
+0:hasret:6 4
+1:hasret: 8-2 6-2
+2:You: 
+4:hasret:
+0:You:2 1
+1:You:14-16 16-17 
+0:hasret:4 6
+1:hasret: 24-18 18-14
+0:You:3 5
+1:You:bar-3 9-14 
+0:hasret:2 5
+1:hasret: bar-23 13-8
+0:You:4 2
+1:You:17-21 19-21 
+0:hasret:6 4
+1:hasret: 24-18 18-14
+0:You:5 4
+1:You:bar-4 9-14 
+0:hasret:6 6
+15:hasret: 
+0:You:5 1

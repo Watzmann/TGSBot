@@ -1,0 +1,383 @@
+JavaFIBS internal match representation v1.1
+8:Jette:3
+13:Jette: 
+6:You:Jette
+11:Jette:3 4
+1:Jette: 13-9 24-21
+0:You:3 2
+1:You:19-21 21-24 
+0:Jette:3 1
+1:Jette: bar-24 bar-22
+0:You:5 3
+1:You:bar-5 12-15 
+0:Jette:2 1
+1:Jette: 9-7 8-7
+0:You:6 5
+1:You:5-11 11-16 
+0:Jette:4 4
+1:Jette: 24-20 20-16 13-9 13-9
+0:You:6 1
+1:You:bar-1 15-21 
+0:Jette:2 4
+1:Jette: 22-18 18-16
+0:You:6 3
+1:You:12-15 15-21 
+0:Jette:3 1
+1:Jette: 8-5 6-5
+0:You:5 2
+1:You:1-3 3-8 
+0:Jette:4 5
+1:Jette: bar-20 20-16
+0:You:3 6
+1:You:8-14 14-17 
+0:Jette:4 3
+1:Jette: 16-13 13-9
+0:You:3 5
+1:You:17-22 19-22 
+0:Jette:3 1
+1:Jette: 9-6 6-5
+0:You:3 6
+1:You:12-18 17-20 
+0:Jette:3 6
+1:Jette: 16-10 16-13
+0:You:5 1
+1:You:12-17 17-18 
+0:Jette:5 4
+1:Jette: 13-8 10-6
+0:You:6 1
+1:You:1-2 2-8 
+0:Jette:2 1
+1:Jette: bar-23 9-8
+0:You:6 3
+1:You:bar-3 3-9 
+0:Jette:1 2
+1:Jette: bar-23 13-12
+0:You:1 4
+1:You:bar-1 9-13 
+0:Jette:6 4
+15:Jette: 
+0:You:6 1
+1:You:13-19 19-20 
+0:Jette:5 4
+15:Jette: 
+0:You:2 6
+1:You:1-3 3-9 
+0:Jette:6 6
+15:Jette: 
+0:You:6 2
+1:You:9-15 15-17 
+0:Jette:2 3
+1:Jette: bar-23 8-5
+0:You:3 2
+1:You:1-4 19-21 
+0:Jette:1 6
+1:Jette: 12-6 5-4
+0:You:5 5
+15:You: 
+0:Jette:1 6
+1:Jette: 7-1 5-4
+0:You:1 3
+1:You:bar-1 17-20 
+0:Jette:1 5
+1:Jette: bar-24 7-2
+0:You:3 3
+1:You:18-21 21-24 21-24 18-21 
+0:Jette:2 5
+1:Jette: bar-23 23-18
+0:You:4 6
+1:You:1-7 7-11 
+0:Jette:2 2
+1:Jette: 6-4 4-2 6-4 18-16
+0:You:5 3
+1:You:11-16 16-19 
+0:Jette:5 5
+15:Jette: 
+0:You:6 2
+1:You:20-22 
+0:Jette:2 4
+1:Jette: bar-23 6-2
+0:You:5 4
+1:You:17-22 17-21 
+0:Jette:6 3
+1:Jette: 23-17 17-14
+0:You:3 1
+1:You:22-off 19-20 
+0:Jette:6 2
+1:Jette: 14-8 8-6
+0:You:3 6
+1:You:19-off 19-22 
+0:Jette:2 3
+1:Jette: 6-3 3-1
+0:You:1 5
+1:You:20-off 24-off 
+0:Jette:3 3
+1:Jette: 6-3 6-3 6-3 4-1
+0:You:3 4
+1:You:21-off 22-off 
+0:Jette:4 6
+1:Jette: 23-17 17-13
+0:You:2 2
+1:You:20-22 20-22 22-24 22-24 
+0:Jette:5 2
+1:Jette: 13-8 3-1
+0:You:1 3
+1:You:22-off 24-off 
+0:Jette:5 2
+1:Jette: 8-3 3-1
+0:You:2 1
+1:You:21-22 22-24 
+0:Jette:1 1
+1:Jette: 5-4 5-4 4-3 3-2
+0:You:3 1
+1:You:21-24 21-22 
+0:Jette:6 5
+1:Jette: 23-17 17-12
+0:You:1 6
+1:You:22-off 24-off 
+0:Jette:5 1
+1:Jette: 12-7 7-6
+0:You:1 2
+1:You:22-24 22-23 
+0:Jette:3 2
+1:Jette: bar-23 6-3
+0:You:6 5
+1:You: bar-5 5-11
+0:Jette:5 3
+1:Jette: 23-18 18-15
+0:You:4 2
+1:You:11-13 13-17 
+0:Jette:2 5
+1:Jette: 15-10 10-8
+0:You:2 5
+1:You: 17-22 22-24
+0:Jette:2 1
+1:Jette: 8-6 1-off
+0:You:5 6
+1:You: 24-off 24-off
+0:Jette:3 1
+1:Jette: 3-off 1-off
+0:You:6 2
+1:You: 24-off 24-off
+0:Jette:2 2
+1:Jette: 2-off 2-off 2-off 2-off
+0:You:4 5
+1:You: 24-off
+7:You:1
+14:sorrytigger-1:Jette-0
+13:Jette: 
+6:You:Jette
+11:You:5 2
+1:You:13-8 13-11 
+0:Jette:4 5
+1:Jette: 12-17 12-16
+0:You:1 5
+1:You:13-8 24-23 
+0:Jette:2 6
+1:Jette: 12-18 16-18
+0:You:1 4
+1:You:11-7 8-7 
+0:Jette:2 5
+1:Jette: 12-17 12-14
+0:You:4 4
+1:You:24-20 8-4 8-4 13-9 
+0:Jette:4 6
+1:Jette: 17-23 19-23
+0:You:5 4
+1:You:bar-20 13-9 
+0:Jette:5 4
+1:Jette: 14-19 19-23
+0:You:3 5
+1:You:8-3 6-3 
+0:Jette:5 6
+1:Jette: 17-23 19-24
+0:You:4 6
+1:You:20-14 20-16 
+0:Jette:6 1
+1:Jette: 1-2 2-8
+0:You:4 4
+1:You:bar-21 16-12 12-8 8-4 
+0:Jette:3 3
+15:Jette: 
+0:You:4 1
+1:You:9-5 6-5 
+0:Jette:1 1
+1:Jette: bar-1 1-2 1-2 23-24
+0:You:5 5
+1:You:21-16 14-9 16-11 11-6 
+0:Jette:5 5
+1:Jette: 17-22 17-22 19-24 17-22
+2:You: 
+5:Jette:
+7:You:1
+14:sorrytigger-2:Jette-0
+13:Jette: 
+6:You:Jette
+11:You:4 2
+1:You:8-4 6-4 
+0:Jette:6 4
+1:Jette: 17-23 19-23
+0:You:2 6
+1:You:24-18 18-16 
+0:Jette:6 6
+1:Jette: 1-7 1-7 12-18 12-18
+0:You:6 4
+1:You:16-10 24-20 
+0:Jette:1 5
+1:Jette: 12-17 19-20
+0:You:3 3
+1:You:bar-22 13-10 6-3 6-3 
+0:Jette:1 6
+1:Jette: 17-23 19-20
+0:You:2 2
+1:You:13-11 13-11 11-9 11-9 
+0:Jette:3 6
+1:Jette: 12-18 12-15
+0:You:2 4
+1:You:6-2 4-2 
+0:Jette:4 6
+1:Jette: 18-24 15-19
+0:You:2 6
+1:You:22-16 6-4 
+0:Jette:2 3
+1:Jette: 18-21 19-21
+0:You:6 5
+1:You:16-10 10-5 
+0:Jette:2 2
+1:Jette: 18-20 20-22 22-24 17-19
+0:You:3 2
+1:You:4-1 5-3 
+0:Jette:1 5
+1:Jette: 17-22 19-20
+0:You:5 6
+1:You:10-4 10-5 
+0:Jette:6 6
+15:Jette: 
+0:You:3 5
+1:You:8-3 8-5 
+0:Jette:1 6
+1:Jette: 7-8 8-14
+0:You:4 3
+1:You:9-5 9-6 
+0:Jette:6 2
+1:Jette: 7-9 9-15
+0:You:6 3
+1:You:13-7 13-10 
+0:Jette:1 3
+1:Jette: 15-18 18-19
+0:You:3 4
+1:You:10-6 7-4 
+0:Jette:6 6
+1:Jette: 14-20 19-off 19-off 19-off
+0:You:6 2
+1:You: 6-o 2-o
+0:Jette:1 2
+1:Jette: 23-off 24-off
+0:You:2 6
+1:You: 6-o 2-o
+0:Jette:4 3
+1:Jette: 21-off 22-off
+0:You:6 3
+1:You: 5-o 3-o
+0:Jette:3 5
+1:Jette: 20-off 20-23
+0:You:6 4
+1:You: 5-o 4-o
+0:Jette:4 2
+1:Jette: 21-off 23-off
+0:You:6 2
+1:You:5-off 4-2 
+0:Jette:4 5
+1:Jette: 20-off 20-24
+0:You:5 2
+1:You: 4-o 2-o
+0:Jette:3 5
+1:Jette: 23-off 23-off
+0:You:4 6
+1:You: 3-off 3-off
+0:Jette:3 3
+1:Jette: 24-off 24-off
+7:Jette:1
+14:Jette-1:sorrytigger-2
+13:Jette: 
+6:You:Jette
+11:You:5 1
+1:You:12-17 1-2 
+0:Jette:1 5
+1:Jette: 13-8 24-23
+0:You:5 6
+1:You:1-7 7-12 
+0:Jette:6 5
+1:Jette: 24-18 23-18
+0:You:2 6
+1:You:2-4 17-23 
+2:Jette: 
+4:You:
+0:Jette:4 3
+1:Jette: 13-9 9-6
+0:You:5 5
+1:You:4-9 9-14 14-19 19-24 
+0:Jette:3 3
+1:Jette: 13-10 8-5 8-5 10-7
+0:You:3 6
+1:You:12-15 15-21 
+0:Jette:3 2
+1:Jette: 7-4 6-4
+0:You:4 6
+1:You:12-16 16-22 
+0:Jette:1 5
+1:Jette: 8-3 8-7
+0:You:2 3
+1:You:19-22 21-23 
+0:Jette:6 2
+1:Jette: 13-7 13-11
+0:You:3 4
+1:You:12-16 16-19 
+0:Jette:4 6
+1:Jette: 11-5 7-3
+0:You:4 1
+1:You:19-23 23-24 
+0:Jette:2 3
+1:Jette: 6-3 6-4
+0:You:3 3
+1:You:12-15 12-15 17-20 19-22 
+0:Jette:3 2
+1:Jette: 5-2 4-2
+0:You:1 1
+1:You:15-16 15-16 19-20 20-21 
+0:Jette:5 6
+1:Jette: 7-1 6-1
+0:You:3 2
+1:You:19-22 19-21 
+0:Jette:5 4
+1:Jette: 18-13 13-9
+0:You:6 3
+1:You:16-22 16-19 
+0:Jette:1 4
+1:Jette: 9-5 5-4
+0:You:5 5
+1:You: 17-22 17-22 19-24 20-off
+0:Jette:1 3
+1:Jette: 18-15 15-14
+0:You:3 4
+1:You: 21-o 22-o
+0:Jette:3 3
+1:Jette: 14-11 11-8 8-5 3-off
+0:You:5 3
+1:You: 21-o 22-o
+0:Jette:1 1
+1:Jette: 1-off 1-off 2-1 1-off
+0:You:5 4
+1:You: 22-off 22-off
+0:Jette:3 1
+1:Jette: 4-1 1-off
+0:You:3 2
+1:You: 22-o 23-o
+0:Jette:3 2
+1:Jette: 3-off 2-off
+0:You:6 5
+1:You: 22-off 22-off
+0:Jette:4 2
+1:Jette: 4-off 6-4
+3:Jette:2
+7:You:2
+9:You:3

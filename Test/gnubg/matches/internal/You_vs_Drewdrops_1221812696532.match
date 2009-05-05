@@ -1,0 +1,104 @@
+JavaFIBS internal match representation v1.1
+8:Drewdrops:3
+13:Drewdrops: 
+6:You:Drewdrops
+11:You:5 1
+1:You:12-17 1-2 
+0:Drewdrops:5 2
+1:Drewdrops: 13-8 8-6
+0:You:3 3
+1:You:19-22 19-22 17-20 17-20 
+0:Drewdrops:5 1
+1:Drewdrops: 13-8 24-23
+0:You:3 1
+1:You:1-4 4-5 
+0:Drewdrops:1 5
+1:Drewdrops: 24-23 13-8
+0:You:3 3
+1:You:2-5 12-15 12-15 19-22 
+0:Drewdrops:3 5
+1:Drewdrops: 13-8 13-10
+0:You:6 3
+1:You:12-18 15-18 
+0:Drewdrops:2 5
+1:Drewdrops: 10-8 8-3
+2:You: 
+4:Drewdrops:
+0:You:3 4
+1:You:12-15 5-9 
+2:Drewdrops: 
+4:You:
+0:Drewdrops:2 2
+1:Drewdrops: 23-21 23-21 6-4 6-4
+0:You:2 1
+1:You:5-7 9-10 
+0:Drewdrops:1 1
+1:Drewdrops: 8-7 8-7 4-3 4-3
+0:You:4 2
+1:You:bar-4 10-12 
+0:Drewdrops:2 1
+1:Drewdrops: 6-4 4-3
+0:You:3 6
+15:You: 
+0:Drewdrops:2 4
+1:Drewdrops: 8-4 6-4
+0:You:2 2
+1:You:bar-2 12-14 14-16 16-18 
+0:Drewdrops:2 6
+1:Drewdrops: 8-6 7-1
+0:You:1 4
+1:You:18-22 22-23 
+0:Drewdrops:3 5
+1:Drewdrops: 21-16 7-4
+0:You:6 5
+1:You:2-7 7-13 
+0:Drewdrops:1 2
+1:Drewdrops: 3-1 4-3
+0:You:6 2
+1:You:13-19 22-24 
+0:Drewdrops:4 4
+1:Drewdrops: 16-12 12-8 8-4 8-4
+0:You:5 1
+1:You:19-24 22-23 
+0:Drewdrops:1 5
+1:Drewdrops: 21-16 8-7
+0:You:3 2
+1:You:17-20 20-22 
+0:Drewdrops:1 5
+1:Drewdrops: 16-11 11-10
+0:You:4 4
+1:You:15-19 15-19 17-21 18-22 
+0:Drewdrops:1 6
+1:Drewdrops: 10-4 7-6
+0:You:1 1
+1:You:18-19 24-off 24-off 23-24 
+0:Drewdrops:1 5
+1:Drewdrops: 1-off 6-1
+0:You:3 3
+1:You:22-off 22-off 22-off 19-22 
+0:Drewdrops:4 1
+1:Drewdrops: 4-off 1-off
+0:You:5 3
+1:You: 20-o 22-o
+0:Drewdrops:1 2
+1:Drewdrops: 1-off 3-1
+0:You:4 4
+1:You:19-23 19-23 19-23 21-off 
+0:Drewdrops:3 2
+1:Drewdrops: 3-off 3-1
+0:You:6 4
+1:You:19-off 20-24 
+0:Drewdrops:3 6
+1:Drewdrops: 6-off 3-off
+0:You:3 1
+1:You: 23-o 24-o
+0:Drewdrops:2 1
+1:Drewdrops: 1-off 4-2
+0:You:4 6
+1:You: 23-off 23-off
+0:Drewdrops:1 2
+1:Drewdrops: 2-off 1-off
+0:You:6 1
+1:You: 23-o 24-o
+7:You:4
+9:You:3

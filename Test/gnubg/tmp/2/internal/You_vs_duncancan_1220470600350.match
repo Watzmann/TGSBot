@@ -1,0 +1,140 @@
+JavaFIBS internal match representation v1.1
+8:duncancan:3
+13:duncancan: 
+6:You:duncancan
+11:duncancan:2 5
+1:duncancan: 13-8 13-11
+0:You:2 1
+1:You:12-14 19-20 
+0:duncancan:4 4
+1:duncancan: 24-20 24-20 20-16 20-16
+0:You:6 2
+1:You:bar-2 14-20 
+0:duncancan:1 5
+1:duncancan: 13-8 11-10
+0:You:2 3
+1:You:1-4 2-4 
+0:duncancan:6 6
+1:duncancan: 16-10 16-10 13-7 13-7
+0:You:2 4
+1:You:17-21 19-21 
+0:duncancan:3 1
+1:duncancan: 6-5 8-5
+0:You:2 1
+1:You:1-3 3-4 
+0:duncancan:6 5
+1:duncancan: 10-5 8-2
+0:You:2 4
+1:You:12-16 16-18 
+0:duncancan:4 3
+1:duncancan: 6-2 6-3
+0:You:5 4
+1:You:12-17 17-21 
+2:duncancan: 
+5:You:
+7:duncancan:1
+14:duncancan-1:sorrytigger-0
+13:duncancan: 
+6:You:duncancan
+11:duncancan:3 6
+1:duncancan: 24-18 18-15
+0:You:6 3
+1:You:1-7 12-15 
+0:duncancan:5 6
+1:duncancan: bar-20 13-7
+0:You:1 3
+1:You:bar-3 19-20 
+0:duncancan:5 1
+1:duncancan: bar-20 8-7
+0:You:6 6
+15:You: 
+0:duncancan:4 5
+1:duncancan: 24-20 20-15
+0:You:1 4
+1:You: bar-4 bar-1
+2:duncancan: 
+4:You:
+0:duncancan:1 6
+1:duncancan: 20-14 15-14
+0:You:2 1
+1:You:3-5 4-5 
+0:duncancan:2 4
+1:duncancan: 13-9 9-7
+0:You:6 6
+1:You:12-18 12-18 17-23 17-23 
+0:duncancan:1 6
+1:duncancan: 13-7 7-6
+0:You:1 1
+1:You:19-20 19-20 17-18 18-19 
+0:duncancan:1 2
+1:duncancan: 6-4 4-3
+0:You:1 5
+1:You:12-17 19-20 
+0:duncancan:3 6
+1:duncancan: 14-8 6-3
+0:You:5 6
+1:You:12-18 17-22 
+0:duncancan:6 5
+1:duncancan: 14-8 8-3
+0:You:3 3
+1:You:18-21 18-21 18-21 21-24 
+0:duncancan:4 6
+1:duncancan: 6-2 8-2
+0:You:4 5
+1:You:1-5 5-10 
+0:duncancan:6 4
+1:duncancan: 7-1 6-2
+0:You:5 6
+1:You:bar-5 5-11 
+0:duncancan:6 3
+1:duncancan: 7-1 7-4
+0:You:5 3
+1:You:10-15 11-14 
+0:duncancan:4 5
+1:duncancan: 13-8 8-4
+0:You:5 2
+1:You:20-22 15-20 
+0:duncancan:3 3
+1:duncancan: 13-10 10-7 7-4 4-1
+0:You:6 2
+1:You:14-20 20-22 
+0:duncancan:2 5
+1:duncancan: 8-3 8-6
+0:You:4 5
+1:You:20-24 5-10 
+0:duncancan:2 4
+1:duncancan: 6-2 2-off
+0:You:1 6
+1:You:10-16 22-23 
+0:duncancan:6 4
+1:duncancan: 6-off 6-2
+0:You:2 1
+1:You:5-7 7-8 
+0:duncancan:2 6
+1:duncancan: 4-off 2-off
+0:You:4 4
+1:You:8-12 12-16 16-20 16-20 
+0:duncancan:6 1
+1:duncancan: 4-off 1-off
+0:You:1 2
+1:You: 23-o 24-o
+0:duncancan:1 1
+1:duncancan: 1-off 1-off 2-1 1-off
+0:You:3 4
+1:You: 21-o 22-o
+0:duncancan:5 3
+1:duncancan: 3-off 3-off
+0:You:1 4
+1:You: 21-o 24-o
+0:duncancan:3 2
+1:duncancan: 3-off 2-off
+0:You:2 1
+1:You:23-off 20-21 
+0:duncancan:1 4
+1:duncancan: 3-off 2-1
+0:You:4 5
+1:You: 20-o 21-o
+0:duncancan:5 2
+1:duncancan: 1-off
+7:duncancan:2
+9:duncancan:3

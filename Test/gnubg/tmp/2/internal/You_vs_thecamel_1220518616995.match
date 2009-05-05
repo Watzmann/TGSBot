@@ -1,0 +1,408 @@
+JavaFIBS internal match representation v1.1
+8:thecamel:3
+13:thecamel: 
+6:You:thecamel
+11:You:4 1
+1:You:12-16 19-20 
+0:thecamel:2 3
+1:thecamel: 13-11 13-10
+0:You:1 2
+1:You:19-20 12-14 
+0:thecamel:4 2
+1:thecamel: 13-9 11-9
+0:You:3 3
+1:You:1-4 1-4 14-17 12-15 
+0:thecamel:5 6
+1:thecamel: 10-5 8-2
+0:You:2 1
+1:You:16-18 17-18 
+0:thecamel:2 1
+1:thecamel: 24-22 6-5
+0:You:1 2
+1:You:17-19 19-20 
+0:thecamel:4 6
+1:thecamel: 6-2 22-16
+0:You:3 3
+1:You:4-7 4-7 12-15 12-15 
+0:thecamel:1 1
+1:thecamel: 24-23 23-22 22-21 6-5
+0:You:1 5
+1:You:15-16 7-12 
+0:thecamel:3 3
+1:thecamel: bar-22 13-10 10-7 13-10
+0:You:1 5
+1:You:bar-1 16-21 
+0:thecamel:1 4
+1:thecamel: bar-21 8-7
+0:You:3 3
+1:You:bar-3 18-21 18-21 1-4 
+0:thecamel:1 2
+1:thecamel: bar-24 10-8
+0:You:6 6
+1:You:12-18 18-24 4-10 10-16 
+0:thecamel:6 4
+15:thecamel: 
+0:You:5 4
+1:You:16-21 20-24 
+0:thecamel:1 4
+15:thecamel: 
+0:You:4 6
+1:You:17-23 19-23 
+0:thecamel:3 2
+1:thecamel: bar-22 5-3
+0:You:1 2
+1:You:bar-1 1-3 
+0:thecamel:2 1
+15:thecamel: 
+0:You:3 5
+1:You:15-20 17-20 
+0:thecamel:4 6
+15:thecamel: 
+0:You:6 2
+1:You:15-21 21-23 
+0:thecamel:2 2
+15:thecamel: 
+0:You:5 3
+1:You:19-24 20-23 
+0:thecamel:4 2
+15:thecamel: 
+0:You:4 1
+1:You:3-4 19-23 
+0:thecamel:3 3
+1:thecamel: bar-22 7-4 7-4 22-19
+0:You:6 3
+1:You: bar-3
+0:thecamel:5 6
+1:thecamel: 9-3 8-3
+0:You:5 4
+15:You: 
+0:thecamel:6 5
+1:thecamel: 19-14 14-8
+0:You:6 2
+15:You: 
+0:thecamel:4 5
+1:thecamel: 9-5 8-3
+0:You:3 6
+15:You: 
+0:thecamel:2 1
+1:thecamel: 8-6 5-4
+0:You:6 1
+1:You: bar-1 1-7
+0:thecamel:5 1
+1:thecamel: 22-17 17-16
+0:You:1 2
+1:You:20-22 21-22 
+0:thecamel:3 5
+15:thecamel: 
+0:You:1 4
+1:You:7-11 11-12 
+0:thecamel:3 1
+15:thecamel: 
+0:You:2 4
+1:You:12-16 16-18 
+0:thecamel:2 1
+15:thecamel: 
+0:You:4 4
+1:You:18-22 20-24 20-24 21-off 
+0:thecamel:5 1
+1:thecamel: bar-20
+0:You:5 5
+1:You: 21-off 22-off 22-off 22-off
+0:thecamel:5 1
+1:thecamel: bar-20 20-19
+0:You:5 4
+1:You: 23-off 23-off
+0:thecamel:1 6
+1:thecamel: 20-19 19-13
+0:You:5 4
+1:You: 23-off 23-off
+0:thecamel:5 1
+1:thecamel: 19-18 18-13
+0:You:2 4
+1:You: 23-off 24-off
+0:thecamel:4 6
+1:thecamel: 13-9 9-3
+0:You:2 2
+1:You: 24-off 24-off 24-off 24-off
+7:You:2
+14:sorrytigger-2:thecamel-0
+13:thecamel: 
+6:You:thecamel
+11:You:5 3
+1:You:8-3 6-3 
+0:thecamel:3 4
+1:thecamel: 12-15 12-16
+0:You:2 2
+1:You:6-4 6-4 24-22 24-22 
+0:thecamel:5 3
+1:thecamel: 15-20 17-20
+0:You:3 2
+1:You:13-10 10-8 
+0:thecamel:1 4
+1:thecamel: 12-16 19-20
+0:You:2 2
+1:You:13-11 13-11 11-9 11-9 
+0:thecamel:5 5
+1:thecamel: 16-21 16-21 19-24 19-24
+0:You:6 1
+1:You:13-7 8-7 
+0:thecamel:5 1
+1:thecamel: 12-13 12-17
+0:You:1 5
+15:You: 
+0:thecamel:6 3
+1:thecamel: 13-19 17-20
+0:You:1 4
+15:You: 
+0:thecamel:4 5
+1:thecamel: 1-5 5-10
+0:You:1 1
+15:You: 
+0:thecamel:6 4
+1:thecamel: 1-5 5-11
+0:You:3 5
+1:You:bar-22 7-2 
+0:thecamel:6 6
+1:thecamel: 17-23 17-23 11-17 17-23
+0:You:3 2
+1:You:9-6 9-7 
+0:thecamel:6 6
+1:thecamel: 10-16
+0:You:4 4
+1:You:22-18 6-2 18-14 14-10 
+0:thecamel:1 4
+1:thecamel: 16-20 20-21
+0:You:5 4
+1:You:10-5 8-4 
+0:thecamel:2 1
+1:thecamel: 23-off 24-off
+0:You:1 6
+1:You:22-16 16-15 
+0:thecamel:4 5
+1:thecamel: 21-off 20-off
+0:You:6 5
+1:You:7-1 15-10 
+0:thecamel:6 5
+1:thecamel: 19-off 20-off
+0:You:6 3
+1:You:8-5 7-1 
+0:thecamel:6 6
+1:thecamel: 19-off 19-off 20-off 20-off
+0:You:4 1
+1:You:10-6 4-3 
+0:thecamel:3 6
+1:thecamel: 21-off 21-24
+0:You:1 2
+1:You:22-20 20-19 
+0:thecamel:3 5
+1:thecamel: 23-off 23-off
+0:You:4 5
+1:You:19-14 14-10 
+0:thecamel:5 5
+1:thecamel: 24-off 24-off
+7:thecamel:2
+14:thecamel-2:sorrytigger-2
+13:thecamel: 
+6:You:thecamel
+11:thecamel:2 5
+1:thecamel: 13-8 13-11
+0:You:5 3
+1:You:17-22 19-22 
+0:thecamel:4 2
+1:thecamel: 8-4 6-4
+0:You:2 6
+1:You:12-18 18-20 
+0:thecamel:3 3
+1:thecamel: 8-5 8-5 6-3 6-3
+0:You:4 5
+1:You:12-17 12-16 
+0:thecamel:3 3
+1:thecamel: 24-21 24-21 13-10 11-8
+0:You:5 2
+1:You:16-18 18-23 
+0:thecamel:1 2
+1:thecamel: 21-20 20-18
+0:You:2 3
+1:You:bar-2 19-22 
+0:thecamel:5 1
+1:thecamel: 8-7 7-2
+0:You:1 4
+1:You:bar-1 17-21 
+0:thecamel:4 1
+1:thecamel: bar-21 21-20
+0:You:2 3
+1:You:bar-2 17-20 
+0:thecamel:1 6
+1:thecamel: bar-24
+0:You:4 1
+1:You:1-2 19-23 
+0:thecamel:6 3
+15:thecamel: 
+0:You:1 2
+1:You:17-18 18-20 
+0:thecamel:4 5
+1:thecamel: bar-21
+0:You:3 1
+1:You:12-15 15-16 
+0:thecamel:4 4
+1:thecamel: bar-21 13-9 13-9 8-4
+0:You:5 3
+1:You:2-7 7-10 
+0:thecamel:3 4
+1:thecamel: bar-21 24-21
+0:You:4 5
+1:You:2-7 16-20 
+0:thecamel:6 3
+1:thecamel: 21-18 18-12
+0:You:2 2
+1:You:bar-2 10-12 22-24 20-22 
+0:thecamel:6 3
+15:thecamel: 
+0:You:6 5
+1:You:2-8 12-17 
+0:thecamel:3 4
+1:thecamel: bar-21 21-18
+0:You:4 3
+1:You:17-20 20-24 
+0:thecamel:6 4
+1:thecamel: 18-14 14-8
+0:You:6 4
+15:You: 
+0:thecamel:1 1
+1:thecamel: 9-8 8-7 8-7 9-8
+0:You:4 5
+15:You: 
+0:thecamel:6 1
+1:thecamel: 21-15 15-14
+0:You:1 1
+1:You:bar-1 bar-1 1-2 1-2 
+0:thecamel:3 2
+1:thecamel: 8-5 14-12
+0:You:1 2
+1:You:22-24 22-23 
+0:thecamel:4 2
+1:thecamel: 21-17 17-15
+0:You:6 6
+1:You:2-8 2-8 8-14 8-14 
+0:thecamel:2 5
+1:thecamel: 21-16 15-13
+0:You:2 3
+1:You:14-17 17-19 
+0:thecamel:5 1
+1:thecamel: 16-15 15-10
+0:You:5 1
+1:You:14-19 19-20 
+0:thecamel:2 1
+1:thecamel: 12-11 11-9
+0:You:5 1
+1:You:1-2 19-24 
+0:thecamel:1 1
+1:thecamel: 4-3 3-2 2-1 9-8
+0:You:4 4
+15:You: 
+0:thecamel:3 5
+1:thecamel: 7-2 5-2
+0:You:2 1
+1:You: bar-1
+0:thecamel:4 4
+1:thecamel: bar-21 13-9 9-5 7-3
+0:You:4 3
+15:You: 
+0:thecamel:2 6
+1:thecamel: 21-15 10-8
+0:You:2 3
+15:You: 
+0:thecamel:2 1
+1:thecamel: 15-14 14-12
+0:You:2 5
+15:You: 
+0:thecamel:2 5
+1:thecamel: 8-6 8-3
+0:You:4 4
+15:You: 
+0:thecamel:5 6
+1:thecamel: 12-7 7-1
+0:You:2 5
+15:You: 
+0:thecamel:5 2
+1:thecamel: 5-off 3-1
+0:You:1 1
+15:You: 
+0:thecamel:5 5
+1:thecamel: 5-off 5-off 6-1 6-1
+0:You:4 3
+15:You: 
+0:thecamel:5 4
+1:thecamel: 6-2 4-off
+0:You:4 5
+1:You: bar-5 bar-4
+0:thecamel:3 1
+1:thecamel: bar-22 22-21
+0:You:1 1
+15:You: 
+0:thecamel:4 4
+1:thecamel: 21-17 17-13 13-9 9-5
+0:You:5 1
+1:You: bar-5
+0:thecamel:5 4
+1:thecamel: bar-21 21-16
+0:You:1 1
+15:You: 
+0:thecamel:4 4
+1:thecamel: 16-12 12-8 8-4 4-off
+0:You:6 2
+1:You: bar-6
+0:thecamel:6 3
+1:thecamel: 3-off 3-off
+0:You:3 6
+1:You:bar-3 3-9 
+0:thecamel:6 5
+15:thecamel: 
+0:You:3 6
+1:You:6-12 12-15 
+0:thecamel:1 4
+1:thecamel: bar-21 2-1
+0:You:3 3
+1:You:15-18 18-21 9-12 12-15 
+0:thecamel:6 6
+15:thecamel: 
+0:You:5 5
+1:You:5-10 10-15 15-20 15-20 
+0:thecamel:1 5
+15:thecamel: 
+0:You:2 4
+1:You:19-23 19-21 
+0:thecamel:3 2
+1:thecamel: bar-22
+0:You:5 1
+1:You:20-off 24-off 
+0:thecamel:2 2
+15:thecamel: 
+0:You:2 5
+1:You: 20-o 23-o
+0:thecamel:1 2
+1:thecamel: 2-1
+0:You:5 4
+1:You: 20-o 21-o
+0:thecamel:3 1
+1:thecamel: 22-19 19-18
+0:You:6 2
+1:You: 20-o 23-o
+0:thecamel:2 5
+1:thecamel: 18-13 13-11
+0:You:2 4
+1:You: 21-o 23-o
+0:thecamel:2 4
+1:thecamel: 11-7 7-5
+0:You:2 6
+1:You: 20-o 23-o
+0:thecamel:2 3
+1:thecamel: 2-off 5-2
+0:You:2 1
+1:You: 24-off 24-off
+0:thecamel:1 3
+1:thecamel: 1-off 2-off
+0:You:3 6
+1:You: 24-off
+7:You:1
+9:You:3

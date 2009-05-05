@@ -1,0 +1,132 @@
+JavaFIBS internal match representation v1.1
+8:Boogiefrog:3
+13:Boogiefrog: 
+6:You:Boogiefrog
+11:You:4 2
+1:You:17-21 19-21 
+0:Boogiefrog:5 4
+1:Boogiefrog: 24-20 13-8
+0:You:4 6
+1:You:1-7 12-16 
+0:Boogiefrog:6 4
+1:Boogiefrog: 13-7 24-20
+0:You:1 2
+1:You:bar-2 16-17 
+0:Boogiefrog:5 1
+1:Boogiefrog: 13-8 8-7
+0:You:4 5
+1:You:1-5 17-22 
+0:Boogiefrog:1 1
+1:Boogiefrog: 6-5 6-5 6-5 8-7
+0:You:6 6
+15:You: 
+0:Boogiefrog:2 1
+1:Boogiefrog: 13-11 11-10
+0:You:6 3
+1:You:bar-3 12-18 
+0:Boogiefrog:1 4
+1:Boogiefrog: 13-9 10-9
+0:You:3 2
+1:You:19-22 12-14 
+2:Boogiefrog: 
+4:You:
+0:Boogiefrog:6 6
+1:Boogiefrog: 20-14 20-14 9-3 9-3
+0:You:4 3
+1:You: bar-4
+0:Boogiefrog:2 2
+1:Boogiefrog: 6-4 6-4 4-2 4-2
+0:You:3 1
+1:You: bar-1
+0:Boogiefrog:5 1
+1:Boogiefrog: 14-9 14-13
+0:You:3 3
+15:You: 
+0:Boogiefrog:3 6
+1:Boogiefrog: 13-7 8-5
+0:You:5 1
+1:You: bar-1
+0:Boogiefrog:4 3
+1:Boogiefrog: 9-5 5-2
+0:You:6 6
+1:You:bar-6 12-18 17-23 17-23 
+0:Boogiefrog:4 2
+1:Boogiefrog: 8-6 6-2
+0:You:4 5
+1:You:bar-4 12-17 
+0:Boogiefrog:3 6
+1:Boogiefrog: 8-2 5-2
+0:You:6 4
+1:You:18-24 19-23 
+0:Boogiefrog:3 6
+1:Boogiefrog: 5-2
+0:You:3 3
+1:You:17-20 18-21 21-24 1-4 
+0:Boogiefrog:4 6
+1:Boogiefrog: 7-1 7-3
+0:You:2 1
+1:You:bar-1 20-22 
+0:Boogiefrog:4 3
+15:Boogiefrog: 
+0:You:2 3
+1:You:1-4 4-6 
+0:Boogiefrog:2 1
+15:Boogiefrog: 
+0:You:2 1
+1:You:6-8 8-9 
+0:Boogiefrog:2 2
+15:Boogiefrog: 
+0:You:1 2
+1:You:9-11 11-12 
+0:Boogiefrog:1 2
+15:Boogiefrog: 
+0:You:4 2
+1:You:4-8 8-10 
+0:Boogiefrog:2 1
+15:Boogiefrog: 
+0:You:6 3
+1:You:4-10 10-13 
+0:Boogiefrog:4 5
+1:Boogiefrog: bar-20 7-3
+0:You:1 4
+1:You:10-14 13-14 
+0:Boogiefrog:6 1
+1:Boogiefrog: 7-1 2-1
+0:You:4 5
+1:You:12-17 17-21 
+0:Boogiefrog:1 4
+1:Boogiefrog: 20-16 16-15
+0:You:4 4
+1:You:14-18 14-18 18-22 18-22 
+0:Boogiefrog:1 5
+1:Boogiefrog: 15-10 2-1
+2:You: 
+4:Boogiefrog:
+0:You:1 4
+1:You: 21-o 24-o
+0:Boogiefrog:3 6
+1:Boogiefrog: 10-4 3-off
+0:You:5 4
+1:You:19-24 21-off 
+0:Boogiefrog:1 1
+1:Boogiefrog: 1-off 1-off 1-off 2-1
+0:You:2 4
+1:You: 21-o 23-o
+0:Boogiefrog:5 2
+1:Boogiefrog: 5-off 2-off
+0:You:6 4
+1:You: 19-o 22-o
+0:Boogiefrog:3 2
+1:Boogiefrog: 3-off 2-off
+0:You:3 2
+1:You: 22-o 23-o
+0:Boogiefrog:6 6
+1:Boogiefrog: 5-off 4-off 3-off 3-off
+0:You:5 5
+1:You: 22-off 22-off 22-off 23-off
+0:Boogiefrog:6 2
+1:Boogiefrog: 2-off 2-off
+0:You:3 6
+1:You: 24-off 24-off
+7:You:4
+9:You:3

@@ -1,0 +1,170 @@
+JavaFIBS internal match representation v1.1
+8:linde:3
+13:linde: 
+6:You:linde
+11:You:6 4
+1:You:8-2 6-2 
+0:linde:2 1
+1:linde: 12-14 14-15
+0:You:6 2
+1:You:13-7 24-22 
+0:linde:6 1
+1:linde: 12-18 17-18
+0:You:3 5
+1:You:13-8 24-21 
+0:linde:1 4
+1:linde: 12-16 15-16
+0:You:5 2
+1:You:7-2 22-20 
+0:linde:1 5
+1:linde: 12-17 17-18
+0:You:2 4
+1:You:8-4 6-4 
+0:linde:5 4
+1:linde: 12-17 19-23
+0:You:5 2
+1:You:20-15 15-13 
+0:linde:1 2
+1:linde: 18-20 19-20
+0:You:3 6
+1:You:21-15 15-12 
+0:linde:5 4
+1:linde: 19-23 17-22
+0:You:6 1
+1:You:13-7 7-6 
+0:linde:2 1
+1:linde: 1-3 16-17
+0:You:3 5
+1:You:8-3 6-3 
+0:linde:3 5
+1:linde: bar-5 5-8
+0:You:4 5
+1:You:bar-21 21-16 
+0:linde:5 3
+1:linde: bar-5 17-20
+0:You:5 5
+1:You:13-8 13-8 12-7 7-2 
+0:linde:4 5
+1:linde: bar-5 18-22
+2:You: 
+4:linde:
+0:You:1 3
+1:You:16-13 13-12 
+0:linde:3 6
+1:linde: 18-21 17-23
+0:You:3 6
+1:You:12-6 6-3 
+0:linde:1 6
+1:linde: 1-7 20-21
+0:You:5 3
+1:You:13-8 6-3 
+0:linde:5 1
+1:linde: 7-12 17-18
+0:You:3 3
+1:You: 6-3 6-3 4-1 4-1
+0:linde:5 2
+1:linde: 12-17 18-20
+0:You:6 2
+1:You:8-2 3-1 
+0:linde:5 3
+1:linde: 17-22 20-23
+0:You:5 4
+1:You: 8-4 8-3
+0:linde:2 1
+3:linde:2
+7:You:2
+14:sorrytigger-2:linde-0
+13:linde: 
+6:You:linde
+11:You:3 1
+1:You:8-5 6-5 
+0:linde:3 4
+1:linde: 12-16 16-19
+0:You:2 4
+1:You:24-20 13-11 
+0:linde:5 1
+1:linde: 12-17 1-2
+0:You:1 1
+1:You:6-5 5-4 6-5 5-4 
+0:linde:4 6
+1:linde: 1-7 7-11
+0:You:6 4
+1:You:bar-21 24-18 
+0:linde:1 3
+1:linde: 17-20 19-20
+0:You:3 4
+1:You:bar-21 13-10 
+0:linde:4 4
+1:linde: 11-15 15-19 19-23 19-23
+0:You:6 1
+1:You:13-7 7-6 
+0:linde:1 6
+1:linde: 12-18 17-18
+0:You:3 1
+1:You:bar-22 22-21 
+0:linde:4 2
+1:linde: 12-16 16-18
+0:You:2 6
+1:You:21-15 15-13 
+0:linde:3 4
+1:linde: 18-22 19-22
+0:You:4 6
+1:You:8-2 6-2 
+0:linde:3 1
+1:linde: bar-3 19-20
+0:You:3 4
+1:You:13-10 8-4 
+0:linde:6 1
+1:linde: 12-18 18-19
+0:You:4 6
+1:You:13-7 7-3 
+0:linde:3 1
+1:linde: bar-3 19-20
+0:You:4 3
+1:You:bar-21 13-10 
+0:linde:4 4
+1:linde: 3-7 7-11 11-15 15-19
+0:You:2 3
+1:You:10-7 10-8 
+0:linde:1 5
+1:linde: 17-22 17-18
+0:You:6 6
+1:You:21-15 15-9 9-3 7-1 
+0:linde:6 2
+1:linde: 18-24 22-24
+0:You:5 5
+1:You:21-16 21-16 16-11 16-11 
+0:linde:3 4
+1:linde: 18-22 18-21
+0:You:1 5
+1:You:11-6 8-7 
+0:linde:5 2
+1:linde: 20-off 23-off
+0:You:6 3
+1:You:11-5 7-4 
+0:linde:6 2
+1:linde: 19-off 23-off
+0:You:4 5
+1:You:10-5 4-off 
+0:linde:5 4
+1:linde: 20-off 21-off
+0:You:3 3
+1:You:3-off 6-3 3-off 6-3 
+0:linde:3 2
+1:linde: 22-off 19-21
+0:You:3 6
+1:You:6-off 3-off 
+0:linde:4 4
+1:linde: 21-off 20-24 20-24 19-23
+0:You:5 5
+1:You: 5-off 5-off 5-off 5-off
+0:linde:6 1
+1:linde: 22-off 24-off
+0:You:4 4
+1:You: 4-off 4-off 4-off 2-off
+0:linde:2 4
+1:linde: 22-off 23-off
+0:You:1 4
+1:You:2-off 1-off 
+7:You:1
+9:You:3

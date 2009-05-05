@@ -1,0 +1,441 @@
+JavaFIBS internal match representation v1.1
+8:gaspar:7
+13:gaspar: 
+6:You:gaspar
+11:gaspar:1 6
+1:gaspar: 12-18 17-18
+0:You:5 3
+1:You:8-3 6-3 
+0:gaspar:6 6
+1:gaspar: 1-7 1-7 12-18 12-18
+0:You:6 1
+1:You:24-23 8-2 
+0:gaspar:1 3
+1:gaspar: 7-8 7-10
+0:You:4 2
+1:You:bar-21 23-21 
+0:gaspar:5 1
+1:gaspar: 8-9 9-14
+0:You:4 2
+1:You:24-22 6-2 
+0:gaspar:3 3
+1:gaspar: 19-22 19-22 17-20 17-20
+0:You:2 1
+1:You:bar-23 6-5 
+2:gaspar: 
+5:You:
+7:gaspar:1
+14:gaspar-1:sorrytigger-0
+13:gaspar: 
+6:You:gaspar
+11:gaspar:3 4
+1:gaspar: 24-20 13-10
+0:You:5 3
+1:You:17-22 19-22 
+0:gaspar:3 2
+1:gaspar: 13-10 20-18
+0:You:6 4
+1:You:12-18 1-5 
+0:gaspar:4 1
+1:gaspar: bar-21 6-5
+0:You:4 6
+1:You:bar-4 12-18 
+0:gaspar:6 5
+1:gaspar: 21-15 15-10
+0:You:1 5
+1:You:4-5 19-24 
+0:gaspar:4 5
+1:gaspar: bar-20 bar-21
+0:You:5 6
+1:You:1-7 7-12 
+0:gaspar:3 3
+1:gaspar: 8-5 8-5 6-3 6-3
+0:You:4 1
+1:You:bar-1 19-23 
+0:gaspar:1 3
+1:gaspar: 10-7 8-7
+0:You:3 5
+1:You:12-17 1-4 
+0:gaspar:2 3
+1:gaspar: 7-4 13-11
+0:You:2 1
+1:You:bar-2 23-24 
+0:gaspar:4 3
+1:gaspar: 7-4 20-16
+0:You:5 3
+1:You:12-17 17-20 
+0:gaspar:6 3
+1:gaspar: 11-5 5-2
+0:You:4 6
+15:You: 
+2:gaspar: 
+5:You:
+7:gaspar:1
+14:gaspar-2:sorrytigger-0
+13:gaspar: 
+6:You:gaspar
+11:gaspar:2 4
+1:gaspar: 8-4 6-4
+0:You:2 4
+1:You:17-21 19-21 
+0:gaspar:6 5
+1:gaspar: 24-18 18-13
+0:You:6 5
+1:You:1-7 7-12 
+0:gaspar:2 4
+1:gaspar: 13-9 13-11
+0:You:5 1
+1:You:12-17 1-2 
+0:gaspar:1 4
+1:gaspar: 9-5 6-5
+0:You:4 1
+1:You:12-16 2-3 
+0:gaspar:1 3
+1:gaspar: 6-3 11-10
+0:You:2 3
+1:You:bar-3 19-21 
+0:gaspar:6 3
+1:gaspar: bar-22 22-16
+0:You:3 2
+1:You:bar-3 17-19 
+0:gaspar:4 2
+1:gaspar: 16-14 14-10
+0:You:4 5
+1:You:12-17 12-16 
+0:gaspar:1 3
+1:gaspar: 13-10 24-23
+0:You:3 3
+1:You:19-22 19-22 17-20 20-23 
+0:gaspar:1 3
+1:gaspar: bar-24 13-10
+0:You:6 5
+1:You:17-23 12-17 
+0:gaspar:2 4
+1:gaspar: 10-6 10-8
+2:You: 
+4:gaspar:
+0:You:4 6
+1:You:12-16 3-9 
+0:gaspar:6 6
+1:gaspar: 24-18 18-12 12-6 8-2
+0:You:5 6
+1:You:3-9 17-22 
+0:gaspar:3 2
+1:gaspar: 8-5 6-4
+0:You:2 3
+1:You:17-20 16-18 
+0:gaspar:3 5
+1:gaspar: 8-3 6-3
+0:You:3 2
+1:You:21-24 22-24 
+0:gaspar:2 3
+1:gaspar: 5-2 4-2
+0:You:6 6
+1:You:9-15 9-15 15-21 15-21 
+0:gaspar:1 1
+1:gaspar: 13-12 13-12 10-9 12-11
+0:You:1 3
+1:You:16-19 18-19 
+0:gaspar:3 1
+1:gaspar: 9-6 2-1
+0:You:3 4
+1:You: 21-o 22-o
+0:gaspar:4 5
+1:gaspar: 11-6 10-6
+0:You:4 4
+1:You:21-off 21-off 21-off 19-23 
+0:gaspar:4 3
+1:gaspar: 12-8 8-5
+0:You:4 3
+1:You:22-off 19-23 
+0:gaspar:3 1
+1:gaspar: 3-o 1-o
+0:You:1 4
+1:You:19-23 24-off 
+0:gaspar:2 5
+1:gaspar: 5-o 2-o
+0:You:3 1
+1:You:24-off 19-22 
+0:gaspar:4 1
+1:gaspar: 4-off 6-5
+0:You:2 3
+1:You: 22-o 23-o
+0:gaspar:3 1
+1:gaspar: 3-off 6-5
+0:You:6 4
+1:You: 20-o 23-o
+3:gaspar:2
+7:You:2
+14:sorrytigger-2:gaspar-2
+13:gaspar: 
+6:You:gaspar
+11:gaspar:1 5
+1:gaspar: 12-17 19-20
+0:You:3 6
+1:You:24-18 13-10 
+0:gaspar:1 3
+1:gaspar: 17-20 17-18
+0:You:5 2
+1:You:bar-23 23-18 
+0:gaspar:6 2
+1:gaspar: bar-2 12-18
+2:You: 
+4:gaspar:
+0:You:2 1
+1:You:bar-23 23-22 
+0:gaspar:2 6
+1:gaspar: 12-18 1-3
+0:You:5 1
+1:You:8-3 3-2 
+0:gaspar:3 3
+1:gaspar: bar-3 bar-3 19-22 19-22
+0:You:1 6
+1:You:bar-24 8-2 
+2:gaspar: 
+5:You:
+7:gaspar:2
+14:gaspar-4:sorrytigger-2
+13:gaspar: 
+6:You:gaspar
+11:You:5 2
+1:You:12-17 12-14 
+0:gaspar:4 2
+1:gaspar: 8-4 6-4
+0:You:1 1
+1:You:19-20 19-20 17-18 17-18 
+0:gaspar:6 2
+1:gaspar: 24-22 22-16
+2:You: 
+4:gaspar:
+0:You:5 5
+1:You:14-19 19-24 19-24 12-17 
+0:gaspar:1 2
+1:gaspar: bar-23 23-22
+0:You:3 1
+1:You:12-15 15-16 
+0:gaspar:3 2
+1:gaspar: bar-22 13-11
+0:You:5 2
+1:You:12-17 17-19 
+0:gaspar:3 1
+1:gaspar: 8-5 6-5
+0:You:1 5
+1:You:16-21 1-2 
+0:gaspar:6 4
+1:gaspar: 8-2 6-2
+0:You:4 2
+15:You: 
+0:gaspar:5 4
+1:gaspar: 13-8 13-9
+0:You:6 6
+15:You: 
+0:gaspar:1 4
+1:gaspar: 22-21 11-7
+0:You:2 6
+15:You: 
+0:gaspar:5 2
+1:gaspar: 21-16 9-7
+0:You:3 4
+1:You: bar-3
+0:gaspar:1 4
+1:gaspar: 13-9 9-8
+0:You:4 4
+15:You: 
+0:gaspar:6 4
+1:gaspar: 22-16 16-12
+0:You:3 1
+1:You:bar-3 19-20 
+0:gaspar:4 3
+1:gaspar: 13-9 12-9
+0:You:2 2
+1:You:1-3 17-19 19-21 17-19 
+0:gaspar:5 1
+1:gaspar: 16-11 11-10
+0:You:6 2
+1:You:17-23 19-21 
+0:gaspar:1 1
+1:gaspar: 10-9 9-8 8-7 7-6
+0:You:1 3
+1:You:20-23 18-19 
+0:gaspar:3 5
+1:gaspar: 9-4 9-6
+0:You:6 6
+1:You:3-9 9-15 3-9 3-9 
+2:gaspar: 
+5:You:
+7:gaspar:2
+14:gaspar-6:sorrytigger-2
+13:gaspar: 
+6:You:gaspar
+11:gaspar:4 5
+1:gaspar: 13-8 13-9
+0:You:6 1
+1:You:12-18 17-18 
+0:gaspar:1 2
+1:gaspar: 9-7 8-7
+0:You:1 3
+1:You:17-20 19-20 
+0:gaspar:2 6
+1:gaspar: 24-22 22-16
+0:You:2 3
+1:You:12-15 15-17 
+0:gaspar:4 3
+1:gaspar: 16-13 13-9
+0:You:1 4
+1:You:19-20 12-16 
+0:gaspar:6 5
+1:gaspar: 9-3 8-3
+0:You:5 4
+1:You:12-17 12-16 
+0:gaspar:2 2
+1:gaspar: 6-4 6-4 7-5 7-5
+0:You:4 2
+1:You:17-21 19-21 
+0:gaspar:6 2
+1:gaspar: 13-7 13-11
+0:You:4 4
+1:You:16-20 16-20 20-24 20-24 
+0:gaspar:3 5
+1:gaspar: bar-22 7-2
+0:You:5 6
+1:You:1-7 7-12 
+0:gaspar:3 3
+1:gaspar: 8-5 5-2 11-8 13-10
+0:You:1 1
+1:You:20-21 21-22 12-13 13-14 
+0:gaspar:5 6
+15:gaspar: 
+0:You:2 6
+1:You:14-20 20-22 
+0:gaspar:4 1
+15:gaspar: 
+0:You:5 3
+1:You:17-22 17-20 
+0:gaspar:2 2
+1:gaspar: bar-23 10-8 8-6 6-4
+0:You:4 5
+1:You:18-23 18-22 
+0:gaspar:3 4
+15:gaspar: 
+0:You:2 1
+1:You:22-23 22-24 
+0:gaspar:4 1
+15:gaspar: 
+0:You:6 3
+1:You:1-7 7-10 
+0:gaspar:1 2
+15:gaspar: 
+0:You:2 6
+1:You:10-16 20-22 
+0:gaspar:1 6
+15:gaspar: 
+0:You:5 5
+1:You:16-21 20-off 20-off 19-24 
+0:gaspar:3 4
+15:gaspar: 
+0:You:1 6
+1:You:19-off 21-22 
+0:gaspar:4 2
+15:gaspar: 
+0:You:3 2
+1:You:22-off 22-24 
+0:gaspar:6 3
+1:gaspar: bar-19 19-16
+0:You:2 1
+1:You: 23-o 24-o
+0:gaspar:6 3
+1:gaspar: 16-10 8-5
+0:You:4 2
+1:You: 21-o 23-o
+0:gaspar:6 3
+3:gaspar:1
+7:You:1
+14:sorrytigger-3:gaspar-6
+13:gaspar: 
+6:You:gaspar
+11:You:2 1
+1:You:13-11 24-23 
+0:gaspar:3 1
+1:gaspar: 17-20 19-20
+2:You: 
+4:gaspar:
+0:You:5 1
+1:You:24-23 13-8 
+0:gaspar:5 3
+1:gaspar: 12-17 1-4
+0:You:6 5
+1:You:23-18 8-2 
+0:gaspar:1 2
+1:gaspar: 1-2 2-4
+0:You:6 6
+15:You: 
+0:gaspar:2 3
+1:gaspar: 12-15 15-17
+0:You:3 3
+1:You:bar-22 11-8 8-5 8-5 
+0:gaspar:4 5
+1:gaspar: 17-22 19-23
+0:You:1 5
+1:You: bar-24
+0:gaspar:1 6
+1:gaspar: 12-18 22-23
+0:You:1 3
+1:You: bar-22 bar-24
+0:gaspar:2 6
+1:gaspar: 12-18 12-14
+0:You:6 6
+1:You:13-7 13-7 22-16 16-10 
+0:gaspar:2 4
+1:gaspar: 17-21 19-21
+0:You:4 3
+1:You:13-10 6-2 
+0:gaspar:5 3
+1:gaspar: 4-9 9-12
+0:You:3 5
+1:You:6-1 6-3 
+0:gaspar:3 5
+1:gaspar: 4-9 9-12
+0:You:2 6
+1:You:24-22 8-2 
+0:gaspar:4 2
+1:gaspar: 12-16 14-16
+0:You:1 3
+1:You:7-4 4-3 
+0:gaspar:4 4
+1:gaspar: 18-22 18-22 20-24 20-24
+0:You:4 1
+15:You: 
+0:gaspar:3 5
+1:gaspar: 16-21 16-19
+0:You:6 2
+15:You: 
+0:gaspar:1 2
+1:gaspar: 12-14 17-18
+0:You:1 3
+15:You: 
+0:gaspar:6 3
+1:gaspar: 14-20 17-20
+0:You:3 1
+15:You: 
+0:gaspar:1 1
+1:gaspar: 18-19 21-22 19-20 22-23
+0:You:2 3
+15:You: 
+0:gaspar:6 4
+1:gaspar: 19-off 20-24
+0:You:1 4
+15:You: 
+0:gaspar:5 6
+1:gaspar: 19-off 19-24
+0:You:2 6
+1:You: bar-19
+0:gaspar:1 3
+1:gaspar: 22-off 22-23
+0:You:3 1
+1:You:bar-22 8-7 
+0:gaspar:2 2
+1:gaspar: 20-22 20-22 21-23 21-23
+0:You:2 6
+3:You:4
+7:gaspar:4
+9:gaspar:7

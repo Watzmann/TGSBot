@@ -1,0 +1,677 @@
+action=day&kd_nr=24091123601092&year=2007&month=09&day=28&level=-c+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>DIE ZEIT - SUDOKU</title>
+<meta name="ICBM" content="Politic Newspaper">
+<meta name="DC.title" content="DIE ZEIT">
+<meta name="author" content="Die Zeit, Hamburg, Germany">
+<meta name="copyright" content="Die Zeit, Hamburg, Germany">
+<meta name="email" content="service@zeit.de">
+<meta name="description" content="Kostenlos Sudoku spielen, mit ZEIT online
+jeden Tag neu. Spielen Sie online; lassen Sie sich Ihr Sudoku als PDF
+ausdrucken - oder spielen Sie mehr als 80.000 Sudoku-Varianten auf Ihrem
+Handy.">
+<meta name="keywords" content="Sudoku ZEIT online  Zeit Wirtschaft Kultur Politik Deutschland Zeitung Zeit_online">
+<meta http-equiv="Content-Language" content="de">
+<meta name="robots" content="index, follow">
+<meta name="ad_channel" content="spiele">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<link rel="SHORTCUT ICON" href="/sudoku/favicon.ico">
+
+<script type="text/javascript" src="http://zelos.zeit.de/js/site07/jquery/jquery.zeit.pack.js"></script> 
+<script type="text/javascript" src="http://zelos.zeit.de/js/site07/base.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="http://zelos.zeit.de/css/site07/base.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://zelos.zeit.de/css/site07/border.css">
+<link rel="stylesheet" type="text/css" href="http://zelos.zeit.de/css/site07/print.css" media="print">
+<link rel="stylesheet" type="text/css" href="http://zelos.zeit.de/css/site07/mobile.css" media="handheld">
+
+<!--[if IE 6]>
+					<link rel="stylesheet" type="text/css" href="http://zeus.zeit.de/css/site07/ie6.css" media="screen"/>
+					<![endif]--><!--[if IE 7]>
+					<link rel="stylesheet" type="text/css" href="http://zeus.zeit.de/css/site07/ie7.css" media="screen"/>
+					<![endif]--><!--[if lt IE 6]>
+					<link rel="stylesheet" type="text/css" href="http://zeus.zeit.de/css/site07/brokenbrowser.css" media="screen"/>
+					<![endif]-->
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="ZEIT Online - Suche" href="http://xml.zeit.de/suche/opensearch.xml">
+<link rel="SHORTCUT ICON" href="http://zelos.zeit.de/bilder/site07/elemente/favicons/favicon.ico">
+<link rel="stylesheet" type="text/css" href="http://sudoku.zeit.de/sudoku/kunden/die_zeit/sudoku_new.css">
+
+<SCRIPT TYPE="text/javascript">
+var ord;
+var ord=Math.random()*10000000000000000;
+
+var pix = new Array(6) 
+pix[0] = new Image()
+pix[0].src ="/sudoku/kunden/die_zeit/imgs/check_game_02.jpg";
+pix[1] = new Image()
+pix[1].src = "/sudoku/kunden/die_zeit/imgs/spielhilfe_an_02.jpg";
+pix[2] = new Image()
+pix[2].src = "/sudoku/kunden/die_zeit/imgs/spielhilfe_aus_02.jpg";
+pix[3] = new Image()
+pix[3].src = "/sudoku/kunden/die_zeit/imgs/zeige_loesung_02.jpg";
+pix[4] = new Image()
+pix[4].src = "/sudoku/kunden/die_zeit/imgs/spiel_als_pdf_02.jpg";
+pix[5] = new Image()
+pix[5].src = "/sudoku/kunden/die_zeit/imgs/spiel_als_flash_02.jpg";
+preloadFlag = true;
+
+var help_status = 0;
+
+function helpmode() {
+
+	if (help_status == 1) {
+	help_status = 0;
+	document.images['helpimg'].src="/sudoku/kunden/die_zeit/imgs/spielhilfe_aus_01.jpg";
+	}
+	else if (help_status == 0) {
+	help_status = 1;
+	document.images['helpimg'].src="/sudoku/kunden/die_zeit/imgs/spielhilfe_an_01.jpg";
+	}
+
+}
+
+function eingabe_check(myform,myfield) {
+
+	if (help_status == 1) {
+	var theform = eval("document." + myform);
+	var gamefield = eval("document." + myform + "." + myfield);
+	var gamefield_value = gamefield.value;
+
+	var regAusdruck=/(^[A-Za-z]*)([0-9]*)$/;
+	var match = regAusdruck.exec(gamefield.name);
+
+	var feldnummer = RegExp.$2;
+	var solvefield_value = eval("document." +myform + ".HIDDEN" +feldnummer + ".value");
+
+
+		if (gamefield_value == solvefield_value) {
+		gamefield.className = "sudoku_orange";
+		}
+		if (gamefield_value != solvefield_value) {
+		gamefield.className = "sudoku_red";
+		}
+
+	}
+}
+
+function check_game() {
+document.sudoku_form.submit();
+}
+
+function show_solve() {
+document.sudoku_form.solve.value="show";
+document.sudoku_form.submit();
+}
+
+
+function submit_kd(action) {
+document.sudoku_kd_navi.action.value = action;
+document.sudoku_kd_navi.submit();
+}
+
+function spielhilfe(status) {
+
+	if (status == "an") {
+		if (help_status == 1) {
+	document.images['spielhilfe_bild'].src="/sudoku/kunden/die_zeit/imgs/spielhilfe_an_02.jpg";	
+		}
+		if (help_status == 0) {
+	document.images['spielhilfe_bild'].src="/sudoku/kunden/die_zeit/imgs/spielhilfe_aus_02.jpg";	
+		}
+	}
+
+	else if (status == "aus") {
+		if (help_status == 1) {
+	document.images['spielhilfe_bild'].src="/sudoku/kunden/die_zeit/imgs/spielhilfe_an_01.jpg";	
+		}
+		if (help_status == 0) {
+ 		document.images['spielhilfe_bild'].src="/sudoku/kunden/die_zeit/imgs/spielhilfe_aus_01.jpg";	
+		}
+	}
+}
+
+function openme(zielurl,breite,hoehe,pos,name){
+var links;
+var oben;
+var breite = breite;
+var hoehe = hoehe;
+
+        if (pos == "middle") {
+        links = (screen.width - breite) /2;
+        oben = 20;
+        }
+        else {
+        links =  (screen.width - breite) /2 + 55;
+        oben = (screen.height - hoehe) /2 - 16;
+        }
+picwin=window.open(zielurl,name,"toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,height=" + hoehe + ",width=" + breite + ",left=" + links +",top=" + oben +"");
+picwin.focus();
+picwin.erzeuger = self;
+}
+
+function letztemeldungan(status) {
+
+	if (status == "an") {
+	document.getElementById('letztemeldung').style.visibility = "visible";
+	}
+	if (status == "aus") {
+	document.getElementById('letztemeldung').style.visibility = "hidden";
+	}
+	
+}
+</SCRIPT>
+
+</head>
+<body id="id-rahmen" class="class-spielerahmen ressort-leben">
+
+
+
+<script type="text/javascript"><!--
+var IVW="http://zeitonl.ivwbox.de/cgi-bin/ivw/CP/sudoku;";
+var szmvars="zeitonl//CP//sudoku";
+document.write("<img src=\""+IVW+"?r="+escape(document.referrer)+"&d="+(Math.random()*100000)+"\"width=\"1\" height=\"1\" />");
+	     	// --></script><noscript><img src="http://zeitonl.ivwbox.de/cgi-bin/ivw/CP/sudoku;" width="1" height="1" alt=""></noscript>
+<script type="text/javascript">
+
+	var wt_dm="track.webtrekk.de"; 
+	var wt_ci="999999122331222"; 
+	var wt_be="redaktion.spiele.sudoku"; 
+	
+	var wt_cg="";
+	var wt_ln="standard"; 
+	var wt_linktrack_params=""; 
+	
+	var wt_fm=""; 
+	var wt_ba=""; 
+	var wt_co=""; 
+	var wt_qn="";
+	var wt_ca=""; 
+	var wt_pi=""; 
+	var wt_st="";
+	var wt_ov="";
+	var wt_cr="";
+	var wt_oi=""; 
+	var wt_mc="";
+	var wt_lp=""; 
+	var wt_pa="";
+	var wt_cd="";
+	var wt_cookie=""; 
+
+</script><script type="text/javascript" src="http://zelos.zeit.de/js/webtrekk170.js"></script><script type="text/javascript">if(typeof(wt_sendinfo) != "undefined")wt_sendinfo();</script><noscript><img src="http://track.webtrekk.de/999999122331222/wt.pl?p=170,redaktion.spiele.sudoku&amp;ov=&amp;cr=&amp;oi=&amp;ba=&amp;co=&amp;qn=&amp;ca=&amp;pi=&amp;st=&amp;cd=&amp;cg=" height="1" width="1"></noscript>
+<!-- <img src="http://counter.zeit.de/pic.php?to=/redaktion.spiele.sudoku" width="1" height="1" alt=""> -->
+
+
+<div id="outer">
+
+<div id="place_1" class="ad wallpaper_topleft">
+<script type="text/javascript">
+document.write('<script src="http://ad.doubleclick.net/adj/www.zeit.de/zeit-sudoku;dcopt=ist;tile=1;sz=728x90;ord=' + ord + '?" type="text/javascript"><\/script>');</script><noscript><a href="http://ad.doubleclick.net/jump/www.zeit.de/zeit-sudoku;tile=1;sz=728x90;ord=123456789?" target="_blank"><img src="http://ad.doubleclick.net/ad/www.zeit.de/zeit-sudoku;tile=1;sz=728x90;ord=123456789?" width="728" height="90" border="0" alt=""></a></noscript>
+</div>
+<div id="place_7" class="ad wallpaper_topright">
+<script type="text/javascript">
+document.write('<script src="http://ad.doubleclick.net/adj/www.zeit.de/zeit-sudoku;tile=7;sz=120x600;ord=' + ord + '?" type="text/javascript"><\/script>');</script> <noscript><a href="http://ad.doubleclick.net/jump/www.zeit.de/zeit-sudoku;tile=7;sz=120x600;ord=123456789?" target="_blank"><img src="http://ad.doubleclick.net/ad/www.zeit.de/zeit-sudoku;tile=7;sz=120x600;ord=123456789?" width="120" height="600" border="0" alt=""></a></noscript>
+</div>
+
+
+<div id="container">
+<a name="top" id="top"></a><div class="hidden mobilenavi">
+Mobilnavigation: <a href="#content">Zum Inhalt</a> | <a href="#footernav">Zur Seitennavigation</a> | <a href="#rail">Zum sekundären Inhalt</a>
+</div>
+<div id="header">
+<div id="formatnavi" class="clearfix">
+<ul class="formatnavi">
+<li><a href="http://www.zeit.de/hilfe/rss" class="rsslink"><span>Rss</span></a></li>
+<li><a href="http://www.zeit.de/hilfe/index"><span>Hilfe</span></a></li>
+<li><a href="http://www.zeit.de/archiv/index"><span>Archiv</span></a></li>
+<li><a href="http://audio.zeit.de/"><span>Audio</span></a></li>
+<li><a href="http://www.zeit.de/video/index"><span>Video</span></a></li>
+<li><a href="http://mobil.zeit.de/"><span>Mobil</span></a></li>
+<li><a href="http://www.zeit.de/newsletter"><span>Newsletter</span></a></li>
+<li><a href="http://www.zeitabo.de/"><span>Abo</span></a></li>
+<li><a href="http://premium.zeit.de/"><span>Premium</span></a></li>
+</ul>
+</div>
+<div id="logocolumn">
+<h1><a href="http://www.zeit.de/" title="DIE ZEIT online"><img alt="DIE ZEIT online" class="logoimage" src="http://zelos.zeit.de/bilder/site07/elements/logos/die-zeit-260.gif"></a></h1>
+<h2><a href="http://www.zeit.de/" title="Ressort: leben"><img src="http://zelos.zeit.de/bilder/site07/elements/ressorts/leben.gif" alt="Ressort: leben" class="ressortimage leben"></a></h2>
+<div id="loginlink"><a href="http://premium.zeit.de/login">Login »</a></div>
+<div id="marketingnavi">
+<a href="http://hades.zeit.de/zeitreisen/">ZEIT-Reisen</a> | <a href="http://shop.zeit.de/">ZEIT-Shop</a> | <a href="http://www.zeit.de/zeitverlag/zeit_shop">Editionen</a> | <a href="http://www.zeit.de/jobs/index">Jobs</a> | <a href="http://zeit.parship.de/?Source=NaviPartnersuche">Partnersuche</a> | <a href="http://www.zeit.de/angebote/index">mehr »</a>
+</div>
+</div>
+<div id="mainnav" class="clearfix"><ul>
+<li id="nav-home"><a href="#" class="home tooltip" title="Zur Startseite"><img src="http://zelos.zeit.de/bilder/site07/elements/menue/home-22x22.gif" alt="Zur Startseite"></a></li>
+<li id="nav-deutschland" class="deutschland"><a href="http://www.zeit.de/deutschland/index"><span>Deutschland</span></a></li>
+<li id="nav-international" class="international"><a href="http://www.zeit.de/international/index"><span>International</span></a></li>
+<li id="nav-wirtschaft" class="wirtschaft">
+<a href="http://www.zeit.de/wirtschaft/index"><span>Wirtschaft</span></a><ul>
+<li id="nav-wirtschaftspolitik" class="wirtschaftspolitik"><a href="http://www.zeit.de/wirtschaft/wirtschaftspolitik/index"><span>Wirtschaftspolitik</span></a></li>
+<li id="nav-unternehmen" class="unternehmen"><a href="http://www.zeit.de/wirtschaft/unternehmen/index"><span>Unternehmen</span></a></li>
+<li id="nav-ihr geld" class="ihr geld"><a href="http://www.zeit.de/wirtschaft/geld/index"><span>Ihr Geld</span></a></li>
+<li id="nav-finanzmärkte" class="finanzmärkte"><a href="http://www.zeit.de/maerkte/index"><span>Finanzmärkte</span></a></li>
+<li id="nav-karriere" class="karriere"><a href="http://www.zeit.de/wirtschaft/karriere/index"><span>Karriere</span></a></li>
+</ul>
+</li>
+<li id="nav-wissen" class="wissen">
+<a href="http://www.zeit.de/wissen/index"><span>Wissen</span></a><ul>
+<li id="nav-wissenschaft" class="wissenschaft"><a href="http://www.zeit.de/wissen/wissenschaft/index"><span>Wissenschaft</span></a></li>
+<li id="nav-gesundheit" class="gesundheit"><a href="http://www.zeit.de/wissen/gesundheit/index"><span>Gesundheit</span></a></li>
+<li id="nav-computer" class="computer"><a href="http://www.zeit.de/computer/index"><span>Computer</span></a></li>
+<li id="nav-bildung" class="bildung"><a href="http://www.zeit.de/wissen/bildung/index"><span>Bildung</span></a></li>
+<li id="nav-zeit wissen magazin" class="zeit wissen magazin"><a href="http://www.zeit.de/zeit-wissen/index"><span>ZEIT Wissen Magazin</span></a></li>
+<li id="nav-zeit campus" class="zeit campus"><a href="http://www.zeit.de/campus/index"><span>ZEIT Campus</span></a></li>
+</ul>
+</li>
+<li id="nav-kultur" class="kultur">
+<a href="http://www.zeit.de/kultur/index"><span>Kultur</span></a><ul>
+<li id="nav-feuilleton" class="feuilleton"><a href="http://www.zeit.de/feuilleton/index"><span>Feuilleton</span></a></li>
+<li id="nav-musik" class="musik"><a href="http://www.zeit.de/musik/index"><span>Musik</span></a></li>
+<li id="nav-literatur" class="literatur"><a href="http://www.zeit.de/literatur/index"><span>Literatur</span></a></li>
+<li id="nav-kunst" class="kunst"><a href="www.zeit.de/kultur/kunst/index"><span>Kunst</span></a></li>
+</ul>
+</li>
+<li id="nav-leben" class="leben">
+<a href="http://www.zeit.de/leben/index"><span>Leben</span></a><ul>
+<li id="nav-gesellschaft" class="gesellschaft"><a href="http://www.zeit.de/leben/gesellschaft/index"><span>Gesellschaft</span></a></li>
+<li id="nav-reisen" class="reisen"><a href="http://www.zeit.de/reisen/index"><span>Reisen</span></a></li>
+<li id="nav-sport" class="sport"><a href="http://www.zeit.de/sport/index"><span>Sport</span></a></li>
+<li id="nav-auto" class="auto"><a href="http://www.zeit.de/auto/index"><span>Auto</span></a></li>
+<li id="nav-genießen" class="genießen"><a href="http://www.zeit.de/leben/geniessen/index"><span>Genießen</span></a></li>
+<li id="nav-spielen" class="spielen"><a href="http://www.zeit.de/leben/spiele/index"><span>Spielen</span></a></li>
+<li id="nav-zeitmagazin leben" class="zeitmagazin leben"><a href="http://www.zeit.de/leben/magazin/index"><span>ZEITmagazin LEBEN</span></a></li>
+<li id="nav-zuender" class="zuender"><a href="http://zuender.zeit.de/"><span>Zuender</span></a></li>
+</ul>
+</li>
+<li id="nav-magazine" class="magazine">
+<a href="http://www.zeit.de/magazine/index"><span>Magazine</span></a><ul>
+<li id="nav-zeitmagazin leben" class="zeitmagazin leben"><a href="http://www.zeit.de/leben/magazin/index"><span>ZEITmagazin LEBEN</span></a></li>
+<li id="nav-zeit wissen magazin" class="zeit wissen magazin"><a href="http.//www.zeit.de/wissen/magazin/index"><span>ZEIT Wissen Magazin</span></a></li>
+<li id="nav-zeit-campus" class="zeit-campus"><a href="http://www.zeit.de/campus/magazin/index"><span>ZEIT-Campus</span></a></li>
+</ul>
+</li>
+</ul></div>
+<div id="functionsbar">
+<div class="ressortmarker"><span>spiele</span></div>
+<div id="searchbar"><form action="" method="get">
+<div class="search_radio_zeit"><input type="radio" name="searchtype" id="st_zeit"></div>
+<div class="search_label_zeit" id="sl_zeit"><label for="st_zeit">ZEIT Suche</label></div>
+<div class="search_radio_yahoo"><input type="radio" name="searchtype" id="st_yahoo" checked></div>
+<div class="search_label_yahoo"><label for="st_yahoo">Web</label></div>
+<div class="search_textfield"><input type="text" value="" class="flat_text" name="q"></div>
+<a class="flat_button" href="http://www.zeit.de/suche">Suchen</a>
+</form></div>
+<div id="bookmarkbar"><div class="bookmarkbarinner">
+<div id="mybookmarks" style="display:none"></div>
+<div class="bookmark_info replaced" id="bm_info">Info</div>
+<div class="bookmark_trigger replaced" id="bm_trigger">Merkliste</div>
+</div></div>
+</div>
+</div>
+<div id="breadcrumbs"><div class="breadcrumbs">
+<a href="http://www.zeit.de/">Startseite</a> » <a href="http://www.zeit.de/leben/index">leben</a> » <a href="http://www.zeit.de/leben/spiele/index">spiele</a> » <strong>Sudoku</strong>
+</div></div>
+<!--start: content--><div id="content"><div class="inner">
+<h2 class="thema"><span>Sudoku</span></h2>
+<!--START: Content-->
+
+
+<div id="olimain">
+
+<!-- Most read start -->
+<div id="letztemeldung" style="position: absolute; visibility: hidden;">
+<div style="height: 10px; float: right; padding: 6px;"><a
+href="javascript:void(0);" onClick="letztemeldungan('aus');"><img src="/sudoku/kunden/die_zeit/imgs/kreuz.gif" border="0"></a></div> 
+<br clear="all" />
+<!-- newsstart -->
+<style type="text/css"> 
+            #newskasten {  
+               width: 330px; 
+               margin-top: 10px;
+               margin-left: 14px; } 
+            #newskasten h2 { 
+               border: 1px solid black; 
+               background-color: #F2F2EC; 
+               font-size: 11px; 
+               padding: 4px 0px 2px 4px;
+               margin: 0px;
+               } 
+             #main_kasten { 
+               border-left: 1px solid black;
+               border-right: 1px solid black;
+               font-weight: bold;
+               padding: 10px 4px 4px 4px;
+               border-bottom: 1px solid black;
+               }
+             #main_kasten a {
+             font-size: 12px;
+             line-height: 20px;
+             }
+             #main_bt { 
+             
+             }
+               
+           </style><div id="main"><div id="newskasten">
+<h2>NICHTS VERPASSEN</h2>
+<div id="main_kasten">
+<a href="http://www.zeit.de/news/artikel/2007/09/30/2390543.xml">[30.09. 11:57]
+                        Parteirebellin: Beckstein: Pauli soll in der CSU bleiben<span class="red"><strong> »</strong></span></a><br><a href="http://www.zeit.de/news/artikel/2007/09/30/2390530.xml">[30.09. 11:41]
+                        Sportspektakel: Gebrselassie gewinnt Berlin-Marathon<span class="red"><strong> »</strong></span></a><br><a href="http://www.zeit.de/news/artikel/2007/09/30/2390536.xml">[30.09. 11:32]
+                        Fotografie: Mit der Kamera gegen die Mafia<span class="red"><strong> »</strong></span></a><br>
+</div>
+<div id="main_bt"> </div>
+</div></div>
+
+<!-- newsend -->
+</div>
+<!-- Most read end -->
+	
+<div style="margin-bottom: 10px; float: left; width: 180px;">Sudoku vom: 28.09.2007</div>
+<br clear="all" />
+
+  <div id="sudoku_left">
+		<a href="/sudoku/kunden/die_zeit/handy_new.html"
+onMouseOver="document.images['handy'].src='/sudoku/kunden/die_zeit/imgs/spiel_als_handy_02.jpg';
+window.status='Das Handy-Spiel'; return true;"
+onMouseOut="document.images['handy'].src='/sudoku/kunden/die_zeit/imgs/spiel_als_handy_01.jpg';
+window.status=''; return true;"><img
+src="/sudoku/kunden/die_zeit/imgs/spiel_als_handy_01.jpg" border="0"
+alt="Spiel als Handy" name="handy" width="113"></a>
+		<br />
+
+
+	<a href="javascript:void(0);" 
+	onClick="javascript:openme('http://sudoku.zeit.de/cgi-bin/sudoku/flash_feeder/call.pl?spielid=22829',750,510,'middle','Sudoku');"  
+	onMouseOver="document.images['flash'].src='/sudoku/kunden/die_zeit/imgs/spiel_als_flash_02.jpg'; 
+	window.status='Spiel als Flash'; return true;" 
+	onMouseOut="document.images['flash'].src='/sudoku/kunden/die_zeit/imgs/spiel_als_flash_01.jpg'; 
+	window.status=''; return true;"><img src="/sudoku/kunden/die_zeit/imgs/spiel_als_flash_01.jpg" border="0" alt="Spiel als Flash" name="flash"></a>
+<br />
+<a href="/sudoku/kunden/die_zeit/pdf/sudoku_2007-09-28_leicht.pdf" target="_blank"
+onmouseover="document.images['alspdf'].src='/sudoku/kunden/die_zeit/imgs/spiel_als_pdf_02.jpg';
+return true;" onmouseout="document.images['alspdf'].src='/sudoku/kunden/die_zeit/imgs/spiel_als_pdf_01.jpg';
+return true;"><img
+src="/sudoku/kunden/die_zeit/imgs/spiel_als_pdf_01.jpg" name="alspdf" border="0"></a>
+<br />
+<a href="/sudoku/kunden/die_zeit/anleitung_new.html" target="main" onMouseOver="document.images['anleitung'].src='/sudoku/kunden/die_zeit/imgs/anleitung_02.jpg'; window.status='Spielanleitung'; return true;" onMouseOut="document.images['anleitung'].src='/sudoku/kunden/die_zeit/imgs/anleitung_01.jpg'; window.status=''; return true;">
+<img src="/sudoku/kunden/die_zeit/imgs/anleitung_01.jpg" width="113" height="25" border="0" alt="Die Anleitung" name="anleitung"></a>
+<br />
+<a href="/sudoku/kunden/die_zeit/magie_new.html" onMouseOver="document.images['magie'].src='/sudoku/kunden/die_zeit/imgs/sudokus_magie_02.jpg'; window.status='Spielanleitung'; return true;" onMouseOut="document.images['magie'].src='/sudoku/kunden/die_zeit/imgs/sudokus_magie_01.jpg'; window.status=''; return true;">
+<img src="/sudoku/kunden/die_zeit/imgs/sudokus_magie_01.jpg" width="113" height="25" border="0" alt="Die Anleitung" name="magie"></a>
+<br /><br />
+</div>
+<div id="sudoku_center">
+
+<!-- Spielbrett start -->
+
+<div style="padding-bottom: 4px;"><table border="0" width="374" cellpadding="0" cellspacing="0"><tr><td valign="top" class="text-gross" align="center">
+<form name="sudoku_kd_navi" action="/cgi-bin/sudoku/sudoku_kd_app.pl" target="_self">
+<input type="hidden" name="action" value="">
+<input type="hidden" name="kd_nr" value="24091123601092">
+<strong>Sudoku vom:</strong> <select class="teasertext_sudoku" name="year" onChange="submit_kd('year');" style="width: 60;"> <option value="2005">2005</option> <option value="2006">2006</option> <option value="2007" selected>2007</option> </select> <select name="month" class="teasertext_sudoku" style="width: 50;" onChange="submit_kd('month')"> <option value="01">01</option> <option value="02">02</option> <option value="03">03</option> <option value="04">04</option> <option value="05">05</option> <option value="06">06</option> <option value="07">07</option> <option value="08">08</option> <option value="09" selected>09</option> </select> <select name="day" style="width: 50;" class="teasertext_sudoku" onChange="submit_kd('day')"> <option value="01">01</option> <option value="02">02</option> <option value="03">03</option> <option value="04">04</option> <option value="05">05</option> <option value="06">06</option> <option value="07">07</option> <option value="08">08</option> <option value="09">09</option> <option value="10">10</option> <option value="11">11</option> <option value="12">12</option> <option value="13">13</option> <option value="14">14</option> <option value="15">15</option> <option value="16">16</option> <option value="17">17</option> <option value="18">18</option> <option value="19">19</option> <option value="20">20</option> <option value="21">21</option> <option value="22">22</option> <option value="23">23</option> <option value="24">24</option> <option value="25">25</option> <option value="26">26</option> <option value="27">27</option> <option value="28" selected>28</option> <option value="29">29</option> <option value="30">30</option> </select> <select name="level" style="width: 80;" class="teasertext_sudoku" onChange="submit_kd('level');"> <option value="-c 2" selected>leicht</option> <option value="-c 3">mittel</option> <option value="-c 4">schwer</option> </select>
+</td></tr></table>
+</form></div>
+
+<form name="sudoku_form" action="/cgi-bin/sudoku/sudoku_kd_app.pl" target="_self">
+<input type="hidden" name="solve" value="yes">
+<input type="hidden" name="action" value="level">
+<input type="hidden" name="game_id" value="22829">
+<input type="hidden" name="kd_nr" value="24091123601092">
+<input type="hidden" name="db_kd_name" value="die_zeit">
+<input type="hidden" name="year" value="2007">
+<input type="hidden" name="month" value="09">
+<input type="hidden" name="day" value="28">
+<input type="hidden" name="level" value="-c 2">
+
+
+<table border="0" cellpadding="0" cellspacing="0" style="border: 2px solid #6D747C;
+background: #FFF;" width="374">
+	<tr>
+		<td width="40" height="40" align="center" valign="middle" class="border_right"><input class="sudoku_orange" type="text" name="FELD1" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN1" value="5"></td>
+		<td width="40" height="40" align="center" valign="middle" class="border_right"><input class="sudoku_black" type="text" name="FELD2" 
+maxlength="1" value="2" readonly  autocomplete="off"><input type="hidden" name="HIDDEN2" value="2"></td>
+		<td width="40" height="40" align="center" valign="middle" class="border_right_strong"><input class="sudoku_orange" type="text" name="FELD3" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN3" value="4"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_right"><input class="sudoku_orange" type="text" name="FELD4" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN4" value="6"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_right"><input class="sudoku_black" type="text" name="FELD5" 
+maxlength="1" value="8" readonly  autocomplete="off"><input type="hidden" name="HIDDEN5" value="8"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_right_strong"><input class="sudoku_orange" type="text" name="FELD6" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN6" value="3"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_right"><input class="sudoku_orange" type="text" name="FELD7" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN7" value="1"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_right"><input class="sudoku_black" type="text" name="FELD8" 
+maxlength="1" value="9" readonly  autocomplete="off"><input type="hidden" name="HIDDEN8" value="9"></td>
+				<td width="40" height="40" align="center" valign="middle"><input class="sudoku_orange" type="text" name="FELD9" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN9" value="7"></td>
+			</tr>
+			<tr>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD10" 
+maxlength="1" value="3" readonly  autocomplete="off"><input type="hidden" name="HIDDEN10" value="3"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD11" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN11" value="7"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right_strong"><input class="sudoku_orange" type="text" name="FELD12" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN12" value="6"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD13" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN13" value="9"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD14" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN14" value="1"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right_strong"><input class="sudoku_orange" type="text" name="FELD15" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN15" value="4"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD16" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN16" value="2"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD17" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN17" value="5"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top"><input class="sudoku_black" type="text" name="FELD18" 
+maxlength="1" value="8" readonly  autocomplete="off"><input type="hidden" name="HIDDEN18" value="8"></td>
+			</tr>
+			<tr>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD19" 
+maxlength="1" value="1" readonly  autocomplete="off"><input type="hidden" name="HIDDEN19" value="1"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD20" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN20" value="9"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right_strong"><input class="sudoku_orange" type="text" name="FELD21" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN21" value="8"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD22" 
+maxlength="1" value="5" readonly  autocomplete="off"><input type="hidden" name="HIDDEN22" value="5"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD23" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN23" value="2"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right_strong"><input class="sudoku_black" type="text" name="FELD24" 
+maxlength="1" value="7" readonly  autocomplete="off"><input type="hidden" name="HIDDEN24" value="7"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD25" 
+maxlength="1" value="4" readonly  autocomplete="off"><input type="hidden" name="HIDDEN25" value="4"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD26" 
+maxlength="1" value="6" readonly  autocomplete="off"><input type="hidden" name="HIDDEN26" value="6"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top"><input class="sudoku_orange" type="text" name="FELD27" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN27" value="3"></td>
+			</tr>
+			<tr>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right"><input class="sudoku_black" type="text" name="FELD28" 
+maxlength="1" value="7" readonly  autocomplete="off"><input type="hidden" name="HIDDEN28" value="7"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right"><input class="sudoku_orange" type="text" name="FELD29" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN29" value="4"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right_strong"><input class="sudoku_black" type="text" name="FELD30" 
+maxlength="1" value="9" readonly  autocomplete="off"><input type="hidden" name="HIDDEN30" value="9"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right"><input class="sudoku_orange" type="text" name="FELD31" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN31" value="8"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right"><input class="sudoku_orange" type="text" name="FELD32" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN32" value="5"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right_strong"><input class="sudoku_black" type="text" name="FELD33" 
+maxlength="1" value="6" readonly  autocomplete="off"><input type="hidden" name="HIDDEN33" value="6"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right"><input class="sudoku_black" type="text" name="FELD34" 
+maxlength="1" value="3" readonly  autocomplete="off"><input type="hidden" name="HIDDEN34" value="3"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right"><input class="sudoku_orange" type="text" name="FELD35" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN35" value="2"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong"><input class="sudoku_orange" type="text" name="FELD36" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN36" value="1"></td>
+			</tr>
+			<tr>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD37" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN37" value="8"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD38" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN38" value="3"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right_strong"><input class="sudoku_black" type="text" name="FELD39" 
+maxlength="1" value="2" readonly  autocomplete="off"><input type="hidden" name="HIDDEN39" value="2"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD40" 
+maxlength="1" value="1" readonly  autocomplete="off"><input type="hidden" name="HIDDEN40" value="1"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD41" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN41" value="7"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right_strong"><input class="sudoku_orange" type="text" name="FELD42" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN42" value="9"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD43" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN43" value="5"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD44" 
+maxlength="1" value="4" readonly  autocomplete="off"><input type="hidden" name="HIDDEN44" value="4"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top"><input class="sudoku_orange" type="text" name="FELD45" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN45" value="6"></td>
+			</tr>
+			<tr>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD46" 
+maxlength="1" value="6" readonly  autocomplete="off"><input type="hidden" name="HIDDEN46" value="6"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD47" 
+maxlength="1" value="5" readonly  autocomplete="off"><input type="hidden" name="HIDDEN47" value="5"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right_strong"><input class="sudoku_orange" type="text" name="FELD48" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN48" value="1"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD49" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN49" value="4"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD50" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN50" value="3"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right_strong"><input class="sudoku_black" type="text" name="FELD51" 
+maxlength="1" value="2" readonly  autocomplete="off"><input type="hidden" name="HIDDEN51" value="2"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD52" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN52" value="7"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD53" 
+maxlength="1" value="8" readonly  autocomplete="off"><input type="hidden" name="HIDDEN53" value="8"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top"><input class="sudoku_orange" type="text" name="FELD54" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN54" value="9"></td>
+			</tr>
+			<tr>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right"><input class="sudoku_orange" type="text" name="FELD55" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN55" value="9"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right"><input class="sudoku_black" type="text" name="FELD56" 
+maxlength="1" value="1" readonly  autocomplete="off"><input type="hidden" name="HIDDEN56" value="1"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right_strong"><input class="sudoku_orange" type="text" name="FELD57" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN57" value="7"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right"><input class="sudoku_orange" type="text" name="FELD58" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN58" value="2"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right"><input class="sudoku_orange" type="text" name="FELD59" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN59" value="4"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right_strong"><input class="sudoku_orange" type="text" name="FELD60" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN60" value="8"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right"><input class="sudoku_black" type="text" name="FELD61" 
+maxlength="1" value="6" readonly  autocomplete="off"><input type="hidden" name="HIDDEN61" value="6"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong_right"><input class="sudoku_orange" type="text" name="FELD62" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN62" value="3"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_strong"><input class="sudoku_black" type="text" name="FELD63" 
+maxlength="1" value="5" readonly  autocomplete="off"><input type="hidden" name="HIDDEN63" value="5"></td>
+			</tr>
+			<tr>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD64" 
+maxlength="1" value="4" readonly  autocomplete="off"><input type="hidden" name="HIDDEN64" value="4"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD65" 
+maxlength="1" value="8" readonly  autocomplete="off"><input type="hidden" name="HIDDEN65" value="8"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right_strong"><input class="sudoku_orange" type="text" name="FELD66" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN66" value="3"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD67" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN67" value="7"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD68" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN68" value="6"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right_strong"><input class="sudoku_orange" type="text" name="FELD69" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN69" value="5"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD70" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN70" value="9"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD71" 
+maxlength="1" value="1" readonly  autocomplete="off"><input type="hidden" name="HIDDEN71" value="1"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top"><input class="sudoku_black" type="text" name="FELD72" 
+maxlength="1" value="2" readonly  autocomplete="off"><input type="hidden" name="HIDDEN72" value="2"></td>
+			</tr>
+			<tr>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD73" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN73" value="2"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD74" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN74" value="6"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right_strong"><input class="sudoku_orange" type="text" name="FELD75" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN75" value="5"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD76" 
+maxlength="1" value="3" readonly  autocomplete="off"><input type="hidden" name="HIDDEN76" value="3"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD77" 
+maxlength="1" value="9" readonly  autocomplete="off"><input type="hidden" name="HIDDEN77" value="9"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right_strong"><input class="sudoku_black" type="text" name="FELD78" 
+maxlength="1" value="1" readonly  autocomplete="off"><input type="hidden" name="HIDDEN78" value="1"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_orange" type="text" name="FELD79" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN79" value="8"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top_right"><input class="sudoku_black" type="text" name="FELD80" 
+maxlength="1" value="7" readonly  autocomplete="off"><input type="hidden" name="HIDDEN80" value="7"></td>
+				<td width="40" height="40" align="center" valign="middle" class="border_top"><input class="sudoku_orange" type="text" name="FELD81" 
+maxlength="1" value=""  onKeyUp="eingabe_check(this.form.name,this.name);" autocomplete="off"><input type="hidden" name="HIDDEN81" value="4"></td>
+			</tr>	
+		</table>
+		<table border="0" cellpadding="0" cellspacing="0" class="game_navi_color" style="width: 375px; *width: 374px;"><tr><td align="center" class="border_left_bottom" width="125"><a href="javascript:void(0);" onClick="helpmode();"
+onMouseOver="spielhilfe('an'); window.status='Spielhilfe'; return true;" onMouseOut="spielhilfe('aus'); window.status=''; return true;">
+<img src="/sudoku/kunden/die_zeit/imgs/spielhilfe_aus_01.jpg" name="spielhilfe_bild" width="113" height="25" border="0" alt="Spielhilfe" id="helpimg" style="padding-top: 4px;"></a>
+		</td>
+		<td class="border_bottom" width="122" align="center">
+		<a href="javascript:check_game();"  onMouseOver="document.images['check'].src='/sudoku/kunden/die_zeit/imgs/check_game_02.jpg'; window.status='Spiel &uuml;berpr&uuml;fen'; return true;" onMouseOut="document.images['check'].src='/sudoku/kunden/die_zeit/imgs/check_game_01.jpg'; window.status=''; return true;"><img src="/sudoku/kunden/die_zeit/imgs/check_game_01.jpg" width="113" height="25" border="0" alt="Spiel &uumlberpr&uuml;fen" name="check" style="padding-top: 4px;"></a></td><td class="border_right_bottom" width="130" align="center">
+  <a href="javascript:show_solve();;" 
+  onClick="show_solve();"
+  onMouseOver="document.images['loesung'].src='/sudoku/kunden/die_zeit/imgs/zeige_loesung_02.jpg'; 
+  window.status='L&ouml;sung anzeigen'; return true;" 
+  onMouseOut="document.images['loesung'].src='/sudoku/kunden/die_zeit/imgs/zeige_loesung_01.jpg'; 
+  window.status=''; return true;">
+  <img src="/sudoku/kunden/die_zeit/imgs/zeige_loesung_01.jpg" name="loesung" border="0" width="113" height="25" style="padding-top: 4px;"></a>
+  
+		</td>
+	</tr>
+</table>
+
+
+</form>
+</div>
+
+<div id="sudoku_right">
+	<a href="/cgi-bin/sudoku/sudoku_kd_app.pl?action=print&option=game" target="main" style="color: black;"><strong>Zum Spiel aus:<br />
+Die ZEIT Nr. 40 &raquo;</strong></a><br />
+	</div>
+</div>
+
+
+
+
+<!--ENDE: Content-->
+
+<div class="secondcontent clearfix">
+<div class="secondleft">
+<!-- <div class="rahmen_ad" id="place123">
+<div class="anzeige">Anzeige</div>
+<div class="inner">hier kommt ein ad hin</div>
+</div></div>
+<div class="secondright"><div class="teaser"><a href="http://www.zeit.de/leben/spielen/index" title="Das Leben als Spiel" class="bm"><h3>Das Leben als Spiel</h3>
+<p>Alle Spiele der aktuellen Leben-Ausgabe und von ZEIT online finden Sie auf einer Ã¯Â¿Â½bersichtsseite zusammengestellt. Denn wir mÃ¯Â¿Â½ssen uns schon oft genug den Kopf zerbrechen - schÃ¯Â¿Â½n also, wenn es mal soviel SpaÃ¯Â¿Â½ macht, wie hier Ã¯Â¿Â½</p></a>
+</div>-->
+</div> 
+</div>
+</div></div>
+<!--end: content--><div id="footer">
+<div class="back2top"><a href="#top" title="Zurück zum Seitenanfang" class="tooltip">Seitenanfang</a></div>
+<div class="footercontent">
+<p class="red_footerlinks"><a href="http://www.zeit.de">Startseite</a> | <a href="http://www.zeit.de/deutschland/index">Deutschland</a> | <a href="http://www.zeit.de/international/index">International</a> | <a href="http://www.zeit.de/wirtschaft/index">Wirtschaft</a> | <a href="http://www.zeit.de/finanzen/index">Finanzen</a> | <a href="http://www.zeit.de/wissen/index">Wissen</a> | <a href="http://www.zeit.de/wissen/gesundheit/index">Gesundheit</a> | <a href="http://www.zeit.de/computer/index">Technik</a> | <a href="http://www.zeit.de/wissen/bildung/index">Bildung</a> | <a href="http://www.zeit.de/schule">Zeit für die Schule</a> | <a href="http://www.zeit.de/feuilleton/index">Feuilleton</a> | <a href="http://www.zeit.de/literatur/index">Literatur</a> | <a href="http://www.zeit.de/musik/index">Musik</a> | <a href="http://www.zeit.de/leben/index">Leben</a> | <a href="http://www.zeit.de/sport/index">Sport</a> | <a href="http://www.zeit.de/auto/index">Auto</a> | <a href="http://www.zeit.de/reisen/index">Reisen</a> | <a href="http://www.zeit.de/leben/spielen/index">Spiele</a> | <a href="http://www.zeit.de/campus/">Campus</a> | <a href="http://zuender.zeit.de/index">Zuender</a></p>
+<div class="mp_footerlinks"><p><a href="http://shop.zeit.de/">shop</a> | <a href="http://www.zeitabo.de/">abo</a> | <a href="http://www.zeit.de/jobs">jobs</a> | <a href="http://zeit.parship.de/?Source=NaviPartnersuche">partnervermittlung</a> | <a href="http://www.zeit.de/anzeigen/inserieren">anzeigen buchen</a> | <a href="http://www.zeit.de/marktplatz/index">marktplatz</a></p></div>
+<p class="red_footerlinks bottom-element"><a href="http://www.zeit.de/medien/index">Mediadaten</a> | <a href="http://adonline.zeit.de/">Anzeigenaufgabe</a> | <a href="http://presse.zeit.de/">Presse</a> | <a href="http://www.zeit.de/impressum/zeit_verlag">Verlag</a> | <a href="http://www.zeit.de/impressum/index">Impressum</a> | <a href="http://www.zeit.de/impressum/ueberuns">Über uns</a> | <a href="http://www.zeit.de/newsletter">Newsletter</a> | <a href="http://www.zeit.de/hilfe/index">Hilfe</a></p>
+</div>
+</div>
+</div>
+<div id="adfooter"><div class="mp_footerlinks">
+<p><strong>Service- und Werbpartner von Zeit Online</strong></p>
+<p><a href="http://www.webnews.de/">Webnews</a> | <a href="http://www.snowtrex.de/">Skiurlaub</a> | <a href="http://www.unterkunft.de/">Hotels und Pensionen</a> | <a href="http://www.forium.de/vergleich/kfz-versicherung.htm">Kfz Versicherung</a> | <a href="http://www.ciao.de/">Testberichte</a> | <a href="http://www.finanznachrichten.de/">Nachrichten zu Aktien</a> | <a href="http://www.dslweb.de/">DSL Vergleich</a> | <a href="http://www.kredit-magazin.com/">Kredite</a> | <a href="http://www.info-versicherungsvergleiche.de/krankenversicherungen/private-krankenversicherung.html">Private Krankenversicherung</a> | <a href="http://www.netzwelt.de/">Software Downloads</a> | <a href="http://www.louis.de/promotion1/index.html">Motorradhelme</a> | <a href="http://www.environmental-studies.de/">Kreditkarten kostenlos</a> | <a href="http://www.guenstiger.de/">Preisvergleich</a> | <a href="http://www.shop-apotheke.com/angebote/">Gesundheit</a></p>
+</div></div>
+</div>
+
+</body>
+</html>
+

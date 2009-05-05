@@ -1,0 +1,348 @@
+JavaFIBS internal match representation v1.1
+8:roxe:3
+13:roxe: 
+6:You:roxe
+11:roxe:3 4
+1:roxe: 12-16 1-4
+0:You:6 1
+1:You:13-7 8-7 
+0:roxe:5 2
+1:roxe: 16-21 19-21
+0:You:4 4
+1:You:24-20 24-20 13-9 13-9 
+0:roxe:6 6
+1:roxe: 4-10 10-16 16-22 17-23
+0:You:6 1
+1:You:20-14 14-13 
+0:roxe:5 2
+1:roxe: 19-24 22-24
+0:You:6 5
+1:You:20-14 14-9 
+0:roxe:5 6
+1:roxe: 12-18 12-17
+0:You:5 4
+1:You:13-8 9-5 
+0:roxe:3 1
+1:roxe: 17-20 19-20
+0:You:2 2
+1:You:9-7 7-5 6-4 6-4 
+0:roxe:6 6
+1:roxe: 17-23 17-23 12-18 12-18
+0:You:2 6
+1:You:13-7 9-7 
+0:roxe:6 1
+1:roxe: 18-24 18-19
+0:You:2 6
+1:You:13-7 7-5 
+0:roxe:1 5
+1:roxe: 18-23 23-24
+0:You:5 6
+1:You:7-1 6-1 
+0:roxe:4 1
+15:roxe: 
+0:You:5 4
+1:You:8-3 7-3 
+0:roxe:6 6
+15:roxe: 
+0:You:2 2
+1:You:8-6 8-6 7-5 7-5 
+0:roxe:5 3
+15:roxe: 
+0:You:5 2
+1:You:6-1 5-3 
+0:roxe:5 4
+15:roxe: 
+0:You:1 6
+1:You:6-off 1-off 
+0:roxe:5 6
+15:roxe: 
+2:You: 
+5:roxe:
+7:You:1
+14:sorrytigger-1:roxe-0
+13:roxe: 
+6:You:roxe
+11:roxe:1 2
+1:roxe: 1-3 3-4
+0:You:1 1
+1:You:6-5 6-5 8-7 8-7 
+0:roxe:6 4
+1:roxe: 4-8 8-14
+0:You:5 6
+1:You:bar-20 20-14 
+0:roxe:4 4
+1:roxe: bar-4 4-8 8-12 12-16
+0:You:3 6
+1:You:14-8 24-21 
+0:roxe:4 1
+1:roxe: 16-20 19-20
+0:You:4 4
+1:You:13-9 13-9 13-9 9-5 
+0:roxe:4 6
+1:roxe: 17-23 19-23
+0:You:4 6
+1:You:21-15 15-11 
+0:roxe:6 1
+1:roxe: 1-2 2-8
+0:You:5 2
+15:You: 
+0:roxe:4 6
+1:roxe: 8-14 14-18
+0:You:3 1
+1:You:bar-22 5-4 
+0:roxe:2 5
+1:roxe: 17-22 22-24
+0:You:5 6
+15:You: 
+0:roxe:5 1
+1:roxe: 19-24 17-18
+0:You:4 6
+1:You: bar-21
+0:roxe:2 2
+1:roxe: 19-21 19-21 12-14 14-16
+0:You:3 2
+1:You: bar-22
+0:roxe:4 4
+1:roxe: 18-22 18-22 12-16 12-16
+0:You:5 5
+15:You: 
+0:roxe:6 2
+1:roxe: 16-22 12-14
+0:You:6 5
+1:You: bar-19
+0:roxe:3 6
+1:roxe: 16-22 16-19
+0:You:1 4
+15:You: 
+0:roxe:5 6
+1:roxe: 14-19 12-18
+0:You:3 4
+15:You: 
+0:roxe:4 2
+1:roxe: 18-22 22-24
+0:You:2 3
+15:You: 
+0:roxe:5 6
+1:roxe: 19-off 19-24
+0:You:5 3
+15:You: 
+0:roxe:1 5
+1:roxe: 20-off 20-21
+0:You:2 4
+15:You: 
+0:roxe:5 5
+1:roxe: 21-off 21-off 21-off 22-off
+0:You:3 2
+15:You: 
+0:roxe:4 5
+1:roxe: 22-off 22-off
+0:You:3 6
+1:You: bar-19 bar-22
+0:roxe:3 6
+1:roxe: bar-3
+0:You:4 2
+1:You:6-4 19-15 
+0:roxe:2 2
+15:roxe: 
+0:You:4 2
+1:You:13-9 15-13 
+0:roxe:4 5
+1:roxe: 3-8 8-12
+0:You:2 1
+1:You:13-12 9-7 
+0:roxe:6 4
+15:roxe: 
+0:You:3 6
+1:You:11-5 7-4 
+0:roxe:4 2
+1:roxe: bar-2
+0:You:6 5
+1:You:13-7 7-2 
+0:roxe:2 1
+1:roxe: bar-2 2-3
+0:You:6 6
+1:You:bar-19 9-3 9-3 19-13 
+0:roxe:2 1
+1:roxe: bar-2 23-24
+0:You:2 2
+1:You:4-2 13-11 11-9 5-3 
+0:roxe:1 3
+1:roxe: bar-1
+0:You:1 5
+1:You:3-2 9-4 
+0:roxe:1 5
+1:roxe: 23-24
+0:You:3 5
+1:You:4-1 12-7 
+0:roxe:5 5
+15:roxe: 
+0:You:1 5
+1:You:7-2 2-1 
+0:roxe:2 3
+15:roxe: 
+0:You:5 2
+1:You:22-17 17-15 
+0:roxe:2 1
+15:roxe: 
+0:You:4 5
+1:You:7-2 7-3 
+0:roxe:1 3
+15:roxe: 
+0:You:6 3
+1:You:15-9 9-6 
+0:roxe:4 5
+15:roxe: 
+0:You:2 1
+1:You:6-4 2-1 
+0:roxe:6 4
+15:roxe: 
+0:You:5 1
+1:You:6-1 6-5 
+0:roxe:6 5
+1:roxe: bar-6 6-11
+0:You:2 1
+1:You:2-off 1-off 
+0:roxe:3 2
+1:roxe: 11-13 13-16
+0:You:5 4
+1:You: 5-o 4-o
+0:roxe:6 1
+1:roxe: 16-22 24-off
+0:You:6 5
+1:You: 5-off 5-off
+0:roxe:2 3
+1:roxe: 22-off 24-off
+0:You:1 5
+1:You: 4-o 1-o
+0:roxe:6 5
+1:roxe: 24-off 24-off
+0:You:5 2
+1:You: 4-o 2-o
+0:roxe:1 6
+1:roxe: 24-off 24-off
+7:roxe:1
+14:roxe-1:sorrytigger-1
+13:roxe: 
+6:You:roxe
+11:You:6 3
+1:You:1-7 12-15 
+0:roxe:3 2
+1:roxe: 13-10 10-8
+0:You:4 5
+1:You:7-12 1-5 
+0:roxe:4 4
+1:roxe: 13-9 13-9 9-5 9-5
+0:You:2 5
+1:You:bar-2 2-7 
+0:roxe:1 1
+1:roxe: 8-7 8-7 6-5 6-5
+0:You:6 4
+1:You:bar-4 4-10 
+0:roxe:3 5
+1:roxe: 13-10 13-8
+0:You:4 5
+1:You:bar-4 4-9 
+0:roxe:5 6
+1:roxe: 24-18 18-13
+0:You:4 1
+1:You:9-10 10-14 
+0:roxe:5 4
+1:roxe: bar-20 24-20
+0:You:6 3
+1:You:12-18 15-18 
+0:roxe:1 6
+1:roxe: 20-14 14-13
+0:You:2 2
+1:You:bar-2 18-20 18-20 12-14 
+0:roxe:3 6
+1:roxe: bar-22 22-16
+0:You:3 1
+1:You:12-15 15-16 
+0:roxe:5 4
+1:roxe: bar-21 21-16
+0:You:5 2
+1:You:bar-2 14-19 
+0:roxe:6 6
+1:roxe: 16-10 10-4 13-7 13-7
+0:You:6 6
+1:You:12-18 12-18 17-23 17-23 
+0:roxe:6 5
+1:roxe: 7-1 6-1
+0:You:3 1
+1:You:19-20 19-22 
+0:roxe:5 4
+1:roxe: 8-4 8-3
+0:You:4 1
+1:You:2-3 18-22 
+0:roxe:2 1
+1:roxe: bar-24 8-6
+0:You:2 2
+1:You:19-21 19-21 20-22 22-24 
+0:roxe:5 4
+15:roxe: 
+0:You:5 3
+1:You:3-8 18-21 
+0:roxe:2 1
+1:roxe: bar-24 6-4
+0:You:5 6
+15:You: 
+0:roxe:3 2
+1:roxe: 5-2 4-2
+0:You:1 6
+15:You: 
+0:roxe:6 1
+1:roxe: 24-18 18-17
+0:You:1 4
+15:You: 
+0:roxe:3 2
+1:roxe: 7-4 17-15
+0:You:2 6
+15:You: 
+0:roxe:4 1
+1:roxe: 7-3 4-3
+0:You:4 5
+15:You: 
+0:roxe:4 1
+1:roxe: 7-3 5-4
+0:You:4 5
+15:You: 
+0:roxe:5 3
+1:roxe: 15-10 4-1
+0:You:1 5
+15:You: 
+0:roxe:5 4
+1:roxe: 10-5 5-1
+0:You:1 2
+15:You: 
+0:roxe:1 1
+1:roxe: 3-2 2-1 1-off 1-off
+0:You:6 2
+15:You: 
+0:roxe:5 5
+1:roxe: 6-1 6-1 5-off 5-off
+0:You:5 4
+1:You: bar-5
+0:roxe:4 3
+1:roxe: 4-off 4-1
+0:You:2 5
+1:You: bar-5
+0:roxe:2 5
+1:roxe: 3-off 3-1
+0:You:4 4
+1:You:bar-4 4-8 5-9 5-9 
+0:roxe:5 6
+1:roxe: 2-off 2-off
+0:You:5 1
+1:You:9-14 9-10 
+0:roxe:4 5
+1:roxe: 1-off 1-off
+0:You:2 5
+1:You:14-19 10-12 
+0:roxe:4 4
+1:roxe: 1-off 1-off 1-off 1-off
+0:You:5 2
+1:You:12-17 17-19 
+0:roxe:5 6
+1:roxe: 1-off
+7:roxe:2
+9:roxe:3

@@ -1,0 +1,402 @@
+JavaFIBS internal match representation v1.1
+8:rbgood:5
+13:rbgood: 
+6:You:rbgood
+11:You:5 3
+1:You:17-22 19-22 
+0:rbgood:1 3
+1:rbgood: 8-5 6-5
+0:You:1 2
+1:You:12-14 1-2 
+0:rbgood:2 5
+1:rbgood: 13-8 13-11
+0:You:3 4
+1:You:1-4 12-16 
+0:rbgood:1 6
+1:rbgood: 13-7 8-7
+0:You:6 1
+1:You:4-10 10-11 
+0:rbgood:2 6
+1:rbgood: bar-23 13-7
+0:You:6 3
+1:You:11-14 16-22 
+0:rbgood:4 6
+1:rbgood: 8-2 6-2
+0:You:2 4
+1:You:bar-4 12-14 
+0:rbgood:5 1
+1:rbgood: 13-8 24-23
+0:You:6 6
+1:You:14-20 14-20 12-18 12-18 
+0:rbgood:1 4
+1:rbgood: 8-4 8-7
+0:You:6 2
+15:You: 
+0:rbgood:5 4
+1:rbgood: 7-2 6-2
+2:You: 
+5:rbgood:
+7:You:1
+14:sorrytigger-1:rbgood-0
+13:rbgood: 
+6:You:rbgood
+11:rbgood:2 5
+1:rbgood: 12-17 12-14
+0:You:6 1
+1:You:13-7 8-7 
+0:rbgood:6 6
+1:rbgood: 12-18 12-18 12-18 14-20
+0:You:6 1
+1:You:24-23 13-7 
+0:rbgood:5 2
+1:rbgood: 18-20 19-24
+0:You:2 3
+1:You:bar-23 13-10 
+0:rbgood:5 4
+1:rbgood: 1-5 5-10
+0:You:2 2
+1:You:bar-23 6-4 6-4 7-5 
+0:rbgood:3 5
+1:rbgood: 10-15 15-18
+0:You:6 4
+1:You:7-1 5-1 
+0:rbgood:4 1
+15:rbgood: 
+0:You:3 3
+1:You:8-5 8-5 13-10 13-10 
+0:rbgood:4 3
+1:rbgood: bar-3 3-7
+0:You:6 6
+15:You: 
+0:rbgood:6 2
+1:rbgood: 18-24 7-9
+0:You:4 2
+1:You:bar-21 23-21 
+0:rbgood:4 6
+1:rbgood: 9-15 15-19
+0:You:5 4
+1:You:6-2 10-5 
+0:rbgood:4 2
+1:rbgood: 18-22 18-20
+0:You:2 6
+1:You:10-4 4-2 
+0:rbgood:5 1
+1:rbgood: 17-22 19-20
+0:You:2 4
+1:You:6-2 5-3 
+0:rbgood:3 4
+1:rbgood: 17-20 20-24
+0:You:4 5
+1:You:21-16 16-12 
+0:rbgood:6 5
+1:rbgood: 17-22
+0:You:6 1
+1:You:23-17 6-5 
+0:rbgood:6 6
+1:rbgood: bar-6 6-12 12-18 18-24
+0:You:2 1
+1:You:bar-23 17-16 
+0:rbgood:5 6
+1:rbgood: 19-off 20-off
+0:You:3 4
+1:You:16-12 12-9 
+0:rbgood:4 2
+1:rbgood: 19-21 21-off
+0:You:6 2
+1:You:bar-23 9-3 
+0:rbgood:1 6
+1:rbgood: 19-off 19-20
+0:You:4 2
+1:You:23-19 19-17 
+0:rbgood:5 5
+1:rbgood: 20-off 20-off 20-off 20-off
+0:You:1 1
+1:You:17-16 16-15 15-14 14-13 
+0:rbgood:3 6
+1:rbgood: 22-off 22-off
+0:You:3 5
+1:You:23-18 13-10 
+0:rbgood:4 5
+1:rbgood: 22-off 24-off
+0:You:4 4
+1:You:23-19 19-15 10-6 15-11 
+0:rbgood:4 4
+1:rbgood: 24-off 24-off 24-off
+7:rbgood:2
+14:rbgood-2:sorrytigger-1
+13:rbgood: 
+6:You:rbgood
+11:rbgood:1 2
+1:rbgood: 13-11 24-23
+0:You:5 4
+1:You:12-17 12-16 
+0:rbgood:1 5
+1:rbgood: 24-23 13-8
+0:You:3 1
+1:You:17-20 19-20 
+0:rbgood:5 4
+1:rbgood: 13-8 11-7
+0:You:3 1
+1:You:1-4 19-20 
+0:rbgood:6 1
+1:rbgood: 8-7 8-2
+0:You:5 1
+1:You:1-2 4-9 
+0:rbgood:5 5
+15:rbgood: 
+0:You:1 6
+1:You:12-18 17-18 
+0:rbgood:6 6
+15:rbgood: 
+0:You:1 4
+1:You:12-16 2-3 
+0:rbgood:1 2
+1:rbgood: bar-23 13-12
+0:You:2 2
+1:You:bar-2 9-11 11-13 2-4 
+0:rbgood:2 4
+1:rbgood: bar-21 23-21
+0:You:1 4
+1:You:3-4 13-17 
+0:rbgood:1 6
+1:rbgood: 12-6 6-5
+0:You:2 2
+1:You:20-22 18-20 20-22 16-18 
+0:rbgood:1 3
+1:rbgood: 8-5 6-5
+0:You:5 1
+1:You:16-17 17-22 
+0:rbgood:1 6
+1:rbgood: 21-15 15-14
+0:You:2 3
+1:You:19-21 21-24 
+0:rbgood:4 2
+1:rbgood: bar-21 23-21
+0:You:4 2
+1:You:17-19 19-23 
+0:rbgood:6 1
+1:rbgood: bar-24 14-8
+0:You:5 1
+1:You:bar-1 18-23 
+0:rbgood:1 2
+1:rbgood: 8-6 6-5
+0:You:5 1
+1:You:4-9 17-18 
+0:rbgood:3 6
+1:rbgood: 8-2 8-5
+0:You:6 5
+1:You:17-23 4-9 
+0:rbgood:5 6
+1:rbgood: 7-1 6-1
+0:You:4 3
+1:You:bar-4 4-7 
+0:rbgood:2 6
+15:rbgood: 
+0:You:6 1
+1:You:23-24 7-13 
+0:rbgood:3 4
+1:rbgood: bar-21
+0:You:4 1
+1:You:9-13 9-10 
+0:rbgood:4 1
+1:rbgood: bar-24 6-2
+0:You:6 3
+1:You:bar-3 3-9 
+0:rbgood:1 4
+1:rbgood: 21-17 17-16
+0:You:5 4
+1:You:9-14 10-14 
+0:rbgood:5 4
+1:rbgood: 16-11 11-7
+0:You:3 4
+1:You:13-17 14-17 
+0:rbgood:4 6
+1:rbgood: 21-15 15-11
+0:You:1 6
+1:You:14-20 20-21 
+0:rbgood:6 3
+15:rbgood: 
+0:You:6 3
+1:You:18-24 21-24 
+0:rbgood:5 5
+15:rbgood: 
+0:You:5 5
+1:You:13-18 18-23 18-23 17-22 
+0:rbgood:4 2
+1:rbgood: bar-21
+0:You:3 3
+1:You:17-20 22-off 22-off 20-23 
+0:rbgood:3 3
+15:rbgood: 
+0:You:1 4
+1:You:19-23 19-20 
+0:rbgood:3 4
+1:rbgood: bar-21 11-8
+0:You:3 6
+1:You:20-off 22-off 
+0:rbgood:2 1
+1:rbgood: 8-6 7-6
+0:You:5 2
+1:You:20-off 20-22 
+0:rbgood:6 4
+1:rbgood: 21-15 21-17
+0:You:4 3
+1:You: 22-off 22-off
+0:rbgood:5 2
+1:rbgood: 17-12 15-13
+0:You:6 6
+1:You: 23-off 23-off 23-off 23-off
+0:rbgood:5 1
+1:rbgood: 13-8 12-11
+0:You:4 6
+1:You: 23-off 23-off
+0:rbgood:1 2
+1:rbgood: 8-6 11-10
+0:You:3 2
+1:You: 24-off 24-off
+7:You:2
+14:sorrytigger-3:rbgood-2
+13:rbgood: 
+6:You:rbgood
+11:rbgood:3 5
+1:rbgood: 17-22 19-22
+0:You:3 2
+1:You:13-10 13-11 
+0:rbgood:6 4
+1:rbgood: 1-7 7-11
+0:You:3 3
+15:You: 
+0:rbgood:1 5
+1:rbgood: 11-16 16-17
+0:You:2 6
+1:You:bar-23 24-18 
+0:rbgood:6 6
+1:rbgood: 12-18 12-18 17-23 17-23
+0:You:1 4
+1:You: bar-21 bar-24
+0:rbgood:5 2
+1:rbgood: 12-17 1-3
+0:You:5 4
+1:You:10-5 24-20 
+2:rbgood: 
+5:You:
+7:rbgood:1
+14:rbgood-3:sorrytigger-3
+13:rbgood: 
+6:You:rbgood
+11:You:3 2
+1:You:12-15 12-14 
+0:rbgood:5 3
+1:rbgood: 8-3 6-3
+0:You:5 6
+1:You:14-20 15-20 
+0:rbgood:6 4
+1:rbgood: 8-2 6-2
+0:You:1 2
+1:You:19-20 12-14 
+0:rbgood:2 2
+1:rbgood: 8-6 6-4 6-4 13-11
+0:You:1 4
+1:You:14-18 17-18 
+0:rbgood:6 2
+1:rbgood: 13-11 13-7
+0:You:3 4
+1:You:19-23 20-23 
+0:rbgood:4 3
+1:rbgood: 11-7 24-21
+0:You:3 5
+1:You:12-17 12-15 
+0:rbgood:1 1
+1:rbgood: 6-5 6-5 13-12 13-12
+0:You:3 5
+1:You:17-22 19-22 
+0:rbgood:4 2
+1:rbgood: 11-7 7-5
+0:You:5 3
+1:You:1-6 6-9 
+0:rbgood:5 6
+1:rbgood: 21-15 15-10
+0:You:3 2
+15:You: 
+0:rbgood:2 3
+1:rbgood: 24-21 12-10
+0:You:6 2
+1:You:bar-6 9-11 
+0:rbgood:5 5
+1:rbgood: 21-16 16-11 11-6 6-1
+0:You:1 3
+1:You: bar-1
+0:rbgood:4 5
+1:rbgood: bar-21 21-16
+0:You:3 3
+15:You: 
+0:rbgood:3 1
+1:rbgood: 16-13 13-12
+0:You:3 3
+15:You: 
+0:rbgood:3 1
+1:rbgood: 5-2 2-1
+0:You:5 1
+1:You: bar-1
+0:rbgood:5 1
+1:rbgood: bar-24 12-7
+0:You:5 5
+15:You: 
+0:rbgood:3 2
+1:rbgood: 24-21 12-10
+0:You:4 5
+15:You: 
+0:rbgood:5 1
+1:rbgood: 21-16 16-15
+0:You:5 4
+15:You: 
+0:rbgood:5 1
+1:rbgood: 15-10 10-9
+0:You:5 3
+15:You: 
+0:rbgood:6 1
+1:rbgood: 10-4 10-9
+0:You:4 3
+15:You: 
+0:rbgood:1 4
+1:rbgood: 10-6 7-6
+0:You:6 4
+15:You: 
+0:rbgood:4 4
+1:rbgood: 9-5 9-5 5-1 5-1
+0:You:4 2
+15:You: 
+0:rbgood:1 5
+1:rbgood: 7-2 7-6
+0:You:3 6
+15:You: 
+0:rbgood:6 4
+1:rbgood: 6-off 4-off
+0:You:4 4
+15:You: 
+0:rbgood:6 4
+1:rbgood: 6-off 6-2
+0:You:1 5
+15:You: 
+0:rbgood:6 2
+1:rbgood: 5-off 5-3
+0:You:4 3
+15:You: 
+0:rbgood:6 4
+1:rbgood: 4-off 4-off
+0:You:6 1
+1:You: bar-6
+0:rbgood:1 6
+1:rbgood: 3-off 2-1
+0:You:3 1
+15:You: 
+0:rbgood:6 5
+1:rbgood: 3-off 3-off
+0:You:6 3
+1:You: bar-3 bar-6
+0:rbgood:3 4
+1:rbgood: 2-off 2-off
+0:You:6 3
+3:You:3
+7:rbgood:3
+9:rbgood:5

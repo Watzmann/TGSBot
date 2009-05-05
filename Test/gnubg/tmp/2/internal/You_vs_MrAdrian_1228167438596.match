@@ -1,0 +1,118 @@
+JavaFIBS internal match representation v1.1
+8:MrAdrian:3
+13:MrAdrian: 
+6:You:MrAdrian
+11:You:5 3
+1:You:8-3 6-3 
+0:MrAdrian:4 1
+1:MrAdrian: 12-16 16-17
+0:You:2 2
+1:You:24-22 24-22 22-20 22-20 
+0:MrAdrian:5 3
+1:MrAdrian: 12-17 19-22
+0:You:3 1
+1:You:8-5 6-5 
+0:MrAdrian:4 1
+1:MrAdrian: 17-21 21-22
+0:You:5 3
+1:You:13-8 13-10 
+0:MrAdrian:6 1
+1:MrAdrian: 12-18 18-19
+0:You:1 5
+1:You:13-8 6-5 
+2:MrAdrian: 
+4:You:
+0:MrAdrian:2 6
+1:MrAdrian: 17-23 17-19
+0:You:3 4
+1:You:13-9 13-10 
+0:MrAdrian:6 1
+1:MrAdrian: 12-18 18-19
+0:You:4 3
+1:You:10-6 9-6 
+0:MrAdrian:6 6
+1:MrAdrian: 1-7 1-7 12-18 18-24
+0:You:4 6
+1:You:10-4 8-4 
+0:MrAdrian:6 2
+1:MrAdrian: 17-23 17-19
+0:You:4 3
+1:You:6-2 5-2 
+0:MrAdrian:1 4
+1:MrAdrian: 19-23 23-24
+0:You:1 4
+1:You:6-2 2-1 
+0:MrAdrian:3 5
+1:MrAdrian: 19-24 19-22
+0:You:6 2
+1:You:8-2 8-6 
+0:MrAdrian:3 5
+1:MrAdrian: 19-24 19-22
+0:You:3 3
+1:You:20-17 20-17 17-14 17-14 
+0:MrAdrian:4 3
+1:MrAdrian: 19-23 19-22
+0:You:3 1
+1:You:2-1 6-3 
+0:MrAdrian:1 4
+1:MrAdrian: 19-23 22-23
+2:You: 
+5:MrAdrian:
+7:You:2
+14:sorrytigger-2:MrAdrian-0
+13:MrAdrian: 
+6:You:MrAdrian
+11:MrAdrian:2 5
+1:MrAdrian: 12-17 17-19
+0:You:4 4
+1:You:24-20 24-20 13-9 13-9 
+0:MrAdrian:5 6
+1:MrAdrian: 1-7 7-12
+0:You:5 3
+1:You:8-3 6-3 
+0:MrAdrian:4 4
+1:MrAdrian: 1-5 12-16 12-16 19-23
+0:You:6 4
+1:You:13-7 7-3 
+0:MrAdrian:3 6
+1:MrAdrian: 17-23 19-22
+0:You:4 1
+1:You:9-5 6-5 
+0:MrAdrian:4 6
+1:MrAdrian: bar-4 4-10
+0:You:4 6
+1:You:8-4 8-2 
+0:MrAdrian:5 3
+1:MrAdrian: 10-15 12-15
+0:You:5 3
+1:You:13-8 13-10 
+0:MrAdrian:4 2
+1:MrAdrian: 19-23 19-21
+0:You:6 5
+1:You:8-2 9-4 
+0:MrAdrian:3 5
+1:MrAdrian: 12-17 12-15
+0:You:6 3
+1:You:10-4 4-1 
+0:MrAdrian:2 6
+1:MrAdrian: 15-21 22-24
+0:You:3 6
+1:You:20-14 14-11 
+0:MrAdrian:6 1
+1:MrAdrian: 17-23 23-24
+0:You:2 3
+1:You:3-1 6-3 
+0:MrAdrian:1 2
+1:MrAdrian: 21-23 23-24
+0:You:1 4
+1:You:3-2 11-7 
+0:MrAdrian:6 3
+1:MrAdrian: 21-24 17-23
+0:You:4 3
+1:You:20-17 17-13 
+0:MrAdrian:1 6
+15:MrAdrian: 
+0:You:2 5
+3:MrAdrian:1
+7:You:1
+9:You:3

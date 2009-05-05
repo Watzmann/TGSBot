@@ -1,0 +1,196 @@
+JavaFIBS internal match representation v1.1
+8:TurkishDevil:3
+13:TurkishDevil: 
+6:You:TurkishDevil
+11:TurkishDevil:2 4
+1:TurkishDevil: 17-21 19-21
+0:You:5 2
+1:You:13-8 13-11 
+0:TurkishDevil:5 6
+1:TurkishDevil: 1-7 7-12
+0:You:3 1
+1:You:8-5 6-5 
+0:TurkishDevil:1 3
+1:TurkishDevil: 17-20 19-20
+0:You:4 4
+1:You:6-2 6-2 8-4 8-4 
+0:TurkishDevil:1 6
+1:TurkishDevil: 1-7 7-8
+0:You:2 6
+1:You:bar-23 23-17 
+0:TurkishDevil:5 3
+1:TurkishDevil: bar-3 3-8
+0:You:6 4
+1:You:17-11 13-9 
+0:TurkishDevil:5 6
+1:TurkishDevil: 8-14 14-19
+0:You:1 6
+1:You:9-8 24-18 
+0:TurkishDevil:4 6
+15:TurkishDevil: 
+0:You:6 4
+1:You:18-14 14-8 
+0:TurkishDevil:6 5
+15:TurkishDevil: 
+2:You: 
+5:TurkishDevil:
+7:You:1
+14:sorrytigger-1:TurkishDevil-0
+13:TurkishDevil: 
+6:You:TurkishDevil
+11:You:6 2
+1:You:24-18 13-11 
+0:TurkishDevil:4 2
+1:TurkishDevil: 17-21 19-21
+0:You:4 3
+1:You:24-20 13-10 
+0:TurkishDevil:4 5
+1:TurkishDevil: 1-5 5-10
+0:You:4 6
+15:You: 
+0:TurkishDevil:4 5
+1:TurkishDevil: 1-5 5-10
+0:You:2 4
+1:You:bar-23 11-7 
+0:TurkishDevil:6 6
+1:TurkishDevil: 17-23 17-23 12-18 12-18
+0:You:6 2
+15:You: 
+0:TurkishDevil:4 5
+1:TurkishDevil: 12-17 17-21
+0:You:3 6
+1:You: bar-22
+0:TurkishDevil:5 3
+1:TurkishDevil: 10-15 15-18
+0:You:2 4
+15:You: 
+0:TurkishDevil:4 6
+1:TurkishDevil: 12-18 10-14
+0:You:2 2
+15:You: 
+0:TurkishDevil:2 6
+1:TurkishDevil: 14-20 18-20
+0:You:5 3
+1:You: bar-22
+0:TurkishDevil:5 5
+1:TurkishDevil: 19-24 19-24 12-17 18-23
+0:You:4 4
+15:You: 
+0:TurkishDevil:6 1
+1:TurkishDevil: 17-23 23-24
+0:You:4 3
+1:You:bar-22 8-4 
+0:TurkishDevil:5 1
+1:TurkishDevil: 18-23 18-19
+0:You:6 3
+1:You:13-7 6-3 
+0:TurkishDevil:4 5
+1:TurkishDevil: 19-24 21-off
+0:You:3 5
+1:You:6-3 13-8 
+0:TurkishDevil:4 5
+1:TurkishDevil: 19-24 19-23
+0:You:5 1
+1:You:6-5 8-3 
+0:TurkishDevil:4 4
+1:TurkishDevil: 20-24 20-24 21-off 21-off
+0:You:1 4
+1:You:22-18 22-21 
+0:TurkishDevil:2 1
+1:TurkishDevil: 23-off 24-off
+0:You:6 4
+1:You:22-16 21-17 
+0:TurkishDevil:6 4
+1:TurkishDevil: 23-off 23-off
+0:You:6 2
+1:You:8-6 18-12 
+0:TurkishDevil:2 3
+1:TurkishDevil: 23-off 23-off
+0:You:1 3
+1:You:7-6 13-10 
+0:TurkishDevil:4 1
+1:TurkishDevil: 24-off 24-off
+0:You:3 4
+3:You:2
+7:TurkishDevil:2
+14:TurkishDevil-2:sorrytigger-1
+13:TurkishDevil: 
+6:You:TurkishDevil
+11:TurkishDevil:2 5
+1:TurkishDevil: 13-8 13-11
+0:You:1 2
+1:You:12-14 1-2 
+0:TurkishDevil:2 3
+1:TurkishDevil: 24-21 13-11
+0:You:3 1
+1:You:17-20 19-20 
+0:TurkishDevil:6 3
+1:TurkishDevil: 24-18 21-18
+0:You:6 5
+1:You:1-7 2-7 
+0:TurkishDevil:2 2
+1:TurkishDevil: 6-4 6-4 8-6 6-4
+0:You:1 4
+1:You:12-16 19-20 
+0:TurkishDevil:5 5
+1:TurkishDevil: 11-6 11-6 6-1 6-1
+0:You:2 6
+1:You:16-22 12-14 
+0:TurkishDevil:4 3
+1:TurkishDevil: 8-4 6-3
+0:You:3 3
+1:You:12-15 12-15 19-22 20-23 
+0:TurkishDevil:5 5
+1:TurkishDevil: 18-13 18-13 13-8 13-8
+0:You:5 6
+1:You:15-21 15-20 
+0:TurkishDevil:3 6
+1:TurkishDevil: 8-2 8-5
+0:You:5 1
+1:You:20-21 14-19 
+0:TurkishDevil:2 3
+1:TurkishDevil: 4-2 4-1
+0:You:3 3
+1:You:14-17 17-20 20-23 17-20 
+0:TurkishDevil:3 1
+1:TurkishDevil: 6-3 6-5
+0:You:1 5
+1:You:19-24 17-18 
+0:TurkishDevil:6 6
+1:TurkishDevil: 8-2 8-2
+0:You:3 4
+1:You:20-24 18-21 
+0:TurkishDevil:1 2
+1:TurkishDevil: 5-3 2-1
+0:You:3 6
+1:You: 7-10 10-16
+0:TurkishDevil:2 2
+1:TurkishDevil: 13-11 11-9 9-7 7-5
+0:You:6 4
+1:You:bar-6 16-20 
+0:TurkishDevil:4 4
+1:TurkishDevil: 13-9 9-5 4-off 4-off
+0:You:2 4
+1:You:6-10 10-12 
+0:TurkishDevil:2 2
+1:TurkishDevil: 2-off 2-off 2-off 5-3
+0:You:3 5
+1:You:12-17 17-20 
+0:TurkishDevil:1 1
+1:TurkishDevil: 1-off 1-off 1-off 1-off
+0:You:4 3
+1:You: 21-o 22-o
+0:TurkishDevil:3 6
+1:TurkishDevil: 5-off 3-off
+0:You:5 4
+1:You: 20-o 21-o
+0:TurkishDevil:5 2
+1:TurkishDevil: 5-off 3-1
+0:You:5 3
+1:You: 20-o 22-o
+0:TurkishDevil:4 2
+1:TurkishDevil: 3-1 3-off
+0:You:3 5
+3:You:1
+7:TurkishDevil:1
+9:TurkishDevil:3

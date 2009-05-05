@@ -1,0 +1,214 @@
+JavaFIBS internal match representation v1.1
+8:zuza:3
+13:zuza: 
+6:You:zuza
+11:You:6 4
+1:You:8-2 6-2 
+0:zuza:1 1
+1:zuza: 19-20 19-20 17-18 17-18
+0:You:4 6
+1:You:13-7 13-9 
+0:zuza:3 1
+1:zuza: 1-4 17-18
+0:You:2 4
+1:You:9-5 7-5 
+0:zuza:1 1
+1:zuza: 20-21 20-21 19-20 20-21
+0:You:2 5
+1:You:13-8 6-4 
+0:zuza:5 6
+15:zuza: 
+0:You:6 6
+1:You:13-7 13-7 7-1 7-1 
+0:zuza:3 5
+1:zuza: bar-3
+0:You:1 4
+1:You:8-4 24-23 
+0:zuza:3 4
+1:zuza: bar-3 3-7
+0:You:5 3
+1:You:8-3 6-3 
+0:zuza:4 2
+15:zuza: 
+0:You:1 5
+1:You:23-22 22-17 
+0:zuza:5 5
+15:zuza: 
+0:You:1 4
+1:You:24-20 8-7 
+0:zuza:3 2
+15:zuza: 
+0:You:5 3
+1:You:20-15 17-14 
+0:zuza:2 6
+15:zuza: 
+0:You:6 6
+1:You:14-8 15-9 7-1 8-2 
+0:zuza:6 6
+15:zuza: 
+0:You:5 3
+1:You:9-6 6-1 
+0:zuza:5 2
+15:zuza: 
+0:You:5 2
+1:You:6-1 6-4 
+0:zuza:3 2
+15:zuza: 
+0:You:4 1
+1:You:4-off 1-off 
+0:zuza:4 5
+15:zuza: 
+0:You:6 3
+1:You:5-off 5-2 
+0:zuza:5 4
+1:zuza: bar-5
+0:You:3 1
+1:You:4-1 4-3 
+0:zuza:4 2
+1:zuza: bar-4 4-6
+0:You:3 2
+1:You: 3-o 2-o
+0:zuza:3 1
+1:zuza: 5-6 6-9
+0:You:1 4
+1:You: 3-o 1-o
+0:zuza:3 4
+1:zuza: 6-9 9-13
+0:You:5 3
+1:You: 3-off 2-off
+0:zuza:5 6
+1:zuza: 9-15 12-17
+0:You:4 5
+1:You: 2-off 2-off
+0:zuza:2 6
+1:zuza: 12-14 12-18
+0:You:2 2
+1:You: 1-off 1-off 1-off 1-off
+7:You:2
+14:sorrytigger-2:zuza-0
+13:zuza: 
+6:You:zuza
+11:You:5 2
+1:You:13-8 13-11 
+0:zuza:2 3
+1:zuza: 12-14 14-17
+0:You:3 1
+1:You:8-5 6-5 
+0:zuza:2 3
+1:zuza: 12-14 14-17
+0:You:5 2
+1:You:24-22 13-8 
+0:zuza:1 3
+1:zuza: 17-20 19-20
+0:You:6 1
+1:You:13-7 8-7 
+0:zuza:3 4
+1:zuza: 12-15 15-19
+0:You:3 3
+1:You:6-3 6-3 13-10 24-21 
+0:zuza:6 3
+1:zuza: 1-4 4-10
+0:You:2 2
+1:You:bar-23 23-21 11-9 9-7 
+0:zuza:1 2
+1:zuza: 10-12 19-20
+0:You:3 1
+1:You:22-21 21-18 
+0:zuza:1 5
+1:zuza: 1-2 17-22
+0:You:3 1
+1:You:18-15 15-14 
+0:zuza:1 1
+1:zuza: 12-13 13-14 12-13 13-14
+0:You:5 2
+1:You:bar-23 8-3 
+0:zuza:6 4
+1:zuza: 17-23 19-23
+0:You:6 1
+1:You:bar-24 7-1 
+0:zuza:4 1
+1:zuza: 12-13 13-17
+0:You:1 4
+1:You:5-1 5-4 
+0:zuza:3 4
+1:zuza: 2-5 5-9
+0:You:2 2
+1:You:24-22 8-6 6-4 8-6 
+0:zuza:2 2
+1:zuza: bar-2 20-22 20-22 20-22
+0:You:5 5
+1:You:bar-20 7-2 7-2 20-15 
+0:zuza:2 6
+15:zuza: 
+0:You:3 1
+1:You:15-12 21-20 
+0:zuza:4 1
+15:zuza: 
+0:You:1 4
+1:You:21-20 12-8 
+0:zuza:1 5
+1:zuza: bar-5 9-10
+0:You:3 1
+1:You:8-5 6-5 
+0:zuza:3 6
+15:zuza: 
+0:You:4 1
+1:You:20-16 16-15 
+0:zuza:4 3
+15:zuza: 
+0:You:3 2
+1:You:15-12 12-10 
+0:zuza:5 4
+15:zuza: 
+0:You:2 1
+1:You:20-18 3-2 
+0:zuza:6 6
+15:zuza: 
+0:You:6 3
+1:You:18-12 10-7 
+0:zuza:3 1
+15:zuza: 
+0:You:4 5
+1:You:12-8 8-3 
+0:zuza:4 2
+15:zuza: 
+0:You:6 4
+1:You:7-3 6-off 
+0:zuza:3 4
+15:zuza: 
+0:You:1 4
+1:You:6-2 2-1 
+0:zuza:4 3
+15:zuza: 
+0:You:1 3
+1:You:3-off 1-off 
+0:zuza:3 6
+1:zuza: bar-6
+0:You:5 2
+1:You:5-off 5-3 
+0:zuza:4 4
+15:zuza: 
+0:You:1 4
+1:You:4-off 4-3 
+0:zuza:6 2
+1:zuza: bar-6 6-8
+0:You:1 2
+1:You: 2-o 1-o
+0:zuza:4 5
+1:zuza: 6-11 8-12
+0:You:4 6
+1:You: 3-off 3-off
+0:zuza:5 6
+1:zuza: 11-17 12-17
+0:You:3 2
+1:You: 3-o 2-o
+0:zuza:1 6
+1:zuza: 14-20 17-18
+0:You:1 3
+1:You: 3-o 1-o
+0:zuza:4 2
+1:zuza: 14-16 16-20
+0:You:3 6
+1:You: 3-off 2-off
+7:You:2
+9:You:3

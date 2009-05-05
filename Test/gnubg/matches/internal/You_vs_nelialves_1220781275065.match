@@ -1,0 +1,152 @@
+JavaFIBS internal match representation v1.1
+8:nelialves:3
+13:nelialves: 
+6:You:nelialves
+11:You:6 1
+1:You:13-7 8-7 
+0:nelialves:2 6
+1:nelialves: 1-3 3-9
+0:You:2 6
+1:You:24-18 18-16 
+0:nelialves:4 3
+1:nelialves: 9-12 12-16
+0:You:5 6
+1:You:bar-20 13-7 
+0:nelialves:1 3
+1:nelialves: 17-20 19-20
+0:You:1 3
+1:You:bar-22 22-21 
+0:nelialves:2 3
+1:nelialves: 1-4 19-21
+0:You:2 5
+1:You:bar-23 13-8 
+0:nelialves:6 4
+1:nelialves: 17-23 17-21
+0:You:6 5
+15:You: 
+0:nelialves:5 5
+1:nelialves: 12-17 12-17 17-22 17-22
+0:You:6 1
+1:You:bar-24 8-2 
+0:nelialves:2 5
+1:nelialves: 16-21 21-23
+0:You:3 2
+1:You:7-4 4-2 
+0:nelialves:2 5
+1:nelialves: bar-5 12-14
+0:You:2 4
+1:You:6-2 6-4 
+0:nelialves:2 5
+1:nelialves: 5-10 10-12
+0:You:3 6
+1:You:13-7 13-10 
+0:nelialves:3 6
+1:nelialves: 12-18 18-21
+0:You:1 6
+1:You:10-4 6-5 
+0:nelialves:3 5
+1:nelialves: 12-17 14-17
+0:You:6 4
+1:You:7-1 7-3 
+0:nelialves:3 2
+1:nelialves: 12-15 15-17
+0:You:6 6
+1:You:24-18 24-18 18-12 18-12 
+0:nelialves:2 3
+1:nelialves: 17-20 17-19
+0:You:3 2
+1:You:8-5 8-6 
+2:nelialves: 
+5:You:
+7:nelialves:1
+14:nelialves-1:sorrytigger-0
+13:nelialves: 
+6:You:nelialves
+11:nelialves:2 4
+1:nelialves: 8-4 6-4
+0:You:1 5
+1:You:12-17 1-2 
+0:nelialves:1 6
+1:nelialves: 13-7 8-7
+0:You:5 6
+1:You:2-8 12-17 
+0:nelialves:1 6
+1:nelialves: bar-24 13-7
+0:You:1 6
+1:You:12-18 17-18 
+0:nelialves:4 1
+1:nelialves: 13-9 9-8
+0:You:1 4
+1:You:bar-1 1-5 
+0:nelialves:6 4
+1:nelialves: 8-2 6-2
+0:You:3 4
+1:You:1-5 17-20 
+0:nelialves:6 6
+1:nelialves: 13-7 13-7 7-1 7-1
+0:You:1 3
+1:You:19-20 17-20 
+0:nelialves:3 3
+1:nelialves: 24-21 24-21 24-21 6-3
+0:You:6 5
+1:You:12-18 12-17 
+0:nelialves:6 4
+1:nelialves: 21-15 7-3
+0:You:5 2
+1:You:17-22 20-22 
+0:nelialves:3 3
+1:nelialves: 15-12 12-9 9-6 6-3
+0:You:6 4
+1:You:5-11 5-9 
+0:nelialves:4 4
+1:nelialves: 7-3 7-3 6-2 6-2
+0:You:2 2
+1:You:9-11 11-13 11-13 18-20 
+0:nelialves:5 2
+1:nelialves: 21-16 16-14
+0:You:4 5
+1:You:19-24 20-24 
+0:nelialves:1 6
+1:nelialves: 21-15 15-14
+0:You:5 6
+1:You:17-23 18-23 
+0:nelialves:6 2
+1:nelialves: 14-8 14-12
+0:You:2 4
+1:You:17-21 13-15 
+0:nelialves:4 1
+1:nelialves: 8-4 12-11
+0:You:3 4
+1:You:15-19 18-21 
+2:nelialves: 
+4:You:
+0:nelialves:2 6
+1:nelialves: 11-5 2-off
+0:You:5 5
+1:You:13-18 18-23 20-off 20-off 
+0:nelialves:5 6
+1:nelialves: 5-off 4-off
+0:You:2 2
+1:You:23-off 23-off 23-off 21-23 
+0:nelialves:1 4
+1:nelialves: 4-off 1-off
+0:You:1 1
+1:You:24-off 24-off 23-24 24-off 
+0:nelialves:6 6
+1:nelialves: 4-off 3-off 3-off 3-off
+0:You:4 4
+1:You:19-23 19-23 21-off 19-23 
+0:nelialves:6 1
+1:nelialves: 3-off 1-off
+0:You:6 2
+1:You: 19-o 23-o
+0:nelialves:2 6
+1:nelialves: 3-off 2-off
+2:You: 
+4:nelialves:
+0:You:2 4
+1:You: 22-o 23-o
+0:nelialves:6 5
+1:nelialves: 2-off 2-off
+7:nelialves:4
+9:nelialves:3

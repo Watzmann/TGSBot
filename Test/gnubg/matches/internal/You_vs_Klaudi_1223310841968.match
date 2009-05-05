@@ -1,0 +1,72 @@
+JavaFIBS internal match representation v1.1
+8:Klaudi:1
+13:Klaudi: 
+6:You:Klaudi
+11:Klaudi:2 5
+1:Klaudi: 13-8 13-11
+0:You:4 2
+1:You:17-21 19-21 
+0:Klaudi:1 3
+1:Klaudi: 8-5 6-5
+0:You:4 5
+1:You:12-17 12-16 
+1:You:12-17 12-16 
+0:Klaudi:2 6
+1:Klaudi: 24-18 18-16
+0:You:4 2
+1:You:bar-2 12-16 
+0:Klaudi:5 5
+1:Klaudi: bar-20 8-3 8-3 13-8
+0:You:5 4
+1:You:2-7 7-11 
+0:Klaudi:4 5
+1:Klaudi: bar-20 20-16
+0:You:3 3
+15:You: 
+0:Klaudi:2 6
+1:Klaudi: 13-11 11-5
+0:You:4 3
+1:You: bar-4
+0:Klaudi:2 4
+1:Klaudi: 8-4 6-4
+0:You:3 2
+1:You: bar-2
+0:Klaudi:2 5
+1:Klaudi: 13-8 5-3
+0:You:3 6
+15:You: 
+0:Klaudi:2 3
+1:Klaudi: 24-22 16-13
+0:You:1 4
+1:You:bar-1 17-21 
+0:Klaudi:4 4
+1:Klaudi: 6-2 22-18 18-14 14-10
+0:You:2 4
+1:You:bar-2 12-16 
+0:Klaudi:5 1
+1:Klaudi: bar-20 13-12
+0:You:4 5
+15:You: 
+0:Klaudi:1 4
+1:Klaudi: 20-16 10-9
+0:You:5 3
+15:You: 
+0:Klaudi:5 2
+1:Klaudi: 9-4 16-14
+0:You:5 1
+1:You: bar-1
+0:Klaudi:4 2
+1:Klaudi: 12-8 8-6
+0:You:5 1
+1:You:bar-1 19-24 
+0:Klaudi:5 1
+1:Klaudi: 20-15 3-2
+0:You:4 6
+15:You: 
+0:Klaudi:2 2
+1:Klaudi: 4-2 14-12 12-10 10-8
+0:You:4 6
+15:You: 
+3:You:3
+7:Klaudi:3
+9:Klaudi:1

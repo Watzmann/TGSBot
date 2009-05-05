@@ -1,0 +1,120 @@
+JavaFIBS internal match representation v1.1
+8:editer:3
+13:editer: 
+6:You:editer
+11:editer:4 6
+1:editer: 1-7 1-5
+0:You:4 5
+1:You:13-8 24-20 
+0:editer:5 3
+1:editer: 17-22 19-22
+0:You:6 4
+1:You:13-7 24-20 
+0:editer:3 3
+1:editer: bar-3 12-15 12-15 19-22
+0:You:1 5
+1:You:8-7 6-1 
+0:editer:6 5
+1:editer: 3-9 9-14
+0:You:4 5
+1:You:6-1 8-4 
+0:editer:3 3
+1:editer: 12-15 15-18 15-18 15-18
+0:You:3 5
+1:You:13-8 6-3 
+0:editer:6 6
+1:editer: 5-11 11-17 12-18 12-18
+0:You:4 3
+1:You:8-4 13-10 
+2:editer: 
+5:You:
+7:editer:1
+14:editer-1:sorrytigger-0
+13:editer: 
+6:You:editer
+11:editer:1 5
+1:editer: 13-8 24-23
+0:You:5 5
+1:You:17-22 17-22 19-24 19-24 
+0:editer:1 3
+15:editer: 
+0:You:6 5
+1:You:1-7 12-17 
+0:editer:4 2
+1:editer: bar-21 23-21
+0:You:2 4
+1:You:1-5 5-7 
+0:editer:1 2
+1:editer: 6-5 5-3
+2:You: 
+4:editer:
+0:You:1 6
+1:You:12-18 17-18 
+2:editer: 
+4:You:
+0:editer:6 6
+1:editer: 21-15 21-15 8-2 8-2
+0:You:6 4
+1:You:12-16 17-23 
+0:editer:4 6
+1:editer: 13-9 9-3
+0:You:2 1
+1:You:18-20 19-20 
+0:editer:3 1
+1:editer: 6-5 5-2
+0:You:3 4
+1:You:18-21 16-20 
+0:editer:4 3
+1:editer: 13-10 10-6
+0:You:5 6
+1:You:12-18 12-17 
+0:editer:4 2
+1:editer: 6-2 6-4
+0:You:4 4
+1:You:7-11 7-11 17-21 19-23 
+0:editer:5 3
+1:editer: 6-1 4-1
+0:You:4 2
+1:You:20-24 18-20 
+0:editer:4 1
+1:editer: 8-7 7-3
+0:You:2 4
+1:You:20-24 19-21 
+0:editer:1 5
+1:editer: 6-1 8-7
+0:You:4 5
+1:You:11-16 16-20 
+0:editer:6 5
+1:editer: 13-7 13-8
+0:You:5 4
+1:You:11-16 16-20 
+0:editer:5 5
+1:editer: 15-10 15-10 10-5 10-5
+0:You:1 6
+1:You: 20-o 24-o
+0:editer:6 1
+1:editer: 8-2 7-6
+0:You:4 2
+1:You: 21-o 23-o
+0:editer:1 4
+1:editer: 7-3 1-off
+0:You:5 5
+1:You: 20-off 20-off 20-off 21-off
+0:editer:6 1
+1:editer: 6-off 1-off
+0:You:2 3
+1:You: 22-o 23-o
+0:editer:3 3
+1:editer: 3-off 3-off 3-off 3-off
+0:You:3 1
+1:You: 22-o 24-o
+0:editer:4 6
+1:editer: 5-off 5-1
+0:You:6 1
+1:You: 21-o 24-o
+0:editer:6 2
+1:editer: 2-off 2-off
+0:You:1 6
+1:You: 24-off
+7:You:4
+9:You:3

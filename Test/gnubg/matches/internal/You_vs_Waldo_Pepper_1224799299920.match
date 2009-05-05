@@ -1,0 +1,98 @@
+JavaFIBS internal match representation v1.1
+8:Waldo_Pepper:3
+13:Waldo_Pepper: 
+6:You:Waldo_Pepper
+11:You:6 1
+1:You:13-7 8-7 
+0:Waldo_Pepper:1 6
+1:Waldo_Pepper: 12-18 17-18
+0:You:1 2
+1:You:24-22 22-21 
+0:Waldo_Pepper:4 2
+1:Waldo_Pepper: 17-21 19-21
+0:You:1 2
+1:You:bar-23 24-23 
+0:Waldo_Pepper:1 4
+1:Waldo_Pepper: 12-16 16-17
+0:You:6 4
+1:You:13-7 13-9 
+0:Waldo_Pepper:1 5
+1:Waldo_Pepper: 12-17 1-2
+0:You:3 2
+1:You:8-5 7-5 
+0:Waldo_Pepper:6 4
+1:Waldo_Pepper: 2-8 8-12
+0:You:2 3
+1:You:bar-22 22-20 
+0:Waldo_Pepper:6 6
+1:Waldo_Pepper: 12-18 18-24 18-24 18-24
+0:You:2 1
+1:You:23-22 22-20 
+0:Waldo_Pepper:4 3
+1:Waldo_Pepper: 1-4 4-8
+0:You:6 2
+1:You:9-3 6-4 
+0:Waldo_Pepper:5 4
+1:Waldo_Pepper: 8-12 12-17
+0:You:4 6
+1:You:7-1 7-3 
+0:Waldo_Pepper:5 4
+1:Waldo_Pepper: 17-22 17-21
+0:You:1 3
+1:You:23-22 4-1 
+0:Waldo_Pepper:6 1
+15:Waldo_Pepper: 
+2:You: 
+4:Waldo_Pepper:
+0:You:5 1
+1:You:13-8 6-5 
+0:Waldo_Pepper:1 4
+1:Waldo_Pepper: bar-4 21-22
+0:You:4 5
+1:You:bar-20 8-4 
+0:Waldo_Pepper:5 6
+15:Waldo_Pepper: 
+0:You:3 6
+1:You:13-7 7-4 
+0:Waldo_Pepper:1 3
+15:Waldo_Pepper: 
+0:You:1 1
+1:You:5-4 6-5 5-4 4-3 
+0:Waldo_Pepper:2 1
+1:Waldo_Pepper: bar-2 22-23
+0:You:1 6
+1:You:20-14 3-2 
+0:Waldo_Pepper:6 2
+1:Waldo_Pepper: bar-2 17-23
+0:You:2 6
+15:You: 
+0:Waldo_Pepper:3 1
+1:Waldo_Pepper: 17-18 18-21
+0:You:1 2
+15:You: 
+0:Waldo_Pepper:5 2
+1:Waldo_Pepper: 2-7 12-14
+0:You:2 5
+1:You: bar-20
+0:Waldo_Pepper:4 6
+1:Waldo_Pepper: 12-18 14-18
+0:You:3 5
+1:You:bar-20 20-17 
+0:Waldo_Pepper:5 3
+1:Waldo_Pepper: 18-23 18-21
+0:You:2 3
+1:You:20-17 4-2 
+0:Waldo_Pepper:5 5
+1:Waldo_Pepper: 19-24 19-24 19-24 19-24
+0:You:6 5
+1:You:17-11 11-6 
+0:Waldo_Pepper:2 5
+1:Waldo_Pepper: 7-12 21-23
+0:You:5 1
+1:You:17-12 20-19 
+0:Waldo_Pepper:5 1
+15:Waldo_Pepper: 
+0:You:1 4
+3:Waldo_Pepper:6
+7:You:6
+9:You:3

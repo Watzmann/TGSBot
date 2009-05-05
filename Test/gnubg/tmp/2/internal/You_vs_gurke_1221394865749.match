@@ -1,0 +1,484 @@
+JavaFIBS internal match representation v1.1
+8:gurke:3
+13:gurke: 
+6:You:gurke
+11:gurke:2 3
+1:gurke: 12-15 15-17
+0:You:1 1
+1:You:6-5 6-5 8-7 8-7 
+0:gurke:3 5
+1:gurke: 17-22 19-22
+0:You:3 4
+1:You:24-20 13-10 
+0:gurke:2 1
+1:gurke: 19-20 20-22
+0:You:6 4
+1:You:bar-21 13-7 
+0:gurke:2 6
+1:gurke: 1-3 3-9
+0:You:1 2
+1:You:10-9 13-11 
+0:gurke:6 4
+1:gurke: bar-4 4-10
+0:You:6 6
+1:You:7-1 7-1 13-7 24-18 
+0:gurke:6 2
+1:gurke: bar-2 2-8
+0:You:3 4
+1:You:bar-21 13-10 
+0:gurke:1 6
+15:gurke: 
+0:You:4 3
+1:You:11-8 9-5 
+0:gurke:5 6
+15:gurke: 
+0:You:1 1
+1:You:5-4 6-5 5-4 8-7 
+0:gurke:4 5
+15:gurke: 
+0:You:6 4
+1:You:10-4 18-14 
+0:gurke:5 2
+1:gurke: bar-2
+2:You: 
+5:gurke:
+7:You:1
+14:sorrytigger-1:gurke-0
+13:gurke: 
+6:You:gurke
+11:gurke:2 4
+1:gurke: 17-21 19-21
+0:You:3 6
+1:You:24-18 13-10 
+0:gurke:4 1
+1:gurke: 12-16 16-17
+0:You:3 5
+1:You:10-5 8-5 
+0:gurke:6 6
+1:gurke: 12-18 12-18 1-7 1-7
+0:You:4 4
+15:You: 
+0:gurke:3 1
+1:gurke: 17-20 19-20
+0:You:1 2
+1:You:bar-24 6-4 
+0:gurke:2 2
+1:gurke: 7-9 7-9 9-11 9-11
+0:You:5 4
+1:You:13-8 8-4 
+0:gurke:5 3
+1:gurke: 11-16 11-14
+0:You:1 3
+1:You:6-3 6-5 
+0:gurke:1 4
+1:gurke: 14-18 16-17
+0:You:2 3
+1:You:5-3 13-10 
+0:gurke:2 4
+1:gurke: 17-21 18-20
+0:You:2 2
+1:You:10-8 8-6 6-4 8-6 
+0:gurke:5 2
+1:gurke: 12-17 12-14
+0:You:4 3
+1:You:6-2 13-10 
+0:gurke:5 4
+1:gurke: 14-19 17-21
+0:You:4 5
+1:You:8-3 13-9 
+0:gurke:3 3
+1:gurke: 17-20 17-20 19-22 19-22
+0:You:5 4
+1:You:10-5 5-1 
+0:gurke:6 3
+1:gurke: 20-23
+0:You:1 1
+1:You:24-23 24-23 3-2 4-3 
+0:gurke:4 1
+1:gurke: bar-1 18-22
+0:You:1 3
+1:You:bar-24 9-6 
+0:gurke:6 2
+1:gurke: 18-24 22-24
+0:You:2 2
+1:You:bar-23 3-1 6-4 4-2 
+0:gurke:4 1
+1:gurke: bar-1 20-24
+0:You:5 4
+15:You: 
+0:gurke:5 3
+1:gurke: 19-24 19-22
+0:You:5 4
+15:You: 
+0:gurke:6 1
+1:gurke: 1-7 21-22
+0:You:3 4
+15:You: 
+0:gurke:5 1
+1:gurke: 7-12 20-21
+0:You:6 5
+1:You:bar-19 23-18 
+0:gurke:1 3
+1:gurke: 12-15 15-16
+0:You:5 5
+1:You:19-14 14-9 18-13 13-8 
+0:gurke:2 3
+1:gurke: 16-19 19-21
+0:You:3 4
+1:You:8-4 4-1 
+0:gurke:3 6
+1:gurke: 20-off 22-off
+0:You:2 6
+1:You:9-3 3-1 
+0:gurke:1 2
+1:gurke: 20-22 24-off
+0:You:1 6
+1:You:23-17 17-16 
+0:gurke:3 6
+1:gurke: 21-off 21-24
+0:You:4 5
+1:You:16-11 11-7 
+0:gurke:6 1
+1:gurke: 21-off 24-off
+0:You:4 2
+1:You:7-3 3-1 
+0:gurke:2 3
+1:gurke: 22-off 22-24
+0:You:4 4
+1:You:23-19 19-15 15-11 11-7 
+0:gurke:3 6
+1:gurke: 21-off 22-off
+3:You:1
+7:gurke:1
+14:gurke-1:sorrytigger-1
+13:gurke: 
+6:You:gurke
+11:gurke:1 2
+1:gurke: 13-11 11-10
+0:You:1 3
+1:You:17-20 19-20 
+0:gurke:1 1
+1:gurke: 10-9 9-8 8-7 8-7
+0:You:5 1
+1:You:12-17 1-2 
+0:gurke:3 2
+1:gurke: 13-10 10-8
+0:You:4 1
+1:You:1-5 19-20 
+0:gurke:1 3
+1:gurke: 8-5 6-5
+0:You:6 4
+1:You:bar-4 12-18 
+0:gurke:2 6
+1:gurke: 24-18 24-22
+0:You:5 6
+15:You: 
+0:gurke:1 5
+1:gurke: 18-13 6-5
+0:You:5 5
+15:You: 
+0:gurke:2 4
+1:gurke: 8-4 6-4
+0:You:3 3
+1:You:bar-3 bar-3 19-22 12-15 
+0:gurke:4 4
+1:gurke: bar-21 8-4 13-9 13-9
+0:You:3 6
+1:You:12-18 15-18 
+0:gurke:4 1
+1:gurke: 13-12 13-9
+0:You:3 5
+1:You:bar-3 17-22 
+0:gurke:5 6
+1:gurke: 21-15 12-7
+0:You:4 4
+1:You:17-21 17-21 20-24 18-22 
+0:gurke:4 4
+1:gurke: 15-11 11-7 9-5 5-1
+0:You:3 2
+1:You:22-24 18-21 
+0:gurke:6 2
+1:gurke: 7-1 7-5
+0:You:2 4
+1:You:19-23 21-23 
+0:gurke:6 4
+1:gurke: 7-1 9-5
+0:You:6 3
+1:You:3-9 19-22 
+0:gurke:6 1
+1:gurke: bar-19 7-6
+0:You:5 6
+1:You:9-15 15-20 
+0:gurke:5 2
+1:gurke: 19-14 14-12
+0:You:5 4
+1:You:3-8 8-12 
+0:gurke:6 5
+1:gurke: bar-19 6-1
+0:You:5 3
+1:You:2-7 7-10 
+0:gurke:5 6
+1:gurke: 19-13 13-8
+0:You:4 4
+1:You:12-16 10-14 14-18 3-7 
+0:gurke:1 2
+1:gurke: 8-7 7-5
+0:You:2 3
+1:You:bar-2 16-19 
+0:gurke:3 3
+1:gurke: 5-2 5-2 6-3 6-3
+0:You:2 6
+1:You:bar-6 6-8 
+2:gurke: 
+5:You:
+7:gurke:1
+14:gurke-2:sorrytigger-1
+13:gurke: 
+6:You:gurke
+11:gurke:2 3
+1:gurke: 13-10 10-8
+0:You:5 2
+1:You:12-17 12-14 
+0:gurke:5 5
+1:gurke: 13-8 13-8 8-3 8-3
+0:You:3 3
+1:You:17-20 17-20 1-4 1-4 
+0:gurke:5 2
+1:gurke: 8-3 3-1
+0:You:1 6
+1:You:12-18 17-18 
+0:gurke:5 6
+1:gurke: 8-2 6-1
+0:You:4 1
+1:You:12-16 16-17 
+0:gurke:6 4
+1:gurke: 13-7 7-3
+0:You:5 5
+1:You:4-9 4-9 12-17 14-19 
+0:gurke:1 4
+1:gurke: 13-12 12-8
+0:You:2 1
+1:You:19-20 9-11 
+0:gurke:5 4
+1:gurke: 8-3 6-2
+0:You:2 4
+1:You:17-21 19-21 
+0:gurke:2 3
+1:gurke: 24-22 8-5
+0:You:4 1
+1:You:9-13 20-21 
+0:gurke:2 1
+1:gurke: 24-22 6-5
+0:You:6 2
+1:You:13-19 21-23 
+0:gurke:4 4
+1:gurke: 8-4 6-2 6-2 5-1
+0:You:6 5
+1:You:11-17 19-24 
+0:gurke:4 4
+1:gurke: 5-1
+0:You:6 2
+1:You:17-23 19-21 
+0:gurke:2 6
+1:gurke: 22-16 16-14
+0:You:6 6
+1:You: 17-23 17-23 18-24 18-24
+0:gurke:5 1
+1:gurke: 14-9 9-8
+0:You:5 5
+1:You:19-24 19-24 19-24 20-off 
+0:gurke:2 6
+1:gurke: 22-20 8-2
+0:You:5 4
+1:You:bar-4 4-9 
+0:gurke:6 5
+1:gurke: bar-19 19-14
+0:You:6 5
+1:You:9-14 14-20 
+0:gurke:2 5
+1:gurke: bar-20
+0:You:2 3
+15:You: 
+0:gurke:3 1
+1:gurke: bar-22 20-19
+0:You:6 6
+1:You: bar-6 6-12 12-18 18-24
+0:gurke:1 2
+1:gurke: 19-17 17-16
+0:You:3 3
+1:You: 21-24 21-24 21-24 23-off
+0:gurke:3 5
+1:gurke: 22-17 17-14
+0:You:4 2
+1:You: 23-off 23-off
+0:gurke:2 2
+3:gurke:1
+1:gurke: 16-14 14-12 14-12 12-10
+0:You:4 1
+1:You: 23-o 24-o
+0:gurke:3 5
+1:gurke: 10-5 12-9
+0:You:6 5
+1:You: 24-off 24-off
+0:gurke:5 1
+1:gurke: 9-4 1-off
+0:You:6 3
+1:You: 24-off 24-off
+0:gurke:1 6
+1:gurke: 5-off 1-off
+0:You:3 5
+1:You: 24-off 24-off
+0:gurke:3 3
+1:gurke: 3-off 3-off 3-off 3-off
+0:You:4 4
+1:You: 24-off 24-off 24-off
+7:You:1
+14:sorrytigger-2:gurke-2
+13:gurke: 
+6:You:gurke
+11:gurke:3 6
+1:gurke: 1-7 1-4
+0:You:3 2
+1:You:24-21 24-22 
+0:gurke:6 2
+1:gurke: 4-10 10-12
+0:You:2 3
+1:You:8-5 6-4 
+0:gurke:5 1
+1:gurke: 17-22 22-23
+0:You:6 2
+1:You:bar-23 13-7 
+0:gurke:6 5
+1:gurke: bar-5
+0:You:1 6
+1:You:bar-24 13-7 
+0:gurke:1 6
+1:gurke: bar-1 5-11
+0:You:2 4
+1:You:8-4 13-11 
+0:gurke:1 2
+1:gurke: bar-2 1-2
+0:You:1 4
+1:You:13-9 9-8 
+0:gurke:6 4
+1:gurke: 17-23 19-23
+0:You:2 6
+15:You: 
+0:gurke:5 1
+1:gurke: 12-17 12-13
+0:You:6 3
+1:You: bar-22
+0:gurke:6 3
+1:gurke: 2-5 5-11
+0:You:4 3
+1:You: bar-22 bar-21
+0:gurke:5 6
+1:gurke: 12-18 13-18
+0:You:1 3
+1:You:24-21 6-5 
+0:gurke:5 5
+1:gurke: 11-16 12-17 19-24 19-24
+0:You:6 1
+1:You:22-16 6-5 
+0:gurke:2 4
+1:gurke: bar-2 12-16
+0:You:5 1
+1:You:bar-20 21-20 
+0:gurke:4 2
+1:gurke: 12-16 17-19
+0:You:6 3
+1:You:20-14 14-11 
+0:gurke:1 5
+1:gurke: 19-24 2-3
+0:You:5 6
+1:You:20-14 11-6 
+0:gurke:1 1
+1:gurke: 2-3 16-17 16-17 17-18
+0:You:3 2
+1:You:22-20 14-11 
+0:gurke:2 2
+1:gurke: 18-20 18-20 18-20 17-19
+0:You:6 5
+15:You: 
+0:gurke:4 4
+1:gurke: 19-23 19-23 19-23 20-24
+0:You:3 3
+1:You:bar-22 22-19 19-16 11-8 
+0:gurke:5 6
+1:gurke: 3-9 9-14
+0:You:3 3
+1:You:6-3 8-5 16-13 13-10 
+0:gurke:5 2
+1:gurke: bar-2 14-19
+0:You:4 6
+1:You:10-4 5-1 
+0:gurke:5 4
+1:gurke: 17-22 19-23
+0:You:3 2
+1:You:3-1 21-18 
+0:gurke:1 4
+1:gurke: 17-18 18-22
+0:You:3 4
+1:You:bar-21 21-18 
+0:gurke:5 4
+1:gurke: 20-24
+0:You:5 6
+1:You:8-2 7-2 
+0:gurke:6 1
+15:gurke: 
+0:You:4 3
+1:You:7-3 18-15 
+0:gurke:4 2
+15:gurke: 
+0:You:2 4
+1:You:15-11 11-9 
+0:gurke:4 4
+15:gurke: 
+0:You:5 5
+1:You:8-3 21-16 16-11 9-4 
+0:gurke:4 2
+15:gurke: 
+0:You:4 1
+1:You:11-7 7-6 
+0:gurke:2 5
+15:gurke: 
+0:You:3 6
+1:You:6-off 4-1 
+0:gurke:5 2
+15:gurke: 
+0:You:3 2
+1:You:6-3 6-4 
+0:gurke:3 5
+15:gurke: 
+0:You:5 6
+1:You: 5-off 5-off
+0:gurke:2 6
+1:gurke: bar-6 6-8
+0:You:1 1
+1:You:1-off 1-off 1-off 2-1 
+0:gurke:6 3
+1:gurke: 8-14 14-17
+0:You:1 2
+1:You: 2-o 1-o
+0:gurke:4 5
+1:gurke: 17-21 20-off
+0:You:1 6
+1:You:4-off 3-2 
+0:gurke:1 3
+1:gurke: 22-off 24-off
+0:You:6 3
+1:You: 4-o 3-o
+0:gurke:6 3
+1:gurke: 21-off 22-off
+0:You:2 2
+1:You:2-off 4-2 2-off 4-2 
+0:gurke:4 1
+1:gurke: 23-off 24-off
+0:You:5 1
+1:You:3-off 2-1 
+0:gurke:3 5
+1:gurke: 23-off 23-off
+0:You:4 1
+1:You: 1-off
+7:You:1
+9:You:3

@@ -1,0 +1,170 @@
+JavaFIBS internal match representation v1.1
+8:zumzum:3
+13:zumzum: 
+6:You:zumzum
+11:zumzum:4 5
+1:zumzum: 12-17 1-5
+0:You:2 5
+1:You:13-8 13-11 
+0:zumzum:6 3
+1:zumzum: 5-11 1-4
+0:You:6 1
+1:You:bar-24 24-18 
+0:zumzum:1 1
+1:zumzum: 17-18 17-18 19-20 19-20
+0:You:4 2
+1:You:bar-21 13-11 
+0:zumzum:3 5
+1:zumzum: bar-3 12-17
+0:You:6 6
+1:You:13-7 13-7 11-5 8-2 
+0:zumzum:6 1
+1:zumzum: 4-5 3-9
+0:You:3 2
+1:You:bar-23 24-21 
+0:zumzum:2 5
+1:zumzum: 5-10 9-11
+0:You:4 3
+1:You:6-2 8-5 
+0:zumzum:3 5
+1:zumzum: 10-15 12-15
+0:You:6 1
+1:You:24-23 7-1 
+0:zumzum:3 3
+1:zumzum: 12-15 12-15 11-14 14-17
+0:You:5 6
+1:You:6-1 8-2 
+0:zumzum:4 6
+1:zumzum: 18-24 18-22
+0:You:5 2
+1:You:8-3 7-5 
+0:zumzum:1 1
+1:zumzum: 17-18 17-18 15-16 15-16
+0:You:1 6
+1:You:6-5 
+0:zumzum:6 6
+1:zumzum: 16-22 16-22 18-24 18-24
+0:You:2 2
+1:You:5-3 23-21 23-21 6-4 
+0:zumzum:6 4
+1:zumzum: 17-23 19-23
+0:You:2 5
+1:You:21-16 6-4 
+0:zumzum:4 5
+1:zumzum: 17-22 15-19
+0:You:4 1
+1:You:16-15 21-17 
+0:zumzum:1 1
+15:zumzum: 
+0:You:5 1
+1:You:17-12 15-14 
+0:zumzum:3 2
+15:zumzum: 
+0:You:2 3
+1:You:12-9 9-7 
+0:zumzum:4 3
+15:zumzum: 
+0:You:4 4
+1:You:21-17 17-13 21-17 17-13 
+0:zumzum:5 3
+15:zumzum: 
+0:You:6 2
+1:You:13-7 14-12 
+0:zumzum:5 2
+15:zumzum: 
+0:You:2 1
+1:You:13-11 12-11 
+0:zumzum:4 2
+15:zumzum: 
+0:You:2 1
+1:You:11-9 9-8 
+0:zumzum:1 4
+15:zumzum: 
+0:You:2 3
+1:You:8-5 5-3 
+0:zumzum:3 6
+1:zumzum: bar-6 6-9
+0:You:4 5
+1:You:11-6 7-3 
+0:zumzum:5 3
+1:zumzum: 9-14 14-17
+0:You:6 6
+1:You: 7-1 6-off 5-off 5-off
+0:zumzum:6 4
+1:zumzum: 17-21 19-off
+0:You:5 2
+1:You:4-off 2-off 
+0:zumzum:5 3
+1:zumzum: 20-off 22-off
+0:You:3 2
+1:You: 3-o 2-o
+0:zumzum:3 6
+1:zumzum: 19-off 21-24
+2:You: 
+4:zumzum:
+0:You:3 1
+1:You: 3-o 1-o
+0:zumzum:3 2
+1:zumzum: 22-off 23-off
+0:You:3 3
+1:You: 4-1 3-off 3-off 2-off
+0:zumzum:2 2
+1:zumzum: 19-21 21-23 23-off 23-off
+0:You:3 4
+1:You: 1-off 1-off
+0:zumzum:3 4
+1:zumzum: 22-off 20-24
+0:You:1 4
+1:You: 1-off
+7:You:2
+14:sorrytigger-2:zumzum-0
+13:zumzum: 
+6:You:zumzum
+11:zumzum:1 4
+1:zumzum: 12-16 16-17
+0:You:2 1
+1:You:13-11 24-23 
+0:zumzum:2 2
+1:zumzum: 19-21 19-21 12-14 12-14
+0:You:4 3
+1:You:24-20 23-20 
+0:zumzum:4 1
+1:zumzum: 1-5 1-2
+0:You:3 3
+1:You:8-5 8-5 6-3 6-3 
+0:zumzum:2 6
+1:zumzum: bar-2 2-8
+0:You:5 2
+1:You:bar-20 13-11 
+0:zumzum:3 3
+1:zumzum: 12-15 12-15 15-18 15-18
+0:You:3 2
+1:You:13-10 10-8 
+0:zumzum:3 5
+15:zumzum: 
+0:You:5 5
+1:You:13-8 13-8 20-15 15-10 
+0:zumzum:6 2
+1:zumzum: bar-2 17-23
+0:You:2 2
+1:You:11-9 11-9 9-7 9-7 
+0:zumzum:2 1
+1:zumzum: 17-19 23-24
+0:You:4 1
+1:You:8-4 10-9 
+0:zumzum:4 1
+1:zumzum: 19-23 23-24
+0:You:5 1
+1:You:9-4 6-5 
+0:zumzum:3 5
+1:zumzum: 14-19 14-17
+0:You:2 4
+1:You:20-16 16-14 
+0:zumzum:4 2
+1:zumzum: 18-20 20-24
+0:You:3 6
+1:You:bar-22 22-16 
+0:zumzum:3 5
+3:zumzum:1
+7:You:1
+9:You:3

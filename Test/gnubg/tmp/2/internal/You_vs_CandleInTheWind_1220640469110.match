@@ -1,0 +1,88 @@
+JavaFIBS internal match representation v1.1
+8:CandleInTheWind:3
+13:CandleInTheWind: 
+6:You:CandleInTheWind
+11:CandleInTheWind:2 5
+1:CandleInTheWind: 12-17 12-14
+0:You:2 3
+1:You:13-10 13-11 
+0:CandleInTheWind:5 3
+1:CandleInTheWind: 17-22 19-22
+0:You:1 4
+1:You:11-7 8-7 
+0:CandleInTheWind:3 3
+1:CandleInTheWind: 1-4 1-4 17-20 17-20
+0:You:2 6
+1:You:13-7 10-8 
+0:CandleInTheWind:3 6
+1:CandleInTheWind: 14-17 4-10
+0:You:6 3
+1:You:13-10 10-4 
+0:CandleInTheWind:1 6
+1:CandleInTheWind: bar-1
+0:You:4 4
+1:You:8-4 6-2 6-2 13-9 
+0:CandleInTheWind:2 2
+15:CandleInTheWind: 
+0:You:2 2
+1:You:9-7 7-5 7-5 6-4 
+0:CandleInTheWind:4 5
+15:CandleInTheWind: 
+0:You:4 3
+1:You:24-21 8-4 
+0:CandleInTheWind:4 6
+15:CandleInTheWind: 
+0:You:4 3
+1:You:24-21 8-4 
+0:CandleInTheWind:1 6
+1:CandleInTheWind: bar-1 12-18
+0:You:4 3
+1:You:21-18 18-14 
+0:CandleInTheWind:6 6
+15:CandleInTheWind: 
+2:You: 
+4:CandleInTheWind:
+0:You:5 5
+1:You:21-16 16-11 11-6 14-9 
+0:CandleInTheWind:2 4
+15:CandleInTheWind: 
+0:You:6 6
+1:You: 9-3
+0:CandleInTheWind:6 6
+15:CandleInTheWind: 
+0:You:1 2
+1:You:4-3 6-4 
+0:CandleInTheWind:5 6
+15:CandleInTheWind: 
+0:You:4 5
+1:You:7-2 7-3 
+0:CandleInTheWind:4 4
+15:CandleInTheWind: 
+0:You:4 1
+1:You:6-2 6-5 
+0:CandleInTheWind:1 3
+1:CandleInTheWind: bar-1 17-20
+0:You:1 4
+1:You:4-off 4-3 
+0:CandleInTheWind:2 5
+1:CandleInTheWind: 12-17 12-14
+0:You:5 5
+1:You: 5-off 5-off 5-off 4-off
+0:CandleInTheWind:5 3
+1:CandleInTheWind: 1-6 6-9
+0:You:6 3
+1:You: 3-off 4-off
+0:CandleInTheWind:4 1
+1:CandleInTheWind: 17-21 20-21
+0:You:4 4
+1:You: 4-off 3-off 3-off 3-off
+0:CandleInTheWind:4 5
+1:CandleInTheWind: 14-19 17-21
+0:You:5 3
+1:You: 2-off 2-off
+0:CandleInTheWind:2 6
+1:CandleInTheWind: 1-7 9-11
+0:You:6 3
+1:You: 2-off 2-off
+7:You:6
+9:You:3

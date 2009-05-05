@@ -1,0 +1,209 @@
+JavaFIBS internal match representation v1.1
+8:breton:3
+13:breton: 
+6:You:breton
+11:You:5 3
+1:You:8-3 6-3 
+0:breton:1 4
+1:breton: 12-16 16-17
+0:You:5 6
+1:You:24-18 18-13 
+0:breton:1 2
+1:breton: 12-14 1-2
+0:You:5 6
+1:You:24-18 18-13 
+0:breton:6 5
+1:breton: 2-7 1-7
+2:You: 
+5:breton:
+7:You:1
+14:sorrytigger-1:breton-0
+13:breton: 
+6:You:breton
+11:You:5 4
+1:You:13-8 24-20 
+0:breton:1 4
+1:breton: 12-16 16-17
+0:You:3 6
+1:You:13-7 13-10 
+0:breton:1 5
+1:breton: 1-2 2-7
+0:You:2 2
+1:You:bar-23 24-22 22-20 10-8 
+0:breton:3 1
+1:breton: 7-10 10-11
+0:You:2 2
+1:You:13-11 13-11 6-4 6-4 
+0:breton:3 2
+1:breton: bar-3 1-3
+0:You:1 4
+1:You:11-7 8-7 
+0:breton:3 6
+1:breton: 3-9 9-12
+0:You:1 4
+1:You:8-4 23-22 
+0:breton:2 3
+1:breton: 12-15 15-17
+0:You:4 1
+1:You:7-3 4-3 
+0:breton:4 3
+15:breton: 
+0:You:3 3
+1:You:8-5 8-5 11-8 7-4 
+0:breton:2 2
+1:breton: bar-2 12-14 12-14 17-19
+0:You:2 5
+1:You:22-20 6-1 
+0:breton:4 5
+1:breton: 2-7 7-11
+0:You:1 4
+1:You:8-4 4-3 
+0:breton:5 2
+1:breton: 17-22 19-21
+0:You:2 5
+1:You:20-15 15-13 
+0:breton:1 2
+1:breton: 11-13 21-22
+0:You:4 1
+1:You:bar-21 21-20 
+0:breton:1 5
+1:breton: 13-18 17-18
+0:You:4 1
+1:You:20-16 16-15 
+0:breton:2 3
+1:breton: 12-15 15-17
+0:You:2 5
+1:You:bar-20 3-1 
+0:breton:2 3
+1:breton: 12-15 15-17
+0:You:1 6
+1:You:8-2 4-3 
+0:breton:5 2
+1:breton: 17-22 22-24
+0:You:2 5
+1:You:20-15 15-13 
+0:breton:2 6
+1:breton: 17-23 19-21
+0:You:3 1
+1:You:3-2 13-10 
+0:breton:4 1
+1:breton: 19-23 21-22
+0:You:6 5
+1:You:20-15 15-9 
+0:breton:1 2
+1:breton: 19-20 18-20
+0:You:5 2
+15:You: 
+0:breton:4 4
+1:breton: 17-21 17-21 20-24 20-24
+0:You:5 1
+1:You:bar-20 9-8 
+2:breton: 
+5:You:
+7:breton:1
+14:breton-1:sorrytigger-1
+13:breton: 
+6:You:breton
+11:You:5 2
+1:You:12-17 12-14 
+0:breton:2 2
+1:breton: 13-11 13-11 6-4 6-4
+0:You:4 1
+1:You:14-18 17-18 
+0:breton:1 5
+1:breton: 13-8 24-23
+0:You:2 2
+1:You:1-3 1-3 3-5 3-5 
+0:breton:6 2
+1:breton: 23-21 21-15
+0:You:2 1
+1:You:12-14 14-15 
+0:breton:1 4
+1:breton: bar-21 21-20
+2:You: 
+4:breton:
+0:You:6 1
+1:You:17-23 23-24 
+0:breton:6 1
+1:breton: bar-24 20-14
+0:You:2 4
+1:You:bar-2 12-16 
+0:breton:5 3
+1:breton: 24-21 21-16
+0:You:2 1
+1:You:bar-2 15-16 
+0:breton:3 3
+1:breton: bar-22 14-11 13-10 13-10
+0:You:6 1
+1:You:16-17 17-23 
+0:breton:2 4
+1:breton: 22-20 20-16
+0:You:1 1
+1:You:19-20 19-20 2-3 2-3 
+0:breton:1 2
+1:breton: 16-14 14-13
+0:You:2 1
+1:You:12-13 13-15 
+0:breton:5 5
+15:breton: 
+0:You:2 2
+1:You:19-21 21-23 5-7 5-7 
+0:breton:1 1
+1:breton: bar-24 11-10 10-9 9-8
+0:You:3 5
+1:You:15-20 20-23 
+0:breton:2 4
+1:breton: 24-22 8-4
+0:You:6 5
+1:You:7-13 7-12 
+0:breton:4 6
+1:breton: 22-16 16-12
+0:You:4 5
+1:You:bar-5 13-17 
+0:breton:4 4
+1:breton: 11-7 11-7 12-8 8-4
+0:You:6 1
+1:You:5-11 11-12 
+0:breton:5 3
+1:breton: 6-1 4-1
+0:You:3 4
+1:You:17-21 18-21 
+0:breton:2 3
+1:breton: 10-7 10-8
+0:You:2 5
+1:You:17-22 18-20 
+0:breton:5 6
+1:breton: 8-2 7-2
+0:You:6 4
+1:You:12-18 18-22 
+0:breton:5 3
+1:breton: 7-2 7-4
+0:You:2 3
+1:You:17-20 20-22 
+0:breton:1 6
+1:breton: 8-2 2-1
+0:You:3 6
+1:You:3-9 9-12 
+0:breton:3 5
+1:breton: 8-3 4-1
+0:You:4 1
+15:You: 
+0:breton:4 5
+1:breton: 8-3 8-4
+0:You:3 4
+15:You: 
+0:breton:6 1
+1:breton: 6-off 1-off
+0:You:5 2
+1:You:bar-5 22-24 
+0:breton:5 1
+1:breton: 6-5 5-off
+0:You:4 5
+1:You:bar-5 12-16 
+0:breton:5 4
+1:breton: 4-off 4-off
+0:You:5 5
+1:You:5-10 10-15 15-20 16-21 
+3:You:2
+7:breton:2
+9:breton:3

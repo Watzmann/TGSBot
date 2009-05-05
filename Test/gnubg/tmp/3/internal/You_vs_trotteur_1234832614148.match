@@ -1,0 +1,357 @@
+JavaFIBS internal match representation v1.1
+8:trotteur:3
+13:trotteur: 
+6:You:trotteur
+11:You:5 3
+1:You:8-3 6-3 
+0:trotteur:5 1
+1:trotteur: 12-17 1-2
+0:You:2 6
+1:You:24-18 13-11 
+0:trotteur:4 6
+1:trotteur: 1-7 7-11
+0:You:6 3
+1:You:bar-22 24-18 
+0:trotteur:5 3
+1:trotteur: 17-22 19-22
+0:You:2 6
+1:You:bar-23 8-2 
+2:trotteur: 
+4:You:
+0:trotteur:5 5
+1:trotteur: bar-5 12-17 12-17 17-22
+0:You:4 6
+1:You:18-14 14-8 
+0:trotteur:2 5
+1:trotteur: 11-16 16-18
+0:You:3 1
+1:You:bar-24 6-3 
+0:trotteur:1 5
+1:trotteur: 17-18 5-10
+0:You:3 6
+1:You:13-10 8-2 
+0:trotteur:1 3
+1:trotteur: bar-1 1-4
+0:You:2 5
+1:You:6-4 13-8 
+0:trotteur:4 1
+1:trotteur: bar-4 4-5
+0:You:5 4
+1:You:bar-21 10-5 
+0:trotteur:3 1
+1:trotteur: bar-1 1-4
+0:You:5 5
+1:You:21-16 16-11 11-6 13-8 
+0:trotteur:1 3
+1:trotteur: 4-7 12-13
+0:You:6 2
+1:You: bar-23 8-2
+0:trotteur:3 4
+1:trotteur: 12-16 13-16
+0:You:2 1
+1:You:8-7 7-5 
+0:trotteur:1 4
+1:trotteur: bar-4 17-18
+0:You:6 3
+1:You:24-21 21-15 
+0:trotteur:2 1
+1:trotteur: 18-20 19-20
+0:You:4 2
+1:You:8-4 6-4 
+0:trotteur:1 1
+1:trotteur: bar-1 16-17 16-17 17-18
+0:You:5 6
+1:You:15-9 9-4 
+0:trotteur:4 3
+1:trotteur: 17-21 18-21
+0:You:2 2
+1:You:6-4 6-4 4-2 4-2 
+0:trotteur:4 4
+1:trotteur: 17-21 17-21 18-22 18-22
+0:You:2 2
+1:You:3-1 5-3 3-1 5-3 
+0:trotteur:4 6
+1:trotteur: bar-6 6-10
+0:You:2 4
+1:You:3-1 
+0:trotteur:5 4
+1:trotteur: 10-15 15-19
+0:You:4 5
+1:You: 23-18 18-14
+0:trotteur:4 1
+1:trotteur: 19-23 22-23
+0:You:6 4
+15:You: 
+0:trotteur:3 2
+1:trotteur: 21-24 22-24
+0:You:1 3
+15:You: 
+0:trotteur:4 4
+1:trotteur: 21-off 21-off 21-off 19-23
+0:You:4 2
+1:You:bar-21 14-12 
+0:trotteur:6 3
+1:trotteur: 19-off 19-22
+0:You:1 3
+1:You:12-9 9-8 
+0:trotteur:4 5
+1:trotteur: 20-off 20-24
+0:You:5 1
+1:You:21-16 16-15 
+0:trotteur:6 1
+1:trotteur: 22-o 24-o
+0:You:5 2
+1:You:8-6 15-10 
+0:trotteur:4 5
+1:trotteur: 22-off 22-off
+0:You:2 6
+1:You:10-4 2-off 
+0:trotteur:2 4
+1:trotteur: 22-o 23-o
+3:You:2
+7:trotteur:2
+14:trotteur-2:sorrytigger-0
+13:trotteur: 
+6:You:trotteur
+11:trotteur:2 5
+1:trotteur: 13-8 13-11
+0:You:3 4
+1:You:1-5 12-15 
+0:trotteur:4 2
+1:trotteur: 13-9 11-9
+0:You:5 5
+1:You:12-17 17-22 17-22 5-10 
+0:trotteur:2 5
+1:trotteur: 8-3 3-1
+0:You:2 3
+1:You:bar-3 10-12 
+0:trotteur:3 3
+1:trotteur: 6-3 6-3 24-21 24-21
+0:You:6 6
+15:You: 
+0:trotteur:3 3
+1:trotteur: 21-18 18-15 8-5 8-5
+0:You:2 4
+1:You: bar-4 bar-2
+0:trotteur:5 4
+1:trotteur: 9-4 8-4
+0:You:5 4
+15:You: 
+0:trotteur:1 5
+1:trotteur: 6-1 15-14
+0:You:4 4
+15:You: 
+0:trotteur:1 5
+1:trotteur: 14-9 21-20
+0:You:5 1
+15:You: 
+0:trotteur:1 2
+1:trotteur: 9-7 7-6
+0:You:2 5
+1:You:bar-2 12-17 
+0:trotteur:1 6
+1:trotteur: 20-14 14-13
+0:You:6 1
+1:You:2-8 8-9 
+0:trotteur:2 6
+1:trotteur: bar-23 13-7
+0:You:2 3
+1:You:9-12 12-14 
+0:trotteur:5 6
+1:trotteur: 7-2 13-7
+0:You:2 6
+1:You:bar-2 17-23 
+0:trotteur:1 2
+1:trotteur: bar-23 bar-24
+0:You:2 1
+1:You:bar-2 12-13 
+0:trotteur:3 1
+1:trotteur: bar-24 7-4
+0:You:6 2
+1:You:17-23 12-14 
+0:trotteur:6 2
+1:trotteur: bar-23 23-17
+0:You:1 1
+15:You: 
+0:trotteur:1 3
+1:trotteur: 17-16 16-13
+0:You:1 1
+15:You: 
+0:trotteur:1 2
+1:trotteur: 24-23 23-21
+0:You:6 5
+15:You: 
+0:trotteur:2 6
+1:trotteur: 21-15 15-13
+0:You:5 3
+15:You: 
+0:trotteur:5 2
+1:trotteur: 13-8 13-11
+0:You:6 3
+15:You: 
+0:trotteur:5 2
+1:trotteur: 8-3 11-9
+0:You:1 6
+15:You: 
+0:trotteur:5 1
+1:trotteur: 24-23 23-18
+0:You:5 1
+15:You: 
+0:trotteur:4 1
+1:trotteur: 9-5 18-17
+0:You:5 5
+15:You: 
+0:trotteur:3 2
+1:trotteur: 17-15 15-12
+0:You:6 3
+15:You: 
+0:trotteur:4 2
+1:trotteur: 12-8 8-6
+0:You:3 1
+15:You: 
+0:trotteur:1 5
+1:trotteur: 5-off 6-5
+0:You:3 1
+15:You: 
+0:trotteur:1 2
+1:trotteur: 3-1 1-off
+0:You:6 4
+15:You: 
+0:trotteur:5 1
+1:trotteur: 5-off 6-5
+0:You:6 6
+15:You: 
+0:trotteur:1 6
+1:trotteur: 6-off 6-5
+0:You:2 2
+1:You: bar-2 bar-2 bar-2 bar-2
+0:trotteur:6 2
+1:trotteur: 5-off 5-3
+0:You:5 6
+1:You:14-20 2-7 
+0:trotteur:2 6
+1:trotteur: 5-off 5-3
+0:You:4 2
+1:You:14-18 18-20 
+0:trotteur:5 3
+1:trotteur: 4-off 3-off
+0:You:4 2
+1:You:19-21 7-11 
+0:trotteur:4 6
+1:trotteur: 4-off 4-off
+0:You:6 1
+1:You:2-8 19-20 
+0:trotteur:5 2
+1:trotteur: 3-1 3-off
+0:You:1 2
+1:You:2-3 19-21 
+0:trotteur:4 2
+1:trotteur: bar-23
+0:You:1 5
+1:You:8-13 20-21 
+0:trotteur:2 5
+1:trotteur: 23-18 18-16
+0:You:5 6
+1:You:11-16 13-19 
+0:trotteur:4 3
+15:trotteur: 
+0:You:5 3
+1:You:19-24 21-24 
+0:trotteur:3 1
+15:trotteur: 
+0:You:1 1
+1:You:2-3 3-4 4-5 5-6 
+0:trotteur:5 5
+15:trotteur: 
+0:You:6 4
+1:You:2-8 8-12 
+0:trotteur:2 2
+1:trotteur: bar-23
+0:You:1 6
+1:You:16-22 22-23 
+0:trotteur:4 3
+15:trotteur: 
+0:You:2 3
+1:You:12-15 6-8 
+0:trotteur:2 3
+1:trotteur: bar-23
+0:You:3 3
+1:You:bar-3 15-18 18-21 3-6 
+0:trotteur:4 3
+15:trotteur: 
+0:You:2 6
+1:You:21-23 8-14 
+0:trotteur:6 2
+1:trotteur: bar-23 23-17
+0:You:1 2
+1:You:bar-2 14-15 
+0:trotteur:2 2
+1:trotteur: 17-15 15-13 13-11 11-9
+0:You:1 3
+1:You:bar-3 3-4 
+0:trotteur:3 1
+1:trotteur: 9-6 1-off
+0:You:2 2
+1:You:bar-2 4-6 2-4 6-8 
+0:trotteur:4 6
+15:trotteur: 
+0:You:6 2
+1:You:8-14 4-6 
+0:trotteur:6 4
+15:trotteur: 
+0:You:4 4
+1:You:2-6 6-10 10-14 14-18 
+0:trotteur:6 6
+15:trotteur: 
+0:You:6 6
+1:You:3-9 9-15 15-21 14-20 
+0:trotteur:2 2
+1:trotteur: bar-23
+0:You:5 3
+1:You:20-23 18-23 
+0:trotteur:5 3
+15:trotteur: 
+0:You:2 6
+1:You:2-8 21-23 
+0:trotteur:2 1
+15:trotteur: 
+0:You:4 4
+1:You:8-12 12-16 6-10 10-14 
+0:trotteur:3 4
+15:trotteur: 
+0:You:2 4
+1:You:14-18 16-18 
+0:trotteur:5 2
+15:trotteur: 
+0:You:1 3
+1:You:18-21 18-19 
+0:trotteur:1 6
+15:trotteur: 
+0:You:1 2
+1:You:23-off 21-22 
+0:trotteur:2 1
+15:trotteur: 
+0:You:4 6
+1:You:19-off 21-off 
+0:trotteur:2 6
+15:trotteur: 
+0:You:4 4
+1:You:21-off 19-23 19-23 20-24 
+0:trotteur:5 2
+1:trotteur: bar-20 20-18
+0:You:4 2
+1:You:bar-4 4-6 
+0:trotteur:6 6
+1:trotteur: 18-12 12-6 6-off 1-off
+0:You:2 1
+1:You:bar-1 1-3 
+0:trotteur:6 4
+1:trotteur: bar-21 21-15
+0:You:2 6
+1:You:3-9 22-24 
+0:trotteur:4 6
+1:trotteur: 15-11 11-5
+0:You:4 2
+3:You:1
+7:trotteur:1
+9:trotteur:3

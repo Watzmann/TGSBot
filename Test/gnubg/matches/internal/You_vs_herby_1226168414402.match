@@ -1,0 +1,276 @@
+JavaFIBS internal match representation v1.1
+8:herby:3
+13:herby: 
+6:You:herby
+11:You:4 1
+1:You:13-9 24-23 
+0:herby:3 6
+1:herby: 1-7 1-4
+0:You:6 4
+1:You:9-3 24-20 
+0:herby:6 4
+1:herby: 17-23 19-23
+0:You:6 2
+15:You: 
+0:herby:5 4
+1:herby: 7-12 12-16
+0:You:2 4
+1:You:bar-21 13-11 
+0:herby:2 2
+1:herby: 19-21 19-21 12-14 14-16
+0:You:1 5
+1:You:bar-20 3-2 
+0:herby:5 3
+1:herby: 4-9 9-12
+0:You:6 5
+1:You:11-5 8-3 
+0:herby:4 5
+1:herby: 12-17 17-21
+0:You:2 2
+1:You:20-18 20-18 6-4 6-4 
+0:herby:2 5
+1:herby: 12-17 17-19
+0:You:2 6
+1:You:13-7 7-5 
+2:herby: 
+5:You:
+7:herby:1
+14:herby-1:sorrytigger-0
+13:herby: 
+6:You:herby
+11:herby:4 6
+1:herby: 8-2 6-2
+0:You:3 6
+1:You:1-7 12-15 
+0:herby:1 3
+1:herby: 8-5 6-5
+0:You:4 2
+1:You:1-3 3-7 
+0:herby:1 5
+1:herby: 13-8 6-5
+0:You:3 5
+1:You:15-20 17-20 
+0:herby:5 1
+1:herby: 13-8 24-23
+0:You:1 2
+1:You:19-20 12-14 
+0:herby:6 6
+1:herby: 8-2 8-2 8-2 24-18
+0:You:4 6
+1:You:12-18 14-18 
+0:herby:2 1
+1:herby: bar-23 2-1
+0:You:2 5
+1:You:7-12 7-9 
+0:herby:6 4
+1:herby: 13-9 13-7
+0:You:4 5
+1:You:bar-4 4-9 
+0:herby:3 4
+1:herby: bar-22 13-9
+0:You:5 3
+1:You:bar-3 12-17 
+0:herby:1 6
+1:herby: 9-3 2-1
+0:You:6 1
+15:You: 
+0:herby:2 1
+1:herby: 5-3 23-22
+0:You:3 1
+15:You: 
+0:herby:5 2
+1:herby: 23-21 21-16
+0:You:2 1
+15:You: 
+0:herby:6 2
+1:herby: 22-16 7-5
+0:You:3 4
+1:You:bar-4 4-7 
+0:herby:2 1
+1:herby: 22-21 5-3
+0:You:4 3
+1:You:17-21 18-21 
+0:herby:2 3
+1:herby: bar-22 3-1
+0:You:3 6
+1:You:12-18 19-22 
+0:herby:4 6
+15:herby: 
+0:You:6 6
+1:You:17-23 17-23 18-24 18-24 
+0:herby:5 6
+15:herby: 
+0:You:1 5
+1:You:7-12 22-23 
+0:herby:6 5
+15:herby: 
+0:You:1 4
+1:You:12-13 13-17 
+0:herby:1 5
+15:herby: 
+2:You: 
+5:herby:
+7:You:1
+14:sorrytigger-1:herby-1
+13:herby: 
+6:You:herby
+11:herby:4 6
+1:herby: 17-23 19-23
+0:You:6 2
+1:You:24-18 13-11 
+0:herby:1 1
+1:herby: 17-18 17-18 19-20 19-20
+0:You:6 3
+1:You:bar-22 22-16 
+0:herby:1 4
+1:herby: 12-16 1-2
+0:You:4 3
+1:You:bar-21 24-21 
+0:herby:1 3
+1:herby: 12-15 15-16
+0:You:6 5
+1:You:11-6 8-2 
+0:herby:1 3
+1:herby: bar-3 1-2
+0:You:1 2
+1:You:bar-24 24-22 
+0:herby:1 3
+1:herby: 2-5 3-4
+0:You:3 4
+1:You:6-2 6-3 
+0:herby:1 6
+1:herby: 12-18 4-5
+0:You:6 3
+1:You:13-7 7-4 
+0:herby:6 6
+1:herby: 16-22 16-22 18-24 18-24
+0:You:3 6
+15:You: 
+0:herby:5 6
+1:herby: 12-18 5-10
+0:You:4 2
+1:You:bar-21 6-4 
+2:herby: 
+5:You:
+7:herby:1
+14:herby-2:sorrytigger-1
+13:herby: 
+6:You:herby
+11:You:6 5
+1:You:1-7 7-12 
+0:herby:6 6
+1:herby: 24-18 24-18 13-7 13-7
+0:You:1 1
+1:You:19-20 19-20 1-2 2-3 
+0:herby:1 2
+1:herby: 6-4 4-3
+0:You:3 2
+1:You:bar-3 3-5 
+0:herby:3 3
+1:herby: bar-22 8-5 8-5 13-10
+0:You:3 2
+1:You:bar-2 19-22 
+0:herby:4 3
+1:herby: bar-22 8-4
+0:You:1 2
+1:You:bar-1 2-4 
+0:herby:4 4
+1:herby: bar-21 18-14 14-10 22-18
+0:You:5 6
+1:You:12-17 17-23 
+0:herby:5 4
+1:herby: 13-8 8-4
+0:You:6 4
+1:You: bar-4 17-23
+0:herby:5 4
+1:herby: bar-21 6-1
+0:You:4 2
+1:You:bar-4 12-14 
+0:herby:1 1
+1:herby: 10-9 10-9 9-8 9-8
+0:You:4 2
+1:You:12-16 14-16 
+0:herby:2 2
+1:herby: 13-11 11-9 9-7 7-5
+0:You:5 2
+1:You:12-17 17-19 
+0:herby:5 2
+1:herby: 6-1 5-3
+0:You:6 6
+1:You:4-10 4-10 16-22 16-22 
+0:herby:1 1
+1:herby: 7-6 6-5 5-4 4-3
+0:You:1 5
+1:You:19-24 23-24 
+0:herby:1 6
+1:herby: 8-7 8-2
+0:You:5 4
+1:You:10-15 15-19 
+0:herby:5 5
+1:herby: 18-13 18-13 7-2 7-2
+0:You:2 5
+1:You:10-12 12-17 
+0:herby:6 5
+1:herby: 13-7 13-8
+0:You:4 6
+1:You:17-23 19-23 
+0:herby:1 6
+1:herby: 8-2 2-1
+0:You:2 6
+1:You:12-18 18-20 
+0:herby:4 6
+1:herby: 7-1 6-2
+0:You:4 2
+1:You:20-24 12-14 
+0:herby:1 1
+1:herby: 6-5 5-4 5-4 2-1
+0:You:3 6
+1:You:14-17 17-23 
+0:herby:4 4
+1:herby: 5-1
+0:You:3 3
+1:You:17-20 17-20 22-off 22-off 
+0:herby:2 2
+1:herby: 4-2 4-2 3-1 3-1
+0:You:6 1
+1:You:19-off 19-20 
+0:herby:4 4
+1:herby: 21-17 17-13 13-9 9-5
+0:You:3 3
+1:You: 20-23 20-23 20-23 20-23
+0:herby:6 1
+1:herby: 21-20 20-14
+0:You:6 4
+1:You: bar-4 4-10
+0:herby:5 1
+1:herby: 14-9 9-8
+0:You:1 5
+1:You:10-15 15-16 
+0:herby:5 5
+1:herby: 8-3 5-off 3-off 2-off
+0:You:4 3
+1:You: 16-19 19-23
+0:herby:2 5
+1:herby: 2-o 2-o
+0:You:3 2
+1:You: 23-off 23-off
+0:herby:4 2
+1:herby: 2-o 2-o
+0:You:1 6
+1:You: 23-o 24-o
+0:herby:1 6
+1:herby: 1-o 1-o
+0:You:6 5
+1:You: 23-off 23-off
+0:herby:1 3
+1:herby: 1-o 1-o
+0:You:3 4
+1:You: 23-off 23-off
+0:herby:1 4
+1:herby: 1-o 1-o
+0:You:4 3
+1:You: 23-off 23-off
+0:herby:6 6
+1:herby: 1-o 1-o
+7:herby:1
+9:herby:3

@@ -1,0 +1,206 @@
+JavaFIBS internal match representation v1.1
+8:JstFussy:3
+13:JstFussy: 
+6:You:JstFussy
+11:You:5 4
+1:You:13-8 13-9 
+0:JstFussy:5 1
+1:JstFussy: 12-17 1-2
+0:You:1 3
+1:You:8-5 6-5 
+0:JstFussy:5 1
+1:JstFussy: 12-17 1-2
+0:You:2 1
+1:You:9-7 8-7 
+0:JstFussy:3 6
+1:JstFussy: 12-18 18-21
+0:You:2 4
+1:You:13-9 24-22 
+0:JstFussy:5 4
+1:JstFussy: 12-17 17-21
+0:You:4 6
+1:You:22-16 16-12 
+0:JstFussy:5 4
+1:JstFussy: bar-4 4-9
+0:You:1 3
+1:You:bar-24 12-9 
+0:JstFussy:5 1
+1:JstFussy: bar-1 17-22
+0:You:2 2
+1:You:24-22 24-22 6-4 6-4 
+0:JstFussy:2 6
+1:JstFussy: bar-2 17-23
+0:You:6 1
+1:You:13-7 7-6 
+0:JstFussy:1 6
+1:JstFussy: 1-2 17-23
+0:You:3 6
+1:You:9-3 6-3 
+0:JstFussy:4 6
+1:JstFussy: 17-23 17-21
+0:You:6 4
+1:You:22-16 13-9 
+0:JstFussy:5 5
+1:JstFussy: 19-24 19-24 19-24 19-24
+0:You:6 4
+1:You:16-10 9-5 
+0:JstFussy:4 1
+1:JstFussy: 19-23 23-24
+0:You:5 2
+1:You:10-5 5-3 
+0:JstFussy:1 4
+1:JstFussy: 23-24
+0:You:6 5
+1:You:22-16 16-11 
+0:JstFussy:6 2
+1:JstFussy: 21-23
+0:You:3 1
+1:You:5-4 4-1 
+0:JstFussy:2 5
+1:JstFussy: 21-23
+0:You:3 4
+1:You:11-7 7-4 
+0:JstFussy:1 4
+1:JstFussy: 21-22
+0:You:5 2
+1:You:8-3 8-6 
+0:JstFussy:4 6
+1:JstFussy: 2-8 8-12
+0:You:5 5
+1:You: 6-1 6-1 6-1
+0:JstFussy:6 4
+1:JstFussy: 2-8 8-12
+0:You:5 4
+1:You:7-3 
+0:JstFussy:4 5
+1:JstFussy: 2-7 2-6
+0:You:1 4
+1:You:bar-21 3-2 
+0:JstFussy:6 5
+1:JstFussy: 6-12 7-12
+0:You:6 5
+1:You: 21-16 16-10
+0:JstFussy:5 2
+1:JstFussy: 12-17 17-19
+0:You:4 4
+1:You:10-6 4-off 4-off 4-off 
+0:JstFussy:2 6
+1:JstFussy: 12-18 18-20
+0:You:3 5
+1:You: 5-o 3-o
+0:JstFussy:2 1
+1:JstFussy: 12-14 12-13
+0:You:3 1
+1:You: 3-o 1-o
+0:JstFussy:1 3
+1:JstFussy: 14-17 17-18
+0:You:6 6
+1:You: 6-off 5-off 3-off 3-off
+0:JstFussy:2 5
+1:JstFussy: 18-23 13-15
+0:You:1 4
+1:You: 2-o 1-o
+0:JstFussy:6 4
+1:JstFussy: 15-21 21-off
+0:You:3 4
+1:You: 1-off 1-off
+7:You:1
+14:sorrytigger-1:JstFussy-0
+13:JstFussy: 
+6:You:JstFussy
+11:JstFussy:2 6
+1:JstFussy: 1-7 1-3
+0:You:3 4
+1:You:24-20 24-21 
+0:JstFussy:4 4
+1:JstFussy: 3-7 19-23 19-23 19-23
+0:You:4 5
+1:You:21-16 20-16 
+0:JstFussy:5 4
+1:JstFussy: 12-17 17-21
+0:You:1 2
+1:You:6-4 6-5 
+0:JstFussy:6 4
+1:JstFussy: 12-18 17-21
+0:You:5 6
+1:You:13-8 8-2 
+0:JstFussy:4 1
+1:JstFussy: 18-22 23-24
+0:You:5 6
+1:You:13-8 8-2 
+0:JstFussy:1 4
+1:JstFussy: 17-21 21-22
+0:You:5 3
+1:You:13-8 8-5 
+0:JstFussy:2 3
+1:JstFussy: 12-15 15-17
+0:You:1 3
+1:You:8-5 5-4 
+0:JstFussy:3 2
+1:JstFussy: 17-20 22-24
+0:You:2 1
+1:You:6-4 4-3 
+0:JstFussy:2 3
+1:JstFussy: 19-22 17-19
+0:You:6 5
+1:You:8-2 8-3 
+0:JstFussy:6 4
+1:JstFussy: 12-18 18-22
+0:You:4 6
+1:You:16-12 12-6 
+0:JstFussy:5 5
+15:JstFussy: 
+2:You: 
+4:JstFussy:
+0:You:3 1
+1:You:16-13 6-5 
+0:JstFussy:6 6
+15:JstFussy: 
+0:You:6 1
+1:You: 13-12 12-6
+0:JstFussy:3 4
+15:JstFussy: 
+0:You:4 3
+1:You:13-9 9-6 
+0:JstFussy:3 2
+15:JstFussy: 
+0:You:4 5
+1:You:6-1 5-1 
+0:JstFussy:4 4
+15:JstFussy: 
+0:You:6 4
+1:You: 13-9 9-3
+0:JstFussy:2 2
+15:JstFussy: 
+0:You:5 4
+1:You:5-off 5-1 
+0:JstFussy:2 3
+15:JstFussy: 
+0:You:1 3
+1:You:6-3 1-off 
+0:JstFussy:6 5
+1:JstFussy: bar-5 5-11
+0:You:2 4
+1:You:4-off 2-off 
+0:JstFussy:6 4
+1:JstFussy: 7-13 13-17
+0:You:5 5
+1:You: 6-1 6-1 4-off 3-off
+0:JstFussy:5 2
+1:JstFussy: 7-12 17-19
+0:You:2 4
+1:You: 3-o 2-o
+0:JstFussy:2 5
+1:JstFussy: 12-17 17-19
+0:You:2 5
+1:You: 3-o 2-o
+0:JstFussy:5 2
+1:JstFussy: 11-16 16-18
+0:You:1 2
+1:You:3-1 1-off 
+0:JstFussy:2 6
+1:JstFussy: 18-24 23-off
+0:You:4 4
+1:You: 1-off 1-off 1-off 1-off
+7:You:2
+9:You:3

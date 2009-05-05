@@ -1,0 +1,132 @@
+JavaFIBS internal match representation v1.1
+8:mucki:3
+13:mucki: 
+6:You:mucki
+11:You:5 4
+1:You:13-8 13-9 
+0:mucki:1 3
+1:mucki: 17-20 19-20
+0:You:2 1
+1:You:9-7 8-7 
+0:mucki:6 4
+1:mucki: 1-5 12-18
+0:You:3 5
+1:You:8-3 6-3 
+0:mucki:6 1
+1:mucki: 12-18 19-20
+0:You:1 5
+1:You:6-5 13-8 
+0:mucki:1 2
+1:mucki: bar-2 1-2
+0:You:6 5
+1:You:13-7 6-1 
+0:mucki:1 1
+1:mucki: 12-13 19-20 20-21 20-21
+0:You:5 3
+1:You:bar-22 8-3 
+2:mucki: 
+5:You:
+7:mucki:1
+14:mucki-1:sorrytigger-0
+13:mucki: 
+6:You:mucki
+11:You:4 1
+1:You:12-16 1-2 
+0:mucki:3 1
+1:mucki: 8-5 6-5
+0:You:1 2
+1:You:16-18 17-18 
+0:mucki:2 2
+1:mucki: 24-22 24-22 6-4 6-4
+0:You:4 3
+1:You:12-15 19-23 
+0:mucki:5 2
+1:mucki: 22-20 20-15
+0:You:5 2
+1:You:bar-2 2-7 
+0:mucki:2 1
+1:mucki: 15-13 22-21
+0:You:5 2
+1:You:2-7 12-14 
+0:mucki:2 2
+1:mucki: 13-11 13-11 11-9 11-9
+0:You:2 1
+1:You:1-3 23-24 
+0:mucki:1 5
+1:mucki: 13-8 21-20
+0:You:4 1
+1:You:19-20 20-24 
+0:mucki:3 6
+1:mucki: bar-22 22-16
+0:You:1 4
+1:You:12-16 16-17 
+0:mucki:2 4
+1:mucki: bar-21 8-6
+0:You:1 5
+1:You:12-17 17-18 
+0:mucki:6 2
+1:mucki: 21-15 15-13
+0:You:4 6
+1:You:3-7 14-20 
+0:mucki:5 3
+1:mucki: 13-8 8-5
+0:You:2 6
+1:You:17-23 18-20 
+2:mucki: 
+4:You:
+0:mucki:4 6
+1:mucki: 13-9 9-3
+0:You:6 5
+1:You:17-23 17-22 
+0:mucki:6 6
+1:mucki: 9-3 9-3 8-2 8-2
+0:You:4 6
+1:You:7-11 11-17 
+0:mucki:4 1
+1:mucki: 5-1 3-2
+0:You:1 3
+1:You:19-22 18-19 
+0:mucki:6 5
+1:mucki: 13-8 8-2
+0:You:5 2
+1:You:19-21 18-23 
+0:mucki:1 3
+1:mucki: 13-10 10-9
+0:You:1 6
+1:You:17-23 23-24 
+0:mucki:3 2
+1:mucki: 9-6 2-off
+0:You:4 5
+1:You:7-12 12-16 
+0:mucki:2 3
+1:mucki: 3-off 2-off
+0:You:3 5
+1:You:7-12 16-19 
+0:mucki:1 4
+1:mucki: 4-off 1-off
+0:You:2 6
+1:You:12-18 18-20 
+0:mucki:4 5
+1:mucki: 5-off 4-off
+0:You:6 5
+1:You: 19-o 20-o
+0:mucki:1 1
+1:mucki: 2-1 1-off 2-1 1-off
+0:You:4 2
+1:You: 21-o 23-o
+0:mucki:3 1
+1:mucki: 3-off 6-5
+0:You:5 1
+1:You: 20-o 24-o
+0:mucki:5 2
+1:mucki: 5-off 6-4
+0:You:3 6
+1:You: 19-o 22-o
+0:mucki:5 5
+1:mucki: 6-1 6-1 5-off 4-off
+0:You:6 1
+1:You: 19-o 24-o
+0:mucki:4 3
+1:mucki: 1-off 1-off
+7:mucki:2
+9:mucki:3

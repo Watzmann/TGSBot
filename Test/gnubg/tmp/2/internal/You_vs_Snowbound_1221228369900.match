@@ -1,0 +1,382 @@
+JavaFIBS internal match representation v1.1
+8:Snowbound:3
+13:Snowbound: 
+6:You:Snowbound
+11:You:3 1
+1:You:8-5 6-5 
+0:Snowbound:5 3
+1:Snowbound: 17-22 19-22
+0:You:4 5
+1:You:13-8 24-20 
+0:Snowbound:2 4
+1:Snowbound: 12-16 12-14
+0:You:4 3
+1:You:20-16 16-13 
+0:Snowbound:3 1
+1:Snowbound: bar-1 19-22
+2:You: 
+5:Snowbound:
+7:You:1
+14:sorrytigger-1:Snowbound-0
+13:Snowbound: 
+6:You:Snowbound
+11:Snowbound:3 6
+1:Snowbound: 1-7 7-10
+0:You:5 2
+1:You:13-8 24-22 
+0:Snowbound:6 5
+1:Snowbound: 1-7 7-12
+0:You:1 4
+1:You:24-20 6-5 
+0:Snowbound:3 3
+1:Snowbound: 19-22 19-22 17-20 17-20
+0:You:5 6
+15:You: 
+0:Snowbound:4 1
+1:Snowbound: 10-14 14-15
+0:You:3 6
+15:You: 
+0:Snowbound:5 2
+1:Snowbound: 12-17 12-14
+0:You:5 2
+1:You: bar-23
+0:Snowbound:2 3
+1:Snowbound: 12-15 12-14
+0:You:1 1
+1:You:bar-24 24-23 6-5 8-7 
+0:Snowbound:2 4
+1:Snowbound: 17-21 19-21
+0:You:2 3
+1:You:7-4 6-4 
+0:Snowbound:3 1
+1:Snowbound: 14-17 14-15
+0:You:2 3
+1:You:13-10 13-11 
+0:Snowbound:6 1
+1:Snowbound: 15-21 21-22
+0:You:2 3
+1:You:10-7 8-6 
+0:Snowbound:5 1
+1:Snowbound: 15-20 20-21
+0:You:4 3
+1:You:11-7 6-3 
+0:Snowbound:5 2
+1:Snowbound: 15-20 22-24
+0:You:5 3
+1:You:13-8 13-10 
+0:Snowbound:2 4
+1:Snowbound: 20-24 12-14
+0:You:3 6
+1:You:10-4 8-5 
+0:Snowbound:2 1
+1:Snowbound: 14-16 16-17
+0:You:5 1
+1:You:4-3 8-3 
+0:Snowbound:4 3
+1:Snowbound: 17-21 21-24
+0:You:4 6
+1:You:8-2 5-1 
+0:Snowbound:4 3
+1:Snowbound: 12-16 16-19
+0:You:6 1
+1:You:7-1 3-2 
+0:Snowbound:2 6
+1:Snowbound: 17-19
+0:You:6 6
+1:You:23-17 23-17 17-11 7-1 
+0:Snowbound:3 1
+15:Snowbound: 
+0:You:3 2
+1:You:17-14 11-9 
+0:Snowbound:5 5
+15:Snowbound: 
+0:You:6 6
+1:You: 14-8 9-3 8-2 6-off
+0:Snowbound:3 1
+15:Snowbound: 
+0:You:2 1
+1:You:6-4 4-3 
+0:Snowbound:2 3
+15:Snowbound: 
+0:You:2 2
+1:You:5-3 5-3 4-2 4-2 
+0:Snowbound:6 1
+1:Snowbound: bar-6 6-7
+0:You:1 4
+1:You:3-off 1-off 
+0:Snowbound:1 6
+1:Snowbound: 7-13 13-14
+0:You:5 5
+1:You: 3-off 3-off 3-off 3-off
+0:Snowbound:3 6
+1:Snowbound: 14-20 22-off
+0:You:4 6
+1:You: 3-off 2-off
+3:Snowbound:1
+7:You:1
+14:sorrytigger-2:Snowbound-0
+13:Snowbound: 
+6:You:Snowbound
+11:Snowbound:1 5
+1:Snowbound: 12-17 1-2
+0:You:3 4
+1:You:13-10 24-20 
+0:Snowbound:5 5
+1:Snowbound: 2-7 7-12 19-24 19-24
+0:You:6 3
+1:You:bar-22 22-16 
+0:Snowbound:4 4
+1:Snowbound: 12-16 16-20 12-16 16-20
+0:You:2 2
+1:You:bar-23 bar-23 6-4 6-4 
+0:Snowbound:5 3
+1:Snowbound: 17-22 19-22
+0:You:1 4
+1:You:13-9 10-9 
+0:Snowbound:1 2
+1:Snowbound: 17-19 1-2
+0:You:4 5
+1:You:13-8 8-4 
+0:Snowbound:5 1
+1:Snowbound: 2-7 19-20
+0:You:2 4
+1:You:13-9 9-7 
+0:Snowbound:2 6
+1:Snowbound: bar-2 12-18
+0:You:4 5
+1:You:23-18 13-9 
+0:Snowbound:2 6
+1:Snowbound: bar-2 12-18
+0:You:3 4
+1:You:bar-21 21-18 
+0:Snowbound:3 4
+1:Snowbound: bar-3 3-7
+0:You:1 5
+15:You: 
+0:Snowbound:4 3
+1:Snowbound: 2-5 7-11
+0:You:2 3
+1:You:bar-23 18-15 
+0:Snowbound:6 6
+1:Snowbound: 5-11 11-17 11-17 12-18
+0:You:3 5
+1:You:23-18 18-15 
+0:Snowbound:6 6
+15:Snowbound: 
+0:You:2 4
+1:You:6-2 4-2 
+0:Snowbound:3 3
+1:Snowbound: bar-3 bar-3 17-20 20-23
+0:You:3 4
+1:You:bar-21 21-18 
+0:Snowbound:6 2
+1:Snowbound: 17-23 20-22
+0:You:4 2
+1:You:18-16 16-12 
+0:Snowbound:4 6
+1:Snowbound: 3-7 7-13
+0:You:1 2
+1:You:15-13 13-12 
+0:Snowbound:3 1
+1:Snowbound: bar-3 22-23
+0:You:1 5
+1:You:12-7 8-7 
+0:Snowbound:4 3
+1:Snowbound: 17-21 21-24
+0:You:5 5
+1:You:15-10 12-7 9-4 7-2 
+0:Snowbound:2 1
+1:Snowbound: 23-24 17-19
+0:You:3 6
+1:You:10-4 4-1 
+0:Snowbound:6 2
+1:Snowbound: 3-5 5-11
+0:You:5 6
+1:You:7-1 7-2 
+0:Snowbound:1 6
+1:Snowbound: 11-17 17-18
+0:You:6 3
+1:You:9-3 9-6 
+0:Snowbound:6 3
+1:Snowbound: bar-3 3-9
+0:You:3 1
+15:You: 
+0:Snowbound:3 5
+1:Snowbound: 18-23 9-12
+0:You:5 3
+15:You: 
+0:Snowbound:4 1
+1:Snowbound: 19-23 23-24
+0:You:2 5
+15:You: 
+0:Snowbound:1 3
+1:Snowbound: 12-15 15-16
+0:You:3 1
+15:You: 
+0:Snowbound:4 1
+1:Snowbound: 16-20 24-off
+0:You:3 2
+15:You: 
+0:Snowbound:5 4
+1:Snowbound: 20-off 19-23
+0:You:1 1
+15:You: 
+0:Snowbound:4 1
+1:Snowbound: 19-23 24-off
+0:You:4 4
+1:You:bar-21 8-4 8-4 6-2 
+0:Snowbound:4 6
+1:Snowbound: 20-off 20-24
+0:You:1 2
+1:You:21-19 19-18 
+0:Snowbound:1 4
+1:Snowbound: 22-off 24-off
+0:You:5 3
+1:You:18-13 13-10 
+0:Snowbound:3 2
+1:Snowbound: 22-o 23-o
+0:You:5 6
+1:You:10-5 6-off 
+0:Snowbound:6 5
+1:Snowbound: 23-o 23-o
+0:You:6 1
+1:You: 6-o 1-o
+0:Snowbound:4 2
+1:Snowbound: 23-o 23-o
+0:You:6 5
+1:You: 5-off 4-off
+0:Snowbound:1 2
+1:Snowbound: 24-o 24-o
+0:You:1 6
+1:You: 4-o 1-o
+0:Snowbound:3 5
+1:Snowbound: 24-o
+7:Snowbound:1
+14:Snowbound-1:sorrytigger-2
+13:Snowbound: 
+6:You:Snowbound
+11:You:4 1
+1:You:12-16 1-2 
+0:Snowbound:3 4
+1:Snowbound: 13-10 24-20
+0:You:4 3
+1:You:16-20 17-20 
+0:Snowbound:5 3
+1:Snowbound: bar-22 13-8
+0:You:5 3
+1:You:17-22 19-22 
+0:Snowbound:4 2
+1:Snowbound: bar-21 10-8
+0:You:6 5
+1:You:1-7 2-7 
+0:Snowbound:6 1
+1:Snowbound: 24-23 23-17
+0:You:5 6
+1:You:bar-5 12-18 
+0:Snowbound:3 6
+1:Snowbound: 21-18 17-11
+0:You:2 6
+1:You:bar-2 5-11 
+0:Snowbound:2 1
+1:Snowbound: bar-24 13-11
+0:You:1 4
+1:You:bar-4 19-20 
+0:Snowbound:2 3
+1:Snowbound: 11-8 18-16
+0:You:2 5
+1:You:2-4 12-17 
+0:Snowbound:4 4
+1:Snowbound: 6-2 6-2 13-9 13-9
+0:You:4 3
+1:You:12-16 19-22 
+0:Snowbound:1 5
+1:Snowbound: bar-24 8-3
+0:You:4 2
+1:You:12-16 17-19 
+0:Snowbound:1 5
+1:Snowbound: 8-3 2-1
+0:You:6 2
+1:You:7-13 19-21 
+0:Snowbound:2 3
+1:Snowbound: 9-7 24-21
+0:You:3 5
+1:You: bar-5
+0:Snowbound:3 1
+1:Snowbound: 8-5 6-5
+0:You:2 4
+1:You: bar-4 bar-2
+0:Snowbound:2 6
+1:Snowbound: bar-23 7-1
+0:You:6 5
+1:You:13-19 4-9 
+0:Snowbound:5 5
+15:Snowbound: 
+0:You:5 6
+1:You:2-7 7-13 
+0:Snowbound:3 6
+15:Snowbound: 
+0:You:3 4
+1:You:19-23 20-23 
+0:Snowbound:6 3
+15:Snowbound: 
+0:You:2 4
+1:You:16-20 13-15 
+0:Snowbound:3 2
+15:Snowbound: 
+0:You:6 4
+1:You:4-10 10-14 
+0:Snowbound:2 6
+15:Snowbound: 
+0:You:2 5
+1:You:16-21 21-23 
+0:Snowbound:4 2
+1:Snowbound: bar-21
+0:You:2 4
+1:You:9-13 13-15 
+0:Snowbound:2 6
+15:Snowbound: 
+0:You:1 4
+1:You:20-24 23-24 
+0:Snowbound:5 3
+15:Snowbound: 
+0:You:2 3
+1:You:14-17 15-17 
+0:Snowbound:5 4
+1:Snowbound: bar-21
+0:You:2 2
+1:You:15-17 17-19 17-19 17-19 
+0:Snowbound:6 2
+15:Snowbound: 
+0:You:3 4
+1:You:4-7 7-11 
+0:Snowbound:4 2
+1:Snowbound: bar-21
+0:You:5 6
+1:You:11-17 17-22 
+0:Snowbound:5 3
+15:Snowbound: 
+0:You:6 2
+1:You:19-off 22-24 
+0:Snowbound:2 6
+15:Snowbound: 
+0:You:2 2
+1:You:20-22 20-22 23-off 23-off 
+0:Snowbound:3 6
+15:Snowbound: 
+0:You:1 1
+1:You:22-23 22-23 19-20 19-20 
+0:Snowbound:3 3
+15:Snowbound: 
+0:You:4 6
+1:You:19-off 19-23 
+0:Snowbound:5 4
+1:Snowbound: bar-21 21-16
+0:You:4 6
+1:You: 20-off 20-24
+0:Snowbound:6 4
+1:Snowbound: 21-17 17-11
+0:You:3 6
+1:You: 22-off 22-off
+3:Snowbound:1
+7:You:1
+9:You:3

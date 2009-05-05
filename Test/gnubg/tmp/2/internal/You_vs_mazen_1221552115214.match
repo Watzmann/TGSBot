@@ -1,0 +1,114 @@
+JavaFIBS internal match representation v1.1
+8:mazen:3
+13:mazen: 
+6:You:mazen
+11:mazen:3 6
+1:mazen: 1-7 7-10
+0:You:1 4
+1:You:13-9 24-23 
+0:mazen:4 6
+1:mazen: 10-16 12-16
+0:You:6 2
+1:You:13-7 9-7 
+0:mazen:2 6
+1:mazen: 1-3 3-9
+0:You:5 3
+1:You:8-3 6-3 
+0:mazen:5 5
+1:mazen: 19-24 19-24 16-21 16-21
+0:You:5 1
+1:You:bar-20 6-5 
+0:mazen:1 5
+1:mazen: 17-22 22-23
+0:You:2 3
+1:You:bar-23 8-5 
+0:mazen:1 6
+1:mazen: bar-1 9-15
+0:You:6 5
+1:You:20-15 15-9 
+0:mazen:1 5
+1:mazen: bar-1 12-17
+0:You:1 6
+1:You:9-8 13-7 
+0:mazen:4 6
+1:mazen: 17-23 19-23
+0:You:4 2
+15:You: 
+0:mazen:2 3
+1:mazen: 1-4 12-14
+0:You:3 2
+1:You:bar-22 6-4 
+0:mazen:4 2
+1:mazen: bar-4 14-16
+0:You:2 3
+1:You:bar-22 7-5 
+0:mazen:3 2
+1:mazen: 16-19 12-14
+0:You:2 5
+1:You:13-8 13-11 
+0:mazen:3 2
+1:mazen: 12-14 1-4
+0:You:1 4
+1:You:11-7 7-6 
+0:mazen:2 4
+1:mazen: 17-21 17-19
+0:You:5 5
+1:You:22-17 22-17 17-12 17-12 
+0:mazen:1 2
+1:mazen: 19-21 21-22
+0:You:4 1
+1:You:6-2 8-7 
+0:mazen:5 5
+1:mazen: 4-9 4-9 14-19 14-19
+0:You:6 6
+1:You:8-2 7-1 7-1 8-2 
+0:mazen:6 5
+1:mazen: 9-15 9-14
+0:You:2 2
+1:You:12-10 10-8 8-6 12-10 
+0:mazen:3 2
+1:mazen: 15-18 18-20
+0:You:4 1
+1:You:10-6 7-6 
+0:mazen:1 3
+1:mazen: 14-17 17-18
+0:You:3 1
+1:You: 3-o 1-o
+0:mazen:6 3
+1:mazen: 18-21 19-off
+0:You:6 4
+1:You:6-off 5-1 
+2:mazen: 
+4:You:
+0:mazen:3 4
+1:mazen: 22-off 21-off
+0:You:1 1
+1:You:1-off 1-off 2-1 1-off 
+0:mazen:3 6
+1:mazen: 19-off 19-22
+0:You:3 6
+1:You: 6-o 3-o
+0:mazen:6 4
+1:mazen: 19-off 21-off
+0:You:3 5
+1:You:5-off 6-3 
+0:mazen:1 4
+1:mazen: 21-off 24-off
+0:You:2 3
+1:You: 3-o 2-o
+0:mazen:2 3
+1:mazen: 22-off 23-off
+0:You:3 3
+1:You:6-3 6-3 3-off 3-off 
+0:mazen:6 4
+1:mazen: 19-off 21-off
+2:You: 
+4:mazen:
+0:You:1 4
+1:You:5-1 1-off 
+0:mazen:6 4
+1:mazen: 20-off 23-off
+0:You:1 4
+1:You: 2-1 1-off
+7:You:4
+9:You:3

@@ -1,0 +1,137 @@
+JavaFIBS internal match representation v1.1
+8:velvetgoldmine:3
+13:velvetgoldmine: 
+6:You:velvetgoldmine
+11:velvetgoldmine:1 3
+1:velvetgoldmine: 17-20 19-20
+0:You:6 1
+1:You:13-7 8-7 
+0:velvetgoldmine:4 1
+1:velvetgoldmine: 12-16 16-17
+0:You:5 3
+1:You:8-3 6-3 
+0:velvetgoldmine:6 6
+1:velvetgoldmine: 12-18 12-18 12-18 12-18
+0:You:4 1
+1:You:13-9 9-8 
+0:velvetgoldmine:5 4
+1:velvetgoldmine: 1-5 5-10
+0:You:1 2
+1:You:13-11 11-10 
+0:velvetgoldmine:6 1
+1:velvetgoldmine: bar-1 17-23
+0:You:1 2
+1:You:24-23 10-8 
+0:velvetgoldmine:2 6
+1:velvetgoldmine: bar-2 18-24
+0:You:4 1
+1:You:bar-24 6-2 
+0:velvetgoldmine:4 1
+1:velvetgoldmine: bar-1 bar-4
+2:You: 
+5:velvetgoldmine:
+7:You:1
+14:sorrytigger-1:velvetgoldmine-0
+13:velvetgoldmine: 
+6:You:velvetgoldmine
+11:You:3 1
+1:You:8-5 6-5 
+0:velvetgoldmine:3 4
+1:velvetgoldmine: 1-4 12-16
+0:You:3 2
+1:You:6-4 4-1 
+0:velvetgoldmine:5 6
+15:velvetgoldmine: 
+0:You:4 4
+1:You:8-4 8-4 24-20 24-20 
+0:velvetgoldmine:5 6
+15:velvetgoldmine: 
+0:You:4 3
+1:You:20-16 13-10 
+0:velvetgoldmine:6 1
+1:velvetgoldmine: bar-1
+0:You:6 2
+1:You:bar-23 16-10 
+0:velvetgoldmine:4 6
+15:velvetgoldmine: 
+0:You:1 6
+1:You:13-7 23-22 
+0:velvetgoldmine:3 5
+1:velvetgoldmine: bar-3
+0:You:3 1
+1:You:10-7 22-21 
+0:velvetgoldmine:5 6
+15:velvetgoldmine: 
+0:You:6 2
+1:You:21-15 15-13 
+0:velvetgoldmine:4 5
+15:velvetgoldmine: 
+0:You:6 4
+1:You:20-14 14-10 
+0:velvetgoldmine:1 2
+1:velvetgoldmine: bar-1 12-14
+0:You:3 2
+1:You:13-10 6-4 
+0:velvetgoldmine:3 4
+1:velvetgoldmine: 12-16 16-19
+0:You:1 4
+1:You:13-9 10-9 
+0:velvetgoldmine:4 4
+1:velvetgoldmine: 12-16 12-16 16-20 16-20
+0:You:2 2
+1:You:7-5 7-5 5-3 5-3 
+0:velvetgoldmine:3 5
+15:velvetgoldmine: 
+0:You:1 6
+1:You:9-3 13-12 
+0:velvetgoldmine:1 6
+1:velvetgoldmine: bar-1 1-7
+0:You:2 5
+1:You:12-7 9-7 
+0:velvetgoldmine:6 4
+15:velvetgoldmine: 
+0:You:6 5
+1:You:13-7 10-5 
+0:velvetgoldmine:4 6
+15:velvetgoldmine: 
+0:You:2 2
+1:You:10-8 8-6 7-5 5-3 
+0:velvetgoldmine:6 1
+1:velvetgoldmine: bar-1 14-20
+0:You:3 3
+1:You:7-4 7-4 3-off 6-3 
+3:velvetgoldmine:1
+0:velvetgoldmine:1 3
+1:velvetgoldmine: 17-20 17-18
+0:You:1 3
+1:You:5-2 3-2 
+0:velvetgoldmine:6 2
+1:velvetgoldmine: 1-7 17-19
+0:You:6 3
+1:You:6-off 6-3 
+0:velvetgoldmine:2 1
+1:velvetgoldmine: 7-9 9-10
+0:You:1 6
+1:You:5-off 5-4 
+0:velvetgoldmine:5 2
+1:velvetgoldmine: 10-15 18-20
+0:You:5 4
+1:You: 4-off 4-off
+0:velvetgoldmine:6 3
+1:velvetgoldmine: 15-21 19-22
+0:You:5 6
+1:You: 4-off 4-off
+0:velvetgoldmine:5 2
+1:velvetgoldmine: 1-6 6-8
+0:You:3 3
+1:You:4-1 4-1 3-off 3-off 
+0:velvetgoldmine:6 3
+1:velvetgoldmine: bar-6 8-11
+0:You:5 5
+1:You: 3-off 3-off 2-off 2-off
+0:velvetgoldmine:2 2
+1:velvetgoldmine: 11-13 6-8 13-15 15-17
+0:You:4 5
+1:You: 1-off 1-off
+7:You:2
+9:You:3

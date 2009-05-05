@@ -1,0 +1,393 @@
+JavaFIBS internal match representation v1.1
+8:Ariana:3
+13:Ariana: 
+6:You:Ariana
+11:Ariana:1 3
+1:Ariana: 19-20 17-20
+0:You:5 5
+1:You:13-8 13-8 8-3 8-3 
+0:Ariana:4 1
+1:Ariana: 12-16 16-17
+0:You:2 4
+1:You:8-4 6-4 
+0:Ariana:4 1
+1:Ariana: 1-5 1-2
+0:You:3 5
+1:You:13-8 8-5 
+0:Ariana:1 4
+1:Ariana: bar-1 1-5
+0:You:5 6
+15:You: 
+2:Ariana: 
+4:You:
+0:Ariana:2 3
+1:Ariana: 2-5 12-14
+0:You:2 1
+1:You:bar-23 23-22 
+0:Ariana:4 1
+1:Ariana: 14-18 17-18
+0:You:4 5
+1:You:6-1 6-2 
+0:Ariana:5 5
+1:Ariana: 5-10 5-10 10-15 10-15
+0:You:5 6
+1:You:22-16 16-11 
+0:Ariana:4 5
+1:Ariana: 12-17 15-19
+0:You:1 5
+1:You:8-3 3-2 
+0:Ariana:3 3
+1:Ariana: 19-22 19-22 12-15 12-15
+0:You:5 3
+1:You:11-6 8-5 
+0:Ariana:6 4
+1:Ariana: 17-21 15-21
+0:You:3 4
+1:You:13-9 13-10 
+0:Ariana:1 2
+1:Ariana: 19-21 21-22
+0:You:4 2
+1:You:9-5 6-4 
+0:Ariana:2 1
+1:Ariana: 15-16 16-18
+0:You:5 4
+1:You:10-5 5-1 
+0:Ariana:3 2
+1:Ariana: 18-21 15-17
+0:You:1 3
+1:You:4-1 6-5 
+0:Ariana:4 2
+1:Ariana: 17-21 21-23
+0:You:2 4
+1:You:6-2 5-3 
+0:Ariana:6 1
+1:Ariana: 17-23 17-18
+0:You:6 3
+1:You:5-2 
+0:Ariana:3 2
+1:Ariana: 18-21 21-23
+0:You:6 6
+15:You: 
+0:Ariana:1 5
+1:Ariana: 18-19 18-23
+0:You:5 1
+1:You:2-1 
+0:Ariana:1 3
+1:Ariana: 19-20 22-off
+0:You:1 4
+1:You:5-1 3-2 
+0:Ariana:5 4
+1:Ariana: 20-off 21-off
+0:You:1 3
+1:You:4-1 4-3 
+0:Ariana:5 1
+1:Ariana: 20-21 20-off
+0:You:5 5
+15:You: 
+0:Ariana:6 6
+1:Ariana: 19-off 19-off 21-off 21-off
+0:You:1 2
+1:You:3-1 2-1 
+0:Ariana:4 6
+1:Ariana: 21-off 22-off
+0:You:2 1
+1:You:24-22 22-21 
+0:Ariana:3 3
+15:Ariana: 
+0:You:5 4
+1:You:24-19 19-15 
+0:Ariana:4 2
+1:Ariana: bar-4 4-6
+0:You:6 3
+1:You:15-9 9-6 
+0:Ariana:4 5
+1:Ariana: bar-5 5-9
+0:You:1 2
+1:You:21-19 19-18 
+0:Ariana:1 1
+1:Ariana: 23-24 23-24 9-10 10-11
+0:You:6 4
+1:You:18-12 12-8 
+0:Ariana:3 6
+1:Ariana: 11-17 17-20
+0:You:1 3
+1:You:8-5 1-off 
+0:Ariana:1 2
+1:Ariana: 23-off 24-off
+0:You:3 5
+1:You: 5-o 3-o
+0:Ariana:1 3
+1:Ariana: 20-23 24-off
+0:You:5 5
+1:You: 6-1 3-off 2-off 2-off
+0:Ariana:4 5
+1:Ariana: 23-off 23-off
+7:Ariana:2
+14:Ariana-2:sorrytigger-0
+13:Ariana: 
+6:You:Ariana
+11:You:3 1
+1:You:17-20 19-20 
+0:Ariana:3 6
+1:Ariana: 24-18 24-21
+0:You:6 3
+1:You:12-18 18-21 
+0:Ariana:1 6
+1:Ariana: bar-24
+0:You:1 2
+1:You:19-21 1-2 
+0:Ariana:4 1
+1:Ariana: bar-24 13-9
+0:You:6 6
+1:You:12-18 12-18 1-7 12-18 
+0:Ariana:3 1
+1:Ariana: 13-12 12-9
+0:You:2 6
+1:You: bar-2 17-23
+0:Ariana:1 6
+1:Ariana: 24-23 23-17
+0:You:1 6
+1:You: bar-1
+0:Ariana:2 2
+1:Ariana: 24-22 6-4 6-4 17-15
+0:You:2 5
+1:You:bar-5 5-7 
+0:Ariana:3 6
+1:Ariana: 22-16 16-13
+0:You:5 5
+1:You:2-7 7-12 12-17 17-22 
+0:Ariana:5 1
+1:Ariana: 15-14 14-9
+0:You:5 1
+1:You:1-2 18-23 
+0:Ariana:3 5
+1:Ariana: 6-3 8-3
+0:You:3 1
+1:You:19-22 22-23 
+0:Ariana:6 2
+1:Ariana: 9-3 3-1
+0:You:5 1
+1:You:2-7 21-22 
+0:Ariana:6 5
+1:Ariana: 13-8 8-2
+0:You:1 2
+1:You:bar-1 19-21 
+0:Ariana:3 4
+15:Ariana: 
+0:You:5 4
+1:You:7-12 12-16 
+0:Ariana:6 5
+1:Ariana: bar-19 19-14
+0:You:1 4
+1:You:bar-1 16-20 
+0:Ariana:5 3
+1:Ariana: 14-9 9-6
+0:You:5 1
+1:You:1-2 2-7 
+0:Ariana:3 6
+1:Ariana: bar-19 19-16
+0:You:6 1
+1:You:1-7 18-19 
+0:Ariana:1 2
+1:Ariana: 16-14 14-13
+0:You:4 6
+1:You:7-11 11-17 
+0:Ariana:4 6
+1:Ariana: 13-9 9-3
+0:You:6 1
+1:You:17-23 18-19 
+0:Ariana:4 5
+1:Ariana: 13-8 8-4
+0:You:5 6
+1:You: 7-12 12-18
+0:Ariana:5 4
+1:Ariana: 13-8 13-9
+0:You:2 6
+1:You:18-24 20-22 
+0:Ariana:1 2
+1:Ariana: 3-2 4-2
+0:You:1 5
+1:You:19-24 19-20 
+0:Ariana:6 1
+1:Ariana: 6-5 9-3
+0:You:4 6
+1:You:7-13 7-11 
+0:Ariana:1 3
+1:Ariana: 8-7 8-5
+0:You:2 2
+1:You:13-15 15-17 17-19 11-13 
+0:Ariana:3 4
+1:Ariana: 9-5 9-6
+0:You:4 3
+1:You:13-17 17-20 
+0:Ariana:6 1
+1:Ariana: 7-6 8-2
+0:You:3 1
+1:You: 22-o 24-o
+0:Ariana:4 6
+1:Ariana: 6-off 4-off
+0:You:6 6
+1:You: 19-off 20-off 20-off 20-off
+0:Ariana:4 5
+1:Ariana: 5-off 4-off
+0:You:6 2
+1:You: 20-o 23-o
+0:Ariana:1 4
+1:Ariana: 5-1 1-off
+0:You:1 6
+1:You: 21-o 24-o
+0:Ariana:6 1
+1:Ariana: 2-1 6-off
+0:You:1 6
+1:You:21-off 23-24 
+0:Ariana:3 2
+1:Ariana: 3-off 2-off
+0:You:1 6
+1:You: 22-o 24-o
+0:Ariana:1 3
+1:Ariana: 3-off 1-off
+0:You:1 5
+1:You:22-off 23-24 
+0:Ariana:2 3
+1:Ariana: 3-off 2-off
+0:You:5 5
+1:You: 24-off
+7:You:1
+14:sorrytigger-1:Ariana-2
+13:Ariana: 
+6:You:Ariana
+11:Ariana:3 4
+1:Ariana: 12-16 1-4
+2:You: 
+4:Ariana:
+0:You:5 3
+1:You:24-21 21-16 
+0:Ariana:2 4
+1:Ariana: bar-2 12-16
+0:You:1 5
+1:You:bar-24 6-1 
+0:Ariana:4 1
+1:Ariana: bar-1 12-16
+0:You:2 6
+1:You:bar-23 8-2 
+0:Ariana:1 2
+1:Ariana: bar-2 1-2
+0:You:6 4
+1:You:bar-21 24-18 
+0:Ariana:5 5
+1:Ariana: 19-24 19-24 16-21 16-21
+0:You:2 2
+1:You:bar-23 bar-23 6-4 6-4 
+0:Ariana:1 5
+1:Ariana: bar-1 19-24
+0:You:2 2
+1:You:13-11 13-11 11-9 11-9 
+0:Ariana:6 2
+1:Ariana: 1-3 12-18
+0:You:4 6
+15:You: 
+0:Ariana:5 2
+1:Ariana: 3-5 12-17
+0:You:6 1
+15:You: 
+0:Ariana:1 3
+1:Ariana: 17-18 2-5
+0:You:5 4
+1:You:bar-20 20-16 
+0:Ariana:3 1
+1:Ariana: 2-5 17-18
+0:You:2 3
+1:You:13-10 10-8 
+0:Ariana:3 5
+1:Ariana: 5-10 18-21
+0:You:3 4
+1:You:13-10 10-6 
+0:Ariana:6 5
+1:Ariana: bar-5 5-11
+0:You:5 4
+1:You:16-11 13-9 
+0:Ariana:6 3
+1:Ariana: bar-3 5-11
+0:You:2 3
+1:You:bar-23 8-5 
+0:Ariana:5 1
+1:Ariana: bar-1 11-16
+0:You:6 2
+1:You:9-3 5-3 
+0:Ariana:6 2
+1:Ariana: bar-2 1-7
+0:You:2 1
+1:You:9-7 8-7 
+0:Ariana:1 6
+1:Ariana: bar-1 2-8
+0:You:4 4
+15:You: 
+0:Ariana:3 3
+1:Ariana: 17-20 17-20 16-19 8-11
+0:You:4 5
+15:You: 
+0:Ariana:6 1
+1:Ariana: 1-2 2-8
+0:You:3 4
+1:You:bar-22 9-5 
+0:Ariana:3 4
+1:Ariana: 11-15 15-18
+0:You:4 5
+1:You:22-17 7-3 
+0:Ariana:1 5
+1:Ariana: 8-9 9-14
+0:You:2 1
+1:You:17-15 15-14 
+0:Ariana:5 3
+1:Ariana: bar-5 5-8
+0:You:2 2
+1:You:bar-23 14-12 12-10 10-8 
+0:Ariana:6 2
+1:Ariana: bar-2 2-8
+0:You:4 2
+1:You:bar-23 6-2 
+0:Ariana:4 5
+1:Ariana: 19-24 8-12
+0:You:5 3
+1:You:7-2 4-1 
+0:Ariana:1 5
+1:Ariana: 12-17 17-18
+0:You:5 4
+1:You: 6-2 6-1
+0:Ariana:6 3
+1:Ariana: 18-24 18-21
+0:You:4 1
+1:You:23-22 
+0:Ariana:1 3
+1:Ariana: 18-19 18-21
+0:You:6 1
+1:You:23-17 23-22 
+0:Ariana:2 2
+1:Ariana: 19-21 19-21 19-21
+0:You:6 3
+1:You:17-11 11-8 
+0:Ariana:1 2
+1:Ariana: 24-off
+0:You:2 6
+1:You:23-17 8-6 
+0:Ariana:4 3
+1:Ariana: 21-off 21-24
+0:You:2 5
+1:You:17-12 6-4 
+0:Ariana:4 6
+1:Ariana: 20-off 20-24
+0:You:2 5
+1:You:12-7 7-5 
+0:Ariana:6 1
+1:Ariana: 21-off 24-off
+0:You:3 1
+1:You:22-19 19-18 
+0:Ariana:3 4
+1:Ariana: 21-off 21-24
+0:You:5 4
+1:You:18-13 13-9 
+0:Ariana:3 3
+1:Ariana: 21-24 21-24 21-24 24-off
+3:You:4
+7:Ariana:4
+9:Ariana:3

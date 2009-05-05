@@ -1,0 +1,170 @@
+JavaFIBS internal match representation v1.1
+8:lexxap:3
+13:lexxap: 
+6:You:lexxap
+11:You:4 3
+1:You:13-9 13-10 
+0:lexxap:5 3
+1:lexxap: 1-4 4-9
+0:You:3 2
+1:You:bar-23 13-10 
+0:lexxap:3 5
+1:lexxap: 1-4 4-9
+0:You:3 3
+1:You:24-21 24-21 8-5 8-5 
+0:lexxap:2 1
+1:lexxap: 12-14 14-15
+0:You:1 3
+1:You:6-3 6-5 
+0:lexxap:2 5
+1:lexxap: 12-17 15-17
+0:You:2 1
+1:You:23-21 5-4 
+0:lexxap:4 5
+1:lexxap: 17-22 19-23
+0:You:4 4
+1:You:8-4 10-6 6-2 6-2 
+0:lexxap:5 6
+1:lexxap: 12-18 18-23
+0:You:6 5
+1:You:21-15 15-10 
+0:lexxap:4 1
+1:lexxap: 17-18 18-22
+0:You:1 3
+1:You:6-3 6-5 
+0:lexxap:5 4
+1:lexxap: 17-22 19-23
+0:You:5 4
+1:You:10-5 10-6 
+0:lexxap:6 6
+1:lexxap: 9-15 9-15 12-18 12-18
+0:You:6 1
+1:You:13-7 13-12 
+0:lexxap:5 2
+1:lexxap: 19-24 22-24
+0:You:3 4
+1:You:5-1 5-2 
+0:lexxap:4 6
+1:lexxap: 18-24 18-22
+0:You:2 5
+1:You:21-16 16-14 
+0:lexxap:6 2
+1:lexxap: 15-21 21-23
+0:You:5 6
+1:You:bar-20 12-6 
+2:lexxap: 
+5:You:
+7:lexxap:1
+14:lexxap-1:sorrytigger-0
+13:lexxap: 
+6:You:lexxap
+11:You:6 4
+1:You:17-23 19-23 
+0:lexxap:4 1
+1:lexxap: 13-9 9-8
+0:You:2 4
+1:You:17-21 19-21 
+0:lexxap:3 1
+1:lexxap: 8-5 6-5
+0:You:4 5
+1:You:12-17 12-16 
+0:lexxap:2 3
+1:lexxap: 13-10 10-8
+0:You:3 3
+1:You:1-4 1-4 17-20 17-20 
+0:lexxap:2 4
+1:lexxap: 24-22 22-18
+0:You:1 4
+1:You:12-16 19-20 
+0:lexxap:6 1
+1:lexxap: 24-18 6-5
+0:You:5 1
+1:You:12-17 20-21 
+0:lexxap:2 6
+1:lexxap: 18-12 8-6
+0:You:1 5
+1:You:bar-1 17-22 
+0:lexxap:4 2
+1:lexxap: 18-14 14-12
+0:You:6 2
+1:You:1-3 16-22 
+0:lexxap:4 3
+1:lexxap: 6-2 5-2
+0:You:3 1
+1:You:21-24 3-4 
+0:lexxap:2 6
+1:lexxap: 13-7 7-5
+0:You:3 5
+1:You:16-21 21-24 
+0:lexxap:5 1
+1:lexxap: 13-8 13-12
+0:You:6 5
+1:You:4-10 10-15 
+0:lexxap:4 2
+1:lexxap: 12-8 8-6
+0:You:2 6
+1:You:4-10 15-17 
+0:lexxap:2 3
+1:lexxap: 12-10 8-5
+0:You:6 5
+15:You: 
+0:lexxap:4 4
+1:lexxap: 8-4 8-4 5-1 5-1
+0:You:1 2
+15:You: 
+0:lexxap:6 2
+1:lexxap: 10-4 12-10
+0:You:5 5
+15:You: 
+0:lexxap:4 5
+1:lexxap: 10-5 6-2
+0:You:1 5
+15:You: 
+0:lexxap:1 1
+1:lexxap: 5-4 4-3 4-3 6-5
+0:You:2 4
+15:You: 
+0:lexxap:5 2
+1:lexxap: 8-3 5-3
+0:You:3 1
+15:You: 
+0:lexxap:1 2
+1:lexxap: 2-off 3-2
+0:You:4 2
+15:You: 
+0:lexxap:4 2
+1:lexxap: 6-2 6-4
+0:You:2 5
+15:You: 
+0:lexxap:5 6
+1:lexxap: 5-off 5-off
+0:You:3 4
+15:You: 
+0:lexxap:1 6
+1:lexxap: 4-off 3-2
+0:You:2 1
+15:You: 
+0:lexxap:1 4
+1:lexxap: 4-off 4-3
+0:You:5 6
+1:You: bar-6 bar-5
+0:lexxap:6 3
+1:lexxap: 3-off 3-off
+0:You:3 3
+1:You:6-9 9-12 12-15 5-8 
+0:lexxap:6 1
+1:lexxap: 3-off 1-off
+0:You:1 2
+1:You:17-19 8-9 
+0:lexxap:3 4
+1:lexxap: 2-off 2-off
+0:You:4 3
+1:You:9-12 15-19 
+0:lexxap:5 1
+1:lexxap: 2-off 1-off
+0:You:1 1
+1:You:12-13 13-14 14-15 15-16 
+0:lexxap:2 4
+1:lexxap: 2-off 2-off
+7:lexxap:2
+9:lexxap:3

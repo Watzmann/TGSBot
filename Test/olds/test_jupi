@@ -1,0 +1,195 @@
+full.2006-02-14-band1 oooooo
+full.2006-02-20-band2 ooooooooooooo+oooooo
+full.2006-03-12-band3 ooooooooooooo+oooooooooooo
+full.2006-04-07-band4 ooooooooooooo+ooooooo
+full.2006-04-28-band5 ooooooooooooo+oooooooooooooo
+full.2006-05-26-band1 ooooooooooooo+ooooooooooooooooooooo
+full.2006-06-30-band2 ooooooooooooo+oooooooooooooooooooooooooooooooooo
+full.2006-08-17-band3 ooooooooooooo+ooooooooooooooooooooooooo
+full.2006-09-25-band4 ooooooooooooo+ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+full.2006-12-11-band5 ooooooooooooo+oooooooooooooooooooooooooooooo
+full.2007-01-24-band1 ooooooooooooo+oooooooooooooooooooooooooooooo
+full.2007-03-09-band2 ooooooooooooo+ooooooooooooooooooooooooo
+full.2007-04-17-band3 ooooooo
+full.2007-04-24-band4 oo
+full.2007-04-26-band4 ooooooooooooo
+full.2007-05-09-band5 ooooooooooooo+o
+full.2007-05-24-band1 ooooooooooooo+ooooooooooooo
+full.2007-06-20-band2 ooooooooooooo+oooooooooooo
+full.2007-07-16-band3 oooo
+full.2007-07-20-band4 ooooooooooooo+ooooooooooo
+full.2007-08-14-band5 ooooooooooooo+oooooo
+full.2007-09-03-band1 ooooooooooooo+oo
+full.2007-09-19-band2 ooooooooooooo+oo
+full.2007-10-05-band3 ooooooooo
+------------------------------------------------------------
+     full.2006-02-14-band1 oooo+o
+     full.2006-02-20-band2 oooo+ooo
+increment.2006-02-28-band2 ooo
+increment.2006-03-03-band2 oooo+oo
+increment.2006-03-10-band2 oo
+     full.2006-03-12-band3 ooo
+increment.2006-03-15-band3 oo
+increment.2006-03-17-band3 oooo+ooo
+increment.2006-03-25-band3 oooo+o
+increment.2006-03-31-band3 oooo+oo
+     full.2006-04-07-band4 oooo+oooooooo
+increment.2006-04-20-band4 o
+increment.2006-04-21-band4 oooo+o
+increment.2006-04-27-band4 o
+     full.2006-04-28-band5 oooo+
+increment.2006-05-03-band5 oo
+increment.2006-05-05-band5 oooo+oo
+increment.2006-05-12-band5 oooo+
+increment.2006-05-17-band5 oo
+increment.2006-05-19-band5 oooo+
+increment.2006-05-24-band5 oo
+     full.2006-05-26-band1 oooo+
+increment.2006-05-31-band1 oooo+oooooooooooooo
+increment.2006-06-19-band1 oooo+ooo
+increment.2006-06-27-band1 ooo
+     full.2006-06-30-band2 oooo+oo
+increment.2006-07-07-band2 oooo+oo
+increment.2006-07-14-band2 oooo
+increment.2006-07-18-band2 oo
+increment.2006-07-20-band2 o
+increment.2006-07-21-band2 oooo+o
+increment.2006-07-27-band2 oooo+oooooooooooooooo
+     full.2006-08-17-band3 oooo+ooo
+increment.2006-08-25-band3 oooo+oooooooo
+increment.2006-09-07-band3 oooo+ooo
+increment.2006-09-15-band3 oooo
+increment.2006-09-19-band3 ooo
+increment.2006-09-22-band3 ooo
+     full.2006-09-25-band4 oooo+oooooooooooooooooooooooooooo
+increment.2006-10-28-band4 oooo+ooooooooooo
+increment.2006-11-13-band4 oooo+oo
+increment.2006-11-20-band4 oooo+o
+increment.2006-11-26-band4 oooo
+increment.2006-11-30-band4 oooo+oooooo
+     full.2006-12-11-band5 oooo+oooooo
+increment.2006-12-22-band5 oooo+oooooooo
+increment.2007-01-04-band5 oooo+o
+increment.2007-01-10-band5 oooo+oooooooo
+increment.2007-01-23-band5 o
+     full.2007-01-24-band1 oooo+oooo
+increment.2007-02-02-band1 oooo+o
+increment.2007-02-08-band1 oooo+ooooooo
+increment.2007-02-20-band1 oooo+ooo
+increment.2007-02-28-band1 oo
+increment.2007-03-02-band1 oooo+oo
+     full.2007-03-09-band2 oooo+oooooooooooo
+increment.2007-03-26-band2 oooo
+increment.2007-03-30-band2 oooo+
+increment.2007-04-04-band2 o
+increment.2007-04-05-band2 oooo+ooo
+increment.2007-04-13-band2 oooo
+     full.2007-04-17-band3 oo
+increment.2007-04-19-band3 o
+increment.2007-04-20-band3 ooo
+increment.2007-04-23-band3 o
+increment.2007-04-24-band3 
+     full.2007-04-24-band4 o
+increment.2007-04-25-band4 o
+     full.2007-04-26-band4 o
+increment.2007-04-27-band4 ooo
+increment.2007-04-30-band4 oo
+increment.2007-05-02-band4 oo
+increment.2007-05-04-band4 ooo
+increment.2007-05-07-band4 oo
+     full.2007-05-09-band5 o
+increment.2007-05-10-band5 o
+increment.2007-05-11-band5 ooo
+increment.2007-05-14-band5 o
+increment.2007-05-15-band5 ooo
+increment.2007-05-18-band5 ooo
+increment.2007-05-21-band5 o
+increment.2007-05-22-band5 o
+increment.2007-05-23-band5 o
+     full.2007-05-24-band1 o
+increment.2007-05-25-band1 oooo+
+increment.2007-05-30-band1 o
+increment.2007-05-31-band1 o
+increment.2007-06-01-band1 ooo
+increment.2007-06-04-band1 o
+increment.2007-06-05-band1 o
+increment.2007-06-06-band1 oo
+increment.2007-06-08-band1 ooo
+increment.2007-06-11-band1 oo
+increment.2007-06-13-band1 o
+increment.2007-06-14-band1 o
+increment.2007-06-15-band1 oooo
+increment.2007-06-19-band1 o
+     full.2007-06-20-band2 oo
+increment.2007-06-22-band2 ooo
+increment.2007-06-25-band2 o
+increment.2007-06-26-band2 o
+increment.2007-06-27-band2 o
+increment.2007-06-28-band2 o
+increment.2007-06-29-band2 ooo
+increment.2007-07-02-band2 oo
+increment.2007-07-04-band2 o
+increment.2007-07-05-band2 o
+increment.2007-07-06-band2 ooo
+increment.2007-07-09-band2 oo
+increment.2007-07-11-band2 o
+increment.2007-07-12-band2 o
+increment.2007-07-13-band2 ooo
+     full.2007-07-16-band3 o
+increment.2007-07-17-band3 o
+increment.2007-07-18-band3 o
+increment.2007-07-19-band3 o
+     full.2007-07-20-band4 ooo
+increment.2007-07-23-band4 o
+increment.2007-07-24-band4 o
+increment.2007-07-25-band4 o
+increment.2007-07-26-band4 o
+increment.2007-07-27-band4 ooo
+increment.2007-07-30-band4 o
+increment.2007-07-31-band4 o
+increment.2007-08-01-band4 o
+increment.2007-08-02-band4 o
+increment.2007-08-03-band4 ooo
+increment.2007-08-06-band4 o
+increment.2007-08-07-band4 o
+increment.2007-08-08-band4 o
+increment.2007-08-09-band4 o
+increment.2007-08-10-band4 ooo
+increment.2007-08-13-band4 o
+     full.2007-08-14-band5 o
+increment.2007-08-15-band5 o
+increment.2007-08-16-band5 oooo
+increment.2007-08-20-band5 o
+increment.2007-08-21-band5 o
+increment.2007-08-22-band5 oo
+increment.2007-08-24-band5 ooo
+increment.2007-08-27-band5 o
+increment.2007-08-28-band5 o
+increment.2007-08-29-band5 o
+increment.2007-08-30-band5 o
+increment.2007-08-31-band5 ooo
+     full.2007-09-03-band1 o
+increment.2007-09-04-band1 o
+increment.2007-09-05-band1 oo
+increment.2007-09-07-band1 ooo
+increment.2007-09-10-band1 o
+increment.2007-09-11-band1 oo
+increment.2007-09-13-band1 o
+increment.2007-09-14-band1 ooo
+increment.2007-09-17-band1 o
+increment.2007-09-18-band1 o
+     full.2007-09-19-band2 o
+increment.2007-09-20-band2 o
+increment.2007-09-21-band2 oooo
+increment.2007-09-25-band2 o
+increment.2007-09-26-band2 o
+increment.2007-09-27-band2 o
+increment.2007-09-28-band2 oooo
+increment.2007-10-02-band2 oo
+increment.2007-10-04-band2 o
+     full.2007-10-05-band3 ooo
+increment.2007-10-08-band3 o
+increment.2007-10-09-band3 o
+increment.2007-10-10-band3 o
+increment.2007-10-11-band3 o
+increment.2007-10-12-band3 oo

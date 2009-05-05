@@ -1,0 +1,152 @@
+JavaFIBS internal match representation v1.1
+8:souptree:3
+13:souptree: 
+6:You:souptree
+11:souptree:3 6
+1:souptree: 1-7 12-15
+0:You:3 6
+1:You:24-18 18-15 
+0:souptree:5 5
+1:souptree: bar-5 5-10 10-15 19-24
+0:You:5 5
+1:You:bar-20 bar-20 6-1 20-15 
+0:souptree:4 3
+1:souptree: bar-3 bar-4
+0:You:4 1
+1:You:8-7 7-3 
+0:souptree:5 5
+1:souptree: bar-5 bar-5 5-10 10-15
+0:You:6 5
+1:You:bar-20 13-7 
+2:souptree: 
+4:You:
+0:souptree:1 3
+1:souptree: 4-7 15-16
+0:You:4 4
+1:You:bar-21 20-16 13-9 9-5 
+0:souptree:4 4
+1:souptree: bar-4 bar-4 12-16 16-20
+0:You:4 2
+1:You: bar-23 bar-21
+0:souptree:3 5
+1:souptree: 17-20 7-12
+0:You:6 5
+1:You:13-7 6-1 
+0:souptree:6 4
+1:souptree: 17-23 19-23
+0:You:2 6
+15:You: 
+0:souptree:1 3
+1:souptree: 4-7 4-5
+0:You:6 3
+1:You: bar-22
+0:souptree:6 3
+1:souptree: 19-22 12-18
+0:You:3 1
+1:You: bar-24 bar-22
+0:souptree:3 1
+1:souptree: bar-3
+0:You:2 3
+1:You: bar-22
+0:souptree:4 6
+1:souptree: bar-4 12-18
+0:You:6 3
+1:You:bar-22 13-7 
+0:souptree:5 2
+1:souptree: bar-5 3-5
+0:You:2 5
+1:You:22-17 6-4 
+0:souptree:6 3
+1:souptree: bar-3
+0:You:1 1
+1:You:4-3 3-2 2-1 8-7 
+0:souptree:1 1
+15:souptree: 
+0:You:6 5
+1:You:13-8 21-15 
+0:souptree:1 1
+15:souptree: 
+0:You:5 3
+1:You:22-17 24-21 
+0:souptree:4 5
+1:souptree: bar-5 bar-4
+0:You:6 3
+1:You:15-9 9-6 
+0:souptree:3 3
+1:souptree: 12-15 12-15 19-22 19-22
+0:You:6 2
+1:You:bar-19 19-17 
+0:souptree:2 2
+1:souptree: 22-24 22-24 18-20 18-20
+2:You: 
+4:souptree:
+0:You:3 6
+1:You:21-18 18-12 
+0:souptree:5 3
+1:souptree: 4-9 9-12
+0:You:1 2
+15:You: 
+0:souptree:2 3
+1:souptree: 12-15 20-22
+0:You:1 2
+15:You: 
+0:souptree:5 1
+1:souptree: 20-21 5-10
+0:You:3 1
+1:You: bar-22
+0:souptree:4 1
+1:souptree: bar-4 21-22
+0:You:4 2
+1:You: bar-21
+0:souptree:4 2
+1:souptree: 15-19 19-21
+0:You:4 4
+1:You:bar-21 bar-21 8-4 8-4 
+0:souptree:1 4
+15:souptree: 
+0:You:4 5
+1:You:7-2 6-2 
+0:souptree:1 1
+15:souptree: 
+0:You:6 6
+1:You: 17-11 17-11 17-11 7-1
+0:souptree:4 1
+15:souptree: 
+0:You:3 2
+1:You:21-18 21-19 
+0:souptree:4 3
+1:souptree: bar-3
+0:You:5 3
+1:You:11-6 6-3 
+0:souptree:1 6
+15:souptree: 
+0:You:5 6
+1:You:19-13 18-13 
+0:souptree:6 2
+15:souptree: 
+0:You:6 6
+1:You: 13-7 13-7 7-1 7-1
+0:souptree:1 1
+15:souptree: 
+0:You:5 4
+1:You:11-6 11-7 
+0:souptree:4 6
+15:souptree: 
+0:You:4 6
+1:You:7-3 6-off 
+0:souptree:1 3
+15:souptree: 
+0:You:1 6
+1:You:6-off 1-off 
+0:souptree:4 4
+15:souptree: 
+0:You:3 3
+1:You:6-3 4-1 4-1 3-off 
+0:souptree:2 6
+1:souptree: bar-6
+0:You:2 1
+1:You:3-1 3-2 
+0:souptree:4 5
+3:souptree:4
+7:You:4
+9:You:3

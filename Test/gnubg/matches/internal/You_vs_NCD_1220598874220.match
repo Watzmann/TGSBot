@@ -1,0 +1,349 @@
+JavaFIBS internal match representation v1.1
+8:NCD:3
+13:NCD: 
+6:You:NCD
+11:NCD:2 6
+1:NCD: 1-7 12-14
+0:You:6 1
+1:You:13-7 8-7 
+0:NCD:4 6
+1:NCD: bar-4 4-10
+0:You:5 5
+1:You:6-1 6-1 8-3 8-3 
+0:NCD:1 1
+15:NCD: 
+0:You:6 1
+1:You:24-18 24-23 
+0:NCD:4 5
+1:NCD: bar-5 10-14
+0:You:5 4
+1:You:23-18 13-9 
+0:NCD:5 3
+1:NCD: 17-22 19-22
+0:You:4 4
+1:You:13-9 9-5 9-5 13-9 
+0:NCD:3 2
+1:NCD: bar-2 19-22
+0:You:1 2
+1:You:9-7 6-5 
+0:NCD:3 1
+1:NCD: 12-13 13-16
+0:You:6 6
+15:You: 
+0:NCD:2 1
+1:NCD: 16-17 12-14
+0:You:4 2
+1:You:bar-21 5-3 
+0:NCD:4 4
+1:NCD: 17-21 17-21 12-16 12-16
+0:You:4 3
+15:You: 
+0:NCD:1 5
+1:NCD: 16-21 16-17
+0:You:4 2
+1:You:bar-23 7-3 
+0:NCD:1 2
+1:NCD: 21-23 22-23
+0:You:6 3
+15:You: 
+2:NCD: 
+4:You:
+0:NCD:3 1
+1:NCD: 17-20 19-20
+0:You:3 2
+15:You: 
+0:NCD:6 6
+1:NCD: 2-8 8-14 17-23 14-20
+0:You:6 1
+1:You:bar-24 24-18 
+0:NCD:6 5
+1:NCD: 14-20 19-24
+0:You:1 1
+1:You:3-2 3-2 7-6 6-5 
+0:NCD:5 4
+1:NCD: 19-24 20-24
+0:You:5 1
+1:You:5-4 18-13 
+0:NCD:4 4
+1:NCD: 20-24 20-24 20-24
+0:You:4 3
+1:You:7-4 13-9 
+0:NCD:5 4
+1:NCD: 14-19 19-23
+0:You:5 3
+1:You:9-4 4-1 
+0:NCD:1 4
+1:NCD: 14-15 15-19
+0:You:3 2
+1:You:18-15 15-13 
+0:NCD:1 2
+1:NCD: 23-off 24-off
+0:You:4 2
+1:You:13-9 9-7 
+0:NCD:5 1
+1:NCD: 19-24 24-off
+0:You:4 6
+1:You:18-12 12-8 
+0:NCD:3 5
+1:NCD: 21-off 22-off
+0:You:6 2
+1:You:8-2 7-5 
+0:NCD:5 1
+1:NCD: 21-off 24-off
+0:You:6 4
+1:You: 6-o 4-o
+0:NCD:4 1
+1:NCD: 22-off 24-off
+0:You:3 2
+1:You: 3-o 2-o
+0:NCD:6 5
+1:NCD: 23-off 23-off
+0:You:4 4
+1:You:6-2 4-off 5-1 5-1 
+0:NCD:4 3
+1:NCD: 23-off 24-off
+3:You:2
+7:NCD:2
+14:NCD-2:sorrytigger-0
+13:NCD: 
+6:You:NCD
+11:You:4 1
+1:You:12-16 19-20 
+0:NCD:1 4
+1:NCD: 24-20 24-23
+0:You:6 3
+1:You:bar-3 1-7 
+0:NCD:5 1
+1:NCD: 8-7 6-1
+0:You:2 1
+1:You: bar-1 bar-2
+0:NCD:6 1
+1:NCD: bar-24 13-7
+0:You:4 1
+1:You:16-20 19-20 
+0:NCD:6 1
+1:NCD: bar-24 13-7
+0:You:1 3
+1:You:1-4 3-4 
+0:NCD:5 2
+1:NCD: 13-8 23-21
+0:You:2 6
+1:You:12-18 18-20 
+0:NCD:1 6
+1:NCD: 21-15 15-14
+0:You:1 6
+1:You:12-18 17-18 
+0:NCD:3 6
+1:NCD: 14-8 24-21
+0:You:2 4
+1:You:17-21 19-21 
+0:NCD:4 6
+15:NCD: 
+0:You:5 1
+1:You:12-17 2-3 
+0:NCD:6 6
+15:NCD: 
+0:You:5 2
+1:You:17-22 20-22 
+0:NCD:2 2
+1:NCD: bar-23 7-5 7-5 7-5
+0:You:6 2
+1:You:3-9 17-19 
+0:NCD:1 1
+1:NCD: 13-12 12-11 11-10 10-9
+0:You:1 1
+1:You:bar-1 bar-1 19-20 20-21 
+0:NCD:3 2
+1:NCD: 9-6 13-11
+0:You:3 1
+1:You:1-4 21-22 
+0:NCD:5 5
+1:NCD: 6-1 6-1 8-3 8-3
+0:You:3 2
+1:You:bar-2 4-7 
+0:NCD:1 1
+1:NCD: 24-23 8-7 8-7 6-5
+0:You:1 5
+15:You: 
+0:NCD:2 6
+1:NCD: 23-17 5-3
+0:You:6 1
+15:You: 
+0:NCD:6 2
+1:NCD: 23-17 11-9
+0:You:6 6
+15:You: 
+0:NCD:3 4
+1:NCD: 9-6 17-13
+0:You:4 4
+1:You:bar-4 4-8 8-12 12-16 
+0:NCD:6 1
+1:NCD: 17-16 13-7
+0:You:6 2
+1:You:bar-2 2-8 
+0:NCD:3 2
+1:NCD: 6-3 3-1
+0:You:2 2
+1:You:8-10 10-12 12-14 14-16 
+0:NCD:4 6
+15:NCD: 
+0:You:6 4
+1:You:2-8 16-20 
+0:NCD:1 5
+1:NCD: bar-24 7-2
+0:You:1 3
+1:You:20-23 22-23 
+0:NCD:3 3
+1:NCD: 5-2 5-2 5-2 6-3
+0:You:2 2
+1:You:4-6 8-10 10-12 12-14 
+0:NCD:5 2
+15:NCD: 
+0:You:1 1
+1:You:14-15 15-16 16-17 17-18 
+0:NCD:3 5
+15:NCD: 
+0:You:3 4
+1:You:6-10 18-21 
+0:NCD:5 6
+15:NCD: 
+0:You:5 2
+1:You:10-15 15-17 
+0:NCD:1 3
+1:NCD: bar-24 7-4
+0:You:6 2
+1:You:bar-6 21-23 
+0:NCD:5 2
+1:NCD: 7-2 4-2
+0:You:5 6
+1:You:6-12 12-17 
+0:NCD:5 2
+1:NCD: 3-1
+0:You:6 3
+1:You:17-23 17-20 
+0:NCD:5 4
+15:NCD: 
+0:You:1 5
+1:You:18-23 18-19 
+0:NCD:1 6
+1:NCD: 24-18 18-17
+0:You:4 2
+1:You:19-21 21-off 
+0:NCD:2 3
+1:NCD: 17-14 14-12
+0:You:4 4
+1:You:21-off 21-off 19-23 19-23 
+0:NCD:1 6
+1:NCD: 12-6 2-1
+0:You:5 3
+1:You:20-off 22-off 
+0:NCD:4 1
+1:NCD: 6-2 2-1
+0:You:2 5
+1:You:20-off 20-22 
+0:NCD:4 6
+1:NCD: 24-18 18-14
+0:You:6 2
+1:You:22-off 23-off 
+0:NCD:5 3
+1:NCD: 14-11 11-6
+0:You:3 4
+1:You: 22-off 23-off
+0:NCD:3 4
+1:NCD: 6-2 3-off
+0:You:4 6
+1:You: 23-off 23-off
+0:NCD:4 1
+1:NCD: 3-off 1-off
+0:You:2 5
+1:You: 23-off 23-off
+0:NCD:4 1
+1:NCD: 3-off 1-off
+0:You:6 2
+1:You: 23-off
+7:You:1
+14:sorrytigger-1:NCD-2
+13:NCD: 
+6:You:NCD
+11:You:6 5
+1:You:24-18 18-13 
+0:NCD:4 2
+1:NCD: 17-21 19-21
+2:You: 
+4:NCD:
+0:You:2 2
+1:You:6-4 6-4 13-11 13-11 
+0:NCD:4 3
+1:NCD: 12-16 12-15
+0:You:5 6
+1:You:24-18 18-13 
+0:NCD:4 4
+1:NCD: 1-5 1-5 5-9 5-9
+0:You:1 4
+1:You:6-5 8-4 
+0:NCD:5 1
+1:NCD: 15-20 19-20
+0:You:5 6
+1:You:13-7 13-8 
+0:NCD:6 3
+1:NCD: 16-22 19-22
+0:You:3 3
+1:You:8-5 13-10 13-10 13-10 
+0:NCD:3 5
+1:NCD: 17-22 17-20
+0:You:5 4
+1:You:8-3 7-3 
+0:NCD:6 5
+1:NCD: 12-18 12-17
+0:You:5 4
+1:You:11-6 11-7 
+0:NCD:5 2
+1:NCD: 12-17 17-19
+0:You:1 5
+1:You:10-5 7-6 
+0:NCD:5 3
+1:NCD: 17-22 18-21
+0:You:6 6
+1:You: 10-4 10-4 8-2 6-off
+0:NCD:1 1
+1:NCD: 9-10 10-11 11-12 12-13
+0:You:4 3
+1:You: 4-o 3-o
+0:NCD:5 4
+1:NCD: 9-14 14-18
+0:You:1 6
+1:You:6-off 4-3 
+0:NCD:3 6
+1:NCD: 13-19 18-21
+0:You:6 4
+1:You: 6-o 4-o
+0:NCD:3 1
+1:NCD: 22-off 22-23
+0:You:5 3
+1:You: 5-o 3-o
+0:NCD:2 6
+1:NCD: 19-off 23-off
+0:You:1 4
+1:You:4-off 2-1 
+0:NCD:2 1
+1:NCD: 22-24 24-off
+0:You:5 1
+1:You: 5-o 1-o
+0:NCD:5 4
+1:NCD: 20-off 21-off
+0:You:1 4
+1:You:4-off 3-2 
+0:NCD:5 5
+1:NCD: 20-off 20-off 19-24 19-24
+0:You:4 3
+1:You:6-3 5-1 
+0:NCD:6 5
+1:NCD: 19-off 21-off
+0:You:6 4
+1:You: 3-off 2-off
+0:NCD:3 4
+1:NCD: 21-off 22-off
+0:You:2 5
+1:You: 1-off
+7:You:2
+9:You:3

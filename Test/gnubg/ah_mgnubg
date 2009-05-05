@@ -1,0 +1,244 @@
+## gnubg running with 'gnubg -t'
+Info für das Match     You_vs_Zauberin______1223657045028
+Datum: 10.10.2008 16:44
+You  gegen  Zauberin_____      GEWONNEN
+ML 3     Stand 3:1       4 Spiele    (Crawford-Partie)
+
+## analysierte 4 Games
+==========================================================================================
+## res-luckres 1 (Glücklich gewonnen)
+------- Gegner
+Spieler                                                   Zauberin_____ |                     You
+------- Statistk des Chequer-Spiels
+Züge insgesamt                                                       14 |                      14
+Nichtforcierte Züge                                                  14 |                      14
+nichtmarkierte Züge                                                   0 |                       0
+Züge, die mit 'gut' bewertet wurden                                  11 |                      12
+Züge, die mit 'zweifelhaft' bewertet wurden                           0 |                       1
+Züge, die mit 'schlecht' bewertet wurden                              3 |                       0
+Züge, die mit 'sehr schlecht' bewertet wurden                         0 |                       1
+Fehler-Rate (insgesamt)                               -0,381 ( -3,924%) |       -0,283 ( -2,911%)
+Fehler-Rate (pro Zug)                                  -27,2 ( -0,280%) |        -20,2 ( -0,208%)
+Rating des Chequer-Spiels                                      Anfänger |         Freizeitspieler
+------- Statistiken des Glücks
+Würfe, die mit 'sehr glücklich' bewertet wurden                       1 |                       1
+Würfe, die mit 'glücklich' bewertet wurden                            1 |                       1
+Nichtbewertete Würfe                                                 11 |                      11
+Würfe, die mit 'unglücklich' bewertet wurden                          1 |                       0
+Würfe, die mit 'sehr unglücklich' bewertet wurden                     0 |                       1
+Glücks-Rate (insgesamt)                               +1,190 (+12,260%) |       +0,110 ( +1,129%)
+Glücks-Rate (pro Zug)                                  +85,0 ( +0,876%) |         +7,8 ( +0,081%)
+Glücks-Rate                                      Du solltest sofort nach Las Vegas fliegen |                  Nichts
+------- Doppler-Statistiken
+Alle Doppler-Entscheidungen:                                         14 |                      15
+Knappe oder tatsächliche Doppler-Entscheidungen                       2 |                       4
+Doppel                                                                1 |                       0
+Annahmen                                                              0 |                       0
+Aufgaben                                                              0 |                       1
+Verpasste Doppel (unter CP)                                           0 |                       0
+Verpasste Doppel (über CP)                        1 (-0,172 ( -1,768%)) |   2 (-0,235 ( -2,422%))
+Falsche Doppel (unter DP)                                             0 |                       0
+Falsche Doppel (über TG)                                              0 |                       0
+Falsche Annahmen                                                      0 |                       0
+Falsche Ablehnungen                                                   0 |                       0
+Fehler-Rate (insgesamt)                               -0,172 ( -1,768%) |       -0,235 ( -2,422%)
+Fehler-Rate (pro Doppler-Entscheidung)                 -85,8 ( -0,884%) |        -58,8 ( -0,606%)
+Rating der Doppler-Entscheidungen                          Schrecklich! |            Schrecklich!
+------- Gesamtstatistiken
+Fehler-Rate (insgesamt)                               -0,552 ( -5,692%) |       -0,518 ( -5,333%)
+Fehler-Rate (pro Entscheidung)                         -34,5 ( -0,356%) |        -28,8 ( -0,296%)
+Gleichw. 'Snowie Error rate'                                      -19,7 |                   -18,5
+Rating (insgesamt)                                             Anfänger |                Anfänger
+Tatsächliches Resultat                                          +10,30% |                 -10,30%
+Resultat korrigiert um die Glücks-Rate                           -0,83% |                  +0,83%
+
+------------------------------------------------------------------------------------------
+------- Gegner
+Spieler                                                   Zauberin_____ |                     You
+------- Statistk des Chequer-Spiels
+Züge insgesamt                                                       25 |                      26
+Nichtforcierte Züge                                                  20 |                      24
+nichtmarkierte Züge                                                   0 |                       0
+Züge, die mit 'gut' bewertet wurden                                  24 |                      22
+Züge, die mit 'zweifelhaft' bewertet wurden                           1 |                       0
+Züge, die mit 'schlecht' bewertet wurden                              0 |                       4
+Züge, die mit 'sehr schlecht' bewertet wurden                         0 |                       0
+Fehler-Rate (insgesamt)                               -0,095 ( -1,214%) |       -0,614 ( -7,847%)
+Fehler-Rate (pro Zug)                                   -4,7 ( -0,061%) |        -25,6 ( -0,327%)
+Rating des Chequer-Spiels                                    Weltklasse |         Freizeitspieler
+------- Statistiken des Glücks
+Würfe, die mit 'sehr glücklich' bewertet wurden                       0 |                       1
+Würfe, die mit 'glücklich' bewertet wurden                            0 |                       0
+Nichtbewertete Würfe                                                 25 |                      25
+Würfe, die mit 'unglücklich' bewertet wurden                          0 |                       0
+Würfe, die mit 'sehr unglücklich' bewertet wurden                     0 |                       0
+Glücks-Rate (insgesamt)                               +1,088 (+13,909%) |       +2,209 (+28,232%)
+Glücks-Rate (pro Zug)                                  +43,5 ( +0,556%) |        +85,0 ( +1,086%)
+Glücks-Rate                                               Glück gehabt! |Du solltest sofort nach Las Vegas fliegen
+------- Doppler-Statistiken
+Alle Doppler-Entscheidungen:                                         25 |                      25
+Knappe oder tatsächliche Doppler-Entscheidungen                      10 |                      12
+Doppel                                                                0 |                       0
+Annahmen                                                              0 |                       0
+Aufgaben                                                              0 |                       0
+Verpasste Doppel (unter CP)                       6 (-0,437 ( -5,586%)) |                       0
+Verpasste Doppel (über CP)                        3 (-0,352 ( -4,503%)) |   9 (-0,200 ( -2,557%))
+Falsche Doppel (unter DP)                                             0 |                       0
+Falsche Doppel (über TG)                                              0 |                       0
+Falsche Annahmen                                                      0 |                       0
+Falsche Ablehnungen                                                   0 |                       0
+Fehler-Rate (insgesamt)                               -0,789 (-10,089%) |       -0,200 ( -2,557%)
+Fehler-Rate (pro Doppler-Entscheidung)                 -78,9 ( -1,009%) |        -16,7 ( -0,213%)
+Rating der Doppler-Entscheidungen                          Schrecklich! |                 Amateur
+------- Gesamtstatistiken
+Fehler-Rate (insgesamt)                               -0,884 (-11,303%) |       -0,814 (-10,405%)
+Fehler-Rate (pro Entscheidung)                         -29,5 ( -0,377%) |        -22,6 ( -0,289%)
+Gleichw. 'Snowie Error rate'                                      -17,3 |                   -16,0
+Rating (insgesamt)                                             Anfänger |         Freizeitspieler
+Tatsächliches Resultat                                          -10,30% |                 +10,30%
+Resultat korrigiert um die Glücks-Rate                           +4,02% |                  -4,02%
+
+------------------------------------------------------------------------------------------
+------- Gegner
+Spieler                                                   Zauberin_____ |                     You
+------- Statistk des Chequer-Spiels
+Züge insgesamt                                                       35 |                      36
+Nichtforcierte Züge                                                  29 |                      22
+nichtmarkierte Züge                                                   0 |                       0
+Züge, die mit 'gut' bewertet wurden                                  27 |                      31
+Züge, die mit 'zweifelhaft' bewertet wurden                           3 |                       3
+Züge, die mit 'schlecht' bewertet wurden                              2 |                       1
+Züge, die mit 'sehr schlecht' bewertet wurden                         3 |                       1
+Fehler-Rate (insgesamt)                               -1,179 (-22,113%) |       -0,764 (-14,324%)
+Fehler-Rate (pro Zug)                                  -40,7 ( -0,763%) |        -34,7 ( -0,651%)
+Rating des Chequer-Spiels                                  Schrecklich! |                Anfänger
+------- Statistiken des Glücks
+Würfe, die mit 'sehr glücklich' bewertet wurden                       1 |                       0
+Würfe, die mit 'glücklich' bewertet wurden                            0 |                       0
+Nichtbewertete Würfe                                                 31 |                      34
+Würfe, die mit 'unglücklich' bewertet wurden                          3 |                       2
+Würfe, die mit 'sehr unglücklich' bewertet wurden                     0 |                       0
+Glücks-Rate (insgesamt)                               -1,986 (-37,236%) |       -0,595 (-11,152%)
+Glücks-Rate (pro Zug)                                  -56,7 ( -1,064%) |        -16,5 ( -0,310%)
+Glücks-Rate                                      Mehr Glück das nächste Mal |                  Nichts
+------- Doppler-Statistiken
+Alle Doppler-Entscheidungen:                                         35 |                      35
+Knappe oder tatsächliche Doppler-Entscheidungen                       4 |                      19
+Doppel                                                                0 |                       0
+Annahmen                                                              0 |                       0
+Aufgaben                                                              0 |                       0
+Verpasste Doppel (unter CP)                       1 (-0,006 ( -0,114%)) |   5 (-1,239 (-23,231%))
+Verpasste Doppel (über CP)                                            0 |  12 (-2,283 (-42,799%))
+Falsche Doppel (unter DP)                                             0 |                       0
+Falsche Doppel (über TG)                                              0 |                       0
+Falsche Annahmen                                                      0 |                       0
+Falsche Ablehnungen                                                   0 |                       0
+Fehler-Rate (insgesamt)                               -0,006 ( -0,114%) |       -3,522 (-66,030%)
+Fehler-Rate (pro Doppler-Entscheidung)                  -1,5 ( -0,029%) |       -185,3 ( -3,475%)
+Rating der Doppler-Entscheidungen                           Überirdisch |            Schrecklich!
+------- Gesamtstatistiken
+Fehler-Rate (insgesamt)                               -1,185 (-22,227%) |       -4,286 (-80,354%)
+Fehler-Rate (pro Entscheidung)                         -35,9 ( -0,674%) |       -104,5 ( -1,960%)
+Gleichw. 'Snowie Error rate'                                      -16,7 |                   -60,4
+Rating (insgesamt)                                         Schrecklich! |            Schrecklich!
+Tatsächliches Resultat                                          -18,75% |                 +18,75%
+Resultat korrigiert um die Glücks-Rate                           +7,33% |                  -7,33%
+
+------------------------------------------------------------------------------------------
+------- Gegner
+Spieler                                                   Zauberin_____ |                     You
+------- Statistk des Chequer-Spiels
+Züge insgesamt                                                       22 |                      22
+Nichtforcierte Züge                                                  21 |                      20
+nichtmarkierte Züge                                                   0 |                       0
+Züge, die mit 'gut' bewertet wurden                                  19 |                      20
+Züge, die mit 'zweifelhaft' bewertet wurden                           0 |                       0
+Züge, die mit 'schlecht' bewertet wurden                              1 |                       2
+Züge, die mit 'sehr schlecht' bewertet wurden                         2 |                       0
+Fehler-Rate (insgesamt)                               -0,727 (-18,169%) |       -0,277 ( -6,919%)
+Fehler-Rate (pro Zug)                                  -34,6 ( -0,865%) |        -13,8 ( -0,346%)
+Rating des Chequer-Spiels                                      Anfänger |                 Amateur
+------- Statistiken des Glücks
+Würfe, die mit 'sehr glücklich' bewertet wurden                       0 |                       0
+Würfe, die mit 'glücklich' bewertet wurden                            0 |                       3
+Nichtbewertete Würfe                                                 21 |                      18
+Würfe, die mit 'unglücklich' bewertet wurden                          1 |                       1
+Würfe, die mit 'sehr unglücklich' bewertet wurden                     0 |                       0
+Glücks-Rate (insgesamt)                               -0,144 ( -3,588%) |       +0,762 (+19,059%)
+Glücks-Rate (pro Zug)                                   -6,5 ( -0,163%) |        +34,7 ( +0,866%)
+Glücks-Rate                                                      Nichts |           Glück gehabt!
+------- Doppler-Statistiken
+Alle Doppler-Entscheidungen:                                          0 |                       0
+Knappe oder tatsächliche Doppler-Entscheidungen                       0 |                       0
+Doppel                                                                0 |                       0
+Annahmen                                                              0 |                       0
+Aufgaben                                                              0 |                       0
+Verpasste Doppel (unter CP)                                           0 |                       0
+Verpasste Doppel (über CP)                                            0 |                       0
+Falsche Doppel (unter DP)                                             0 |                       0
+Falsche Doppel (über TG)                                              0 |                       0
+Falsche Annahmen                                                      0 |                       0
+Falsche Ablehnungen                                                   0 |                       0
+Fehler-Rate (insgesamt)                                          +0,000 |                  +0,000
+Fehler-Rate (pro Doppler-Entscheidung)                             -0,0 |                    -0,0
+Rating der Doppler-Entscheidungen                                 k. A. |                   k. A.
+------- Gesamtstatistiken
+Fehler-Rate (insgesamt)                               -0,727 (-18,169%) |       -0,277 ( -6,919%)
+Fehler-Rate (pro Entscheidung)                         -34,6 ( -0,865%) |        -13,8 ( -0,346%)
+Gleichw. 'Snowie Error rate'                                      -16,5 |                    -6,3
+Rating (insgesamt)                                             Anfänger |                 Amateur
+Tatsächliches Resultat                                          -31,25% |                 +31,25%
+Resultat korrigiert um die Glücks-Rate                           -8,60% |                  +8,60%
+
+------------------------------------------------------------------------------------------
+==========================================================================================
+------- Gegner
+Spieler                                                   Zauberin_____ |                     You
+------- Statistk des Chequer-Spiels
+Züge insgesamt                                                       96 |                      98
+Nichtforcierte Züge                                                  84 |                      80
+nichtmarkierte Züge                                                   0 |                       0
+Züge, die mit 'gut' bewertet wurden                                  81 |                      85
+Züge, die mit 'zweifelhaft' bewertet wurden                           4 |                       4
+Züge, die mit 'schlecht' bewertet wurden                              6 |                       7
+Züge, die mit 'sehr schlecht' bewertet wurden                         5 |                       2
+Fehler-Rate (insgesamt)                               -2,382 (-45,419%) |       -1,937 (-32,001%)
+Fehler-Rate (pro Zug)                                  -28,4 ( -0,541%) |        -24,2 ( -0,400%)
+Rating des Chequer-Spiels                                      Anfänger |         Freizeitspieler
+------- Statistiken des Glücks
+Würfe, die mit 'sehr glücklich' bewertet wurden                       2 |                       2
+Würfe, die mit 'glücklich' bewertet wurden                            1 |                       4
+Nichtbewertete Würfe                                                 88 |                      88
+Würfe, die mit 'unglücklich' bewertet wurden                          5 |                       3
+Würfe, die mit 'sehr unglücklich' bewertet wurden                     0 |                       1
+Glücks-Rate (insgesamt)                               +0,149 (-14,655%) |       +2,486 (+37,268%)
+Glücks-Rate (pro Zug)                                   +1,6 ( -0,153%) |        +25,4 ( +0,380%)
+Glücks-Rate                                                      Nichts |           Glück gehabt!
+------- Doppler-Statistiken
+Alle Doppler-Entscheidungen:                                         74 |                      75
+Knappe oder tatsächliche Doppler-Entscheidungen                      16 |                      35
+Doppel                                                                1 |                       0
+Annahmen                                                              0 |                       0
+Aufgaben                                                              0 |                       1
+Verpasste Doppel (unter CP)                       7 (-0,443 ( -5,700%)) |   5 (-1,239 (-23,231%))
+Verpasste Doppel (über CP)                        4 (-0,524 ( -6,270%)) |  23 (-2,718 (-47,778%))
+Falsche Doppel (unter DP)                                             0 |                       0
+Falsche Doppel (über TG)                                              0 |                       0
+Falsche Annahmen                                                      0 |                       0
+Falsche Ablehnungen                                                   0 |                       0
+Fehler-Rate (insgesamt)                               -0,967 (-11,971%) |       -3,957 (-71,009%)
+Fehler-Rate (pro Doppler-Entscheidung)                 -60,4 ( -0,748%) |       -113,1 ( -2,029%)
+Rating der Doppler-Entscheidungen                          Schrecklich! |            Schrecklich!
+------- Gesamtstatistiken
+Fehler-Rate (insgesamt)                               -3,349 (-57,390%) |      -5,894 (-103,011%)
+Fehler-Rate (pro Entscheidung)                         -33,5 ( -0,574%) |        -51,3 ( -0,896%)
+Gleichw. 'Snowie Error rate'                                      -17,3 |                   -30,4
+Rating (insgesamt)                                             Anfänger |            Schrecklich!
+Tatsächliches Resultat                                          -50,00% |                 +50,00%
+Resultat korrigiert um die Glücks-Rate                           +1,92% |                  -1,92%
+Glücksbasierter Unterschied im FIBS Rating                    +34542,88 |                        
+Fehlerbasiertes absolutes FIBS Rating                            1517,5 |                  1552,9
+Ratingverlust durch Chequer-Spiel                                 490,8 |                   419,1
+Ratingverlust durch Doppler-Entscheidungen                         41,7 |                    78,0
+
+## CLOSING GNUBG

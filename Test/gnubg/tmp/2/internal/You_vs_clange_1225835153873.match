@@ -1,0 +1,311 @@
+JavaFIBS internal match representation v1.1
+8:clange:3
+13:clange: 
+6:You:clange
+11:You:5 1
+1:You:13-8 24-23 
+0:clange:6 3
+1:clange: 1-7 12-15
+0:You:2 2
+1:You:6-4 6-4 24-22 22-20 
+0:clange:5 5
+1:clange: 7-12 12-17 17-22 17-22
+0:You:4 1
+1:You:20-16 16-15 
+0:clange:4 1
+1:clange: bar-1 1-5
+0:You:1 6
+1:You:13-7 8-7 
+0:clange:4 3
+1:clange: 1-5 12-15
+0:You:6 5
+1:You:bar-20 13-7 
+0:clange:5 3
+1:clange: 15-20 17-20
+0:You:4 1
+1:You:bar-21 8-7 
+0:clange:4 5
+1:clange: 12-17 5-9
+0:You:1 6
+1:You:21-15 6-5 
+0:clange:1 1
+1:clange: bar-1 22-23 22-23 9-10
+0:You:5 1
+1:You:bar-24 15-10 
+0:clange:5 1
+1:clange: bar-5 1-2
+0:You:4 1
+1:You:bar-21 7-6 
+0:clange:5 1
+1:clange: 5-10 10-11
+0:You:6 2
+15:You: 
+0:clange:1 1
+1:clange: 19-20 19-20 20-21 20-21
+0:You:5 4
+15:You: 
+0:clange:2 6
+1:clange: 11-17 17-19
+0:You:2 4
+15:You: 
+2:clange: 
+5:You:
+7:clange:1
+14:clange-1:sorrytigger-0
+13:clange: 
+6:You:clange
+11:clange:3 5
+1:clange: 8-3 6-3
+0:You:5 1
+1:You:12-17 1-2 
+0:clange:1 5
+1:clange: 13-8 24-23
+0:You:6 1
+1:You:12-18 17-18 
+0:clange:5 1
+1:clange: 13-8 24-23
+0:You:3 4
+1:You:1-5 2-5 
+0:clange:5 5
+1:clange: 8-3 8-3 6-1 6-1
+0:You:2 4
+1:You:17-21 19-21 
+0:clange:3 6
+1:clange: 23-20 20-14
+0:You:1 3
+1:You:17-20 19-20 
+0:clange:3 3
+1:clange: 13-10 13-10 13-10 14-11
+0:You:2 5
+1:You:12-17 19-21 
+0:clange:1 5
+1:clange: 23-22 11-6
+0:You:2 3
+1:You:17-20 20-22 
+0:clange:6 2
+1:clange: bar-23 23-17
+0:You:1 6
+15:You: 
+0:clange:3 4
+1:clange: 17-13 13-10
+0:You:3 5
+1:You:bar-5 12-15 
+2:clange: 
+4:You:
+0:clange:2 5
+1:clange: 10-8 6-1
+0:You:1 1
+1:You:21-22 15-16 16-17 12-13 
+0:clange:2 1
+1:clange: 8-6 3-2
+0:You:5 4
+1:You:5-9 9-14 
+0:clange:6 2
+1:clange: 10-4 4-2
+0:You:5 5
+1:You:18-23 18-23 13-18 14-19 
+0:clange:1 1
+1:clange: 8-7 7-6 8-7 7-6
+0:You:4 6
+1:You:18-24 19-23 
+0:clange:1 6
+1:clange: 10-4 4-3
+2:You: 
+5:clange:
+7:You:2
+14:sorrytigger-2:clange-1
+13:clange: 
+6:You:clange
+11:You:3 1
+1:You:8-5 6-5 
+0:clange:1 1
+1:clange: 19-20 19-20 17-18 17-18
+0:You:4 1
+1:You:24-23 13-9 
+0:clange:6 2
+1:clange: 1-7 7-9
+0:You:2 1
+1:You:bar-23 23-22 
+0:clange:5 1
+1:clange: 12-17 9-10
+0:You:1 4
+1:You:23-22 13-9 
+0:clange:6 1
+1:clange: 1-7 10-11
+0:You:5 3
+1:You:24-21 9-4 
+0:clange:1 3
+1:clange: 7-10 10-11
+0:You:6 5
+1:You:21-15 15-10 
+0:clange:6 6
+1:clange: 12-18 12-18 18-24 18-24
+0:You:1 3
+1:You:6-5 10-7 
+0:clange:5 2
+1:clange: 18-23 18-20
+0:You:2 6
+1:You:13-7 6-4 
+0:clange:3 2
+1:clange: 12-15 15-17
+0:You:3 5
+1:You:8-3 5-2 
+0:clange:1 2
+1:clange: 12-14 23-24
+0:You:1 3
+1:You:7-4 4-3 
+0:clange:3 1
+1:clange: 11-14 11-12
+0:You:3 1
+1:You:13-12 7-4 
+0:clange:1 5
+1:clange: bar-1 19-24
+0:You:1 6
+1:You:8-2 13-12 
+0:clange:3 5
+1:clange: 14-19 14-17
+0:You:3 1
+1:You:4-1 22-21 
+0:clange:5 1
+1:clange: bar-1 19-24
+0:You:1 4
+1:You:bar-21 12-11 
+0:clange:2 5
+1:clange: 17-22 20-22
+0:You:2 1
+1:You:bar-23 12-11 
+0:clange:2 4
+1:clange: 17-19 19-23
+0:You:3 6
+15:You: 
+0:clange:6 6
+1:clange: 1-7 7-13 13-19 17-23
+0:You:5 1
+15:You: 
+0:clange:5 2
+1:clange: 17-22 22-24
+0:You:5 5
+15:You: 
+0:clange:1 5
+1:clange: 19-24 24-off
+0:You:3 2
+15:You: 
+0:clange:4 1
+1:clange: 19-23 19-20
+0:You:6 6
+1:You:bar-19 19-13 13-7 11-5 
+0:clange:2 6
+1:clange: 20-off 23-off
+0:You:5 5
+1:You:11-6 21-16 16-11 11-6 
+0:clange:2 1
+1:clange: 23-off 24-off
+0:You:6 5
+1:You:21-15 15-10 
+0:clange:5 3
+1:clange: 20-off 22-off
+0:You:6 1
+1:You:10-4 7-6 
+0:clange:1 5
+1:clange: 20-off 24-off
+0:You:5 4
+1:You: 5-o 4-o
+0:clange:5 3
+1:clange: 22-off 23-off
+3:You:1
+7:clange:1
+14:clange-2:sorrytigger-2
+13:clange: 
+6:You:clange
+11:You:5 3
+1:You:17-22 19-22 
+0:clange:4 1
+1:clange: 24-20 24-23
+0:You:6 3
+1:You:1-7 7-10 
+0:clange:3 1
+1:clange: 23-20 8-7
+0:You:1 4
+1:You:10-14 1-2 
+0:clange:1 6
+1:clange: 13-7 6-5
+0:You:2 2
+1:You:2-4 12-14 14-16 14-16 
+0:clange:3 4
+1:clange: 6-2 5-2
+0:You:3 4
+1:You:12-16 19-22 
+0:clange:5 6
+1:clange: 13-7 7-2
+0:You:4 4
+1:You:17-21 17-21 12-16 19-23 
+0:clange:4 5
+1:clange: 13-8 6-2
+0:You:4 6
+1:You:4-10 10-14 
+0:clange:1 3
+1:clange: 8-5 5-4
+0:You:1 5
+1:You:14-19 22-23 
+0:clange:5 1
+1:clange: 8-3 4-3
+0:You:2 3
+1:You:16-19 19-21 
+0:clange:5 3
+1:clange: 13-8 13-10
+0:You:5 2
+1:You:12-17 17-19 
+0:clange:3 1
+1:clange: 10-7 7-6
+0:You:3 4
+1:You:12-16 16-19 
+0:clange:4 5
+1:clange: 20-15 15-11
+0:You:4 4
+1:You:16-20 16-20 16-20 19-23 
+0:clange:4 3
+15:clange: 
+0:You:2 5
+1:You:20-off 23-off 
+0:clange:1 5
+1:clange: bar-24 11-6
+0:You:4 4
+1:You:19-23 19-23 19-23 19-23 
+0:clange:5 1
+1:clange: 8-3 8-7
+0:You:6 4
+1:You:20-off 21-off 
+0:clange:4 2
+1:clange: 24-20 20-18
+0:You:6 5
+1:You: bar-5 5-11
+0:clange:6 6
+1:clange: 18-12 12-6 7-1 7-1
+0:You:6 6
+1:You: 11-17 17-23 21-off 21-off
+0:clange:2 2
+1:clange: 7-5 2-off 2-off 6-4
+0:You:6 3
+1:You: 22-off 22-off
+0:clange:4 6
+1:clange: 6-off 4-off
+0:You:1 2
+1:You: 23-off 23-24
+0:clange:4 1
+1:clange: 1-off 5-1
+0:You:1 5
+1:You: 23-o 24-o
+0:clange:6 2
+1:clange: 6-off 2-off
+0:You:1 3
+1:You: 23-off 23-24
+0:clange:3 6
+1:clange: 6-off 3-off
+0:You:3 2
+1:You: 23-off 23-off
+0:clange:4 1
+1:clange: 1-off 6-2
+0:You:6 5
+1:You: 24-off
+7:You:1
+9:You:3

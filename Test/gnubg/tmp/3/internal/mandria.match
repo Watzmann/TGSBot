@@ -1,0 +1,191 @@
+JavaFIBS internal match representation v1.1
+8:mandria:3
+13:mandria: 
+6:You:mandria
+11:You:6 5
+1:You:24-18 18-13 
+0:mandria:4 5
+1:mandria: 1-5 5-10
+0:You:4 4
+1:You:13-9 13-9 8-4 8-4 
+0:mandria:3 5
+1:mandria: 10-15 12-15
+0:You:6 3
+1:You:9-3 6-3 
+0:mandria:4 1
+1:mandria: 12-16 16-17
+0:You:4 1
+1:You:9-5 6-5 
+0:mandria:6 4
+1:mandria: 1-7 7-11
+0:You:4 4
+1:You:13-9 13-9 24-20 8-4 
+0:mandria:3 3
+1:mandria: 17-20 17-20 11-14 14-17
+0:You:1 1
+1:You:bar-24 24-23 23-22 22-21 
+0:mandria:6 2
+1:mandria: 15-21 19-21
+0:You:6 2
+1:You:bar-23 9-3 
+0:mandria:3 3
+1:mandria: 12-15 19-22 19-22 17-20
+0:You:2 5
+1:You:23-18 18-16 
+0:mandria:4 5
+1:mandria: 12-17 12-16
+0:You:4 2
+1:You:bar-23 13-9 
+0:mandria:2 6
+1:mandria: 16-22 22-24
+0:You:3 5
+1:You:6-1 4-1 
+0:mandria:4 6
+1:mandria: 15-21 15-19
+0:You:3 3
+1:You:13-10 10-7 9-6 7-4 
+0:mandria:2 6
+1:mandria: 17-23 21-23
+0:You:5 1
+1:You:bar-24 9-4 
+0:mandria:6 4
+15:mandria: 
+0:You:3 1
+1:You:6-3 3-2 
+0:mandria:3 6
+15:mandria: 
+0:You:1 6
+1:You:24-18 3-2 
+0:mandria:1 4
+15:mandria: 
+0:You:5 3
+1:You:18-13 13-10 
+0:mandria:2 1
+15:mandria: 
+0:You:4 6
+1:You:10-6 6-off 
+0:mandria:6 5
+15:mandria: 
+0:You:2 4
+1:You:4-off 4-2 
+0:mandria:5 1
+15:mandria: 
+0:You:4 1
+1:You:4-off 4-3 
+0:mandria:2 2
+15:mandria: 
+0:You:3 6
+1:You:6-off 6-3 
+0:mandria:5 2
+15:mandria: 
+0:You:1 5
+1:You:5-off 5-4 
+0:mandria:2 6
+1:mandria: bar-6 6-8
+0:You:4 3
+1:You: 4-o 3-o
+0:mandria:5 5
+1:mandria: 17-22 17-22 8-13 13-18
+0:You:1 2
+1:You: 2-o 1-o
+3:mandria:1
+7:You:1
+14:sorrytigger-1:mandria-0
+13:mandria: 
+6:You:mandria
+11:mandria:1 4
+1:mandria: 12-16 16-17
+0:You:3 2
+1:You:13-10 13-11 
+0:mandria:2 6
+1:mandria: 1-7 7-9
+0:You:3 1
+1:You:24-21 10-9 
+0:mandria:1 3
+1:mandria: bar-3 3-4
+0:You:2 6
+1:You:13-7 9-7 
+0:mandria:3 5
+1:mandria: 1-4 12-17
+0:You:1 4
+1:You:24-20 21-20 
+0:mandria:3 3
+1:mandria: 19-22 12-15 15-18 18-21
+0:You:1 4
+1:You:8-7 7-3 
+0:mandria:6 3
+1:mandria: 17-23 19-22
+0:You:4 3
+1:You:20-16 16-13 
+0:mandria:2 2
+1:mandria: 12-14 12-14 17-19 19-21
+0:You:3 6
+1:You:11-5 6-3 
+0:mandria:5 1
+1:mandria: 19-24 23-24
+0:You:6 2
+1:You:13-7 7-5 
+0:mandria:1 6
+1:mandria: 17-23 23-24
+0:You:3 4
+1:You:20-16 16-13 
+0:mandria:2 3
+1:mandria: 17-20 17-19
+0:You:5 2
+1:You:13-8 13-11 
+0:mandria:6 5
+1:mandria: 14-20 19-24
+0:You:3 1
+1:You:13-10 11-10 
+0:mandria:1 5
+1:mandria: 14-19 19-20
+0:You:5 2
+1:You:6-1 8-6 
+0:mandria:6 5
+1:mandria: 4-9 9-15
+0:You:2 1
+1:You:6-5 5-3 
+0:mandria:2 4
+1:mandria: 15-19 19-21
+0:You:3 3
+1:You:10-7 7-4 4-1 10-7 
+0:mandria:4 5
+1:mandria: bar-4 4-9
+0:You:3 1
+1:You:7-4 7-6 
+0:mandria:4 5
+1:mandria: 9-14 14-18
+0:You:6 6
+1:You: 8-2 8-2 7-1 6-off
+2:mandria: 
+4:You:
+0:mandria:3 5
+1:mandria: 18-23 22-off
+0:You:6 5
+1:You:6-off 5-off 
+0:mandria:3 5
+1:mandria: 20-off 22-off
+0:You:1 4
+1:You: 4-o 1-o
+0:mandria:4 3
+1:mandria: 21-off 20-23
+0:You:5 1
+1:You: 5-o 1-o
+0:mandria:2 6
+1:mandria: 19-off 23-off
+0:You:6 3
+1:You: 6-o 3-o
+0:mandria:4 2
+1:mandria: 21-off 23-off
+0:You:4 6
+1:You: 6-o 3-o
+0:mandria:2 4
+1:mandria: 19-23 23-off
+0:You:5 6
+1:You: 3-off 2-off
+0:mandria:1 1
+1:mandria: 24-off 24-off 24-off 24-off
+0:You:2 4
+1:You: 2-off 1-off
+7:You:2
+9:You:3

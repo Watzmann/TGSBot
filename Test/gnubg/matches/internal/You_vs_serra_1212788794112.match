@@ -1,0 +1,54 @@
+JavaFIBS internal match representation v1.1
+8:serra:1
+13:serra: 
+6:You:serra
+11:serra:1 2
+1:serra: 13-11 6-5
+0:You:2 1
+1:You:1-3 3-4 
+0:serra:3 2
+1:serra: 8-5 13-11
+0:You:5 6
+1:You:4-10 10-15 
+0:serra:6 3
+1:serra: 24-21 21-15
+0:You:5 5
+15:You: 
+0:serra:3 3
+1:serra: 6-3 6-3 24-21 21-18
+0:You:6 5
+15:You: 
+0:serra:2 6
+1:serra: 15-13 11-5
+0:You:4 5
+1:You:bar-4 4-9 
+0:serra:5 6
+1:serra: 18-13 11-5
+0:You:4 1
+1:You:9-10 10-14 
+0:serra:4 3
+1:serra: 13-10 10-6
+0:You:6 5
+1:You:1-7 7-12 
+0:serra:4 2
+1:serra: 8-4 6-4
+0:You:6 4
+1:You:19-23 17-23 
+0:serra:5 5
+1:serra: 13-8 13-8 8-3 8-3
+0:You:6 5
+1:You:12-18 18-23 
+0:serra:6 2
+1:serra: 13-7 13-11
+0:You:3 1
+1:You:12-15 14-15 
+0:serra:1 6
+1:serra: 11-5 7-6
+0:You:3 5
+1:You:17-20 15-20 
+0:serra:5 5
+1:serra: 8-3 6-1 5-off 5-off
+0:You:5 1
+3:You:1
+7:serra:1
+9:serra:1

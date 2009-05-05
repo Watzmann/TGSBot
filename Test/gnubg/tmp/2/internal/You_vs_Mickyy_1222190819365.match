@@ -1,0 +1,126 @@
+JavaFIBS internal match representation v1.1
+8:Mickyy:3
+13:Mickyy: 
+6:You:Mickyy
+11:Mickyy:3 6
+1:Mickyy: 24-18 24-21
+0:You:1 3
+1:You:17-20 19-20 
+0:Mickyy:4 6
+1:Mickyy: 8-2 6-2
+0:You:3 2
+1:You:1-4 1-3 
+0:Mickyy:2 4
+1:Mickyy: 8-4 6-4
+0:You:5 3
+1:You:bar-5 5-8 
+0:Mickyy:6 2
+1:Mickyy: bar-23 21-15
+0:You:5 4
+1:You:3-8 19-23 
+0:Mickyy:5 6
+15:Mickyy: 
+0:You:5 4
+1:You:12-17 19-23 
+0:Mickyy:4 1
+1:Mickyy: bar-24 15-11
+2:You: 
+5:Mickyy:
+7:You:1
+14:sorrytigger-1:Mickyy-0
+13:Mickyy: 
+6:You:Mickyy
+11:Mickyy:1 3
+1:Mickyy: 17-20 19-20
+0:You:6 4
+1:You:8-2 6-2 
+0:Mickyy:1 1
+1:Mickyy: 17-18 17-18 19-20 19-20
+0:You:5 2
+1:You:13-8 13-11 
+0:Mickyy:5 2
+1:Mickyy: 12-17 12-14
+0:You:1 6
+1:You:24-23 23-17 
+0:Mickyy:6 1
+1:Mickyy: bar-1 14-20
+0:You:3 1
+1:You:8-5 6-5 
+0:Mickyy:4 2
+1:Mickyy: 12-16 16-18
+0:You:5 5
+1:You:8-3 8-3 13-8 13-8 
+0:Mickyy:6 1
+1:Mickyy: 12-13 13-19
+0:You:5 3
+1:You:bar-22 17-12 
+0:Mickyy:1 6
+1:Mickyy: bar-1 1-7
+0:You:1 3
+1:You:11-8 8-7 
+0:Mickyy:2 2
+15:Mickyy: 
+0:You:5 5
+1:You:12-7 22-17 17-12 12-7 
+0:Mickyy:2 3
+15:Mickyy: 
+0:You:2 1
+1:You:24-22 22-21 
+0:Mickyy:4 2
+1:Mickyy: bar-4 20-22
+0:You:3 5
+1:You:21-16 7-4 
+0:Mickyy:5 3
+15:Mickyy: 
+0:You:3 5
+1:You:7-4 16-11 
+0:Mickyy:2 4
+15:Mickyy: 
+0:You:2 2
+1:You:11-9 9-7 8-6 8-6 
+0:Mickyy:6 1
+1:Mickyy: bar-1 18-24
+0:You:3 1
+1:You:7-4 7-6 
+0:Mickyy:6 5
+1:Mickyy: 18-24 18-23
+0:You:5 5
+1:You: 5-off 5-off
+0:Mickyy:2 2
+1:Mickyy: 20-22 19-21 21-23 20-22
+0:You:1 5
+1:You: 6-5 5-off
+0:Mickyy:1 2
+1:Mickyy: 19-21 19-20
+0:You:6 2
+1:You:6-off 6-4 
+0:Mickyy:2 2
+1:Mickyy: 20-22 20-22 21-23 20-22
+0:You:2 6
+1:You:6-off 4-2 
+0:Mickyy:6 6
+1:Mickyy: 1-7 1-7 1-7 7-13
+0:You:2 1
+1:You:6-4 6-5 
+0:Mickyy:1 6
+1:Mickyy: 7-13 7-8
+0:You:5 6
+1:You: 5-off 4-off
+0:Mickyy:4 1
+1:Mickyy: 13-17 8-9
+0:You:5 6
+1:You: 4-off 4-off
+0:Mickyy:2 1
+1:Mickyy: 17-19 13-14
+0:You:3 5
+1:You:4-off 3-off 
+0:Mickyy:5 6
+1:Mickyy: 9-15 15-20
+0:You:4 3
+1:You: 3-off 2-off
+0:Mickyy:3 3
+1:Mickyy: 14-17 17-20 1-4 4-7
+0:You:6 5
+1:You: 2-off 2-off
+7:You:2
+9:You:3

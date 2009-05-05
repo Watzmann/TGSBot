@@ -1,0 +1,176 @@
+JavaFIBS internal match representation v1.1
+8:nubie:3
+13:nubie: 
+6:You:nubie
+11:You:3 2
+1:You:13-11 24-21 
+0:nubie:6 3
+1:nubie: 12-18 18-21
+0:You:5 2
+1:You:bar-23 13-8 
+0:nubie:1 3
+1:nubie: 17-20 20-21
+0:You:5 2
+1:You:23-18 24-22 
+0:nubie:3 1
+1:nubie: 17-18 18-21
+0:You:2 2
+1:You:bar-23 6-4 6-4 13-11 
+0:nubie:4 4
+1:nubie: 19-23 19-23 1-5 1-5
+0:You:3 3
+1:You:bar-22 13-10 13-10 6-3 
+0:nubie:5 3
+1:nubie: 12-17 12-15
+0:You:4 5
+1:You:8-3 8-4 
+0:nubie:3 2
+1:nubie: 12-15 12-14
+0:You:6 5
+1:You:8-2 8-3 
+0:nubie:6 3
+1:nubie: 14-20 20-23
+0:You:4 5
+1:You:22-18 18-13 
+0:nubie:3 5
+1:nubie: 17-22 19-22
+0:You:4 4
+15:You: 
+0:nubie:3 4
+1:nubie: 5-9 9-12
+0:You:6 1
+1:You:bar-24 11-5 
+0:nubie:3 5
+1:nubie: bar-5 12-15
+0:You:5 2
+1:You:bar-20 13-11 
+0:nubie:3 1
+1:nubie: 21-24 23-24
+0:You:1 2
+15:You: 
+2:nubie: 
+5:You:
+7:nubie:1
+14:nubie-1:sorrytigger-0
+13:nubie: 
+6:You:nubie
+11:You:6 4
+1:You:17-23 19-23 
+0:nubie:1 6
+1:nubie: 13-7 8-7
+0:You:6 6
+1:You:12-18 12-18 12-18 12-18 
+0:nubie:2 3
+1:nubie: 13-10 13-11
+0:You:3 2
+1:You:18-21 19-21 
+0:nubie:3 5
+1:nubie: 13-8 13-10
+0:You:6 2
+1:You:12-18 18-20 
+0:nubie:4 1
+1:nubie: 24-20 11-10
+0:You:1 2
+1:You:bar-2 19-20 
+2:nubie: 
+4:You:
+0:nubie:1 1
+1:nubie: bar-24 6-5 6-5 8-7
+0:You:2 1
+1:You:18-20 1-2 
+0:nubie:1 3
+1:nubie: 10-7 6-5
+0:You:5 4
+1:You:17-22 18-22 
+0:nubie:3 6
+1:nubie: 24-18 18-15
+0:You:5 3
+1:You:bar-3 17-22 
+0:nubie:5 3
+1:nubie: 15-10 10-7
+0:You:2 3
+1:You:1-4 2-4 
+0:nubie:4 5
+1:nubie: 10-5 10-6
+0:You:1 5
+1:You:4-9 3-4 
+0:nubie:5 1
+1:nubie: 6-1 7-6
+0:You:1 2
+1:You:2-3 22-24 
+0:nubie:5 5
+15:nubie: 
+0:You:2 4
+1:You:9-13 13-15 
+0:nubie:5 6
+15:nubie: 
+0:You:4 2
+1:You:15-19 19-21 
+0:nubie:3 3
+15:nubie: 
+0:You:3 4
+1:You:21-24 19-23 
+0:nubie:3 6
+1:nubie: bar-19 19-16
+0:You:4 4
+1:You: bar-4 20-24 20-24
+0:nubie:3 5
+1:nubie: 6-1 16-13
+0:You:6 6
+1:You:3-9 9-15 4-10 10-16 
+0:nubie:6 1
+1:nubie: 13-7 7-6
+0:You:1 2
+1:You:16-18 18-19 
+0:nubie:3 5
+1:nubie: 7-2 5-2
+0:You:1 2
+1:You:15-17 17-18 
+0:nubie:6 2
+1:nubie: 7-1 5-3
+0:You:4 1
+1:You:18-22 23-24 
+0:nubie:6 1
+1:nubie: 8-2 8-7
+0:You:6 5
+1:You:4-10 10-15 
+0:nubie:6 2
+1:nubie: 7-1 3-1
+0:You:2 2
+1:You:15-17 17-19 22-24 19-21 
+0:nubie:1 5
+1:nubie: 6-1 2-1
+0:You:3 3
+1:You: 19-22 21-24 21-24 21-24
+0:nubie:4 4
+1:nubie: 7-3 7-3 6-2 6-2
+0:You:2 4
+1:You:4-8 8-10 
+0:nubie:5 2
+1:nubie: 5-off 2-off
+0:You:2 3
+1:You:10-13 13-15 
+0:nubie:6 1
+1:nubie: 5-off 1-off
+0:You:5 5
+1:You: 15-20 20-off 22-off 22-off
+0:nubie:3 2
+1:nubie: 3-off 2-off
+0:You:4 1
+1:You: 22-o 24-o
+0:nubie:6 4
+1:nubie: 3-off 2-off
+0:You:2 6
+1:You: 23-off 23-off
+0:nubie:6 2
+1:nubie: 2-off 1-off
+0:You:2 3
+1:You: 24-off 24-off
+0:nubie:1 5
+1:nubie: 1-off 1-off
+0:You:4 4
+1:You: 24-off 24-off 24-off 24-off
+0:nubie:1 1
+1:nubie: 1-off 1-off 1-off
+7:nubie:2
+9:nubie:3

@@ -1,0 +1,92 @@
+JavaFIBS internal match representation v1.1
+8:hitit:1
+13:hitit: 
+6:You:hitit
+11:You:3 2
+1:You:13-10 10-8 
+0:hitit:4 2
+1:hitit: 17-21 19-21
+0:You:6 1
+1:You:13-7 8-7 
+0:hitit:6 1
+1:hitit: 12-18 17-18
+0:You:5 5
+1:You:13-8 8-3 8-3 13-8 
+0:hitit:3 2
+1:hitit: 12-15 15-17
+0:You:6 5
+1:You:7-2 8-2 
+0:hitit:4 5
+1:hitit: 1-5 5-10
+0:You:6 5
+1:You:13-7 6-1 
+0:hitit:2 3
+15:hitit: 
+0:You:1 3
+1:You:6-3 3-2 
+0:hitit:3 2
+15:hitit: 
+0:You:1 4
+1:You:2-1 24-20 
+0:hitit:3 4
+1:hitit: bar-4 10-13
+0:You:5 3
+1:You:20-15 6-3 
+0:hitit:1 1
+1:hitit: 19-20 19-20 13-14 14-15
+0:You:5 3
+1:You:bar-22 8-3 
+0:hitit:5 3
+1:hitit: 4-9 15-18
+0:You:5 1
+1:You:24-23 8-3 
+0:hitit:3 5
+1:hitit: 9-14 14-17
+0:You:6 5
+1:You:22-16 16-11 
+0:hitit:1 4
+1:hitit: 17-21 12-13
+0:You:4 6
+1:You:11-5 5-1 
+0:hitit:1 5
+1:hitit: 12-17 12-13
+0:You:2 5
+1:You:7-2 3-1 
+0:hitit:3 4
+1:hitit: 13-17 17-20
+0:You:1 6
+1:You:23-22 22-16 
+0:hitit:5 4
+1:hitit: 17-22 18-22
+0:You:5 1
+1:You:16-11 11-10 
+0:hitit:6 4
+1:hitit: 17-23 18-22
+0:You:5 3
+1:You:7-4 10-5 
+0:hitit:1 6
+1:hitit: 17-23 18-19
+0:You:1 3
+1:You: 3-o 1-o
+0:hitit:1 3
+1:hitit: 13-16 16-17
+0:You:6 6
+1:You: 6-o 6-o 5-o 4-o
+0:hitit:5 2
+1:hitit: 17-19 20-off
+0:You:3 2
+1:You: 3-o 2-o
+0:hitit:4 4
+1:hitit: 21-off 21-off 21-off 19-23
+0:You:1 5
+1:You: 3-o 1-o
+0:hitit:1 6
+1:hitit: 19-off 23-24
+0:You:3 4
+1:You: 3-o 2-o
+0:hitit:2 1
+1:hitit: 23-off 24-off
+0:You:3 3
+1:You: 2-o 1-o 1-o
+7:You:1
+9:You:1

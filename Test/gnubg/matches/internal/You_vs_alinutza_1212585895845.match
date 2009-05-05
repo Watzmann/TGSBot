@@ -1,0 +1,82 @@
+JavaFIBS internal match representation v1.1
+8:alinutza:1
+13:alinutza: 
+6:You:alinutza
+11:You:6 2
+1:You:1-7 7-9 
+0:alinutza:1 2
+1:alinutza: 24-22 22-21
+0:You:3 2
+1:You:9-12 19-21 
+0:alinutza:5 6
+1:alinutza: bar-20 24-18
+0:You:5 3
+1:You:1-4 4-9 
+0:alinutza:3 3
+1:alinutza: 13-10 13-10 10-7 10-7
+0:You:2 3
+1:You:19-21 9-12 
+0:alinutza:1 1
+1:alinutza: 6-5 6-5 7-6 7-6
+0:You:2 3
+1:You:12-15 15-17 
+0:alinutza:5 2
+1:alinutza: 20-18 13-8
+0:You:4 1
+1:You:12-16 16-17 
+0:alinutza:2 4
+1:alinutza: 8-4 6-4
+0:You:4 2
+1:You:17-21 21-23 
+0:alinutza:6 5
+1:alinutza: 13-7 13-8
+0:You:1 5
+1:You:17-22 22-23 
+0:alinutza:4 4
+1:alinutza: 18-14 18-14 14-10 14-10
+0:You:1 5
+1:You:12-17 17-18 
+0:alinutza:5 5
+1:alinutza: 8-3 8-3 8-3 8-3
+0:You:4 3
+1:You:12-16 18-21 
+0:alinutza:5 6
+1:alinutza: 10-4 10-5
+0:You:4 1
+1:You:12-16 17-18 
+0:alinutza:4 6
+1:alinutza: 7-1 4-off
+0:You:1 6
+1:You:12-18 18-19 
+0:alinutza:5 5
+1:alinutza: 5-off 5-off 5-off 6-1
+0:You:2 5
+1:You:18-23 12-14 
+0:alinutza:2 6
+1:alinutza: 6-off 4-2
+0:You:6 5
+1:You:14-20 16-21 
+0:alinutza:3 1
+1:alinutza: 3-off 1-off
+0:You:3 5
+1:You:16-21 17-20 
+0:alinutza:3 1
+1:alinutza: 3-off 1-off
+0:You:1 4
+1:You:17-21 21-22 
+0:alinutza:6 4
+1:alinutza: 6-off 4-off
+0:You:4 5
+1:You:20-off 21-off 
+0:alinutza:4 6
+1:alinutza: 6-off 3-off
+0:You:1 5
+1:You:20-off 23-24 
+0:alinutza:1 1
+1:alinutza: 3-2 2-1 2-1 1-off
+0:You:1 6
+1:You:19-off 24-off 
+0:alinutza:6 3
+1:alinutza: 1-off
+7:alinutza:1
+9:alinutza:1

@@ -1,0 +1,393 @@
+JavaFIBS internal match representation v1.1
+8:akprinter:3
+13:akprinter: 
+6:You:akprinter
+11:akprinter:2 6
+1:akprinter: 1-7 7-9
+0:You:4 1
+1:You:13-9 24-23 
+0:akprinter:4 1
+1:akprinter: bar-1 19-23
+0:You:5 5
+1:You:bar-20 13-8 8-3 8-3 
+0:akprinter:2 6
+1:akprinter: 17-23 12-14
+0:You:5 1
+1:You:20-15 15-14 
+0:akprinter:5 4
+1:akprinter: bar-5 5-9
+0:You:6 5
+1:You:bar-20 14-8 
+0:akprinter:2 4
+1:akprinter: 1-5 9-11
+0:You:3 3
+1:You:8-5 8-5 24-21 13-10 
+0:akprinter:2 6
+1:akprinter: bar-2 2-8
+0:You:3 4
+1:You:bar-21 10-7 
+0:akprinter:3 1
+1:akprinter: 17-20 19-20
+0:You:5 3
+1:You:bar-22 22-17 
+0:akprinter:2 6
+1:akprinter: bar-2 1-7
+0:You:2 6
+15:You: 
+0:akprinter:2 2
+1:akprinter: 7-9 9-11 8-10 10-12
+0:You:1 5
+1:You:bar-24 6-1 
+0:akprinter:2 6
+1:akprinter: 11-17 2-4
+0:You:4 1
+1:You:bar-24 6-2 
+0:akprinter:2 4
+1:akprinter: 11-15 15-17
+0:You:4 2
+1:You:24-22 22-18 
+0:akprinter:4 5
+1:akprinter: 12-17 19-23
+0:You:4 2
+1:You:24-22 22-18 
+0:akprinter:6 1
+1:akprinter: 4-10 10-11
+0:You:2 1
+1:You:13-11 2-1 
+0:akprinter:3 4
+1:akprinter: bar-4 17-20
+0:You:6 1
+1:You:11-5 5-4 
+0:akprinter:3 1
+15:akprinter: 
+0:You:5 5
+1:You:21-16 21-16 16-11 16-11 
+0:akprinter:3 2
+1:akprinter: bar-2 20-23
+0:You:1 5
+1:You:18-13 4-3 
+0:akprinter:2 6
+1:akprinter: 12-18 2-4
+0:You:2 4
+1:You:bar-21 6-4 
+0:akprinter:3 3
+15:akprinter: 
+0:You:4 3
+1:You:11-7 7-4 
+0:akprinter:2 1
+1:akprinter: bar-2 18-19
+0:You:3 5
+1:You:13-8 11-8 
+0:akprinter:1 3
+1:akprinter: 12-13 12-15
+0:You:1 2
+1:You:bar-24 24-22 
+0:akprinter:5 5
+1:akprinter: 17-22 17-22 2-7 15-20
+0:You:2 3
+15:You: 
+0:akprinter:4 3
+1:akprinter: 7-11 11-14
+0:You:2 2
+15:You: 
+2:akprinter: 
+4:You:
+0:akprinter:6 5
+1:akprinter: 12-18 13-18
+0:You:1 1
+1:You:bar-24 8-7 8-7 3-2 
+0:akprinter:2 6
+1:akprinter: 14-20 20-22
+0:You:5 4
+1:You:21-17 7-2 
+0:akprinter:3 2
+1:akprinter: 19-22 20-22
+0:You:6 1
+1:You:17-11 7-6 
+0:akprinter:3 4
+1:akprinter: 19-23 19-22
+0:You:6 4
+1:You:11-5 5-1 
+0:akprinter:1 2
+1:akprinter: 22-24 23-24
+0:You:5 5
+15:You: 
+0:akprinter:6 5
+1:akprinter: 18-23 18-24
+0:You:2 3
+15:You: 
+0:akprinter:6 2
+1:akprinter: 20-off 20-22
+0:You:6 1
+1:You:bar-19 19-18 
+0:akprinter:1 6
+1:akprinter: 22-o 24-o
+3:You:2
+7:akprinter:2
+14:akprinter-2:sorrytigger-0
+13:akprinter: 
+6:You:akprinter
+11:akprinter:4 5
+1:akprinter: 24-20 13-8
+0:You:3 1
+1:You:17-20 19-20 
+0:akprinter:5 4
+1:akprinter: bar-21 13-8
+0:You:1 3
+1:You:1-4 19-20 
+0:akprinter:6 5
+1:akprinter: 24-18 18-13
+0:You:5 6
+1:You:1-7 7-12 
+0:akprinter:6 3
+1:akprinter: 21-15 6-3
+0:You:6 2
+1:You:4-10 10-12 
+0:akprinter:3 3
+1:akprinter: 8-5 8-5 6-3 13-10
+0:You:6 3
+1:You:12-15 15-21 
+0:akprinter:5 4
+1:akprinter: bar-21 10-5
+0:You:1 2
+1:You:bar-2 20-21 
+0:akprinter:6 5
+15:akprinter: 
+0:You:4 6
+1:You:17-21 12-18 
+0:akprinter:3 3
+1:akprinter: bar-22 8-5 5-2 5-2
+0:You:1 4
+1:You:bar-1 18-22 
+0:akprinter:3 1
+1:akprinter: bar-22 6-5
+0:You:3 1
+1:You:bar-1 19-22 
+0:akprinter:5 2
+1:akprinter: bar-23 13-8
+0:You:2 3
+1:You:17-20 20-22 
+0:akprinter:2 1
+1:akprinter: 8-6 6-5
+0:You:6 2
+1:You:12-18 18-20 
+0:akprinter:4 1
+1:akprinter: 13-9 9-8
+0:You:3 6
+1:You:20-23 12-18 
+0:akprinter:6 5
+15:akprinter: 
+0:You:6 3
+1:You:12-18 1-4 
+0:akprinter:6 3
+15:akprinter: 
+0:You:1 5
+1:You:12-13 18-23 
+0:akprinter:4 5
+15:akprinter: 
+0:You:4 3
+1:You:1-4 13-17 
+0:akprinter:2 4
+15:akprinter: 
+0:You:1 2
+1:You:17-18 12-14 
+0:akprinter:2 4
+15:akprinter: 
+0:You:2 1
+1:You:14-16 16-17 
+0:akprinter:1 1
+1:akprinter: bar-24 bar-24 2-1 2-1
+0:You:1 3
+1:You:4-7 17-18 
+0:akprinter:5 4
+1:akprinter: 8-3 5-1
+0:You:2 3
+1:You:18-21 7-9 
+0:akprinter:3 2
+1:akprinter: 5-2 3-1
+0:You:3 3
+1:You:9-12 12-15 4-7 15-18 
+0:akprinter:4 3
+1:akprinter: 8-4 8-5
+0:You:5 6
+1:You:18-23 7-13 
+0:akprinter:3 1
+1:akprinter: 5-2 4-3
+0:You:3 3
+1:You:13-16 16-19 18-21 18-21 
+0:akprinter:1 2
+1:akprinter: 6-4 6-5
+0:You:4 3
+1:You:21-off 19-22 
+0:akprinter:2 2
+1:akprinter: 4-2 5-3 3-1 3-1
+0:You:4 2
+1:You:21-off 23-off 
+0:akprinter:6 5
+1:akprinter: 24-18 18-13
+0:You:4 6
+1:You:19-off 19-23 
+0:akprinter:5 5
+1:akprinter: 13-8 8-3 24-19 19-14
+0:You:5 1
+1:You:20-off 23-24 
+0:akprinter:3 1
+1:akprinter: 14-11 11-10
+0:You:6 6
+1:You: 20-off 21-off 21-off 21-off
+0:akprinter:3 3
+1:akprinter: 10-7 7-4 3-off 3-off
+0:You:1 6
+1:You: 22-o 24-o
+0:akprinter:2 2
+1:akprinter: 2-off 2-off 2-off 4-2
+0:You:2 3
+1:You: 22-o 23-o
+0:akprinter:1 4
+1:akprinter: 1-off 5-1
+0:You:3 6
+1:You: 22-off 23-off
+7:You:1
+14:sorrytigger-1:akprinter-2
+13:akprinter: 
+6:You:akprinter
+11:akprinter:5 6
+1:akprinter: 1-7 7-12
+0:You:5 4
+1:You:13-8 24-20 
+0:akprinter:2 2
+1:akprinter: 19-21 19-21 12-14 12-14
+0:You:6 3
+1:You:24-18 18-15 
+0:akprinter:6 4
+1:akprinter: 14-20 1-5
+0:You:3 2
+1:You:bar-22 22-20 
+0:akprinter:3 3
+1:akprinter: bar-3 17-20 17-20 12-15
+0:You:5 6
+15:You: 
+0:akprinter:3 1
+1:akprinter: 15-18 17-18
+0:You:3 6
+1:You: bar-22
+0:akprinter:4 4
+1:akprinter: 18-22 18-22 3-7 7-11
+0:You:1 1
+1:You:bar-24 bar-24 6-5 6-5 
+0:akprinter:3 5
+1:akprinter: bar-3 11-16
+2:You: 
+4:akprinter:
+0:You:1 6
+1:You:13-7 8-7 
+0:akprinter:1 6
+1:akprinter: 3-9 9-10
+0:You:1 5
+1:You:24-23 8-3 
+0:akprinter:6 1
+1:akprinter: 10-16 19-20
+0:You:4 6
+1:You:24-18 18-14 
+0:akprinter:5 3
+1:akprinter: bar-3 16-21
+0:You:6 2
+1:You:bar-23 14-8 
+0:akprinter:3 3
+1:akprinter: 12-15 15-18 18-21 21-24
+0:You:6 3
+1:You:6-3 13-7 
+0:akprinter:6 6
+15:akprinter: 
+0:You:1 5
+1:You:8-3 7-6 
+0:akprinter:2 3
+1:akprinter: bar-2 21-24
+0:You:3 1
+1:You:6-3 3-2 
+0:akprinter:3 5
+15:akprinter: 
+0:You:3 2
+1:You:7-4 4-2 
+0:akprinter:2 5
+15:akprinter: 
+0:You:1 4
+1:You:8-7 13-9 
+0:akprinter:6 5
+15:akprinter: 
+0:You:1 2
+1:You:13-11 9-8 
+0:akprinter:5 6
+15:akprinter: 
+0:You:6 5
+1:You:23-17 11-6 
+0:akprinter:1 2
+1:akprinter: bar-1 16-18
+0:You:4 3
+1:You:8-4 4-1 
+0:akprinter:1 3
+1:akprinter: bar-1 1-4
+0:You:2 3
+1:You:bar-23 7-4 
+0:akprinter:5 3
+15:akprinter: 
+0:You:5 6
+1:You:23-18 17-11 
+0:akprinter:2 3
+15:akprinter: 
+0:You:4 2
+1:You:8-4 11-9 
+0:akprinter:3 6
+15:akprinter: 
+0:You:3 5
+1:You:23-18 7-4 
+0:akprinter:3 5
+15:akprinter: 
+0:You:4 5
+1:You:9-5 18-13 
+0:akprinter:2 1
+1:akprinter: bar-1
+0:You:3 6
+1:You:4-1 13-7 
+0:akprinter:2 3
+15:akprinter: 
+0:You:5 6
+1:You:7-1 18-13 
+0:akprinter:6 6
+15:akprinter: 
+0:You:2 1
+1:You:13-11 5-4 
+0:akprinter:1 6
+15:akprinter: 
+0:You:1 4
+1:You:11-7 7-6 
+0:akprinter:5 2
+15:akprinter: 
+0:You:5 5
+1:You:6-1 6-1 5-off 5-off 
+0:akprinter:3 1
+15:akprinter: 
+0:You:4 6
+1:You:6-off 6-2 
+0:akprinter:2 3
+15:akprinter: 
+0:You:5 1
+1:You:4-off 1-off 
+0:akprinter:5 5
+1:akprinter: bar-5 bar-5 5-10 10-15
+0:You:1 6
+1:You: 4-o 1-o
+0:akprinter:1 5
+1:akprinter: 5-10 12-13
+0:You:5 3
+1:You: 4-o 3-o
+0:akprinter:6 5
+1:akprinter: 13-19 15-20
+0:You:4 4
+1:You: 3-off 2-off 2-off 2-off
+0:akprinter:1 3
+1:akprinter: 12-15 22-23
+0:You:5 6
+1:You: 1-off 1-off
+7:You:4
+9:You:3

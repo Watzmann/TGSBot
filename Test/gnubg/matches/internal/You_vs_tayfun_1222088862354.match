@@ -1,0 +1,292 @@
+JavaFIBS internal match representation v1.1
+8:tayfun:3
+13:tayfun: 
+6:You:tayfun
+11:You:6 1
+1:You:13-7 8-7 
+0:tayfun:3 4
+1:tayfun: 1-4 1-5
+0:You:1 2
+1:You:6-5 24-22 
+0:tayfun:2 5
+1:tayfun: bar-5 12-14
+0:You:3 1
+1:You:bar-22 6-5 
+0:tayfun:1 6
+1:tayfun: bar-1 4-10
+0:You:1 4
+1:You:6-5 24-20 
+0:tayfun:1 3
+1:tayfun: 19-20 17-20
+0:You:3 6
+1:You:bar-22 13-7 
+0:tayfun:6 3
+1:tayfun: 1-4 4-10
+0:You:6 3
+1:You:22-16 16-13 
+0:tayfun:2 2
+1:tayfun: 19-21 19-21 12-14 12-14
+0:You:2 5
+1:You:13-8 7-5 
+0:tayfun:1 2
+1:tayfun: 14-15 15-17
+0:You:3 1
+1:You:5-4 8-5 
+0:tayfun:2 1
+1:tayfun: 17-18 18-20
+0:You:4 1
+1:You:13-9 5-4 
+0:tayfun:1 5
+1:tayfun: 14-19 20-21
+0:You:5 5
+1:You:7-2 7-2 8-3 8-3 
+0:tayfun:6 2
+1:tayfun: 14-20 21-23
+0:You:6 4
+1:You:13-7 13-9 
+0:tayfun:1 1
+1:tayfun: 17-18 17-18 12-13 12-13
+0:You:1 6
+1:You:9-3 9-8 
+2:tayfun: 
+4:You:
+0:tayfun:4 5
+1:tayfun: 10-15 15-19
+0:You:1 5
+1:You:7-2 2-1 
+0:tayfun:3 2
+1:tayfun: 10-13 19-21
+0:You:6 6
+1:You:22-16 22-16 16-10 16-10 
+0:tayfun:6 6
+1:tayfun: 13-19 13-19 13-19 18-24
+0:You:1 3
+1:You:8-5 10-9 
+0:tayfun:3 2
+1:tayfun: 18-21 23-off
+0:You:1 4
+1:You:10-6 9-8 
+0:tayfun:3 3
+1:tayfun: 19-22 19-22 22-off 22-off
+0:You:4 6
+1:You:8-4 6-off 
+0:tayfun:6 1
+1:tayfun: 24-off 19-off
+0:You:4 4
+1:You:4-off 4-off 4-off 5-1 
+0:tayfun:4 1
+1:tayfun: 21-off 21-22
+0:You:3 4
+1:You:3-off 6-2 
+0:tayfun:5 6
+1:tayfun: 20-off 19-off
+0:You:4 3
+1:You:5-1 3-off 
+0:tayfun:5 6
+1:tayfun: 20-off 19-off
+0:You:3 2
+1:You: 3-o 2-o
+0:tayfun:4 5
+1:tayfun: 21-off 20-off
+0:You:5 5
+1:You: 6-1 5-off 2-off 2-off
+0:tayfun:3 1
+1:tayfun: 22-off 19-20
+0:You:2 2
+1:You: 1-off 1-off 1-off 1-off
+7:You:2
+14:sorrytigger-2:tayfun-0
+13:tayfun: 
+6:You:tayfun
+11:You:5 4
+1:You:13-8 13-9 
+0:tayfun:1 3
+1:tayfun: 17-20 19-20
+0:You:4 4
+1:You:13-9 9-5 9-5 6-2 
+0:tayfun:5 2
+1:tayfun: 12-17 12-14
+0:You:5 2
+1:You:24-22 13-8 
+0:tayfun:5 6
+1:tayfun: 1-7 7-12
+0:You:5 3
+1:You:8-3 6-3 
+0:tayfun:6 6
+1:tayfun: 12-18 12-18 1-7 7-13
+0:You:6 6
+15:You: 
+0:tayfun:1 5
+1:tayfun: 14-19 13-14
+0:You:4 3
+1:You:bar-21 24-21 
+0:tayfun:4 5
+1:tayfun: 17-22 18-22
+0:You:2 6
+1:You:bar-23 8-2 
+0:tayfun:6 5
+1:tayfun: 12-17 12-18
+0:You:6 1
+1:You:21-15 15-14 
+0:tayfun:3 2
+15:tayfun: 
+0:You:3 2
+1:You:23-21 8-5 
+0:tayfun:4 3
+1:tayfun: bar-4 4-7
+0:You:4 3
+1:You:14-10 10-7 
+0:tayfun:1 4
+1:tayfun: bar-4 19-20
+0:You:6 5
+1:You:7-1 6-1 
+0:tayfun:2 4
+1:tayfun: 17-19 19-23
+0:You:2 6
+1:You:21-15 15-13 
+0:tayfun:4 1
+1:tayfun: 17-21 20-21
+0:You:6 5
+15:You: 
+0:tayfun:6 6
+1:tayfun: 17-23 4-10 18-24 18-24
+0:You:4 3
+15:You: 
+0:tayfun:2 3
+1:tayfun: 19-21 10-13
+0:You:6 2
+15:You: 
+0:tayfun:1 4
+1:tayfun: 13-17 17-18
+0:You:3 2
+15:You: 
+0:tayfun:1 2
+1:tayfun: 18-20 19-20
+0:You:5 4
+15:You: 
+0:tayfun:2 2
+1:tayfun: 20-22 20-22 21-23 23-off
+0:You:4 5
+15:You: 
+0:tayfun:1 2
+1:tayfun: 22-23 22-24
+0:You:1 2
+15:You: 
+0:tayfun:3 3
+1:tayfun: 19-22 19-22 22-off 22-off
+0:You:1 4
+15:You: 
+0:tayfun:5 4
+1:tayfun: 20-off 20-24
+0:You:2 6
+1:You: bar-19
+0:tayfun:2 2
+1:tayfun: 21-23 21-23 23-off 23-off
+0:You:1 1
+15:You: 
+0:tayfun:1 4
+1:tayfun: 22-off 22-23
+0:You:1 2
+15:You: 
+0:tayfun:1 1
+1:tayfun: 24-off 24-off 24-off 24-off
+0:You:4 2
+1:You:bar-21 19-17 
+0:tayfun:5 4
+1:tayfun: 23-off 23-off
+0:You:6 2
+1:You:21-15 15-13 
+0:tayfun:4 6
+1:tayfun: 23-off 23-off
+7:tayfun:2
+14:tayfun-2:sorrytigger-2
+13:tayfun: 
+6:You:tayfun
+11:You:5 1
+1:You:12-17 1-2 
+0:tayfun:2 4
+1:tayfun: 8-4 6-4
+0:You:4 4
+1:You:17-21 17-21 19-23 19-23 
+0:tayfun:6 3
+1:tayfun: 24-18 18-15
+0:You:2 3
+1:You:12-15 15-17 
+0:tayfun:3 3
+1:tayfun: bar-22 6-3 6-3 13-10
+0:You:6 2
+1:You:1-7 7-9 
+0:tayfun:4 3
+1:tayfun: 13-9 9-6
+0:You:1 6
+1:You:bar-1 1-7 
+0:tayfun:1 2
+1:tayfun: 10-8 8-7
+0:You:4 6
+15:You: 
+0:tayfun:4 4
+1:tayfun: 13-9 13-9 9-5 9-5
+0:You:1 6
+1:You:bar-1 1-7 
+0:tayfun:4 2
+15:tayfun: 
+0:You:6 1
+1:You:12-18 17-18 
+0:tayfun:1 5
+1:tayfun: bar-20 8-7
+0:You:6 2
+1:You:bar-2 2-8 
+0:tayfun:5 6
+1:tayfun: bar-20 13-7
+0:You:1 4
+1:You:8-12 12-13 
+0:tayfun:3 5
+1:tayfun: 7-2 6-3
+0:You:5 5
+15:You: 
+0:tayfun:2 4
+1:tayfun: 20-16 16-14
+0:You:3 3
+15:You: 
+0:tayfun:6 1
+1:tayfun: 20-14 3-2
+0:You:4 6
+15:You: 
+0:tayfun:1 6
+1:tayfun: 14-13 13-7
+0:You:1 5
+1:You: bar-1
+0:tayfun:6 3
+1:tayfun: 22-16 16-13
+0:You:4 5
+15:You: 
+0:tayfun:6 1
+1:tayfun: 7-1 14-13
+0:You:3 6
+15:You: 
+0:tayfun:6 2
+1:tayfun: 7-1 24-22
+0:You:1 1
+15:You: 
+0:tayfun:6 6
+1:tayfun: 22-16 16-10 13-7 13-7
+0:You:1 3
+15:You: 
+0:tayfun:2 4
+1:tayfun: 10-6 6-4
+0:You:5 5
+15:You: 
+0:tayfun:3 5
+1:tayfun: 7-2 7-4
+0:You:3 2
+15:You: 
+0:tayfun:6 6
+1:tayfun: 6-off 6-off 5-off 5-off
+0:You:6 1
+1:You: bar-6
+0:tayfun:2 1
+1:tayfun: 4-3 4-2
+0:You:5 4
+3:You:2
+7:tayfun:2
+9:tayfun:3

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+[ ! $1 ] && echo "Filter angeben" && exit
+
+FILTER=$1
+echo Test mit $FILTER
+
+#./dsync.py -vf $FILTER dir-diff ~/Python/Source.before/ ~/Python/Source|diff diff$FILTER -
+#./dsync.py -vf $FILTER dir-diff Source.before Source | diff diff$FILTER -
+./dsync.py -vf $FILTER dir-diff Source.before Source | diff diff$FILTER -
+

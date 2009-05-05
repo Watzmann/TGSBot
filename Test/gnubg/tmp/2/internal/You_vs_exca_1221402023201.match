@@ -1,0 +1,312 @@
+JavaFIBS internal match representation v1.1
+8:exca:3
+13:exca: 
+6:You:exca
+11:You:3 2
+1:You:13-10 13-11 
+0:exca:5 4
+1:exca: 1-5 5-10
+0:You:2 2
+1:You:bar-23 13-11 6-4 6-4 
+0:exca:5 4
+1:exca: 1-5 5-10
+0:You:5 5
+1:You:8-3 8-3 23-18 18-13 
+0:exca:1 6
+1:exca: 12-18 17-18
+0:You:2 2
+1:You:24-22 24-22 22-20 22-20 
+0:exca:2 2
+1:exca: 12-14 12-14 14-16 14-16
+0:You:6 4
+1:You:13-7 6-2 
+0:exca:2 6
+1:exca: 10-16 10-12
+0:You:5 6
+1:You:11-5 7-2 
+0:exca:6 3
+1:exca: 16-22 19-22
+0:You:4 2
+1:You:11-7 7-5 
+0:exca:5 2
+1:exca: 12-17 19-21
+0:You:4 4
+1:You:13-9 13-9 9-5 8-4 
+0:exca:6 4
+1:exca: 17-23 19-23
+0:You:5 6
+1:You:20-14 20-15 
+0:exca:6 1
+1:exca: 16-22 16-17
+0:You:6 1
+1:You:15-9 14-13 
+0:exca:3 6
+1:exca: 17-23 18-21
+0:You:4 4
+1:You:13-9 9-5 9-5 9-5 
+0:exca:6 3
+1:exca: 12-18 18-21
+0:You:5 3
+1:You:5-off 4-1 
+0:exca:2 5
+1:exca: 12-17 18-20
+2:You: 
+4:exca:
+0:You:6 2
+1:You:6-off 2-off 
+0:exca:2 5
+1:exca: 17-22 17-19
+0:You:1 4
+1:You: 4-o 1-o
+0:exca:2 2
+1:exca: 17-19 23-off 23-off 23-off
+0:You:1 5
+1:You:5-off 5-4 
+0:exca:4 1
+1:exca: 21-off 22-23
+0:You:1 4
+1:You:4-off 2-1 
+0:exca:1 5
+1:exca: 19-24 24-off
+0:You:6 6
+1:You: 6-off 5-off 5-off 5-off
+0:exca:4 3
+1:exca: 21-off 22-off
+0:You:1 1
+1:You:1-off 3-2 2-1 1-off 
+0:exca:4 2
+1:exca: 21-off 23-off
+0:You:1 1
+1:You:3-2 2-1 1-off 4-3 
+0:exca:3 1
+1:exca: 22-off 19-20
+0:You:2 1
+1:You: 3-2 2-off
+7:You:2
+14:sorrytigger-2:exca-0
+13:exca: 
+6:You:exca
+11:exca:5 6
+1:exca: 1-7 7-12
+0:You:1 2
+1:You:13-11 24-23 
+0:exca:4 2
+1:exca: 19-21 17-21
+0:You:4 4
+1:You:13-9 13-9 9-5 9-5 
+0:exca:2 5
+1:exca: 1-3 12-17
+0:You:3 4
+1:You:24-20 23-20 
+0:exca:4 4
+1:exca: 3-7 7-11 11-15 15-19
+0:You:6 6
+15:You: 
+0:exca:5 3
+1:exca: 17-22 19-22
+0:You:5 1
+1:You:bar-20 8-7 
+0:exca:4 5
+1:exca: 12-17 17-21
+0:You:1 2
+1:You:6-4 6-5 
+0:exca:3 2
+1:exca: 12-15 15-17
+0:You:3 6
+1:You:8-2 7-4 
+0:exca:4 3
+1:exca: 12-16 16-19
+0:You:2 5
+1:You:8-3 5-3 
+0:exca:4 2
+1:exca: 19-23 21-23
+0:You:6 4
+1:You:20-14 14-10 
+0:exca:6 3
+1:exca: 17-23 19-22
+0:You:4 4
+1:You:13-9 13-9 6-2 10-6 
+0:exca:4 2
+1:exca: 17-21 17-19
+0:You:5 1
+1:You:9-4 4-3 
+0:exca:5 4
+1:exca: 19-24 19-23
+0:You:3 4
+1:You:9-5 5-2 
+0:exca:1 4
+1:exca: 19-23 23-24
+0:You:2 5
+1:You:6-1 3-1 
+0:exca:6 2
+1:exca: 19-21 12-18
+0:You:6 5
+1:You:20-14 14-9 
+0:exca:1 1
+1:exca: 18-19 19-20 20-21 12-13
+0:You:1 3
+15:You: 
+0:exca:2 1
+1:exca: 21-23 23-24
+0:You:2 1
+15:You: 
+0:exca:1 4
+1:exca: 13-17 21-22
+0:You:6 4
+1:You:bar-19 9-5 
+0:exca:2 6
+1:exca: 17-19 19-off
+0:You:4 4
+15:You: 
+0:exca:3 5
+1:exca: 21-off 22-off
+0:You:2 4
+15:You: 
+0:exca:6 2
+1:exca: 21-off 21-23
+0:You:5 6
+1:You:bar-19 19-14 
+0:exca:2 2
+1:exca: 23-off 23-off 23-off 23-off
+0:You:2 3
+1:You:14-11 11-9 
+0:exca:5 3
+1:exca: 22-off 22-off
+0:You:3 3
+1:You:9-6 3-off 3-off 6-3 
+0:exca:6 6
+1:exca: 22-off 23-off 24-off 24-off
+0:You:6 3
+1:You:6-off 3-off 
+0:exca:4 1
+1:exca: 24-off
+7:exca:1
+14:exca-1:sorrytigger-2
+13:exca: 
+6:You:exca
+11:exca:1 3
+1:exca: 8-5 6-5
+0:You:2 5
+1:You:12-17 12-14 
+0:exca:6 1
+1:exca: 13-7 8-7
+0:You:4 1
+1:You:14-18 17-18 
+0:exca:4 6
+1:exca: 8-2 6-2
+0:You:3 4
+1:You:12-16 1-4 
+0:exca:1 5
+1:exca: 13-8 8-7
+0:You:5 2
+1:You:16-21 19-21 
+0:exca:3 6
+1:exca: 13-7 7-4
+0:You:2 3
+1:You:bar-3 1-3 
+0:exca:2 5
+1:exca: 6-4 7-2
+0:You:4 1
+1:You:12-16 17-18 
+0:exca:4 4
+1:exca: 24-20 24-20 20-16 20-16
+0:You:2 5
+15:You: 
+0:exca:1 6
+1:exca: 13-12 13-7
+0:You:3 2
+1:You: bar-3
+0:exca:2 2
+1:exca: 12-10 10-8 8-6 6-4
+0:You:6 6
+15:You: 
+0:exca:6 3
+1:exca: 16-10 10-7
+0:You:3 4
+1:You:bar-3 18-22 
+2:exca: 
+5:You:
+7:exca:1
+14:exca-2:sorrytigger-2
+13:exca: 
+6:You:exca
+11:You:4 2
+1:You:17-21 19-21 
+0:exca:3 3
+1:exca: 13-10 13-10 10-7 10-7
+0:You:2 5
+1:You:12-17 12-14 
+0:exca:4 3
+1:exca: 13-9 9-6
+0:You:1 3
+1:You:17-20 19-20 
+0:exca:4 5
+1:exca: 13-8 13-9
+0:You:3 3
+1:You:1-4 1-4 14-17 17-20 
+0:exca:6 6
+1:exca: 24-18 24-18 9-3 8-2
+0:You:6 2
+1:You:12-14 14-20 
+0:exca:1 6
+1:exca: 8-2 3-2
+0:You:4 3
+1:You:19-23 20-23 
+0:exca:4 6
+1:exca: 7-1 7-3
+0:You:3 2
+1:You:17-20 17-19 
+0:exca:1 4
+1:exca: 2-1 6-2
+0:You:5 3
+1:You:19-24 20-23 
+0:exca:1 6
+1:exca: 18-17 17-11
+0:You:6 5
+1:You:12-18 4-9 
+0:exca:5 1
+1:exca: bar-24 11-6
+0:You:4 3
+1:You:bar-3 20-24 
+0:exca:3 3
+1:exca: bar-22 bar-22 6-3 6-3
+0:You:3 1
+15:You: 
+0:exca:5 3
+1:exca: 22-17 17-14
+0:You:1 5
+1:You:bar-5 4-5 
+0:exca:4 3
+1:exca: 22-18 18-15
+0:You:1 1
+15:You: 
+0:exca:6 2
+1:exca: 15-9 14-12
+0:You:4 1
+1:You: bar-4
+0:exca:1 6
+1:exca: 12-6 9-8
+0:You:1 1
+15:You: 
+0:exca:1 6
+1:exca: 8-2 2-1
+0:You:1 4
+1:You: bar-4
+0:exca:3 4
+1:exca: 6-2 6-3
+0:You:6 1
+15:You: 
+0:exca:5 3
+1:exca: 8-3 6-3
+0:You:3 6
+15:You: 
+0:exca:6 2
+1:exca: 8-2 2-off
+0:You:2 2
+15:You: 
+0:exca:3 6
+1:exca: 6-off 6-3
+0:You:2 5
+3:You:2
+7:exca:2
+9:exca:3

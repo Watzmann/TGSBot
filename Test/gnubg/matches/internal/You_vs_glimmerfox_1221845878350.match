@@ -1,0 +1,154 @@
+JavaFIBS internal match representation v1.1
+8:glimmerfox:3
+13:glimmerfox: 
+6:You:glimmerfox
+11:You:2 1
+1:You:13-11 24-23 
+0:glimmerfox:1 4
+1:glimmerfox: 19-23 23-24
+0:You:5 4
+1:You: bar-21 bar-20
+0:glimmerfox:6 1
+1:glimmerfox: 12-18 17-18
+0:You:3 3
+1:You:8-5 8-5 11-8 13-10 
+0:glimmerfox:2 3
+1:glimmerfox: 19-21 21-24
+0:You:6 1
+15:You: 
+0:glimmerfox:2 6
+1:glimmerfox: 12-18 18-20
+0:You:6 3
+1:You: bar-22
+0:glimmerfox:3 1
+1:glimmerfox: 1-4 19-20
+0:You:5 1
+15:You: 
+0:glimmerfox:1 2
+1:glimmerfox: 1-3 3-4
+0:You:4 6
+1:You:bar-21 21-15 
+0:glimmerfox:3 5
+1:glimmerfox: 12-15 15-20
+0:You:3 1
+1:You:bar-22 6-5 
+0:glimmerfox:6 2
+1:glimmerfox: 4-10 10-12
+0:You:4 5
+1:You:bar-21 13-8 
+0:glimmerfox:6 6
+1:glimmerfox: 17-23 17-23 12-18 4-10
+0:You:6 4
+1:You:8-2 6-2 
+0:glimmerfox:6 1
+1:glimmerfox: 10-16 20-21
+0:You:3 1
+1:You:bar-22 22-21 
+0:glimmerfox:3 1
+1:glimmerfox: bar-1 18-21
+0:You:2 2
+15:You: 
+0:glimmerfox:4 3
+1:glimmerfox: 18-21 12-16
+0:You:1 3
+1:You:bar-22 13-12 
+0:glimmerfox:4 6
+1:glimmerfox: bar-4 4-10
+0:You:2 3
+1:You:13-10 12-10 
+0:glimmerfox:1 6
+1:glimmerfox: bar-1 1-7
+0:You:5 3
+1:You:10-7 7-2 
+0:glimmerfox:6 3
+1:glimmerfox: bar-3 3-9
+0:You:6 4
+1:You:22-18 18-12 
+0:glimmerfox:4 5
+1:glimmerfox: bar-4 4-9
+0:You:3 3
+1:You:10-7 7-4 4-1 8-5 
+0:glimmerfox:3 5
+1:glimmerfox: bar-3 3-8
+0:You:4 3
+1:You:bar-22 12-8 
+0:glimmerfox:2 4
+1:glimmerfox: bar-4 9-11
+0:You:1 2
+1:You:6-4 5-4 
+0:glimmerfox:1 2
+1:glimmerfox: bar-1 1-3
+0:You:5 3
+1:You:bar-22 8-3 
+0:glimmerfox:4 4
+15:glimmerfox: 
+0:You:3 6
+1:You:5-2 
+0:glimmerfox:3 3
+1:glimmerfox: bar-3 11-14 14-17 17-20
+0:You:3 6
+1:You: bar-22
+0:glimmerfox:2 5
+1:glimmerfox: 9-14 14-16
+0:You:2 1
+1:You:5-3 3-2 
+0:glimmerfox:1 4
+1:glimmerfox: bar-1 1-5
+0:You:3 4
+1:You:bar-22 22-18 
+0:glimmerfox:2 4
+1:glimmerfox: 5-9 16-18
+0:You:2 1
+15:You: 
+0:glimmerfox:1 5
+1:glimmerfox: 9-14 18-19
+0:You:2 5
+15:You: 
+0:glimmerfox:1 1
+1:glimmerfox: 19-20 20-21 20-21 14-15
+0:You:1 6
+15:You: 
+0:glimmerfox:5 3
+1:glimmerfox: 15-20 16-19
+0:You:2 3
+1:You:bar-22 6-4 
+0:glimmerfox:2 1
+1:glimmerfox: 16-18 18-19
+0:You:5 4
+1:You:22-17 22-18 
+0:glimmerfox:2 1
+1:glimmerfox: 23-off 24-off
+0:You:3 6
+1:You:17-11 11-8 
+0:glimmerfox:6 4
+1:glimmerfox: 19-off 21-off
+0:You:2 2
+1:You:8-6 18-16 16-14 14-12 
+0:glimmerfox:6 5
+1:glimmerfox: 19-off 20-off
+0:You:1 4
+1:You:2-1 12-8 
+0:glimmerfox:3 4
+1:glimmerfox: 20-24 20-23
+0:You:5 1
+1:You:2-1 22-17 
+0:glimmerfox:6 5
+1:glimmerfox: 19-24 19-off
+0:You:4 1
+1:You:4-3 17-13 
+0:glimmerfox:1 4
+1:glimmerfox: 21-off 24-off
+0:You:4 1
+1:You:8-4 4-3 
+0:glimmerfox:4 1
+1:glimmerfox: 21-off 24-off
+0:You:2 5
+1:You:22-17 13-11 
+0:glimmerfox:6 5
+1:glimmerfox: 21-off 23-off
+0:You:3 1
+1:You:22-19 19-18 
+0:glimmerfox:5 1
+1:glimmerfox: 23-off 24-off
+7:glimmerfox:3
+9:glimmerfox:3

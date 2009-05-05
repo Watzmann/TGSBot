@@ -1,0 +1,86 @@
+JavaFIBS internal match representation v1.1
+8:davidking:1
+13:davidking: 
+6:You:davidking
+11:davidking:1 3
+1:davidking: 17-20 19-20
+0:You:3 3
+1:You:6-3 6-3 24-21 24-21 
+0:davidking:6 6
+1:davidking: 1-7 1-7 12-18 12-18
+0:You:6 5
+1:You:21-15 21-16 
+0:davidking:1 2
+1:davidking: 12-14 14-15
+0:You:6 2
+1:You:bar-23 16-10 
+0:davidking:6 1
+1:davidking: 15-21 21-22
+0:You:5 5
+1:You:10-5 6-1 6-1 6-1 
+0:davidking:5 6
+1:davidking: 17-22 17-23
+0:You:6 4
+1:You:bar-21 21-15 
+0:davidking:2 2
+1:davidking: 7-9 7-9 19-21 19-21
+0:You:2 1
+1:You:15-13 5-4 
+0:davidking:1 2
+1:davidking: 18-20 18-19
+0:You:3 1
+1:You:8-5 5-4 
+0:davidking:1 4
+1:davidking: 19-23 20-21
+0:You:2 6
+1:You:13-7 7-5 
+0:davidking:5 2
+1:davidking: 12-14 12-17
+0:You:4 5
+1:You:13-8 8-4 
+0:davidking:6 1
+1:davidking: 17-23 14-15
+0:You:1 5
+1:You:13-8 8-7 
+0:davidking:1 3
+1:davidking: 21-24 23-24
+0:You:1 4
+1:You:13-12 12-8 
+0:davidking:5 4
+1:davidking: 9-14 14-18
+0:You:1 1
+1:You:7-6 6-5 8-7 7-6 
+0:davidking:5 3
+1:davidking: 9-14 14-17
+0:You:4 2
+1:You:13-9 13-11 
+0:davidking:3 2
+1:davidking: 17-20 18-20
+0:You:6 5
+1:You:9-3 11-6 
+0:davidking:5 6
+1:davidking: 15-21 20-off
+0:You:4 4
+1:You:8-4 8-4 4-off 4-off 
+0:davidking:2 3
+1:davidking: 22-off 23-off
+0:You:6 2
+1:You:6-off 4-2 
+0:davidking:4 6
+1:davidking: 19-off 19-23
+0:You:5 5
+1:You:6-1 5-off 5-off 4-off 
+0:davidking:1 3
+1:davidking: 22-off 24-off
+0:You:3 3
+1:You:4-1 3-off 3-off 3-off 
+0:davidking:6 6
+1:davidking: 20-off 20-off 20-off 21-off
+0:You:6 4
+1:You: 2-o 1-o
+0:davidking:3 2
+1:davidking: 23-off 21-24
+0:You:3 3
+1:You: 1-o 1-o 1-o 1-o
+7:You:1
+9:You:1

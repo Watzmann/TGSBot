@@ -1,0 +1,340 @@
+JavaFIBS internal match representation v1.1
+8:Raupe_im_Sauerkraut:3
+13:Raupe_im_Sauerkraut: 
+6:You:Raupe_im_Sauerkraut
+11:Raupe_im_Sauerkraut:4 5
+1:Raupe_im_Sauerkraut: 12-17 12-16
+0:You:2 1
+1:You:13-11 24-23 
+0:Raupe_im_Sauerkraut:5 1
+1:Raupe_im_Sauerkraut: 19-24 16-17
+0:You:5 6
+1:You:bar-20 20-14 
+0:Raupe_im_Sauerkraut:5 1
+1:Raupe_im_Sauerkraut: 19-24 1-2
+0:You:5 4
+1:You:23-18 18-14 
+0:Raupe_im_Sauerkraut:1 5
+1:Raupe_im_Sauerkraut: 17-22 19-20
+0:You:5 3
+1:You:8-3 6-3 
+0:Raupe_im_Sauerkraut:3 3
+1:Raupe_im_Sauerkraut: 17-20 2-5 17-20 1-4
+0:You:4 5
+1:You:11-7 7-2 
+0:Raupe_im_Sauerkraut:5 2
+1:Raupe_im_Sauerkraut: 5-10 10-12
+0:You:1 2
+1:You:6-4 4-3 
+0:Raupe_im_Sauerkraut:2 6
+1:Raupe_im_Sauerkraut: bar-2 12-18
+0:You:2 5
+1:You:bar-23 23-18 
+0:Raupe_im_Sauerkraut:3 6
+15:Raupe_im_Sauerkraut: 
+0:You:6 5
+1:You:13-7 7-2 
+0:Raupe_im_Sauerkraut:3 1
+1:Raupe_im_Sauerkraut: bar-1
+0:You:6 1
+1:You:3-2 13-7 
+0:Raupe_im_Sauerkraut:6 6
+15:Raupe_im_Sauerkraut: 
+0:You:3 6
+1:You:13-7 13-10 
+0:Raupe_im_Sauerkraut:6 6
+15:Raupe_im_Sauerkraut: 
+0:You:5 3
+1:You:10-5 8-5 
+0:Raupe_im_Sauerkraut:1 2
+1:Raupe_im_Sauerkraut: bar-1 20-22
+0:You:2 3
+1:You:18-15 15-13 
+0:Raupe_im_Sauerkraut:1 5
+1:Raupe_im_Sauerkraut: 12-13 13-18
+0:You:4 6
+1:You:bar-21 21-15 
+0:Raupe_im_Sauerkraut:3 1
+1:Raupe_im_Sauerkraut: 12-15 18-19
+0:You:3 2
+1:You:bar-23 8-5 
+0:Raupe_im_Sauerkraut:2 4
+1:Raupe_im_Sauerkraut: 12-16 15-17
+0:You:1 2
+1:You:6-4 5-4 
+0:Raupe_im_Sauerkraut:6 2
+1:Raupe_im_Sauerkraut: 16-22 17-19
+0:You:3 3
+1:You:14-11 11-8 8-5 5-2 
+0:Raupe_im_Sauerkraut:5 4
+1:Raupe_im_Sauerkraut: 17-22 19-23
+0:You:1 6
+15:You: 
+0:Raupe_im_Sauerkraut:4 2
+1:Raupe_im_Sauerkraut: 17-21 19-21
+0:You:6 1
+15:You: 
+0:Raupe_im_Sauerkraut:2 6
+1:Raupe_im_Sauerkraut: 21-23
+0:You:4 5
+1:You:bar-21 14-9 
+0:Raupe_im_Sauerkraut:4 6
+15:Raupe_im_Sauerkraut: 
+0:You:4 5
+1:You:21-17 9-4 
+0:Raupe_im_Sauerkraut:6 5
+15:Raupe_im_Sauerkraut: 
+0:You:5 3
+1:You:17-12 12-9 
+0:Raupe_im_Sauerkraut:5 1
+1:Raupe_im_Sauerkraut: bar-1 19-24
+0:You:1 3
+1:You:9-6 4-3 
+0:Raupe_im_Sauerkraut:4 4
+1:Raupe_im_Sauerkraut: 20-24 20-24 19-23
+0:You:5 4
+1:You:7-2 7-3 
+0:Raupe_im_Sauerkraut:5 2
+1:Raupe_im_Sauerkraut: 22-24
+0:You:4 1
+1:You:6-2 3-2 
+0:Raupe_im_Sauerkraut:5 2
+1:Raupe_im_Sauerkraut: 22-24
+0:You:2 3
+1:You:3-off 2-off 
+0:Raupe_im_Sauerkraut:3 4
+15:Raupe_im_Sauerkraut: 
+0:You:1 3
+1:You:6-3 6-5 
+0:Raupe_im_Sauerkraut:6 5
+1:Raupe_im_Sauerkraut: 1-7 7-12
+0:You:4 4
+1:You: 4-off 4-off
+0:Raupe_im_Sauerkraut:6 4
+1:Raupe_im_Sauerkraut: 12-18 18-22
+0:You:2 6
+1:You:5-off 2-off 
+0:Raupe_im_Sauerkraut:2 3
+1:Raupe_im_Sauerkraut: 1-4 22-24
+0:You:4 1
+1:You:5-1 2-1 
+0:Raupe_im_Sauerkraut:3 5
+1:Raupe_im_Sauerkraut: bar-5 5-8
+2:You: 
+5:Raupe_im_Sauerkraut:
+7:You:1
+14:sorrytigger-1:Raupe_im_Sauerkraut-0
+13:Raupe_im_Sauerkraut: 
+6:You:Raupe_im_Sauerkraut
+11:You:4 1
+1:You:13-9 24-23 
+0:Raupe_im_Sauerkraut:6 4
+1:Raupe_im_Sauerkraut: 17-23 19-23
+0:You:3 1
+1:You:bar-22 22-21 
+0:Raupe_im_Sauerkraut:5 5
+1:Raupe_im_Sauerkraut: 19-24 19-24 17-22 17-22
+0:You:1 6
+15:You: 
+0:Raupe_im_Sauerkraut:3 1
+1:Raupe_im_Sauerkraut: 1-4 4-5
+0:You:6 6
+15:You: 
+2:Raupe_im_Sauerkraut: 
+5:You:
+7:Raupe_im_Sauerkraut:1
+14:Raupe_im_Sauerkraut-1:sorrytigger-1
+13:Raupe_im_Sauerkraut: 
+6:You:Raupe_im_Sauerkraut
+11:Raupe_im_Sauerkraut:4 6
+1:Raupe_im_Sauerkraut: 8-2 6-2
+0:You:6 3
+1:You:1-7 12-15 
+0:Raupe_im_Sauerkraut:2 6
+1:Raupe_im_Sauerkraut: 13-7 13-11
+0:You:6 3
+1:You:bar-3 1-7 
+0:Raupe_im_Sauerkraut:2 6
+1:Raupe_im_Sauerkraut: bar-23 13-7
+0:You:4 5
+1:You:bar-5 3-7 
+0:Raupe_im_Sauerkraut:1 5
+1:Raupe_im_Sauerkraut: bar-20 6-5
+0:You:5 2
+1:You:bar-5 5-7 
+0:Raupe_im_Sauerkraut:4 6
+1:Raupe_im_Sauerkraut: bar-21 21-15
+0:You:3 6
+1:You:bar-3 3-9 
+0:Raupe_im_Sauerkraut:2 3
+1:Raupe_im_Sauerkraut: 11-9 23-20
+0:You:1 4
+1:You:bar-4 4-5 
+0:Raupe_im_Sauerkraut:4 1
+1:Raupe_im_Sauerkraut: 9-5 6-5
+0:You:5 6
+15:You: 
+0:Raupe_im_Sauerkraut:4 2
+1:Raupe_im_Sauerkraut: 15-11 11-9
+0:You:6 2
+15:You: 
+2:Raupe_im_Sauerkraut: 
+5:You:
+7:Raupe_im_Sauerkraut:1
+14:Raupe_im_Sauerkraut-2:sorrytigger-1
+13:Raupe_im_Sauerkraut: 
+6:You:Raupe_im_Sauerkraut
+11:Raupe_im_Sauerkraut:1 5
+1:Raupe_im_Sauerkraut: 13-8 24-23
+0:You:3 6
+1:You:1-7 12-15 
+0:Raupe_im_Sauerkraut:1 3
+1:Raupe_im_Sauerkraut: 8-7 23-20
+0:You:6 1
+1:You:bar-1 1-7 
+0:Raupe_im_Sauerkraut:2 2
+1:Raupe_im_Sauerkraut: bar-23 6-4 6-4 24-22
+0:You:2 3
+1:You:17-20 20-22 
+0:Raupe_im_Sauerkraut:3 4
+1:Raupe_im_Sauerkraut: bar-21 bar-22
+0:You:6 1
+1:You:bar-1 1-7 
+0:Raupe_im_Sauerkraut:1 3
+1:Raupe_im_Sauerkraut: 8-5 6-5
+0:You:4 5
+1:You:12-17 15-19 
+0:Raupe_im_Sauerkraut:1 3
+1:Raupe_im_Sauerkraut: 23-20 21-20
+0:You:5 4
+1:You:12-17 19-23 
+0:Raupe_im_Sauerkraut:4 6
+1:Raupe_im_Sauerkraut: 22-16 20-16
+0:You:4 4
+1:You:17-21 17-21 19-23 19-23 
+0:Raupe_im_Sauerkraut:1 3
+1:Raupe_im_Sauerkraut: 13-10 10-9
+0:You:2 5
+1:You:1-3 19-24 
+0:Raupe_im_Sauerkraut:4 4
+1:Raupe_im_Sauerkraut: 13-9 13-9 13-9 9-5
+0:You:4 2
+1:You:3-7 21-23 
+0:Raupe_im_Sauerkraut:2 4
+1:Raupe_im_Sauerkraut: 20-16 5-3
+0:You:6 3
+1:You:17-23 17-20 
+0:Raupe_im_Sauerkraut:1 3
+1:Raupe_im_Sauerkraut: 9-6 6-5
+0:You:2 4
+1:You:7-11 11-13 
+0:Raupe_im_Sauerkraut:4 3
+1:Raupe_im_Sauerkraut: 16-13 13-9
+0:You:1 6
+1:You:bar-1 1-7 
+0:Raupe_im_Sauerkraut:2 4
+1:Raupe_im_Sauerkraut: 16-14 14-10
+0:You:2 3
+1:You:7-10 10-12 
+0:Raupe_im_Sauerkraut:3 3
+1:Raupe_im_Sauerkraut: bar-22 9-6 6-3 16-13
+0:You:2 3
+1:You:21-24 20-22 
+0:Raupe_im_Sauerkraut:3 2
+1:Raupe_im_Sauerkraut: bar-22 13-11
+0:You:3 6
+15:You: 
+0:Raupe_im_Sauerkraut:1 2
+1:Raupe_im_Sauerkraut: 11-9 22-21
+0:You:5 1
+1:You:bar-1 12-17 
+0:Raupe_im_Sauerkraut:6 2
+1:Raupe_im_Sauerkraut: 9-3 3-1
+0:You:2 5
+1:You:bar-2 12-17 
+0:Raupe_im_Sauerkraut:1 3
+1:Raupe_im_Sauerkraut: 5-2 2-1
+0:You:6 6
+15:You: 
+0:Raupe_im_Sauerkraut:4 6
+1:Raupe_im_Sauerkraut: 21-15 9-5
+0:You:3 6
+15:You: 
+0:Raupe_im_Sauerkraut:1 6
+1:Raupe_im_Sauerkraut: 9-3 3-2
+0:You:2 2
+1:You:bar-2 7-9 7-9 12-14 
+0:Raupe_im_Sauerkraut:1 2
+15:Raupe_im_Sauerkraut: 
+0:You:6 1
+1:You:14-15 9-15 
+0:Raupe_im_Sauerkraut:4 3
+1:Raupe_im_Sauerkraut: bar-22 bar-21
+0:You:4 3
+1:You:9-13 13-16 
+0:Raupe_im_Sauerkraut:1 2
+1:Raupe_im_Sauerkraut: 5-3 3-2
+0:You:4 5
+15:You: 
+0:Raupe_im_Sauerkraut:1 3
+1:Raupe_im_Sauerkraut: 21-18 22-21
+0:You:1 6
+15:You: 
+0:Raupe_im_Sauerkraut:4 2
+1:Raupe_im_Sauerkraut: 18-16 16-12
+0:You:1 3
+15:You: 
+0:Raupe_im_Sauerkraut:6 2
+1:Raupe_im_Sauerkraut: 8-2 8-6
+0:You:6 4
+15:You: 
+0:Raupe_im_Sauerkraut:3 3
+1:Raupe_im_Sauerkraut: 21-18 12-9 6-3 9-6
+0:You:6 1
+15:You: 
+0:Raupe_im_Sauerkraut:2 1
+1:Raupe_im_Sauerkraut: 18-16 3-2
+0:You:4 5
+15:You: 
+0:Raupe_im_Sauerkraut:1 1
+1:Raupe_im_Sauerkraut: 2-1 6-5 5-4 4-3
+0:You:1 3
+15:You: 
+0:Raupe_im_Sauerkraut:2 2
+1:Raupe_im_Sauerkraut: 16-14 14-12 12-10 10-8
+0:You:3 6
+15:You: 
+0:Raupe_im_Sauerkraut:5 1
+1:Raupe_im_Sauerkraut: 8-3 1-off
+0:You:2 1
+15:You: 
+0:Raupe_im_Sauerkraut:4 3
+1:Raupe_im_Sauerkraut: 6-2 6-3
+0:You:2 6
+1:You: bar-6
+0:Raupe_im_Sauerkraut:2 1
+1:Raupe_im_Sauerkraut: 2-off 3-2
+0:You:2 5
+15:You: 
+0:Raupe_im_Sauerkraut:6 5
+1:Raupe_im_Sauerkraut: 5-off 5-off
+0:You:2 4
+15:You: 
+0:Raupe_im_Sauerkraut:1 2
+1:Raupe_im_Sauerkraut: 2-off 3-2
+0:You:2 4
+15:You: 
+0:Raupe_im_Sauerkraut:3 2
+1:Raupe_im_Sauerkraut: 2-off 3-off
+0:You:2 3
+15:You: 
+0:Raupe_im_Sauerkraut:2 1
+1:Raupe_im_Sauerkraut: 2-off 2-1
+0:You:3 4
+15:You: 
+0:Raupe_im_Sauerkraut:3 2
+1:Raupe_im_Sauerkraut: 3-off 3-1
+0:You:4 5
+3:You:2
+7:Raupe_im_Sauerkraut:2
+9:Raupe_im_Sauerkraut:3

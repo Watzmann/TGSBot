@@ -1,0 +1,94 @@
+JavaFIBS internal match representation v1.1
+8:Lona:1
+13:Lona: 
+6:You:Lona
+11:You:5 4
+1:You:12-17 12-16 
+0:Lona:2 1
+1:Lona: 13-11 24-23
+0:You:3 5
+1:You:17-22 19-22 
+0:Lona:1 3
+1:Lona: 8-5 6-5
+0:You:6 2
+1:You:12-18 16-18 
+0:Lona:3 5
+1:Lona: 23-20 20-15
+0:You:6 6
+1:You:1-7 1-7 17-23 17-23 
+0:Lona:4 5
+1:Lona: 15-11 13-8
+0:You:2 2
+1:You:19-21 19-21 12-14 12-14 
+0:Lona:4 6
+1:Lona: 8-2 6-2
+0:You:4 4
+1:You:17-21 14-18 18-22 14-18 
+0:Lona:5 6
+1:Lona: 13-8 8-2
+0:You:6 6
+1:You: 18-24 18-24 18-24
+0:Lona:4 3
+15:Lona: 
+0:You:1 3
+1:You:7-10 22-23 
+0:Lona:3 2
+15:Lona: 
+0:You:4 3
+1:You:10-14 7-10 
+0:Lona:3 6
+15:Lona: 
+0:You:5 1
+1:You:10-15 14-15 
+0:Lona:3 3
+15:Lona: 
+0:You:4 1
+1:You:15-19 15-16 
+0:Lona:4 5
+1:Lona: bar-20 20-16
+0:You:5 2
+15:You: 
+0:Lona:5 1
+1:Lona: 16-11 13-12
+0:You:3 1
+1:You:bar-3 21-22 
+0:Lona:3 4
+1:Lona: 12-8 8-5
+0:You:5 1
+1:You:3-4 4-9 
+0:Lona:1 6
+1:Lona: 8-2 8-7
+0:You:5 4
+1:You:9-14 14-18 
+0:Lona:4 2
+1:Lona: 7-5 11-7
+0:You:3 2
+1:You:18-20 22-off 
+0:Lona:3 2
+1:Lona: 13-10 10-8
+0:You:3 4
+1:You: 21-o 22-o
+0:Lona:2 6
+1:Lona: 11-5 7-5
+0:You:6 3
+1:You: 19-o 22-o
+0:Lona:6 3
+1:Lona: 11-5 8-5
+0:You:5 2
+1:You: 20-o 23-o
+0:Lona:2 2
+1:Lona: 2-off 2-off 2-off 2-off
+0:You:3 4
+1:You:19-22 21-off 
+0:Lona:4 1
+1:Lona: 6-2 5-4
+0:You:2 6
+1:You: 19-o 23-o
+0:Lona:3 5
+1:Lona: 5-off 4-1
+0:You:4 3
+1:You: 22-off 23-off
+0:Lona:3 2
+3:Lona:1
+7:You:1
+9:You:1

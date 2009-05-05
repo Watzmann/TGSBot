@@ -1,0 +1,188 @@
+JavaFIBS internal match representation v1.1
+8:bloomingb:3
+13:bloomingb: 
+6:You:bloomingb
+11:bloomingb:5 6
+1:bloomingb: 12-17 1-7
+0:You:4 3
+1:You:24-20 13-10 
+0:bloomingb:6 4
+1:bloomingb: 1-7 12-16
+0:You:1 6
+1:You:24-18 6-5 
+0:bloomingb:3 6
+1:bloomingb: 7-10 12-18
+0:You:5 2
+1:You: bar-23 bar-20
+0:bloomingb:6 6
+1:bloomingb: 17-23 17-23 12-18 10-16
+0:You:1 5
+1:You:bar-20 13-12 
+0:bloomingb:1 1
+1:bloomingb: bar-1 1-2 2-3 3-4
+0:You:1 1
+1:You:6-5 8-7 8-7 13-12 
+0:bloomingb:5 1
+1:bloomingb: bar-1 4-9
+0:You:4 3
+1:You:13-9 12-9 
+0:bloomingb:4 3
+1:bloomingb: bar-3 19-23
+0:You:6 6
+1:You:20-14 14-8 9-3 9-3 
+0:bloomingb:4 5
+1:bloomingb: bar-4 4-9
+0:You:4 5
+1:You:13-9 12-7 
+0:bloomingb:4 6
+1:bloomingb: bar-4 4-10
+0:You:4 6
+1:You:20-14 14-10 
+0:bloomingb:1 1
+1:bloomingb: bar-1 19-20 19-20 16-17
+0:You:2 1
+1:You:bar-24 24-22 
+0:bloomingb:4 1
+1:bloomingb: 23-24 16-20
+0:You:4 6
+1:You:22-16 9-5 
+0:bloomingb:2 4
+1:bloomingb: 20-24 17-19
+0:You:3 6
+1:You:10-4 7-4 
+0:bloomingb:1 3
+1:bloomingb: 19-22 22-23
+0:You:4 5
+1:You:6-2 16-11 
+0:bloomingb:1 5
+1:bloomingb: 18-23 18-19
+0:You:6 5
+1:You:8-2 8-3 
+0:bloomingb:5 5
+1:bloomingb: 17-22 17-22 19-24 19-24
+0:You:3 1
+1:You:11-8 3-2 
+0:bloomingb:1 5
+1:bloomingb: 19-24 23-24
+0:You:1 1
+1:You:8-7 7-6 7-6 7-6 
+0:bloomingb:6 4
+1:bloomingb: 20-24 1-7
+2:You: 
+5:bloomingb:
+7:You:1
+14:sorrytigger-1:bloomingb-0
+13:bloomingb: 
+6:You:bloomingb
+11:You:6 5
+1:You:24-18 18-13 
+0:bloomingb:4 1
+1:bloomingb: 12-16 16-17
+0:You:6 6
+1:You:24-18 13-7 13-7 13-7 
+0:bloomingb:4 4
+1:bloomingb: 19-23 19-23 17-21 17-21
+0:You:3 2
+1:You:18-15 15-13 
+0:bloomingb:2 1
+1:bloomingb: 17-19 17-18
+0:You:3 4
+1:You:8-4 7-4 
+0:bloomingb:6 3
+1:bloomingb: 12-18 19-22
+2:You: 
+5:bloomingb:
+7:You:1
+14:sorrytigger-2:bloomingb-0
+13:bloomingb: 
+6:You:bloomingb
+11:bloomingb:4 5
+1:bloomingb: 1-5 5-10
+0:You:6 3
+1:You:24-18 13-10 
+0:bloomingb:3 4
+1:bloomingb: bar-4 1-4
+0:You:5 5
+1:You:10-5 18-13 13-8 8-3 
+0:bloomingb:1 4
+1:bloomingb: 4-5 5-9
+0:You:6 3
+1:You:bar-22 24-18 
+0:bloomingb:3 2
+1:bloomingb: 4-7 7-9
+0:You:1 4
+1:You:22-18 6-5 
+0:bloomingb:3 1
+1:bloomingb: 19-20 17-20
+0:You:1 5
+1:You:13-8 6-5 
+0:bloomingb:1 5
+1:bloomingb: 9-10 10-15
+0:You:1 3
+1:You:6-3 8-7 
+0:bloomingb:3 5
+1:bloomingb: 15-20 9-12
+0:You:2 2
+1:You:8-6 8-6 6-4 6-4 
+0:bloomingb:2 4
+1:bloomingb: 17-19 17-21
+0:You:2 4
+1:You:13-9 8-6 
+0:bloomingb:3 4
+1:bloomingb: 12-15 15-19
+0:You:3 3
+1:You:18-15 18-15 9-6 7-4 
+0:bloomingb:6 1
+1:bloomingb: 12-18 18-19
+0:You:4 5
+1:You:15-10 15-11 
+0:bloomingb:4 6
+1:bloomingb: 12-18 18-22
+0:You:6 2
+1:You:11-5 10-8 
+0:bloomingb:5 5
+1:bloomingb: 12-17 17-22 19-24 19-24
+0:You:5 4
+1:You:8-3 6-2 
+0:bloomingb:4 1
+1:bloomingb: 20-21 19-23
+0:You:3 2
+1:You:13-10 13-11 
+0:bloomingb:5 4
+1:bloomingb: 12-17 12-16
+0:You:4 4
+1:You:10-6 11-7 7-3 4-off 
+0:bloomingb:2 3
+1:bloomingb: 16-19 17-19
+0:You:2 2
+1:You:2-off 4-2 2-off 3-1 
+0:bloomingb:1 3
+1:bloomingb: 22-off 24-off
+0:You:1 6
+1:You: 6-o 1-o
+0:bloomingb:5 4
+1:bloomingb: 20-off 21-off
+0:You:6 2
+1:You:6-off 3-1 
+0:bloomingb:2 1
+1:bloomingb: 23-off 24-off
+0:You:5 4
+1:You: 5-o 4-o
+0:bloomingb:5 3
+1:bloomingb: 20-off 22-off
+0:You:5 3
+1:You: 5-o 3-o
+0:bloomingb:2 6
+1:bloomingb: 19-off 21-23
+0:You:1 1
+1:You:1-off 3-2 2-1 1-off 
+0:bloomingb:3 4
+1:bloomingb: 19-23 19-22
+0:You:5 5
+1:You: 6-1 6-1 5-off 1-off
+0:bloomingb:1 2
+1:bloomingb: 23-off 23-24
+0:You:1 5
+1:You: 1-off
+7:You:1
+9:You:3

@@ -1,0 +1,196 @@
+JavaFIBS internal match representation v1.1
+8:herr_pittibrini:3
+13:herr_pittibrini: 
+6:You:herr_pittibrini
+11:herr_pittibrini:3 5
+1:herr_pittibrini: 17-22 19-22
+0:You:1 1
+1:You:6-5 6-5 8-7 8-7 
+0:herr_pittibrini:2 2
+1:herr_pittibrini: 1-3 1-3 19-21 19-21
+0:You:6 4
+1:You:24-18 18-14 
+0:herr_pittibrini:3 1
+1:herr_pittibrini: 12-15 15-16
+0:You:3 1
+1:You:8-5 14-13 
+0:herr_pittibrini:5 5
+1:herr_pittibrini: 3-8 3-8 12-17 16-21
+0:You:1 2
+1:You:6-4 5-4 
+0:herr_pittibrini:1 3
+1:herr_pittibrini: 12-15 15-16
+0:You:6 4
+1:You:13-7 24-20 
+0:herr_pittibrini:4 4
+1:herr_pittibrini: 12-16 16-20 16-20 8-12
+0:You:6 2
+1:You:bar-23 13-7 
+0:herr_pittibrini:6 5
+1:herr_pittibrini: 8-14 14-19
+0:You:4 5
+1:You:13-8 7-3 
+0:herr_pittibrini:4 5
+1:herr_pittibrini: 12-17 12-16
+0:You:3 4
+1:You:7-3 13-10 
+2:herr_pittibrini: 
+5:You:
+7:herr_pittibrini:1
+14:herr_pittibrini-1:sorrytigger-0
+13:herr_pittibrini: 
+6:You:herr_pittibrini
+11:You:5 3
+1:You:17-22 19-22 
+0:herr_pittibrini:4 1
+1:herr_pittibrini: 13-9 9-8
+0:You:5 1
+1:You:12-17 1-2 
+0:herr_pittibrini:4 5
+1:herr_pittibrini: 24-20 20-15
+0:You:5 3
+1:You:12-15 19-24 
+0:herr_pittibrini:2 2
+1:herr_pittibrini: bar-23 bar-23 23-21 23-21
+0:You:4 6
+1:You:1-7 15-19 
+0:herr_pittibrini:6 5
+1:herr_pittibrini: 13-7 7-2
+0:You:2 3
+1:You: bar-3 bar-2
+0:herr_pittibrini:4 4
+1:herr_pittibrini: bar-21 13-9 13-9 13-9
+0:You:4 5
+1:You:2-7 3-7 
+0:herr_pittibrini:1 5
+1:herr_pittibrini: 21-16 6-5
+2:You: 
+5:herr_pittibrini:
+7:You:1
+14:sorrytigger-1:herr_pittibrini-1
+13:herr_pittibrini: 
+6:You:herr_pittibrini
+11:herr_pittibrini:3 4
+1:herr_pittibrini: 12-16 12-15
+0:You:1 1
+1:You:6-5 6-5 8-7 8-7 
+0:herr_pittibrini:1 5
+1:herr_pittibrini: 15-20 19-20
+0:You:2 1
+1:You:13-11 24-23 
+0:herr_pittibrini:6 2
+1:herr_pittibrini: 12-18 16-18
+0:You:3 2
+1:You:11-8 23-21 
+0:herr_pittibrini:4 3
+1:herr_pittibrini: 17-21 18-21
+0:You:3 5
+1:You:bar-22 13-8 
+0:herr_pittibrini:2 3
+1:herr_pittibrini: 19-22 22-24
+0:You:5 4
+15:You: 
+0:herr_pittibrini:2 5
+1:herr_pittibrini: 19-24 1-3
+0:You:3 1
+1:You: bar-22
+0:herr_pittibrini:6 2
+1:herr_pittibrini: 1-3 3-9
+0:You:1 3
+1:You:bar-22 6-5 
+0:herr_pittibrini:5 4
+1:herr_pittibrini: 9-14 14-18
+0:You:5 3
+1:You:8-3 13-10 
+0:herr_pittibrini:4 4
+1:herr_pittibrini: bar-4 12-16 12-16 16-20
+0:You:1 1
+1:You:5-4 4-3 13-12 12-11 
+0:herr_pittibrini:1 2
+1:herr_pittibrini: bar-2 16-17
+0:You:3 3
+1:You:8-5 8-5 5-2 5-2 
+0:herr_pittibrini:3 4
+1:herr_pittibrini: bar-4 20-23
+0:You:4 1
+1:You:13-9 11-10 
+0:herr_pittibrini:1 2
+1:herr_pittibrini: 17-19 19-20
+0:You:2 2
+1:You:6-4 6-4 10-8 10-8 
+0:herr_pittibrini:5 2
+15:herr_pittibrini: 
+0:You:5 1
+1:You:9-4 4-3 
+0:herr_pittibrini:1 2
+1:herr_pittibrini: bar-1 21-23
+0:You:3 1
+1:You:22-21 8-5 
+0:herr_pittibrini:5 1
+1:herr_pittibrini: bar-1 17-22
+0:You:5 2
+15:You: 
+0:herr_pittibrini:6 5
+1:herr_pittibrini: 1-6 6-12
+0:You:2 5
+15:You: 
+0:herr_pittibrini:3 6
+1:herr_pittibrini: 17-20 12-18
+0:You:1 1
+15:You: 
+0:herr_pittibrini:1 2
+1:herr_pittibrini: 20-22 20-21
+0:You:3 6
+15:You: 
+0:herr_pittibrini:1 2
+1:herr_pittibrini: 18-20 20-21
+0:You:1 6
+15:You: 
+0:herr_pittibrini:6 6
+1:herr_pittibrini: 18-24 18-24
+0:You:1 5
+15:You: 
+0:herr_pittibrini:2 2
+1:herr_pittibrini: 19-21 19-21 21-23 21-23
+0:You:5 6
+1:You: bar-19
+0:herr_pittibrini:5 6
+1:herr_pittibrini: 1-6 6-12
+0:You:1 5
+15:You: 
+0:herr_pittibrini:4 1
+1:herr_pittibrini: 12-16 16-17
+0:You:1 2
+15:You: 
+0:herr_pittibrini:6 2
+1:herr_pittibrini: 17-23 23-off
+0:You:4 4
+15:You: 
+0:herr_pittibrini:1 1
+1:herr_pittibrini: 24-off 24-off 23-24 24-off
+0:You:2 1
+15:You: 
+0:herr_pittibrini:4 1
+1:herr_pittibrini: 20-24 20-21
+0:You:5 1
+1:You:bar-20 19-18 
+0:herr_pittibrini:4 4
+1:herr_pittibrini: 21-off 21-off 21-off 22-off
+0:You:2 4
+1:You:8-6 18-14 
+0:herr_pittibrini:6 4
+1:herr_pittibrini: 22-off 23-off
+0:You:3 3
+1:You:14-11 20-17 11-8 8-5 
+0:herr_pittibrini:3 6
+1:herr_pittibrini: 23-off 23-off
+0:You:1 3
+1:You:17-14 7-6 
+0:herr_pittibrini:5 4
+1:herr_pittibrini: 24-off 24-off
+0:You:5 3
+1:You:14-9 9-6 
+0:herr_pittibrini:2 2
+1:herr_pittibrini: 24-off
+7:herr_pittibrini:2
+9:herr_pittibrini:3

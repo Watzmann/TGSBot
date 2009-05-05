@@ -1,0 +1,130 @@
+JavaFIBS internal match representation v1.1
+8:antiant:1
+13:antiant: 
+6:You:antiant
+11:antiant:1 3
+1:antiant: 8-5 6-5
+0:You:1 6
+1:You:12-18 17-18 
+0:antiant:1 4
+1:antiant: 13-9 9-8
+0:You:3 5
+1:You:19-22 17-22 
+0:antiant:4 6
+1:antiant: 8-2 6-2
+0:You:6 3
+1:You:1-7 7-10 
+0:antiant:2 1
+1:antiant: 13-11 11-10
+0:You:2 6
+15:You: 
+0:antiant:6 1
+1:antiant: 24-23 23-17
+0:You:1 6
+1:You:bar-1 
+0:antiant:1 4
+1:antiant: 13-9 10-9
+0:You:3 5
+1:You:bar-3 12-17 
+0:antiant:6 4
+1:antiant: bar-21 21-15
+0:You:3 6
+1:You:12-15 1-7 
+0:antiant:1 3
+1:antiant: bar-24 6-3
+0:You:3 4
+1:You:bar-3 3-7 
+0:antiant:6 3
+15:antiant: 
+0:You:6 3
+1:You:15-18 1-7 
+0:antiant:6 4
+1:antiant: bar-21 21-15
+0:You:1 6
+1:You:17-18 12-18 
+0:antiant:5 6
+1:antiant: 15-9 9-4
+0:You:2 3
+1:You:19-21 18-21 
+0:antiant:6 4
+1:antiant: 24-20 20-14
+0:You:2 1
+1:You:12-14 14-15 
+0:antiant:1 5
+1:antiant: bar-24 13-8
+0:You:2 3
+1:You:7-10 10-12 
+0:antiant:3 4
+1:antiant: 13-9 8-5
+0:You:1 5
+1:You:15-20 19-20 
+0:antiant:6 5
+1:antiant: 8-2 8-3
+0:You:2 5
+1:You:12-17 17-19 
+0:antiant:4 5
+1:antiant: 9-4 5-1
+0:You:1 3
+1:You:18-21 21-22 
+0:antiant:2 4
+1:antiant: 5-1 5-3
+0:You:2 6
+1:You:19-21 7-13 
+0:antiant:4 4
+1:antiant: 9-5 9-5 6-2 6-2
+0:You:4 2
+1:You:7-11 11-13 
+0:antiant:5 1
+1:antiant: 2-1
+0:You:1 6
+1:You:13-19 13-14 
+0:antiant:5 6
+15:antiant: 
+0:You:4 5
+1:You:19-23 18-23 
+0:antiant:1 1
+1:antiant: 5-4 5-4 4-3 4-3
+0:You:2 4
+1:You:14-18 18-20 
+0:antiant:3 1
+1:antiant: 4-1 4-3
+0:You:4 2
+1:You:18-22 18-20 
+0:antiant:5 2
+1:antiant: 3-1
+0:You:6 6
+1:You:19-off 19-off 20-off 20-off 
+0:antiant:1 3
+1:antiant: 3-2
+0:You:6 6
+1:You:20-off 20-off 21-off 21-off 
+0:antiant:2 3
+1:antiant: 24-21 21-19
+0:You:1 5
+1:You:bar-5 5-6 
+0:antiant:2 5
+1:antiant: 24-19 19-17
+0:You:5 3
+1:You:6-11 11-14 
+0:antiant:5 3
+1:antiant: 19-14 14-11
+0:You:5 5
+1:You:bar-5 5-10 10-15 15-20 
+0:antiant:6 5
+1:antiant: 11-6 17-11
+0:You:6 3
+1:You: 20-o 22-o
+0:antiant:3 5
+1:antiant: 11-6 6-3
+0:You:1 3
+1:You:22-off 23-24 
+0:antiant:1 6
+1:antiant: 6-off 1-off
+0:You:2 1
+1:You: 23-o 24-o
+0:antiant:5 3
+1:antiant: 3-off 3-off
+0:You:5 3
+1:You: 22-o 22-o
+7:You:1
+9:You:1

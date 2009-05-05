@@ -1,0 +1,368 @@
+JavaFIBS internal match representation v1.1
+8:CharlieDontSurf:3
+13:CharlieDontSurf: 
+6:You:CharlieDontSurf
+11:You:4 1
+1:You:12-16 1-2 
+0:CharlieDontSurf:4 1
+1:CharlieDontSurf: 13-9 24-23
+0:You:4 6
+1:You:17-23 19-23 
+0:CharlieDontSurf:2 1
+1:CharlieDontSurf: bar-24 24-22
+0:You:6 4
+1:You:12-16 1-7 
+0:CharlieDontSurf:4 1
+1:CharlieDontSurf: 13-9 8-7
+0:You:6 1
+1:You:bar-1 1-7 
+0:CharlieDontSurf:2 6
+15:CharlieDontSurf: 
+0:You:4 2
+1:You:17-21 19-21 
+0:CharlieDontSurf:1 5
+1:CharlieDontSurf: bar-24 22-17
+0:You:1 1
+1:You:bar-1 16-17 16-17 1-2 
+0:CharlieDontSurf:6 3
+1:CharlieDontSurf: bar-22 13-7
+0:You:3 3
+1:You:bar-3 2-5 2-5 19-22 
+0:CharlieDontSurf:1 5
+1:CharlieDontSurf: bar-20 7-6
+0:You:4 4
+1:You:12-16 12-16 16-20 16-20 
+0:CharlieDontSurf:3 2
+1:CharlieDontSurf: bar-22 24-22
+0:You:3 1
+1:You:bar-1 12-15 
+0:CharlieDontSurf:3 5
+1:CharlieDontSurf: 6-3 8-3
+0:You:2 6
+1:You:bar-2 2-8 
+0:CharlieDontSurf:1 6
+1:CharlieDontSurf: bar-24 24-18
+0:You:5 3
+1:You:15-18 18-23 
+0:CharlieDontSurf:1 2
+1:CharlieDontSurf: bar-24 24-22
+0:You:6 6
+1:You:8-14 14-20 5-11 5-11 
+0:CharlieDontSurf:4 3
+1:CharlieDontSurf: 22-18 18-15
+0:You:2 1
+1:You:1-2 2-4 
+0:CharlieDontSurf:3 6
+1:CharlieDontSurf: 24-18 18-15
+0:You:3 4
+1:You:4-8 8-11 
+0:CharlieDontSurf:6 6
+1:CharlieDontSurf: 22-16 22-16 13-7 13-7
+2:You: 
+4:CharlieDontSurf:
+0:You:1 6
+1:You:11-17 17-18 
+0:CharlieDontSurf:6 3
+1:CharlieDontSurf: 9-3 7-4
+0:You:3 5
+1:You:17-22 18-21 
+0:CharlieDontSurf:2 1
+1:CharlieDontSurf: 6-4 6-5
+0:You:5 1
+1:You:17-22 23-24 
+0:CharlieDontSurf:2 1
+1:CharlieDontSurf: 7-5 3-2
+0:You:1 3
+1:You:21-24 20-21 
+0:CharlieDontSurf:4 3
+1:CharlieDontSurf: 6-2 9-6
+0:You:1 5
+1:You:11-12 12-17 
+0:CharlieDontSurf:1 3
+1:CharlieDontSurf: 15-12 12-11
+0:You:2 2
+15:You: 
+0:CharlieDontSurf:6 6
+5:You:
+7:CharlieDontSurf:2
+14:CharlieDontSurf-2:sorrytigger-0
+13:CharlieDontSurf: 
+6:You:CharlieDontSurf
+11:You:5 4
+1:You:12-17 12-16 
+0:CharlieDontSurf:1 3
+1:CharlieDontSurf: 6-5 8-5
+0:You:1 6
+1:You:12-18 17-18 
+0:CharlieDontSurf:1 1
+1:CharlieDontSurf: 6-5 6-5 5-4 5-4
+0:You:2 1
+1:You:1-3 17-18 
+0:CharlieDontSurf:6 4
+1:CharlieDontSurf: 24-20 20-14
+0:You:3 2
+1:You:12-14 14-17 
+0:CharlieDontSurf:5 6
+1:CharlieDontSurf: bar-20 20-14
+0:You:2 3
+1:You:12-14 14-17 
+0:CharlieDontSurf:5 1
+1:CharlieDontSurf: bar-24 13-8
+0:You:2 3
+1:You:17-20 18-20 
+0:CharlieDontSurf:2 6
+1:CharlieDontSurf: 24-22 22-16
+0:You:5 3
+1:You:bar-3 19-24 
+0:CharlieDontSurf:2 4
+1:CharlieDontSurf: bar-21 16-14
+0:You:2 5
+1:You:19-24 1-3 
+0:CharlieDontSurf:5 3
+1:CharlieDontSurf: 21-16 16-13
+0:You:3 1
+1:You:17-20 20-21 
+0:CharlieDontSurf:3 4
+1:CharlieDontSurf: 14-10 13-10
+0:You:4 3
+1:You:17-21 19-22 
+0:CharlieDontSurf:5 4
+1:CharlieDontSurf: 13-8 8-4
+0:You:5 5
+1:You:17-22 18-23 18-23 19-24 
+0:CharlieDontSurf:3 5
+1:CharlieDontSurf: 13-8 8-5
+0:You:5 1
+1:You:19-24 20-21 
+0:CharlieDontSurf:4 3
+1:CharlieDontSurf: 5-1 4-1
+0:You:5 2
+1:You:20-22 
+0:CharlieDontSurf:1 2
+1:CharlieDontSurf: 13-11 11-10
+0:You:2 4
+1:You:3-7 7-9 
+0:CharlieDontSurf:1 6
+1:CharlieDontSurf: 10-9 13-7
+0:You:5 5
+15:You: 
+0:CharlieDontSurf:6 4
+1:CharlieDontSurf: 7-1 9-5
+0:You:1 3
+1:You:bar-3 22-23 
+0:CharlieDontSurf:2 6
+1:CharlieDontSurf: 10-4 10-8
+0:You:2 1
+1:You:21-23 23-24 
+0:CharlieDontSurf:3 4
+1:CharlieDontSurf: 8-5 5-1
+0:You:5 6
+1:You: 3-9 9-14
+0:CharlieDontSurf:5 1
+1:CharlieDontSurf: 8-7 7-2
+0:You:2 5
+1:You:14-19 19-21 
+0:CharlieDontSurf:1 6
+1:CharlieDontSurf: 8-2 8-7
+0:You:6 6
+1:You:3-9 3-9 9-15 9-15 
+0:CharlieDontSurf:2 4
+1:CharlieDontSurf: 7-3 2-off
+0:You:2 4
+1:You:15-19 15-17 
+0:CharlieDontSurf:2 4
+1:CharlieDontSurf: 4-off 2-off
+0:You:2 1
+1:You:17-19 24-off 
+0:CharlieDontSurf:2 5
+1:CharlieDontSurf: 5-off 4-2
+0:You:3 1
+1:You: 22-o 24-o
+0:CharlieDontSurf:3 4
+1:CharlieDontSurf: 4-off 3-off
+0:You:6 2
+1:You: 19-o 23-o
+0:CharlieDontSurf:1 4
+1:CharlieDontSurf: 6-2 1-off
+0:You:3 5
+1:You:19-24 22-off 
+0:CharlieDontSurf:3 2
+1:CharlieDontSurf: 6-3 2-off
+0:You:5 3
+1:You: 21-24 21-off
+0:CharlieDontSurf:2 4
+1:CharlieDontSurf: 5-1 2-off
+0:You:5 2
+1:You: 21-o 23-o
+0:CharlieDontSurf:5 6
+1:CharlieDontSurf: 5-off 3-off
+0:You:3 3
+1:You: 23-off 24-off 24-off 24-off
+0:CharlieDontSurf:6 3
+1:CharlieDontSurf: 1-off 1-off
+0:You:5 1
+1:You: 24-off 24-off
+7:You:1
+14:sorrytigger-1:CharlieDontSurf-2
+13:CharlieDontSurf: 
+6:You:CharlieDontSurf
+11:You:2 1
+1:You:13-11 24-23 
+0:CharlieDontSurf:6 1
+1:CharlieDontSurf: 12-18 17-18
+2:You: 
+4:CharlieDontSurf:
+0:You:2 2
+1:You:6-4 6-4 24-22 22-20 
+0:CharlieDontSurf:4 2
+1:CharlieDontSurf: 12-16 16-18
+0:You:3 3
+1:You:23-20 11-8 8-5 8-5 
+0:CharlieDontSurf:5 6
+1:CharlieDontSurf: 1-7 7-12
+0:You:5 4
+1:You:13-8 13-9 
+0:CharlieDontSurf:4 5
+1:CharlieDontSurf: 19-23 18-23
+0:You:5 1
+1:You:6-1 8-7 
+0:CharlieDontSurf:1 4
+1:CharlieDontSurf: bar-1 19-23
+0:You:1 5
+1:You:bar-20 8-7 
+0:CharlieDontSurf:6 4
+1:CharlieDontSurf: 12-18 18-22
+0:You:5 4
+1:You:13-8 13-9 
+0:CharlieDontSurf:6 2
+1:CharlieDontSurf: 1-3 12-18
+0:You:2 3
+1:You:8-5 5-3 
+0:CharlieDontSurf:2 1
+1:CharlieDontSurf: bar-2 2-3
+0:You:6 3
+1:You:bar-22 9-3 
+0:CharlieDontSurf:6 3
+1:CharlieDontSurf: bar-3
+0:You:2 6
+15:You: 
+0:CharlieDontSurf:3 6
+1:CharlieDontSurf: bar-3 3-9
+0:You:1 2
+1:You: bar-24
+0:CharlieDontSurf:6 6
+1:CharlieDontSurf: 18-24 18-24 3-9 12-18
+0:You:3 2
+1:You: bar-22
+0:CharlieDontSurf:1 2
+1:CharlieDontSurf: 12-14 9-10
+0:You:3 4
+1:You:bar-22 7-3 
+0:CharlieDontSurf:6 6
+1:CharlieDontSurf: 18-24 18-24 17-23 17-23
+0:You:2 3
+1:You:8-5 5-3 
+0:CharlieDontSurf:2 5
+1:CharlieDontSurf: 9-14 10-12
+0:You:4 4
+1:You:20-16 16-12 12-8 7-3 
+0:CharlieDontSurf:6 4
+15:CharlieDontSurf: 
+0:You:5 1
+1:You:22-17 17-16 
+0:CharlieDontSurf:6 5
+15:CharlieDontSurf: 
+0:You:2 4
+1:You:16-12 8-6 
+0:CharlieDontSurf:4 1
+1:CharlieDontSurf: bar-1 19-23
+0:You:3 1
+1:You:12-9 6-5 
+0:CharlieDontSurf:5 6
+1:CharlieDontSurf: 1-7 7-12
+0:You:2 4
+1:You:5-1 3-1 
+0:CharlieDontSurf:3 1
+1:CharlieDontSurf: 12-15 14-15
+0:You:6 5
+1:You:20-14 9-4 
+0:CharlieDontSurf:1 4
+15:CharlieDontSurf: 
+0:You:4 2
+1:You:14-10 20-18 
+0:CharlieDontSurf:2 6
+1:CharlieDontSurf: bar-2 2-8
+0:You:6 1
+1:You:10-4 4-3 
+0:CharlieDontSurf:5 5
+1:CharlieDontSurf: 15-20 15-20 19-24 19-24
+0:You:6 3
+1:You:22-16 18-15 
+0:CharlieDontSurf:2 1
+1:CharlieDontSurf: 20-22 22-23
+0:You:5 5
+1:You:bar-20 16-11 11-6 20-15 
+0:CharlieDontSurf:6 1
+15:CharlieDontSurf: 
+0:You:3 2
+1:You:4-2 15-12 
+0:CharlieDontSurf:3 6
+15:CharlieDontSurf: 
+0:You:6 2
+1:You:12-6 6-4 
+0:CharlieDontSurf:4 1
+15:CharlieDontSurf: 
+0:You:3 4
+1:You:6-2 4-1 
+0:CharlieDontSurf:1 1
+15:CharlieDontSurf: 
+0:You:4 3
+1:You:15-11 11-8 
+0:CharlieDontSurf:6 1
+15:CharlieDontSurf: 
+0:You:6 6
+1:You: 8-2 6-off 6-off 5-off
+0:CharlieDontSurf:6 5
+1:CharlieDontSurf: bar-5 bar-6
+0:You:2 6
+1:You:bar-19 19-17 
+0:CharlieDontSurf:4 3
+1:CharlieDontSurf: 6-10 10-13
+0:You:6 4
+1:You:17-13 13-7 
+0:CharlieDontSurf:6 1
+1:CharlieDontSurf: bar-6 6-7
+0:You:5 2
+1:You:bar-20 20-18 
+0:CharlieDontSurf:6 2
+1:CharlieDontSurf: 5-11 7-9
+0:You:2 4
+1:You:18-14 14-12 
+0:CharlieDontSurf:2 2
+1:CharlieDontSurf: 11-13 13-15 15-17 17-19
+0:You:5 2
+1:You:12-10 10-5 
+0:CharlieDontSurf:5 5
+1:CharlieDontSurf: 9-14 14-19 19-24 19-24
+0:You:6 1
+1:You: 5-o 1-o
+0:CharlieDontSurf:4 5
+1:CharlieDontSurf: 23-off 23-off
+0:You:1 5
+1:You: 4-o 1-o
+2:CharlieDontSurf: 
+4:You:
+0:CharlieDontSurf:5 1
+1:CharlieDontSurf: 23-off 24-off
+0:You:2 2
+1:You:2-off 2-off 2-off 4-2 
+0:CharlieDontSurf:4 6
+1:CharlieDontSurf: 23-off 23-off
+0:You:3 3
+1:You: 3-off 3-off 3-off 2-off
+0:CharlieDontSurf:5 5
+1:CharlieDontSurf: 23-off 23-off 24-off 24-off
+0:You:2 2
+1:You: 1-off
+7:You:4
+9:You:3

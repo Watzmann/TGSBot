@@ -1,0 +1,688 @@
+options {'filter': ['.svn', 'docSplit'], 'verbose': True}
+args ['dir-diff', 'Source.before', 'Source']
+commands ['dir-diff']
+es werden 2 directories verglichen:
+    Source.before -> Source
+comparing node 
+  comparing directories:
+  same files:
+    UML
+    csv
+    mp3
+    tmp
+    Test
+    Zope
+    Image
+    TestProject
+    scripts
+    modules
+    cookbook
+    Download
+  only right:
+    Sync
+  comparing files:
+  same files:
+    LessonsLearned
+    SMTP.py
+    TYPythonAll.zip
+    notherTest.py
+    ahaLog.pyc
+    standard.pth
+    rumpf_script.py
+    ahaTest.py
+    Installed
+    tkinter.pdf
+    ahaLog.py
+    scriptRohbau.py
+    AppleStyleGuide2003.pdf
+    python22.pdf
+    pil.pdf
+comparing node Test/Java-PT.2/cropped
+comparing node Test/Java-PT.2
+  comparing directories:
+  same files:
+    qs
+    cropped
+comparing node tmp/pyuno-doc
+  comparing directories:
+  same files:
+    samples
+    scriptingframework
+    images
+  comparing files:
+  same files:
+    python-bridge.html
+comparing node Test
+  comparing directories:
+  same files:
+    html
+    eric-Tests
+    Java-PT.2
+    locate
+    klassenVar
+  comparing files:
+  same files:
+    ascii.pyc
+    mvem
+    tiftest.jpg
+    cropStat.py
+    david.py
+    alter.pyc
+    scannedBook.py
+    myargs.py
+    scratch.pyw
+    diceread.py
+    skeleton.py
+    ZahlenRaetsel.py
+    cmp_lists.pyc
+    cmp_lists.py
+    gocr-example.tar.gz
+    scannedBook.pyc
+    recurs.py
+    now.py
+    nesting.py
+    now.pyc
+    ascii.py
+    mysmtp.py
+    batchScanned.py
+    myname.py
+    alter.py
+    fileWalk.py
+    testargs.py
+comparing node mp3
+  comparing files:
+  same files:
+    tt
+    TODO
+    cl.py
+    testOpts.py
+    mp3cp2usb.py.new
+    test.py
+    cl.pyc
+    mp3-rename.py
+    bu2.tar
+    bu3.tar
+    mp3cp2usb.py
+comparing node Zope
+  comparing directories:
+  same files:
+    Helferlein
+comparing node UML
+  comparing files:
+  same files:
+    CommandLine.dia
+    CommandLine.xmi
+comparing node Test/eric-Tests
+  comparing files:
+  same files:
+    test1.py
+    walk-example.py
+    test1.pyc
+comparing node tmp/pyuno-doc/scriptingframework
+  comparing files:
+  same files:
+    dynamicDialog.py
+    pyhello2.uno.pkg
+    push_me_python4.odt
+    index.html
+    macro_run_dlg.PNG
+comparing node tmp
+  comparing directories:
+  same files:
+    pyuno-doc
+  comparing files:
+  same files:
+    pyuno-doc.zip
+    helloWorld.py
+comparing node Download/pytagger-0.4/build/lib/tagger
+  comparing files:
+  same files:
+    exceptions.py
+    encoding.py
+    debug.py
+    constants.py
+    id3v1.py
+    id3v2.py
+    utility.py
+    __init__.py
+    id3v2frame.py
+comparing node tmp/pyuno-doc/samples
+  comparing files:
+  same files:
+    swriter.py
+    hello_world_pyuno.zip
+    biblioaccess.py
+    swritercomp.py
+    swritercompclient.py
+    ooextract.py
+    oomerge.py
+comparing node Zope/Helferlein
+  comparing files:
+  same files:
+    inhalte.py
+cmp node TestProject/Test1 -- not exist in right
+comparing node Download/pytagger-0.4/build/lib
+  comparing directories:
+  same files:
+    tagger
+comparing node Download/pytagger-0.4/build/scripts-2.4
+  comparing files:
+  same files:
+    mp3check.py
+comparing node TestProject
+  comparing directories:
+  only left:
+    Test1
+  comparing files:
+  same files:
+    Test.e3p
+    Test.e3t
+    cl.py
+    mp3cp2usb.py
+comparing node csv
+  comparing directories:
+  same files:
+    versionen
+  comparing files:
+  same files:
+    task.py
+    icalout.ics
+    test.py
+    Aufgaben.csv
+    TA-2.csv
+comparing node csv/versionen
+  comparing files:
+  same files:
+    test.0a.py
+comparing node Test/klassenVar
+  comparing files:
+  same files:
+    klassenVar.py
+comparing node Test/html
+  comparing files:
+  same files:
+    bookmarks.html
+    bookmarks.html.lapi-bu.2
+    templates.txt
+    profil.txt
+    loesungen.txt
+    test.txt
+    home.txt
+    strip-tags.py
+    strip-tags-www.py
+    bookmarks.py
+    service.txt
+    bm.html
+    impressum.txt
+    kontakt.txt
+comparing node scripts
+  comparing files:
+  same files:
+    rename-canon.py
+    list-tar-files.py
+comparing node Test/Java-PT.2/qs
+  comparing files:
+  same files:
+    Java-PT-167.pbm
+    Java-PT-168.pbm
+    Java-PT-169.pbm
+    Java-PT-170.pbm
+    Java-PT-171.pbm
+    Java-PT-172.pbm
+    Java-PT-173.pbm
+    Java-PT-174.pbm
+    Java-PT-175.pbm
+    Java-PT-176.pbm
+    Java-PT-177.pbm
+    Java-PT-178.pbm
+    Java-PT-179.pbm
+    Java-PT-180.pbm
+    Java-PT-181.pbm
+    Java-PT-182.pbm
+    Java-PT-183.pbm
+    Java-PT-184.pbm
+    Java-PT-185.pbm
+    Java-PT-186.pbm
+    Java-PT-187.pbm
+    Java-PT-188.pbm
+    Java-PT-189.pbm
+    Java-PT-190.pbm
+    Java-PT-191.pbm
+    Java-PT-192.pbm
+    Java-PT-193.pbm
+    Java-PT-194.pbm
+    Java-PT-195.pbm
+    Java-PT-196.pbm
+    Java-PT-197.pbm
+    Java-PT-198.pbm
+    Java-PT-199.pbm
+    Java-PT-200.pbm
+    Java-PT-201.pbm
+    Java-PT-202.pbm
+    Java-PT-203.pbm
+    Java-PT-204.pbm
+    Java-PT-205.pbm
+    Java-PT-206.pbm
+    Java-PT-207.pbm
+    Java-PT-208.pbm
+    Java-PT-209.pbm
+    Java-PT-210.pbm
+    Java-PT-211.pbm
+    Java-PT-212.pbm
+    Java-PT-213.pbm
+    Java-PT-214.pbm
+    Java-PT-215.pbm
+    Java-PT-216.pbm
+    Java-PT-217.pbm
+    Java-PT-218.pbm
+    Java-PT-219.pbm
+    Java-PT-220.pbm
+    Java-PT-221.pbm
+    Java-PT-222.pbm
+    Java-PT-223.pbm
+    Java-PT-224.pbm
+    Java-PT-225.pbm
+    Java-PT-226.pbm
+    Java-PT-227.pbm
+    Java-PT-228.pbm
+    Java-PT-229.pbm
+    Java-PT-230.pbm
+    Java-PT-231.pbm
+    Java-PT-232.pbm
+    Java-PT-233.pbm
+    Java-PT-234.pbm
+    Java-PT-235.pbm
+    Java-PT-236.pbm
+    Java-PT-237.pbm
+    Java-PT-238.pbm
+    Java-PT-239.pbm
+    Java-PT-240.pbm
+    Java-PT-241.pbm
+    Java-PT-242.pbm
+    Java-PT-243.pbm
+    Java-PT-244.pbm
+    Java-PT-245.pbm
+    Java-PT-246.pbm
+    Java-PT-247.pbm
+    Java-PT-248.pbm
+    Java-PT-249.pbm
+    Java-PT-250.pbm
+    Java-PT-251.pbm
+    Java-PT-252.pbm
+    Java-PT-253.pbm
+    Java-PT-254.pbm
+    Java-PT-255.pbm
+    Java-PT-256.pbm
+    Java-PT-257.pbm
+    Java-PT-258.pbm
+    Java-PT-259.pbm
+    Java-PT-260.pbm
+    Java-PT-261.pbm
+    Java-PT-262.pbm
+    Java-PT-263.pbm
+    Java-PT-264.pbm
+    Java-PT-265.pbm
+    Java-PT-266.pbm
+comparing node Image
+  comparing directories:
+  only right:
+    multiPageTiff
+  comparing files:
+  same files:
+    resize.py
+  only left:
+    tiffInfo.py
+comparing node Download/pytagger-0.4/build
+  comparing directories:
+  same files:
+    lib
+    scripts-2.4
+comparing node modules
+  comparing files:
+  same files:
+    cmdfw.py
+comparing node Test/locate
+  comparing files:
+  same files:
+    taskjuggler.loc
+comparing node Download
+  comparing directories:
+  same files:
+    pytagger-0.4
+  comparing files:
+  same files:
+    pytagger-0.4.tar.gz
+comparing node cookbook
+  comparing files:
+  same files:
+    codelines.py
+comparing node Download/pytagger-0.4
+  comparing directories:
+  same files:
+    build
+    tagger
+  comparing files:
+  same files:
+    README
+    PKG-INFO
+    mp3check.py
+    setup.py
+    ChangeLog
+    COPYING
+comparing node Download/pytagger-0.4/tagger
+  comparing files:
+  same files:
+    utility.pyc
+    exceptions.py
+    debug.pyc
+    encoding.py
+    encoding.pyc
+    exceptions.pyc
+    debug.py
+    constants.py
+    constants.pyc
+    id3v1.pyc
+    id3v2.pyc
+    __init__.pyc
+    id3v1.py
+    id3v2.py
+    id3v2frame.pyc
+    utility.py
+    __init__.py
+    id3v2frame.py
+comparing node tmp/pyuno-doc/images
+  comparing files:
+  same files:
+    mode_ipc.png
+    customized_setup.png
+    optional_components.png
+    mode_component.png
+cmp node Image/multiPageTiff -- not exist in left
+cmp node Sync/tmp -- not exist in left
+cmp node Sync/tmp/b -- not exist in left
+cmp node Sync -- not exist in left
+cmp node Sync/tmp/a -- not exist in left
+cmp node Sync/tmp/c -- not exist in left
+cmp node Image/multiPageTiff/test-multi -- not exist in left
+same in both
+   Source.before d UML
+   Source.before d csv
+   Source.before d mp3
+   Source.before d tmp
+   Source.before d Test
+   Source.before d Zope
+   Source.before d Image
+   Source.before d TestProject
+   Source.before d scripts
+   Source.before d modules
+   Source.before d cookbook
+   Source.before d Download
+   Source.before f LessonsLearned
+   Source.before f SMTP.py
+   Source.before f TYPythonAll.zip
+   Source.before f notherTest.py
+   Source.before f ahaLog.pyc
+   Source.before f standard.pth
+   Source.before f rumpf_script.py
+   Source.before f ahaTest.py
+   Source.before f Installed
+   Source.before f tkinter.pdf
+   Source.before f ahaLog.py
+   Source.before f scriptRohbau.py
+   Source.before f AppleStyleGuide2003.pdf
+   Source.before f python22.pdf
+   Source.before f pil.pdf
+   Source.before/Test/Java-PT.2 d qs
+   Source.before/Test/Java-PT.2 d cropped
+   Source.before/tmp/pyuno-doc d samples
+   Source.before/tmp/pyuno-doc d scriptingframework
+   Source.before/tmp/pyuno-doc d images
+   Source.before/tmp/pyuno-doc f python-bridge.html
+   Source.before/Test d html
+   Source.before/Test d eric-Tests
+   Source.before/Test d Java-PT.2
+   Source.before/Test d locate
+   Source.before/Test d klassenVar
+   Source.before/Test f ascii.pyc
+   Source.before/Test f mvem
+   Source.before/Test f tiftest.jpg
+   Source.before/Test f cropStat.py
+   Source.before/Test f david.py
+   Source.before/Test f alter.pyc
+   Source.before/Test f scannedBook.py
+   Source.before/Test f myargs.py
+   Source.before/Test f scratch.pyw
+   Source.before/Test f diceread.py
+   Source.before/Test f skeleton.py
+   Source.before/Test f ZahlenRaetsel.py
+   Source.before/Test f cmp_lists.pyc
+   Source.before/Test f cmp_lists.py
+   Source.before/Test f gocr-example.tar.gz
+   Source.before/Test f scannedBook.pyc
+   Source.before/Test f recurs.py
+   Source.before/Test f now.py
+   Source.before/Test f nesting.py
+   Source.before/Test f now.pyc
+   Source.before/Test f ascii.py
+   Source.before/Test f mysmtp.py
+   Source.before/Test f batchScanned.py
+   Source.before/Test f myname.py
+   Source.before/Test f alter.py
+   Source.before/Test f fileWalk.py
+   Source.before/Test f testargs.py
+   Source.before/mp3 f tt
+   Source.before/mp3 f TODO
+   Source.before/mp3 f cl.py
+   Source.before/mp3 f testOpts.py
+   Source.before/mp3 f mp3cp2usb.py.new
+   Source.before/mp3 f test.py
+   Source.before/mp3 f cl.pyc
+   Source.before/mp3 f mp3-rename.py
+   Source.before/mp3 f bu2.tar
+   Source.before/mp3 f bu3.tar
+   Source.before/mp3 f mp3cp2usb.py
+   Source.before/Zope d Helferlein
+   Source.before/UML f CommandLine.dia
+   Source.before/UML f CommandLine.xmi
+   Source.before/tmp/pyuno-doc/images f mode_ipc.png
+   Source.before/tmp/pyuno-doc/images f customized_setup.png
+   Source.before/tmp/pyuno-doc/images f optional_components.png
+   Source.before/tmp/pyuno-doc/images f mode_component.png
+   Source.before/Test/eric-Tests f test1.py
+   Source.before/Test/eric-Tests f walk-example.py
+   Source.before/Test/eric-Tests f test1.pyc
+   Source.before/tmp/pyuno-doc/scriptingframework f dynamicDialog.py
+   Source.before/tmp/pyuno-doc/scriptingframework f pyhello2.uno.pkg
+   Source.before/tmp/pyuno-doc/scriptingframework f push_me_python4.odt
+   Source.before/tmp/pyuno-doc/scriptingframework f index.html
+   Source.before/tmp/pyuno-doc/scriptingframework f macro_run_dlg.PNG
+   Source.before/tmp d pyuno-doc
+   Source.before/tmp f pyuno-doc.zip
+   Source.before/tmp f helloWorld.py
+   Source.before/Download/pytagger-0.4/build/lib/tagger f exceptions.py
+   Source.before/Download/pytagger-0.4/build/lib/tagger f encoding.py
+   Source.before/Download/pytagger-0.4/build/lib/tagger f debug.py
+   Source.before/Download/pytagger-0.4/build/lib/tagger f constants.py
+   Source.before/Download/pytagger-0.4/build/lib/tagger f id3v1.py
+   Source.before/Download/pytagger-0.4/build/lib/tagger f id3v2.py
+   Source.before/Download/pytagger-0.4/build/lib/tagger f utility.py
+   Source.before/Download/pytagger-0.4/build/lib/tagger f __init__.py
+   Source.before/Download/pytagger-0.4/build/lib/tagger f id3v2frame.py
+   Source.before/tmp/pyuno-doc/samples f swriter.py
+   Source.before/tmp/pyuno-doc/samples f hello_world_pyuno.zip
+   Source.before/tmp/pyuno-doc/samples f biblioaccess.py
+   Source.before/tmp/pyuno-doc/samples f swritercomp.py
+   Source.before/tmp/pyuno-doc/samples f swritercompclient.py
+   Source.before/tmp/pyuno-doc/samples f ooextract.py
+   Source.before/tmp/pyuno-doc/samples f oomerge.py
+   Source.before/Zope/Helferlein f inhalte.py
+   Source.before/Download/pytagger-0.4/build/lib d tagger
+   Source.before/Download/pytagger-0.4/build/scripts-2.4 f mp3check.py
+   Source.before/TestProject f Test.e3p
+   Source.before/TestProject f Test.e3t
+   Source.before/TestProject f cl.py
+   Source.before/TestProject f mp3cp2usb.py
+   Source.before/csv d versionen
+   Source.before/csv f task.py
+   Source.before/csv f icalout.ics
+   Source.before/csv f test.py
+   Source.before/csv f Aufgaben.csv
+   Source.before/csv f TA-2.csv
+   Source.before/csv/versionen f test.0a.py
+   Source.before/Test/klassenVar f klassenVar.py
+   Source.before/Test/html f bookmarks.html
+   Source.before/Test/html f bookmarks.html.lapi-bu.2
+   Source.before/Test/html f templates.txt
+   Source.before/Test/html f profil.txt
+   Source.before/Test/html f loesungen.txt
+   Source.before/Test/html f test.txt
+   Source.before/Test/html f home.txt
+   Source.before/Test/html f strip-tags.py
+   Source.before/Test/html f strip-tags-www.py
+   Source.before/Test/html f bookmarks.py
+   Source.before/Test/html f service.txt
+   Source.before/Test/html f bm.html
+   Source.before/Test/html f impressum.txt
+   Source.before/Test/html f kontakt.txt
+   Source.before/scripts f rename-canon.py
+   Source.before/scripts f list-tar-files.py
+   Source.before/Test/Java-PT.2/qs f Java-PT-167.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-168.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-169.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-170.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-171.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-172.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-173.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-174.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-175.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-176.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-177.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-178.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-179.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-180.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-181.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-182.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-183.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-184.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-185.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-186.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-187.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-188.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-189.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-190.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-191.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-192.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-193.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-194.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-195.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-196.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-197.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-198.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-199.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-200.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-201.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-202.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-203.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-204.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-205.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-206.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-207.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-208.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-209.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-210.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-211.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-212.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-213.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-214.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-215.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-216.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-217.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-218.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-219.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-220.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-221.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-222.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-223.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-224.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-225.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-226.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-227.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-228.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-229.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-230.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-231.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-232.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-233.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-234.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-235.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-236.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-237.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-238.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-239.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-240.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-241.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-242.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-243.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-244.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-245.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-246.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-247.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-248.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-249.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-250.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-251.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-252.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-253.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-254.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-255.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-256.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-257.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-258.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-259.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-260.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-261.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-262.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-263.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-264.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-265.pbm
+   Source.before/Test/Java-PT.2/qs f Java-PT-266.pbm
+   Source.before/Image f resize.py
+   Source.before/modules f cmdfw.py
+   Source.before/Test/locate f taskjuggler.loc
+   Source.before/Download d pytagger-0.4
+   Source.before/Download f pytagger-0.4.tar.gz
+   Source.before/cookbook f codelines.py
+   Source.before/Download/pytagger-0.4 d build
+   Source.before/Download/pytagger-0.4 d tagger
+   Source.before/Download/pytagger-0.4 f README
+   Source.before/Download/pytagger-0.4 f PKG-INFO
+   Source.before/Download/pytagger-0.4 f mp3check.py
+   Source.before/Download/pytagger-0.4 f setup.py
+   Source.before/Download/pytagger-0.4 f ChangeLog
+   Source.before/Download/pytagger-0.4 f COPYING
+   Source.before/Download/pytagger-0.4/tagger f utility.pyc
+   Source.before/Download/pytagger-0.4/tagger f exceptions.py
+   Source.before/Download/pytagger-0.4/tagger f debug.pyc
+   Source.before/Download/pytagger-0.4/tagger f encoding.py
+   Source.before/Download/pytagger-0.4/tagger f encoding.pyc
+   Source.before/Download/pytagger-0.4/tagger f exceptions.pyc
+   Source.before/Download/pytagger-0.4/tagger f debug.py
+   Source.before/Download/pytagger-0.4/tagger f constants.py
+   Source.before/Download/pytagger-0.4/tagger f constants.pyc
+   Source.before/Download/pytagger-0.4/tagger f id3v1.pyc
+   Source.before/Download/pytagger-0.4/tagger f id3v2.pyc
+   Source.before/Download/pytagger-0.4/tagger f __init__.pyc
+   Source.before/Download/pytagger-0.4/tagger f id3v1.py
+   Source.before/Download/pytagger-0.4/tagger f id3v2.py
+   Source.before/Download/pytagger-0.4/tagger f id3v2frame.pyc
+   Source.before/Download/pytagger-0.4/tagger f utility.py
+   Source.before/Download/pytagger-0.4/tagger f __init__.py
+   Source.before/Download/pytagger-0.4/tagger f id3v2frame.py
+   Source.before/Download/pytagger-0.4/build d lib
+   Source.before/Download/pytagger-0.4/build d scripts-2.4
+only in Source.before
+   Source.before/TestProject d Test1
+   Source.before/Image f tiffInfo.py
+only in Source
+   Source d Sync
+   Source/Image d multiPageTiff

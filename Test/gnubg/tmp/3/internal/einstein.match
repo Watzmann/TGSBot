@@ -1,0 +1,151 @@
+JavaFIBS internal match representation v1.1
+8:einstein:3
+13:einstein: 
+6:You:einstein
+11:You:5 3
+1:You:8-3 6-3 
+0:einstein:2 1
+1:einstein: 1-2 2-4
+0:You:3 4
+1:You:8-4 4-1 
+0:einstein:3 3
+15:einstein: 
+0:You:4 1
+1:You:6-2 2-1 
+0:einstein:3 1
+15:einstein: 
+0:You:1 2
+1:You:13-11 24-23 
+0:einstein:5 1
+1:einstein: bar-5
+0:You:6 4
+1:You:11-5 13-9 
+0:einstein:6 2
+1:einstein: bar-2
+0:You:6 1
+1:You:6-5 8-2 
+0:einstein:4 4
+1:einstein: bar-4 bar-4 19-23 19-23
+0:You:6 2
+15:You: 
+0:einstein:1 5
+1:einstein: 4-9 9-10
+0:You:1 4
+1:You: bar-21 bar-24
+0:einstein:5 6
+1:einstein: 12-17 4-10
+0:You:6 2
+1:You:21-15 15-13 
+0:einstein:4 1
+1:einstein: 12-16 16-17
+0:You:6 2
+1:You:13-7 24-22 
+0:einstein:3 5
+1:einstein: 19-22 17-22
+0:You:3 2
+15:You: 
+0:einstein:5 5
+1:einstein: 19-24 19-24 10-15 10-15
+0:You:3 4
+1:You: bar-21
+0:einstein:3 5
+1:einstein: 17-20 15-20
+0:You:2 3
+15:You: 
+0:einstein:5 6
+1:einstein: 15-20 12-18
+0:You:4 4
+1:You:bar-21 13-9 9-5 7-3 
+0:einstein:2 4
+1:einstein: 12-16 16-18
+0:You:2 3
+1:You:5-2 3-1 
+0:einstein:4 3
+1:einstein: 12-16 20-23
+0:You:5 4
+1:You:21-16 16-12 
+0:einstein:4 1
+1:einstein: bar-4 17-18
+0:You:5 1
+1:You:21-16 16-15 
+0:einstein:4 5
+1:einstein: 4-8 17-22
+0:You:4 5
+1:You:12-8 13-8 
+0:einstein:6 6
+15:einstein: 
+0:You:2 6
+1:You:13-7 7-5 
+0:einstein:2 6
+15:einstein: 
+2:You: 
+5:einstein:
+7:You:1
+14:sorrytigger-1:einstein-0
+13:einstein: 
+6:You:einstein
+11:You:4 2
+1:You:8-4 6-4 
+0:einstein:5 5
+1:einstein: 17-22 17-22 12-17 12-17
+0:You:6 4
+1:You:24-18 18-14 
+0:einstein:4 4
+1:einstein: 17-21 17-21 19-23 19-23
+0:You:4 3
+1:You:24-20 20-17 
+0:einstein:1 6
+1:einstein: bar-1 12-18
+0:You:3 1
+1:You:17-14 6-5 
+0:einstein:3 3
+1:einstein: 12-15 15-18 12-15 15-18
+0:You:3 2
+1:You:8-5 6-4 
+0:einstein:1 2
+1:einstein: 19-20 18-20
+0:You:3 4
+1:You:14-10 13-10 
+0:einstein:5 4
+1:einstein: 18-23 18-22
+0:You:6 4
+1:You:14-8 13-9 
+0:einstein:6 1
+1:einstein: 1-7 23-24
+0:You:3 2
+1:You:10-7 9-7 
+0:einstein:3 6
+1:einstein: bar-3 3-9
+0:You:1 4
+1:You:13-9 10-9 
+0:einstein:2 5
+1:einstein: bar-2 19-24
+0:You:4 3
+1:You:13-9 9-6 
+0:einstein:5 2
+1:einstein: 19-24 1-3
+0:You:2 2
+1:You:4-2 6-4 4-2 13-11 
+0:einstein:3 4
+1:einstein: bar-3 20-24
+0:You:2 6
+1:You:9-7 7-1 
+0:einstein:1 4
+1:einstein: bar-1 20-24
+0:You:4 1
+15:You: 
+0:einstein:2 4
+1:einstein: 1-3
+0:You:1 2
+15:You: 
+0:einstein:2 1
+1:einstein: 22-24 23-24
+0:You:4 6
+1:You:bar-19 9-5 
+0:einstein:1 3
+1:einstein: 23-24 21-24
+0:You:3 4
+1:You:19-15 15-12 
+0:einstein:1 3
+1:einstein: 21-24 22-23
+0:You:5 2

@@ -1,0 +1,220 @@
+JavaFIBS internal match representation v1.1
+8:sika:3
+13:sika: 
+6:You:sika
+11:You:4 1
+1:You:13-9 24-23 
+0:sika:2 2
+1:sika: 1-3 1-3 3-5 3-5
+0:You:3 4
+1:You:24-20 23-20 
+0:sika:4 5
+1:sika: 12-17 17-21
+0:You:3 2
+1:You:9-7 7-4 
+0:sika:5 4
+1:sika: 12-17 17-21
+0:You:3 3
+1:You:13-10 13-10 10-7 10-7 
+0:sika:3 2
+1:sika: 19-22 19-21
+0:You:6 6
+1:You:20-14 20-14 13-7 13-7 
+0:sika:1 2
+1:sika: 21-22 17-19
+0:You:3 1
+1:You:7-4 4-3 
+0:sika:3 3
+1:sika: 17-20 17-20 19-22 12-15
+0:You:5 5
+1:You:14-9 14-9 9-4 9-4 
+0:sika:2 6
+1:sika: 15-21 21-23
+0:You:6 4
+1:You:8-2 7-3 
+0:sika:2 6
+1:sika: 12-18 19-21
+0:You:4 2
+1:You:8-4 8-6 
+0:sika:4 5
+1:sika: 12-16 18-23
+0:You:2 1
+1:You:4-2 4-3 
+0:sika:6 6
+1:sika: 5-11 11-17 17-23 16-22
+0:You:5 3
+1:You:7-2 7-4 
+0:sika:3 5
+1:sika: 5-10 10-13
+0:You:4 3
+1:You:4-off 3-off 
+0:sika:3 4
+1:sika: 13-17 17-20
+0:You:1 5
+1:You:6-1 6-5 
+0:sika:6 3
+1:sika: 19-off 22-off
+0:You:3 3
+1:You:3-off 3-off 6-3 3-off 
+0:sika:3 1
+1:sika: 22-off 23-24
+0:You:2 4
+1:You:4-off 2-off 
+0:sika:2 5
+1:sika: 20-off 23-off
+0:You:2 6
+1:You: 6-o 2-o
+0:sika:6 4
+1:sika: 19-off 21-off
+0:You:4 4
+1:You: 6-2 6-2 5-1 4-off
+0:sika:3 1
+1:sika: 22-off 24-off
+0:You:6 1
+1:You: 2-o 1-o
+0:sika:1 3
+1:sika: 22-off 21-22
+0:You:1 6
+1:You: 2-o 1-o
+0:sika:4 4
+1:sika: 20-24 20-24 21-off 22-off
+0:You:3 2
+1:You: 2-off
+7:You:1
+14:sorrytigger-1:sika-0
+13:sika: 
+6:You:sika
+11:sika:4 5
+1:sika: 1-5 12-17
+0:You:6 1
+1:You:13-7 8-7 
+0:sika:3 3
+1:sika: 17-20 17-20 19-22 19-22
+0:You:6 1
+1:You:13-7 24-23 
+0:sika:3 2
+1:sika: 12-15 12-14
+0:You:6 1
+1:You:24-23 13-7 
+0:sika:1 1
+1:sika: 1-2 2-3 3-4 4-5
+0:You:5 5
+1:You:23-18 23-18 7-2 7-2 
+0:sika:3 5
+1:sika: 14-17 15-20
+0:You:1 3
+1:You:6-3 3-2 
+0:sika:5 2
+1:sika: 5-10 10-12
+0:You:5 3
+1:You:18-13 18-15 
+0:sika:3 3
+1:sika: 12-15 12-15 15-18 15-18
+0:You:4 4
+1:You:bar-21 13-9 13-9 13-9 
+0:sika:4 6
+1:sika: 12-18 17-21
+0:You:1 5
+1:You:bar-24 9-4 
+2:sika: 
+5:You:
+7:sika:1
+14:sika-1:sorrytigger-1
+13:sika: 
+6:You:sika
+11:sika:1 5
+1:sika: 13-8 24-23
+0:You:4 5
+1:You:1-5 12-17 
+0:sika:3 5
+1:sika: 8-5 6-1
+0:You:5 3
+1:You: bar-3 bar-5
+0:sika:3 5
+1:sika: bar-20 23-20
+0:You:4 1
+1:You:19-23 23-24 
+0:sika:5 3
+1:sika: bar-20 8-5
+0:You:1 5
+1:You:bar-1 19-24 
+0:sika:3 5
+1:sika: bar-20 8-5
+2:You: 
+4:sika:
+0:You:2 4
+1:You:1-3 17-21 
+0:sika:1 4
+1:sika: 13-9 9-8
+0:You:6 6
+1:You:3-9 3-9 9-15 9-15 
+0:sika:6 1
+1:sika: 20-14 6-5
+0:You:1 6
+1:You:12-18 17-18 
+0:sika:6 1
+1:sika: 20-14 8-7
+0:You:4 4
+1:You:12-16 12-16 12-16 19-23 
+0:sika:6 5
+1:sika: 14-8 14-9
+0:You:1 6
+1:You:15-21 15-16 
+0:sika:3 2
+1:sika: 7-4 6-4
+0:You:4 5
+1:You:18-23 18-22 
+0:sika:2 1
+1:sika: 9-7 8-7
+0:You:4 2
+1:You:16-18 18-22 
+0:sika:2 4
+1:sika: 13-9 13-11
+0:You:3 1
+1:You:16-19 21-22 
+0:sika:3 4
+1:sika: 11-8 13-9
+0:You:4 5
+1:You:17-22 17-21 
+0:sika:2 4
+1:sika: 7-3 8-6
+0:You:3 2
+1:You:19-22 22-24 
+0:sika:3 6
+1:sika: 9-3 7-4
+0:You:5 2
+1:You:16-21 16-18 
+0:sika:4 6
+1:sika: 8-2 6-2
+0:You:6 3
+1:You:18-24 22-off 
+0:sika:2 1
+1:sika: 9-7 7-6
+0:You:3 2
+1:You:19-22 19-21 
+0:sika:4 2
+1:sika: 20-16 20-18
+0:You:2 3
+1:You: 22-o 23-o
+0:sika:2 3
+1:sika: 16-13 13-11
+0:You:3 4
+1:You: 21-o 22-o
+0:sika:1 4
+1:sika: 11-7 7-6
+0:You:5 4
+1:You: 21-off 21-off
+0:sika:3 6
+1:sika: 18-12 12-9
+0:You:5 5
+1:You: 21-off 22-off 22-off 23-off
+0:sika:2 6
+1:sika: 9-3 2-off
+0:You:6 1
+1:You: 24-off 24-off
+0:sika:1 4
+1:sika: 6-2 6-5
+0:You:5 4
+1:You: 24-off 24-off
+7:You:2
+9:You:3

@@ -1,0 +1,322 @@
+JavaFIBS internal match representation v1.1
+8:warf:3
+13:warf: 
+6:You:warf
+11:warf:5 6
+1:warf: 1-7 7-12
+0:You:1 3
+1:You:8-5 6-5 
+0:warf:1 3
+1:warf: 17-20 19-20
+0:You:1 4
+1:You:13-9 6-5 
+0:warf:2 4
+1:warf: 12-16 12-14
+0:You:1 6
+1:You:13-7 8-7 
+0:warf:3 1
+1:warf: 12-15 15-16
+0:You:2 5
+1:You:9-4 6-4 
+0:warf:2 6
+1:warf: 1-3 12-18
+0:You:6 3
+1:You:24-18 24-21 
+0:warf:2 2
+1:warf: bar-2 14-16 16-18 18-20
+0:You:5 5
+15:You: 
+0:warf:3 6
+1:warf: 2-8 8-11
+0:You:6 5
+15:You: 
+0:warf:5 4
+1:warf: 3-8 8-12
+0:You:3 3
+1:You:bar-22 bar-22 13-10 10-7 
+0:warf:1 6
+1:warf: 11-17 19-20
+0:You:6 1
+1:You:21-15 15-14 
+0:warf:4 3
+1:warf: 19-23 20-23
+0:You:4 1
+1:You:14-10 10-9 
+0:warf:1 5
+1:warf: 16-21 20-21
+0:You:1 3
+1:You:7-4 4-3 
+0:warf:6 1
+1:warf: 12-18 17-18
+0:You:6 6
+1:You:22-16 22-16 9-3 13-7 
+0:warf:2 4
+1:warf: bar-2 18-22
+0:You:3 3
+1:You:16-13 16-13 13-10 10-7 
+0:warf:2 4
+1:warf: 18-22 17-19
+0:You:5 5
+1:You:7-2 7-2 13-8 13-8 
+0:warf:1 1
+1:warf: bar-1 12-13 12-13 17-18
+0:You:1 1
+1:You:5-4 4-3 3-2 2-1 
+0:warf:1 5
+1:warf: bar-1 13-18
+0:You:4 1
+1:You:bar-24 8-4 
+0:warf:6 4
+1:warf: 13-19 19-23
+0:You:2 4
+1:You:8-4 4-2 
+0:warf:3 1
+1:warf: 19-22 22-23
+0:You:4 6
+1:You:7-1 7-3 
+0:warf:2 2
+15:warf: 
+0:You:2 1
+1:You:3-1 2-1 
+0:warf:3 6
+15:warf: 
+0:You:1 1
+1:You:6-5 6-5 5-4 4-3 
+0:warf:2 3
+15:warf: 
+0:You:3 3
+1:You:5-2 5-2 5-2 4-1 
+0:warf:6 3
+1:warf: bar-6 6-9
+0:You:6 5
+15:You: 
+0:warf:4 4
+1:warf: 20-24 20-24 18-22 18-22
+0:You:2 1
+15:You: 
+0:warf:4 1
+1:warf: 9-13 13-14
+0:You:6 6
+15:You: 
+0:warf:3 2
+1:warf: 14-17 17-19
+0:You:4 5
+1:You: bar-20 20-16
+0:warf:1 6
+1:warf: 24-off 19-off
+0:You:2 5
+1:You:16-11 11-9 
+0:warf:6 1
+1:warf: 19-off 24-off
+0:You:6 4
+1:You:9-3 4-off 
+0:warf:1 4
+1:warf: 23-24 21-off
+0:You:3 3
+1:You: 3-o 3-o 3-o 3-o
+0:warf:2 1
+1:warf: 23-off 24-off
+2:You: 
+5:warf:
+7:You:1
+14:sorrytigger-1:warf-0
+13:warf: 
+6:You:warf
+11:warf:1 6
+1:warf: 12-18 17-18
+0:You:2 1
+1:You:13-11 24-23 
+0:warf:6 5
+1:warf: 1-7 7-12
+0:You:5 6
+1:You:13-7 6-1 
+0:warf:1 6
+1:warf: bar-1 1-7
+0:You:1 6
+1:You: bar-24
+0:warf:3 2
+1:warf: 7-10 10-12
+0:You:1 6
+1:You:bar-24 13-7 
+0:warf:3 1
+1:warf: 12-15 15-16
+0:You:4 5
+1:You:24-20 8-3 
+0:warf:2 5
+1:warf: 12-17 16-18
+0:You:4 5
+1:You:24-20 8-3 
+0:warf:2 5
+1:warf: 12-17 17-19
+0:You:3 2
+1:You:24-21 23-21 
+0:warf:3 4
+1:warf: 12-16 16-19
+0:You:2 1
+1:You:7-5 6-5 
+0:warf:1 2
+1:warf: 17-19 18-19
+0:You:1 4
+1:You:8-4 11-10 
+0:warf:2 2
+1:warf: 12-14 14-16 12-14 14-16
+0:You:6 3
+1:You:10-4 13-10 
+0:warf:4 5
+1:warf: 19-24 19-23
+0:You:5 4
+1:You:10-5 6-2 
+0:warf:6 1
+1:warf: 16-22 16-17
+0:You:4 2
+1:You:20-16 13-11 
+0:warf:1 4
+1:warf: 19-23 23-24
+0:You:4 5
+1:You:11-6 6-2 
+0:warf:6 1
+1:warf: 17-23 22-23
+0:You:5 3
+1:You:16-11 11-8 
+0:warf:4 4
+1:warf: 19-23 19-23 19-23 19-23
+0:You:3 3
+1:You:8-5 5-2 5-2 6-3 
+0:warf:3 6
+1:warf: 17-23 17-20
+0:You:4 5
+1:You:bar-20 6-2 
+0:warf:1 6
+1:warf: bar-6 6-7
+0:You:2 1
+1:You:3-1 2-1 
+0:warf:5 2
+1:warf: 7-12 12-14
+0:You:4 5
+1:You:21-16 16-12 
+0:warf:6 1
+1:warf: 14-20 20-21
+0:You:3 4
+1:You: bar-21 bar-22
+0:warf:3 2
+15:warf: 
+0:You:4 5
+1:You:21-16 16-12 
+0:warf:4 6
+1:warf: bar-6 6-10
+0:You:2 6
+1:You:12-10 12-6 
+0:warf:4 1
+15:warf: 
+0:You:4 6
+1:You:10-6 22-16 
+0:warf:5 2
+15:warf: 
+0:You:2 5
+1:You:16-11 11-9 
+0:warf:1 3
+15:warf: 
+0:You:5 1
+1:You:9-4 2-1 
+0:warf:5 5
+15:warf: 
+0:You:4 2
+1:You:6-2 6-4 
+0:warf:6 6
+1:warf: bar-6 6-12 12-18 18-24
+0:You:3 6
+1:You:5-off 3-off 
+0:warf:2 3
+1:warf: 18-20 18-21
+0:You:4 6
+1:You:5-off 4-off 
+0:warf:3 3
+1:warf: 19-22 22-off 19-22 22-off
+0:You:2 3
+1:You: 3-o 2-o
+0:warf:3 1
+1:warf: 21-24 24-off
+0:You:5 5
+1:You: 4-off 4-off 4-off 2-off
+0:warf:5 6
+1:warf: 20-off 23-off
+0:You:3 5
+1:You: 2-off 2-off
+0:warf:2 3
+1:warf: 23-off 23-off
+0:You:5 2
+1:You: 1-off 1-off
+0:warf:6 1
+1:warf: 23-off 24-off
+0:You:2 3
+1:You: 1-off
+7:You:1
+14:sorrytigger-2:warf-0
+13:warf: 
+6:You:warf
+11:You:6 3
+1:You:24-18 13-10 
+0:warf:5 3
+1:warf: 17-22 19-22
+0:You:6 5
+1:You:24-18 13-8 
+0:warf:5 6
+1:warf: 1-7 7-12
+0:You:1 2
+1:You:13-11 11-10 
+0:warf:6 6
+1:warf: 17-23 17-23 1-7
+0:You:4 4
+1:You:8-4 8-4 6-2 6-2 
+0:warf:6 3
+1:warf: 12-15 15-21
+0:You:2 3
+1:You:10-7 7-5 
+0:warf:1 2
+1:warf: bar-1 1-3
+0:You:2 2
+1:You:13-11 11-9 9-7 7-5 
+0:warf:6 6
+1:warf: 3-9 9-15 15-21
+0:You:2 3
+1:You:13-11 10-7 
+0:warf:5 2
+1:warf: 12-17 17-19
+0:You:4 3
+1:You:7-3 6-3 
+0:warf:3 1
+1:warf: 19-22 22-23
+0:You:5 5
+1:You:18-13 18-13 11-6 8-3 
+0:warf:1 5
+1:warf: 12-17 19-20
+0:You:6 3
+1:You:13-7 13-10 
+0:warf:1 6
+1:warf: 12-18 12-13
+0:You:5 4
+1:You:7-2 8-4 
+0:warf:5 3
+1:warf: 12-17 17-20
+0:You:2 3
+1:You:10-7 7-5 
+0:warf:1 5
+1:warf: 17-22 18-19
+0:You:3 5
+1:You: 5-o 3-o
+0:warf:1 2
+1:warf: 13-15 15-16
+0:You:6 2
+1:You: 6-o 2-o
+0:warf:1 4
+1:warf: 16-20 20-21
+0:You:5 5
+1:You: 6-1 6-1 5-off 5-off
+0:warf:4 1
+1:warf: 21-off 23-24
+0:You:2 2
+1:You:2-off 2-off 4-2 2-off 
+0:warf:1 4
+3:warf:1
+7:You:1
+9:You:3

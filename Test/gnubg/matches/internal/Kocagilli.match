@@ -1,0 +1,185 @@
+JavaFIBS internal match representation v1.1
+8:Kocagilli:3
+13:Kocagilli: 
+6:You:Kocagilli
+11:You:6 5
+1:You:24-18 18-13 
+0:Kocagilli:2 5
+1:Kocagilli: 12-17 12-14
+0:You:6 5
+1:You:24-18 18-13 
+0:Kocagilli:2 1
+1:Kocagilli: 19-21 19-20
+0:You:1 1
+1:You:6-5 6-5 8-7 8-7 
+0:Kocagilli:6 4
+1:Kocagilli: 14-20 17-21
+0:You:4 2
+1:You:8-4 6-4 
+0:Kocagilli:1 4
+1:Kocagilli: 17-18 12-16
+0:You:3 6
+1:You:13-7 13-10 
+0:Kocagilli:2 3
+1:Kocagilli: 1-3 17-20
+0:You:2 4
+1:You:7-3 3-1 
+0:Kocagilli:2 2
+1:Kocagilli: bar-2 bar-2 16-18 20-22
+2:You: 
+5:Kocagilli:
+7:You:1
+14:sorrytigger-1:Kocagilli-0
+13:Kocagilli: 
+6:You:Kocagilli
+11:Kocagilli:1 5
+1:Kocagilli: 1-2 2-7
+0:You:4 2
+1:You:8-4 6-4 
+0:Kocagilli:1 1
+1:Kocagilli: 19-20 19-20 17-18 17-18
+0:You:6 4
+1:You:13-7 13-9 
+0:Kocagilli:6 2
+1:Kocagilli: bar-2 1-7
+0:You:4 4
+1:You:bar-21 21-17 6-2 6-2 
+0:Kocagilli:3 6
+1:Kocagilli: bar-3
+0:You:4 4
+1:You:17-13 13-9 9-5 9-5 
+0:Kocagilli:4 1
+1:Kocagilli: bar-1 3-7
+0:You:5 2
+1:You:24-22 13-8 
+0:Kocagilli:6 6
+1:Kocagilli: 12-18 12-18 18-24 18-24
+0:You:1 6
+15:You: 
+0:Kocagilli:6 5
+1:Kocagilli: 1-7 7-12
+0:You:4 3
+1:You:bar-22 8-4 
+0:Kocagilli:3 5
+1:Kocagilli: 12-17 17-20
+0:You:2 2
+1:You:13-11 13-11 11-9 11-9 
+0:Kocagilli:2 5
+1:Kocagilli: 12-17 17-19
+0:You:3 2
+1:You:8-5 8-6 
+0:Kocagilli:4 1
+1:Kocagilli: 19-23 19-20
+0:You:1 1
+1:You:22-21 22-21 4-3 5-4 
+0:Kocagilli:1 1
+1:Kocagilli: 7-8 7-8 12-13 12-13
+0:You:2 3
+1:You:6-3 4-2 
+0:Kocagilli:3 3
+1:Kocagilli: 8-11 8-11 20-23 20-23
+0:You:2 3
+1:You:9-6 9-7 
+2:Kocagilli: 
+4:You:
+0:Kocagilli:5 4
+1:Kocagilli: 11-16 16-20
+0:You:5 1
+1:You:6-1 2-1 
+0:Kocagilli:2 3
+1:Kocagilli: 11-14 20-22
+0:You:1 3
+1:You:7-4 4-3 
+0:Kocagilli:3 1
+1:Kocagilli: 14-17 17-18
+0:You:1 1
+1:You:3-2 2-1 6-5 5-4 
+0:Kocagilli:4 3
+1:Kocagilli: 13-17 17-20
+0:You:5 6
+1:You:21-15 15-10 
+0:Kocagilli:2 5
+1:Kocagilli: 13-18 18-20
+0:You:4 2
+1:You:10-6 4-2 
+0:Kocagilli:1 6
+1:Kocagilli: 18-24 22-23
+0:You:3 6
+1:You:21-15 15-12 
+0:Kocagilli:3 6
+1:Kocagilli: 18-24 18-21
+0:You:4 2
+1:You:12-8 8-6 
+0:Kocagilli:2 5
+1:Kocagilli: 20-off 23-off
+0:You:3 6
+1:You: 6-o 3-o
+0:Kocagilli:5 6
+1:Kocagilli: 19-off 20-off
+0:You:1 1
+1:You:1-off 1-off 1-off 2-1 
+0:Kocagilli:6 2
+1:Kocagilli: 19-off 23-off
+0:You:2 6
+1:You: 6-o 2-o
+0:Kocagilli:1 4
+1:Kocagilli: 21-off 24-off
+0:You:5 1
+1:You: 5-o 1-o
+0:Kocagilli:1 5
+1:Kocagilli: 20-off 24-off
+0:You:4 1
+1:You:4-off 2-1 
+0:Kocagilli:2 5
+1:Kocagilli: 20-off 23-off
+0:You:1 4
+1:You: 4-o 1-o
+0:Kocagilli:5 2
+1:Kocagilli: 23-off 24-off
+0:You:5 6
+1:You: 6-o 5-o
+0:Kocagilli:3 4
+1:Kocagilli: 24-off
+7:Kocagilli:2
+14:Kocagilli-2:sorrytigger-1
+13:Kocagilli: 
+6:You:Kocagilli
+11:You:5 2
+1:You:12-17 12-14 
+0:Kocagilli:1 2
+1:Kocagilli: 6-5 13-11
+0:You:6 1
+1:You:14-20 19-20 
+0:Kocagilli:2 1
+1:Kocagilli: 6-5 11-9
+0:You:3 6
+1:You:1-4 1-7 
+0:Kocagilli:1 4
+1:Kocagilli: 8-4 8-7
+0:You:4 4
+1:You:bar-4 bar-4 4-8 12-16 
+0:Kocagilli:1 5
+1:Kocagilli: bar-24
+0:You:2 1
+1:You:8-9 16-18 
+0:Kocagilli:5 1
+1:Kocagilli: bar-24
+0:You:2 1
+1:You:17-18 9-11 
+0:Kocagilli:6 6
+15:Kocagilli: 
+0:You:4 4
+1:You:17-21 17-21 18-22 18-22 
+0:Kocagilli:2 1
+1:Kocagilli: bar-23 24-23
+0:You:4 6
+1:You:11-17 12-16 
+0:Kocagilli:6 3
+1:Kocagilli: 24-18 7-4
+0:You:5 6
+15:You: 
+0:Kocagilli:6 1
+1:Kocagilli: 24-18 13-12
+0:You:4 4
+1:You:bar-4 bar-4 4-8 8-12 
+0:Kocagilli:3 2

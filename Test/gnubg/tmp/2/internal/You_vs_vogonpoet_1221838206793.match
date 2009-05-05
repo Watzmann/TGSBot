@@ -1,0 +1,84 @@
+JavaFIBS internal match representation v1.1
+8:vogonpoet:3
+13:vogonpoet: 
+6:You:vogonpoet
+11:vogonpoet:1 4
+1:vogonpoet: 19-20 12-16
+0:You:5 3
+1:You:24-21 21-16 
+0:vogonpoet:3 3
+1:vogonpoet: bar-3 17-20 1-4 1-4
+0:You:2 6
+1:You:24-22 22-16 
+0:vogonpoet:6 1
+1:vogonpoet: 12-18 17-18
+0:You:1 6
+1:You:13-7 8-7 
+0:vogonpoet:6 6
+1:vogonpoet: 3-9 9-15 15-21 12-18
+0:You:1 3
+1:You:6-5 6-3 
+0:vogonpoet:1 4
+1:vogonpoet: 4-5 17-21
+0:You:4 2
+1:You:bar-23 6-2 
+0:vogonpoet:1 1
+1:vogonpoet: 4-5 19-20 20-21 19-20
+0:You:6 1
+1:You:23-17 17-16 
+0:vogonpoet:5 6
+1:vogonpoet: 12-18 12-17
+0:You:2 5
+1:You:16-11 13-11 
+0:vogonpoet:6 3
+1:vogonpoet: 18-24 21-24
+0:You:1 2
+1:You:3-1 16-15 
+2:vogonpoet: 
+4:You:
+0:vogonpoet:1 1
+1:vogonpoet: 20-21 21-22 22-23 18-19
+0:You:5 5
+1:You:13-8 8-3 7-2 7-2 
+0:vogonpoet:3 4
+1:vogonpoet: 18-22 19-22
+0:You:6 5
+1:You:16-10 15-10 
+0:vogonpoet:5 2
+1:vogonpoet: 18-23 5-7
+0:You:1 5
+1:You:8-7 8-3 
+0:vogonpoet:3 4
+1:vogonpoet: bar-4 4-7
+0:You:3 1
+15:You: 
+0:vogonpoet:1 3
+1:vogonpoet: 5-8 8-9
+0:You:2 5
+15:You: 
+0:vogonpoet:5 5
+1:vogonpoet: 7-12 9-14 12-17 17-22
+0:You:4 2
+15:You: 
+0:vogonpoet:5 1
+1:vogonpoet: 14-19 17-18
+0:You:2 6
+15:You: 
+0:vogonpoet:6 5
+1:vogonpoet: 18-23 19-off
+0:You:1 2
+15:You: 
+0:vogonpoet:4 5
+1:vogonpoet: 19-24 19-23
+0:You:2 3
+15:You: 
+0:vogonpoet:4 1
+1:vogonpoet: 21-off 21-22
+0:You:2 3
+15:You: 
+0:vogonpoet:6 5
+1:vogonpoet: 20-off 20-off
+0:You:2 5
+3:You:4
+7:vogonpoet:4
+9:vogonpoet:3

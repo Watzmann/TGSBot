@@ -1,0 +1,116 @@
+JavaFIBS internal match representation v1.1
+8:vasilis:1
+13:vasilis: 
+6:You:vasilis
+11:You:4 3
+1:You:12-16 12-15 
+0:vasilis:6 3
+1:vasilis: 24-18 18-15
+0:You:3 1
+1:You:bar-1 12-15 
+0:vasilis:2 3
+1:vasilis: bar-22 22-20
+0:You:1 4
+1:You:16-20 19-20 
+0:vasilis:4 5
+1:vasilis: bar-21 13-8
+0:You:4 4
+1:You:17-21 17-21 1-5 1-5 
+0:vasilis:1 1
+1:vasilis: bar-24 8-7 8-7 24-23
+0:You:6 4
+1:You:17-23 19-23 
+0:vasilis:4 5
+15:vasilis: 
+0:You:3 1
+1:You:1-4 4-5 
+0:vasilis:3 1
+1:vasilis: bar-24 6-3
+0:You:6 2
+1:You:12-18 18-20 
+0:vasilis:2 1
+1:vasilis: 6-4 4-3
+0:You:4 3
+1:You:5-9 9-12 
+0:vasilis:5 5
+1:vasilis: 13-8 13-8 7-2 7-2
+0:You:6 2
+1:You:12-18 18-20 
+0:vasilis:1 3
+1:vasilis: 13-12 6-3
+0:You:1 2
+1:You:bar-1 19-21 
+0:vasilis:4 2
+1:vasilis: 12-8 8-6
+0:You:4 6
+1:You:1-7 7-11 
+0:vasilis:3 2
+1:vasilis: 13-11 6-3
+0:You:5 3
+1:You:bar-5 20-23 
+0:vasilis:4 6
+1:vasilis: 11-7 7-1
+0:You:2 6
+1:You:5-11 11-13 
+0:vasilis:1 5
+1:vasilis: 8-3 3-2
+0:You:1 3
+1:You:13-16 15-16 
+0:vasilis:4 2
+1:vasilis: 3-1 8-4
+0:You:4 2
+1:You:5-9 5-7 
+0:vasilis:4 2
+1:vasilis: 8-4 8-6
+0:You:4 6
+1:You:7-13 9-13 
+0:vasilis:6 4
+1:vasilis: 24-18 18-14
+0:You:1 3
+1:You:21-24 23-24 
+0:vasilis:1 4
+15:vasilis: 
+0:You:1 6
+1:You:13-14 13-19 
+0:vasilis:6 5
+15:vasilis: 
+0:You:5 6
+1:You:14-20 16-21 
+0:vasilis:4 6
+15:vasilis: 
+0:You:6 6
+1:You: 16-22 19-off 19-off 19-off
+0:vasilis:4 5
+15:vasilis: 
+0:You:1 1
+1:You:21-22 20-21 20-21 21-22 
+0:vasilis:3 6
+1:vasilis: bar-19
+0:You:2 5
+1:You:20-off 20-22 
+0:vasilis:1 6
+1:vasilis: bar-19 19-18
+0:You:1 5
+1:You: 21-o 24-o
+0:vasilis:2 4
+1:vasilis: 19-15 18-16
+0:You:2 1
+1:You: 23-o 24-o
+0:vasilis:6 6
+1:vasilis: 15-9 9-3 16-10 10-4
+0:You:5 3
+1:You: 21-o 22-o
+0:vasilis:2 1
+1:vasilis: 2-off 1-off
+0:You:3 2
+1:You: 22-o 23-o
+0:vasilis:4 6
+1:vasilis: 6-off 4-off
+0:You:2 6
+1:You:21-off 22-24 
+0:vasilis:1 5
+1:vasilis: 1-off 6-1
+0:You:5 2
+1:You: 22-o 24-o
+7:You:1
+9:You:1

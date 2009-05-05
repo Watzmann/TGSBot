@@ -1,0 +1,6 @@
+archive.py: 		is_member(); append() hat Flag no_doubles; doctest
+--------------------------------------------------------
+tests/test_tools.py: 		list_suites(), run_suites(), sum_up.. ausgebaut
+tests/test_matches.py: 		run_suites() verwenden
+tests/test_directory-services.py: run_suites() verwenden, TestConfig hierher
+gnubg/README:			pflegen...Unittests

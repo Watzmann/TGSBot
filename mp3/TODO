@@ -1,0 +1,14 @@
+- Testmodul (Frontend-Script) für OptParse (testOpts.py)
+- Optparser weiterentwickeln
+  - Trennung in commandline und options aufheben
+  - availOpts (Name :/) in commandline reinziehen
+  - dokumentieren
+- Optparser dokumentieren (auch UML; auch Benutzungsanleitung)
+- mp3cp dokumentieren
+- mp3cp installieren (besser: in 'erledigt' packen)
+- cl-Modul installieren (für alle verfügbar machen)
+- mp3...: disc size untersuchen und evtl. abbrechen (mit popen('du'))
+Liste der Todos:
+- im Testmode werden Dateien der Länge 0 angelegt. Keine anlegen
+  und entsprechende Erfolgsmeldung ausgeben.
+- usage() wird noch nicht automatisch aufgebaut.

@@ -1,0 +1,176 @@
+JavaFIBS internal match representation v1.1
+8:LisaS:3
+13:LisaS: 
+6:You:LisaS
+11:LisaS:3 6
+1:LisaS: 1-7 1-4
+0:You:6 4
+1:You:13-7 24-20 
+0:LisaS:5 6
+1:LisaS: bar-5 4-10
+0:You:4 4
+1:You:13-9 9-5 13-9 9-5 
+0:LisaS:3 6
+1:LisaS: bar-3 10-16
+0:You:5 3
+1:You:8-3 6-3 
+0:LisaS:6 3
+15:LisaS: 
+0:You:5 4
+1:You:24-20 13-8 
+0:LisaS:5 1
+1:LisaS: bar-1 16-21
+0:You:6 4
+1:You:8-2 6-2 
+0:LisaS:5 3
+1:LisaS: 1-4 4-9
+0:You:3 5
+1:You:13-8 8-5 
+0:LisaS:5 2
+1:LisaS: 9-14 12-14
+0:You:1 2
+1:You:6-4 5-4 
+0:LisaS:5 1
+1:LisaS: 17-22 21-22
+0:You:3 2
+1:You:20-18 18-15 
+0:LisaS:6 1
+1:LisaS: 14-20 19-20
+0:You:6 4
+1:You:bar-21 21-15 
+0:LisaS:6 6
+1:LisaS: 12-18 12-18 14-20 17-23
+0:You:4 6
+1:You:15-9 15-11 
+0:LisaS:4 4
+1:LisaS: 12-16 12-16 16-20 16-20
+0:You:4 5
+1:You:11-6 8-4 
+0:LisaS:6 5
+1:LisaS: 17-23 18-23
+0:You:1 4
+1:You:9-5 7-6 
+0:LisaS:2 2
+1:LisaS: 18-20 23-off 23-off 23-off
+0:You:3 2
+1:You:8-5 2-off 
+0:LisaS:5 4
+1:LisaS: 20-off 19-23
+0:You:2 5
+1:You: 5-o 2-o
+0:LisaS:2 3
+1:LisaS: 22-off 19-21
+0:You:1 5
+1:You:5-off 3-2 
+0:LisaS:3 4
+1:LisaS: 21-off 22-off
+0:You:6 2
+1:You: 6-o 2-o
+0:LisaS:3 1
+1:LisaS: 19-22 20-21
+0:You:1 6
+1:You:6-off 3-2 
+0:LisaS:5 4
+1:LisaS: 20-off 21-off
+0:You:1 2
+1:You:2-off 4-3 
+2:LisaS: 
+5:You:
+7:LisaS:1
+14:LisaS-1:sorrytigger-0
+13:LisaS: 
+6:You:LisaS
+11:LisaS:1 3
+1:LisaS: 8-5 6-5
+0:You:6 4
+1:You:17-23 19-23 
+0:LisaS:6 4
+1:LisaS: 8-2 6-2
+0:You:1 3
+1:You:17-20 19-20 
+0:LisaS:6 3
+1:LisaS: 8-2 24-21
+0:You:3 4
+1:You:17-21 21-24 
+0:LisaS:1 3
+1:LisaS: bar-22 bar-24
+0:You:2 4
+1:You:bar-4 12-14 
+0:LisaS:5 3
+1:LisaS: 22-17 17-14
+0:You:4 2
+1:You:bar-4 12-14 
+0:LisaS:2 3
+1:LisaS: bar-22 24-22
+0:You:3 2
+1:You:1-4 1-3 
+0:LisaS:4 4
+1:LisaS: 22-18 22-18 18-14 18-14
+0:You:1 6
+1:You:bar-1 1-7 
+0:LisaS:2 6
+1:LisaS: 13-7 7-5
+0:You:5 5
+15:You: 
+0:LisaS:6 3
+1:LisaS: 13-7 6-3
+0:You:5 6
+15:You: 
+0:LisaS:5 3
+1:LisaS: 13-8 8-5
+0:You:6 4
+1:You: bar-4
+0:LisaS:4 5
+1:LisaS: 7-3 14-9
+0:You:5 2
+15:You: 
+0:LisaS:4 2
+1:LisaS: 13-9 13-11
+0:You:4 6
+1:You:bar-4 12-18 
+0:LisaS:3 2
+1:LisaS: 14-11 5-3
+0:You:5 3
+1:You:12-17 18-21 
+0:LisaS:1 4
+1:LisaS: 5-1 2-1
+0:You:2 5
+1:You:19-21 17-22 
+0:LisaS:1 2
+1:LisaS: 11-9 3-2
+0:You:1 2
+1:You:12-14 14-15 
+0:LisaS:3 3
+1:LisaS: 11-8 8-5 9-6 6-3
+0:You:5 3
+1:You:4-7 7-12 
+0:LisaS:3 4
+1:LisaS: 9-5 9-6
+0:You:4 2
+1:You:15-17 12-16 
+0:LisaS:6 3
+1:LisaS: 6-off 3-off
+0:You:4 5
+1:You:17-22 4-8 
+0:LisaS:6 1
+1:LisaS: 6-off 6-5
+0:You:2 1
+1:You:8-10 16-17 
+0:LisaS:6 2
+1:LisaS: 5-off 2-off
+0:You:3 2
+1:You:10-13 13-15 
+0:LisaS:1 3
+1:LisaS: 3-off 1-off
+0:You:3 2
+1:You:4-7 7-9 
+0:LisaS:4 3
+1:LisaS: 5-1 5-2
+0:You:5 2
+1:You:17-19 9-14 
+0:LisaS:5 5
+1:LisaS: 5-off 5-off 3-off 2-off
+0:You:1 1
+3:You:2
+7:LisaS:2
+9:LisaS:3

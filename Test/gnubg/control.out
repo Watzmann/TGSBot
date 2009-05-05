@@ -1,0 +1,108 @@
+hausmann@ganymed:/var/develop/Python/Test/gnubg$ ./control.py -v
+Matches geladen; internal (97) jellyfish (68)
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv purging
+purged Doubleorquits.mat
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv check_matches()
+Abgleich der Verzeichnisse
+  /opt/JavaFIBS2001/matches/internal  (96)
+  /opt/JavaFIBS2001/matches/jellyfish  (67)
+noch nicht konvertiert: You_vs_mandria_1235335069633.match
+noch nicht konvertiert: You_vs_vasilis_1235612606144.match
+noch nicht konvertiert: You_vs_aramat_1236633658961.match
+noch nicht konvertiert: ThievinMan.match
+noch nicht konvertiert: You_vs_Potey_1237336336167.match
+noch nicht konvertiert: einstein.match
+noch nicht konvertiert: You_vs_Vauf_1236641086662.match
+noch nicht konvertiert: You_vs_jimeez_1235611707453.match
+noch nicht konvertiert: You_vs_NotMe_1236727398598.match
+noch nicht konvertiert: You_vs_WiFi_1236639987603.match
+noch nicht konvertiert: You_vs_benerci_1235335171003.match
+noch nicht konvertiert: iscay.match
+noch nicht konvertiert: You_vs_aramat_1236725480010.match
+noch nicht konvertiert: You_vs_janicejane_1234829820369.match
+noch nicht konvertiert: NA.match
+noch nicht konvertiert: You_vs_souptree_1235610735441.match
+noch nicht konvertiert: You_vs_Fionamk_1237333102232.match
+noch nicht konvertiert: Georgia.match
+noch nicht konvertiert: You_vs_Peyo_1236635393317.match
+noch nicht konvertiert: You_vs_theoneunv_1237334767028.match
+noch nicht konvertiert: You_vs_Omega_1234114085173.match
+noch nicht konvertiert: mandria.match
+noch nicht konvertiert: You_vs_sorrytigger_1235334376547.match
+noch nicht konvertiert: You_vs_Iceborg_1236637887579.match
+noch nicht konvertiert: You_vs_villager_1234821466883.match
+noch nicht konvertiert: You_vs_vasilis_1235612170447.match
+noch nicht konvertiert: You_vs_Frael_1234113621573.match
+noch nicht konvertiert: You_vs_DGA_1236640393767.match
+noch nicht konvertiert: robert_beja.match
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv clear_matches()
+Suche Kuckuckseier in /opt/JavaFIBS2001/matches/internal
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv test_matches()
+Lade You_vs_NotMe_1237236412760.mat
+Lade You_vs_RickrInSF_1237323083574.mat
+Lade You_vs_stephen_1234217738221.mat
+Lade You_vs_Arturjan_1234221710676.mat
+Lade You_vs_Raupe_im_Sauerkraut_1235505607844.mat
+Lade You_vs_llllllllllllllll_1234825628713.mat
+Lade anasimcar.mat
+Lade bertos.mat
+Lade kseniya.mat
+Lade abilotfi.mat
+Lade You_vs_PhilT_1237244253129.mat
+Lade razxtc.mat
+Lade You_vs_yes_1235511965919.mat
+Lade RusDV.mat
+Lade You_vs_Montekristo_1237324879347.mat
+Lade You_vs_Bine_1237242128799.mat
+Lade You_vs_campoly_1237318084041.mat
+Lade You_vs_akprinter_1236717469824.mat
+Lade You_vs_Joyce_1234822246615.mat
+Lade You_vs_alainleroy_1234215311206.mat
+Lade You_vs_aramat_1237238808313.mat
+Lade sundial.mat
+Lade You_vs_Joyce_1234823105494.mat
+Lade You_vs_Raupe_im_Sauerkraut_1236715839475.mat
+Lade Kerberos.mat
+Lade You_vs_abi_1234824436012.mat
+Lade You_vs_jonasfrid_1237326730879.mat
+Lade You_vs_Raupe_im_Sauerkraut_1235508724304.mat
+Lade You_vs_trotteur_1234832614148.mat
+Lade warf.mat
+Lade You_vs_walker_1235600706262.mat
+Lade You_vs_popefam_1234213924388.mat
+Lade You_vs_intello_1234815070796.mat
+Lade zig.mat
+Lade You_vs_Cleona_1234831158484.mat
+Lade mynie.mat
+Lade You_vs_Braddock_1236628597307.mat
+Lade You_vs_diddlebug_1234827897953.mat
+Lade You_vs_jackdaddy_1234912700226.mat
+Lade You_vs_nubie_1234816624296.mat
+Lade yamgay.mat
+Lade You_vs_aramat_1235597807931.mat
+Lade You_vs_katro_1237330199568.mat
+Lade You_vs_chapette_1235609649791.mat
+Lade evenif.mat
+Lade You_vs_Sharon_1234911655070.mat
+Lade You_vs_rnagler_1234913370336.mat
+Lade You_vs_diceloser_1237328019756.mat
+Lade You_vs_inatizz_1234221617130.mat
+Lade zack.mat
+Lade You_vs_darkman_1235601697596.mat
+Lade You_vs_jrlr_1234820209298.mat
+Lade You_vs_EKATERINA_1234818274015.mat
+Lade You_vs_eva_eva_1235913109021.mat
+Lade You_vs_Bine_1237240427525.mat
+Lade You_vs_popefam_1234214354077.mat
+Lade ilesino.mat
+Lade You_vs_aramat_1236030442470.mat
+Lade mmcronin.mat
+Lade eeeee.mat
+Lade You_vs_leaux_1235608319225.mat
+Lade You_vs_keule_1236034713518.mat
+Lade You_vs_Bine_1236631154555.mat
+Lade You_vs_Apano_1234909345063.mat
+Lade You_vs_KotUA_1234216533690.mat
+Lade calounette.mat
+Lade You_vs_TwoDice_1235513883682.mat
+DELETING INFORMATION

@@ -1,0 +1,336 @@
+JavaFIBS internal match representation v1.1
+8:House:3
+13:House: 
+6:You:House
+11:House:2 4
+1:House: 17-21 19-21
+0:You:3 3
+1:You:8-5 8-5 13-10 13-10 
+0:House:2 4
+1:House: 12-16 19-21
+0:You:1 3
+1:You:10-7 8-7 
+0:House:4 6
+1:House: 17-23 19-23
+0:You:6 4
+1:You:24-18 18-14 
+0:House:1 3
+1:House: 12-15 16-17
+0:You:1 6
+1:You:14-8 6-5 
+0:House:4 5
+1:House: 15-19 12-17
+0:You:4 3
+1:You:24-20 13-10 
+0:House:3 5
+1:House: 1-4 19-24
+0:You:2 5
+1:You:8-3 5-3 
+0:House:6 6
+1:House: 12-18 12-18 17-23 17-23
+0:You:6 3
+1:You:20-17 13-7 
+0:House:1 5
+1:House: bar-1 18-23
+0:You:4 3
+1:You:17-13 13-10 
+0:House:4 6
+1:House: 4-8 8-14
+0:You:2 1
+1:You:6-5 13-11 
+0:House:4 6
+1:House: 18-24 14-18
+0:You:1 4
+1:You:10-6 6-5 
+0:House:1 1
+1:House: 1-2 1-2 23-24 23-24
+2:You: 
+5:House:
+7:You:1
+14:sorrytigger-1:House-0
+13:House: 
+6:You:House
+11:House:2 6
+1:House: 1-7 12-14
+0:You:1 6
+1:You:13-7 8-7 
+0:House:2 3
+1:House: bar-3 1-3
+0:You:2 6
+1:You:13-7 6-4 
+0:House:3 4
+1:House: 12-16 12-15
+0:You:5 2
+1:You:13-8 6-4 
+0:House:5 1
+1:House: 15-20 19-20
+0:You:1 2
+1:You:7-5 6-5 
+0:House:3 5
+1:House: 17-22 19-22
+0:You:5 5
+1:You:7-2 7-2 13-8 13-8 
+0:House:3 3
+1:House: 12-15 15-18 12-15 15-18
+0:You:3 3
+1:You:8-5 5-2 24-21 24-21 
+0:House:3 2
+1:House: 14-16 19-22
+0:You:6 3
+1:You:8-2 8-5 
+0:House:2 5
+1:House: 18-20 18-23
+0:You:2 2
+1:You:8-6 8-6 6-4 6-4 
+0:House:5 5
+1:House: 3-8 3-8 8-13 8-13
+0:You:6 4
+1:You:21-15 15-11 
+0:House:4 5
+1:House: 16-21 17-21
+0:You:3 2
+1:You:bar-23 11-8 
+0:House:5 5
+15:House: 
+0:You:3 5
+1:You:23-18 18-15 
+0:House:6 6
+15:House: 
+0:You:5 4
+1:You:15-10 10-6 
+0:House:1 2
+1:House: bar-1 17-19
+2:You: 
+5:House:
+7:You:1
+14:sorrytigger-2:House-0
+13:House: 
+6:You:House
+11:You:6 2
+1:You:24-18 13-11 
+0:House:3 1
+1:House: 17-18 1-4
+0:You:1 4
+1:You:bar-21 21-20 
+0:House:4 5
+1:House: 18-23 19-23
+0:You:2 4
+1:You:8-4 6-4 
+0:House:1 3
+1:House: bar-3 19-20
+0:You:4 1
+1:You:bar-21 21-20 
+0:House:1 1
+1:House: bar-1 23-24 23-24 19-20
+0:You:4 1
+1:You: bar-21
+0:House:1 5
+1:House: 20-21 12-17
+0:You:1 3
+1:You: bar-22
+0:House:1 4
+1:House: 17-21 1-2
+0:You:5 3
+1:You:bar-22 13-8 
+0:House:5 6
+1:House: 1-7 2-7
+0:You:1 1
+1:You:6-5 6-5 11-10 10-9 
+0:House:5 4
+1:House: 3-7 7-12
+0:You:4 6
+1:You:13-9 8-2 
+0:House:1 1
+1:House: 17-18 17-18 19-20 19-20
+0:You:4 1
+1:You:9-5 9-8 
+0:House:2 4
+1:House: 12-16 16-18
+0:You:3 6
+1:You:22-16 16-13 
+0:House:6 5
+1:House: 12-18 18-23
+0:You:4 4
+1:You:13-9 9-5 5-1 5-1 
+0:House:1 3
+1:House: 18-21 23-24
+0:You:6 3
+1:You:22-16 16-13 
+0:House:3 3
+1:House: 12-15 15-18 18-21 21-24
+0:You:3 5
+1:You:13-10 10-5 
+0:House:4 2
+1:House: 18-22 18-20
+0:You:1 4
+1:You:8-4 4-3 
+0:House:6 3
+1:House: 12-18 12-15
+0:You:2 3
+1:You:8-5 8-6 
+0:House:3 2
+1:House: 20-23 21-23
+0:You:1 1
+1:You:5-4 4-3 3-2 5-4 
+0:House:5 2
+1:House: 15-20 20-22
+0:You:2 4
+1:You:6-2 4-2 
+0:House:2 3
+1:House: 18-21 21-23
+0:You:1 2
+1:You:3-1 2-1 
+0:House:6 1
+1:House: 7-8 8-14
+0:You:4 3
+1:You:13-9 9-6 
+0:House:6 2
+1:House: 7-13 13-15
+0:You:1 5
+15:You: 
+0:House:3 2
+1:House: 15-18 18-20
+0:You:2 4
+15:You: 
+0:House:3 2
+1:House: 14-17 20-22
+0:You:3 2
+15:You: 
+0:House:6 2
+1:House: 17-23 23-off
+0:You:2 6
+1:You:bar-19 19-17 
+0:House:4 1
+1:House: 21-o 24-o
+0:You:1 5
+1:You:17-12 12-11 
+0:House:6 6
+1:House: 20-o 20-o 21-o 22-o
+0:You:6 1
+1:You:11-5 1-off 
+0:House:2 6
+1:House: 22-o 23-o
+0:You:2 1
+1:You: 2-o 1-o
+0:House:4 1
+1:House: 22-o 24-o
+0:You:3 4
+1:You:4-off 6-3 
+0:House:2 6
+1:House: 23-o 23-o
+0:You:3 1
+1:You: 3-o 1-o
+0:House:5 2
+1:House: 24-o 24-o
+7:House:1
+14:House-1:sorrytigger-2
+13:House: 
+6:You:House
+11:You:6 4
+1:You:17-23 19-23 
+0:House:3 5
+1:House: 8-3 6-3
+0:You:4 3
+1:You:12-16 12-15 
+0:House:1 1
+1:House: 8-7 8-7 6-5 6-5
+0:You:1 6
+1:You:12-18 17-18 
+0:House:4 6
+1:House: 24-20 20-14
+0:You:6 6
+1:You:12-18 12-18 18-24 18-24 
+0:House:4 3
+1:House: bar-22 14-10
+0:You:1 5
+1:You:15-20 19-20 
+2:House: 
+4:You:
+0:House:2 6
+1:House: 22-16 16-14
+0:You:1 5
+1:You:bar-1 17-22 
+0:House:2 6
+1:House: 14-8 10-8
+0:You:4 3
+1:You:1-4 18-22 
+0:House:3 2
+1:House: 13-11 11-8
+0:You:5 2
+1:You:4-9 9-11 
+0:House:2 6
+1:House: 13-11 11-5
+0:You:5 4
+1:You:bar-4 4-9 
+0:House:1 5
+1:House: 13-12 12-7
+0:You:5 5
+1:You:9-14 14-19 19-24 19-24 
+0:House:4 5
+1:House: 13-9 13-8
+0:You:1 6
+1:You:18-24 19-20 
+0:House:1 6
+1:House: 9-3 7-6
+0:You:1 5
+1:You:19-24 20-21 
+0:House:6 5
+1:House: 8-2 8-3
+0:You:3 3
+1:You:1-4 1-4 20-23 20-23 
+0:House:6 2
+1:House: 8-6 8-2
+0:You:1 4
+1:You:4-8 8-9 
+0:House:2 1
+1:House: 6-4 5-4
+0:You:2 2
+15:You: 
+0:House:6 5
+1:House: 7-1 6-1
+0:You:4 3
+15:You: 
+0:House:1 3
+1:House: 3-2 7-4
+0:You:1 2
+15:You: 
+0:House:2 1
+1:House: 4-3 3-1
+0:You:3 4
+15:You: 
+0:House:2 5
+1:House: 6-4 6-1
+0:You:4 5
+15:You: 
+0:House:3 1
+1:House: 4-1 1-off
+0:You:6 4
+1:You:bar-6 9-13 
+0:House:2 2
+1:House: 2-off 2-off 2-off 4-2
+0:You:3 3
+1:You:6-9 13-16 16-19 9-12 
+0:House:2 1
+1:House: 2-o 1-o
+0:You:4 4
+1:You:12-16 16-20 21-off 19-23 
+0:House:2 5
+1:House: 4-2 5-off
+0:You:2 4
+1:You:20-24 23-off 
+0:House:1 2
+1:House: 2-o 1-o
+0:You:6 2
+1:You: 22-o 23-o
+0:House:4 5
+1:House: 5-o 3-o
+0:You:5 5
+1:You: 22-off 23-off 23-off 23-off
+0:House:4 1
+1:House: 3-o 1-o
+0:You:1 6
+1:You: 24-off 24-off
+0:House:1 1
+1:House: 3-2 2-1 1-off 1-off
+7:House:2
+9:House:3

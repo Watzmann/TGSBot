@@ -1,0 +1,126 @@
+JavaFIBS internal match representation v1.1
+8:Spacetiger:3
+13:Spacetiger: 
+6:You:Spacetiger
+11:Spacetiger:1 2
+1:Spacetiger: 12-14 14-15
+0:You:4 1
+1:You:13-9 9-8 
+0:Spacetiger:6 5
+1:Spacetiger: 1-7 7-12
+0:You:1 2
+1:You:24-22 22-21 
+0:Spacetiger:2 5
+1:Spacetiger: 1-3 12-17
+0:You:5 6
+1:You:21-15 15-10 
+0:Spacetiger:2 2
+1:Spacetiger: bar-2 19-21 19-21 2-4
+0:You:5 1
+1:You:10-5 6-5 
+0:Spacetiger:6 4
+1:Spacetiger: 17-23 19-23
+0:You:2 4
+1:You:8-4 6-4 
+0:Spacetiger:1 3
+1:Spacetiger: bar-1 12-15
+0:You:3 2
+1:You:6-3 3-1 
+0:Spacetiger:4 2
+1:Spacetiger: bar-2
+0:You:2 2
+1:You:24-22 22-20 13-11 13-11 
+0:Spacetiger:4 6
+15:Spacetiger: 
+2:You: 
+5:Spacetiger:
+7:You:1
+14:sorrytigger-1:Spacetiger-0
+13:Spacetiger: 
+6:You:Spacetiger
+11:You:3 1
+1:You:8-5 6-5 
+0:Spacetiger:2 3
+1:Spacetiger: 12-15 15-17
+0:You:6 2
+1:You:24-18 13-11 
+0:Spacetiger:6 2
+1:Spacetiger: 12-18 17-19
+0:You:6 4
+1:You:bar-21 24-18 
+0:Spacetiger:2 6
+1:Spacetiger: bar-2 12-18
+0:You:6 3
+1:You:bar-22 11-5 
+0:Spacetiger:3 1
+1:Spacetiger: 1-4 17-18
+0:You:1 1
+1:You:5-4 6-5 5-4 22-21 
+0:Spacetiger:4 5
+15:Spacetiger: 
+0:You:1 2
+1:You:13-11 11-10 
+0:Spacetiger:5 2
+1:Spacetiger: bar-2 19-24
+0:You:5 5
+1:You:21-16 21-16 10-5 13-8 
+0:Spacetiger:5 1
+1:Spacetiger: 1-2 19-24
+2:You: 
+4:Spacetiger:
+0:You:1 2
+1:You:16-14 16-15 
+0:Spacetiger:3 5
+1:Spacetiger: 12-17 12-15
+0:You:5 2
+1:You:bar-20 14-12 
+0:Spacetiger:2 4
+1:Spacetiger: 15-19 19-21
+0:You:6 2
+1:You:20-14 14-12 
+0:Spacetiger:1 3
+1:Spacetiger: 17-20 19-20
+0:You:1 6
+1:You:13-7 8-7 
+0:Spacetiger:5 5
+1:Spacetiger: 17-22 17-22 18-23 18-23
+0:You:6 4
+1:You:13-7 12-8 
+0:Spacetiger:6 4
+1:Spacetiger: 19-23
+0:You:2 4
+1:You:7-3 5-3 
+0:Spacetiger:2 3
+1:Spacetiger: 19-22 20-22
+0:You:3 6
+1:You:6-3 12-6 
+0:Spacetiger:3 3
+1:Spacetiger: 19-22 20-23 21-24
+0:You:4 4
+1:You:8-4 8-4 8-4 7-3 
+0:Spacetiger:6 3
+1:Spacetiger: 2-8 8-11
+0:You:6 3
+1:You:7-1 3-off 
+0:Spacetiger:3 6
+1:Spacetiger: 2-8 11-14
+0:You:1 5
+1:You:6-1 1-off 
+0:Spacetiger:5 1
+1:Spacetiger: 14-19 8-9
+0:You:2 3
+1:You:6-3 6-4 
+0:Spacetiger:2 3
+1:Spacetiger: 9-12 12-14
+0:You:4 3
+1:You:4-off 3-off 
+0:Spacetiger:4 5
+1:Spacetiger: 14-19 19-23
+0:You:4 4
+1:You:4-off 4-off 5-1 5-1 
+0:Spacetiger:1 3
+1:Spacetiger: 2-5 5-6
+0:You:4 3
+3:Spacetiger:2
+7:You:2
+9:You:3

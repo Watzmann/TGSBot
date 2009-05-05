@@ -1,0 +1,57 @@
+JavaFIBS internal match representation v1.1
+8:PDXaviatrix:1
+13:PDXaviatrix: 
+6:You:PDXaviatrix
+11:PDXaviatrix:2 5
+1:PDXaviatrix: 12-17 17-19
+0:You:1 6
+1:You:24-18 24-23 
+0:PDXaviatrix:5 4
+1:PDXaviatrix: 1-5 12-17
+0:You:4 6
+1:You:18-14 14-8 
+0:PDXaviatrix:2 6
+1:PDXaviatrix: 1-7 7-9
+0:You:5 5
+1:You:23-18 18-13 13-8 13-8 
+0:PDXaviatrix:1 2
+1:PDXaviatrix: 9-11 11-12
+0:You:4 6
+1:You:13-7 13-9 
+0:PDXaviatrix:1 2
+1:PDXaviatrix: 5-7 17-18
+0:You:3 5
+1:You:bar-20 9-6 
+0:PDXaviatrix:5 3
+1:PDXaviatrix: 7-12 18-21
+0:You:4 3
+1:You:20-16 16-13 
+0:PDXaviatrix:3 5
+1:PDXaviatrix: 17-22 19-22
+0:You:5 5
+1:You:13-8 13-8 13-8 8-3 
+0:PDXaviatrix:1 6
+1:PDXaviatrix: 12-18 12-13
+0:You:6 1
+1:You:8-2 8-7 
+0:PDXaviatrix:3 3
+1:PDXaviatrix: 17-20 17-20 18-21 12-15
+0:You:4 4
+1:You:8-4 7-3 8-4 8-4 
+0:PDXaviatrix:2 1
+1:PDXaviatrix: 12-14 12-13
+0:You:6 5
+1:You:8-2 8-3 
+0:PDXaviatrix:6 4
+1:PDXaviatrix: 13-19 15-19
+0:You:1 2
+1:You:8-6 6-5 
+0:PDXaviatrix:5 6
+1:PDXaviatrix: 13-19 14-19
+0:You:3 3
+1:You:3-off 3-off 3-off 4-1 
+0:PDXaviatrix:2 2
+1:PDXaviatrix: 21-23 23-off 21-23 23-off
+0:You:6 3
+1:You:6-off 4-1 
+0:PDXaviatrix:6 5

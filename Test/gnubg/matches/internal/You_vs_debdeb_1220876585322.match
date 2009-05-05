@@ -1,0 +1,102 @@
+JavaFIBS internal match representation v1.1
+8:debdeb:1
+13:debdeb: 
+6:You:debdeb
+11:You:4 1
+1:You:12-16 1-2 
+0:debdeb:6 5
+1:debdeb: 24-18 18-13
+0:You:2 4
+1:You:17-21 19-21 
+0:debdeb:5 1
+1:debdeb: 24-23 23-18
+0:You:4 6
+1:You:12-18 12-16 
+0:debdeb:3 2
+1:debdeb: bar-22 22-20
+0:You:6 3
+1:You:12-18 2-5 
+0:debdeb:1 4
+1:debdeb: 13-12 12-8
+0:You:2 6
+1:You:bar-2 1-7 
+0:debdeb:6 5
+1:debdeb: 13-7 7-2
+0:You:3 6
+1:You: bar-3
+0:debdeb:6 4
+1:debdeb: 6-2 20-14
+0:You:3 2
+1:You:bar-3 3-5 
+0:debdeb:1 4
+1:debdeb: 14-13 6-2
+0:You:1 1
+1:You:19-20 19-20 3-4 4-5 
+0:debdeb:1 6
+1:debdeb: 13-7 8-7
+0:You:4 4
+1:You:5-9 5-9 5-9 16-20 
+0:debdeb:3 4
+1:debdeb: 13-10 10-6
+0:You:2 5
+1:You:17-22 20-22 
+0:debdeb:1 1
+1:debdeb: 13-12 13-12 13-12 8-7
+0:You:4 4
+1:You:9-13 9-13 9-13 17-21 
+0:debdeb:2 1
+1:debdeb: 8-6 7-6
+0:You:5 2
+1:You:13-15 18-23 
+0:debdeb:2 3
+1:debdeb: 8-5 7-5
+0:You:4 1
+1:You:16-20 18-19 
+0:debdeb:2 4
+1:debdeb: 12-8 7-5
+0:You:2 2
+1:You:13-15 15-17 21-23 13-15 
+0:debdeb:4 4
+1:debdeb: 12-8 12-8 8-4 8-4
+0:You:4 4
+1:You:15-19 15-19 17-21 21-off 
+0:debdeb:6 5
+1:debdeb: 8-2 5-off
+0:You:1 1
+1:You:23-24 23-24 24-off 24-off 
+0:debdeb:1 5
+1:debdeb: 5-off 2-1
+0:You:1 4
+1:You:21-off 22-23 
+0:debdeb:2 3
+1:debdeb: 2-off 4-1
+0:You:3 5
+1:You: 20-o 22-o
+0:debdeb:6 5
+1:debdeb: 6-off 5-off
+0:You:1 4
+1:You:21-off 20-21 
+0:debdeb:4 3
+1:debdeb: 4-off 6-3
+0:You:6 2
+1:You: 19-o 23-o
+0:debdeb:4 1
+1:debdeb: 1-off 6-2
+0:You:2 1
+1:You:19-21 21-22 
+0:debdeb:2 5
+1:debdeb: 2-off 6-1
+0:You:4 5
+1:You: 20-o 21-o
+0:debdeb:4 2
+1:debdeb: 2-off 6-2
+0:You:1 5
+1:You:19-24 24-off 
+0:debdeb:6 6
+1:debdeb: 6-off 3-off 2-off 2-off
+0:You:4 3
+1:You:22-off 19-23 
+0:debdeb:3 5
+1:debdeb: 1-off 1-off
+7:debdeb:1
+9:debdeb:1

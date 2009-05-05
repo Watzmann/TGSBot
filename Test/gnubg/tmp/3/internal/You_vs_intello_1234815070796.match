@@ -1,0 +1,280 @@
+JavaFIBS internal match representation v1.1
+8:intello:3
+13:intello: 
+6:You:intello
+11:You:4 3
+1:You:13-10 24-20 
+0:intello:6 4
+1:intello: 17-23 19-23
+0:You:4 5
+1:You:24-20 13-8 
+0:intello:1 4
+1:intello: 12-16 16-17
+0:You:1 4
+1:You:13-9 10-9 
+0:intello:1 1
+1:intello: 1-2 2-3 3-4 4-5
+0:You:1 2
+1:You:6-5 8-6 
+0:intello:5 4
+1:intello: bar-5 1-5
+0:You:3 4
+1:You:bar-22 8-4 
+0:intello:3 4
+1:intello: 12-16 16-19
+0:You:3 6
+1:You:22-16 16-13 
+0:intello:6 5
+1:intello: 12-18 18-23
+0:You:3 5
+1:You:13-8 6-3 
+0:intello:3 5
+1:intello: 17-22 19-22
+0:You:2 5
+1:You:8-3 6-4 
+0:intello:6 1
+1:intello: 12-18 18-19
+0:You:6 6
+1:You:20-14 20-14 13-7 13-7 
+0:intello:4 1
+1:intello: 12-16 16-17
+2:You: 
+4:intello:
+0:You:2 3
+1:You:6-3 3-1 
+0:intello:2 6
+1:intello: 17-23 19-21
+0:You:6 2
+1:You:14-8 8-6 
+0:intello:3 1
+1:intello: 19-22 21-22
+0:You:5 5
+1:You:14-9 9-4 9-4 9-4 
+0:intello:2 2
+1:intello: 22-24 22-24 19-21 21-23
+0:You:5 2
+1:You:8-3 8-6 
+0:intello:5 2
+1:intello: 19-24 19-21
+0:You:6 4
+1:You:7-1 7-3 
+0:intello:6 6
+1:intello: 5-11 11-17 17-23 17-23
+0:You:2 4
+1:You:4-off 4-2 
+0:intello:2 3
+1:intello: 17-20 20-22
+0:You:6 2
+1:You:6-off 4-2 
+0:intello:3 2
+1:intello: 21-24 22-24
+0:You:4 3
+1:You:4-off 3-off 
+0:intello:6 1
+1:intello: 5-11 11-12
+0:You:6 3
+1:You: 6-o 3-o
+0:intello:5 2
+1:intello: 12-17 17-19
+0:You:2 2
+1:You:2-off 2-off 4-2 6-4 
+0:intello:5 2
+1:intello: 23-off 19-24
+0:You:3 4
+1:You: 4-o 3-o
+0:intello:6 2
+1:intello: 22-off 23-off
+0:You:3 1
+1:You: 3-o 1-o
+0:intello:6 5
+1:intello: 22-off 23-off
+0:You:5 6
+1:You: 6-o 2-o
+0:intello:2 6
+1:intello: 23-off 23-off
+0:You:1 6
+1:You: 1-off
+7:You:2
+14:sorrytigger-2:intello-0
+13:intello: 
+6:You:intello
+11:You:4 3
+1:You:13-10 24-20 
+0:intello:4 2
+1:intello: 17-21 19-21
+0:You:1 1
+1:You:6-5 6-5 8-7 8-7 
+0:intello:3 6
+1:intello: 1-4 4-10
+0:You:6 1
+1:You:bar-24 13-7 
+0:intello:4 4
+1:intello: 12-16 16-20 12-16 16-20
+0:You:3 6
+1:You:bar-22 7-1 
+0:intello:1 6
+1:intello: bar-1 10-16
+0:You:5 6
+15:You: 
+0:intello:4 1
+1:intello: 16-20 1-2
+0:You:4 6
+15:You: 
+0:intello:3 3
+1:intello: 19-22 19-22 12-15 12-15
+0:You:4 4
+15:You: 
+0:intello:5 6
+1:intello: 2-8 12-17
+0:You:6 5
+15:You: 
+0:intello:4 1
+1:intello: 17-21 8-9
+0:You:4 3
+15:You: 
+0:intello:3 2
+1:intello: 20-23 21-23
+0:You:5 2
+15:You: 
+0:intello:4 3
+1:intello: 9-12 12-16
+0:You:2 5
+15:You: 
+0:intello:5 5
+1:intello: 15-20 17-22 17-22 16-21
+0:You:4 5
+15:You: 
+0:intello:1 3
+1:intello: 15-18 18-19
+0:You:4 2
+15:You: 
+0:intello:3 5
+1:intello: 20-off 19-22
+0:You:1 1
+1:You:bar-24 bar-24 bar-24 13-12 
+0:intello:4 6
+1:intello: 19-off 19-23
+0:You:3 1
+1:You:7-4 12-11 
+0:intello:3 4
+1:intello: 21-off 22-off
+0:You:5 6
+1:You:24-18 24-19 
+0:intello:1 2
+1:intello: 22-23 23-off
+0:You:6 1
+1:You:24-18 19-18 
+0:intello:3 6
+1:intello: 20-off 20-23
+0:You:2 3
+1:You:13-10 6-4 
+0:intello:5 3
+1:intello: 21-off 22-off
+0:You:5 4
+1:You:11-7 13-8 
+0:intello:3 4
+1:intello: 21-off 22-off
+0:You:3 4
+1:You:24-20 20-17 
+0:intello:4 3
+1:intello: 22-off 23-off
+0:You:2 3
+1:You:24-21 21-19 
+0:intello:6 4
+1:intello: 23-off 23-off
+0:You:2 6
+1:You:19-13 8-6 
+0:intello:3 2
+1:intello: 23-off
+7:intello:2
+14:intello-2:sorrytigger-2
+13:intello: 
+6:You:intello
+11:intello:2 4
+1:intello: 8-4 6-4
+0:You:5 1
+1:You:12-17 1-2 
+0:intello:6 6
+1:intello: 13-7 13-7 24-18 24-18
+0:You:6 2
+1:You:1-3 3-9 
+0:intello:4 1
+1:intello: 13-9 9-8
+0:You:1 4
+1:You:bar-1 17-21 
+0:intello:6 1
+1:intello: 13-7 8-7
+0:You:1 4
+1:You:17-21 12-13 
+0:intello:5 3
+1:intello: bar-20 7-4
+0:You:2 2
+1:You:1-3 3-5 13-15 15-17 
+0:intello:3 5
+1:intello: 6-1 4-1
+0:You:4 6
+1:You:5-11 17-21 
+0:intello:6 2
+1:intello: 18-16 16-10
+0:You:1 4
+1:You:19-20 11-15 
+0:intello:3 5
+1:intello: bar-20 18-15
+0:You:1 5
+1:You: bar-5
+0:intello:1 1
+1:intello: 7-6 6-5 6-5 15-14
+0:You:4 6
+15:You: 
+0:intello:3 4
+1:intello: 20-16 14-11
+0:You:2 2
+1:You:bar-2 bar-2 12-14 14-16 
+0:intello:2 6
+1:intello: bar-23 10-4
+0:You:5 1
+1:You:2-3 12-17 
+0:intello:3 5
+1:intello: 23-18 18-15
+0:You:1 6
+1:You:2-3 12-18 
+0:intello:5 6
+1:intello: 11-5 15-10
+0:You:6 3
+1:You:16-22 19-22 
+0:intello:1 2
+1:intello: 10-8 8-7
+0:You:2 1
+1:You:2-3 18-20 
+0:intello:4 1
+1:intello: 8-4 8-7
+0:You:3 3
+1:You:17-20 17-20 20-23 19-22 
+0:intello:6 5
+1:intello: 7-1 7-2
+0:You:2 1
+1:You:21-23 17-18 
+0:intello:5 1
+1:intello: 7-2 7-6
+0:You:1 5
+1:You:3-8 8-9 
+0:intello:1 5
+1:intello: 6-1 1-off
+0:You:3 3
+1:You:9-12 12-15 15-18 18-21 
+0:intello:4 5
+1:intello: 5-off 4-off
+0:You:1 5
+1:You:18-23 23-24 
+0:intello:5 2
+1:intello: 6-1 6-4
+0:You:4 2
+1:You:22-24 19-23 
+0:intello:3 2
+1:intello: 4-1 4-2
+0:You:2 5
+1:You:19-24 21-23 
+0:intello:6 6
+3:You:2
+7:intello:2
+9:intello:3
