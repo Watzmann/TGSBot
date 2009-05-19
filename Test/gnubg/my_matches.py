@@ -18,7 +18,7 @@ TIMEFMT = '%d.%m.%y %H:%M'
 ##        - Häufigste Gegenspieler
 ##    2) Parameter <opponent> gibt die Statistik gegen den Opponenten aus
 ##       und die "-l" Zeilen gegen ihn (wenn -l gegeben)
-##    3) Bei -l kann man neben den Spielen die Änderung im Rating ausgeben
+##    x) Bei -l kann man neben den Spielen die Änderung im Rating ausgeben
 
 class JavaMatches(Liste):
 
@@ -172,7 +172,7 @@ class JavaMatch(Line):
             ret = rating.rating, delta
         else:
             ret = None, delta
-        return ret #(1450.5,-2.45)
+        return ret
 
     def print_formatted(self,):
         self.process()
@@ -267,6 +267,31 @@ def markierung_fuer_averages(d):
         c *= 2
     return c
 
+def listing(matches, ratings, warning=False):
+    """Erstellt ein Listing der gewünschten Matches (alle oder <opponent>).
+    Dabei werden auch die Gewinne/Verluste im Rating ausgegeben.
+    """
+    rsum = 0
+    old_rating = 1500.
+    abweichung = 0.
+    for k in matches.pliste:
+        if opponent and k.opponent != opponent:
+            continue
+        r,d = k.get_rating(ratings)
+        rsum += d
+        warn = ''
+        if r is None:
+            warn = '!!!!! rating is None !!!!'
+        elif warning:
+            od = (float(r) - old_rating)
+            abweichung += od
+            if d != od:
+                warn = '!!!!! %7.2f != %7.2f !!!!' % (od, d)
+            old_rating = float(r)
+        print '%-50s %7.2f %10.2f   %s' % (k.print_formatted(),d, rsum, warn)
+    if warning:
+        print 'Gesamtabweichung', abweichung
+
 def usage(progname):
     usg = """usage: %prog [<gegner>]
   %prog """ + __doc__
@@ -319,13 +344,7 @@ if __name__ == "__main__":
             if len (matches.dliste[k])>10:
                 print k, len (matches.dliste[k])
     if options.listing:
-        rsum = 0
-        for k in matches.pliste:
-            if opponent and k.opponent != opponent:
-                continue
-            r,d = k.get_rating(ratings)
-            rsum += d
-            print '%-50s %7.2f %10.2f' % (k.print_formatted(),d, rsum)
+        listing(matches, ratings, warning=options.verbose)
     if options.averages:
         av = matches.get_averages()
         ref = av[-1][1]
