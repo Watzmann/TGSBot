@@ -86,7 +86,7 @@ class JavaMatches(Liste):
                             'IST', (l.me_score,l.op_score)))
         return ret
 
-    win = lambda p: int(p.win)
+    win = lambda p: int(p.win)      # TODO: wo wird das gebraucht?
     
     def average(self, liste, value):
         h = [int(i.interpreted_line[value]) for i in liste]
@@ -164,6 +164,16 @@ class JavaMatch(Line):
         il['str_time'] = time.strftime(TIMEFMT,time.localtime(float(il['time'])/1000.))
         il['str_win'] = self.str_win[il['win']]
         
+    def get_rating(self, ratings):
+        """Gibt das Rating nach dem Match zurück sowie das Delta zu vorher.
+        """
+        rating,delta = ratings.match_rating(int(self.time),delta=True)
+        if not rating is None:
+            ret = rating.rating, delta
+        else:
+            ret = None, delta
+        return ret #(1450.5,-2.45)
+
     def print_formatted(self,):
         self.process()
         il = self.interpreted_line
@@ -185,6 +195,8 @@ class JavaRatings(Liste):
         DEBUG('in match_rating() with  time %s  delta_time=%s   delta=%s' % \
                   (time_seconds, delta_time, delta), OFF)
         before = 0.
+        ret = None
+        delta_rating = 0.
         for t in self.pliste:
             if abs(long(t.time) - time_seconds) < delta_time:
                 ret = t
@@ -256,7 +268,7 @@ def markierung_fuer_averages(d):
     return c
 
 def usage(progname):
-    usg = """usage: %prog <...>
+    usg = """usage: %prog [<gegner>]
   %prog """ + __doc__
     parser = OptionParser(usg)
     parser.add_option("-v", "--verbose",
@@ -274,6 +286,10 @@ def usage(progname):
     parser.add_option("-t", "--test",
                   action="store_true", dest="testing", default=False,
                   help="do some testing")
+    parser.add_option("-r", "--root",
+                  action="store", dest="file_root",
+                  default='/opt/JavaFIBS2001/user/sorrytigger',
+                  help="root path to matches and ratings")
     return parser,usg
 
 if __name__ == "__main__":
@@ -282,13 +298,15 @@ if __name__ == "__main__":
     if options.verbose:
         print options,args
     if len(args) > 0:
-        file_root = args[0]
+        opponent = args[0]
     else:
-        file_root = ''
+        opponent = ''
 
+    file_root = options.file_root
     if not os.path.isdir(file_root):
         file_root = '/opt/JavaFIBS2001/user/sorrytigger'
-        print 'default root wird verwendet:', file_root
+        if options.verbose:
+            print 'default root wird verwendet:', file_root
 
     matches,ratings = get_matches(file_root)
     matches.process()
@@ -301,8 +319,13 @@ if __name__ == "__main__":
             if len (matches.dliste[k])>10:
                 print k, len (matches.dliste[k])
     if options.listing:
+        rsum = 0
         for k in matches.pliste:
-            print k.print_formatted()
+            if opponent and k.opponent != opponent:
+                continue
+            r,d = k.get_rating(ratings)
+            rsum += d
+            print '%-50s %7.2f %10.2f' % (k.print_formatted(),d, rsum)
     if options.averages:
         av = matches.get_averages()
         ref = av[-1][1]
