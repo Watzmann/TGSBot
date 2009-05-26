@@ -23,10 +23,22 @@ TIMEFMT = '%d.%m.%y %H:%M'
 class JavaMatches(Liste):
 
     def __init__(self, liste, **kw):
-        Liste.__init__(self, liste)
-        DEBUG('JavaMatches.__init__()++++++++++',OFF)
-        DEBUG('kw: %s' % kw,OFF)
-        DEBUG('%s' % liste,OFF)
+        Liste.__init__(self, liste, **kw)
+        DEBUG('JavaMatches.__init__()++++++++++', OFF)
+        DEBUG('kw: %s' % kw, OFF)
+        DEBUG('%s' % liste, OFF)
+
+    def my_filter(self, **kw):
+        """
+        Applies filter to list; launched in constructor;
+        optional arguments can be supplied in dictionary self.filter_args;
+        to be overridden by subclass;
+        """
+        liste = self._raw_liste
+        opponent = kw.get('opponent')
+        if not opponent is None:
+            liste = [e for e in liste if e.split()[0] == opponent]
+        return liste
 
     def list2hash(self,):
         DEBUG('JavaMatches.list2hash()++++++++++',OFF)
@@ -90,7 +102,11 @@ class JavaMatches(Liste):
     
     def average(self, liste, value):
         h = [int(i.interpreted_line[value]) for i in liste]
-        return sum(h)/float(len(h))
+        try:
+            ret = sum(h)/float(len(h))
+        except ZeroDivisionError:
+            ret = 0.
+        return ret
     
     def get_average_delta(self, ranges):
         ret = []
@@ -114,12 +130,13 @@ class JavaMatches(Liste):
             aliste = self.pliste
         for i in rspans:
             if len(aliste) < i:
-                ret.append('')
+                continue
             else:
                 l = aliste[-i:]
-##            print i,len(l),self.running_average(l,'win')
                 ret.append(self.average(l,'win'))
         ret.reverse()
+        spans = spans[:len(ret)] + (spans[-1],)
+##        print spans,len(spans),len(ret),'###############'
         ret.append(self.average(aliste,'win'))
         delta = self.get_average_delta(spans)
         return zip(spans,ret,delta)
@@ -145,6 +162,13 @@ class JavaMatches(Liste):
                     out += '%6.4f;' % (t,)
             yield times + out[:-1].replace('.',',')
             out = ''
+
+    def total_rating_delta(self, ratings):
+        rsum = 0
+        for k in self.pliste:
+            r,d = k.get_rating(ratings)
+            rsum += d
+        return rsum
 
     def __repr__(self,):
         return "%d entries in %s" %(len(self),self.full_path)
@@ -229,9 +253,13 @@ class JavaRating(Line):
         il = self.interpreted_line
         return '%(str_time)s: %(rating)s  exp %(experience)s' % il
 
-def get_matches(root):
+def get_matches(root, opponent=''):
+    if opponent:
+        kw = {'opponent':opponent}
+    else:
+        kw = {}
     filename_matches = os.path.join(root,'matches')
-    matches = JavaMatches(filename_matches)
+    matches = JavaMatches(filename_matches, **kw)
     matches.interpret(JavaMatch)
     matches.list2hash()
     filename_ratings = os.path.join(root,'ratings')
@@ -256,6 +284,24 @@ def test_sind_alle_drin(matches):
         print "test_sind_alle_drin:","Abweichungen gefunden"
     return
 
+def print_opponents(matches):
+    print len(matches.dliste),'unterschiedliche Opponenten'
+    print 'Mehr als 10 Spiele mit....'
+    outs = {}
+    for k in matches.dliste:
+        lenm = len (matches.dliste[k])
+        if lenm > 10:
+            if outs.has_key(lenm):
+                outs[lenm].append(k)
+            else:
+                outs[lenm] = [k,]
+    k2 = outs.keys()
+    k2.sort()
+    k2.reverse()
+    for k in k2:
+        for o in outs[k]:
+            print k,o
+    
 def markierung_fuer_averages(d):
     if d > 0.:
         c = '+'
@@ -276,6 +322,9 @@ def listing(matches, ratings, warning=False):
     abweichung = 0.
     for k in matches.pliste:
         if opponent and k.opponent != opponent:
+            # TODO  Die Warnung kann auf lange Sicht raus. Sie ist nur hier,
+            #       um die Matches(opponent) (=JavaMatches.myfilter() zu pruefen
+            print 'WARNUNG: opponent',k.opponent,'noch vorhanden'
             continue
         r,d = k.get_rating(ratings)
         rsum += d
@@ -290,7 +339,7 @@ def listing(matches, ratings, warning=False):
             old_rating = float(r)
         print '%-50s %7.2f %10.2f   %s' % (k.print_formatted(),d, rsum, warn)
     if warning:
-        print 'Gesamtabweichung', abweichung
+        print ' '*46+'Gesamtabweichung', abweichung
 
 def usage(progname):
     usg = """usage: %prog [<gegner>]
@@ -320,8 +369,6 @@ def usage(progname):
 if __name__ == "__main__":
     parser,usg = usage(sys.argv[0])
     (options, args) = parser.parse_args()
-    if options.verbose:
-        print options,args
     if len(args) > 0:
         opponent = args[0]
     else:
@@ -333,16 +380,13 @@ if __name__ == "__main__":
         if options.verbose:
             print 'default root wird verwendet:', file_root
 
-    matches,ratings = get_matches(file_root)
+    matches,ratings = get_matches(file_root, opponent=opponent)
     matches.process()
 
     if options.testing:
         test_sind_alle_drin(matches)
     if options.verbose:
-        print len(matches.dliste),'unterschiedliche Opponenten'
-        for k in matches.dliste:
-            if len (matches.dliste[k])>10:
-                print k, len (matches.dliste[k])
+        print_opponents(matches)
     if options.listing:
         listing(matches, ratings, warning=options.verbose)
     if options.averages:

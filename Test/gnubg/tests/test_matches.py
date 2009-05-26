@@ -44,6 +44,12 @@ class TestRatings(unittest.TestCase):
         rating = self.ratings.match_rating(1206345788892,)
         self.assert_(long(rating.experience) == 383)
 
+    def testmatch_rating_delta(self):
+        # make sure rating-delta is calculated correctly
+        rating,delta = self.ratings.match_rating(1206345788892,delta=True)
+        adelta = (1520.66-1523.00)
+        self.assert_(delta == adelta,'%f == %f'%(adelta,delta))
+
 if __name__ == "__main__":
     print control.Config(**test_configuration())
     do_suites = (len(sys.argv) > 1) and (sys.argv[1] == 'suites')
