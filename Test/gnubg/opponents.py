@@ -62,10 +62,12 @@ def print_rating_gain_loss(matches, ratings, threshold=10):
     ol = list_opponents(o_liste.read().splitlines())
     o_liste.close()
 
+    # opponents list (ol) could/should be returned here;
+    # instead it is simply printed to stdout
     k = ol.dliste.keys()
-    k.sort()
+    k.sort()                        # list of gains and losses
     for r in k:
-        for o in ol.dliste[r]:
+        for o in ol.dliste[r]:      # account for multiple entries for any value
             print o
 
 def statistics_rating(matches, ratings):
@@ -85,6 +87,16 @@ def usage(progname):
     parser.add_option("-v", "--verbose",
                   action="store_true", dest="verbose", default=False,
                   help="print status messages to stdout")
+    parser.add_option("-e", "--experience",
+                  action="store_true", dest="experience", default=False,
+                  help="print experience of matches")
+    parser.add_option("-g", "--gain-loss",
+                  action="store", dest="gain_loss", default=10,
+                  help="print sorted list of gains and losses vs. opponents\
+                        (threshold=GAIN_LOSS)")
+    parser.add_option("-s", "--statistics",
+                  action="store_true", dest="statistics", default=False,
+                  help="print statistics")
     parser.add_option("-r", "--root",
                   action="store", dest="file_root",
                   default='/opt/JavaFIBS2001/user/sorrytigger',
@@ -94,10 +106,6 @@ def usage(progname):
 if __name__ == "__main__":
     parser,usg = usage(sys.argv[0])
     (options, args) = parser.parse_args()
-##    if len(args) < 1:
-##        parser.error('Gegner angeben')
-##
-##    opponent = args[0]
 
     file_root = options.file_root
     if not os.path.isdir(file_root):
@@ -112,8 +120,16 @@ if __name__ == "__main__":
         print matches
         print ratings
         print_opponents(matches)
+
+    if options.experience:
+        print matches.experience()
+
+    if options.gain_loss:
+        print options.gain_loss
+        #print_rating_gain_loss(matches, ratings, threshold=5)
+
+##    if options.experience:
 ##        print matches.experience()
 
-    print_rating_gain_loss(matches, ratings, threshold=5)
     #statistics_rating(matches, ratings)
 
