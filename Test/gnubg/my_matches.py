@@ -341,13 +341,13 @@ def test_sind_alle_drin(matches):
         print "test_sind_alle_drin:","Abweichungen gefunden"
     return
 
-def print_opponents(matches):
+def print_opponents(matches, threshold=10):
     print len(matches.dliste),'unterschiedliche Opponenten'
-    print 'Mehr als 10 Spiele mit....'
+    print 'Mehr als %d Spiele mit....' % threshold
     outs = {}
     for k in matches.dliste:
         lenm = len (matches.dliste[k])
-        if lenm > 10:
+        if lenm > threshold:
             if outs.has_key(lenm):
                 outs[lenm].append(k)
             else:

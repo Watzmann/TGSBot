@@ -81,7 +81,7 @@ def statistics_rating(matches, ratings):
         print '%-45s %s %6d' % (k.print_formatted(), ret.replace('.',','), group)
 
 def usage(progname):
-    usg = """usage: %prog [<gegner>]
+    usg = """usage: %prog [<opponent>]
   %prog """ + __doc__
     parser = OptionParser(usg)
     parser.add_option("-v", "--verbose",
@@ -91,12 +91,17 @@ def usage(progname):
                   action="store_true", dest="experience", default=False,
                   help="print experience of matches")
     parser.add_option("-g", "--gain-loss",
-                  action="store", dest="gain_loss", default=10,
-                  help="print sorted list of gains and losses vs. opponents\
-                        (threshold=GAIN_LOSS)")
+                  action="store_true", dest="gain_loss", default=False,
+                  help="print sorted list of gains and losses vs. opponents")
     parser.add_option("-s", "--statistics",
                   action="store_true", dest="statistics", default=False,
                   help="print statistics")
+    default_threshold = 10
+    parser.add_option("-t", "--threshold",
+                  action="store", dest="threshold", type='int',
+                  default=default_threshold,
+                  help="use threshold [%d]; opponents with less matches are \
+discarded." % default_threshold)
     parser.add_option("-r", "--root",
                   action="store", dest="file_root",
                   default='/opt/JavaFIBS2001/user/sorrytigger',
@@ -119,17 +124,14 @@ if __name__ == "__main__":
     if options.verbose:
         print matches
         print ratings
-        print_opponents(matches)
+        print_opponents(matches, threshold=options.threshold)
 
     if options.experience:
         print matches.experience()
 
     if options.gain_loss:
-        print options.gain_loss
-        #print_rating_gain_loss(matches, ratings, threshold=5)
+        print_rating_gain_loss(matches, ratings, threshold=options.threshold)
 
-##    if options.experience:
-##        print matches.experience()
-
-    #statistics_rating(matches, ratings)
+    if options.statistics:
+        statistics_rating(matches, ratings)
 
