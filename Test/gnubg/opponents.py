@@ -49,6 +49,35 @@ def list_opponents(o_liste, **kw):
     opponents.list2hash()
     return opponents
 
+def print_rating_gain_loss(matches, ratings, threshold=10):
+    """Berechnet für jeden Opponent die gesamte Änderung im rating"""
+    o_liste = StringIO()
+    for k in matches.dliste.keys():
+        d = matches.dliste[k]
+        if len(d) > threshold:
+            om = get_o_matches(matches,k)
+            print >> o_liste, k,len(d),om.total_rating_delta(ratings), \
+                                     om.average(om.pliste,'win')
+    o_liste.seek(0)
+    ol = list_opponents(o_liste.read().splitlines())
+    o_liste.close()
+
+    k = ol.dliste.keys()
+    k.sort()
+    for r in k:
+        for o in ol.dliste[r]:
+            print o
+
+def statistics_rating(matches, ratings):
+    sufficient_experience = 135     # ab da ist exp > 400
+##    sufficient_experience = -20     # für Testzwecke
+    for k in matches.pliste[sufficient_experience:]:
+        delta = k.get_rating(ratings)[1]
+        opp = k.get_opponents_rating(ratings)
+        group = int(opp/50)*50
+        ret = '%5.2f %7.2f' % (delta, opp)
+        print '%-45s %s %6d' % (k.print_formatted(), ret.replace('.',','), group)
+
 def usage(progname):
     usg = """usage: %prog [<gegner>]
   %prog """ + __doc__
@@ -83,34 +112,8 @@ if __name__ == "__main__":
         print matches
         print ratings
         print_opponents(matches)
+##        print matches.experience()
 
-    o_liste = StringIO()
-    for k in matches.dliste.keys():
-        d = matches.dliste[k]
-        if len(d) > 5:
-            om = get_o_matches(matches,k)
-            print >> o_liste, k,len(d),om.total_rating_delta(ratings), \
-                                     om.average(om.pliste,'win')
+    print_rating_gain_loss(matches, ratings, threshold=5)
+    #statistics_rating(matches, ratings)
 
-    o_liste.seek(0)
-    ol = list_opponents(o_liste.read().splitlines())
-    o_liste.close()
-
-    k = ol.dliste.keys()
-    k.sort()
-    for r in k:
-        for o in ol.dliste[r]:
-            print o
-
-##    if options.listing:
-##        listing(matches, ratings, warning=options.verbose)
-##    if options.averages:
-##        av = matches.get_averages()
-##        ref = av[-1][1]
-##        for a,b,d in av:
-##            c = markierung_fuer_averages(b-ref)
-##            b *= 100.
-##            print '%4d Spiele: %6.2f%%  %-2s %s' % (a,b,c,d)
-##    if options.gliding_averages:
-##        for avg in matches.gliding_averages():
-##            print avg

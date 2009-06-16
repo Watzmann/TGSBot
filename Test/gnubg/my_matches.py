@@ -5,6 +5,7 @@ u"""Stellt Einträge in 'matches'-Datei zur Verfügung."""
 import sys
 import os
 import time
+from math import sqrt, log10
 from optparse import OptionParser
 from listen import Liste
 from el_listen import Line
@@ -170,6 +171,16 @@ class JavaMatches(Liste):
             rsum += d
         return rsum
 
+    def experience(self):
+        rsum = 0
+        P = None
+        for p in self.pliste:
+            rsum += int(self.pliste[0].interpreted_line['ml'])
+            if P is None and rsum > 400:
+                P = p
+        return rsum, P
+        #return reduce(lambda x, y: x+int(y.interpreted_line['ml']), self.pliste)
+
     def __repr__(self,):
         return "%d entries in %s" %(len(self),self.full_path)
 
@@ -189,14 +200,18 @@ class JavaMatch(Line):
         il['str_win'] = self.str_win[il['win']]
         
     def get_rating(self, ratings):
-        """Gibt das Rating nach dem Match zurück sowie das Delta zu vorher.
-        """
-        rating,delta = ratings.match_rating(int(self.time),delta=True)
+        """Gibt das Rating nach dem Match zurück sowie das Delta zu vorher."""
+        rating,delta = ratings.match_rating(int(self.time),delta_time=2000,
+                                                                    delta=True)
         if not rating is None:
             ret = rating.rating, delta
         else:
             ret = None, delta
         return ret
+
+    def get_opponents_rating(self, ratings):
+        """Gibt das Rating des Gegners vor dem Match zurück."""
+        return ratings.opponents_rating(int(self.time), self)
 
     def print_formatted(self,):
         self.process()
@@ -230,6 +245,48 @@ class JavaRatings(Liste):
             delta_rating = float(t.rating) - float(before.rating)
         if delta:
             ret = (ret, delta_rating)
+        return ret
+
+    def opponents_rating(self, time_seconds, match, delta_time=1000):
+        """Gibt für den angegebenen Zeitpunkt das Rating des Gegners zuück."""
+        DEBUG('in opponents_rating() with  time %s  delta_time=%s' % \
+                  (time_seconds, delta_time,), OFF)
+        me,d = self.match_rating(time_seconds, delta_time=delta_time,
+                                                                 delta=True)
+        if me is None:
+            o_rating = -50.
+        else:
+            me = float(me.rating) - d     # korrigiere Rating auf Wert vor Match
+            o_rating = self.rating_difference(d, float(match.ml), me)
+        return o_rating
+
+    def rating_difference(self, delta, ML, my_rating):
+        """Calculates the rating difference (formulas below).
+          Let D = abs(r1-r2)      (rating difference)
+          Let P_upset = 1/(10^(D*sqrt(n)/2000)+1) (probability that underdog wins)
+          Let P=1-P_upset if the underdog wins and P=P_upset if the favorite wins.
+
+          For the winner:
+            Let K = max ( 1 , -experience/100+5 )
+            The rating change is: 4*K*sqrt(n)*P
+          For the loser:
+            Let K = max ( 1 , -experience/100+5 )
+            The rating change is: -4*K*sqrt(n)*P
+        """
+        K = 1.
+        sqrtN = sqrt(ML)
+        P = delta/sqrtN/4. #/K   (TODO  fehlt jetzt noch - betrifft nur meine Startzeit)
+                        # ausrechnen, ob ich höher oder niedriger gewertet bin
+        higher = 1 - 2*int((P < -.5) or ((P > 0) and (P < .5)))
+        P = abs(P)
+##        print delta, P, ML, self
+        if P > .5:
+            P = 1. - P
+        try:
+            D = log10(1./P - 1.)*2000./sqrtN
+            ret = my_rating + higher * D
+        except:
+            ret = -100.
         return ret
 
     def __repr__(self,):
@@ -387,6 +444,7 @@ if __name__ == "__main__":
         test_sind_alle_drin(matches)
     if options.verbose:
         print_opponents(matches)
+        print matches.experience()
     if options.listing:
         listing(matches, ratings, warning=options.verbose)
     if options.averages:
