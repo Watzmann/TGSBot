@@ -1,0 +1,20 @@
+GRABLEGE
+-----------------------------------------------------------------------------
+Eine Sammlung von Programmen, die zwar mal angefangen wurden, aber keine
+Relevanz mehr besitzen. Sie werden hier noch mal kurz erwähnt, begründet,
+dann aber aus dem Arbeitsverzeichnis entfernt.
+-----------------------------------------------------------------------------
+Diese Sammlung soll eine mühsame Suche in den "deleted files" in subversion
+vermeiden helfen.
+=============================================================================
+ahaLog.py
+        #
+        # Tools zum Testen eines Konnektors fuer den Brainfiler
+        #
+        # c Pylon AG  Andreas Hausmann Sept 2004
+
+    Wird nicht mehr gebraucht, weil ich jetzt ja das Modul 'logging' kenne :)
+
+    Abhängigkeiten:
+	docSplit/docSplit.py
+-----------------------------------------------------------------------------
