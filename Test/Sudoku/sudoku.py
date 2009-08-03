@@ -67,6 +67,7 @@ digits and blanks."""
         if not self.options.quiet:
             print 'Sudoku',name
         self.game = tuple([self.convert_line(c) for c in pattern])
+        self.dumped_list = self.list_dump()
         self.stamps = self.build_stamps()
         self.rows = self.build_rows()
         self.cols = self.build_cols()
@@ -305,7 +306,7 @@ Quatsch, weil ueber die Diagonale gleiche Ziffern vorkommen duerfen.
         return False
 
     def rebuild_from_stamps(self,):
-        liste = self.list_dump()
+        liste = self.dumped_list
         for s in self.stamps:
             s.rebuild(liste)
         self.list_load(liste)
@@ -313,7 +314,7 @@ Quatsch, weil ueber die Diagonale gleiche Ziffern vorkommen duerfen.
     def build_stamps(self,):
         """stamps are 3x3 groups of elements; numbering from left to right,
 from top to bottom."""
-        liste = self.list_dump()
+        liste = self.dumped_list
         stamps = []
         idx = [0,1,2,9,10,11,18,19,20]
         for l in (3,3,3+9+9,3,3,3+9+9,3,3,0):
@@ -323,7 +324,7 @@ from top to bottom."""
 
     def build_rows(self,):
         """rows are len(9) lines of elements; numbering from top to bottom."""
-        liste = self.list_dump()
+        liste = self.dumped_list
         lines = []
         for i in range(9):
             idx = range(9*i, 9+9*i)
@@ -333,7 +334,7 @@ from top to bottom."""
 
     def build_cols(self,):
         """cols are len(9) columns of elements; numbering from left to right."""
-        liste = self.list_dump()
+        liste = self.dumped_list
         lines = []
         for i in range(9):
             idx = range(i, 81, 9)
