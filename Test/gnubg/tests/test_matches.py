@@ -18,6 +18,11 @@ class TestMatches(unittest.TestCase):
     def testnr_of_entries(self):
         self.assert_(len(self.matches) == 128)
 
+    def test_repr_(self):
+        self.assert_(self.matches.__repr__() == \
+                     '128 entries in user/sorrytigger/matches',
+                     'representation of matches has changed')
+
     def testaverages(self):
         # make sure averages are calculated correctly
         spans = (3,5,10,20,50,100,128)

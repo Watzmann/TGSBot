@@ -36,7 +36,8 @@ class TestDirectoryServices(unittest.TestCase):
             km = i.match_id
             if not jm.dliste.has_key(km):
                 uc.append(km)
-        self.assert_(len(uc) == 2,"Falsche Zahl von 'unkonvertierten' Matches")
+        self.assert_(len(uc) == 2,
+                     "Falsche Zahl von 'unkonvertierten' Matches\n%s" % uc)
         self.assert_('You_vs_anke_1225750135619' in uc,
                      "'Unkonvertiertes' Match nicht entdeckt")
 
