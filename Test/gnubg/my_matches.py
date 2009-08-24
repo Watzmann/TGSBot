@@ -181,6 +181,10 @@ class JavaMatches(Liste):
         return rsum, P
         #return reduce(lambda x, y: x+int(y.interpreted_line['ml']), self.pliste)
 
+    def get_time_slices(self,):
+        print self
+        return
+    
     def __repr__(self,):
         return "%d entries in %s" %(len(self),self.full_path)
 
@@ -370,19 +374,18 @@ def markierung_fuer_averages(d):
         c *= 2
     return c
 
-def listing(matches, ratings, warning=False):
+def listing(matches, ratings, warning=False, tail=0):
     """Erstellt ein Listing der gewünschten Matches (alle oder <opponent>).
     Dabei werden auch die Gewinne/Verluste im Rating ausgegeben.
     """
     rsum = 0
     old_rating = 1500.
     abweichung = 0.
-    for k in matches.pliste:
-        if opponent and k.opponent != opponent:
-            # TODO  Die Warnung kann auf lange Sicht raus. Sie ist nur hier,
-            #       um die Matches(opponent) (=JavaMatches.myfilter() zu pruefen
-            print 'WARNUNG: opponent',k.opponent,'noch vorhanden'
-            continue
+    if tail > 0:                        # TODO: hat matches (oder Liste) bereits
+        pliste = matches.pliste[-tail:] #       einen "Tail"-Mechanismus?
+    else:
+        pliste = matches.pliste
+    for k in pliste:
         r,d = k.get_rating(ratings)
         rsum += d
         warn = ''
@@ -414,9 +417,9 @@ def usage(progname):
     parser.add_option("-l", "--list",
                   action="store_true", dest="listing", default=False,
                   help="list the matches")
-    parser.add_option("-t", "--test",
-                  action="store_true", dest="testing", default=False,
-                  help="do some testing")
+    parser.add_option("-t", "--tail",
+                  action="store", dest="tail", type='int', default=0,
+                  help="show only <n> trailing entries")
     parser.add_option("-r", "--root",
                   action="store", dest="file_root",
                   default='/opt/JavaFIBS2001/user/sorrytigger',
@@ -440,13 +443,13 @@ if __name__ == "__main__":
     matches,ratings = get_matches(file_root, opponent=opponent)
     matches.process()
 
-    if options.testing:
-        test_sind_alle_drin(matches)
+##    if options.testing:                 # TODO: Tests: ab nach tests/....
+##        test_sind_alle_drin(matches)
     if options.verbose:
         print_opponents(matches)
         print matches.experience()
     if options.listing:
-        listing(matches, ratings, warning=options.verbose)
+        listing(matches, ratings, warning=options.verbose, tail=options.tail)
     if options.averages:
         av = matches.get_averages()
         ref = av[-1][1]

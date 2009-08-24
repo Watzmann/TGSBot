@@ -118,6 +118,12 @@ if __name__ == "__main__":
         if options.verbose:
             print 'default root wird verwendet:', file_root
 
+    if len(sys.argv) <= 1:
+        print usg               # TODO: wie geht noch mal "hilfe aufrufen"?
+        print
+        print 'ERROR::', 'Weder Argumente noch Optionen angegeben!'
+        sys.exit(0)
+    
     matches,ratings = get_matches(file_root,)
     matches.process()
 
@@ -134,4 +140,12 @@ if __name__ == "__main__":
 
     if options.statistics:
         statistics_rating(matches, ratings)
+        matches.get_time_slices()
+        
+##      TODO
+##        Große Statistik:
+##          statistics_rating() gilt für eine Zeitscheibe.
+##          Hier wird also noch ein Zerlegen in Zeitscheiben gebraucht.
+##          Außerdem ist die Frage, was die Ausgabe für eine Zeitscheibe ist.
+##          Genauer: wie stellt man das Statistik Ergebnis für eine Scheibe dar.
 
