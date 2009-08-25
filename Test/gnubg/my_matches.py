@@ -145,7 +145,7 @@ class JavaMatches(Liste):
     def gliding_averages(self,):
         out = ''
         av = matches.get_averages()
-        titles = [a for a,b in av]
+        titles = [a for a,b,c in av]
         out = 'Datum;;'
         for t in titles:
             out += '%d;' % t
@@ -155,7 +155,7 @@ class JavaMatches(Liste):
             timestr = self.pliste[i].interpreted_line['str_time']
             times = timestr[:8]+';'+str(timestamp)+';'
             av = matches.get_averages(up_to_index=i+1)
-            values = [b for a,b in av]
+            values = [b for a,b,c in av]
             for t in values:
                 if t == '':
                     out += ';'
