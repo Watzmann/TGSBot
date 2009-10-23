@@ -382,6 +382,7 @@ class Information:
             DEBUG('test_mach 2', OFF)
             analyse = Match(os.path.join(root,match.line), gnubg)  # match laden
             match.process()
+            print match, analyse.match_time
             if analyse.match_time == '':
                 jm = self.match_time(analyse)
                 has_warnings = analyse.match_summary['info'].get('Warnings')
@@ -484,7 +485,7 @@ def usage(progname):
                   help="using test configuration")
     return parser,usg
 
-def test_configuration():
+def test_configuration():       # TODO: warum liegt das nicht in tests? zB utils
     kw = {'fibs_root':'tests',
           'archives_root':'tests',
           'user':'sorrytigger'}

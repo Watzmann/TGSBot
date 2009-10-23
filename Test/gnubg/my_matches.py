@@ -143,18 +143,18 @@ class JavaMatches(Liste):
         return zip(spans,ret,delta)
 
     def gliding_averages(self,):
-        out = ''
-        av = matches.get_averages()
+        av = self.get_averages()
         titles = [a for a,b,c in av]
         out = 'Datum;;'
         for t in titles:
             out += '%d;' % t
-        out += '\n'
-        for i in range(25,len(self.pliste)):
+        yield out[:-1]
+        for i in range(25,len(self.pliste)):        # Warum 25?
+            out = ''
             timestamp = self.pliste[i].interpreted_line['time']
             timestr = self.pliste[i].interpreted_line['str_time']
             times = timestr[:8]+';'+str(timestamp)+';'
-            av = matches.get_averages(up_to_index=i+1)
+            av = self.get_averages(up_to_index=i+1)
             values = [b for a,b,c in av]
             for t in values:
                 if t == '':
@@ -162,7 +162,6 @@ class JavaMatches(Liste):
                 else:
                     out += '%6.4f;' % (t,)
             yield times + out[:-1].replace('.',',')
-            out = ''
 
     def total_rating_delta(self, ratings):
         rsum = 0
