@@ -34,6 +34,24 @@ class TestMatches(unittest.TestCase):
         avg = self.matches.get_averages()
         self.assert_(avg == soll,'avg,soll\n%s\n%s'%(avg,soll))
 
+    def testgliding_averages(self):
+        # make sure gliding_averages are calculated correctly
+        # make sure correct number of lines is issued
+        soll = {        # only the following lines are tested
+            0:  'Datum;;3;5;10;20;50;100;128',
+            2:  '09.02.08;1202553384857;0,0000;0,0000;0,2000;0,3000;0,3704',
+            10: '17.02.08;1203255984744;0,3333;0,4000;0,4000;0,3500;0,4000',
+            37: '02.03.08;1204472729599;0,3333;0,4000;0,5000;0,6000;0,5200;0,5161',
+            91: '21.03.08;1206119508387;0,3333;0,6000;0,5000;0,5500;0,5800;0,5600;0,5431',
+            }            
+        self.matches.process()
+        avg = self.matches.gliding_averages()
+        for e,a in enumerate(avg):
+            s = soll.get(e,'')
+            if s != '':
+                self.assert_(a == s,'avg,soll in Zeile %d\n%s\n%s'%(e,a,s))
+        self.assert_(e == 103,'Falsche Zahl von Ausgabezeilen (%d)'%e)
+
 class TestRatings(unittest.TestCase):
     
     def setUp(self):
@@ -56,10 +74,13 @@ class TestRatings(unittest.TestCase):
         self.assert_(delta == adelta,'%f == %f'%(adelta,delta))
 
 if __name__ == "__main__":
-    print control.Config(**test_configuration())
+    print control.Config(**test_configuration())  # TODO: das hier auch als Test
+                                # Config nicht drucken
+                                # einzelne Elemente mit assert
+                                # in den test_tools
     do_suites = (len(sys.argv) > 1) and (sys.argv[1] == 'suites')
 
     if not do_suites:
-        run_test(TestElementaryActions('testnotconverted'))
+        run_test(TestMatches('testgliding_averages'))
     else:
         run_suites(globals())
