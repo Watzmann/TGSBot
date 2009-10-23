@@ -60,8 +60,9 @@ eben erzeugten guten geprueft. Das Testergebnis wird in jedem Falle ausgegeben.
             print i,ss,'\t\t',ok
 
 if __name__ == '__main__':
-    #test_is_aligned()
-
+    test_is_aligned()
+    sys.exit(0)
+    
     additional = filter(lambda x: len(x[0]) == 11, zeit_archiv.items())
     test_faelle.update(additional)
 
