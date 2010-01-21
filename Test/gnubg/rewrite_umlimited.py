@@ -53,7 +53,7 @@ def doit(filename):
                     res = result[1]
                 else:
                     win = opp
-                    res = result[0]
+                    res = result[0]+5
                 print '9:%s:%d' % (win,res)
                 break               # stop output
             print '14:%s-%d:%s-%d' % (you,result[1],opp,result[0])
