@@ -580,6 +580,8 @@ show score\n"""
 if __name__ == '__main__':
     root = '/opt/JavaFIBS2001/matches/jellyfish'
     my_match = 'You_vs_Zauberin______1223657045028.mat'
+    root = '/opt/JavaFIBS2001/matches/jellyfish/old'
+    my_match = 'You_vs_zumsel_20090508152945242.mat'
     #my_match = 'mrekeles.mat'
 ##    my_match = 'You_vs_yup_1219395387151.mat'   LESEFEHLER
     match = os.path.join(root,my_match)
