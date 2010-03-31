@@ -74,10 +74,14 @@ def statistics_rating(matches, ratings):
     sufficient_experience = 135     # ab da ist exp > 400
 ##    sufficient_experience = -20     # für Testzwecke
     for k in matches.pliste[sufficient_experience:]:
-        delta = k.get_rating(ratings)[1]
+        rating,delta = k.get_rating(ratings)
+        try:
+            rating = float(rating)
+        except:
+            rating = -1.0
         opp = k.get_opponents_rating(ratings)
         group = int(opp/50)*50
-        ret = '%5.2f %7.2f' % (delta, opp)
+        ret = '%5.2f %7.2f %7.2f %5d' % (delta, opp, rating, int(rating-opp))
         print '%-45s %s %6d' % (k.print_formatted(), ret.replace('.',','), group)
 
 def usage(progname):
