@@ -20,17 +20,52 @@ class Loch:
         self.type = index < 8   # True heisst "vorne", False heisst "hinten"
 
     def __str__(self,):
-        return '(%s) ' % self.muster.get(self.zahl,' * ')
+##        return '(%s) ' % self.muster.get(self.zahl,' * ')
+        return '(%2d ) ' % self.index
+
+mvup = lambda x,n: x + n
+mvdown = lambda x,n: x - n
         
 class Bao:
     def __init__(self, name, darstellung=0):
         self.name = name
-        self.start_aufstellung()
         self.darstellung = darstellung
-        print name, 'initialisiert'
+        self.start_aufstellung()
+##        print name, 'initialisiert'
         
     def start_aufstellung(self,):
-        self.board = (Loch(i) for i in range(16))
+        p1 = range(8)
+        p2 = [p+8 for p in p1]
+        p1.reverse()
+        aufstellung = p1 + p2
+        self.index = aufstellung
+        if self.darstellung == 1:
+            aufstellung.reverse()
+            self.index = p2 + p1
+        self.board = [Loch(i) for i in aufstellung]
+        print self.name
+        print self.index
+
+    def loch(self, index):
+        loch = self.board[self.index[index]]
+        return loch
+
+    def get_infos(self, loch):
+        return loch.index, loch.zahl
+
+    def primitiv(self, loch, richtung):
+        index,count = self.get_infos(self.loch(loch))
+        print loch, index, count, 
+        for i in range(1,count+1):
+            print richtung(loch,i),
+        print
+
+    def zug(self, loch, richtung):
+        """Führt einen Zug aus. Ein Zug besteht aus einer Abfolge von Primitiven.
+'+' ist im Uhrzeigersinn,
+'-' ist im Gegenuhrzeigersinn."""
+        print self.name, loch, richtung
+        self.primitiv(loch, {'+':mvup,'-':mvdown}[richtung])
 
     def __str__(self,):
         s = ''.join([str(i) for i in self.board])
@@ -42,6 +77,24 @@ class Bao:
         s = s[48:] + name1 + '\n' + s[:48] + name2
         return s
 
+class Spiel:
+    def __init__(self, player1, player2):
+        self.player = [player1, player2]
+        self.bao = [Bao(self.player[p],p) for p in (0,1)]
+        self.turn = 0
+
+    def zug(self, loch, richtung):
+        self.bao[self.turn].zug(loch, richtung)
+        self.turn = 1 - self.turn
+
+    def dran(self, player):
+        self.turn = self.player.index(player)
+
+    def __str__(self,):
+        b1 = self.bao[0].__str__()
+        b2 = self.bao[1].__str__()
+        return b1 + '\n' + '-'*48 + '\n' + b2
+        
 def usage(progname):
     usg = """usage: %s <...>
   %s""" % (progname,__doc__)
@@ -56,9 +109,9 @@ if __name__ == "__main__":
     (options, args) = parser.parse_args()
     if options.verbose:
         print options,args
-    bao1 = Bao('helena', 0)
-    bao2 = Bao('andreas', 1)
-    print bao1
-    print '-'*48
-    print bao2
-    
+
+    spiel = Spiel('helena','andreas')
+##    spiel.dran('andreas')
+    print spiel
+    spiel.zug(14,'+')
+    spiel.zug(0,'-')
