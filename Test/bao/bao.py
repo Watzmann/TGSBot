@@ -2,11 +2,22 @@
 # -*- coding: utf-8 -*-
 """was macht das script"""
 
+__TODO__="""Liste der TODOs:
+-----------------
+1. Zulassen, dass von außen die Darstellung einzelner Löcher reguliert wird.
+   Die Löcher nehmen dann diese Darstellung, statt dem zahlenmäßigen Inhalt.
+   Diese Darstellung gilt nur für einen Ausdruck.
+2. Zug-Kriterien:
+   a) Loch leer?
+   b) Gegenüber mitnehmen.
+"""
+
 import sys
 from optparse import OptionParser
 
 class Loch:
     muster = {
+        0:'   ',
         1:' . ',
         2:' : ',
         3:'...',
@@ -19,9 +30,15 @@ class Loch:
         self.index = index
         self.type = index < 8   # True heisst "vorne", False heisst "hinten"
 
+    def empty(self,):
+        self.zahl = 0
+
+    def add(self, n=1):
+        self.zahl += n
+
     def __str__(self,):
-##        return '(%s) ' % self.muster.get(self.zahl,' * ')
-        return '(%2d ) ' % self.index
+        return '(%s) ' % self.muster.get(self.zahl,' * ')
+##        return '(%2d ) ' % self.index
 
 mvup = lambda x,n: x + n
 mvdown = lambda x,n: x - n
@@ -53,12 +70,21 @@ class Bao:
     def get_infos(self, loch):
         return loch.index, loch.zahl
 
-    def primitiv(self, loch, richtung):
-        index,count = self.get_infos(self.loch(loch))
-        print loch, index, count, 
+    def periodic(self, index):
+        if index > 15:
+            return index - 16
+        elif index < 0:
+            return index + 16
+        return index
+
+    def primitiv(self, index, richtung):
+        start = self.loch(index)
+        idx,count = self.get_infos(start)
+        start.empty()
         for i in range(1,count+1):
-            print richtung(loch,i),
-        print
+             neu_idx = self.periodic(richtung(index,i))
+             self.loch(neu_idx).add()
+        print neu_idx
 
     def zug(self, loch, richtung):
         """Führt einen Zug aus. Ein Zug besteht aus einer Abfolge von Primitiven.
@@ -109,9 +135,12 @@ if __name__ == "__main__":
     (options, args) = parser.parse_args()
     if options.verbose:
         print options,args
+        print __TODO__
 
     spiel = Spiel('helena','andreas')
 ##    spiel.dran('andreas')
     print spiel
     spiel.zug(14,'+')
+    print spiel
     spiel.zug(0,'-')
+    print spiel
