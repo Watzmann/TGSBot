@@ -3,7 +3,7 @@
 """was macht das script"""
 
 __TODO__="""Liste der TODOs:
------------------
+----------------
 1. Zulassen, dass von außen die Darstellung einzelner Löcher reguliert wird.
    Die Löcher nehmen dann diese Darstellung, statt dem zahlenmäßigen Inhalt.
    Diese Darstellung gilt nur für einen Ausdruck.
@@ -25,10 +25,12 @@ class Loch:
         5:':.:',
         6:':::',
         }
+
     def __init__(self, index):
         self.zahl = 2
         self.index = index
         self.type = index < 8   # True heisst "vorne", False heisst "hinten"
+        self.image = ''
 
     def empty(self,):
         self.zahl = 0
@@ -36,9 +38,24 @@ class Loch:
     def add(self, n=1):
         self.zahl += n
 
+    def show(self, img='', special=''):
+        # TODO    schoenerer Name wuenschenswert
+        """Record a string that will be shown instead of standard count pattern.
+This might serve developping or debugging purposes, forinstance.
+"""
+        special_imgs = {'index':'%2d ' % self.index,
+                        }
+        img = special_imgs.get(special, img)
+        if img:
+            self.image = img
+    
     def __str__(self,):
-        return '(%s) ' % self.muster.get(self.zahl,' * ')
-##        return '(%2d ) ' % self.index
+        if self.image:
+            img = '(%s) ' % self.image
+            self.image = ''
+        else:
+            img = '(%s) ' % self.muster.get(self.zahl,' * ')
+        return img
 
 mvup = lambda x,n: x + n
 mvdown = lambda x,n: x - n
@@ -93,6 +110,10 @@ class Bao:
         print self.name, loch, richtung
         self.primitiv(loch, {'+':mvup,'-':mvdown}[richtung])
 
+    def show(self, img='', special=''):
+        for i in self.board:
+            i.show(img, special)
+
     def __str__(self,):
         s = ''.join([str(i) for i in self.board])
         name1 = name2 = ''
@@ -116,6 +137,10 @@ class Spiel:
     def dran(self, player):
         self.turn = self.player.index(player)
 
+    def show(self, img='', special=''):
+        self.bao[0].show(img, special)
+        self.bao[1].show(img, special)
+        
     def __str__(self,):
         b1 = self.bao[0].__str__()
         b2 = self.bao[1].__str__()
@@ -144,3 +169,6 @@ if __name__ == "__main__":
     print spiel
     spiel.zug(0,'-')
     print spiel
+##    print
+##    spiel.show(img=' + ', special='index')
+##    print spiel
