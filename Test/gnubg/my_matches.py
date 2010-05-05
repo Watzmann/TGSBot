@@ -20,6 +20,7 @@ TIMEFMT = '%d.%m.%y %H:%M'
 ##    2) Parameter <opponent> gibt die Statistik gegen den Opponenten aus
 ##       und die "-l" Zeilen gegen ihn (wenn -l gegeben)
 ##    x) Bei -l kann man neben den Spielen die Änderung im Rating ausgeben
+##    4) Option --match-length gibt die Statistik nach ML aus
 
 class JavaMatches(Liste):
 
@@ -387,16 +388,20 @@ def listing(matches, ratings, warning=False, tail=0):
     for k in pliste:
         r,d = k.get_rating(ratings)
         rsum += d
+        if r is None:
+            fr = 0.0
+        else:
+            fr = float(r)
         warn = ''
         if r is None:
             warn = '!!!!! rating is None !!!!'
         elif warning:
-            od = (float(r) - old_rating)
+            od = (fr - old_rating)
             abweichung += od
             if d != od:
                 warn = '!!!!! %7.2f != %7.2f !!!!' % (od, d)
-            old_rating = float(r)
-        print '%-50s %7.2f %10.2f   %s' % (k.print_formatted(),d, rsum, warn)
+            old_rating = fr
+        print '%-50s %7.2f %8.2f %10.2f   %s' % (k.print_formatted(),d, rsum, fr, warn)
     if warning:
         print ' '*46+'Gesamtabweichung', abweichung
 
