@@ -16,6 +16,7 @@ import sys
 from optparse import OptionParser
 
 class Loch:
+    """Ein Loch eines Bao-Brettes."""
     muster = {
         0:'   ',
         1:' . ',
@@ -31,6 +32,7 @@ class Loch:
         self.index = index
         self.type = index < 8   # True heisst "vorne", False heisst "hinten"
         self.image = ''
+        self.klammer = ('(', ')')
 
     def empty(self,):
         self.zahl = 0
@@ -38,6 +40,9 @@ class Loch:
     def add(self, n=1):
         self.zahl += n
 
+    def mark(self,):
+        self.klammer = ('[', ']')
+        
     def show(self, img='', special=''):
         # TODO    schoenerer Name wuenschenswert
         """Record a string that will be shown instead of standard count pattern.
@@ -50,17 +55,20 @@ This might serve developping or debugging purposes, forinstance.
             self.image = img
     
     def __str__(self,):
+        kl,kr = self.klammer
+        self.klammer = ('(', ')')
         if self.image:
-            img = '(%s) ' % self.image
+            img = '%s%s%s ' % (kl,self.image,kr)
             self.image = ''
         else:
-            img = '(%s) ' % self.muster.get(self.zahl,' * ')
+            img = '%s%s%s ' % (kl,self.muster.get(self.zahl,' * '),kr)
         return img
 
 mvup = lambda x,n: x + n
 mvdown = lambda x,n: x - n
         
 class Bao:
+    """Eine Hälfte eines Bao-Spiels. 16 Löcher. Gehört einem Spieler."""
     def __init__(self, name, darstellung=0):
         self.name = name
         self.darstellung = darstellung
@@ -88,6 +96,7 @@ class Bao:
         return loch.index, loch.zahl
 
     def periodic(self, index):
+        """Hält den Index auf der Schleife von 0 bis 15."""
         if index > 15:
             return index - 16
         elif index < 0:
@@ -97,10 +106,12 @@ class Bao:
     def primitiv(self, index, richtung):
         start = self.loch(index)
         idx,count = self.get_infos(start)
+        start.mark()
         start.empty()
         for i in range(1,count+1):
              neu_idx = self.periodic(richtung(index,i))
              self.loch(neu_idx).add()
+        self.loch(neu_idx).mark()
         print neu_idx
 
     def zug(self, loch, richtung):
@@ -125,6 +136,7 @@ class Bao:
         return s
 
 class Spiel:
+    """Das komplette Brett, bestehend aus 32 Löchern."""
     def __init__(self, player1, player2):
         self.player = [player1, player2]
         self.bao = [Bao(self.player[p],p) for p in (0,1)]
@@ -167,8 +179,8 @@ if __name__ == "__main__":
     print spiel
     spiel.zug(14,'+')
     print spiel
-    spiel.zug(0,'-')
+    spiel.zug(1,'-')
     print spiel
-##    print
-##    spiel.show(img=' + ', special='index')
-##    print spiel
+    print
+    spiel.show(img=' + ', special='index')
+    print spiel
