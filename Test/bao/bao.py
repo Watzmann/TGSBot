@@ -4,7 +4,7 @@
 
 __TODO__="""Liste der TODOs:
 ----------------
-1. Zulassen, dass von außen die Darstellung einzelner Löcher reguliert wird.
+x. Zulassen, dass von außen die Darstellung einzelner Löcher reguliert wird.
    Die Löcher nehmen dann diese Darstellung, statt dem zahlenmäßigen Inhalt.
    Diese Darstellung gilt nur für einen Ausdruck.
 2. Zug-Kriterien:
@@ -17,6 +17,8 @@ from optparse import OptionParser
 
 class Loch:
     """Ein Loch eines Bao-Brettes."""
+
+    klammer_standard = ('(', ')')
     muster = {
         0:'   ',
         1:' . ',
@@ -32,7 +34,10 @@ class Loch:
         self.index = index
         self.type = index < 8   # True heisst "vorne", False heisst "hinten"
         self.image = ''
-        self.klammer = ('(', ')')
+        self.klammer = Loch.klammer_standard
+
+    def stop(self, gegner):
+        return self.zahl < 2
 
     def empty(self,):
         self.zahl = 0
@@ -40,8 +45,8 @@ class Loch:
     def add(self, n=1):
         self.zahl += n
 
-    def mark(self,):
-        self.klammer = ('[', ']')
+    def mark(self, img=('[', ']')):
+        self.klammer = img
         
     def show(self, img='', special=''):
         # TODO    schoenerer Name wuenschenswert
@@ -56,7 +61,7 @@ This might serve developping or debugging purposes, forinstance.
     
     def __str__(self,):
         kl,kr = self.klammer
-        self.klammer = ('(', ')')
+        self.klammer = Loch.klammer_standard
         if self.image:
             img = '%s%s%s ' % (kl,self.image,kr)
             self.image = ''
@@ -88,6 +93,10 @@ class Bao:
         print self.name
         print self.index
 
+    def spiel_gegner(self, bao):
+        self.gegner = bao
+        print "%s's Gegner ist %s" % (self.name, self.gegner.name)
+
     def loch(self, index):
         loch = self.board[self.index[index]]
         return loch
@@ -104,6 +113,10 @@ class Bao:
         return index
 
     def primitiv(self, index, richtung):
+        """Ein Primitiv-Zug von 'index' in 'richtung'.
+Primitive sind rekursiv. Sie folgen einander, bis ein Stopp (leeres Loch)
+erfolgt.
+"""
         start = self.loch(index)
         idx,count = self.get_infos(start)
         start.mark()
@@ -112,14 +125,24 @@ class Bao:
              neu_idx = self.periodic(richtung(index,i))
              self.loch(neu_idx).add()
         self.loch(neu_idx).mark()
-        print neu_idx
+        self.stop += 1
+        print neu_idx, self.stop
+##        self.current = neu_idx
+        if not self.loch(neu_idx).stop(self.gegner):
+            if not (self.stop > 1):
+                print 'noch mal'
+                neu_idx = self.primitiv(neu_idx, richtung)
+        return neu_idx
 
     def zug(self, loch, richtung):
         """Führt einen Zug aus. Ein Zug besteht aus einer Abfolge von Primitiven.
 '+' ist im Uhrzeigersinn,
 '-' ist im Gegenuhrzeigersinn."""
         print self.name, loch, richtung
-        self.primitiv(loch, {'+':mvup,'-':mvdown}[richtung])
+        self.stop = 0
+        self.loch(loch).show(img=' 0 ')
+        idx = self.primitiv(loch, {'+':mvup,'-':mvdown}[richtung])
+        self.loch(idx).show(img=' # ')
 
     def show(self, img='', special=''):
         for i in self.board:
@@ -140,6 +163,8 @@ class Spiel:
     def __init__(self, player1, player2):
         self.player = [player1, player2]
         self.bao = [Bao(self.player[p],p) for p in (0,1)]
+        self.bao[0].spiel_gegner(self.bao[1])
+        self.bao[1].spiel_gegner(self.bao[0])
         self.turn = 0
 
     def zug(self, loch, richtung):
@@ -174,7 +199,7 @@ if __name__ == "__main__":
         print options,args
         print __TODO__
 
-    spiel = Spiel('helena','andreas')
+    spiel = Spiel('helena','annabelle')
 ##    spiel.dran('andreas')
     print spiel
     spiel.zug(14,'+')
