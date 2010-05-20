@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""was macht das script"""
+"""Implementierung des 'Steinspiels' Bao."""
 
 __TODO__="""Liste der TODOs:
 ----------------
@@ -14,6 +14,18 @@ x. Zulassen, dass von außen die Darstellung einzelner Löcher reguliert wird.
 
 import sys
 from optparse import OptionParser
+from singleton import Singleton
+
+class MyConfig(Singleton):
+
+    def get_config(self,):
+        return getattr(self, 'options')
+
+    def get_config_key(self, key, default=None):
+        return getattr(getattr(self, 'options'), key, default)
+
+    def set_config(self, options):
+        setattr(self, 'options', options)
 
 class Loch:
     """Ein Loch eines Bao-Brettes."""
@@ -32,15 +44,17 @@ class Loch:
     def __init__(self, index):
         self.zahl = 2
         self.index = index
-        self.type = index < 8   # True heisst "vorne", False heisst "hinten"
+        self.front = index < 8   # True heisst "vorne", False heisst "hinten"
         self.image = ''
         self.klammer = Loch.klammer_standard
 
-    def stop(self, gegner):
-        return self.zahl < 2
-
+    def stop(self,):
+        return self.zahl < 2    # Ein Stein wurde bereits hineingeworfen
+                                # (der letzte Stein)
     def empty(self,):
+        ret = self.zahl
         self.zahl = 0
+        return ret
 
     def add(self, n=1):
         self.zahl += n
@@ -78,6 +92,8 @@ class Bao:
         self.name = name
         self.darstellung = darstellung
         self.start_aufstellung()
+        self.config = MyConfig().get_config()
+        self.verbose = self.config.verbose
 ##        print name, 'initialisiert'
         
     def start_aufstellung(self,):
@@ -101,9 +117,6 @@ class Bao:
         loch = self.board[self.index[index]]
         return loch
 
-    def get_infos(self, loch):
-        return loch.index, loch.zahl
-
     def periodic(self, index):
         """Hält den Index auf der Schleife von 0 bis 15."""
         if index > 15:
@@ -112,27 +125,34 @@ class Bao:
             return index + 16
         return index
 
+    def voranschreiten(self, index, richtung, count):
+        for i in range(1,count+1):
+            idx = self.periodic(richtung(index,i))
+            loch = self.loch(idx)
+            loch.add()
+        beute = self.check_opposite(loch)
+        loch.add(beute)
+        if self.verbose:
+            print 'beute', beute
+        loch.show('.+.')
+        return loch
+
     def primitiv(self, index, richtung):
         """Ein Primitiv-Zug von 'index' in 'richtung'.
 Primitive sind rekursiv. Sie folgen einander, bis ein Stopp (leeres Loch)
 erfolgt.
 """
         start = self.loch(index)
-        idx,count = self.get_infos(start)
-        start.mark()
-        start.empty()
-        for i in range(1,count+1):
-             neu_idx = self.periodic(richtung(index,i))
-             self.loch(neu_idx).add()
-        self.loch(neu_idx).mark()
+        count = start.empty()
+        current = self.voranschreiten(index, richtung, count)
+        current.mark(('{','}'))
         self.stop += 1
-        print neu_idx, self.stop
-##        self.current = neu_idx
-        if not self.loch(neu_idx).stop(self.gegner):
-            if not (self.stop > 1):
+        print current.index, self.stop
+        if not current.stop():
+            if not (self.stop > 6):
                 print 'noch mal'
-                neu_idx = self.primitiv(neu_idx, richtung)
-        return neu_idx
+                current = self.primitiv(current.index, richtung)
+        return current
 
     def zug(self, loch, richtung):
         """Führt einen Zug aus. Ein Zug besteht aus einer Abfolge von Primitiven.
@@ -141,9 +161,20 @@ erfolgt.
         print self.name, loch, richtung
         self.stop = 0
         self.loch(loch).show(img=' 0 ')
-        idx = self.primitiv(loch, {'+':mvup,'-':mvdown}[richtung])
-        self.loch(idx).show(img=' # ')
+        self.loch(loch).mark()
+        current = self.primitiv(loch, {'+':mvup,'-':mvdown}[richtung])
+        current.show(img=' # ')
+        current.mark()
 
+    def check_opposite(self,loch):
+        if self.verbose:
+            print "ich bin auf %s's seite in loch %d" % (self.name,loch.index)
+        ret = 0
+        if loch.front:
+            print 'gegners loch:', self.gegner.index[loch.index+8]
+            ret = self.gegner.loch(self.gegner.index[loch.index+8]).empty()
+        return ret
+    
     def show(self, img='', special=''):
         for i in self.board:
             i.show(img, special)
@@ -199,6 +230,8 @@ if __name__ == "__main__":
         print options,args
         print __TODO__
 
+    MyConfig().set_config(options)
+        
     spiel = Spiel('helena','annabelle')
 ##    spiel.dran('andreas')
     print spiel
