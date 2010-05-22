@@ -4,7 +4,12 @@
 
 __TODO__="""Liste der TODOs:
 ----------------
-x. Zulassen, dass von außen die Darstellung einzelner Löcher reguliert wird.
+3. Unittests.
+4. Zugabfolge mit Eingabe von start,richtung von der Console.
+"""
+__DONE__="""Erledigte TODOs:
+----------------
+1. Zulassen, dass von außen die Darstellung einzelner Löcher reguliert wird.
    Die Löcher nehmen dann diese Darstellung, statt dem zahlenmäßigen Inhalt.
    Diese Darstellung gilt nur für einen Ausdruck.
 2. Zug-Kriterien:
@@ -171,8 +176,9 @@ erfolgt.
             print "ich bin auf %s's seite in loch %d" % (self.name,loch.index)
         ret = 0
         if loch.front:
-            print 'gegners loch:', self.gegner.index[loch.index+8]
-            ret = self.gegner.loch(self.gegner.index[loch.index+8]).empty()
+            gegner_idx = 7 - loch.index
+            print 'gegners loch:', gegner_idx
+            ret = self.gegner.loch(gegner_idx).empty()
         return ret
     
     def show(self, img='', special=''):
