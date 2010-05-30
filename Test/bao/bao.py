@@ -19,18 +19,19 @@ __DONE__="""Erledigte TODOs:
 
 import sys
 from optparse import OptionParser
-from singleton import Singleton
+#from singleton import Singleton
 
-class MyConfig(Singleton):
+QUIET = __name__ != '__main__'
 
-    def get_config(self,):
-        return getattr(self, 'options')
+def talk(msg):
+    if not QUIET and 'options' in globals():
+        if options.verbose:
+            print msg
 
-    def get_config_key(self, key, default=None):
-        return getattr(getattr(self, 'options'), key, default)
-
-    def set_config(self, options):
-        setattr(self, 'options', options)
+def dbg(msg):
+    if not QUIET and 'options' in globals():
+        if options.debug:
+            print msg
 
 class Loch:
     """Ein Loch eines Bao-Brettes."""
@@ -97,8 +98,6 @@ class Bao:
         self.name = name
         self.darstellung = darstellung
         self.start_aufstellung()
-        self.config = MyConfig().get_config()
-        self.verbose = self.config.verbose
 ##        print name, 'initialisiert'
         
     def start_aufstellung(self,):
@@ -111,12 +110,12 @@ class Bao:
             aufstellung.reverse()
             self.index = p2 + p1
         self.board = [Loch(i) for i in aufstellung]
-        print self.name
-        print self.index
+        dbg(str(self.name))
+        dbg(str(self.index))
 
     def spiel_gegner(self, bao):
         self.gegner = bao
-        print "%s's Gegner ist %s" % (self.name, self.gegner.name)
+        dbg("%s's Gegner ist %s" % (self.name, self.gegner.name))
 
     def loch(self, index):
         loch = self.board[self.index[index]]
@@ -137,9 +136,8 @@ class Bao:
             loch.add()
         beute = self.check_opposite(loch)
         loch.add(beute)
-        if self.verbose:
-            print 'beute', beute
-        loch.show('.+.')
+        talk('beute %s' % beute)
+##        loch.show('.+.')
         return loch
 
     def primitiv(self, index, richtung):
@@ -150,12 +148,12 @@ erfolgt.
         start = self.loch(index)
         count = start.empty()
         current = self.voranschreiten(index, richtung, count)
-        current.mark(('{','}'))
+##        current.mark(('{','}'))
         self.stop += 1
-        print current.index, self.stop
+##        print current.index, self.stop
         if not current.stop():
             if not (self.stop > 6):
-                print 'noch mal'
+##                print 'noch mal'
                 current = self.primitiv(current.index, richtung)
         return current
 
@@ -163,21 +161,20 @@ erfolgt.
         """Führt einen Zug aus. Ein Zug besteht aus einer Abfolge von Primitiven.
 '+' ist im Uhrzeigersinn,
 '-' ist im Gegenuhrzeigersinn."""
-        print self.name, loch, richtung
+        dbg("%s %s %s" % (self.name, loch, richtung))
         self.stop = 0
-        self.loch(loch).show(img=' 0 ')
-        self.loch(loch).mark()
+##        self.loch(loch).show(img=' 0 ')
+##        self.loch(loch).mark()
         current = self.primitiv(loch, {'+':mvup,'-':mvdown}[richtung])
-        current.show(img=' # ')
-        current.mark()
+##        current.show(img=' # ')
+##        current.mark()
 
     def check_opposite(self,loch):
-        if self.verbose:
-            print "ich bin auf %s's seite in loch %d" % (self.name,loch.index)
+        talk("ich bin auf %s's seite in loch %d" % (self.name,loch.index))
         ret = 0
         if loch.front:
             gegner_idx = 7 - loch.index
-            print 'gegners loch:', gegner_idx
+            dbg('gegners loch: %d' % gegner_idx)
             ret = self.gegner.loch(gegner_idx).empty()
         return ret
     
@@ -208,8 +205,38 @@ class Spiel:
         self.bao[self.turn].zug(loch, richtung)
         self.turn = 1 - self.turn
 
-    def dran(self, player):
-        self.turn = self.player.index(player)
+    def spielen(self, spieler=''):
+        if spieler == '':
+            spieler = self.player[self.turn]
+        self.dran(spieler)
+        self.zug(14,'+')
+        print
+        print self
+        spieler = self.player[self.turn]
+        print
+        spiel.show(img=' + ', special='index')
+        print spiel
+        eingabe = input('%s, bitte einen Zug eingeben (z.B. +14, -6): ' % spieler)
+        i,r = self.zerlege(str(eingabe))
+        print i,r
+        self.zug(i,r)
+        print
+        print self
+  
+    def zerlege(self, eingabe):
+##        print eingabe, type(eingabe)
+        r = eingabe[0]
+        s = int(eingabe[1:])
+        return s,r
+
+    def dran(self, player=''):
+##        print 'dran  vorher', self.turn, self.player[self.turn]
+        if player == '':
+            self.turn = 1 - self.turn
+        else:
+            self.turn = self.player.index(player)
+##        print 'dran nachher', self.turn, self.player[self.turn]
+        return self.player[self.turn]
 
     def show(self, img='', special=''):
         self.bao[0].show(img, special)
@@ -227,6 +254,9 @@ def usage(progname):
     parser.add_option("-v", "--verbose",
                   action="store_true", dest="verbose", default=False,
                   help="print status messages to stdout")
+    parser.add_option("-d", "--debug",
+                  action="store_true", dest="debug", default=False,
+                  help="print debugging information to stdout")
     return parser,usg
 
 if __name__ == "__main__":
@@ -236,15 +266,18 @@ if __name__ == "__main__":
         print options,args
         print __TODO__
 
-    MyConfig().set_config(options)
-        
-    spiel = Spiel('helena','annabelle')
+    spiel = Spiel('helena','andreas')
 ##    spiel.dran('andreas')
     print spiel
-    spiel.zug(14,'+')
-    print spiel
-    spiel.zug(1,'-')
-    print spiel
-    print
-    spiel.show(img=' + ', special='index')
-    print spiel
+##    spiel.zug(14,'+')
+##    print spiel
+##    print
+##    print spiel
+##    spiel.zug(1,'-')
+##    print spiel
+##    print
+##    print spiel
+##    print
+##    spiel.show(img=' + ', special='index')
+##    print spiel
+    spiel.spielen()
