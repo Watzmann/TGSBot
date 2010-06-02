@@ -5,7 +5,12 @@
 __TODO__="""Liste der TODOs:
 ----------------
 3. Unittests.
-4. Zugabfolge mit Eingabe von start,richtung von der Console.
+4a.  Falsche Eingaben von Zügen checken und Massnahmen ergreifen.
+5. Debug-Version von einem Zug, wobei jedes Primitiv verfolgt wird.
+6. Pruefen, dass man nur aus einem Loch startet, wenn dort >2 ist.
+7. Strategie 1): Zug mit den meisten Beute-Steinen finden.
+8. Strategie 2): Zug mit der niedrigsten (eigenen) Front-Zahl finden.
+9. Strategie 3): Zug mit der höchsten (gegn.) Zahl leerer Frontlöcher.
 """
 __DONE__="""Erledigte TODOs:
 ----------------
@@ -15,6 +20,7 @@ __DONE__="""Erledigte TODOs:
 2. Zug-Kriterien:
    a) Loch leer?
    b) Gegenüber mitnehmen.
+4. Zugabfolge mit Eingabe von start,richtung von der Console.
 """
 
 import sys
@@ -91,13 +97,16 @@ This might serve developping or debugging purposes, forinstance.
 
 mvup = lambda x,n: x + n
 mvdown = lambda x,n: x - n
+LINE = '-'*48
         
 class Bao:
     """Eine Hälfte eines Bao-Spiels. 16 Löcher. Gehört einem Spieler."""
-    def __init__(self, name, darstellung=0):
+    def __init__(self, name, darstellung=0, debug=False, spiel=None):
         self.name = name
         self.darstellung = darstellung
         self.start_aufstellung()
+        self.debug = debug
+        self.spiel = spiel
 ##        print name, 'initialisiert'
         
     def start_aufstellung(self,):
@@ -135,6 +144,7 @@ class Bao:
             loch = self.loch(idx)
             loch.add()
         beute = self.check_opposite(loch)
+        self.debug_info = (loch.zahl, beute)
         loch.add(beute)
         talk('beute %s' % beute)
 ##        loch.show('.+.')
@@ -147,13 +157,25 @@ erfolgt.
 """
         start = self.loch(index)
         count = start.empty()
-        current = self.voranschreiten(index, richtung, count)
-##        current.mark(('{','}'))
-        self.stop += 1
-##        print current.index, self.stop
-        if not current.stop():
-            if not (self.stop > 6):
-##                print 'noch mal'
+        if count > 1:       # TODO:
+                            # Diese Stelle gefällt mir nicht, weil
+                            # sie quasi die current.stop-Abfrage darstellt;
+                            # kann man nicht hier schon nach current.stop
+                            # fragen??
+            current = self.voranschreiten(index, richtung, count)
+            if self.debug:
+                print
+                self.spiel.show(img=' + ', special='index')
+                print self.spiel
+                print
+                start.mark()
+                current.mark(('{','}'))
+    ##        print current.index, self.stop
+            if not current.stop():
+                if self.debug:
+                    print self.spiel
+                    info = (current.index,) + self.debug_info + (current.zahl,)
+                    raw_input('Loch %d   %d+%d=%d (Enter) ' % info)
                 current = self.primitiv(current.index, richtung)
         return current
 
@@ -162,9 +184,9 @@ erfolgt.
 '+' ist im Uhrzeigersinn,
 '-' ist im Gegenuhrzeigersinn."""
         dbg("%s %s %s" % (self.name, loch, richtung))
-        self.stop = 0
-##        self.loch(loch).show(img=' 0 ')
-##        self.loch(loch).mark()
+        if self.debug:
+            self.loch(loch).show(img=' 0 ')
+            self.loch(loch).mark()
         current = self.primitiv(loch, {'+':mvup,'-':mvdown}[richtung])
 ##        current.show(img=' # ')
 ##        current.mark()
@@ -172,7 +194,7 @@ erfolgt.
     def check_opposite(self,loch):
         talk("ich bin auf %s's seite in loch %d" % (self.name,loch.index))
         ret = 0
-        if loch.front:
+        if loch.front and loch.zahl > 1:
             gegner_idx = 7 - loch.index
             dbg('gegners loch: %d' % gegner_idx)
             ret = self.gegner.loch(gegner_idx).empty()
@@ -181,7 +203,15 @@ erfolgt.
     def show(self, img='', special=''):
         for i in self.board:
             i.show(img, special)
-
+            
+    def print_mit_scharnier(self,):
+        s = self.__str__()
+        if self.darstellung == 0:
+            s = s + '\n' + LINE
+        else:
+            s = LINE + '\n' + s
+        return s
+        
     def __str__(self,):
         s = ''.join([str(i) for i in self.board])
         name1 = name2 = ''
@@ -194,34 +224,36 @@ erfolgt.
 
 class Spiel:
     """Das komplette Brett, bestehend aus 32 Löchern."""
-    def __init__(self, player1, player2):
+    def __init__(self, player1, player2, debug=False):
         self.player = [player1, player2]
-        self.bao = [Bao(self.player[p],p) for p in (0,1)]
+        self.bao = [Bao(self.player[p],p,debug=debug,spiel=self) for p in (0,1)]
         self.bao[0].spiel_gegner(self.bao[1])
         self.bao[1].spiel_gegner(self.bao[0])
         self.turn = 0
+        self.ende = False
 
     def zug(self, loch, richtung):
         self.bao[self.turn].zug(loch, richtung)
         self.turn = 1 - self.turn
 
-    def spielen(self, spieler=''):
-        if spieler == '':
+    def spielen(self, start_spieler=''):
+        if start_spieler == '':
+            start_spieler = self.player[self.turn]
+        self.dran(start_spieler)
+##        self.zug(14,'+')
+##        print
+##        print self
+        while not self.ende:
             spieler = self.player[self.turn]
-        self.dran(spieler)
-        self.zug(14,'+')
-        print
-        print self
-        spieler = self.player[self.turn]
-        print
-        spiel.show(img=' + ', special='index')
-        print spiel
-        eingabe = input('%s, bitte einen Zug eingeben (z.B. +14, -6): ' % spieler)
-        i,r = self.zerlege(str(eingabe))
-        print i,r
-        self.zug(i,r)
-        print
-        print self
+            print
+            self.bao[self.turn].show(img=' + ', special='index')
+            print self.bao[self.turn].print_mit_scharnier()
+            eingabe = raw_input('%s, bitte einen Zug eingeben (z.B. +14, -6): ' % spieler)
+            i,r = self.zerlege(str(eingabe))
+            print i,r
+            self.zug(i,r)
+            print
+            print self
   
     def zerlege(self, eingabe):
 ##        print eingabe, type(eingabe)
@@ -245,7 +277,7 @@ class Spiel:
     def __str__(self,):
         b1 = self.bao[0].__str__()
         b2 = self.bao[1].__str__()
-        return b1 + '\n' + '-'*48 + '\n' + b2
+        return b1 + '\n' + LINE + '\n' + b2
         
 def usage(progname):
     usg = """usage: %s <...>
@@ -266,8 +298,7 @@ if __name__ == "__main__":
         print options,args
         print __TODO__
 
-    spiel = Spiel('helena','andreas')
-##    spiel.dran('andreas')
+    spiel = Spiel('helena','andreas',debug=options.debug)
     print spiel
 ##    spiel.zug(14,'+')
 ##    print spiel

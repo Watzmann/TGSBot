@@ -8,6 +8,16 @@ sys.path.append(os.getcwd())
 import unittest
 from bao import *
 
+class TestBao(unittest.TestCase):
+    
+    def setUp(self):
+        self.spieler0 = 'helena'
+        self.spieler1 = 'annabelle'
+        self.spiel = Spiel(self.spieler0, self.spieler1)
+
+    def test_names_of_opponents(self):
+        self.assert_(1 == 1)
+
 class TestSpiel(unittest.TestCase):
     
     def setUp(self):
@@ -21,6 +31,9 @@ class TestSpiel(unittest.TestCase):
                      msg % self.spieler0)
         self.assert_(self.spiel.bao[1].name == self.spieler1,
                      msg % self.spieler1)
+
+    def test_startaufstellung(self):
+        self.assert_(1 == 1)
 
     def test_wer_is_dran(self):
         msg = 'Der falsche Spieler ist dran'
@@ -38,6 +51,9 @@ class TestSpiel(unittest.TestCase):
                 i,r = self.spiel.zerlege(s)
                 self.assert_((i,r) == (I,R),
                              "%s falsch zerlegt (%s)" % (s,(i,r)))
+
+    def test_zerlege_falsche_richtung(self):
+        self.assert_(1 == 1)
 
 def run_test(name):
     suite = unittest.TestSuite()
