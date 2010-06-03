@@ -24,7 +24,9 @@ __DONE__="""Erledigte TODOs:
 """
 
 import sys
+import StringIO
 from optparse import OptionParser
+import copy
 #from singleton import Singleton
 
 QUIET = __name__ != '__main__'
@@ -39,6 +41,29 @@ def dbg(msg):
         if options.debug:
             print msg
 
+class Strategy:
+    """Strategy ermittelt den besten Zug nach einer Reihe von Kriterien."""
+
+    def __init__(self, spiel):
+        self.spiel = spiel
+        self.zuege = {}
+        for z in self.zugliste('+'):
+            print z
+            test = copy.deepcopy(spiel)
+            test.zug(z[1],z[0])
+            self.zuege[z[2]] = test
+
+    def zugliste(self,c):
+        return ((c,i,'%s%s' % (c,i)) for i in range(16))
+
+    def __str__(self,):
+        output = StringIO.StringIO()
+        for k in self.zuege:
+            print >>output, k
+            print >>output, self.zuege[k]
+            print >>output, '='*60
+        return output.getvalue()
+        
 class Loch:
     """Ein Loch eines Bao-Brettes."""
 
@@ -200,6 +225,9 @@ erfolgt.
             ret = self.gegner.loch(gegner_idx).empty()
         return ret
     
+    def strategy(self,):
+        return self.spiel.strategy()
+
     def show(self, img='', special=''):
         for i in self.board:
             i.show(img, special)
@@ -270,6 +298,10 @@ class Spiel:
 ##        print 'dran nachher', self.turn, self.player[self.turn]
         return self.player[self.turn]
 
+    def strategy(self,):
+        strategy = Strategy(self)
+        return str(strategy)
+
     def show(self, img='', special=''):
         self.bao[0].show(img, special)
         self.bao[1].show(img, special)
@@ -311,4 +343,6 @@ if __name__ == "__main__":
 ##    print
 ##    spiel.show(img=' + ', special='index')
 ##    print spiel
-    spiel.spielen()
+    print '='*60
+    print spiel.strategy()
+#    spiel.spielen()
