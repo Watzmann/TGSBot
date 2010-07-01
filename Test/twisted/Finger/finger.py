@@ -15,8 +15,11 @@ class FingerProtocol(basic.LineReceiver):
 class FingerFactory(protocol.ServerFactory):
     protocol = FingerProtocol
 
-    def getUser(self, user):
-        return "No such user"
+    def __init__(self, **kwargs):
+        self.users = kwargs
 
-reactor.listenTCP(1079, FingerFactory())
+    def getUser(self, user):
+        return self.users.get(user, "No such user")
+
+reactor.listenTCP(1079, FingerFactory(moshez='Happy and well'))
 reactor.run()
