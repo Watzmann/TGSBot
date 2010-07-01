@@ -5,9 +5,10 @@ Growing example
 """
 
 from twisted.internet import protocol, reactor
+from twisted.protocols import basic
 
-class FingerProtocol(protocol.Protocol):
-    def connectionMade(self):
+class FingerProtocol(basic.LineReceiver):
+    def lineReceived(self, user):
         self.transport.loseConnection()
 
 class FingerFactory(protocol.ServerFactory):
