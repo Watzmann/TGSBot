@@ -10,23 +10,24 @@ from twisted.internet.protocol import Protocol
 class Echo(Protocol):
     def dataReceived(self, data):
         print 'heard:', data
-        self.transport.write('echo: ' + data + '\r\n')
+        self.transport.write('echo %d: %s\r\n' % (self.id,data))
         if data.startswith('exit'):
-            print 'lasse die Verbindung fallen'
+            print 'lasse die Verbindung %d fallen' % self.id
             self.transport.loseConnection()
 
     def connectionMade(self):
-        self.factory.numProtocols = self.factory.numProtocols+1
-        msg = 'sei gegruesst, nummer %d\r\n' % self.factory.numProtocols
+        self.id = self.factory.numProtocols = self.factory.numProtocols+1
+        msg = 'sei gegruesst, nummer %d\r\n' % self.id
         print msg
-        self.transport.write('server: ' + msg)
-        if self.factory.numProtocols > 100:
+        self.transport.write('server %d: %s' % (self.id,msg))
+        if self.factory.numProtocols > 1001:
+            print 'wegen ueberfuellung geschlossen'
             self.transport.write("Too many connections, try later")
             self.transport.loseConnection()
 
     def connectionLost(self, reason):
         self.factory.numProtocols = self.factory.numProtocols-1
-        print 'aus die maus', self.factory.numProtocols
+        print 'aus die maus', self.id
 
 class QOTD(Protocol):
     def connectionMade(self):
