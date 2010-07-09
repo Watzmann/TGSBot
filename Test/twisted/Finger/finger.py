@@ -3,10 +3,9 @@
 """Das Tutorial twisted-core.pdf Kapitel 2.6.
 Growing example
 """
-# Read username, output from non-empty factory, drop connections
-# Use deferreds, to minimize synchronicity assumptions
+# Read username, output from factory interfacing to OS, drop connections
 
-from twisted.internet import protocol, reactor, defer
+from twisted.internet import protocol, reactor, defer, utils
 from twisted.protocols import basic
 
 class FingerProtocol(basic.LineReceiver):
@@ -25,11 +24,11 @@ class FingerProtocol(basic.LineReceiver):
 class FingerFactory(protocol.ServerFactory):
     protocol = FingerProtocol
 
-    def __init__(self, **kwargs):
-        self.users = kwargs
+##    def __init__(self, **kwargs):
+##        self.users = kwargs
 
     def getUser(self, user):
-        return defer.succeed(self.users.get(user, "No such user"))
+        return utils.getProcessOutput("finger", [user])
 
-reactor.listenTCP(1079, FingerFactory(moshez='Happy and well'))
+reactor.listenTCP(1079, FingerFactory())
 reactor.run()
