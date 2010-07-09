@@ -10,12 +10,16 @@ from twisted.internet.protocol import Protocol
 class Echo(Protocol):
     def dataReceived(self, data):
         print 'heard:', data
-        self.transport.write('echo: '+data)
-##        self.transport.loseConnection()
+        self.transport.write('echo: ' + data + '\r\n')
+        if data.startswith('exit'):
+            print 'lasse die Verbindung fallen'
+            self.transport.loseConnection()
 
     def connectionMade(self):
         self.factory.numProtocols = self.factory.numProtocols+1
-        print 'sei gegruesst, nummer', self.factory.numProtocols
+        msg = 'sei gegruesst, nummer %d\r\n' % self.factory.numProtocols
+        print msg
+        self.transport.write('server: ' + msg)
         if self.factory.numProtocols > 100:
             self.transport.write("Too many connections, try later")
             self.transport.loseConnection()

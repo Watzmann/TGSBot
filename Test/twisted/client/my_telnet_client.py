@@ -16,19 +16,19 @@ PORT = 8080
 
 tn = telnetlib.Telnet(HOST, PORT)
 
-for m in ("hello\n","and again\n"):
-    tn.write(m)
-    time.sleep(1)
-    print tn.read_lazy()
+for m in ("hello","and again"):
+    tn.write(m+'\r\n')
+##    time.sleep(1)
+    print tn.read_eager().strip('\r\n')
     print '--------'
 
 tn.write("exit\n")
 
 print '*****'
-print '1'+ tn.read_all()
+print '1'+ tn.read_eager()
 
 print 'schlafe'
-time.sleep(5)
+time.sleep(2)
 
 print '2'+ tn.read_all()
 tn.close()
