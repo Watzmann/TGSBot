@@ -24,11 +24,11 @@ class FingerProtocol(basic.LineReceiver):
 class FingerFactory(protocol.ServerFactory):
     protocol = FingerProtocol
 
-##    def __init__(self, **kwargs):
-##        self.users = kwargs
+    def __init__(self, prefix):
+        self.prefix = prefix
 
     def getUser(self, user):
-        return utils.getProcessOutput("finger", [user])
+        return client.getPage(self.prefix + user)
 
-reactor.listenTCP(1079, FingerFactory())
+reactor.listenTCP(1079, FingerFactory(prefix='http://livejournal.com/'))
 reactor.run()
