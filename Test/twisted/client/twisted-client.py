@@ -10,19 +10,25 @@ from sys import stdout
 
 class Greeter(Protocol):
     def sendMessage(self, msg):
-        print 'in sendMessage with', msg
         self.transport.write("MESSAGE %s\n" % msg)
 
     def connectionLost(self, reason):
-        print 'lost connection for', reason
         reactor.stop()
 
     def dataReceived(self, data):
         stdout.write(data)
 
+def communicate(p):
+    while True:
+        s = raw_input('give me more ')
+        if s.lower() in ('bye', 'exit', 'quit'):
+            break
+        p.sendMessage(s)
+
 def gotProtocol(p):
     p.sendMessage("Hello")
     reactor.callLater(1, p.sendMessage, "This is sent in a second")
+    communicate(p)
     reactor.callLater(2, p.transport.loseConnection)
 
 c = ClientCreator(reactor, Greeter)
