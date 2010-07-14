@@ -24,14 +24,23 @@ class WelcomeMessage(Protocol):
 
 class Greeter(Protocol):
     def sendMessage(self, msg):
+        print 'in sendMessage with', msg
         self.transport.write("MESSAGE %s\n" % msg)
+
+    def connectionLost(self, reason):
+        print 'lost connection for', reason
+        reactor.stop()
+
+    def dataReceived(self, data):
+        stdout.write(data)
 
 def gotProtocol(p):
     p.sendMessage("Hello")
     reactor.callLater(1, p.sendMessage, "This is sent in a second")
     reactor.callLater(2, p.transport.loseConnection)
 
-##c = ClientCreator(reactor, Greeter)
-##c.connectTCP("localhost", 8080).addCallback(gotProtocol)
-c = ClientCreator(reactor, WelcomeMessage)
-c.connectTCP("localhost", 8080)
+c = ClientCreator(reactor, Greeter)
+c.connectTCP("localhost", 8080).addCallback(gotProtocol)
+reactor.run()
+##c = ClientCreator(reactor, WelcomeMessage)
+##c.connectTCP("localhost", 8080)
