@@ -13,12 +13,17 @@ class Greeter(Protocol):
         self.transport.write("MESSAGE %s\n" % msg)
 
     def connectionLost(self, reason):
+        # Damit wird der reactor beendet; sonst würde das Ding endlos laufen
+        # connectionLost ist der richtige Zeitpunkt; macht man es z.B. in
+        # gotProtocol(), dann würden die 'callLater'-Aufrufe auch beendet, also
+        # nicht ausgeführt werden.
         reactor.stop()
 
     def dataReceived(self, data):
         stdout.write(data)
 
 def communicate(p):
+    """Do a bit of manual communication with the server. Quit with a keyword."""
     while True:
         s = raw_input('give me more ')
         if s.lower() in ('bye', 'exit', 'quit'):
@@ -28,7 +33,7 @@ def communicate(p):
 def gotProtocol(p):
     p.sendMessage("Hello")
     reactor.callLater(1, p.sendMessage, "This is sent in a second")
-    communicate(p)
+    communicate(p)      # communication with server is possible here
     reactor.callLater(2, p.transport.loseConnection)
 
 c = ClientCreator(reactor, Greeter)
