@@ -4,12 +4,13 @@
 Siehe twisted-core.pdf, Kap. 2.2.
 """
 
-from twisted.internet import reactor
+from twisted.internet import reactor, defer
 from twisted.internet.protocol import Protocol, ClientCreator
 from sys import stdout
 
 class Greeter(Protocol):
     def sendMessage(self, msg):
+        print 'in sendMessage with', msg
         self.transport.write("MESSAGE %s\n" % msg)
 
     def connectionLost(self, reason):
@@ -24,17 +25,27 @@ class Greeter(Protocol):
 
 def communicate(p):
     """Do a bit of manual communication with the server. Quit with a keyword."""
-    while True:
-        s = raw_input('give me more ')
-        if s.lower() in ('bye', 'exit', 'quit'):
-            break
-        p.sendMessage(s)
+##    while True:
+    s = raw_input('give me more >> ')
+    if s.lower() in ('bye', 'exit', 'quit'):
+        p.transport.loseConnection()
+##        break
+    return s
 
 def gotProtocol(p):
+    d = defer.execute(communicate, p) # communication with server is deferred
+    print 'defer', d
+    def onError(err):
+        return 'Internal error in communication'
+    d.addErrback(onError)
+    
+    def writeResponse(message):
+        print 'sending', message
+        p.sendMessage(message)
+    d.addCallback(writeResponse)
+
     p.sendMessage("Hello")
     reactor.callLater(1, p.sendMessage, "This is sent in a second")
-    communicate(p)      # communication with server is possible here
-    reactor.callLater(2, p.transport.loseConnection)
 
 c = ClientCreator(reactor, Greeter)
 c.connectTCP("localhost", 8080).addCallback(gotProtocol)
