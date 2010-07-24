@@ -38,7 +38,7 @@ class Sucher(object):
         verbindung = HTTPConnection('sudoku.zeit.de')     # hier darf natuerlich nur der Server benannt werden
                                                           # also nicht gleich in /cgi-bin/sudoku hinabsteigen
         suchwort = self.game
-        verbindung.request('GET', '/cgi-bin/sudoku/sudoku_kd_app.pl?'+suchwort)  #2
+        verbindung.request('GET', '/cgi-bin/sudoku/sudoku_kd_app_relaunch.pl?'+suchwort)  #2
         antwort = verbindung.getresponse()
         if int(antwort.status)==200:                      #3
             if False:       # dient nur als Weiche zum Debugging
