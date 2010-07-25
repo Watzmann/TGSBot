@@ -5,6 +5,8 @@ Siehe http://wiki.python.org/moin/Twisted-Examples
 """
 
 from twisted.web import proxy, http
+from twisted.internet import pollreactor
+#pollreactor.install()
 from twisted.internet import reactor
 from twisted.python import log
 from protocols import Echo, QOTD, CLIP

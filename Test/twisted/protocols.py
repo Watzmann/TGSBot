@@ -20,7 +20,7 @@ class Echo(Protocol):
         msg = 'sei gegruesst, nummer %d\r\n' % self.id
         self.transport.write('server %d: %s' % (self.id,msg))
         print 'had %d connections so far :)' % self.factory.maxProtocols
-        if self.factory.numProtocols > 1001:
+        if self.factory.numProtocols > 2001:
             print 'wegen ueberfuellung geschlossen'
             self.transport.write("Too many connections, try later")
             self.transport.loseConnection()

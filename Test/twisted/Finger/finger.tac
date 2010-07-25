@@ -34,7 +34,7 @@ class FingerFactory(protocol.ServerFactory):
     def getUser(self, user):
         return defer.succeed(self.users.get(user, "No such user"))
 
-application = service.Application('finger', uid=1, gid=1)
+application = service.Application('afinger', uid=1, gid=1)
 factory = FingerFactory(moshez='Happy and well')
 internet.TCPServer(79, factory).setServiceParent(
                         service.IServiceCollection(application))
