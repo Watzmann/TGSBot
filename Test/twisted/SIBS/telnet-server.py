@@ -4,30 +4,18 @@
 Siehe http://wiki.python.org/moin/Twisted-Examples
 """
 
+import sys
+
 from twisted.web import proxy, http
-from twisted.internet import pollreactor
+#from twisted.internet import pollreactor
 #pollreactor.install()
 from twisted.internet import reactor
 from twisted.python import log
-from protocols import Echo, QOTD, CLIP
-import sys
+from clip import CLIP
+from command import Command
+
 log.startLogging(sys.stdout)
  
-class Command():
-    def __init__(self,):
-        self.commands = {
-        'show': self.c_show,
-        }
-        
-    def c_show(self, line):
-        return 'shown'
-
-    def c_unknown(self, line):
-        return 'unknown command %s' % line[0]
-
-    def command(self, cmd):
-        return self.commands.get(cmd, self.c_unknown)
-
 class ProxyFactory(http.HTTPFactory):
     protocol = CLIP   #Echo #proxy.Proxy
     numProtocols = 0
