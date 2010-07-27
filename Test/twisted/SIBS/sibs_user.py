@@ -6,7 +6,7 @@ class User:
     def __init__(self, name, pw):
         self.name = name
         self.password = pw
-        print 'I am USER %s with pw %s' % (name, '*'*len(pw))
+        print 'This is USER %s with pw %s' % (name, '*'*len(pw))
         
 def getUser(**kw):
     return User(kw['user'], kw['password'])

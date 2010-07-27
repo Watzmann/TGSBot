@@ -33,10 +33,12 @@ class ProxyFactory(http.HTTPFactory):
     def parse(self, data):
         c = self.command
         a = data.split()
-        print 'parsing',a
-        cmd = c.command(a[0])
-        ret = cmd(a)
-        print 'got', ret
+        ret = ''
+        if len(a) > 0:
+            print 'parsing',a
+            cmd = c.command(a[0])
+            ret = cmd(a)
+            print 'got', ret
         return ret
         
 reactor.listenTCP(8080, ProxyFactory())
