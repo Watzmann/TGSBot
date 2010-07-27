@@ -38,34 +38,38 @@ class Command():
 # ----------------------------------------  Chat and Settings for other Players
 
     def c_shout(self, line):
-        return 'shouting', line[1:]
+        return 'you shout', line[1:]
 
     def c_kibitz(self, line):
-        return 'rating given'
+        return 'you kibitz', line[1:]
 
     def c_tell(self, line):
-        return 'rating given'
+        return 'you tell', line[1:]
 
     def c_say(self, line):
-        return 'rating given'
+        return 'you say', line[1:]
 
     def c_whisper(self, line):
-        return 'rating given'
+        return 'you whisper', line[1:]
 
     def c_message(self, line):
-        return 'rating given'
+        return 'message sent to %s: %s' % (line[1], line[2:])
 
     def c_waitfor(self, line):
-        return 'rating given'
+        return 'you now wait for', line[1]
 
     def c_gag(self, line):
-        return 'rating given'
+        return 'you gagged', line[1]
 
     def c_blind(self, line):
-        return 'rating given'
+        return 'you blinded', line[1]
 
 
 # ----------------------------------------  Between Game Actions
+
+
+
+# ----------------------------------------  ====================
 
     def command(self, cmd):
         print self.commands.get(cmd, self.c_unknown)
