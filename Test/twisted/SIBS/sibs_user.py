@@ -6,6 +6,9 @@ class UsersList:        # TODO: als Singleton ausführen
     def __init__(self,):
         self.list_of_active_users = {}
 
+    def get_active_users(self):
+        return self.list_of_active_users
+    
     def add(self, user):
         self.list_of_active_users[user.name] = user
         # TODO: Fehler, wenn bereits logged in
@@ -27,6 +30,9 @@ class User:
 
     def chat(self, msg):
         self.protocol.tell(msg)
+
+    def who(self,):
+        return "Ei, isch bin dae %s", self.name
         
 def getUser(**kw):
     name = kw['user']

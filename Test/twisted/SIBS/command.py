@@ -4,6 +4,7 @@
 Siehe fibs_interface.html.
 """
 
+from StringIO import StringIO
 import inspect
 
 NYI = '##NYI##'
@@ -112,7 +113,14 @@ class Command():
         return 'shown: %s    %s' % (line[1], NYI)
 
     def c_who(self, line, me):
-        return 'list of some ore more players    %s' % NYI
+        out = StringIO()
+        lou = self.list_of_users.get_active_users()
+        users = lou.keys()
+        # TODO          set sortwho auf  users  anwenden
+        for u in users:
+            print >>out, lou[u].who()
+        return out.getvalue()
+##        return 'list of some ore more players    %s' % NYI
 
     def c_where(self, line, me):
         return 'where is %s from' % (line[1], NYI)
