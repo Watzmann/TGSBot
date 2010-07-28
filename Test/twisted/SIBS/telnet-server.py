@@ -13,6 +13,7 @@ from twisted.internet import reactor
 from twisted.python import log
 from clip import CLIP
 from command import Command
+from sibs_user import UsersList
 
 log.startLogging(sys.stdout)
  
@@ -20,7 +21,8 @@ class ProxyFactory(http.HTTPFactory):
     protocol = CLIP   #Echo #proxy.Proxy
     numProtocols = 0
     maxProtocols = 0
-    command = Command()
+    active_users = UsersList()
+    command = Command(active_users)
 
     def incNumProtocols(self,):
         self.numProtocols += 1
@@ -30,14 +32,14 @@ class ProxyFactory(http.HTTPFactory):
     def decNumProtocols(self,):
         self.numProtocols -= 1
 
-    def parse(self, data):
+    def parse(self, data, me):
         c = self.command
         a = data.split()
         ret = ''
         if len(a) > 0:
             print 'parsing',a
             cmd = c.command(a[0])
-            ret = cmd(a)
+            ret = cmd(a, me)
             print 'got', ret
         return ret
         

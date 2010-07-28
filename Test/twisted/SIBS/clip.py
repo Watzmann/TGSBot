@@ -23,7 +23,8 @@ class Echo(Protocol):
             print 'wegen ueberfuellung geschlossen'
             self.transport.write("Too many connections, try later")
             self.transport.loseConnection()
-        msg = 'hi there %d, please login\r\n' % self.id
+        #msg = 'hi there %d, please login\r\n' % self.id
+        msg = 'login:'
         self.transport.write(msg)
 
     def connectionLost(self, reason):
@@ -49,7 +50,7 @@ class CLIP(Echo):
         if data.lower().startswith('quit'):
             print 'lasse die Verbindung %d fallen' % self.id
             self.transport.loseConnection()
-        result = self.factory.parse(data)
+        result = self.factory.parse(data, self.user)
         self.transport.write('echo %d: %s\r\n' % (self.id,result))
 
     def authentication(self, data):
@@ -57,5 +58,10 @@ class CLIP(Echo):
             #login <client_name> <clip_version> <name> <password>\r\n
             d = data.split()[1:]
             print 'Login Prozess with', d
-            self.user = getUser(user=d[2], password=d[3])
+            self.user = getUser(user=d[2], password=d[3],
+                                lou = self.factory.active_users)
+            self.user.set_protocol(self)
             self.myDataReceived = self.established
+
+    def tell(self, msg):
+        self.transport.write('%s\r\n' % (msg,))
