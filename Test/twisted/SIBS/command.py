@@ -20,6 +20,25 @@ import inspect
 ## time
 ## about
 
+## 2
+## message
+## waitfor
+## gag
+## password
+## whois
+## last
+## roll
+## move
+## board
+## pip
+## leave
+##
+## register
+## authentication
+## persistency
+## CLIP
+
+
 ## 3
 ## say
 ## x invite
@@ -232,20 +251,18 @@ class Command():
 
     def c_roll(self, line, me):
         game, player = self.list_of_games.get(me.running_game)
-        d = game.control.roll(player)
-        game.opponent(me).chat('%s rolled %d, %d' % (me.name,d))
-        return 'You rolled %d, %d' % d
+        game.roll(player)
 
     def c_move(self, line, me):
         game, player = self.list_of_games.get(me.running_game)
-        d = game.control.roll(player)
-        return 'You move %d, %d' % d
+        game.move(line[1:], player)
 
     def c_off(self, line, me):
         return 'you bear off    %s' % NYI
 
     def c_board(self, line, me):
-        return 'you get a new board    %s' % NYI
+        game, player = self.list_of_games.get(me.running_game)
+        return str(game.control.board)
 
     def c_pip(self, line, me):
         return 'you are 7 pips behind    %s' % NYI
@@ -286,7 +303,7 @@ class Command():
         return 'unknown command %s    %s' % (line[0], NYI)
 
     def command(self, cmd):
-        print self.commands.get(cmd, self.unknown)
+##        print self.commands.get(cmd, self.unknown)
         return self.commands.get(cmd, self.unknown)
 
     def sample_commands(self,):

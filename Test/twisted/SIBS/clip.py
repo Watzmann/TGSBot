@@ -49,7 +49,8 @@ class CLIP(Echo):
             print 'lasse die Verbindung %d fallen' % self.id
             self.transport.loseConnection()
         result = self.factory.parse(data, self.user)
-        self.transport.write('echo %d: %s\r\n' % (self.id,result))
+        if not result is None:
+            self.transport.write('%s\r\n' % (result,))
 
     def authentication(self, data):
         if data.startswith('login'):
