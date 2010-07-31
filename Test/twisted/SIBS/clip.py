@@ -24,7 +24,7 @@ class Echo(Protocol):
             self.transport.write("Too many connections, try later")
             self.transport.loseConnection()
         #msg = 'hi there %d, please login\r\n' % self.id
-        msg = 'login:'
+        msg = 'login: '
         self.transport.write(msg)
 
     def connectionLost(self, reason):
@@ -33,17 +33,15 @@ class Echo(Protocol):
 
 class CLIP(Echo):
     def __init__(self,):
-        self.brocken = ''
+        self.buffer = ''
         self.myDataReceived = self.authentication
         
     def dataReceived(self, data):
-        if len(data) == 1:
-            self.brocken = data
-        elif len(self.brocken) == 1:
-            data = self.brocken + data
-            self.brocken = ''
-        if len(data) > 1:
-            self.myDataReceived(data)
+        self.buffer += data
+        if self.buffer.endswith('\r\n'):
+            d = self.buffer
+            self.buffer = ''
+            self.myDataReceived(d)
         
     def established(self, data):
         print 'heard:', data

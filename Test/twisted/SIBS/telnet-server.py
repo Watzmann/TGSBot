@@ -14,6 +14,7 @@ from twisted.python import log
 from clip import CLIP
 from command import Command
 from sibs_user import UsersList
+from game import GamesList
 
 log.startLogging(sys.stdout)
  
@@ -22,7 +23,8 @@ class ProxyFactory(http.HTTPFactory):
     numProtocols = 0
     maxProtocols = 0
     active_users = UsersList()
-    command = Command(active_users)
+    active_games = GamesList()
+    command = Command(active_users, active_games)
 
     def incNumProtocols(self,):
         self.numProtocols += 1

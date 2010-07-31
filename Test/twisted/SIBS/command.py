@@ -7,12 +7,39 @@ Siehe fibs_interface.html.
 from StringIO import StringIO
 import inspect
 
+## 0
+## x tell
+## help
+## motd
+## version
+
+## 1
+## bye
+## wave
+## where
+## time
+## about
+
+## 3
+## say
+## x invite
+## x join
+## show
+## stat
+## off
+## double
+## accept
+## reject
+## resign
+## redouble
+
 NYI = '##NYI##'
 
 class Command():
-    def __init__(self, lou):
+    def __init__(self, lou, log):
         self.commands = dict(self.sample_commands())
         self.list_of_users = lou
+        self.list_of_games = log   # TODO: was besseres als log (log ist logging)
         print 'available commands:', self.commands.keys()
         
 # ----------------------------------------  Chat and Settings for other Players
@@ -55,10 +82,23 @@ class Command():
 # ----------------------------------------  Between Game Actions
 
     def c_invite(self, line, me):
-        return 'you invited %s for a match of length %s    %s' % (line[1], line[2], NYI)
+        user = line[1]
+        ML = line[2]
+        him = self.list_of_users.get(user)
+        me.invite(user, ML)
+        him.chat('%s wants to play a %s point match with you.' % (me.name, ML))
+        msg = '** You invited %s to a %s point match.' % (user, ML,)
+        return msg
 
     def c_join(self, line, me):
-        return 'you joined: %s    %s' % (line[1], NYI)
+        user = line[1]
+        him = self.list_of_users.get(user)
+        if not him is None:
+            him.join(me, self.list_of_games)    # TODO: deferred
+            msg = '** You are now playing a n point match with %s.' % user
+        else:
+            msg = "user %s is not logged in" % user
+        return msg
 
     def c_watch(self, line, me):
         return 'you now watch: %s    %s' % (line[1], NYI)
@@ -191,10 +231,15 @@ class Command():
 # ----------------------------------------  Game Commands
 
     def c_roll(self, line, me):
-        return 'you reject    %s' % NYI
+        game, player = self.list_of_games.get(me.running_game)
+        d = game.control.roll(player)
+        game.opponent(me).chat('%s rolled %d, %d' % (me.name,d))
+        return 'You rolled %d, %d' % d
 
     def c_move(self, line, me):
-        return 'you move    %s' % NYI
+        game, player = self.list_of_games.get(me.running_game)
+        d = game.control.roll(player)
+        return 'You move %d, %d' % d
 
     def c_off(self, line, me):
         return 'you bear off    %s' % NYI
