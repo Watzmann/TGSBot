@@ -64,3 +64,10 @@ class CLIP(Echo):
 
     def tell(self, msg):
         self.transport.write('%s\r\n' % (msg,))
+
+class Simple:
+    """Protokoll für Testzwecke."""
+    def __init__(self, user_name='unknown'):
+        self.prefix = 'TELL %s:' % user_name
+    def tell(self, msg):
+        print self.prefix, msg
