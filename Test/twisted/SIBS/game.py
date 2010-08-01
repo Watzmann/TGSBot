@@ -14,7 +14,7 @@ class GamesList:        # TODO: als Singleton ausführen
             self.active_games[i] = (game, game.player[i])
 
     def get(self, gid, default=None):
-        print 'returning gid %s' % gid
+        #print 'returning gid %s' % gid
         return self.active_games.get(gid, default)
 
 class Board:

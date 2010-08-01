@@ -53,6 +53,9 @@ class User:
             # wenn ich Info brauch, ob player1 oder player2, mach ich 2 IDs auf
             # dasselbe game
 
+    def __str__(self,):
+        return self.who()
+
 def getUser(**kw):
     name = kw['user']
     user = User(name, kw['password'])
