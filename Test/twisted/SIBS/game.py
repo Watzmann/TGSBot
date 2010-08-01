@@ -21,8 +21,9 @@ class Board:
     """The Board holds all information about position etc.. Special methods check
 for valid moves etc.."""
 
-    def __init__(self,):
+    def __init__(self, ML):
         self.position = [2,5,3,8]
+        self.score = "%d:0:0" % (ML,)
         
     def move(self, player, move):
         pass
@@ -32,11 +33,12 @@ for valid moves etc.."""
         return msg
 
     def __raw__(self,):
-        """board:You:someplayer:3:0:0:
-         0:-2:0:0:0:0:5:0:3:0:0:0:-5:5:0:0:0:-3:0:-5:0:0:0:0:2:0:
+        players = "board:%s:%s:"
+        score = self.score
+        brett = "0:-2:0:0:0:0:5:0:3:0:0:0:-5:5:0:0:0:-3:0:-5:0:0:0:0:2:0:"
          1:6:2:0:0:1:
-         1:1:0:1:-1:0:25:0:0:0:0:2:0:0:0"""
-        return "board:You:someplayer:3:0:0:0:-2:0:0:0:0:5:0:3:0:0:0:-5:5:0:0:0:-3:0:-5:0:0:0:0:2:0:1:6:2:0:0:1:1:1:0:1:-1:0:25:0:0:0:0:2:0:0:0"
+         1:1:0:1:-1:0:25:0:0:0:0:2:0:0:0"
+        return players + score
 
     def __str__(self,):
         return self.__raw__()
