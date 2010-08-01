@@ -14,13 +14,18 @@ log = GamesList()
 
 ML = 1
 
+class Spiel:
+    def __init__(self, ml):
+        self.match_length = ml
+        self.p1 = 'white'
+        self.p2 = 'black'
+        self.white = getUser(user=self.p1, password='##', lou=lou)
+        self.white.set_protocol(Simple(self.p1))
+        self.black = getUser(user=self.p2, password='##', lou=lou)
+        self.black.set_protocol(Simple(self.p2))
+        self.white.invite(self.p2, ml)
+        self.white.join(self.black, log)
+        print log.active_games
+
 if __name__ == "__main__":
-    p1 = 'white'
-    p2 = 'black'
-    white = getUser(user=p1, password='##', lou=lou)
-    white.set_protocol(Simple(p1))
-    black = getUser(user=p2, password='##', lou=lou)
-    black.set_protocol(Simple(p2))
-    white.invite(p2, ML)
-    white.join(black, log)
-    print log.active_games
+    spiel = Spiel(ML)
