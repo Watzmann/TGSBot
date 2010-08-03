@@ -73,6 +73,7 @@ class Move:
         self.player = player
 
 # TODO: eigene exceptions fangen fehler beim move ab
+#       rollback in position ermöglichen
 
     def check(self,):
         print 'checke %s' % self
@@ -84,7 +85,7 @@ class Move:
             z0 = int(z[0])
             z1 = int(z[1])
             z = (z0,z1)
-            print 'fucking move %d to %d' % (z0,z1)
+            print 'moving %d to %d' % (z0,z1)
             self.control.move(z, self.player)
         self.control.set_position()
         self.control.hand_over()
@@ -105,12 +106,14 @@ class GameControl:
                             5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
         self.home = {'p1':0, 'p2':0}
         self.bar = {'p1':0, 'p2':0}
+        self.score = {'p1':1, 'p2':2}
         if not board is None:
             self.board = board
         else:
             self.board = Board()
-            self.board.set_score((self.white.name,0),
-                                 (self.black.name,0), self.game.ML)
+            self.board.set_score((self.white.name, self.score['p1']),
+                                 (self.black.name, self.score['p2']),
+                                  self.game.ML)
             self.set_position()
 
     def start(self,):
@@ -143,11 +146,13 @@ class GameControl:
     def move(self, move, player):
         # TODO: kontrollieren, ob der dran ist
         print move, 'changes the board'
+        print 'player', player, 'whos_turn', self.whos_turn().name
         self.position[move[0]] -= 1
         self.position[move[1]] += 1
 
     def hand_over(self,):
         self.turn = 3 - self.turn
+        self.board.set_dice(self.turn, (0,0))
 
 class Game:
     # players watchers
@@ -179,6 +184,7 @@ class Game:
     def roll(self, player):
         you,opp = self.players(player)
         d = self.control.roll(player)
+        print 'rolling fool', player
         you.chat('You roll %d, %d' % d)
         you.chat(self.control.board.show_board('you'))
         opp.chat('%s rolled %d, %d' % ((you.name,)+d))

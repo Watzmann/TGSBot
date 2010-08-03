@@ -75,8 +75,12 @@ class Spiel:
         self.turn = self.turns.get(self.turn)
         return self.players[self.turn].running_game
 
-    def first_turn(self, player):
-        self.turn = player
+    def whos_turn(self,):
+        game,player = log.get(self.white.running_game)
+        onturn = game.control.whos_turn()
+        gid = onturn.running_game
+        game,self.turn = log.get(gid)
+        return gid
 
 def get_game(player):
     games = log.active_games
@@ -102,8 +106,7 @@ if __name__ == "__main__":
     print 'das Spiel beginnt'
     print '-'*60
     spiel.dice_and_moves(sequence, id1)
-    turn = id1
-    spiel.first_turn(p1)
+    turn = spiel.whos_turn()
     loops = 0
     while turn:
         game, player = log.get(turn)
