@@ -27,28 +27,28 @@ check for valid moves etc.."""
         self.position_fmt = "%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:"
         self.dice_fmt = "%d:"*5
         self.cube = "1:1:1:0:"
-        self.direction = {'you':"1:-1:0:25:",
-                          'opp':"-1:1:25:0:"}
+        self.direction = {'p1':"1:-1:0:25:",
+                          'p2':"-1:1:25:0:"}
         self.move_fmt = "%d:%d:%d:%d:%d:0:0:0"
         
-    def set_score(self, you, opp, ML):
+    def set_score(self, p1, p2, ML):
 ##        print you, opp, type(ML)
-        self.score = {'you':self.score_fmt % ('You', opp[0], ML, you[1], opp[1]),
-                      'opp':self.score_fmt % ('You', you[0], ML, opp[1], you[1])}
+        self.score = {'p1':self.score_fmt % ('You', p2[0], ML, p1[1], p2[1]),
+                      'p2':self.score_fmt % ('You', p1[0], ML, p2[1], p1[1])}
 
     def set_dice(self, turn, dice,):
         print 'turn', turn
         if turn in [1,2]:
             t = [0,1,-1][turn]
-            self.dice = {'you':self.dice_fmt % ((t,) + dice + (0,0)),
-                         'opp':self.dice_fmt % ((t,) + (0,0) + dice)}
+            self.dice = {'p1':self.dice_fmt % ((t,) + dice + (0,0)),
+                         'p2':self.dice_fmt % ((t,) + (0,0) + dice)}
         else:
-            self.dice = {'you':self.dice_fmt % (0,)*5,}
-            self.dice['opp'] = self.dice['you']
+            self.dice = {'p1':self.dice_fmt % (0,)*5,}
+            self.dice['p2'] = self.dice['p1']
 
-    def set_move(self, you, opp, move):
-        self.move = {'you':self.move_fmt % (you[0], opp[0], you[1], opp[1], move),
-                     'opp':self.move_fmt % (opp[0], you[0], opp[1], you[1], move)}
+    def set_move(self, p1, p2, move):
+        self.move = {'p1':self.move_fmt % (p1[0], p2[0], p1[1], p2[1], move),
+                     'p2':self.move_fmt % (p2[0], p1[0], p2[1], p1[1], move)}
 
     def set_position(self, position):
         self.position = self.position_fmt % tuple(position)
@@ -184,20 +184,20 @@ class Game:
     def roll(self, player):
         you,opp = self.players(player)
         d = self.control.roll(player)
-        print 'rolling fool', player
+        print 'rolling fool', player,you,opp
         you.chat('You roll %d, %d' % d)
-        you.chat(self.control.board.show_board('you'))
+        you.chat(self.control.board.show_board(self.player[you.running_game]))
         opp.chat('%s rolled %d, %d' % ((you.name,)+d))
-        opp.chat(self.control.board.show_board('opp'))
+        opp.chat(self.control.board.show_board(self.player[opp.running_game]))
 
     def move(self, move, player):
         you,opp = self.players(player)
         mv = Move(move, self.control, player)
         if mv.check():
             mv.move()
-            you.chat(self.control.board.show_board('you'))
+            you.chat(self.control.board.show_board('p1'))
             opp.chat('%s moves %s' % (you.name, mv))
-            opp.chat(self.control.board.show_board('opp'))
+            opp.chat(self.control.board.show_board('p2'))
 
     def whos_turn(self,):
         msg = 'It is your turn to move'

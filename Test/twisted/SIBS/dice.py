@@ -33,8 +33,7 @@ class SequenceDice(Dice):
             self.sequence = iter(self.given)
             d = self.sequence.next()
         except AttributeError:
-            r = RandomDice()
-            self.sequence = iter([r.roll() for i in range(4)])
+            self.sequence = iter(((4,2),(1,6),(1,1),))
             d = self.sequence.next()
         return d
     
