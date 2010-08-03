@@ -22,6 +22,28 @@ class RandomDice(Dice):
     def double_roll(self,):
         return (randint(1,6),randint(1,6))
 
+class SequenceDice(Dice):
+    def single_roll(self,):
+        return (self.double_roll()[0],)
+
+    def double_roll(self,):
+        try:
+            d = self.sequence.next()
+        except StopIteration:
+            self.sequence = iter(self.given)
+            d = self.sequence.next()
+        except AttributeError:
+            r = RandomDice()
+            self.sequence = iter([r.roll() for i in range(4)])
+            d = self.sequence.next()
+        return d
+    
+    def set_sequence(self, seq):
+        self.given = seq
+        self.sequence = iter(seq)
+
 def getDice(dice_typ='simple'):
-    dice = {'simple':Dice, 'random':RandomDice,}
+    dice = {'simple':Dice,
+            'random':RandomDice,
+            'sequence':SequenceDice}
     return dice[dice_typ]()

@@ -26,6 +26,7 @@ class User:
                         # vielleicht wrappen, damit der Kern - User() - deep
                         # gespeichert werden kann und dynamical stuff wie
                         # invitations oder games nicht gespeichert werden.
+        self.dice = 'random'
         print 'This is USER %s with pw %s' % (name, '*'*len(pw))
 
     def set_protocol(self, protocol):
@@ -48,6 +49,7 @@ class User:
         if not ML is None:
             kw = {'player1':self, 'player2':invited_and_joining}
             kw['ML'] = ML
+            kw['dice'] = self.dice
             kw['list_of_games'] = list_of_games
             self.running_game,invited_and_joining.running_game = getGame(**kw)
             # wenn ich Info brauch, ob player1 oder player2, mach ich 2 IDs auf
