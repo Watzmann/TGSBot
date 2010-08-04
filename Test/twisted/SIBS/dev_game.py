@@ -110,7 +110,7 @@ if __name__ == "__main__":
     loops = 0
     while turn:
         game, player = log.get(turn)
-        print game, player
+        print 'player %s ist dran' % player
         game.roll(player)
         game.move(spiel.get_move(), player)
         turn = spiel.hand_over()

@@ -147,8 +147,12 @@ class GameControl:
         # TODO: kontrollieren, ob der dran ist
         print move, 'changes the board'
         print 'player', player, 'whos_turn', self.whos_turn().name
-        self.position[move[0]] -= 1
-        self.position[move[1]] += 1
+        if self.turn == 1:
+            self.position[move[0]] -= 1
+            self.position[move[1]] += 1
+        elif self.turn == 2:
+            self.position[move[0]] += 1
+            self.position[move[1]] -= 1
 
     def hand_over(self,):
         self.turn = 3 - self.turn
@@ -195,9 +199,9 @@ class Game:
         mv = Move(move, self.control, player)
         if mv.check():
             mv.move()
-            you.chat(self.control.board.show_board('p1'))
+            you.chat(self.control.board.show_board(self.player[you.running_game]))
             opp.chat('%s moves %s' % (you.name, mv))
-            opp.chat(self.control.board.show_board('p2'))
+            opp.chat(self.control.board.show_board(self.player[opp.running_game]))
 
     def whos_turn(self,):
         msg = 'It is your turn to move'
