@@ -1,0 +1,88 @@
+This is USER white with pw **
+This is USER black with pw **
+New game with id 908239874918, white vs black
+TELL white: Starting a new game with black
+TELL black: Starting a new game with white
+TELL white: You rolled 4, black rolled 2
+TELL black: You rolled 2, white rolled 4
+TELL white: It is your turn to move
+{'908239874918_p1': (<game.Game instance at 0x1433998>, 'p1'), '908239874918_p2': (<game.Game instance at 0x1433998>, 'p2')}
+white: 908239874918_p1 p1
+black: 908239874918_p2 p2
+------------------------------------------------------------
+das Spiel beginnt
+------------------------------------------------------------
+[(2, 3), (4, 6), (1, 4), (5, 6), (2, 4), (5, 3), (5, 3), (5, 3), (2, 1), (6, 6), (2, 2), (1, 2), (4, 2), (3, 6), (1, 6), (1, 4), (2, 5), (5, 5), (5, 4), (4, 3)]
+[['24-21', '13-11'], ['17-23', '19-23'], ['24-20', '21-20'], ['1-7', '7-12'], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', '', '', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', '', '', ''], ['', ''], ['', '']]
+player p1 ist dran
+turn 1
+rolling fool p1 Ei, isch bin dae white Ei, isch bin dae black
+TELL white: You roll 2, 3
+TELL white: board:You:black:1:1:2: | 0:  -2:0:0:0:0:5:  0:3:0:0:0:-5:  5:0:0:0:-3:0:  -5:0:0:0:0:2:  0: | 1:2:3:0:0: | 1:1:1:0: | 1:-1:0:25: | 0:0:0:0:2:0:0:0 | 
+TELL black: white rolled 2, 3
+TELL black: board:You:white:1:2:1: | 0:  -2:0:0:0:0:5:  0:3:0:0:0:-5:  5:0:0:0:-3:0:  -5:0:0:0:0:2:  0: | 1:0:0:2:3: | 1:1:1:0: | -1:1:25:0: | 0:0:0:0:2:0:0:0 | 
+checke 24-21 13-11
+moving 24 to 21
+(24, 21) changes the board
+player p1 whos_turn white
+moving 13 to 11
+(13, 11) changes the board
+player p1 whos_turn white
+turn 2
+TELL white: board:You:black:1:1:2: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-3:0:  -5:0:1:0:0:1:  0: | -1:0:0:0:0: | 1:1:1:0: | 1:-1:0:25: | 0:0:0:0:2:0:0:0 | 
+TELL black: white moves 24-21 13-11
+TELL black: board:You:white:1:2:1: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-3:0:  -5:0:1:0:0:1:  0: | -1:0:0:0:0: | 1:1:1:0: | -1:1:25:0: | 0:0:0:0:2:0:0:0 | 
+player p2 ist dran
+turn 2
+rolling fool p2 Ei, isch bin dae black Ei, isch bin dae white
+TELL black: You roll 4, 6
+TELL black: board:You:white:1:2:1: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-3:0:  -5:0:1:0:0:1:  0: | -1:0:0:4:6: | 1:1:1:0: | -1:1:25:0: | 0:0:0:0:2:0:0:0 | 
+TELL white: black rolled 4, 6
+TELL white: board:You:black:1:1:2: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-3:0:  -5:0:1:0:0:1:  0: | -1:4:6:0:0: | 1:1:1:0: | 1:-1:0:25: | 0:0:0:0:2:0:0:0 | 
+checke 17-23 19-23
+moving 17 to 23
+(17, 23) changes the board
+player p2 whos_turn black
+moving 19 to 23
+(19, 23) changes the board
+player p2 whos_turn black
+turn 1
+TELL black: board:You:white:1:2:1: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-4:0:  -6:0:1:0:2:1:  0: | 1:0:0:0:0: | 1:1:1:0: | -1:1:25:0: | 0:0:0:0:2:0:0:0 | 
+TELL white: black moves 17-23 19-23
+TELL white: board:You:black:1:1:2: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-4:0:  -6:0:1:0:2:1:  0: | 1:0:0:0:0: | 1:1:1:0: | 1:-1:0:25: | 0:0:0:0:2:0:0:0 | 
+player p1 ist dran
+turn 1
+rolling fool p1 Ei, isch bin dae white Ei, isch bin dae black
+TELL white: You roll 1, 4
+TELL white: board:You:black:1:1:2: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-4:0:  -6:0:1:0:2:1:  0: | 1:1:4:0:0: | 1:1:1:0: | 1:-1:0:25: | 0:0:0:0:2:0:0:0 | 
+TELL black: white rolled 1, 4
+TELL black: board:You:white:1:2:1: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-4:0:  -6:0:1:0:2:1:  0: | 1:0:0:1:4: | 1:1:1:0: | -1:1:25:0: | 0:0:0:0:2:0:0:0 | 
+checke 24-20 21-20
+moving 24 to 20
+(24, 20) changes the board
+player p1 whos_turn white
+moving 21 to 20
+(21, 20) changes the board
+player p1 whos_turn white
+turn 2
+TELL white: board:You:black:1:1:2: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-4:0:  -6:2:0:0:2:0:  0: | -1:0:0:0:0: | 1:1:1:0: | 1:-1:0:25: | 0:0:0:0:2:0:0:0 | 
+TELL black: white moves 24-20 21-20
+TELL black: board:You:white:1:2:1: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-4:0:  -6:2:0:0:2:0:  0: | -1:0:0:0:0: | 1:1:1:0: | -1:1:25:0: | 0:0:0:0:2:0:0:0 | 
+player p2 ist dran
+turn 2
+rolling fool p2 Ei, isch bin dae black Ei, isch bin dae white
+TELL black: You roll 5, 6
+TELL black: board:You:white:1:2:1: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-4:0:  -6:2:0:0:2:0:  0: | -1:0:0:5:6: | 1:1:1:0: | -1:1:25:0: | 0:0:0:0:2:0:0:0 | 
+TELL white: black rolled 5, 6
+TELL white: board:You:black:1:1:2: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-4:0:  -6:2:0:0:2:0:  0: | -1:5:6:0:0: | 1:1:1:0: | 1:-1:0:25: | 0:0:0:0:2:0:0:0 | 
+checke 1-7 7-12
+moving 1 to 7
+(1, 7) changes the board
+player p2 whos_turn black
+moving 7 to 12
+(7, 12) changes the board
+player p2 whos_turn black
+turn 1
+TELL black: board:You:white:1:2:1: | 0:  -3:0:0:0:0:5:  0:3:0:0:1:-4:  4:0:0:0:-4:0:  -6:2:0:0:2:0:  0: | 1:0:0:0:0: | 1:1:1:0: | -1:1:25:0: | 0:0:0:0:2:0:0:0 | 
+TELL white: black moves 1-7 7-12
+TELL white: board:You:black:1:1:2: | 0:  -3:0:0:0:0:5:  0:3:0:0:1:-4:  4:0:0:0:-4:0:  -6:2:0:0:2:0:  0: | 1:0:0:0:0: | 1:1:1:0: | 1:-1:0:25: | 0:0:0:0:2:0:0:0 | 
