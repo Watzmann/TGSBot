@@ -3,6 +3,7 @@
 """Implementierung von User und User-related Routinen."""
 
 from game import getGame
+import time
 
 class UsersList:        # TODO: als Singleton ausführen
     def __init__(self,):
@@ -46,14 +47,19 @@ class User:
         
     def join(self, invited_and_joining, list_of_games):
         ML = self.invitations.get(invited_and_joining.name, None)
+        for i in ['5 Watzmann sorrytigger - 1 0 1547.30 20 74 1280588416 88-134-122-10-dynip.superkabel.de ?NT________________! -',
+                  '6',
+                  '5 sorrytigger Watzmann - 1 0 1805.07 11647 4 1281040244 88-134-122-10-dynip.superkabel.de ?NT________________! -',
+                  '6',
+                  ]:
+            self.chat(i)
+            print i
         if not ML is None:
             kw = {'player1':self, 'player2':invited_and_joining}
             kw['ML'] = ML
             kw['dice'] = self.dice
             kw['list_of_games'] = list_of_games
             self.running_game,invited_and_joining.running_game = getGame(**kw)
-            # wenn ich Info brauch, ob player1 oder player2, mach ich 2 IDs auf
-            # dasselbe game
 
     def __str__(self,):
         return self.who()

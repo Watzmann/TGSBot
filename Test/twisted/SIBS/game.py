@@ -23,8 +23,8 @@ check for valid moves etc.."""
 
     def __init__(self,):
         self.score_fmt = "board:%s:%s:%d:%d:%d:"
-##        self.position_fmt = "%d:"*26
-        self.position_fmt = "%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:"
+        self.position_fmt = "%d:"*26
+##        self.position_fmt = "%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:"
         self.dice_fmt = "%d:"*5
         self.cube = "1:1:1:0:"
         self.direction = {'p1':"1:-1:0:25:",
@@ -37,11 +37,13 @@ check for valid moves etc.."""
                       'p2':self.score_fmt % ('You', p1[0], ML, p2[1], p1[1])}
 
     def set_dice(self, turn, dice,):
-        print 'turn', turn
-        if turn in [1,2]:
-            t = [0,1,-1][turn]
-            self.dice = {'p1':self.dice_fmt % ((t,) + dice + (0,0)),
-                         'p2':self.dice_fmt % ((t,) + (0,0) + dice)}
+        print 'set_dice turn', turn
+        if turn == 1:
+            self.dice = {'p1':self.dice_fmt % ((1,) + dice + (0,0)),
+                         'p2':self.dice_fmt % ((1,) + (0,0) + dice)}
+        elif turn == 2:
+            self.dice = {'p1':self.dice_fmt % ((-1,) + (0,0) + dice),
+                         'p2':self.dice_fmt % ((-1,) + dice + (0,0))}
         else:
             self.dice = {'p1':self.dice_fmt % (0,)*5,}
             self.dice['p2'] = self.dice['p1']
@@ -63,8 +65,8 @@ check for valid moves etc.."""
         cube = self.cube
         direction = self.direction[whom]
         move = self.move[whom]
-##        return score + self.position + dice + cube + direction + move
-        return '%s | '*6 % (score, self.position, dice, cube, direction, move)
+        return score + self.position + dice + cube + direction + move
+##        return '%s | '*6 % (score, self.position, dice, cube, direction, move)
 
 class Move:
     def __init__(self, move, control, player):
@@ -106,7 +108,7 @@ class GameControl:
                             5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
         self.home = {'p1':0, 'p2':0}
         self.bar = {'p1':0, 'p2':0}
-        self.score = {'p1':1, 'p2':2}
+        self.score = {'p1':0, 'p2':0}
         if not board is None:
             self.board = board
         else:
@@ -121,7 +123,12 @@ class GameControl:
         while a == b:
             a,b = self.dice.roll()
             self.game.starting_rolls(a,b)
+        self.dice_roll = d = (a,b)
         self.turn = {True:1, False:2}[a>b]
+        self.pieces = {True:4, False:2}[d[0]==d[1]]
+        self.board.set_dice(self.turn, d)
+        print 'in start', self.turn, self.pieces, self.board.dice
+        self.set_move()
 
     def whos_turn(self,):
         return {1:self.white, 2:self.black, 0:None}[self.turn]
@@ -188,7 +195,7 @@ class Game:
     def roll(self, player):
         you,opp = self.players(player)
         d = self.control.roll(player)
-        print 'rolling fool', player,you,opp
+##        print 'rolling fool', player,you,opp
         you.chat('You roll %d, %d' % d)
         you.chat(self.control.board.show_board(self.player[you.running_game]))
         opp.chat('%s rolled %d, %d' % ((you.name,)+d))

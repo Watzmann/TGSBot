@@ -6,12 +6,13 @@ Siehe fibs_interface.html.
 
 from StringIO import StringIO
 import inspect
+import sibs_utils as utils
 
 ## 0
 ## x tell
-## help
-## motd
-## version
+## 0 help
+## 0 motd
+## version           O
 
 ## 1
 ## bye
@@ -25,8 +26,8 @@ import inspect
 ## waitfor
 ## gag
 ## password
-## whois
-## last
+## whois             O
+## last   
 ## roll
 ## move
 ## board
@@ -166,7 +167,7 @@ class Command():
 # ----------------------------------------  General Info
 
     def c_help(self, line, me):
-        return 'die Hilfe gibt es noch nicht    %s' % NYI
+        return utils.render_file('help')
 
     def c_show(self, line, me):
         return 'shown: %s    %s' % (line[1], NYI)
@@ -202,7 +203,7 @@ class Command():
 # ----------------------------------------  FIBS Info
 
     def c_motd(self, line, me):
-        return 'an apple a day keeps the doctor away :)    %s' % NYI
+        return utils.render_file('motd')
 
     def c_about(self, line, me):
         return 'about SIBS    %s' % NYI
@@ -214,6 +215,7 @@ class Command():
         return 'the dice are nice and cubic    %s' % NYI
 
     def c_version(self, line, me):
+        # TODO: version line wie in fibs, vielleicht mit svn_keys
         return 'SIBS/clip 0.01    %s' % NYI
 
     def c_stat(self, line, me):
@@ -260,9 +262,17 @@ class Command():
     def c_off(self, line, me):
         return 'you bear off    %s' % NYI
 
+# TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
+    def c_game(self, line, me):
+
+        msg = utils.render_file('fake_game')
+
+        return msg
+# TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
+
     def c_board(self, line, me):
         game, player = self.list_of_games.get(me.running_game)
-        return str(game.control.board)
+        return game.control.board.show_board(player)
 
     def c_pip(self, line, me):
         return 'you are 7 pips behind    %s' % NYI
