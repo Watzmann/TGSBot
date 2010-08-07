@@ -7,6 +7,7 @@ Beispiel aus dem twisted-core.pdf Kap. 2.1.2
 from twisted.internet.protocol import Protocol
 ##from twisted.python import log
 from sibs_user import User, getUser
+import sibs_utils as utils
 
 class Echo(Protocol):
     def dataReceived(self, data):
@@ -60,6 +61,9 @@ class CLIP(Echo):
             self.user = getUser(user=d[2], password=d[3],
                                 lou = self.factory.active_users)
             self.user.set_protocol(self)
+            for m in utils.render_file('intro').splitlines():
+                print 'lines',m
+                self.transport.write('%s\r\n' % m)
             self.myDataReceived = self.established
 
     def tell(self, msg):

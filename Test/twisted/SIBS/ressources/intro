@@ -1,0 +1,19 @@
+1 myself 1041253132 192.168.1.308
+2 myself 1 1 0 0 0 0 1 1 2396 0 1 0 1 3457.85 0 0 0 0 0 Australia/Melbourne
+3
++--------------------------------------------------------------------+
+| It was a dark and stormy night in Oakland.  Outside, the rain      |
+| came down in torrents.  Winds of 40MPH+ pounded at the windows,    |
+...
+| Thanks to all of the generous FIBSters who bought the UPS and      |
+| made this possible!                                                |
++--------------------------------------------------------------------+
+4
+9 someplayer 1041253132 I'll log in at 10pm if you want to finish that game.
+5 mgnu_advanced someplayer - 1 0 1912.15 827 8 1040515752 192.168.143.5 3DFiBs -
+5 someplayer mgnu_advanced - 0 0 1418.61 23 1914 1041272421 192.168.40.3 MacFIBS someplayer@somewhere.com
+...
+5 anotherplayer - - 0 0 1439.79 1262 410 1041251697 somehost.com - -
+5 myself - - 0 0 3457.85 2396 12 1041253132 192.168.1.308 MyClient_v0.1 -
+6
+
