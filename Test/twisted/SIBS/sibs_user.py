@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """Implementierung von User und User-related Routinen."""
 
-from game import getGame
 import time
+from game import getGame
+from command import NYI
 
 class UsersList:        # TODO: als Singleton ausführen
     def __init__(self,):
@@ -19,10 +20,28 @@ class UsersList:        # TODO: als Singleton ausführen
     def get(self, name, default=None):
         return self.list_of_active_users.get(name, default)
 
+class Info:
+    def __init__(self,):
+##        self.login = time.asctime(time.localtime(time.time()-150000))
+        self.login = int(time.time()-150000)
+        self.host = 'some.host.nyi' # % NYI
+
+    def set_login_data(self, login, host):
+        self.last_login = self.login
+        self.login = login
+        self.last_host = self.host
+        self.host = host
+
+class Status:
+    def __init__(self,):
+        self.status = 'ready'
+
 class User:
     def __init__(self, name, pw):
         self.name = name
         self.password = pw
+        self.info = Info()
+        self.status = Status()
         self.invitations = {}   # TODO: wegen der Persistenz muss ich User()
                         # vielleicht wrappen, damit der Kern - User() - deep
                         # gespeichert werden kann und dynamical stuff wie
@@ -32,6 +51,10 @@ class User:
 
     def set_protocol(self, protocol):
         self.protocol = protocol
+
+    def set_login_data(self, login_time):
+        host = self.protocol.factory.host()
+        self.info.set_login_data(login_time, host)
 
     def tell(self, user, msg):
         user.chat('%s tells: %s' % (self.name, msg))
@@ -61,6 +84,14 @@ class User:
             kw['list_of_games'] = list_of_games
             self.running_game,invited_and_joining.running_game = getGame(**kw)
 
+    def welcome(self,):
+        info = self.info
+        return '1 %s %s %s' % (self.name, info.last_login, info.last_host)
+
+    def own_info(self,):
+        return '2 %s 1 1 0 0 0 0 1 1 2396 0 1 0 1 3457.85 0 0 0 0 0 ' \
+                'Australia/Melbourne' % self.name
+    
     def __str__(self,):
         return self.who()
 

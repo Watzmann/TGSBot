@@ -44,6 +44,11 @@ class ProxyFactory(http.HTTPFactory):
             ret = cmd(a, me)
             print 'got', ret
         return ret
+
+    def host(self,):
+        """soll den host des einloggenden spielers ermitteln."""
+        from command import NYI
+        return 'unknown host   %s' % NYI
         
 reactor.listenTCP(8080, ProxyFactory())
 reactor.run()

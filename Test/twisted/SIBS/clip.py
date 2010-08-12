@@ -4,6 +4,7 @@
 Beispiel aus dem twisted-core.pdf Kap. 2.1.2
 """
 
+from time import time
 from twisted.internet.protocol import Protocol
 ##from twisted.python import log
 from sibs_user import User, getUser
@@ -56,13 +57,18 @@ class CLIP(Echo):
     def authentication(self, data):
         if data.startswith('login'):
             #login <client_name> <clip_version> <name> <password>\r\n
+            login_time = time()
             d = data.split()[1:]
-            print 'Login Prozess with', d
+            print 'Login Prozess with', d[:-1], '*******'
             self.user = getUser(user=d[2], password=d[3],
                                 lou = self.factory.active_users)
             self.user.set_protocol(self)
-            for m in utils.render_file('intro').splitlines():
-                print 'lines',m
+            self.user.set_login_data(time)
+            welcome = ['', self.user.welcome()]
+            welcome += [self.user.own_info(),]
+            welcome += utils.render_file('intro').splitlines()
+            for m in welcome:
+                print 'welcome',m
                 self.transport.write('%s\r\n' % m)
             self.myDataReceived = self.established
 
