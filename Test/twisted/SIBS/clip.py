@@ -7,7 +7,7 @@ Beispiel aus dem twisted-core.pdf Kap. 2.1.2
 from time import time
 from twisted.internet.protocol import Protocol
 ##from twisted.python import log
-from sibs_user import User, getUser
+from sibs_user import User, getUser, dropUser
 import sibs_utils as utils
 
 class Echo(Protocol):
@@ -38,6 +38,13 @@ class CLIP(Echo):
         self.buffer = ''
         self.myDataReceived = self.authentication
         
+    def connectionLost(self, reason):
+        user = self.user
+        print 'dropping user', user.name
+        self.user.drop_connection()
+        dropUser(user=user.name, lou = self.factory.active_users)
+        Echo.connectionLost(self, reason)
+
     def dataReceived(self, data):
         self.buffer += data
         if self.buffer.endswith('\r\n'):
@@ -66,6 +73,7 @@ class CLIP(Echo):
             self.user.set_login_data(time)
             welcome = ['', self.user.welcome()]
             welcome += [self.user.own_info(),]
+            welcome += utils.render_file('motd').splitlines()
             welcome += utils.render_file('intro').splitlines()
             for m in welcome:
                 print 'welcome',m

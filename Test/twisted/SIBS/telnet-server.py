@@ -49,6 +49,12 @@ class ProxyFactory(http.HTTPFactory):
         """soll den host des einloggenden spielers ermitteln."""
         from command import NYI
         return 'unknown host   %s' % NYI
-        
+
+    def broadcast(self, msg):
+        """Sends msg as a broadcast to all logged clients."""
+        users = self.active_users.get_all_users()
+        for u in users:
+            u.chat(msg)
+    
 reactor.listenTCP(8080, ProxyFactory())
 reactor.run()

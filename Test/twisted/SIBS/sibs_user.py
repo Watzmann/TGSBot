@@ -17,8 +17,15 @@ class UsersList:        # TODO: als Singleton ausführen
         self.list_of_active_users[user.name] = user
         # TODO: Fehler, wenn bereits logged in
 
+    def drop(self, name):
+        del self.list_of_active_users[name]
+        # TODO: Fehler, wenn name not logged in
+
     def get(self, name, default=None):
         return self.list_of_active_users.get(name, default)
+
+    def get_all_users(self,):
+        return self.list_of_active_users.values()
 
 class Info:
     def __init__(self,):
@@ -91,6 +98,10 @@ class User:
     def own_info(self,):
         return '2 %s 1 1 0 0 0 0 1 1 2396 0 1 0 1 3457.85 0 0 0 0 0 ' \
                 'Australia/Melbourne' % self.name
+
+    def drop_connection(self,):
+        self.protocol.factory.broadcast('8 %s %s drops connection' % \
+                                        (self.name,self.name)) 
     
     def __str__(self,):
         return self.who()
@@ -101,3 +112,6 @@ def getUser(**kw):
     # TODO: if user valid:
     kw['lou'].add(user)
     return user
+
+def dropUser(**kw):
+    kw['lou'].drop(kw['user'])
