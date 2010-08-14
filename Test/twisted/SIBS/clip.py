@@ -29,8 +29,14 @@ class Echo(Protocol):
         msg = 'login: '
         self.transport.write(msg)
 
+    def dropConnection(self, reason):
+        print reason
+        self.transport.loseConnection()
+
     def connectionLost(self, reason):
         self.factory.decNumProtocols()
+        print 'connection lost'
+        print reason
         print 'aus die maus', self.id
 
 class CLIP(Echo):
@@ -39,10 +45,11 @@ class CLIP(Echo):
         self.myDataReceived = self.authentication
         
     def connectionLost(self, reason):
-        user = self.user
-        print 'dropping user', user.name
-        self.user.drop_connection()
-        dropUser(user=user.name, lou = self.factory.active_users)
+        user = getattr(self,'user',None)
+        if not user is None:
+            print 'dropping user', user.name
+            self.user.drop_connection()
+            dropUser(user=user.name, lou = self.factory.active_users)
         Echo.connectionLost(self, reason)
 
     def dataReceived(self, data):
@@ -66,19 +73,27 @@ class CLIP(Echo):
             #login <client_name> <clip_version> <name> <password>\r\n
             login_time = time()
             d = data.split()[1:]
-            print 'Login Prozess with', d[:-1], '*******'
-            self.user = getUser(user=d[2], password=d[3],
-                                lou = self.factory.active_users)
-            self.user.set_protocol(self)
-            self.user.set_login_data(time)
-            welcome = ['', self.user.welcome()]
-            welcome += [self.user.own_info(),]
-            welcome += utils.render_file('motd').splitlines()
-            welcome += utils.render_file('intro').splitlines()
-            for m in welcome:
-                print 'welcome',m
-                self.transport.write('%s\r\n' % m)
-            self.myDataReceived = self.established
+            if len(d) > 3:
+                print 'Login process with', d[:-1], '*******'
+                self.user = getUser(client=d[0], clip_version=d[1],
+                                    user=d[2], password=d[3],
+                                    lou = self.factory.active_users)
+                self.user.set_protocol(self)
+                self.user.set_login_data(time)
+                welcome = ['', self.user.welcome()]
+                welcome += [self.user.own_info(),]
+                welcome += utils.render_file('motd').splitlines()
+                welcome += utils.render_file('intro').splitlines()
+                for m in welcome:
+                    print 'welcome',m
+                    self.transport.write('%s\r\n' % m)
+                self.myDataReceived = self.established
+                name = self.user.name
+                self.factory.broadcast('7 %s %s logs in' % (name, name))
+            else:
+                reason = 'Login process cancelled - ' \
+                         'not enough paramaeters (%d)' % len(d)
+                self.dropConnection(reason)
 
     def tell(self, msg):
         self.transport.write('%s\r\n' % (msg,))

@@ -186,7 +186,10 @@ class Command():
         return 'where is %s from' % (line[1], NYI)
 
     def c_rawwho(self, line, me):
-        return 'raw where is %s from' % (line[1], NYI)
+        out = StringIO()
+        print >>out, self.who(line, me)
+        print >>out, '6'
+        return out.getvalue()
 
     def c_whois(self, line, me):
         return 'info about player: %s    %s' % (line[1], NYI)

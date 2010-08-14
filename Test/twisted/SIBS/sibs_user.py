@@ -70,7 +70,24 @@ class User:
         self.protocol.tell(msg)
 
     def who(self,):
-        return "Ei, isch bin dae %s" % self.name
+        args = {}
+        args['user'] = self.name
+        args['opponent'] = '-'
+        args['watching'] = '-'
+        args['ready'] = str(1)
+        args['away'] = str(0)
+        args['rating'] = str(1623.54)
+        args['experience'] = str(594)
+        args['idle'] = str(0.2)
+        args['login'] = str(int(time.time() - 10000))
+        args['hostname'] = 'some.host.sibs'
+        args['client'] = '-'
+        args['email'] = '-'
+        w = '5 %(user)s %(opponent)s %(watching)s %(ready)s ' \
+            '%(away)s %(rating)s %(experience)s %(idle)s %(login)s ' \
+            '%(hostname)s %(client)s %(email)s' % args
+        return w
+##        return "Ei, isch bin dae %s" % self.name
 
     def invite(self, name, ML):
         self.invitations[name] = ML

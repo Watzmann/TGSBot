@@ -53,6 +53,7 @@ class ProxyFactory(http.HTTPFactory):
     def broadcast(self, msg):
         """Sends msg as a broadcast to all logged clients."""
         users = self.active_users.get_all_users()
+        print 'broadcast:', msg
         for u in users:
             u.chat(msg)
     
