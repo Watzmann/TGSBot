@@ -153,7 +153,14 @@ class Command():
         return "you toggle '%s'" % line[1], NYI
 
     def c_set(self, line, me):
-        return "you set '%s'" % line[1], NYI
+        def boardstyle(*values):
+            print 'in boardstyle of', me.name, 'with', values
+            return me.settings.boardstyle(values[0])
+        sub_commands = {'boardstyle': boardstyle}
+        print 'the line', line
+        res = sub_commands[line[1]](line[2:])
+        print 'the result', res
+        return res
     
     def c_address(self, line, me):
         return "you set your address to '%s'" % line[1], NYI
@@ -179,16 +186,19 @@ class Command():
         # TODO          set sortwho auf  users  anwenden
         for u in users:
             print >>out, lou[u].who()
+        # TODO:  laut spez wird nur beim rawwho die 6 garantiert geschickt
+        #        aber javafibs kriegt die 6 und schickt nur n ordinaeres who
+        print >>out, '6'
         return out.getvalue()
-##        return 'list of some ore more players    %s' % NYI
 
     def c_where(self, line, me):
         return 'where is %s from' % (line[1], NYI)
 
     def c_rawwho(self, line, me):
         out = StringIO()
-        print >>out, self.who(line, me)
-        print >>out, '6'
+        print >>out, self.c_who(line, me),
+##        print >>out, '6'
+        # TODO   siehe TODO bei c_who()
         return out.getvalue()
 
     def c_whois(self, line, me):

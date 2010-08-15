@@ -43,12 +43,29 @@ class Status:
     def __init__(self,):
         self.status = 'ready'
 
+class Settings:
+    def __init__(self,):
+        self._boardstyle = 3
+
+    def boardstyle(self, *values):
+        vals = values[0]
+        print 'boardstyle', vals
+        if len(vals) == 0:
+            return "Value of 'boardstyle' is %d" % self._boardstyle
+        elif vals[0] in ('1','2','3'):
+            self._boardstyle = int(vals[0])
+            return "Value of 'boardstyle' set to %d." % self._boardstyle
+##            return "set boardstyle %d" % self._boardstyle
+        else:
+            return "set boardstyle bad_value"
+
 class User:
     def __init__(self, name, pw):
         self.name = name
         self.password = pw
         self.info = Info()
         self.status = Status()
+        self.settings = Settings()
         self.invitations = {}   # TODO: wegen der Persistenz muss ich User()
                         # vielleicht wrappen, damit der Kern - User() - deep
                         # gespeichert werden kann und dynamical stuff wie

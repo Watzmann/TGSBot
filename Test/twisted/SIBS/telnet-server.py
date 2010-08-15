@@ -50,11 +50,13 @@ class ProxyFactory(http.HTTPFactory):
         from command import NYI
         return 'unknown host   %s' % NYI
 
-    def broadcast(self, msg):
+    def broadcast(self, msg, exceptions=()):
         """Sends msg as a broadcast to all logged clients."""
         users = self.active_users.get_all_users()
         print 'broadcast:', msg
         for u in users:
+            if u.name in exceptions:
+                continue
             u.chat(msg)
     
 reactor.listenTCP(8080, ProxyFactory())

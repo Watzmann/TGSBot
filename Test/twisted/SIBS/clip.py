@@ -84,12 +84,16 @@ class CLIP(Echo):
                 welcome += [self.user.own_info(),]
                 welcome += utils.render_file('motd').splitlines()
                 welcome += utils.render_file('intro').splitlines()
+                # TODO: hier statt intro die messages ausgeben
+                who = self.factory.command.c_rawwho(['rawwho',], self.user)
+                welcome += [who,]
                 for m in welcome:
                     print 'welcome',m
                     self.transport.write('%s\r\n' % m)
                 self.myDataReceived = self.established
                 name = self.user.name
-                self.factory.broadcast('7 %s %s logs in' % (name, name))
+                self.factory.broadcast('7 %s %s logs in' % (name, name),
+                                       exceptions=(name,))
             else:
                 reason = 'Login process cancelled - ' \
                          'not enough paramaeters (%d)' % len(d)
