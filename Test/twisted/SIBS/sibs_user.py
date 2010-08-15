@@ -43,6 +43,28 @@ class Status:
     def __init__(self,):
         self.status = 'ready'
 
+class Toggles:
+    def __init__(self,):
+        self.switches = {
+            'allowpip': True,
+            'autoboard': True,
+            'autodouble': False,
+            'automove': True,
+            'bell': False,
+            'crawford': True,
+            'double': True,
+            'greedy': False,
+            'moreboards': True,
+            'moves': False,
+            'notify': True,
+            'ratings': False,
+            'ready': False,
+            'report': False,
+            'silent': False,
+            'telnet': True,
+            'wrap': False,
+            }
+
 class Settings:
     def __init__(self,):
         self._boardstyle = 3
@@ -57,7 +79,7 @@ class Settings:
 
     def boardstyle(self, *values):
         vals = values[0]
-        print 'boardstyle', vals
+##        print 'boardstyle', vals
         if len(vals) == 0:
             res = "Value of 'boardstyle' is %d" % self._boardstyle
         elif vals[0] in ('1','2','3'):
@@ -70,7 +92,7 @@ class Settings:
 
     def linelength(self, *values):
         vals = values[0]
-        print 'linelength', vals
+##        print 'linelength', vals
         if len(vals) == 0:
             res = "Value of 'linelength' is %d" % self._linelength
         elif int(vals[0]) >= 0 and int(vals[0]) < 1000:
@@ -83,7 +105,7 @@ class Settings:
 
     def pagelength(self, *values):
         vals = values[0]
-        print 'pagelength', vals
+##        print 'pagelength', vals
         if len(vals) == 0:
             res = "Value of 'pagelength' is %d" % self._pagelength
         elif int(vals[0]) >= 0 and int(vals[0]) < 1000:
@@ -96,7 +118,7 @@ class Settings:
 
     def redoubles(self, *values):
         vals = values[0]
-        print 'redoubles', vals
+##        print 'redoubles', vals
         if len(vals) == 0:
             res = "Value of 'redoubles' is %s" % self._redoubles
         elif (vals[0] in ('none', 'unlimited')) or \
@@ -110,7 +132,7 @@ class Settings:
 
     def sortwho(self, *values):
         vals = values[0]
-        print 'sortwho', vals
+##        print 'sortwho', vals
         if len(vals) == 0:
             res = "Value of 'sortwho' is %s" % self._sortwho
         elif vals[0] in ('login', 'name', 'rating', 'rrating'):
@@ -123,7 +145,7 @@ class Settings:
 
     def timezone(self, *values):
         vals = values[0]
-        print 'timezone', vals
+##        print 'timezone', vals
         if len(vals) == 0:
             res = "Value of 'timezone' is %s" % self._timezone
         elif vals[0] in ('UTC', ):
@@ -136,6 +158,9 @@ class Settings:
                     % vals[0]
         return res
 
+    def show(self,):    # TODO
+        return "UND HIER MAL WAS GANZ ANDERES"
+
 class User:
     def __init__(self, name, pw):
         self.name = name
@@ -143,6 +168,7 @@ class User:
         self.info = Info()
         self.status = Status()
         self.settings = Settings()
+        self.toggles = Toggles()
         self.invitations = {}   # TODO: wegen der Persistenz muss ich User()
                         # vielleicht wrappen, damit der Kern - User() - deep
                         # gespeichert werden kann und dynamical stuff wie
@@ -182,6 +208,23 @@ class User:
             '%(hostname)s %(client)s %(email)s' % args
         return w
 ##        return "Ei, isch bin dae %s" % self.name
+
+    def whois(self,):
+        args = {}
+        args['name'] = self.name
+        args['date'] = "Tuesday, January 14 20:27 EST"
+        args['last_login_details'] = "Still logged in. 4:48 minutes idle"
+        args['play_status'] = "%s is not ready to play, not watching, not playing." % self.name
+        args['away_status'] = "user is away:"
+        args['rating_exp'] = "Rating: 1300.45 Experience: 1000"
+        args['email'] = "mail-adress"
+        
+        return """Information about %(name)s:
+  Last login:  %(date)s from p987987.dip.t-dialin.net
+  %(last_login_details)s
+  %(play_status)s
+  %(rating_exp)s
+  Email address: %(email)s""" % args
 
     def invite(self, name, ML):
         self.invitations[name] = ML

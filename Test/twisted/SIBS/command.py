@@ -26,7 +26,7 @@ import sibs_utils as utils
 ## waitfor
 ## gag
 ## password
-## whois             O
+## x whois
 ## last   
 ## roll
 ## move
@@ -150,33 +150,49 @@ class Command():
 # ----------------------------------------  Setting Commands
 
     def c_toggle(self, line, me):
-        return "you toggle '%s'" % line[1], NYI
+##        print 'the line', line
+        arglen = len(line)
+        if arglen == 1:
+            res = show_settings()
+        else:
+            cmd = sub_commands.get(line[1], None)
+            if cmd is None:
+                res = "** Invalid argument. Type 'help set'."
+            else:
+                res = cmd(line[2:])
+##        print 'the result', res
+        return res
+##        return "you toggle '%s'" % line[1], NYI
 
     def c_set(self, line, me):
         
         def boardstyle(*values):
-            print 'in boardstyle of', me.name, 'with', values
+##            print 'in boardstyle of', me.name, 'with', values
             return me.settings.boardstyle(values[0])
         
         def linelength(*values):
-            print 'in linelength of', me.name, 'with', values
+##            print 'in linelength of', me.name, 'with', values
             return me.settings.linelength(values[0])
             
         def pagelength(*values):
-            print 'in pagelength of', me.name, 'with', values
+##            print 'in pagelength of', me.name, 'with', values
             return me.settings.pagelength(values[0])
 
         def redoubles(*values):
-            print 'in redoubles of', me.name, 'with', values
+##            print 'in redoubles of', me.name, 'with', values
             return me.settings.redoubles(values[0])
 
         def sortwho(*values):
-            print 'in sortwho of', me.name, 'with', values
+##            print 'in sortwho of', me.name, 'with', values
             return me.settings.sortwho(values[0])
 
         def timezone(*values):
-            print 'in timezone of', me.name, 'with', values
+##            print 'in timezone of', me.name, 'with', values
             return me.settings.timezone(values[0])
+
+        def show_settings():
+##            print 'in timezone of', me.name, 'with', values
+            return me.settings.show()
 
         # TODO: das hier kann man stark vereinfachen!!! etwas programmierarbeit
         
@@ -187,7 +203,7 @@ class Command():
                         'sortwho': sortwho,
                         'timezone': timezone,
                         }
-        print 'the line', line
+##        print 'the line', line
         arglen = len(line)
         if arglen == 1:
             res = show_settings()
@@ -197,7 +213,7 @@ class Command():
                 res = "** Invalid argument. Type 'help set'."
             else:
                 res = cmd(line[2:])
-        print 'the result', res
+##        print 'the result', res
         return res
     
     def c_address(self, line, me):
@@ -240,7 +256,18 @@ class Command():
         return out.getvalue()
 
     def c_whois(self, line, me):
-        return 'info about player: %s    %s' % (line[1], NYI)
+        arglen = len(line)
+        if arglen == 1:
+            res = "** please give a name as an argument."
+        else:
+            name = line[1]
+            lou = self.list_of_users.get_active_users()
+            if not name in lou:
+                res = "No information found on user %s." % name
+            else:
+                res = lou[name].whois()
+        return res
+##        return 'info about player: %s    %s' % (line[1], NYI)
 
     def c_ratings(self, line, me):
         return 'ratings given    %s' % NYI
