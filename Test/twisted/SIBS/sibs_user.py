@@ -46,18 +46,95 @@ class Status:
 class Settings:
     def __init__(self,):
         self._boardstyle = 3
+        self._linelength = 0
+        self._pagelength = 0
+        self._redoubles = 'none'
+        self._sortwho = 'name'
+        self._timezone = 'UTC'
+
+    # TODO: die methoden hier kann man stark vereinfachen!!!
+    #       etwas programmierarbeit
 
     def boardstyle(self, *values):
         vals = values[0]
         print 'boardstyle', vals
         if len(vals) == 0:
-            return "Value of 'boardstyle' is %d" % self._boardstyle
+            res = "Value of 'boardstyle' is %d" % self._boardstyle
         elif vals[0] in ('1','2','3'):
             self._boardstyle = int(vals[0])
-            return "Value of 'boardstyle' set to %d." % self._boardstyle
-##            return "set boardstyle %d" % self._boardstyle
+            # TODO: hier und in den xxxxlength() muss int() getrapped werden
+            res = "Value of 'boardstyle' set to %d." % self._boardstyle
         else:
-            return "set boardstyle bad_value"
+            res = "** Valid arguments are the numbers 1 to 3."
+        return res
+
+    def linelength(self, *values):
+        vals = values[0]
+        print 'linelength', vals
+        if len(vals) == 0:
+            res = "Value of 'linelength' is %d" % self._linelength
+        elif int(vals[0]) >= 0 and int(vals[0]) < 1000:
+            self._linelength = int(vals[0])
+            res = "Value of 'linelength' set to %d." % self._linelength
+        else:
+            res = "** Valid arguments are the numbers 0 to 999. " \
+                  "Use 0 for no linelength."
+        return res
+
+    def pagelength(self, *values):
+        vals = values[0]
+        print 'pagelength', vals
+        if len(vals) == 0:
+            res = "Value of 'pagelength' is %d" % self._pagelength
+        elif int(vals[0]) >= 0 and int(vals[0]) < 1000:
+            self._pagelength = int(vals[0])
+            res = "Value of 'pagelength' set to %d." % self._pagelength
+        else:
+            res = "** Valid arguments are the numbers 0 to 999. " \
+                  "Use 0 for no pagelength."
+        return res
+
+    def redoubles(self, *values):
+        vals = values[0]
+        print 'redoubles', vals
+        if len(vals) == 0:
+            res = "Value of 'redoubles' is %s" % self._redoubles
+        elif (vals[0] in ('none', 'unlimited')) or \
+                (int(vals[0]) >= 0 and int(vals[0]) < 100):
+            self._redoubles = vals[0]
+            res = "Value of 'redoubles' set to %s." % self._redoubles
+        else:
+            res = "** Valid arguments are 'none', 'unlimited' and" \
+                  "the numbers 0 to 99."
+        return res
+
+    def sortwho(self, *values):
+        vals = values[0]
+        print 'sortwho', vals
+        if len(vals) == 0:
+            res = "Value of 'sortwho' is %s" % self._sortwho
+        elif vals[0] in ('login', 'name', 'rating', 'rrating'):
+            self._sortwho = vals[0]
+            res = "Value of 'sortwho' set to %s." % self._sortwho
+        else:
+            res = "** Unknown value '%s'. Try 'login', 'name', " \
+                  "'rating' or 'rrating'." % vals[0]
+        return res
+
+    def timezone(self, *values):
+        vals = values[0]
+        print 'timezone', vals
+        if len(vals) == 0:
+            res = "Value of 'timezone' is %s" % self._timezone
+        elif vals[0] in ('UTC', ):
+            self._timezone = int(vals[0])
+            res = "Value of 'timezone' set to %s." % self._timezone
+        else:
+            res = "Can't find timezone '%s'. Try one of: " \
+                    "Africa/Abidjan, Africa/Accra, Africa/Addis_Ababa, Africa/Algiers," \
+                    "Africa/Asmera, Africa/Bamako, Africa/Bangui, Africa/Banjul, Africa/Bissau," \
+                    % vals[0]
+        return res
 
 class User:
     def __init__(self, name, pw):

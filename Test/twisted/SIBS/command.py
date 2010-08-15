@@ -153,12 +153,50 @@ class Command():
         return "you toggle '%s'" % line[1], NYI
 
     def c_set(self, line, me):
+        
         def boardstyle(*values):
             print 'in boardstyle of', me.name, 'with', values
             return me.settings.boardstyle(values[0])
-        sub_commands = {'boardstyle': boardstyle}
+        
+        def linelength(*values):
+            print 'in linelength of', me.name, 'with', values
+            return me.settings.linelength(values[0])
+            
+        def pagelength(*values):
+            print 'in pagelength of', me.name, 'with', values
+            return me.settings.pagelength(values[0])
+
+        def redoubles(*values):
+            print 'in redoubles of', me.name, 'with', values
+            return me.settings.redoubles(values[0])
+
+        def sortwho(*values):
+            print 'in sortwho of', me.name, 'with', values
+            return me.settings.sortwho(values[0])
+
+        def timezone(*values):
+            print 'in timezone of', me.name, 'with', values
+            return me.settings.timezone(values[0])
+
+        # TODO: das hier kann man stark vereinfachen!!! etwas programmierarbeit
+        
+        sub_commands = {'boardstyle': boardstyle,
+                        'linelength': linelength,
+                        'pagelength': pagelength,
+                        'redoubles': redoubles,
+                        'sortwho': sortwho,
+                        'timezone': timezone,
+                        }
         print 'the line', line
-        res = sub_commands[line[1]](line[2:])
+        arglen = len(line)
+        if arglen == 1:
+            res = show_settings()
+        else:
+            cmd = sub_commands.get(line[1], None)
+            if cmd is None:
+                res = "** Invalid argument. Type 'help set'."
+            else:
+                res = cmd(line[2:])
         print 'the result', res
         return res
     
