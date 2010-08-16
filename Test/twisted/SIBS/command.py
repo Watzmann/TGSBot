@@ -150,19 +150,17 @@ class Command():
 # ----------------------------------------  Setting Commands
 
     def c_toggle(self, line, me):
-##        print 'the line', line
+        toggles = me.toggles
         arglen = len(line)
         if arglen == 1:
-            res = show_settings()
+            res = toggles.show()
         else:
-            cmd = sub_commands.get(line[1], None)
-            if cmd is None:
-                res = "** Invalid argument. Type 'help set'."
+            switch = toggles.has(line[1], None)
+            if switch is None:
+                res = "** Don't know how to toggle %s." % line[1]
             else:
-                res = cmd(line[2:])
-##        print 'the result', res
+                res = toggles.toggle(switch)
         return res
-##        return "you toggle '%s'" % line[1], NYI
 
     def c_set(self, line, me):
         

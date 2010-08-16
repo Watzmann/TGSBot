@@ -3,6 +3,7 @@
 """Implementierung von User und User-related Routinen."""
 
 import time
+from StringIO import StringIO
 from game import getGame
 from command import NYI
 
@@ -44,26 +45,83 @@ class Status:
         self.status = 'ready'
 
 class Toggles:
-    def __init__(self,):
-        self.switches = {
-            'allowpip': True,
-            'autoboard': True,
-            'autodouble': False,
-            'automove': True,
-            'bell': False,
-            'crawford': True,
-            'double': True,
-            'greedy': False,
-            'moreboards': True,
-            'moves': False,
-            'notify': True,
-            'ratings': False,
-            'ready': False,
-            'report': False,
-            'silent': False,
-            'telnet': True,
-            'wrap': False,
+    toggle_names = (
+            'allowpip', 'autoboard', 'autodouble', 'automove', 'bell',
+            'crawford', 'double', 'greedy', 'moreboards', 'moves', 'notify',
+            'ratings', 'ready', 'report', 'silent', 'telnet', 'wrap',
+            )
+    toggle_on_msgs = (
+            "** You allow the use the server's 'pip' command.",
+            "** You want to see a correct message here.",
+            "** You want to see a correct message here.",
+            "** You want to see a correct message here.",
+            "** You want to see a correct message here.",
+            
+            "** You want to see a correct message here.",
+            "** You want to see a correct message here.",
+            "** You want to see a correct message here.",
+            "** You want to see a correct message here.",
+            "** You want to see a correct message here.",
+            
+            "** You want to see a correct message here.",
+            "** You want to see a correct message here.",
+            "** You want to see a correct message here.",
+            "** You want to see a correct message here.",
+            "** You want to see a correct message here.",
+            
+            "** You want to see a correct message here.",
+            "** You want to see a correct message here.",
+            )
+    toggle_off_msgs = (
+            "** You don't allow the use the server's 'pip' command.",
+            "** You don't want to see an incorrect message here.",
+            "** You don't want to see an incorrect message here.",
+            "** You don't want to see an incorrect message here.",
+            "** You don't want to see an incorrect message here.",
+
+            "** You don't want to see an incorrect message here.",
+            "** You don't want to see an incorrect message here.",
+            "** You don't want to see an incorrect message here.",
+            "** You don't want to see an incorrect message here.",
+            "** You don't want to see an incorrect message here.",
+
+            "** You don't want to see an incorrect message here.",
+            "** You don't want to see an incorrect message here.",
+            "** You don't want to see an incorrect message here.",
+            "** You don't want to see an incorrect message here.",
+            "** You don't want to see an incorrect message here.",
+
+            "** You don't want to see an incorrect message here.",
+            "** You don't want to see an incorrect message here.",
+            )
+    toggle_msg = {
+            True: dict(zip(toggle_names, toggle_on_msgs)),
+            False: dict(zip(toggle_names, toggle_off_msgs))
             }
+
+    def __init__(self,):
+        self._std = (
+            True, True, False, True, False, True, True, False,
+            True, False, True, False, False, False, False, True, False,
+            )
+        self._switches = dict(zip(Toggles.toggle_names, self._std))
+
+    def toggle(self, switch):
+        self._switches[switch] = not self._switches[switch]
+        return Toggles.toggle_msg[self._switches[switch]][switch]
+
+    def has(self, switch, default=None):
+        return {True: switch, False: default}[switch in self._switches]
+
+    def show(self,):
+        out = StringIO()
+        print >>out, 'The current settings are:'
+        keys = self._switches.keys()
+        keys.sort()
+        for k in keys:
+            print >> out, '%-16s%s' % \
+                  (k, {True: 'YES', False: 'NO'}[self._switches[k]])
+        return out.getvalue()        
 
 class Settings:
     def __init__(self,):
