@@ -33,6 +33,7 @@ class Echo(Protocol):
         # TODO: macht das Sinn hier?
         #       die Unterscheidung zwischen versehentlichem und absichtlichem
         #       drop muss klar werden. (NACHARBEITEN)
+        #       z.B.: wenn JavaFIBS auf disconnect klickt, wird nix broadcasted
         print 'dropping for:', reason
         self.transport.loseConnection()
 
@@ -64,13 +65,8 @@ class CLIP(Echo):
         
     def established(self, data):
         print 'heard:', data
-##        if data.lower().startswith('quit'):
-##            print 'lasse die Verbindung %d fallen' % self.id
-##            self.transport.loseConnection()
         result = self.factory.parse(data, self.user)
-        if result == -5:
-            self.logout()
-        elif not result is None:
+        if not result is None:
             self.transport.write('%s\r\n' % (result,))
 
     def authentication(self, data):
@@ -110,6 +106,12 @@ class CLIP(Echo):
         self.transport.write('%s\r\n' % (logout,))
         print 'wrote logout message'
         self.dropConnection('orderly waving goodbye')
+
+    def wave_and_logout(self,):
+        self.factory.broadcast('%s waves goodbye again.' % \
+                                        (self.user.name,), (self.user.name,)) 
+        self.transport.write('You wave goodbye again and log out.\r\n')
+        self.logout()
 
     def tell(self, msg):
         self.transport.write('%s\r\n' % (msg,))

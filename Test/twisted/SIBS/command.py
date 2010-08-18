@@ -16,7 +16,7 @@ import sibs_utils as utils
 
 ## 1
 ## x bye
-## wave              0
+## x wave
 ## where
 ## time
 ## 0 about
@@ -148,10 +148,10 @@ class Command():
         #       2) netzwerkfehler
         #       3) sonstwas(???)
         #       vorliegt.
-        return -5
+        me.protocol.logout()
 
-    def c_wave(self, line, me):
-        return 'you wave goodbye    %s' % NYI
+    def c_wave(self, line, me):             # implemented
+        return me.wave()
 
     def c_adios(self, line, me):
         return self.c_bye(line, me)

@@ -236,6 +236,7 @@ class User:
         self.status = Status()
         self.settings = Settings()
         self.toggles = Toggles()
+        self.waves = 0
         self.invitations = {}   # TODO: wegen der Persistenz muss ich User()
                         # vielleicht wrappen, damit der Kern - User() - deep
                         # gespeichert werden kann und dynamical stuff wie
@@ -324,6 +325,15 @@ class User:
         self.protocol.factory.broadcast('8 %s %s drops connection' % \
                                         (self.name,self.name), (self.name,)) 
 
+    def wave(self,):
+        if self.waves == 0:
+            self.waves += 1
+            self.protocol.factory.broadcast('%s waves goodbye.' % \
+                                        (self.name,), (self.name,)) 
+            return 'You wave goodbye.'
+        else:
+            self.protocol.wave_and_logout()
+        
     def __str__(self,):
         return self.who()
 
