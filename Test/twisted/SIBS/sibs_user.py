@@ -19,6 +19,7 @@ class UsersList:        # TODO: als Singleton ausführen
         # TODO: Fehler, wenn bereits logged in
 
     def drop(self, name):
+        print 'deleting %s from list of active users' % name
         del self.list_of_active_users[name]
         # TODO: Fehler, wenn name not logged in
 
@@ -217,7 +218,15 @@ class Settings:
         return res
 
     def show(self,):    # TODO
-        return "UND HIER MAL WAS GANZ ANDERES"
+        out = StringIO()
+        print >> out, 'Settings of variables:'
+        print >> out, '%-12s%d' % ('boardstyle:', self._boardstyle)
+        print >> out, '%-12s%s' % ('linelength:', self._linelength)
+        print >> out, '%-12s%s' % ('pagelength:', self._pagelength)
+        print >> out, '%-12s%s' % ('redoubles:', self._redoubles)
+        print >> out, '%-12s%s' % ('sortwho:', self._sortwho)
+        print >> out, '%-12s%s' % ('timezone:', self._timezone)
+        return out.getvalue()        
 
 class User:
     def __init__(self, name, pw):
@@ -313,8 +322,8 @@ class User:
 
     def drop_connection(self,):
         self.protocol.factory.broadcast('8 %s %s drops connection' % \
-                                        (self.name,self.name)) 
-    
+                                        (self.name,self.name), (self.name,)) 
+
     def __str__(self,):
         return self.who()
 

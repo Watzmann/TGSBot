@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""Das Script dient Testzwecken zum Thema 'twisted'.
-Beispiel aus dem twisted-core.pdf Kap. 2.1.2
+"""Implementation of the CLIP CLIent Protocol as specified by the
+CLIP specification V 1.008 - 08 Mar 1997
 """
 
 from time import time
@@ -25,12 +25,15 @@ class Echo(Protocol):
             print 'wegen ueberfuellung geschlossen'
             self.transport.write("Too many connections, try later")
             self.transport.loseConnection()
-        #msg = 'hi there %d, please login\r\n' % self.id
+        # TODO    banner
         msg = 'login: '
         self.transport.write(msg)
 
     def dropConnection(self, reason):
-        print reason
+        # TODO: macht das Sinn hier?
+        #       die Unterscheidung zwischen versehentlichem und absichtlichem
+        #       drop muss klar werden. (NACHARBEITEN)
+        print 'dropping for:', reason
         self.transport.loseConnection()
 
     def connectionLost(self, reason):
@@ -44,13 +47,13 @@ class CLIP(Echo):
         self.buffer = ''
         self.myDataReceived = self.authentication
         
-    def connectionLost(self, reason):
+    def dropConnection(self, reason):
         user = getattr(self,'user',None)
         if not user is None:
             print 'dropping user', user.name
             self.user.drop_connection()
             dropUser(user=user.name, lou = self.factory.active_users)
-        Echo.connectionLost(self, reason)
+        Echo.dropConnection(self, reason)
 
     def dataReceived(self, data):
         self.buffer += data
@@ -61,11 +64,13 @@ class CLIP(Echo):
         
     def established(self, data):
         print 'heard:', data
-        if data.lower().startswith('quit'):
-            print 'lasse die Verbindung %d fallen' % self.id
-            self.transport.loseConnection()
+##        if data.lower().startswith('quit'):
+##            print 'lasse die Verbindung %d fallen' % self.id
+##            self.transport.loseConnection()
         result = self.factory.parse(data, self.user)
-        if not result is None:
+        if result == -5:
+            self.logout()
+        elif not result is None:
             self.transport.write('%s\r\n' % (result,))
 
     def authentication(self, data):
@@ -83,7 +88,7 @@ class CLIP(Echo):
                 welcome = ['', self.user.welcome()]
                 welcome += [self.user.own_info(),]
                 welcome += utils.render_file('motd').splitlines()
-                welcome += utils.render_file('intro').splitlines()
+                welcome += utils.render_file('fake_message').splitlines()
                 # TODO: hier statt intro die messages ausgeben
                 who = self.factory.command.c_rawwho(['rawwho',], self.user)
                 welcome += [who,]
@@ -98,6 +103,13 @@ class CLIP(Echo):
                 reason = 'Login process cancelled - ' \
                          'not enough paramaeters (%d)' % len(d)
                 self.dropConnection(reason)
+
+    def logout(self,):
+        name = self.user.name
+        logout = utils.render_file('extro') + utils.render_file('about')
+        self.transport.write('%s\r\n' % (logout,))
+        print 'wrote logout message'
+        self.dropConnection('orderly waving goodbye')
 
     def tell(self, msg):
         self.transport.write('%s\r\n' % (msg,))

@@ -12,36 +12,37 @@ import sibs_utils as utils
 ## x tell
 ## 0 help
 ## 0 motd
-## version           O
+## 0 version
 
 ## 1
-## bye
-## wave
+## x bye
+## wave              0
 ## where
 ## time
-## about
+## 0 about
+
+## persistency       0
 
 ## 2
-## message
+## message           0
 ## waitfor
 ## gag
-## password
+## password          0
 ## x whois
 ## last   
-## roll
-## move
-## board
+## x roll
+## x move
+## x board
 ## pip
-## leave
+## leave             0
 ##
 ## register
 ## authentication
-## persistency
 ## CLIP
 
 
 ## 3
-## say
+## say               0
 ## x invite
 ## x join
 ## show
@@ -70,7 +71,7 @@ class Command():
     def c_kibitz(self, line, me):
         return 'you kibitz: %s    %s' % (line[1:], NYI)
 
-    def c_tell(self, line, me):
+    def c_tell(self, line, me):             # implemented
         name = line[1]
         msg = ' '.join(line[2:])
         user = self.list_of_users.get(name, None)
@@ -101,7 +102,7 @@ class Command():
 
 # ----------------------------------------  Between Game Actions
 
-    def c_invite(self, line, me):
+    def c_invite(self, line, me):           # implemented
         user = line[1]
         ML = line[2]
         him = self.list_of_users.get(user)
@@ -110,7 +111,7 @@ class Command():
         msg = '** You invited %s to a %s point match.' % (user, ML,)
         return msg
 
-    def c_join(self, line, me):
+    def c_join(self, line, me):             # implemented
         user = line[1]
         him = self.list_of_users.get(user)
         if not him is None:
@@ -141,15 +142,35 @@ class Command():
     def c_back(self, line, me):
         return 'welcome back    %s' % NYI
 
-    def c_bye(self, line, me):
-        return 'bye, bye    %s' % NYI
+    def c_bye(self, line, me):              # implemented
+        # TODO: unklar ist, welche Texte gesendet werden, wenn
+        #       1) bye
+        #       2) netzwerkfehler
+        #       3) sonstwas(???)
+        #       vorliegt.
+        return -5
 
     def c_wave(self, line, me):
         return 'you wave goodbye    %s' % NYI
 
+    def c_adios(self, line, me):
+        return self.c_bye(line, me)
+    def c_ciao(self, line, me):
+        return self.c_bye(line, me)
+    def c_end(self, line, me):
+        return self.c_bye(line, me)
+    def c_exit(self, line, me):
+        return self.c_bye(line, me)
+    def c_logout(self, line, me):
+        return self.c_bye(line, me)
+    def c_quit(self, line, me):
+        return self.c_bye(line, me)
+    def c_tschoe(self, line, me):
+        return self.c_bye(line, me)
+
 # ----------------------------------------  Setting Commands
 
-    def c_toggle(self, line, me):
+    def c_toggle(self, line, me):           # implemented
         toggles = me.toggles
         arglen = len(line)
         if arglen == 1:
@@ -162,7 +183,7 @@ class Command():
                 res = toggles.toggle(switch)
         return res
 
-    def c_set(self, line, me):
+    def c_set(self, line, me):              # implemented
         
         def boardstyle(*values):
 ##            print 'in boardstyle of', me.name, 'with', values
@@ -225,13 +246,13 @@ class Command():
 
 # ----------------------------------------  General Info
 
-    def c_help(self, line, me):
+    def c_help(self, line, me):             # implemented
         return utils.render_file('help')
 
     def c_show(self, line, me):
         return 'shown: %s    %s' % (line[1], NYI)
 
-    def c_who(self, line, me):
+    def c_who(self, line, me):              # implemented
         out = StringIO()
         lou = self.list_of_users.get_active_users()
         users = lou.keys()
@@ -246,14 +267,14 @@ class Command():
     def c_where(self, line, me):
         return 'where is %s from' % (line[1], NYI)
 
-    def c_rawwho(self, line, me):
+    def c_rawwho(self, line, me):           # implemented
         out = StringIO()
         print >>out, self.c_who(line, me),
 ##        print >>out, '6'
         # TODO   siehe TODO bei c_who()
         return out.getvalue()
 
-    def c_whois(self, line, me):
+    def c_whois(self, line, me):            # implemented
         arglen = len(line)
         if arglen == 1:
             res = "** please give a name as an argument."
@@ -265,7 +286,6 @@ class Command():
             else:
                 res = lou[name].whois()
         return res
-##        return 'info about player: %s    %s' % (line[1], NYI)
 
     def c_ratings(self, line, me):
         return 'ratings given    %s' % NYI
@@ -278,11 +298,11 @@ class Command():
 
 # ----------------------------------------  FIBS Info
 
-    def c_motd(self, line, me):
+    def c_motd(self, line, me):             # implemented
         return utils.render_file('motd')
 
-    def c_about(self, line, me):
-        return 'about SIBS    %s' % NYI
+    def c_about(self, line, me):            # implemented
+        return utils.render_file('about')
 
     def c_average(self, line, me):
         return 'the average is about 8.3    %s' % NYI
@@ -290,9 +310,9 @@ class Command():
     def c_dicetest(self, line, me):
         return 'the dice are nice and cubic    %s' % NYI
 
-    def c_version(self, line, me):
+    def c_version(self, line, me):          # implemented
         # TODO: version line wie in fibs, vielleicht mit svn_keys
-        return 'SIBS/clip 0.01    %s' % NYI
+        return 'SIBS/clip 0.02'
 
     def c_stat(self, line, me):
         return 'status of SIBS    %s' % NYI
@@ -327,11 +347,11 @@ class Command():
 
 # ----------------------------------------  Game Commands
 
-    def c_roll(self, line, me):
+    def c_roll(self, line, me):             # implemented
         game, player = self.list_of_games.get(me.running_game)
         game.roll(player)
 
-    def c_move(self, line, me):
+    def c_move(self, line, me):             # implemented
         game, player = self.list_of_games.get(me.running_game)
         game.move(line[1:], player)
 
@@ -346,7 +366,7 @@ class Command():
         return msg
 # TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
 
-    def c_board(self, line, me):
+    def c_board(self, line, me):            # implemented
         game, player = self.list_of_games.get(me.running_game)
         return game.control.board.show_board(player)
 
