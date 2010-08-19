@@ -2,20 +2,34 @@
 # -*- coding: utf-8 -*-
 """Implementierung von Game-related Routinen."""
 
+from time import time
 from dice import getDice
+
+STANDALONE = True
 
 class GamesList:        # TODO: als Singleton ausführen
                         # TODO: mit UsersList in eine Klasse überführen
     def __init__(self,):
         self.active_games = {}
+        self.active_ids = {}
 
     def add(self, game):
         for i in game.ids:
             self.active_games[i] = (game, game.player[i])
+        self.active_ids[game.id] = game.id
+        # TODO: denk dran, beim Ende des Spiels aufzuräumen
 
     def get(self, gid, default=None):
         #print 'returning gid %s' % gid
         return self.active_games.get(gid, default)
+
+    def uid(self,):
+        gen = lambda: ''.join(('%f' % time()).split('.'))
+        gid = gen()
+        while self.active_ids.has_key(gid):
+            print 'collision with', gid
+            gid = gen()
+        return gid
 
 class Board:
     """The Board holds all information about position etc.. Special methods
@@ -23,8 +37,10 @@ check for valid moves etc.."""
 
     def __init__(self,):
         self.score_fmt = "board:%s:%s:%d:%d:%d:"
-        self.position_fmt = "%d:"*26
-##        self.position_fmt = "%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:"
+        if STANDALONE:
+            self.position_fmt = "%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:"
+        else:
+            self.position_fmt = "%d:"*26
         self.dice_fmt = "%d:"*5
         self.cube = "1:1:1:0:"
         self.direction = {'p1':"1:-1:0:25:",
@@ -65,8 +81,10 @@ check for valid moves etc.."""
         cube = self.cube
         direction = self.direction[whom]
         move = self.move[whom]
-        return score + self.position + dice + cube + direction + move
-##        return '%s | '*6 % (score, self.position, dice, cube, direction, move)
+        if STANDALONE:
+            return '%s | '*6 % (score, self.position, dice, cube, direction, move)
+        else:
+            return score + self.position + dice + cube + direction + move
 
 class Move:
     def __init__(self, move, control, player):
@@ -108,7 +126,10 @@ class GameControl:
                             5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
         self.home = {'p1':0, 'p2':0}
         self.bar = {'p1':0, 'p2':0}
-        self.score = {'p1':0, 'p2':0}
+        if STANDALONE:
+            self.score = {'p1':1, 'p2':2}
+        else:
+            self.score = {'p1':0, 'p2':0}
         if not board is None:
             self.board = board
         else:
@@ -167,8 +188,8 @@ class GameControl:
 
 class Game:
     # players watchers
-    def __init__(self, p1, p2, ML, board=None, dice='random'):
-        self.id = '908239874918'    # funny id, is that neccessary?
+    def __init__(self, gid, p1, p2, ML, board=None, dice='random'):
+        self.id = gid #'908239874918'    # funny id, is that neccessary?
                                     # TODO: YES - die muss unique sein!!!!!
         self.player1 = p1
         self.player2 = p2
@@ -226,7 +247,9 @@ class Game:
                                 #       machen kann. Überflüssige Schleife
 
 def getGame(**kw):
-    game = Game(kw['player1'], kw['player2'], kw['ML'], dice=kw['dice'])
-    kw['list_of_games'].add(game)
+    log = kw['list_of_games']
+    gid = log.uid()
+    game = Game(gid, kw['player1'], kw['player2'], kw['ML'], dice=kw['dice'])
+    log.add(game)
     game.start()
     return game.ids

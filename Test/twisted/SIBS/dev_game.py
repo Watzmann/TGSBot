@@ -50,7 +50,7 @@ class Spiel:
         self.black.set_protocol(Simple(self.p2))
         self.white.invite(self.p2, ml)
         self.white.join(self.black, log)
-        print log.active_games
+##        print log.active_games
         self.turns = {'p1':'p2', 'p2':'p1'}
         self.players = {'p1':self.white, 'p2':self.black}
         self.turn = None
@@ -98,9 +98,9 @@ if __name__ == "__main__":
         sys.exit(1)
 
     id1,p1 = get_game('p1')
-    print 'white:', id1, p1
+##    print 'white:', id1, p1
     id2,p2 = get_game('p2')
-    print 'black:', id2, p2
+##    print 'black:', id2, p2
 
     print '-'*60
     print 'das Spiel beginnt'
