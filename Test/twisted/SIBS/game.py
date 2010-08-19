@@ -5,7 +5,7 @@
 from time import time
 from dice import getDice
 
-STANDALONE = True
+STANDALONE = False
 
 class GamesList:        # TODO: als Singleton ausführen
                         # TODO: mit UsersList in eine Klasse überführen
