@@ -237,6 +237,7 @@ class User:
         self.settings = Settings()
         self.toggles = Toggles()
         self.waves = 0
+        self.messages = []
         self.invitations = {}   # TODO: wegen der Persistenz muss ich User()
                         # vielleicht wrappen, damit der Kern - User() - deep
                         # gespeichert werden kann und dynamical stuff wie
@@ -253,6 +254,13 @@ class User:
 
     def tell(self, user, msg):
         user.chat('%s tells: %s' % (self.name, msg))
+
+    def send_message(self, user, msg):
+        user.message(self.name, int(time.time()), msg)
+
+    def message(self, user, at_time, msg):
+        self.messages.append('' % (self.name, at_time, msg))
+        # TODO: if logged in trigger receive_message()
 
     def chat(self, msg):
         self.protocol.tell(msg)

@@ -79,7 +79,6 @@ class Command():
             return '%s is not here' % name
         else:
             me.tell(user, msg)
-##        return 'you tell: %s    %s' % (line[1:], NYI)
 
     def c_say(self, line, me):
         return 'you say: %s    %s' % (line[1:], NYI)
@@ -88,7 +87,14 @@ class Command():
         return 'you whisper: %s    %s' % (line[1:], NYI)
 
     def c_message(self, line, me):
-        return 'message sent to %s: %s    %s' % (line[1], line[2:], NYI)
+        name = line[1]
+        msg = ' '.join(line[2:])
+        user = self.list_of_users.get(name, None)
+        if user is None:
+            return "Don't know user %s" % name
+        else:
+            me.send_message(user, msg)
+##        return 'message sent to %s: %s    %s' % (line[1], line[2:], NYI)
 
     def c_waitfor(self, line, me):
         return 'you now wait for: %s    %s' % (line[1], NYI)
