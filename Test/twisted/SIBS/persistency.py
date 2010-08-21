@@ -9,7 +9,7 @@ class Db:       # TODO: die Geschichte mit dem Singleton
 
     __shared_state = {}
 
-    def __init__(self, db_name=''):
+    def __init__(self, db_name='shelve.db'):
         self.__dict__ = self.__shared_state
         if not hasattr(self, 'db_name'):
             self.db_name = db_name
@@ -22,9 +22,9 @@ class Db:       # TODO: die Geschichte mit dem Singleton
         self.db.close()
 
 class Persistent:
-    def __init__(self,):
+    def __init__(self, db_name='persistency.db'):
         self.db_key = str(id(self))
-        self.db = Db('db/test_users')
+        self.db = Db(db_name)
         
     def save(self,):
         self.db.db[self.db_key] = self.db_load
@@ -32,7 +32,7 @@ class Persistent:
 
 class Test(Persistent):
     def __init__(self, a, b, c):
-        Persistent.__init__(self)
+        Persistent.__init__(self, 'db/test_users')
         self.a = a
         self.b = b
         self.c = c
