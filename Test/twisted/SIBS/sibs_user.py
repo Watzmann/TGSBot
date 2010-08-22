@@ -39,12 +39,12 @@ class UsersList:        # TODO: als Singleton ausführen
     def add(self, user):
         self.list_of_active_users[user.name] = user
         # TODO: Fehler, wenn bereits logged in
-        user.save()
+        user.save()   # TODO:   muss das save hier sein??????
 
     def drop(self, name):
         print 'deleting %s from list of active users' % name
         user = self.list_of_active_users[name]
-        user.save()
+        user.save()   # TODO:   muss das save hier sein??????
         del self.list_of_active_users[name]
         # TODO: Fehler, wenn name not logged in
 
@@ -178,8 +178,8 @@ class Settings:
     #       etwas programmierarbeit
 
     def settings(self,):
-        return (self._boardstyle, self._linelength, self._pagelength,
-                self._redoubles, self._sortwho, self._timezone)
+        return [self._boardstyle, self._linelength, self._pagelength,
+                self._redoubles, self._sortwho, self._timezone]
     
     def boardstyle(self, *values):
         vals = values[0]
@@ -290,16 +290,31 @@ class User(Persistent):
                         # invitations oder games nicht gespeichert werden.
         self.dice = 'random'
         self.db_key = self.name
-        self.db_load = (self.toggles.toggles(), self.settings.settings(),
-                        self.info.info())
+        self.db_load = [self.toggles.toggles(), self.settings.settings(),
+                        self.info.info()]
         print 'This is USER %s with pw %s' % (self.name, '*'*8)
 
     def set_protocol(self, protocol):
         self.protocol = protocol
 
+    def check_password(self, password):
+        return self.info.passwd == password
+
     def set_password(self, password):
-        self.password = password
         self.info.passwd = password
+
+    def change_password(self, passwords):
+        passwords = passwords.split(':')
+        if len(passwords) < 3:
+            res = 1
+        elif not self.check_password(passwords[0]):
+            res = 2
+        elif passwords[1] != passwords[2]:
+            res = 3
+        else:
+            self.set_password(passwords[2])
+            res = 0
+        return res
 
     def set_login_data(self, login_time):
         host = self.protocol.factory.host()

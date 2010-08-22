@@ -27,7 +27,7 @@ import sibs_utils as utils
 ## message           0
 ## waitfor
 ## gag
-## password          0
+## x password
 ## x whois
 ## last   
 ## x roll
@@ -244,8 +244,20 @@ class Command():
     def c_address(self, line, me):
         return "you set your address to '%s'" % line[1], NYI
 
-    def c_password(self, line, me):
-        return "you changed your password to '%s'" % line[1], NYI
+    def c_password(self, line, me):         # implemented
+        msgs = ("Password changed.",
+                """** usage: password <old password>:<new password>:<new password>
+** NOTE: The character between the passwords is now a colon!""",
+                "** Sorry. Old password not correct.",
+                "** Please give your new password twice.",
+                )
+        arglen = len(line)
+        if arglen == 1:
+            ret = msgs[1]
+        else:
+            ret = me.change_password(line[1])
+            ret = msgs[ret]
+        return ret
 
     def c_save(self, line, me):
         return "you save your settings", NYI

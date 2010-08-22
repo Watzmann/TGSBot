@@ -4,9 +4,15 @@
 
 import shelve
 
-class Db:       # TODO: die Geschichte mit dem Singleton
+class Db:
+    # TODO:   es ist jetzt ein Singleton (Borg), aber folgendes Problem:
+    #         natürlich will ich ein Singleton für die EINE DB (z.B. Users),
+    #         aber natürlich will ich genauso ein weiteres Singleton für die
+    #         nächste DB, z.B. Games. Es müssen von diesem Typ also mehrere
+    #         Singletons bestehen :)
 
-    __shared_state = {}
+    __shared_state = {}     # Borg Pattern
+                            # http://code.activestate.com/recipes/66531-singleton-we-dont-need-no-stinkin-singleton-the-bo/
 
     def __init__(self, db_name='shelve.db'):
         self.__dict__ = self.__shared_state
