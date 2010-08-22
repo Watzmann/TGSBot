@@ -3,7 +3,6 @@
 """Persistenzschicht."""
 
 import shelve
-from StringIO import StringIO
 
 class Db:       # TODO: die Geschichte mit dem Singleton
 
@@ -13,13 +12,23 @@ class Db:       # TODO: die Geschichte mit dem Singleton
         self.__dict__ = self.__shared_state
         if not hasattr(self, 'db_name'):
             self.db_name = db_name
-            self.db = shelve.open(db_name)
+            self.db = self._rawopen()
+            self.open = True
 
+    def _rawopen(self,):
+        return shelve.open(self.db_name, writeback=True)
+    
     def sync(self,):
         self.db.sync()
 
     def close(self,):
         self.db.close()
+        self.open = False
+
+    def reopen(self,):
+        if not self.open:
+            self.db = self._rawopen()
+            self.open = True
 
 class Persistent:
     def __init__(self, db_name='persistency.db'):
@@ -30,29 +39,3 @@ class Persistent:
         self.db.db[self.db_key] = self.db_load
         self.db.db.sync()
 
-class Test(Persistent):
-    def __init__(self, a, b, c):
-        Persistent.__init__(self, 'db/test_users')
-        self.a = a
-        self.b = b
-        self.c = c
-        self.db_load = {'a':self.a,'b':self.b,'c':self.c,}
-        
-    def __str__(self,):
-        out = StringIO()
-        print >>out, 'a:', self.a
-        print >>out, 'b:', self.b
-        print >>out, 'c:', self.c
-        return out.getvalue()
-        
-if __name__ == '__main__':
-    test = {}
-    for i in ((2,1.23,'erst'), ('funny', 'zweit', 15), ('drei','ss','4')):
-        a,b,c = i
-        test[i] = Test(a,b,c)
-        test[i].save()
-    db = Db()
-    print 'DB dump'
-    for e,k in enumerate(db.db.keys()):
-        print e,k,db.db[k]
-    db.close()

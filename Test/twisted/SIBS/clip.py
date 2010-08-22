@@ -7,7 +7,7 @@ CLIP specification V 1.008 - 08 Mar 1997
 from time import time
 from twisted.internet.protocol import Protocol
 ##from twisted.python import log
-from sibs_user import User, getUser, dropUser
+from sibs_user import getUser, dropUser
 import sibs_utils as utils
 
 class Echo(Protocol):
@@ -79,22 +79,25 @@ class CLIP(Echo):
                 self.user = getUser(client=d[0], clip_version=d[1],
                                     user=d[2], password=d[3],
                                     lou = self.factory.active_users)
-                self.user.set_protocol(self)
-                self.user.set_login_data(time)
-                welcome = ['', self.user.welcome()]
-                welcome += [self.user.own_info(),]
-                welcome += utils.render_file('motd').splitlines()
-                welcome += utils.render_file('fake_message').splitlines()
-                # TODO: hier statt intro die messages ausgeben
-                who = self.factory.command.c_rawwho(['rawwho',], self.user)
-                welcome += [who,]
-                for m in welcome:
-                    print 'welcome',m
-                    self.transport.write('%s\r\n' % m)
-                self.myDataReceived = self.established
-                name = self.user.name
-                self.factory.broadcast('7 %s %s logs in' % (name, name),
-                                       exceptions=(name,))
+                if not self.user is None:
+                    self.user.set_protocol(self)
+                    self.user.set_login_data(time)
+                    welcome = ['', self.user.welcome()]
+                    welcome += [self.user.own_info(),]
+                    welcome += utils.render_file('motd').splitlines()
+                    welcome += utils.render_file('fake_message').splitlines()
+                    # TODO: hier statt intro die messages ausgeben
+                    who = self.factory.command.c_rawwho(['rawwho',], self.user)
+                    welcome += [who,]
+                    for m in welcome:
+                        print 'welcome',m
+                        self.transport.write('%s\r\n' % m)
+                    self.myDataReceived = self.established
+                    name = self.user.name
+                    self.factory.broadcast('7 %s %s logs in' % (name, name),
+                                           exceptions=(name,))
+                else:
+                    print 'user not known or wrong password'
             else:
                 reason = 'Login process cancelled - ' \
                          'not enough paramaeters (%d)' % len(d)

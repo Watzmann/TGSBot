@@ -6,14 +6,35 @@ import time
 from StringIO import StringIO
 from game import getGame
 from command import NYI
-from persistency import Persistent
+from persistency import Persistent, Db
+
+DB_Users = 'db/users'
 
 class UsersList:        # TODO: als Singleton ausführen
     def __init__(self,):
         self.list_of_active_users = {}
+        all_users = Db(DB_Users).db
+        self.list_of_all_users = dict([(k,self.restore(all_users[k])) \
+                                       for k in all_users.keys()])
+        for k in self.list_of_all_users.keys():
+            print k
 
     def get_active_users(self):
         return self.list_of_active_users
+
+    def get_user(self, name, password):
+        user = self.list_of_all_users.get(name, None)
+        print 'found user', user.name
+        if (not user is None) and (user.info.passwd != password):
+            print 'password:', user.info.passwd, password
+            user = None
+        return user
+
+    def restore(self, user_data):
+        user = User(user_data)
+        ## TODO: auf restore() könnte man verzichten; andererseits kann man
+        ##       jetzt hier spezielle Aktionen durchführen
+        return user
     
     def add(self, user):
         self.list_of_active_users[user.name] = user
@@ -34,12 +55,14 @@ class UsersList:        # TODO: als Singleton ausführen
         return self.list_of_active_users.values()
 
 class Info:
-    def __init__(self, name, passwd):
+    def __init__(self, data):
 ##        self.login = time.asctime(time.localtime(time.time()-150000))
-        self.login = int(time.time()-150000)
-        self.host = 'some.host.nyi' # % NYI
-        self.name = name
-        self.passwd = passwd
+##        self.login = int(time.time()-150000)
+##        self.host = 'some.host.nyi' # % NYI
+##        self.name = name
+##        self.passwd = ''
+        self.login, self.host, self.name, self.passwd, \
+                self.rating, self.experience = data
 
     def info(self,):
         return (self.login, self.host, self.name, self.passwd,
@@ -113,13 +136,13 @@ class Toggles:
             True: dict(zip(toggle_names, toggle_on_msgs)),
             False: dict(zip(toggle_names, toggle_off_msgs))
             }
-
-    def __init__(self,):
-        self._std = (
+    toggle_std = (
             True, True, False, True, False, True, True, False,
             True, False, True, False, False, False, False, True, False,
             )
-        self._switches = dict(zip(Toggles.toggle_names, self._std))
+
+    def __init__(self, data):
+        self._switches = data #dict(zip(Toggles.toggle_names, self._std))
 
     def toggles(self,):
         return self._switches
@@ -142,14 +165,15 @@ class Toggles:
         return out.getvalue()        
 
 class Settings:
-    def __init__(self,):
-        self._boardstyle = 3
-        self._linelength = 0
-        self._pagelength = 0
-        self._redoubles = 'none'
-        self._sortwho = 'name'
-        self._timezone = 'UTC'
-
+    def __init__(self, data):
+##        self._boardstyle = 3
+##        self._linelength = 0
+##        self._pagelength = 0
+##        self._redoubles = 'none'
+##        self._sortwho = 'name'
+##        self._timezone = 'UTC'
+        self._boardstyle, self._linelength, self._pagelength, \
+                self._redoubles, self._sortwho, self._timezone = data
     # TODO: die methoden hier kann man stark vereinfachen!!!
     #       etwas programmierarbeit
 
@@ -250,15 +274,14 @@ class Settings:
         return out.getvalue()        
 
 class User(Persistent):
-    def __init__(self, name, pw):
-        Persistent.__init__(self, 'db/users')
-        self.name = name
-        self.password = pw
-        self.info = Info(name, pw)
+    def __init__(self, data):
+        Persistent.__init__(self, DB_Users)
+        self.info = Info(data[2])
+        self.name = self.info.name
         self.status = Status()
-        self.settings = Settings()
-        self.toggles = Toggles()
-        self.waves = 0
+        self.settings = Settings(data[1])
+        self.toggles = Toggles(data[0])
+        self._waves = 0
         self.messages = []
         self.info.set_rating(1550.,0)
         self.invitations = {}   # TODO: wegen der Persistenz muss ich User()
@@ -266,13 +289,17 @@ class User(Persistent):
                         # gespeichert werden kann und dynamical stuff wie
                         # invitations oder games nicht gespeichert werden.
         self.dice = 'random'
-        self.db_key = self.name + '_user'
+        self.db_key = self.name
         self.db_load = (self.toggles.toggles(), self.settings.settings(),
                         self.info.info())
-        print 'This is USER %s with pw %s' % (name, '*'*len(pw))
+        print 'This is USER %s with pw %s' % (self.name, '*'*8)
 
     def set_protocol(self, protocol):
         self.protocol = protocol
+
+    def set_password(self, password):
+        self.password = password
+        self.info.passwd = password
 
     def set_login_data(self, login_time):
         host = self.protocol.factory.host()
@@ -360,8 +387,8 @@ class User(Persistent):
                                         (self.name,self.name), (self.name,)) 
 
     def wave(self,):
-        if self.waves == 0:
-            self.waves += 1
+        if self._waves == 0:
+            self._waves += 1
             self.protocol.factory.broadcast('%s waves goodbye.' % \
                                         (self.name,), (self.name,)) 
             return 'You wave goodbye.'
@@ -372,11 +399,16 @@ class User(Persistent):
         return self.who()
 
 def getUser(**kw):
-    name = kw['user']
-    user = User(name, kw['password'])
+    lou = kw['lou']
+    user = lou.get_user(kw['user'], kw['password'])
     # TODO: if user valid:
-    kw['lou'].add(user)
+    if not user is None:
+        lou.add(user)
     return user
 
 def dropUser(**kw):
     kw['lou'].drop(kw['user'])
+
+def newUser(**kw):
+    user = User()
+    return user

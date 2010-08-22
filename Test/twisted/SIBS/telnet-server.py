@@ -26,6 +26,11 @@ class ProxyFactory(http.HTTPFactory):
     active_games = GamesList()
     command = Command(active_users, active_games)
 
+    def __del__(self,):
+        ## TODO:  hier kommt er wohl gar nicht rein
+        print 'shutting down users database'
+        self.active_users.list_of_all_users.close()
+
     def incNumProtocols(self,):
         self.numProtocols += 1
         self.maxProtocols = max(self.numProtocols, self.maxProtocols)
