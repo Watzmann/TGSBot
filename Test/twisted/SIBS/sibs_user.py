@@ -13,19 +13,19 @@ DB_Users = 'db/users'
 class UsersList:        # TODO: als Singleton ausführen
     def __init__(self,):
         self.list_of_active_users = {}
-        all_users = Db(DB_Users).db
+        self.db = all_users = Db(DB_Users).db
         self.list_of_all_users = dict([(k,self.restore(all_users[k])) \
                                        for k in all_users.keys()])
-        for k in self.list_of_all_users.keys():
-            print k
+        for e,k in enumerate(self.list_of_all_users.keys()):
+            print e,k
 
     def get_active_users(self):
         return self.list_of_active_users
 
     def get_user(self, name, password):
         user = self.list_of_all_users.get(name, None)
-        print 'found user', user.name
         if (not user is None) and (user.info.passwd != password):
+            print 'found user', user.name
             print 'password:', user.info.passwd, password
             user = None
         return user
@@ -39,7 +39,7 @@ class UsersList:        # TODO: als Singleton ausführen
     def add(self, user):
         self.list_of_active_users[user.name] = user
         # TODO: Fehler, wenn bereits logged in
-        user.save()   # TODO:   muss das save hier sein??????
+##        user.save()   # TODO:   muss das save hier sein??????
 
     def drop(self, name):
         print 'deleting %s from list of active users' % name
@@ -55,7 +55,9 @@ class UsersList:        # TODO: als Singleton ausführen
         return self.list_of_active_users.values()
 
 class Info:
-    def __init__(self, data):
+    """Info soll selbst so wenig Methoden als möglich haben und lediglich
+als Datencontainer dienen."""
+    def __init__(self, data, toggles, settings):
 ##        self.login = time.asctime(time.localtime(time.time()-150000))
 ##        self.login = int(time.time()-150000)
 ##        self.host = 'some.host.nyi' # % NYI
@@ -63,10 +65,8 @@ class Info:
 ##        self.passwd = ''
         self.login, self.host, self.name, self.passwd, \
                 self.rating, self.experience = data
-
-    def info(self,):
-        return (self.login, self.host, self.name, self.passwd,
-                self.rating, self.experience)
+        self.toggles = toggles
+        self.settings = settings
 
     def set_login_data(self, login, host):
         self.last_login = self.login
@@ -77,6 +77,14 @@ class Info:
     def set_rating(self, rating, experience):
         self.rating = rating
         self.experience = experience
+
+    def show(self,):
+        out = StringIO()
+        v = self
+        print >>out, v.login, v.host, v.name, v.passwd, v.rating, v.experience
+        print >>out,v.toggles.values()
+        print >>out,v.settings
+        return out.getvalue()
 
 class Status:
     def __init__(self,):
@@ -141,12 +149,13 @@ class Toggles:
             True, False, True, False, False, False, False, True, False,
             )
 
-    def __init__(self, data):
-        self._switches = data #dict(zip(Toggles.toggle_names, self._std))
+    def __init__(self, info):
+        self._switches = info.toggles
+        #dict(zip(Toggles.toggle_names, Toggles.toggle_std))
 
-    def toggles(self,):
-        return self._switches
-
+##    def toggles(self,):
+##        return self._switches
+##
     def toggle(self, switch):
         self._switches[switch] = not self._switches[switch]
         return Toggles.toggle_msg[self._switches[switch]][switch]
@@ -165,29 +174,34 @@ class Toggles:
         return out.getvalue()        
 
 class Settings:
-    def __init__(self, data):
+    def __init__(self, info):
 ##        self._boardstyle = 3
 ##        self._linelength = 0
 ##        self._pagelength = 0
 ##        self._redoubles = 'none'
 ##        self._sortwho = 'name'
 ##        self._timezone = 'UTC'
-        self._boardstyle, self._linelength, self._pagelength, \
-                self._redoubles, self._sortwho, self._timezone = data
+        self._settings = info.settings
+        self._boardstyle = info.settings[0]
+        self._linelength = info.settings[1]
+        self._pagelength = info.settings[2]
+        self._redoubles = info.settings[3]
+        self._sortwho = info.settings[4]
+        self._timezone = info.settings[5]
     # TODO: die methoden hier kann man stark vereinfachen!!!
     #       etwas programmierarbeit
 
-    def settings(self,):
-        return [self._boardstyle, self._linelength, self._pagelength,
-                self._redoubles, self._sortwho, self._timezone]
-    
+##    def settings(self,):
+##        return [self._boardstyle, self._linelength, self._pagelength,
+##                self._redoubles, self._sortwho, self._timezone]
+##    
     def boardstyle(self, *values):
         vals = values[0]
 ##        print 'boardstyle', vals
         if len(vals) == 0:
             res = "Value of 'boardstyle' is %d" % self._boardstyle
         elif vals[0] in ('1','2','3'):
-            self._boardstyle = int(vals[0])
+            self._settings[0] = self._boardstyle = int(vals[0])
             # TODO: hier und in den xxxxlength() muss int() getrapped werden
             res = "Value of 'boardstyle' set to %d." % self._boardstyle
         else:
@@ -200,7 +214,7 @@ class Settings:
         if len(vals) == 0:
             res = "Value of 'linelength' is %d" % self._linelength
         elif int(vals[0]) >= 0 and int(vals[0]) < 1000:
-            self._linelength = int(vals[0])
+            self._settings[1] = self._linelength = int(vals[0])
             res = "Value of 'linelength' set to %d." % self._linelength
         else:
             res = "** Valid arguments are the numbers 0 to 999. " \
@@ -213,7 +227,7 @@ class Settings:
         if len(vals) == 0:
             res = "Value of 'pagelength' is %d" % self._pagelength
         elif int(vals[0]) >= 0 and int(vals[0]) < 1000:
-            self._pagelength = int(vals[0])
+            self._settings[2] = self._pagelength = int(vals[0])
             res = "Value of 'pagelength' set to %d." % self._pagelength
         else:
             res = "** Valid arguments are the numbers 0 to 999. " \
@@ -227,7 +241,7 @@ class Settings:
             res = "Value of 'redoubles' is %s" % self._redoubles
         elif (vals[0] in ('none', 'unlimited')) or \
                 (int(vals[0]) >= 0 and int(vals[0]) < 100):
-            self._redoubles = vals[0]
+            self._settings[3] = self._redoubles = vals[0]
             res = "Value of 'redoubles' set to %s." % self._redoubles
         else:
             res = "** Valid arguments are 'none', 'unlimited' and" \
@@ -240,7 +254,7 @@ class Settings:
         if len(vals) == 0:
             res = "Value of 'sortwho' is %s" % self._sortwho
         elif vals[0] in ('login', 'name', 'rating', 'rrating'):
-            self._sortwho = vals[0]
+            self._settings[4] = self._sortwho = vals[0]
             res = "Value of 'sortwho' set to %s." % self._sortwho
         else:
             res = "** Unknown value '%s'. Try 'login', 'name', " \
@@ -253,7 +267,7 @@ class Settings:
         if len(vals) == 0:
             res = "Value of 'timezone' is %s" % self._timezone
         elif vals[0] in ('UTC', ):
-            self._timezone = int(vals[0])
+            self._settings[5] = self._timezone = int(vals[0])
             res = "Value of 'timezone' set to %s." % self._timezone
         else:
             res = "Can't find timezone '%s'. Try one of: " \
@@ -276,23 +290,22 @@ class Settings:
 class User(Persistent):
     def __init__(self, data):
         Persistent.__init__(self, DB_Users)
-        self.info = Info(data[2])
+        self.info = data
         self.name = self.info.name
+        self.settings = Settings(self.info)
+        self.toggles = Toggles(self.info)
         self.status = Status()
-        self.settings = Settings(data[1])
-        self.toggles = Toggles(data[0])
         self._waves = 0
         self.messages = []
-        self.info.set_rating(1550.,0)
+##        self.info.set_rating(1550.,0)
         self.invitations = {}   # TODO: wegen der Persistenz muss ich User()
                         # vielleicht wrappen, damit der Kern - User() - deep
                         # gespeichert werden kann und dynamical stuff wie
                         # invitations oder games nicht gespeichert werden.
         self.dice = 'random'
         self.db_key = self.name
-        self.db_load = [self.toggles.toggles(), self.settings.settings(),
-                        self.info.info()]
-        print 'This is USER %s with pw %s' % (self.name, '*'*8)
+        self.db_load = self.info
+##        print 'This is USER %s with pw %s' % (self.name, '*'*8)
 
     def set_protocol(self, protocol):
         self.protocol = protocol
@@ -316,8 +329,7 @@ class User(Persistent):
             res = 0
         return res
 
-    def set_login_data(self, login_time):
-        host = self.protocol.factory.host()
+    def set_login_data(self, login_time, host):
         self.info.set_login_data(login_time, host)
 
     def tell(self, user, msg):
@@ -413,17 +425,24 @@ class User(Persistent):
     def __str__(self,):
         return self.who()
 
+def newUser(**kw):
+    data = (time.time(),'',kw['user'],kw['password'],1500.,0)
+    toggles = dict(zip(Toggles.toggle_names, Toggles.toggle_std))
+    settings = [3, 0, 0, 'none', 'name', 'UTC']
+    info = Info(data, toggles, settings)
+    user = User(info)
+    user.save()
+    return user
+
 def getUser(**kw):
     lou = kw['lou']
     user = lou.get_user(kw['user'], kw['password'])
     # TODO: if user valid:
-    if not user is None:
-        lou.add(user)
+    if user is None:
+        print "couldn't find user", kw['user']
+        user = newUser(**kw)
+    lou.add(user)
     return user
 
 def dropUser(**kw):
     kw['lou'].drop(kw['user'])
-
-def newUser(**kw):
-    user = User()
-    return user

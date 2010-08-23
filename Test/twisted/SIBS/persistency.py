@@ -42,6 +42,7 @@ class Persistent:
         self.db = Db(db_name)
         
     def save(self,):
+        print 'persistency saving', self.db_load
         self.db.db[self.db_key] = self.db_load
         self.db.db.sync()
 

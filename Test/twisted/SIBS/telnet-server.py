@@ -29,7 +29,7 @@ class ProxyFactory(http.HTTPFactory):
     def __del__(self,):
         ## TODO:  hier kommt er wohl gar nicht rein
         print 'shutting down users database'
-        self.active_users.list_of_all_users.close()
+        self.active_users.db.close()
 
     def incNumProtocols(self,):
         self.numProtocols += 1

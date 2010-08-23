@@ -270,6 +270,9 @@ class Command():
     def c_show(self, line, me):
         return 'shown: %s    %s' % (line[1], NYI)
 
+    def c_info(self, line, me):
+        return me.info.show()
+
     def c_who(self, line, me):              # implemented
         out = StringIO()
         lou = self.list_of_users.get_active_users()

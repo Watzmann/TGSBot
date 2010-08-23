@@ -81,7 +81,7 @@ class CLIP(Echo):
                                     lou = self.factory.active_users)
                 if not self.user is None:
                     self.user.set_protocol(self)
-                    self.user.set_login_data(time)
+                    self.user.set_login_data(login_time, self.factory.host())
                     welcome = ['', self.user.welcome()]
                     welcome += [self.user.own_info(),]
                     welcome += utils.render_file('motd').splitlines()

@@ -8,12 +8,12 @@ if __name__ == '__main__':
     db = Db('db/users')
     keys = db.db.keys()
     print 'Users entries'
-    print '   ',db.db.values()[0][0].keys()
+    print '   ',db.db.values()[0].toggles.keys()
     keys.sort()
     for e,k in enumerate(keys):
         print e,k
         v = db.db[k]
-        print '   ',v[0].values()
-        print '   ',v[1]
-        print '   ',v[2]
+        print '   ', v.login, v.host, v.name, v.passwd, v.rating, v.experience
+        print '   ',v.toggles.values()
+        print '   ',v.settings
     db.close()
