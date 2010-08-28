@@ -9,6 +9,8 @@ from command import NYI
 from persistency import Persistent, Db
 
 DB_Users = 'db/users'
+RESERVED_Users = ('guest', 'systemwart', 'administrator')
+## TODO: RESERVED_Users gehören nicht in OpenSource
 
 class UsersList:        # TODO: als Singleton ausführen
     def __init__(self,):
@@ -23,10 +25,12 @@ class UsersList:        # TODO: als Singleton ausführen
         return self.list_of_active_users
 
     def get_user(self, name, password):
+        if self.list_of_active_users.has_key(name):
+            return 1    # user is already logged in and get's a warning
         user = self.list_of_all_users.get(name, None)
         if (not user is None) and (user.info.passwd != password):
             print 'found user', user.name
-            print 'password:', user.info.passwd, password
+            print 'wrong password:', password
             user = None
         return user
 
@@ -35,11 +39,12 @@ class UsersList:        # TODO: als Singleton ausführen
         ## TODO: auf restore() könnte man verzichten; andererseits kann man
         ##       jetzt hier spezielle Aktionen durchführen
         return user
-    
+
     def add(self, user):
+        self.list_of_all_users[user.name] = user
+
+    def online(self, user):
         self.list_of_active_users[user.name] = user
-        # TODO: Fehler, wenn bereits logged in
-##        user.save()   # TODO:   muss das save hier sein??????
 
     def drop(self, name):
         print 'deleting %s from list of active users' % name
@@ -48,7 +53,10 @@ class UsersList:        # TODO: als Singleton ausführen
         del self.list_of_active_users[name]
         # TODO: Fehler, wenn name not logged in
 
-    def get(self, name, default=None):
+    def get_from_all(self, name, default=None):
+        return self.list_of_all_users.get(name, default)
+
+    def get_active(self, name, default=None):
         return self.list_of_active_users.get(name, default)
 
     def get_all_users(self,):
@@ -70,7 +78,7 @@ als Datencontainer dienen."""
 
     def set_login_data(self, login, host):
         self.last_login = self.login
-        self.login = login
+        self.login = int(login)
         self.last_host = self.host
         self.host = host
 
@@ -86,9 +94,29 @@ als Datencontainer dienen."""
         print >>out,v.settings
         return out.getvalue()
 
+    def array(self, battery):
+        s = self.toggles
+        t = {0: ('allowpip', 'autoboard', 'autodouble', 'automove',),
+             1: ('bell', 'crawford', 'double',),
+             2: ('greedy', 'moreboards', 'moves', 'notify',),
+             3: ('ratings', 'ready',),
+             4: ('report', 'silent',),
+             }
+        return [s[i] for i in t[battery]]
+
+    def __str__(self,):
+        _t = {True: '1', False: '0'}
+        t = [' '.join([_t[i] for i in self.array(p)]) for p in range(5)]
+        ret = '%s %s %s %s %d %s %.2f %s %s %s %s' % \
+            (self.name, t[0], '<away>=[0,1]', t[1], self.experience, t[2],
+             self.rating, t[3], self.settings[3], t[4], self.settings[5],)
+##        ret = '.'.join(t)
+        return ret
+
 class Status:
     def __init__(self,):
-        self.status = 'ready'
+        self.status = ('ready', 'online', 'playing')[1]
+        self.away = False   # TODO: sollte in Info() aufgehen        
 
 class Toggles:
     toggle_names = (
@@ -171,7 +199,7 @@ class Toggles:
         for k in keys:
             print >> out, '%-16s%s' % \
                   (k, {True: 'YES', False: 'NO'}[self._switches[k]])
-        return out.getvalue()        
+        return out.getvalue()
 
 class Settings:
     def __init__(self, info):
@@ -406,8 +434,7 @@ class User(Persistent):
         return '1 %s %s %s' % (self.name, info.last_login, info.last_host)
 
     def own_info(self,):
-        return '2 %s 1 1 0 0 0 0 1 1 2396 0 1 0 1 3457.85 0 0 0 0 0 ' \
-                'Australia/Melbourne' % self.name
+        return '2 %s' % str(self.info)
 
     def drop_connection(self,):
         self.protocol.factory.broadcast('8 %s %s drops connection' % \
@@ -432,16 +459,17 @@ def newUser(**kw):
     info = Info(data, toggles, settings)
     user = User(info)
     user.save()
+    kw['lou'].add(user)
     return user
 
 def getUser(**kw):
     lou = kw['lou']
     user = lou.get_user(kw['user'], kw['password'])
     # TODO: if user valid:
-    if user is None:
-        print "couldn't find user", kw['user']
-        user = newUser(**kw)
-    lou.add(user)
+    if not user is None and not user == 1:
+        lou.online(user)
+##        print "couldn't find user", kw['user']
+##        user = newUser(**kw)
     return user
 
 def dropUser(**kw):

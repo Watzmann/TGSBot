@@ -52,8 +52,7 @@ class ProxyFactory(http.HTTPFactory):
 
     def host(self,):
         """soll den host des einloggenden spielers ermitteln."""
-        from command import NYI
-        return 'unknown host   %s' % NYI
+        return 'unknown.host.NYI'
 
     def broadcast(self, msg, exceptions=()):
         """Sends msg as a broadcast to all logged clients."""
@@ -63,6 +62,10 @@ class ProxyFactory(http.HTTPFactory):
             if u.name in exceptions:
                 continue
             u.chat(msg)
+
+    ## TODO:  es muss für einen user "systemwart" eine eigene command-Klasse
+    ##        geben. Darin Commands wie "stop", "flush", vielleich logginglevel
+    ##        und so weiter
     
 reactor.listenTCP(8080, ProxyFactory())
 reactor.run()

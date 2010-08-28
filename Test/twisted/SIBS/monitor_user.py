@@ -7,9 +7,12 @@ from persistency import Persistent, Db
 if __name__ == '__main__':
     db = Db('db/users')
     keys = db.db.keys()
+    keys.sort()
+    print 'Registered users'
+    for e,k in enumerate(keys):
+        print e,k
     print 'Users entries'
     print '   ',db.db.values()[0].toggles.keys()
-    keys.sort()
     for e,k in enumerate(keys):
         print e,k
         v = db.db[k]

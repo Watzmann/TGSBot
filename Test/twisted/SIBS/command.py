@@ -74,7 +74,7 @@ class Command():
     def c_tell(self, line, me):             # implemented
         name = line[1]
         msg = ' '.join(line[2:])
-        user = self.list_of_users.get(name, None)
+        user = self.list_of_users.get_active(name, None)
         if user is None:
             return '%s is not here' % name
         else:
@@ -89,7 +89,7 @@ class Command():
     def c_message(self, line, me):
         name = line[1]
         msg = ' '.join(line[2:])
-        user = self.list_of_users.get(name, None)
+        user = self.list_of_users.get_active(name, None)
         if user is None:
             return "Don't know user %s" % name
         else:
@@ -111,7 +111,7 @@ class Command():
     def c_invite(self, line, me):           # implemented
         user = line[1]
         ML = line[2]
-        him = self.list_of_users.get(user)
+        him = self.list_of_users.get_active(user)
         me.invite(user, ML)
         him.chat('%s wants to play a %s point match with you.' % (me.name, ML))
         msg = '** You invited %s to a %s point match.' % (user, ML,)
@@ -119,7 +119,7 @@ class Command():
 
     def c_join(self, line, me):             # implemented
         user = line[1]
-        him = self.list_of_users.get(user)
+        him = self.list_of_users.get_active(user)
         if not him is None:
             him.join(me, self.list_of_games)    # TODO: deferred
             msg = '** You are now playing a n point match with %s.' % user
@@ -354,8 +354,8 @@ class Command():
     def c_port(self, line, me):
         return 'undocumented commands    %s' % NYI
 
-    def c_name(self, line, me):
-        return 'undocumented commands    %s' % NYI
+    def c_name(self, line, me):             # implemented
+        return "** You're not supposed to change your name."
 
     def c_co(self, line, me):
         return 'undocumented commands    %s' % NYI
