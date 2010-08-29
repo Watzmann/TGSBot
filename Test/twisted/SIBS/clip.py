@@ -183,12 +183,8 @@ class CLIP(Echo):
                 print 'ERFOLG', kw
                 user = newUser(**kw)
                 success = True
-            else:
-                pass
-                # TODO   fuckin complain shit    was kann hier noch passieren?
-            # TODO   wie geht's weiter      ausloggen automatisch?
-            #        clients anbinden !!!!!
-             
+                self.transport.write("\xff\xfc\x01\nYou are registered.\n" \
+                                 "Type 'help beginner' to get started.\n> ")
 
     def logout(self, special_name=''):
         user = getattr(self,'user',None)
