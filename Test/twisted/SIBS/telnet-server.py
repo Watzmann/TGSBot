@@ -65,7 +65,7 @@ class ProxyFactory(http.HTTPFactory):
 
     ## TODO:  es muss für einen user "systemwart" eine eigene command-Klasse
     ##        geben. Darin Commands wie "stop", "flush", vielleich logginglevel
-    ##        und so weiter
+    ##        delete(user) und so weiter
     
 reactor.listenTCP(8080, ProxyFactory())
 reactor.run()
