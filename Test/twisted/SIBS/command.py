@@ -8,6 +8,9 @@ from StringIO import StringIO
 import inspect
 import sibs_utils as utils
 
+VERSION = '0.1'
+REV = '$Revision$'
+
 ## 0
 ## x tell
 ## 0 help
@@ -21,7 +24,7 @@ import sibs_utils as utils
 ## time
 ## 0 about
 
-## persistency       0
+## x persistency
 
 ## 2
 ## message           0
@@ -317,7 +320,7 @@ class Command():
     def c_time(self, line, me):
         return 'it is 5 past 12    %s' % NYI
 
-# ----------------------------------------  FIBS Info
+# ----------------------------------------  SIBS Info
 
     def c_motd(self, line, me):             # implemented
         return utils.render_file('motd')
@@ -333,7 +336,7 @@ class Command():
 
     def c_version(self, line, me):          # implemented
         # TODO: version line wie in fibs, vielleicht mit svn_keys
-        return 'SIBS/clip 0.02'
+        return 'SIBS/clip 0.1.'
 
     def c_stat(self, line, me):
         return 'status of SIBS    %s' % NYI
@@ -441,3 +444,8 @@ class Command():
         lofc = [(f[0].lstrip('c_'),f[1]) for f in inspect.getmembers(self) \
                   if inspect.ismethod(f[1]) and f[0].startswith('c_')]
         return lofc
+
+if __name__ == "__main__":
+    c = Command(None, None)
+    print c.c_version(1,2)
+    print VERSION, REV
