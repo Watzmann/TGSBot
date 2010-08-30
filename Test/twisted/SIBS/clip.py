@@ -10,6 +10,8 @@ from twisted.internet.protocol import Protocol
 from sibs_user import getUser, dropUser, newUser, RESERVED_Users
 import sibs_utils as utils
 
+REV = '$Revision$'
+
 class Echo(Protocol):
     def dataReceived(self, data):
         print 'heard:', data

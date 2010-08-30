@@ -4,6 +4,8 @@
 Siehe http://wiki.python.org/moin/Twisted-Examples
 """
 
+REV = '$Revision$'
+
 import sys
 
 from twisted.web import proxy, http

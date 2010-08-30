@@ -18,6 +18,6 @@ def for_all_users(db, repair):
     
 if __name__ == '__main__':
     db = Db('db/users')
-    repair = login_time
+    #repair = login_time
     for_all_users(db.db, repair)
     db.close()

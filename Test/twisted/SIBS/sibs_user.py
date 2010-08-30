@@ -8,6 +8,8 @@ from game import getGame
 from command import NYI
 from persistency import Persistent, Db
 
+REV = '$Revision$'
+
 DB_Users = 'db/users'
 RESERVED_Users = ('guest', 'systemwart', 'administrator')
 ## TODO: RESERVED_Users gehören nicht in OpenSource

@@ -7,13 +7,16 @@ Siehe fibs_interface.html.
 from StringIO import StringIO
 import inspect
 import sibs_utils as utils
+
+REV = '$Revision$'
+
 from version import VERSION
 
 ## 0
 ## x tell
 ## 0 help
 ## 0 motd
-## 0 version
+## x version
 
 ## 1
 ## x bye

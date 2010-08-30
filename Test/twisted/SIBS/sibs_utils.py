@@ -3,6 +3,8 @@
 """Utilities für SIBS.
 """
 
+REV = '$Revision$'
+
 import os
 
 def render_file(filename):

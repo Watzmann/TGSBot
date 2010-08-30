@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 """Persistenzschicht."""
 
+REV = '$Revision$'
+
 import shelve
 
 class Db:
