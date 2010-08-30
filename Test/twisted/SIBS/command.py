@@ -7,9 +7,7 @@ Siehe fibs_interface.html.
 from StringIO import StringIO
 import inspect
 import sibs_utils as utils
-
-VERSION = '0.1'
-REV = '$Revision$'
+from version import VERSION
 
 ## 0
 ## x tell
@@ -336,7 +334,7 @@ class Command():
 
     def c_version(self, line, me):          # implemented
         # TODO: version line wie in fibs, vielleicht mit svn_keys
-        return 'SIBS/clip 0.1.'
+        return 'SIBS  %s' % VERSION
 
     def c_stat(self, line, me):
         return 'status of SIBS    %s' % NYI
@@ -448,4 +446,3 @@ class Command():
 if __name__ == "__main__":
     c = Command(None, None)
     print c.c_version(1,2)
-    print VERSION, REV
