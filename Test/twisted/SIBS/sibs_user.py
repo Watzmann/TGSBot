@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 """Implementierung von User und User-related Routinen."""
 
+REV = '$Revision$'
+
 import time
 from StringIO import StringIO
 from game import getGame
 from command import NYI
 from persistency import Persistent, Db
-
-REV = '$Revision$'
 
 DB_Users = 'db/users'
 RESERVED_Users = ('guest', 'systemwart', 'administrator')

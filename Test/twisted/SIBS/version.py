@@ -4,17 +4,17 @@
 
 revs = []
 
+from sibs_utils import REV
+revs.append(REV)
+from persistency import REV
+revs.append(REV)
 from sibs_user import REV
 revs.append(REV)
-from sibs_utils import REV
+from telnet_server import REV
 revs.append(REV)
 from clip import REV
 revs.append(REV)
 from command import REV
-revs.append(REV)
-from persistency import REV
-revs.append(REV)
-from telnet_server import REV
 revs.append(REV)
 
 REV = '$Revision$'

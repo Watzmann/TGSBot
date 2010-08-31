@@ -4,12 +4,11 @@
 Siehe fibs_interface.html.
 """
 
+REV = '$Revision$'
+
 from StringIO import StringIO
 import inspect
 import sibs_utils as utils
-
-REV = '$Revision$'
-
 from version import VERSION
 
 ## 0

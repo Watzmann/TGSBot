@@ -4,13 +4,13 @@
 CLIP specification V 1.008 - 08 Mar 1997
 """
 
+REV = '$Revision$'
+
 import time
 from twisted.internet.protocol import Protocol
 ##from twisted.python import log
 from sibs_user import getUser, dropUser, newUser, RESERVED_Users
 import sibs_utils as utils
-
-REV = '$Revision$'
 
 class Echo(Protocol):
     def dataReceived(self, data):
