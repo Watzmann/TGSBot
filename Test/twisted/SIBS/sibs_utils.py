@@ -6,6 +6,10 @@
 REV = '$Revision$'
 
 import os
+from version import Version
+
+VERSION = Version()
+VERSION.register(__name__, REV)
 
 def render_file(filename):
     f = open(os.path.join('ressources',filename))
