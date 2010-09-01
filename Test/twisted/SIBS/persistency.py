@@ -5,6 +5,10 @@
 REV = '$Revision$'
 
 import shelve
+from version import Version
+
+v = Version()
+v.register(__name__, REV)
 
 class Db:
     # TODO:   es ist jetzt ein Singleton (Borg), aber folgendes Problem:

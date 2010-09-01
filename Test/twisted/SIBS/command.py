@@ -9,7 +9,10 @@ REV = '$Revision$'
 from StringIO import StringIO
 import inspect
 import sibs_utils as utils
-from version import VERSION
+from version import Version
+
+VERSION = Version()
+VERSION.register(__name__, REV)
 
 ## 0
 ## x tell
@@ -335,8 +338,8 @@ class Command():
         return 'the dice are nice and cubic    %s' % NYI
 
     def c_version(self, line, me):          # implemented
-        # TODO: version line wie in fibs, vielleicht mit svn_keys
-        return 'SIBS  %s' % VERSION
+        # TODO: version line wie in fibs
+        return 'SIBS  %s' % VERSION.version()
 
     def c_stat(self, line, me):
         return 'status of SIBS    %s' % NYI

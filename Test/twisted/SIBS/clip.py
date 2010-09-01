@@ -11,6 +11,10 @@ from twisted.internet.protocol import Protocol
 ##from twisted.python import log
 from sibs_user import getUser, dropUser, newUser, RESERVED_Users
 import sibs_utils as utils
+from version import Version
+
+v = Version()
+v.register(__name__, REV)
 
 class Echo(Protocol):
     def dataReceived(self, data):

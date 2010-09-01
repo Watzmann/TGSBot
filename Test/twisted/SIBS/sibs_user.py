@@ -9,6 +9,10 @@ from StringIO import StringIO
 from game import getGame
 from command import NYI
 from persistency import Persistent, Db
+from version import Version
+
+v = Version()
+v.register(__name__, REV)
 
 DB_Users = 'db/users'
 RESERVED_Users = ('guest', 'systemwart', 'administrator')

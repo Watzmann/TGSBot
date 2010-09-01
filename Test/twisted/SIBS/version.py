@@ -2,14 +2,8 @@
 # -*- coding: utf-8 -*-
 """Version of SIBS."""
 
-##from sibs_utils import REV
-##from persistency import REV
-##from sibs_user import REV
-##from telnet_server import REV
-##from clip import REV
-##from command import REV
-
 VERSION = '0.1'
+VERSION_STRING = 'pre-alpha'
 REV = '$Revision$'
 
 class Version:
@@ -28,7 +22,7 @@ class Version:
     def version(self, module=None):
         if module is None:
             max_rev = str(max(self.revisions.values()))
-            return '.'.join([VERSION,max_rev])
+            return '%s.%s  %s' % (VERSION, max_rev, VERSION_STRING)
         else:
             revs = self.revisions
             if revs.has_key(module):

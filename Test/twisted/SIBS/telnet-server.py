@@ -17,6 +17,10 @@ from clip import CLIP
 from command import Command
 from sibs_user import UsersList
 from game import GamesList
+from version import Version
+
+v = Version()
+v.register(__name__, REV)
 
 log.startLogging(sys.stdout)
  
