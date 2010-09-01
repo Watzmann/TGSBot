@@ -86,6 +86,7 @@ class CLIP(Echo):
             self.transport.write('%s\r\n' % (result,))
 
     def authentication(self, data):
+        self.login_time = int(time.time())
         success = False
         print 'in auth with', data
         if data.startswith('guest'):
@@ -97,7 +98,6 @@ class CLIP(Echo):
                 success = True
         elif data.startswith('login'):
             #login <client_name> <clip_version> <name> <password>\r\n
-            login_time = int(time.time())
             d = data.split()[1:]
             if len(d) > 3:
                 print 'Login process with', d[:-1], '*******'
@@ -111,7 +111,8 @@ class CLIP(Echo):
                     success = True
                 elif not self.user is None:
                     self.user.set_protocol(self)
-                    self.user.set_login_data(login_time, self.factory.host())
+                    self.user.set_login_data(self.login_time,
+                                             self.factory.host())
                     self.welcome(self.user)
                     name = self.user.name
                     self.myDataReceived = self.established
@@ -185,7 +186,8 @@ class CLIP(Echo):
                                      "Password:")
             elif d[0] == self.password:
                 kw = {'user':self.name, 'password':self.password,
-                      'lou':self.factory.active_users,}
+                      'lou':self.factory.active_users,
+                      'login':self.login_time}
                 print 'ERFOLG', kw
                 user = newUser(**kw)
                 success = True

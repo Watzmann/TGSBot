@@ -380,6 +380,7 @@ class User(Persistent):
         self.protocol.tell(msg)
 
     def who(self,):
+        # TODO: richtige Werte verwenden
         args = {}
         args['user'] = self.name
         args['opponent'] = '-'
@@ -400,6 +401,7 @@ class User(Persistent):
 ##        return "Ei, isch bin dae %s" % self.name
 
     def whois(self,):
+        # TODO: richtige Werte verwenden
         args = {}
         args['name'] = self.name
         args['date'] = "Tuesday, January 14 20:27 EST"
@@ -459,7 +461,7 @@ class User(Persistent):
         return self.who()
 
 def newUser(**kw):
-    data = (time.time(),'',kw['user'],kw['password'],1500.,0)
+    data = (kw['login'],'',kw['user'],kw['password'],1500.,0)
     toggles = dict(zip(Toggles.toggle_names, Toggles.toggle_std))
     settings = [3, 0, 0, 'none', 'name', 'UTC']
     info = Info(data, toggles, settings)
@@ -471,11 +473,8 @@ def newUser(**kw):
 def getUser(**kw):
     lou = kw['lou']
     user = lou.get_user(kw['user'], kw['password'])
-    # TODO: if user valid:
     if not user is None and not user == 1:
         lou.online(user)
-##        print "couldn't find user", kw['user']
-##        user = newUser(**kw)
     return user
 
 def dropUser(**kw):
