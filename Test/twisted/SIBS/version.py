@@ -31,6 +31,9 @@ class Version:
             else:
                 return ''
 
+    def registered_modules(self,):
+        return self.revisions.keys()
+
 v = Version()
 v.register(__name__, REV)
 

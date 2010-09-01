@@ -20,7 +20,15 @@ from game import GamesList
 from version import Version
 
 v = Version()
-v.register(__name__, REV)
+_module__ = __name__
+if __name__ == '__main__':
+    _module__ = __file__
+v.register(_module__, REV)
+
+print 'registered modules:'
+for m in v.registered_modules():
+    print ' ', v.version(m)
+print v.version()
 
 log.startLogging(sys.stdout)
  
