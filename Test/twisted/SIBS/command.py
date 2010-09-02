@@ -30,7 +30,7 @@ VERSION.register(__name__, REV)
 ## x persistency
 
 ## 2
-## message           0
+## x message
 ## waitfor
 ## gag
 ## x password
@@ -95,7 +95,7 @@ class Command():
     def c_message(self, line, me):
         name = line[1]
         msg = ' '.join(line[2:])
-        user = self.list_of_users.get_active(name, None)
+        user = self.list_of_users.get_from_all(name, None)
         if user is None:
             return "Don't know user %s" % name
         else:

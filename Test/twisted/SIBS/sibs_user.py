@@ -71,7 +71,7 @@ class UsersList:        # TODO: als Singleton ausführen
 class Info:
     """Info soll selbst so wenig Methoden als möglich haben und lediglich
 als Datencontainer dienen."""
-    def __init__(self, data, toggles, settings):
+    def __init__(self, data, toggles, settings, messages):
 ##        self.login = time.asctime(time.localtime(time.time()-150000))
 ##        self.login = int(time.time()-150000)
 ##        self.host = 'some.host.nyi' # % NYI
@@ -81,6 +81,7 @@ als Datencontainer dienen."""
                 self.rating, self.experience = data
         self.toggles = toggles
         self.settings = settings
+        self.messages = messages
 
     def set_login_data(self, login, host):
         self.last_login = self.login
@@ -91,6 +92,11 @@ als Datencontainer dienen."""
     def set_rating(self, rating, experience):
         self.rating = rating
         self.experience = experience
+
+    def message(self, msg):
+        """message() is used for persistency of messages."""
+        self.messages.append(msg)
+        print 'message:', msg
 
     def show(self,):
         out = StringIO()
@@ -216,6 +222,8 @@ class Settings:
 ##        self._sortwho = 'name'
 ##        self._timezone = 'UTC'
         self._settings = info.settings
+        # TODO: hier sollte statt info DRINGEND nur "settings" übergeben werden.
+        #       Diese Abhängigkeit von Info() ist nicht akzeptabel.
         self._boardstyle = info.settings[0]
         self._linelength = info.settings[1]
         self._pagelength = info.settings[2]
@@ -330,8 +338,6 @@ class User(Persistent):
         self.toggles = Toggles(self.info)
         self.status = Status()
         self._waves = 0
-        self.messages = []
-##        self.info.set_rating(1550.,0)
         self.invitations = {}   # TODO: wegen der Persistenz muss ich User()
                         # vielleicht wrappen, damit der Kern - User() - deep
                         # gespeichert werden kann und dynamical stuff wie
@@ -339,7 +345,6 @@ class User(Persistent):
         self.dice = 'random'
         self.db_key = self.name
         self.db_load = self.info
-##        print 'This is USER %s with pw %s' % (self.name, '*'*8)
 
     def set_protocol(self, protocol):
         self.protocol = protocol
@@ -349,6 +354,7 @@ class User(Persistent):
 
     def set_password(self, password):
         self.info.passwd = password
+        self.save()
 
     def change_password(self, passwords):
         passwords = passwords.split(':')
@@ -365,15 +371,27 @@ class User(Persistent):
 
     def set_login_data(self, login_time, host):
         self.info.set_login_data(login_time, host)
+        self.save()
 
     def tell(self, user, msg):
         user.chat('%s tells: %s' % (self.name, msg))
 
+    def deliver_messages(self,):
+        """Delivers messages when user logs in"""
+        msgs = self.info.messages
+        self.info.messages = []
+        self.save()
+        return msgs
+
     def send_message(self, user, msg):
+        """Use send_message() to send a message to another player."""
         user.message(self.name, int(time.time()), msg)
 
     def message(self, user, at_time, msg):
-        self.messages.append('' % (self.name, at_time, msg))
+        """message() will receive a message from another player."""
+        # 9 from time message
+        self.info.messages.append('9 %s %d %s' % (user, at_time, msg))
+        self.save()
         # TODO: if logged in trigger receive_message()
 
     def chat(self, msg):
@@ -464,7 +482,8 @@ def newUser(**kw):
     data = (kw['login'],'',kw['user'],kw['password'],1500.,0)
     toggles = dict(zip(Toggles.toggle_names, Toggles.toggle_std))
     settings = [3, 0, 0, 'none', 'name', 'UTC']
-    info = Info(data, toggles, settings)
+    messages = []
+    info = Info(data, toggles, settings, messages)
     user = User(info)
     user.save()
     kw['lou'].add(user)

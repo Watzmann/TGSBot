@@ -19,4 +19,5 @@ if __name__ == '__main__':
         print '   ', v.login, v.host, v.name, v.passwd, v.rating, v.experience,
 ##        print '   ',v.toggles.values()
         print '   ',v.settings
+##        print '   ',v.messages
     db.close()

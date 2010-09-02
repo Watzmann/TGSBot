@@ -219,7 +219,7 @@ class CLIP(Echo):
         welcome += [user.own_info(),]
         welcome += utils.render_file('motd').splitlines()
         # TODO: hier statt fake_messages die echten messages ausgeben
-        welcome += utils.render_file('fake_message').splitlines()
+        welcome += user.deliver_messages() #utils.render_file('fake_message').splitlines()
         who = self.factory.command.c_rawwho(['rawwho',], self.user)
         welcome += [who,]
         self.cycle_message(welcome)
