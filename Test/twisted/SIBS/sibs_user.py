@@ -126,9 +126,15 @@ als Datencontainer dienen."""
         return ret
 
 class Status:
-    def __init__(self,):
-        self.status = ('ready', 'online', 'playing')[1]
-        self.away = False   # TODO: sollte in Info() aufgehen        
+    def __init__(self, toggles):
+        self.toggles = toggles
+        self.away = False   # TODO: sollte in Info() aufgehen
+
+    def get(self, fmt='int'):
+        status = int(self.toggles.read('ready'))
+        if fmt == 'str':
+            status = ('ready', 'online', 'playing')[status]
+        return status
 
 class Toggles:
     toggle_names = (
@@ -137,48 +143,48 @@ class Toggles:
             'ratings', 'ready', 'report', 'silent', 'telnet', 'wrap',
             )
     toggle_on_msgs = (
-            "** You allow the use the server's 'pip' command.",
-            "** You want to see a correct message here.",
-            "** You want to see a correct message here.",
-            "** You want to see a correct message here.",
-            "** You want to see a correct message here.",
+            "** You allow the use of the server's 'pip' command.",
+            "** The board will be refreshed after every move.",
+            "** You agree that doublets during opening double the cube.",
+            "** Forced moves will be done automatically.",
+            "** Your terminal will ring the bell if someone talks to you or invites you",
             
-            "** You want to see a correct message here.",
-            "** You want to see a correct message here.",
-            "** You want to see a correct message here.",
-            "** You want to see a correct message here.",
-            "** You want to see a correct message here.",
+            "** You insist on playing with the Crawford rule.",
+            "** You will be asked if you want to double.",
+            "** Will use automatic greedy bearoffs.",
+            "** Will send rawboards after rolling.",
+            "** You want a list of moves after this game.",
             
-            "** You want to see a correct message here.",
-            "** You want to see a correct message here.",
-            "** You want to see a correct message here.",
-            "** You want to see a correct message here.",
-            "** You want to see a correct message here.",
-            
-            "** You want to see a correct message here.",
-            "** You want to see a correct message here.",
+            "** You will be notified when new users log in.",
+            "** You'll see how the rating changes are calculated.",
+            "** You will be informed about starting and ending matches.",
+            "** You will hear what other players shout.",
+            "** You will be informed about starting and ending matches.",
+
+            "** You use telnet and don't need extra 'newlines'.",
+            "** The server will wrap long lines.",
             )
     toggle_off_msgs = (
             "** You don't allow the use the server's 'pip' command.",
-            "** You don't want to see an incorrect message here.",
-            "** You don't want to see an incorrect message here.",
-            "** You don't want to see an incorrect message here.",
-            "** You don't want to see an incorrect message here.",
+            "** The board won't be refreshed after every move.",
+            "** You don't agree that doublets during opening double the cube.",
+            "** Forced moves won't be done automatically.",
+            "** Your terminal won't ring the bell if someone talks to you or invites you",
 
-            "** You don't want to see an incorrect message here.",
-            "** You don't want to see an incorrect message here.",
-            "** You don't want to see an incorrect message here.",
-            "** You don't want to see an incorrect message here.",
-            "** You don't want to see an incorrect message here.",
+            "** You would like to play without using the Crawford rule.",
+            "** You won't be asked if you want to double.",
+            "** Won't use automatic greedy bearoffs.",
+            "** Won't send rawboards after rolling.",
+            "** You won't see a list of moves after this game.",
 
-            "** You don't want to see an incorrect message here.",
-            "** You don't want to see an incorrect message here.",
-            "** You don't want to see an incorrect message here.",
-            "** You don't want to see an incorrect message here.",
-            "** You don't want to see an incorrect message here.",
+            "** You won't be notified when new users log in.",
+            "** You won't see how the rating changes are calculated.",
+            "** You're now refusing to play with someone.",
+            "** You won't be informed about starting and ending matches.",
+            "** You won't hear what other players shout.",
 
-            "** You don't want to see an incorrect message here.",
-            "** You don't want to see an incorrect message here.",
+            "** You use a client program and will receive extra 'newlines'.",
+            "** Your terminal knows how to wrap long lines.",
             )
     toggle_msg = {
             True: dict(zip(toggle_names, toggle_on_msgs)),
@@ -193,12 +199,12 @@ class Toggles:
         self._switches = info.toggles
         #dict(zip(Toggles.toggle_names, Toggles.toggle_std))
 
-##    def toggles(self,):
-##        return self._switches
-##
     def toggle(self, switch):
         self._switches[switch] = not self._switches[switch]
         return Toggles.toggle_msg[self._switches[switch]][switch]
+
+    def read(self, switch):
+        return self._switches[switch]
 
     def has(self, switch, default=None):
         return {True: switch, False: default}[switch in self._switches]
@@ -336,7 +342,7 @@ class User(Persistent):
         self.name = self.info.name
         self.settings = Settings(self.info)
         self.toggles = Toggles(self.info)
-        self.status = Status()
+        self.status = Status(self.toggles)
         self._waves = 0
         self.invitations = {}   # TODO: wegen der Persistenz muss ich User()
                         # vielleicht wrappen, damit der Kern - User() - deep
@@ -374,7 +380,8 @@ class User(Persistent):
         self.save()
 
     def tell(self, user, msg):
-        user.chat('%s tells: %s' % (self.name, msg))
+        user.chat('12 %s %s' % (self.name, msg))
+        self.chat('16 %s %s' % (user.name, msg))
 
     def deliver_messages(self,):
         """Delivers messages when user logs in"""
@@ -398,25 +405,23 @@ class User(Persistent):
         self.protocol.tell(msg)
 
     def who(self,):
-        # TODO: richtige Werte verwenden
         args = {}
         args['user'] = self.name
-        args['opponent'] = '-'
-        args['watching'] = '-'
-        args['ready'] = str(1)
-        args['away'] = str(0)
-        args['rating'] = str(1623.54)
-        args['experience'] = str(594)
-        args['idle'] = str(0.2)
-        args['login'] = str(int(time.time() - 10000))
-        args['hostname'] = 'some.host.sibs'
-        args['client'] = '-'
-        args['email'] = '-'
+        args['opponent'] = '-'          # TODO: richtige Werte verwenden
+        args['watching'] = '-'          # TODO: richtige Werte verwenden
+        args['ready'] = self.status.get()
+        args['away'] = int(self.status.away)
+        args['rating'] = str(1623.54)   # TODO: richtige Werte verwenden
+        args['experience'] = str(594)   # TODO: richtige Werte verwenden
+        args['idle'] = str(0.2)         # TODO: richtige Werte verwenden
+        args['login'] = str(int(time.time() - 10000))  # TODO: richtige Werte verwenden
+        args['hostname'] = 'some.host.sibs'  # TODO: richtige Werte verwenden
+        args['client'] = '-'            # TODO: richtige Werte verwenden
+        args['email'] = '-'             # TODO: richtige Werte verwenden
         w = '5 %(user)s %(opponent)s %(watching)s %(ready)s ' \
             '%(away)s %(rating)s %(experience)s %(idle)s %(login)s ' \
             '%(hostname)s %(client)s %(email)s' % args
         return w
-##        return "Ei, isch bin dae %s" % self.name
 
     def whois(self,):
         # TODO: richtige Werte verwenden
@@ -425,7 +430,8 @@ class User(Persistent):
         args['date'] = "Tuesday, January 14 20:27 EST"
         args['last_login_details'] = "Still logged in. 4:48 minutes idle"
         args['play_status'] = "%s is not ready to play, not watching, not playing." % self.name
-        args['away_status'] = "user is away:"
+        if self.status.away:
+            args['away_status'] = "user is away:"
         args['rating_exp'] = "Rating: 1300.45 Experience: 1000"
         args['email'] = "mail-adress"
         
@@ -441,6 +447,7 @@ class User(Persistent):
         
     def join(self, invited_and_joining, list_of_games):
         ML = self.invitations.get(invited_and_joining.name, None)
+        # TODO: richtige Werte verwenden
         for i in ['5 Watzmann sorrytigger - 1 0 1547.30 20 74 1280588416 88-134-122-10-dynip.superkabel.de ?NT________________! -',
                   '6',
                   '5 sorrytigger Watzmann - 1 0 1805.07 11647 4 1281040244 88-134-122-10-dynip.superkabel.de ?NT________________! -',
@@ -474,7 +481,7 @@ class User(Persistent):
             return 'You wave goodbye.'
         else:
             self.protocol.wave_and_logout()
-        
+
     def __str__(self,):
         return self.who()
 

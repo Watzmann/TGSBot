@@ -193,6 +193,8 @@ class Command():
                 res = "** Don't know how to toggle %s." % line[1]
             else:
                 res = toggles.toggle(switch)
+                if switch == 'ready':
+                    self.update_who(me)
         return res
 
     def c_set(self, line, me):              # implemented
@@ -279,9 +281,15 @@ class Command():
     def c_info(self, line, me):
         return me.info.show()
 
-    def c_who(self, line, me):              # implemented
+    def c_who(self, line, me, user=None):   # implemented
+        # TODO: wieder gerade ziehen
+        #       user=None kommt weg und wird ersetzt durch "who user"
+        #       Implementieren von "who" mit parametern
         out = StringIO()
-        lou = self.list_of_users.get_active_users()
+        if user is None:
+            lou = self.list_of_users.get_active_users()
+        else:
+            lou = {user.name:user}
         users = lou.keys()
         # TODO          set sortwho auf  users  anwenden
         for u in users:
@@ -294,9 +302,9 @@ class Command():
     def c_where(self, line, me):
         return 'where is %s from' % (line[1], NYI)
 
-    def c_rawwho(self, line, me):           # implemented
+    def c_rawwho(self, line, me, user=None):  # implemented
         out = StringIO()
-        print >>out, self.c_who(line, me),
+        print >>out, self.c_who(line, me, user),
 ##        print >>out, '6'
         # TODO   siehe TODO bei c_who()
         return out.getvalue()
@@ -448,6 +456,11 @@ class Command():
                   if inspect.ismethod(f[1]) and f[0].startswith('c_')]
         return lofc
 
+    def update_who(self, me):
+        factory = me.protocol.factory
+        who = self.c_rawwho(['rawwho',], me, user=me)
+        factory.broadcast(who,)
+        
 if __name__ == "__main__":
     c = Command(None, None)
     print c.c_version(1,2)

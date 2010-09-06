@@ -119,6 +119,14 @@ class CLIP(Echo):
                     success = True
                     self.factory.broadcast('7 %s %s logs in' % (name, name),
                                            exceptions=(name,))
+                    who = self.factory.command.c_rawwho(['rawwho',],
+                                                self.user, user=self.user)
+                    self.factory.broadcast(who, exceptions=(name,))
+                    # TODO: evtl. ist die letzte msg nicht korrekt; aber wie
+                    #       erfahren die clients sonst vom login?
+                    #       vielleicht telnet clients ausnehmen?
+                    #       beachte toggle notify
+                    #       siehe CLIP Who Info 
                 else:
                     print 'user not known or wrong password'
             else:
