@@ -249,9 +249,17 @@ class Command():
 ##        print 'the result', res
         return res
     
-    def c_address(self, line, me):
-        return "you set your address to '%s'" % line[1], NYI
-
+    def c_address(self, line, me):          # implemented
+        arglen = len(line)
+        if arglen == 1:
+            ret = "** You didn't give your address."
+        else:
+            me.set_address(line[1])
+            ret = "Your email address is '%s'." % line[1]
+            who = self.c_rawwho(['rawwho',], me, user=me)
+            me.protocol.schedule_broadcast(who)
+        return ret
+  
     def c_password(self, line, me):         # implemented
         msgs = ("Password changed.",
                 """** usage: password <old password>:<new password>:<new password>

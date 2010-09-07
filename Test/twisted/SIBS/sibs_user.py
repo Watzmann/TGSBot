@@ -82,6 +82,7 @@ als Datencontainer dienen."""
         self.toggles = toggles
         self.settings = settings
         self.messages = messages
+        self.address = ''
 
     def set_login_data(self, login, host):
         self.last_login = self.login
@@ -359,6 +360,7 @@ class User(Persistent):
         return self.info.passwd == password
 
     def set_password(self, password):
+        # TODO:  warum hab ich hier neben change_password() ne extra funktion?
         self.info.passwd = password
         self.save()
 
@@ -374,6 +376,10 @@ class User(Persistent):
             self.set_password(passwords[2])
             res = 0
         return res
+
+    def set_address(self, address):
+        self.info.address = address
+        self.save()
 
     def set_login_data(self, login_time, host):
         self.info.set_login_data(login_time, host)
@@ -411,13 +417,13 @@ class User(Persistent):
         args['watching'] = '-'          # TODO: richtige Werte verwenden
         args['ready'] = self.status.get()
         args['away'] = int(self.status.away)
-        args['rating'] = str(1623.54)   # TODO: richtige Werte verwenden
-        args['experience'] = str(594)   # TODO: richtige Werte verwenden
+        args['rating'] = self.info.rating
+        args['experience'] = self.info.experience
         args['idle'] = str(0.2)         # TODO: richtige Werte verwenden
-        args['login'] = str(int(time.time() - 10000))  # TODO: richtige Werte verwenden
-        args['hostname'] = 'some.host.sibs'  # TODO: richtige Werte verwenden
+        args['login'] = self.info.login
+        args['hostname'] = self.info.host
         args['client'] = '-'            # TODO: richtige Werte verwenden
-        args['email'] = '-'             # TODO: richtige Werte verwenden
+        args['email'] = getattr(self.info, 'address', '-')
         w = '5 %(user)s %(opponent)s %(watching)s %(ready)s ' \
             '%(away)s %(rating)s %(experience)s %(idle)s %(login)s ' \
             '%(hostname)s %(client)s %(email)s' % args

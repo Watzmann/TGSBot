@@ -52,6 +52,7 @@ class CLIP(Echo):
     def __init__(self,):
         self.buffer = ''
         self.myDataReceived = self.authentication
+        self.scheduled_broadcasts = []
         
     def connectionMade(self):
         Echo.connectionMade(self,)
@@ -84,6 +85,9 @@ class CLIP(Echo):
         result = self.factory.parse(data, self.user)
         if not result is None:
             self.transport.write('%s\r\n' % (result,))
+            for b in self.scheduled_broadcasts:
+                self.factory.broadcast(b)
+            self.scheduled_broadcasts = []      # TODO: wird hier viel garbadge erzeugt??
 
     def authentication(self, data):
         self.login_time = int(time.time())
@@ -235,7 +239,10 @@ class CLIP(Echo):
     def cycle_message(self, msg):
         for m in msg:
             self.transport.write('%s\r\n' % m)
-        
+
+    def schedule_broadcast(self, msg):
+        self.scheduled_broadcasts.append(msg)
+
 class Simple:
     """Protokoll für Testzwecke."""
     def __init__(self, user_name='unknown'):
