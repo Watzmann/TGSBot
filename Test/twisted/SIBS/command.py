@@ -65,10 +65,11 @@ NYI = '##NYI##'
 class Command():
     def __init__(self, lou, log):
         self.commands = dict(self.sample_commands())
+        self.list_of_implemented_commands = self.list_implemented()
         self.list_of_users = lou
         self.list_of_games = log   # TODO: was besseres als log (log ist logging)
-        print 'available commands:', self.commands.keys()
-        
+        print 'implemented commands:', self.list_of_implemented_commands
+
 # ----------------------------------------  Chat and Settings for other Players
 
     def c_shout(self, line, me):
@@ -92,7 +93,7 @@ class Command():
     def c_whisper(self, line, me):
         return 'you whisper: %s    %s' % (line[1:], NYI)
 
-    def c_message(self, line, me):
+    def c_message(self, line, me):          # implemented
         name = line[1]
         msg = ' '.join(line[2:])
         user = self.list_of_users.get_from_all(name, None)
@@ -165,19 +166,19 @@ class Command():
     def c_wave(self, line, me):             # implemented
         return me.wave()
 
-    def c_adios(self, line, me):
+    def c_adios(self, line, me):             # implemented
         return self.c_bye(line, me)
-    def c_ciao(self, line, me):
+    def c_ciao(self, line, me):             # implemented
         return self.c_bye(line, me)
-    def c_end(self, line, me):
+    def c_end(self, line, me):             # implemented
         return self.c_bye(line, me)
-    def c_exit(self, line, me):
+    def c_exit(self, line, me):             # implemented
         return self.c_bye(line, me)
-    def c_logout(self, line, me):
+    def c_logout(self, line, me):             # implemented
         return self.c_bye(line, me)
-    def c_quit(self, line, me):
+    def c_quit(self, line, me):             # implemented
         return self.c_bye(line, me)
-    def c_tschoe(self, line, me):
+    def c_tschoe(self, line, me):             # implemented
         return self.c_bye(line, me)
 
 # ----------------------------------------  Setting Commands
@@ -275,13 +276,14 @@ class Command():
             ret = msgs[ret]
         return ret
 
-    def c_save(self, line, me):
-        return "you save your settings", NYI
+    def c_save(self, line, me):             # implemented
+        me.save_settings()
+        return "Settings saved."
 
 # ----------------------------------------  General Info
 
-    def c_help(self, line, me):             # implemented
-        return utils.render_file('help')
+    def c_help(self, line, me):
+        return utils.render_file('help')+NYI
 
     def c_show(self, line, me):
         return 'shown: %s    %s' % (line[1], NYI)
@@ -308,7 +310,7 @@ class Command():
         return out.getvalue()
 
     def c_where(self, line, me):
-        return 'where is %s from' % (line[1], NYI)
+        return 'where is %s from    %s' % (line[1], NYI)
 
     def c_rawwho(self, line, me, user=None):  # implemented
         out = StringIO()
@@ -460,7 +462,7 @@ class Command():
         #       als Plugin realisieren
         # TODO: inspect.getmembers() halte ich nicht für der Weisheit letzten
         #       Schluss; vielleicht gibt es da eine bessere (offiziellere) Lösung
-        lofc = [(f[0].lstrip('c_'),f[1]) for f in inspect.getmembers(self) \
+        lofc = [(f[0][2:],f[1]) for f in inspect.getmembers(self) \
                   if inspect.ismethod(f[1]) and f[0].startswith('c_')]
         return lofc
 
@@ -468,7 +470,24 @@ class Command():
         factory = me.protocol.factory
         who = self.c_rawwho(['rawwho',], me, user=me)
         factory.broadcast(who,)
-        
+
+    def list_implemented(self, verbose=False):
+        imp = self.commands.keys()[:]
+        imp.sort()
+        for c in imp[:]:
+            try:
+                ret = self.commands[c]([c,'list',],None)
+##                print c
+##                print ret
+                if ret.endswith(NYI):
+##                    print 'removed', c
+                    imp.remove(c)
+            except:
+                pass
+        return imp
+
 if __name__ == "__main__":
     c = Command(None, None)
     print c.c_version(1,2)
+    for i in c.list_implemented():
+        print i

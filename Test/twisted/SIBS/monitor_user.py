@@ -1,23 +1,50 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""Persistenzschicht."""
+"""Tool zum Untersuchen und Warten der Users-DB."""
 
+import sys
+from optparse import OptionParser
 from persistency import Persistent, Db
 
+def usage(progname):
+    usg = """usage: %prog [<user>]
+  %prog """ + __doc__
+    parser = OptionParser(usg)
+    parser.add_option("-v", "--verbose",
+                  action="store_true", dest="verbose", default=False,
+                  help="print full entries to stdout")
+    return parser,usg
+
 if __name__ == '__main__':
+    parser,usg = usage(sys.argv[0])
+    (options, args) = parser.parse_args()
+    if len(args) > 0:
+        user = args[0]
+    else:
+        user = ''
+
     db = Db('db/users')
-    keys = db.db.keys()
-    keys.sort()
-    print 'Registered users'
-    for e,k in enumerate(keys):
-        print e,k
-    print 'Users entries'
-##    print '   ',db.db.values()[0].toggles.keys()
+    if user:
+        keys = [user,]
+    else:
+        keys = db.db.keys()
+        keys.sort()
+        print 'Registered users'
+        for e,k in enumerate(keys):
+            print e,k
+        print 'Users entries'
+
+    if options.verbose:
+        print '   ',db.db.values()[0].toggles.keys()
+
     for e,k in enumerate(keys):
         print e,k
         v = db.db[k]
         print '   ', v.login, v.host, v.name, v.passwd, v.rating, v.experience,
-##        print '   ',v.toggles.values()
+        if options.verbose:
+            print
+            print '   ',v.toggles.values()
         print '   ',v.settings
-##        print '   ',v.messages
+        if options.verbose:
+            print '   ',v.messages
     db.close()

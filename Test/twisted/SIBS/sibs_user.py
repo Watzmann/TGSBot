@@ -250,7 +250,7 @@ class Settings:
         if len(vals) == 0:
             res = "Value of 'boardstyle' is %d" % self._boardstyle
         elif vals[0] in ('1','2','3'):
-            self._settings[0] = self._boardstyle = int(vals[0])
+            self._boardstyle = int(vals[0])
             # TODO: hier und in den xxxxlength() muss int() getrapped werden
             res = "Value of 'boardstyle' set to %d." % self._boardstyle
         else:
@@ -263,7 +263,7 @@ class Settings:
         if len(vals) == 0:
             res = "Value of 'linelength' is %d" % self._linelength
         elif int(vals[0]) >= 0 and int(vals[0]) < 1000:
-            self._settings[1] = self._linelength = int(vals[0])
+            self._linelength = int(vals[0])
             res = "Value of 'linelength' set to %d." % self._linelength
         else:
             res = "** Valid arguments are the numbers 0 to 999. " \
@@ -276,7 +276,7 @@ class Settings:
         if len(vals) == 0:
             res = "Value of 'pagelength' is %d" % self._pagelength
         elif int(vals[0]) >= 0 and int(vals[0]) < 1000:
-            self._settings[2] = self._pagelength = int(vals[0])
+            self._pagelength = int(vals[0])
             res = "Value of 'pagelength' set to %d." % self._pagelength
         else:
             res = "** Valid arguments are the numbers 0 to 999. " \
@@ -290,7 +290,7 @@ class Settings:
             res = "Value of 'redoubles' is %s" % self._redoubles
         elif (vals[0] in ('none', 'unlimited')) or \
                 (int(vals[0]) >= 0 and int(vals[0]) < 100):
-            self._settings[3] = self._redoubles = vals[0]
+            self._redoubles = vals[0]
             res = "Value of 'redoubles' set to %s." % self._redoubles
         else:
             res = "** Valid arguments are 'none', 'unlimited' and" \
@@ -303,7 +303,7 @@ class Settings:
         if len(vals) == 0:
             res = "Value of 'sortwho' is %s" % self._sortwho
         elif vals[0] in ('login', 'name', 'rating', 'rrating'):
-            self._settings[4] = self._sortwho = vals[0]
+            self._sortwho = vals[0]
             res = "Value of 'sortwho' set to %s." % self._sortwho
         else:
             res = "** Unknown value '%s'. Try 'login', 'name', " \
@@ -316,7 +316,7 @@ class Settings:
         if len(vals) == 0:
             res = "Value of 'timezone' is %s" % self._timezone
         elif vals[0] in ('UTC', ):
-            self._settings[5] = self._timezone = int(vals[0])
+            self._timezone = int(vals[0])
             res = "Value of 'timezone' set to %s." % self._timezone
         else:
             res = "Can't find timezone '%s'. Try one of: " \
@@ -334,7 +334,15 @@ class Settings:
         print >> out, '%-12s%s' % ('redoubles:', self._redoubles)
         print >> out, '%-12s%s' % ('sortwho:', self._sortwho)
         print >> out, '%-12s%s' % ('timezone:', self._timezone)
-        return out.getvalue()        
+        return out.getvalue()
+
+    def save(self,):
+        self._settings[0] = self._boardstyle
+        self._settings[1] = self._linelength
+        self._settings[2] = self._pagelength
+        self._settings[3] = self._redoubles
+        self._settings[4] = self._sortwho
+        self._settings[5] = self._timezone
 
 class User(Persistent):
     def __init__(self, data):
@@ -379,6 +387,10 @@ class User(Persistent):
 
     def set_address(self, address):
         self.info.address = address
+        self.save()
+
+    def save_settings(self,):
+        self.settings.save()
         self.save()
 
     def set_login_data(self, login_time, host):

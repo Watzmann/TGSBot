@@ -1,0 +1,12 @@
+#!/bin/bash
+
+./command.py >ah.0
+lines=`wc -l ah.0|cut -d' ' -f1`
+tail -$(($lines-2)) ah.0  > ah.1
+grep implemented command.py | egrep -v "list_(of_)?implemented" > ah.2
+echo `wc -l ah.1 |cut -d' ' -f1` commands implementiert.
+echo "...# implemented, aber nicht gelistet:"
+grep -vf ah.1 ah.2
+echo "nicht \`\`...# implemented´´:"
+for i in `cat ah.1`; do grep -q $i ah.2; [[ $? == "1" ]] && echo $i; done
+rm ah.[012]
