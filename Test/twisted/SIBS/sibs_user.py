@@ -136,6 +136,7 @@ class Status:
                        ('', 'online', 'ready', 'playing'),
                        ('', 'watching',))
         self.active_state = [1, 0, 0]
+        self.opponent = '-'
 
 ##    def get_state(self,):
 ##        if self.toggles.read('ready'):
@@ -144,6 +145,10 @@ class Status:
 ##            status = ('ready', 'online', 'playing')[status]
 ##        return status
 
+    def playing(self, opponent):
+        self.active_state[1] = 2
+        self.opponent = opponent
+        
     def get_readyflag(self,):
         return int(self.toggles.read('ready'))
 
@@ -450,7 +455,7 @@ class User(Persistent):
     def who(self,):
         args = {}
         args['user'] = self.name
-        args['opponent'] = '-'          # TODO: richtige Werte verwenden
+        args['opponent'] = self.status.opponent
         args['watching'] = '-'          # TODO: richtige Werte verwenden
         args['ready'] = self.status.get_readyflag()
         args['away'] = self.status.get_awayflag()
@@ -496,14 +501,16 @@ class User(Persistent):
         
     def join(self, invited_and_joining, list_of_games):
         ML = self.invitations.get(invited_and_joining.name, None)
+        self.status.playing(invited_and_joining.name)
+        invited_and_joining.status.playing(self.name)
         # TODO: richtige Werte verwenden
-        for i in ['5 Watzmann sorrytigger - 1 0 1547.30 20 74 1280588416 88-134-122-10-dynip.superkabel.de ?NT________________! -',
-                  '6',
-                  '5 sorrytigger Watzmann - 1 0 1805.07 11647 4 1281040244 88-134-122-10-dynip.superkabel.de ?NT________________! -',
-                  '6',
-                  ]:
-            self.chat(i)
-            print i
+##        for i in ['5 Watzmann sorrytigger - 1 0 1547.30 20 74 1280588416 88-134-122-10-dynip.superkabel.de ?NT________________! -',
+##                  '6',
+##                  '5 sorrytigger Watzmann - 1 0 1805.07 11647 4 1281040244 88-134-122-10-dynip.superkabel.de ?NT________________! -',
+##                  '6',
+##                  ]:
+##            self.chat(i)
+##            print i
         if not ML is None:
             kw = {'player1':self, 'player2':invited_and_joining}
             kw['ML'] = ML

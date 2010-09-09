@@ -70,6 +70,7 @@ class CLIP(Echo):
             print 'dropping user', user.name
             self.user.drop_connection()
             dropUser(user=user.name, lou = self.factory.active_users)
+            del self.user
         Echo.dropConnection(self, reason)
 
     def connectionLost(self, reason):

@@ -117,7 +117,7 @@ class Command():
 
     def c_invite(self, line, me):           # implemented
         user = line[1]
-        ML = line[2]
+        ML = line[2]        # TODO:    resume hat keine ML
         him = self.list_of_users.get_active(user)
         me.invite(user, ML)
         him.chat('%s wants to play a %s point match with you.' % (me.name, ML))
@@ -129,6 +129,8 @@ class Command():
         him = self.list_of_users.get_active(user)
         if not him is None:
             him.join(me, self.list_of_games)    # TODO: deferred
+            self.update_who(me)
+            self.update_who(him)
             msg = '** You are now playing a n point match with %s.' % user
         else:
             msg = "user %s is not logged in" % user
@@ -399,6 +401,9 @@ class Command():
     def c_move(self, line, me):             # implemented
         game, player = self.list_of_games.get(me.running_game)
         game.move(line[1:], player)
+
+    def c_m(self, line, me):                # implemented
+        self.c_move(line, me)
 
     def c_off(self, line, me):
         return 'you bear off    %s' % NYI
