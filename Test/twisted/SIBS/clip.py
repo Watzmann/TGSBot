@@ -78,6 +78,8 @@ class CLIP(Echo):
             d = self.buffer
             self.buffer = ''
             ds = d.rstrip('\r\n')
+            if hasattr(self, 'user'):
+                self.user.status.stamp()
             self.myDataReceived(ds)
         
     def established(self, data):

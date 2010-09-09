@@ -128,14 +128,33 @@ als Datencontainer dienen."""
 
 class Status:
     def __init__(self, toggles):
+        self.timestamp = time.time()
         self.toggles = toggles
         self.away = False   # TODO: sollte in Info() aufgehen
+        # status: online ready playing / watching
+        self.states = (('', 'offline',),
+                       ('', 'online', 'ready', 'playing'),
+                       ('', 'watching',))
+        self.active_state = [1, 0, 0]
 
-    def get(self, fmt='int'):
-        status = int(self.toggles.read('ready'))
-        if fmt == 'str':
-            status = ('ready', 'online', 'playing')[status]
-        return status
+##    def get_state(self,):
+##        if self.toggles.read('ready'):
+##            self.active_state = [0, 2, 0]
+##        if fmt == 'str':
+##            status = ('ready', 'online', 'playing')[status]
+##        return status
+
+    def get_readyflag(self,):
+        return int(self.toggles.read('ready'))
+
+    def get_awayflag(self,):
+        return int(self.away)
+
+    def stamp(self,):
+        self.timestamp = time.time()
+
+    def idle(self,):
+        return time.time() - self.timestamp
 
 class Toggles:
     toggle_names = (
@@ -427,17 +446,17 @@ class User(Persistent):
         args['user'] = self.name
         args['opponent'] = '-'          # TODO: richtige Werte verwenden
         args['watching'] = '-'          # TODO: richtige Werte verwenden
-        args['ready'] = self.status.get()
-        args['away'] = int(self.status.away)
+        args['ready'] = self.status.get_readyflag()
+        args['away'] = self.status.get_awayflag()
         args['rating'] = self.info.rating
         args['experience'] = self.info.experience
-        args['idle'] = str(0.2)         # TODO: richtige Werte verwenden
+        args['idle'] = int(self.status.idle())
         args['login'] = self.info.login
         args['hostname'] = self.info.host
         args['client'] = '-'            # TODO: richtige Werte verwenden
         args['email'] = getattr(self.info, 'address', '-')
         w = '5 %(user)s %(opponent)s %(watching)s %(ready)s ' \
-            '%(away)s %(rating)s %(experience)s %(idle)s %(login)s ' \
+            '%(away)s %(rating)s %(experience)s %(idle)d %(login)s ' \
             '%(hostname)s %(client)s %(email)s' % args
         return w
 
@@ -445,20 +464,25 @@ class User(Persistent):
         # TODO: richtige Werte verwenden
         args = {}
         args['name'] = self.name
-        args['date'] = "Tuesday, January 14 20:27 EST"
-        args['last_login_details'] = "Still logged in. 4:48 minutes idle"
-        args['play_status'] = "%s is not ready to play, not watching, not playing." % self.name
+        login = time.localtime(self.info.login)
+        args['date'] = time.strftime("%A, %B %d %H:%M %Z", login)
+        args['last_login_details'] = "Still logged in. 4:48 minutes idle"  # TODO: richtige Werte verwenden
+        args['play_status'] = "%s is not ready to play, not watching, not playing." % self.name  # TODO: richtige Werte verwenden
         if self.status.away:
             args['away_status'] = "user is away:"
-        args['rating_exp'] = "Rating: 1300.45 Experience: 1000"
-        args['email'] = "mail-adress"
+        args['rating_exp'] = "Rating: %.2f Experience: %d" % (self.info.rating,self.info.experience)
+        address = getattr(self.info, 'address', '')
+        if address:
+            args['email'] = "Email address: %s" % address
+        else:
+            args['email'] = "No email address."
         
         return """Information about %(name)s:
   Last login:  %(date)s from p987987.dip.t-dialin.net
   %(last_login_details)s
   %(play_status)s
   %(rating_exp)s
-  Email address: %(email)s""" % args
+  %(email)s""" % args
 
     def invite(self, name, ML):
         self.invitations[name] = ML
