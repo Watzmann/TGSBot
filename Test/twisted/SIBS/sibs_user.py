@@ -128,7 +128,7 @@ als Datencontainer dienen."""
 
 class Status:
     def __init__(self, toggles):
-        self.timestamp = time.time()
+##        self.timestamp = time.time()
         self.toggles = toggles
         self.away = False   # TODO: sollte in Info() aufgehen
         # status: online ready playing / watching
@@ -153,8 +153,14 @@ class Status:
     def stamp(self,):
         self.timestamp = time.time()
 
-    def idle(self,):
-        return time.time() - self.timestamp
+    def idle(self, formatted=False):
+        ret = time.time() - self.timestamp
+        if formatted:
+            if ret < 60.:
+                ret = "%02d seconds" % int(ret)
+            else:
+                ret = "%s minutes" % time.strftime("%M:%S", time.gmtime(ret))
+        return ret
 
 class Toggles:
     toggle_names = (
@@ -461,15 +467,16 @@ class User(Persistent):
         return w
 
     def whois(self,):
-        # TODO: richtige Werte verwenden
+        # TODO: das muss auch für nicht eingeloggte user funktionieren
         args = {}
         args['name'] = self.name
         login = time.localtime(self.info.login)
         args['date'] = time.strftime("%A, %B %d %H:%M %Z", login)
-        args['last_login_details'] = "Still logged in. 4:48 minutes idle"  # TODO: richtige Werte verwenden
+        login_details = "Still logged in. %s idle" % self.status.idle(True)
+        args['last_login_details'] = login_details
         args['play_status'] = "%s is not ready to play, not watching, not playing." % self.name  # TODO: richtige Werte verwenden
         if self.status.away:
-            args['away_status'] = "user is away:"
+            args['away_status'] = "user is away:"       # TODO: richtige Werte verwenden
         args['rating_exp'] = "Rating: %.2f Experience: %d" % (self.info.rating,self.info.experience)
         address = getattr(self.info, 'address', '')
         if address:

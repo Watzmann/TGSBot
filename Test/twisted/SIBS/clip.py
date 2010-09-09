@@ -65,12 +65,20 @@ class CLIP(Echo):
         self.transport.write('login: ')
 
     def dropConnection(self, reason):
-        user = getattr(self,'user',None)
+        user = getattr(self, 'user', None)
         if not user is None:
             print 'dropping user', user.name
             self.user.drop_connection()
             dropUser(user=user.name, lou = self.factory.active_users)
         Echo.dropConnection(self, reason)
+
+    def connectionLost(self, reason):
+        user = getattr(self, 'user', None)
+        if not user is None:
+            print 'dropping lost user', user.name
+            self.user.drop_connection()
+            dropUser(user=user.name, lou = self.factory.active_users)
+        Echo.connectionLost(self, reason)
 
     def dataReceived(self, data):
         self.buffer += data
@@ -80,6 +88,8 @@ class CLIP(Echo):
             ds = d.rstrip('\r\n')
             if hasattr(self, 'user'):
                 self.user.status.stamp()
+            else:
+                print 'GUT ZU WISSEN, ES GIBT KEINEN USER'   #TODO  wegmachen
             self.myDataReceived(ds)
         
     def established(self, data):
@@ -119,6 +129,7 @@ class CLIP(Echo):
                     self.user.set_protocol(self)
                     self.user.set_login_data(self.login_time,
                                              self.factory.host())
+                    self.user.status.stamp()
                     self.welcome(self.user)
                     name = self.user.name
                     self.myDataReceived = self.established
