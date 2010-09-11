@@ -20,13 +20,15 @@ sequence = (
 ((4, 6), ['17-23','19-23']),
 ((1, 4), ['24-20','21-20']),
 ((5, 6), ['1-7','7-12']),
-((2, 4), ['','']),
-((5, 3), ['','']),
-((5, 3), ['','']),
-((5, 3), ['','']),
-((2, 1), ['','']),
-((6, 6), ['','']),
-((2, 2), ['','','','']),
+#---------------------------------------------------
+((2, 4), ['8-4','6-4']),
+((5, 3), ['17-22','19-22']),
+((5, 3), ['8-3','6-3']),
+((5, 3), ['12-17','12-15']),
+((2, 1), ['8-6','6-5']),
+((6, 6), ['12-18','12-18','12-18','1-7']),
+((2, 2), ['11-9','9-7','7-5','13-11']),
+#---------------------------------------------------
 ((1, 2), ['','']),
 ((4, 2), ['','']),
 ((3, 6), ['','']),
@@ -41,12 +43,12 @@ sequence = (
 class Spiel:
     def __init__(self, ml):
         self.match_length = ml
-        self.p1 = 'white'
-        self.p2 = 'black'
-        self.white = getUser(user=self.p1, password='##', lou=lou)
+        self.p1 = 'frieda'
+        self.p2 = 'dortdann'
+        self.white = getUser(user=self.p1, password='andreas', lou=lou)
         self.white.set_protocol(Simple(self.p1))
         self.white.dice = 'sequence'
-        self.black = getUser(user=self.p2, password='##', lou=lou)
+        self.black = getUser(user=self.p2, password='hallo', lou=lou)
         self.black.set_protocol(Simple(self.p2))
         self.white.invite(self.p2, ml)
         self.white.join(self.black, log)
@@ -117,3 +119,4 @@ if __name__ == "__main__":
         loops += 1
         if loops > 3:
             break
+        print '-'*120

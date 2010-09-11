@@ -24,8 +24,8 @@ class UsersList:        # TODO: als Singleton ausführen
         self.db = all_users = Db(DB_Users).db
         self.list_of_all_users = dict([(k,self.restore(all_users[k])) \
                                        for k in all_users.keys()])
-        for e,k in enumerate(self.list_of_all_users.keys()):
-            print e,k
+##        for e,k in enumerate(self.list_of_all_users.keys()):
+##            print e,k
 
     def get_active_users(self):
         return self.list_of_active_users
