@@ -9,6 +9,7 @@ REV = '$Revision$'
 from StringIO import StringIO
 import inspect
 import sibs_utils as utils
+from help import Help
 from version import Version
 
 VERSION = Version()
@@ -69,6 +70,7 @@ class Command():
         self.list_of_users = lou
         self.list_of_games = log   # TODO: was besseres als log (log ist logging)
         print 'implemented commands:', self.list_of_implemented_commands
+        self.help = Help()
 
 # ----------------------------------------  Chat and Settings for other Players
 
@@ -284,8 +286,10 @@ class Command():
 
 # ----------------------------------------  General Info
 
-    def c_help(self, line, me):
-        return utils.render_file('help')+NYI
+    def c_help(self, line, me):             # implemented
+        if len(line) == 1:
+            line.append('help')
+        return ''.join(self.help.help_(line[1]))
 
     def c_show(self, line, me):
         return 'shown: %s    %s' % (line[1], NYI)

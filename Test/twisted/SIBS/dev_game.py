@@ -7,8 +7,10 @@ werden.
 
 import sys
 from sibs_user import getUser, UsersList
-from game import GamesList
+from game import GamesList, set_standalone
 from clip import Simple
+
+set_standalone()
 
 lou = UsersList()
 log = GamesList()
@@ -117,6 +119,6 @@ if __name__ == "__main__":
         game.move(spiel.get_move(), player)
         turn = spiel.hand_over()
         loops += 1
-        if loops > 3:
+        if loops > 10:
             break
         print '-'*120

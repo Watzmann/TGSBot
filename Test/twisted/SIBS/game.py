@@ -163,7 +163,7 @@ class GameControl:
         self.set_move()
         return d
 
-    def set_move(self,):
+    def set_move(self,):        # TODO: was passiert hier eigentlich
         p1 = (self.home['p1'], self.bar['p1'])
         p2 = (self.home['p2'], self.bar['p2'])
         self.board.set_move(p1, p2, self.pieces)
@@ -177,10 +177,18 @@ class GameControl:
         print 'player', player, 'whos_turn', self.whos_turn().name
         if self.turn == 1:
             self.position[move[0]] -= 1
-            self.position[move[1]] += 1
+            if self.position[move[1]] == -1:
+                self.position[move[1]] = 1
+                self.position[25] += 1
+            else:
+                self.position[move[1]] += 1
         elif self.turn == 2:
             self.position[move[0]] += 1
-            self.position[move[1]] -= 1
+            if self.position[move[1]] == 1:
+                self.position[move[1]] = -1
+                self.position[0] += 1
+            else:
+                self.position[move[1]] -= 1
 
     def hand_over(self,):
         self.turn = 3 - self.turn
@@ -253,3 +261,7 @@ def getGame(**kw):
     log.add(game)
     game.start()
     return game.ids
+
+def set_standalone():
+    global STANDALONE
+    STANDALONE = True

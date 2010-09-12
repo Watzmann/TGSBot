@@ -17,7 +17,10 @@ class Version:
             self.revisions = {}
 
     def register(self, module, rev):
-        self.revisions[module] = int(rev.strip('$').split(':')[1].strip())
+        try:
+            self.revisions[module] = int(rev.strip('$').split(':')[1].strip())
+        except IndexError:
+            self.revisions[module] = -1
 
     def version(self, module=None):
         if module is None:

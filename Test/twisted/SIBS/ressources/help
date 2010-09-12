@@ -1,4 +1,1342 @@
-Die Hilfe muss erst noch geschrieben werden.
-Andreas
-
-(c) 2010
+Fibs-Help
+  
+NAME 
+  about - Display information about the server 
+SYNOPSIS 
+  about 
+DESCRIPTION 
+  The about command displays some general information about the First 
+  Internet Backgammon Server (FIBS).
+  
+NAME 
+  accept - accepting doubles and resigns 
+SYNOPSIS 
+  accept 
+DESCRIPTION 
+  You can use 'accept' if your opponent has doubled and you think 
+  it's ok to accept. Use 'reject' if you don't. 
+  You can also use 'accept' if your opponent wants to resign and 
+  you accept to win the number of points displayed. 
+SEE ALSO 
+  double, reject, resign
+  
+NAME 
+  address - make your email address known to others 
+SYNOPSIS 
+  address <email_address>
+DESCRIPTION 
+  You can use the 'address' command to make your email address known 
+  to other players. They can use the 'whois' command to get this 
+  information about you. At the moment FIBS cannot check that this 
+  is really your valid email address. You should however make sure 
+  that the address you tell others is indeed valid. Abuse of this 
+  feature can be a reason to delete your account on FIBS. 
+  EXAMPLE 
+  address marvin@fibs.com 
+SEE ALSO 
+  names, whois
+  
+NAME 
+  autologin - how the TinyMUD style autologin feature works 
+DESCRIPTION 
+  The usual way to login is to enter your user name after the login: prompt 
+  and your password after the password: prompt. There is an alternative way 
+  of logging in that is used by TinyMUD clients and that is understood by 
+  the server. At login: prompt you can send 'connect your_name your_password' 
+  to the server. If name and password are ok you will be logged in without 
+  seeing the password: prompt. Note that your password will appear as plain 
+  text on the screen if you use this login method with telnet. 
+  If you connect with this autologin feature the server assumes that you are 
+  using a client with a separate input window (like TinyFugue) and will not 
+  send those ' ' prompts you see when using telnet. This makes the output 
+  look better (at least from my point of view). Autologin should not be used 
+  when connecting by means of a telnet client.
+  
+NAME 
+  average - show average number of users 
+SYNOPSIS 
+  average 
+DESCRIPTION 
+  The 'average' commands shows the average number of users, by time of day. 
+  For each hour the output shows how many users were on average logged in 
+  during that period since the last restart of the program. It also shows 
+  the minimum and maximum number of users logged in during that time of day. 
+  If there is no information available for that period (because FIBS was 
+  last restarted less than 23 hours ago) the values will be shown as 0. 
+  All times are in UTC (GMT).
+  
+NAME 
+  away - Leaving a message for other users before leaving the terminal 
+SYNOPSIS 
+  away 
+  away <message>
+DESCRIPTION 
+  If you type 'away message' everyone who tells you something or 
+  invites you is told that you are away. The message you give is 
+  shown after that. All messages sent to you will be displayed on 
+  your screen while you're away. Nothing will be lost. You can use 
+  the server as usual. It's just that others get the message when 
+  they talk to you or invite you. Type 'back' if you are back again. 
+  To remind you that you are away the prompt is changed from ' ' 
+  to 'You're away. Please type 'back' '. 
+  This command should be useful when your boss calls you or if 
+  going to the restroom is more important than playing backgammon. 
+  You can type just 'away' to see the messages left by all users who 
+  are away. 
+SEE ALSO 
+  Back
+  
+NAME 
+  back - Back again after the away command was used 
+SYNOPSIS 
+  back 
+DESCRIPTION 
+  Type 'back' if you have have already typed 'away' and want to 
+  be marked 'back'. 
+SEE ALSO 
+  Away
+  
+NAME 
+  beaver - Offering an instant redouble that is a beaver 
+SYNOPSIS 
+  beaver 
+DESCRIPTION 
+  An instant redouble of an offered double is called "beaver". You can 
+  use the command 'redouble' instead. 'beaver' can only used for the 
+  first instant redouble while 'redouble' can be used for any of several 
+  instant redoubles in a row. 
+SEE ALSO 
+  otter, raccoon, redouble
+  
+NAME 
+  beginner - very short introduction to the server 
+DESCRIPTION 
+  Short help: If you want to play, enter the following commands: 
+  toggle ready (means that you are not refusing to play) 
+  who ready (tells you who is ready to play) 
+  invite <player <n (tells <player you want to play a n point>match) 
+  If you get invited: 
+  join <player (and the game can>begin) 
+  bye closes the connection to the backgammon server. 
+  help shows a list of topics on which help is available. 
+  help <topic gives you more help on <topic>
+SEE ALSO 
+  help on other topics 
+  'help rules' if you don't know the rules of the game
+  
+NAME 
+  blind - ban another user from watching you 
+SYNOPSIS 
+  blind <name>
+DESCRIPTION 
+  If you 'blind' another user, that user will not be able to watch the 
+  games you are playing or look at your board with the 'look' command. 
+  There is no 'unblind' command, just use 'blind <name ' again for that>
+  purpose. Bans remain active until you lift them or until you log out. 
+  There is no way to save bans as permanent settings. 
+SEE ALSO 
+  look, watch
+  
+NAME 
+SYNOPSIS 
+DESCRIPTION 
+  The board command displays the board. As the board is displayed after 
+  every move if the autoboard toggle is set to YES (which is the default) 
+  you should only need to use this command if the board has scrolled from 
+  your screen. You can only use this command if you're playing or while you 
+  are watching another user playing. 
+  You can use 'b' as an abbreviation of 'board'. 
+SEE ALSO
+  
+NAME 
+  complaints - how to complain about cheaters 
+DESCRIPTION 
+  If you want to complain about another player because of cheating or 
+  because of something else, please try to discuss the issue with other 
+  people on FIBS before sending email to marvin@fibs.com This 
+  address should mainly be used for bug reports or personal mail to me. 
+  Because of the amount of email I receive, I will not always be able 
+  to answer all of them (although I do read all of them) 
+  SUMMARY 
+  bug-reports to marvin@fibs.com 
+  flames and insults to nobody@nowhere.org 
+  complaints should be discussed on FIBS before sending email. 
+SEE ALSO 
+  Erase
+  
+NAME 
+  countries - where do the players live 
+DESCRIPTION 
+  There are players from the following countries (and maybe more): 
+  Let me know if you miss your country. I'll then check the IP address 
+  you last came from. The two letters in brackets are the official country 
+  code (the last 2 letters of the hostname). Hosts ending with 3 letter 
+  codes (EDU, COM, etc) are usually in the USA. 
+  Albania (al) Antigua and Barbuda (ag) 
+  Argentina (ar) Armenia (am) 
+  Australia (au) Austria (at) 
+  Bahamas (bs) Bahrain (bh) 
+  Belarus (by) Belgium (be) 
+  Bermuda (bm) Bosnia and Herzegovina (ba) 
+  Brazil (br) Bulgaria (bg) 
+  Canada (ca) Chile (cl) 
+  China (cn) Colombia (co) 
+  Costa Rica (cr) Croatia (hr) 
+  Cyprus (cy) Czech Republic (cz) 
+  Denmark (dk) Dominican Republic (do) 
+  Egypt (eg) Estonia (ee) 
+  European Union (eu) Finland (fi) 
+  France (fr) Georgia (ge) 
+  Germany (de) Greece (gr) 
+  Greenland (gl) Hong Kong (hk) 
+  Hungary (hu) Iceland (is) 
+  India (in) Indonesia (id) 
+  Iran (ir) Ireland (ie) 
+  Israel (il) Italy (it) 
+  Jamaica (jm) Japan (jp) 
+  Korea (kr) Kuwait (kw) 
+  Kyrgyzstan (kg) Latvia (lv) 
+  Lebanon (lb) Lithuania (lt) 
+  Luxembourg (lu) Macau (mo) 
+  Macedonia (mk) Malaysia (my) 
+  Mauritius (mu) Mexico (mx) 
+  Moldova (md) Monaco (mc) 
+  Morocco (ma) Netherlands Antilles (an) 
+  Netherlands (nl) New Zealand (nz) 
+  Nicaragua (ni) Niue (nu) 
+  Norway (no) Pakistan (pk) 
+  Papua New Guinea (pg) Peru (pe) 
+  Philippines (ph) Poland (pl) 
+  portugal (pt) Romania (ro) 
+  Russia (ru) Saudi Arabia (sa) 
+  Serbia (rs) Singapore (sg) 
+  Slovakia (sk) Slovenia (si) 
+  Solomon Islands (sb) South Africa (za) 
+  Soviet Union (su) Spain (es) 
+  Sweden (se) Switzerland (ch) 
+  Taiwan (tw) Thailand (th) 
+  Trinidad and Tobago (tt) Turkey (tr) 
+  Tuvalu (tv) Ukraine (ua) 
+  United Arab Emirates (ae) United Kingdom (uk) 
+  United States (us) Uruguay (uy) 
+  Uzbekistan (uz) Venezuela (ve) 
+  Vietnam (vn) Yugoslavia (yu)
+  
+NAME 
+  crawford - The Crawford rule 
+DESCRIPTION 
+  This server uses the Crawford rule by default. Here is what is says: 
+  If you are playing a n-point match and your opponent is ahead 
+  of you and he gets to n-1 points you are not allowed to use 
+  the doubling cube in the next game to come. 
+  You can set the crawford toggle to NO if you don't want to use the 
+  Crawford rule. If your opponent did the same the rule won't be used. 
+  EXAMPLE: 
+  score 
+  game # You opponent 
+  .... ... ... 
+SEE ALSO 
+  double, toggle, toggle-crawford
+  
+NAME 
+  date - equivalent to the time command 
+SYNOPSIS 
+  The date and time commands are equivalent. 
+SEE ALSO 
+  Time
+  
+NAME 
+  dicetest - show statistics about the dice 
+SYNOPSIS 
+  dicetest 
+DESCRIPTION 
+  The dicetest command shows the results of several test that are 
+  performed on all the rolls of all players after a restart of FIBS. 
+  First it tells you how many rolls went into the results you'll see 
+  afterwards. The next 6 lines show you how often each pair of numbers 
+  appeared in those rolls. The next lines show a geometrical test: 
+  Look at the book 'Numerical Recipes. Example Book (C)' for a similar 
+  test. The next lines show how often it happened that a certain number 
+  appeared several times in a row. Each roll with two dice is treated 
+  as two rolls with a single die and the length of sequences of exactly 
+  n rolls are counted for each number. E.g. the number below 'n: 1' 
+  tells you how often there was exactly a single 1 (no 1 rolled before or 
+  after that). In each line 'S:' means 'sum:'. The last line tells you 
+  the theoretical values of the line above, so you can compare the 
+  theory to the number of n-runs rolled in real life FIBS.
+  
+NAME 
+  double 
+SYNOPSIS 
+  double 
+DESCRIPTION 
+  Type 'double' if you want to double the cube. Your opponent will then 
+  be asked if she or he wants to accept or reject the double. 
+  This program uses the Crawford rule by default. 
+SEE ALSO 
+  accept, crawford, reject, toggle-crawford
+  
+NAME 
+  erase - How and why accounts are erased 
+DESCRIPTION 
+  I'm very sorry that this is necessary, but I can't wait any longer: 
+  There have been problems with users of the backgammon server complaining 
+  about other players. Complaints were about cheating and about insulting 
+  other users. It's not possible for me to verify if those incidents did 
+  really happen, because I'm not logged in all the time, because people tend 
+  to behave well as soon as I'm logged in and because listening to all 
+  players involved (which I tried) uses up a lot of the time I can use for 
+  maintaining and improving the server. Therefore I have asked a couple of 
+  players to report those incidents. Those players are users of this server 
+  for several months and I know that I can rely on what they tell me. If 
+  those players keep telling me that someone is misusing the server I will 
+  erase the account in question without discussing about it. I know this 
+  may not always be the ideal way to solve the problems, but I don't see any 
+  other way to deal with them. 
+  REMARKS 
+  Don't complain if it happens to you - it's not my decision. No, I won't 
+  tell who the players are whom I asked to keep their eyes open. I won't 
+  answer the insulting emails I'll get. I won't listen to complaints about 
+  other players by other players than the ones I asked to complain.
+  
+NAME 
+  formula - The formulas used to calculate rating changes 
+DESCRIPTION 
+  These are the formulas used to determine the ratings of a player: 
+  Let's say that two players P1 and P2 were playing a n-point match. 
+  The ratings of the players are r1 for P1 and r2 for P2 . 
+  Let D = abs(r1-r2) (rating difference) 
+  Let P_upset = 1/(10^(D*sqrt(n)/2000)+1) (probability that underdog wins) 
+  Let P=1-P_upset if the underdog wins and P=P_upset if the favorite wins. 
+  For the winner: 
+  Let K = max ( 1 , -experience/400+2 ) 
+  The rating change is: 4*K*sqrt(n)*P 
+  For the loser: 
+  Let K = max ( 1 , -experience/400+2 ) 
+  The rating change is: -4*K*sqrt(n)*P 
+  The 'experience' of a player is the sum of the lengths of all matches 
+  a player has finished. Every player starts with a rating of 1500 and 
+  an experience of 0. 
+SEE ALSO 
+  Ratings
+  
+NAME 
+  gag - ignore what another user says 
+SYNOPSIS 
+  gag <name>
+DESCRIPTION 
+  If you 'gag' another user you will not hear what he or she says with 
+  the 'tell', 'shout', 'kibitz' or 'whisper' commands. You can't ignore 
+  what your opponent tells you ith the 'say' command or what the players 
+  in game you watch 'kibitz' or 'whisper' (If you don't want to listen to 
+  them, why do you play with them or watch them in the first place?). 
+  You can't talk to people that you have gagged. 
+  There is no 'ungag' command, just use 'gag <name ' again for that>
+  purpose. 
+SEE ALSO 
+  kibitz, say, shout, tell, watch, whisper
+  
+NAME 
+  help - help on different topics 
+SYNOPSIS 
+  help 
+  help <topic>
+DESCRIPTION 
+  'help <topic>' displays the help available on <topic>
+  Help is currently available on the following topics: 
+  about 
+  accept         address        autologin      average        away 
+  back           beaver         beginner       blind          board 
+  boardstyle     bye            client         cls            commands
+  complaints     countries      crawford       date           dicetest 
+  double         erase          formula        gag            help 
+  hostnames      invite         join           kibitz         last 
+  leave          look           man            message        motd 
+  move           names          off            oldboard       oldmoves 
+  otter          panic          password       pip            raccoon 
+  ratings        rawboard       rawwho         redouble       reject 
+  resign         roll           rules          save           say 
+  set            shout          show           shutdown       sortwho 
+  stat           tell           time           timezones      tinyfugue 
+  toggle         unwatch        version        watch          waitfor 
+  wave           where          whisper        who            whois         !!
+  
+NAME 
+  hostnames - how to interpret hostnames given by the who command 
+DESCRIPTION 
+  Whenever a connection between your computer and the server is 
+  established, all the server knows is the so-called 'IP address' of 
+  your computer (e.g. 134.130.130.46). If your local network is set 
+  up correctly the server is able to translate this information into 
+  a more readable address (e.g. ouzo.rog.rwth-aachen.de). There are 
+  two things that can go wrong: 
+  o The server knows which computer is responsible for this address 
+  but this machine says the address is invalid. In this case the 
+  server gives you the name of the responsible machine by displaying 
+  'near: name.of.responsible.computer' as your address. Please ask 
+  your local network guru to add your machine to the name server 
+  database. (You can find out your IP address with the 'where' command) 
+  o The server can't find a computer responsible for your IP address. 
+  In this case it displays 'Illegal IP' in front of your address. 
+  Probably there is something wrong in the way your computer was 
+  installed. Please ask your local system administrator to check 
+  if your computer uses the correct IP address. It is possible that 
+  the server won't accept connections from those machines in the future. 
+SEE ALSO 
+  who, where
+  
+NAME 
+  invite - invite another user to play a game of backgammon 
+SYNOPSIS 
+  invite <name <number>
+  invite <name unlimited>
+  invite <name>
+DESCRIPTION 
+  The 'invite' command is used to ask other players if they want to play 
+  with you. You can only use this command if you are ready to play (see 
+  'toggle ready'), the other player is ready to play and is not already 
+  playing with someone else. See help on 'who' to find out whom you can 
+  invite. There are three ways to invite other players (see above) 
+  The first two of the above discard a saved game if <player accepts the>
+  invitation, but <player is told that there is a saved>match. 
+  Invitations for matches longer than 9 points are limited to players whose 
+  experience is high enough to appear in the rating list. This was 
+  necessary because some new players cheated themselves into the rating list. 
+SEE ALSO 
+  join, toggle, toggle-ready, who
+  
+NAME 
+  join - accept an invitation from another player 
+SYNOPSIS 
+  join 
+  join <name>
+DESCRIPTION 
+  You can type 'join <name ' if you get a message that <name wants to>
+  play with you. If you don't want to play just do nothing. After joining 
+  the player who invited you the game starts immediately. See help on 
+  'leave' if you don't know how to stop a game. 
+  'join' without arguments is used to start a new game within a match. 
+  If one of the players is watching the server will automatically do 
+  an unwatch command for this player. 
+SEE ALSO 
+  invite, leave, watch, unwatch
+  
+NAME 
+  kibitz - talking to players and watchers 
+SYNOPSIS 
+  kibitz <message>
+DESCRIPTION 
+  The 'kibitz' command is similar to the 'say' command. If you are 
+  playing or watching a game use 'kibitz <message ' to say <message>
+  to everyone who is playing or watching the game. You can use the 
+  single letter 'k' as an abbreviation of 'kibitz'. 
+  If you only want to talk to the watchers of the game (because you 
+  don't want to disturb the players) use the 'whisper' command. 
+SEE ALSO 
+  say, shout, tell, whisper
+  
+NAME 
+  last - Display information about login times 
+SYNOPSIS 
+  last 
+DESCRIPTION 
+  The 'last' command can be used to display the last logins and logouts. 
+  The last 20 entries of the login/logout list will be displayed. 
+  The command 'last <name ' is not available anymore. Use the>'whois' 
+  command instead. 
+SEE ALSO 
+  Whois
+  
+NAME 
+  leave - leave and save a game 
+SYNOPSIS 
+  leave 
+DESCRIPTION 
+  You can type 'leave' if you are playing with someone and want to 
+  quit the game. The game is saved and will be reloaded when one 
+  of the players types 'invite <name ' and the other player>joins. 
+  It's not very polite to leave a game without telling your opponent 
+  first. This feature should NOT be used to abort a match before you 
+  lose and your rating changes. This behavior is cheating!! 
+SEE ALSO 
+  invite, join
+  
+NAME 
+  look - Take a short look at a game 
+SYNOPSIS 
+  look <name>
+DESCRIPTION 
+  You can type 'look <name ' to take a quick look at <name 's>game. 
+  You can use this command without watching a player or if you are 
+  playing yourself. 
+SEE ALSO 
+  Watch
+  
+NAME 
+  man - alias for help 
+SYNOPSIS 
+  man 
+  man <topic>
+DESCRIPTION 
+  The man command is equivalent to the help command. 
+SEE ALSO 
+  Help
+  
+NAME 
+  message - Leave a message for a user 
+SYNOPSIS 
+  message <name <message>
+  message 
+DESCRIPTION 
+  You can use 'message <name <message ' to leave a message for a user>
+  who is not logged in. The message will be displayed to <name when she>
+  or he logs in again. If <name is logged in while you send the message>
+  she or he will also see the message on screen immediately. 
+  If you just type 'message' without any argument you'll see the messages 
+  that were left for you. You can also use 'message' without arguments to 
+  read the messages left for you again. Every time you log out of FIBS 
+  all messages will be deleted, so you won't see them again the next time 
+  you log in. 
+  As this command is limited to one line, this feature is for short notes. 
+  If you want to write longer messages please use electronic mail. 
+  Please note that name completion doesn't work for this command. 
+SEE ALSO 
+  Names
+  
+NAME 
+  motd - Display the message of the day 
+SYNOPSIS 
+  motd 
+DESCRIPTION 
+  Whenever you log in you'll see a message of the day telling you 
+  about news and changes. If you want to see this message again you 
+  can use this command for that purpose.
+  
+NAME 
+  move - Moving pieces on the board 
+SYNOPSIS 
+  move <from -<to>... 
+  move <from <to>... 
+  <from -<to>... 
+  <from <to>... 
+DESCRIPTION 
+  The move command tells the server what pieces you want to move. 
+  Each move must be given as '<from <to ' or '<from -<to '. As <from and>
+  <to you can use the numbers between 1 and 24 and the words 'bar' and>'off'. 
+  You can use ' ' or '-' to separate <from and <to . To separate moves you>
+  have to use ' '. Example: 'move bar-5 bar 5 bar - 5 bar -5' moves 4 pieces 
+  from the bar to position 5. 
+  'move' can be abbreviated by typing 'm'. 
+  'bar' can be abbreviated by typing 'b'. 
+  'off' can be abbreviated by typing 'o'. 
+  You can omit the word 'move' and e.g. just type '1 3' instead of 'move 1 3' 
+  If your automove toggle is set to YES the server will move for you if there 
+  is only one possible move. 
+SEE ALSO 
+  toggle, toggle-automove
+  
+NAME 
+  names - name completion 
+DESCRIPTION 
+  For most commands that need a name as an argument you only have to 
+  type the first few letters of a name. If you type 'tell ma Hi!' 
+  and the only player whose name starts with 'ma' is marvin, the server 
+  will do a 'tell marvin Hi!' for you. If there is another user called 
+  'mama' the server will complain that you should greet either marvin 
+  or mama. (Note that in this example 't ma Hi!' is even shorter and 
+  that this feature does not work for the 'last', 'message' and 'ratings' 
+  commands). The name completion will first try to find a name that 
+  matches case sensitive. If this doesn't work it will try to find a 
+  name that matches case insensitive.
+  
+NAME 
+  off - bear off pieces with every possible move 
+SYNOPSIS 
+  off 
+DESCRIPTION 
+  Often you will want to bear off one piece per move in the final 
+  phase of a game. If you have rolled a double you may want to bear 
+  off 4 pieces, otherwise you may want to bear off 2 pieces. Instead 
+  of entering the moves to do that manually, you can issue the 'off' 
+  command and FIBS will bear off for you automatically if possible. 
+SEE ALSO 
+  toggle-greedy
+  
+NAME 
+SYNOPSIS 
+DESCRIPTION 
+  If there is a saved game with a player called <name the board of>
+  this game is displayed. Name completion doesn't work for this command, 
+  so the <name has to match the player's name>exactly. 
+  The 'oldboard' command can only be used while you are not playing. 
+SEE ALSO 
+  names, oldmoves
+  
+NAME 
+  oldmoves - Display the moves of a saved game. 
+SYNOPSIS 
+  oldmoves <name>
+DESCRIPTION 
+  The oldmoves command displays a list of the moves of a saved game 
+  with a player called <name . Name completion doesn't work for this>
+  command, so the <name argument has to match the player's name>
+  exactly. This command can be used to display games that are already 
+  over and not displayed by the 'show saved' command. 
+  LIMITATIONS 
+  o You shouldn't wait too long before using this command, because 
+  games that are saved but already over will be erased every few days. 
+  o If you try to display the moves of a game you are currently playing 
+  the last moves may be missing, because they are buffered before 
+  they are saved. 
+  o The output is a little minimalistic. 
+  o Information about who is X and who is O is only displayed for games 
+  that were started since version 1.198 of the server. 
+  o If you start a new game in a match the last game will be erased. 
+  If you want a list of it's moves use this command before you type 
+  'join' to start a new game in the match. 
+  o It's up to you to see the moves that scroll from your screen. 
+SEE ALSO 
+  names, oldboard, show, version
+  
+NAME 
+  otter - Offering an instant redouble that is an otter 
+SYNOPSIS 
+  beaver 
+DESCRIPTION 
+  An instant redouble of an offered "raccoon" is called "otter". You can 
+  use the command 'redouble' instead. 'otter' can only used for the 
+  third instant redouble while 'redouble' can be used for any of several 
+  instant redoubles in a row. 
+SEE ALSO 
+  beaver, raccoon, redouble
+  
+NAME 
+  panic - save a game to a special file 
+SYNOPSIS 
+  panic 
+DESCRIPTION 
+  Use the 'panic' command if you find a bug while playing. 
+  Your game is then saved in a special file together with 
+  the names of the players and the current time. To find 
+  the bug in the source code I'll need more information. 
+  Send mail describing the bug in detail to: 
+  marvin@rog.rwth-aachen.de 
+  I hope you'll never use this command. This command will be 
+  erased in the future because it isn't very helpful anymore.
+  
+NAME 
+  password - change password 
+SYNOPSIS 
+  password <old :<new :<new>
+DESCRIPTION 
+  The password command can be used to change your password. 
+  You have to give your new password twice to avoid typos. 
+  The password will appear on the screen while you type it! 
+  Make sure that nobody is looking at your screen while you 
+  change your password. If the 'cls' command works on your 
+  terminal it's a good idea to use it right after changing 
+  your password. Note that the character that separates the 
+  old and the new password is a colon ':' to allow passwords 
+  containing space characters to be changed. 
+  NOTE by marvin 
+  All passwords are encrypted before they are saved to the database. 
+  That means that if you forget your password there is no way for 
+  me to recover it. Unless you can prove (you can't) that you are the 
+  owner of an account I will not change the password and send you 
+  a new one. So, please make sure that you remember your password. 
+SEE ALSO 
+  Cls
+  
+NAME 
+  pip - Display pip count 
+SYNOPSIS 
+  pip 
+DESCRIPTION 
+  With the pip command you can see your and your opponent's pipcount. 
+  For those who don't know what 'pipcount' means: it's the total amount 
+  of points you have to move your pieces to bear them all off. 
+  This command can only be used if both players have set their 'allowpip' 
+  toggle to YES (that's the default). Type 'toggle allowpip' if you think 
+  that using a computer to compute the pipcount is not fair. 
+  This command can also be used while watching a game if both players 
+  have set their allowpip-toggle to YES. 
+SEE ALSO 
+  toggle, toggle-allowpip
+  
+NAME 
+  raccoon - Offering an instant redouble that is a raccoon 
+SYNOPSIS 
+  beaver 
+DESCRIPTION 
+  An instant redouble of an offered "beaver" is called "raccoon". You can 
+  use the command 'redouble' instead. 'raccoon' can only used for the 
+  second instant redouble while 'redouble' can be used for any of several 
+  instant redoubles in a row. 
+SEE ALSO 
+  beaver, otter, raccoon, redouble
+  
+NAME 
+  ratings - Display information from the rating list 
+SYNOPSIS 
+  ratings [<name |all] [from <number ] [to <number>] 
+DESCRIPTION 
+  You'll see the first 20 entries of the current rating list if you just 
+  type 'ratings'. You can see the ratings of all players that are currently 
+  logged in with the who command. To see the ratings of a player called 
+  <name type 'ratings <name '. To see all the ratings type 'ratings>all'. 
+  The optional 'from <number ' and 'to <number ' arguments override the>
+  default positions 'from 1 to 20' for the rating list output. 
+  Every player starts with a rating of 1500 points and an experience of 0. 
+  Every match you play (except unlimited matches) changes your rating. If 
+  your experience is greater than 50 you'll appear in the rating list. 
+  To see how rating changes are calculated type 'help formula'. To see a 
+  brief calculation of the rating change after a match make sure that your 
+  ratings toggle is set to YES. 
+  ETHICS 
+  There are several ways to manipulate the rating list and get a high rating. 
+  This is cheating and not fair. Until there is a way to prevent cheating 
+  the sysop will erase accounts that have been manipulated. 
+SEE ALSO 
+  formula, names, toggle, toggle-ratings, who
+  
+NAME 
+DESCRIPTION 
+  If the rawboard toggle is set to yes you won't see the text representation 
+  of the board but a number of tokens separated by colons. The tokens sent 
+  by the server and their meaning are (the first token is always the 
+  word 'board'): (tokens marked with + are new) 
+  + name - the player's name 
+  name - the opponent's name 
+  match length - match length or 9999 for unlimited matches 
+  player got - player's points in the match so far 
+  opponent got - opponent's points in the match so far 
+  the bars for the players (see below). Positive numbers 
+  represent O's pieces negative numbers represent X's pieces 
+  turn - -1 if it's X's turn, +1 if it's O's turn 
+  dice - 2 numbers giving the player's dice. If it's the players 
+  turn and she or he hasn't rolled, yet both numbers are 0 
+  + dice - the opponent's dice (2 numbers) 
+  cube - the number on the doubling cube 
+  may double - 1 if player is allowed to double, 0 otherwise 
+  + may double - the same for the opponent 
+  was doubled - 1 if your opponent has just doubled, 0 otherwise 
+  color - -1 if you are X, +1 if you are O 
+  direction - -1 if you play from position 24 to position 1 
+  home - 0 or 25 depending on direction (obsolete but included anyway) 
+  bar - 25 or 0 (see home) 
+  on home - number of pieces already removed from the board by player 
+  + on home - same for opponent 
+  on bar - number of player's pieces on the bar 
+  + on bar - same for opponent 
+  can move - a number between 0 and 4. This is the number of pieces you 
+  can move. This token is valid if it's your turn and you 
+  have already rolled. 
+  forced move - don't use this token 
+  did crawford - don't use this token 
+  + redoubles - maximum number of instant redoubles in unlimited matches 
+SEE ALSO
+  
+NAME 
+  rawwho - who command for client programs 
+SYNOPSIS 
+  rawwho <same arguments as the who command>
+DESCRIPTION 
+  The 'rawwho' command produces almost the same output as the 'who' 
+  command. The main difference is that the output is easier to parse 
+  by client programs. For that purpose the following differences to 
+  the output of the normal 'who' command exist: 
+  - No title line is sent. 
+  - each line representing a user starts with the text 'who: '. 
+  - the status field contains the character '-' (minus) for each field 
+  that the normal who output shows as a ' ' (blank). 
+  - player names are not truncated. 
+  - The text 'who:end' is sent as the last line of the output. Note 
+  that there is no ' ' (blank) between 'who:' and 'end'. 
+SEE ALSO 
+  Who
+  
+NAME 
+  redouble - accepting doubles by redoubling 
+SYNOPSIS 
+  redouble 
+  beaver 
+  raccoon 
+  otter 
+DESCRIPTION 
+  A "beaver" or an "instant redouble" is an unlimited match feature that 
+  allows the receiving party of a double to accept it at twice the level 
+  at which it was offered. A "raccoon" is an instant redouble of a beaver 
+  and an "otter" is an instant redouble of a raccoon. There are no special 
+  names for further redoubles. Each of the redoubles can be accepted or 
+  rejected the same way normal doubles are accepted or rejected. 
+  The maximum number of instant redoubles in a row is the minimum of both 
+  players' 'redoubles' variable. This variable is initially set to 0 but 
+  it can be changed with the 'set' command. 
+  The commands 'beaver', 'raccoon' and 'otter' are only allowed if the 
+  redouble really is a beaver, raccoon or otter. The command 'redouble' 
+  can be used for either of them and for further redoubles. 
+SEE ALSO 
+  accept, double, reject, set
+  
+NAME 
+  reject 
+SYNOPSIS 
+  reject 
+DESCRIPTION 
+  You can use the reject command if your opponent has doubled and you don't 
+  think you should accept the double. Use 'accept' if you do. 
+  You can also use this command if your opponent wants to resign and you 
+  don't agree with the number of points you'll win if you accept. 
+SEE ALSO 
+  accept, double, resign
+  
+NAME 
+  resign - resign a game 
+SYNOPSIS 
+  resign <how>
+DESCRIPTION 
+  You can type 'resign <how ' if you want to resign. Your opponent will be>
+  asked to accept or reject your resign. The number of points you lose 
+  is determined by <how . You can give the following values of <how>: 
+  normal - You'll lose the number of points on the cube. 
+  gammon - You'll lose twice the number of points on the cube. 
+  backgammon - You'll lose three times the number of points on the cube. 
+  You can use 'n', 'g' and 'b' instead of 'normal', 'gammon' and 'backgammon'. 
+SEE ALSO 
+  accept, reject
+  
+NAME 
+  roll - roll the dice 
+SYNOPSIS 
+  roll 
+DESCRIPTION 
+  With the roll command you tell the server to roll the dice for you. 
+  The server program then tells you the two numbers it rolled for 
+  you and how many pieces you have to move. If you are not allowed to 
+  double because you don't own the cube or the crawford rule applies 
+  the server will roll for you automatically. If you set your double 
+  toggle to NO the server will roll for you even if you were allowed to 
+  double instead. 
+  'roll' can be abbreviated by typing 'r'. 
+SEE ALSO 
+  crawford, double, toggle, toggle-double
+  
+NAME 
+  rules - The basic rules of backgammon 
+SYNOPSIS 
+  help ruleX 
+DESCRIPTION 
+  Type 'help ruleX' to see rule X. Currently X can be a number between 1 
+  and 9. The rules are: 
+  These are not the 'official' rules word for word but my version of them. 
+  They should say pretty much the same as the official rules. I left out 
+  some rules that have no meaning for the server (like: what happens if you 
+  roll the dice before your opponent has finished her or his move - the 
+  server simply doesn't allow this). Currently there are no rules for 
+  matches here. They will be added later. 
+SEE ALSO 
+  rule1, ..., rule9
+  
+NAME 
+  rule1 - how the board looks like 
+DESCRIPTION 
+  Backgammon is a two player game. It's played with 2 dice and 15 pieces 
+  for each player on a board with 24 positions and a field called the bar. 
+  Before the game starts the pieces are placed on the board like this: 
+  +-24-23-22-21-20-19-------18-17-16-15-14-13-+ 
+  | X O | | O X | 
+  Value of 'boardstyle' set to 3. 
+  | X O | | O X | 
+  ** You're not playing. 
+  | O | | O X | 
+  ** You're not playing. 
+  | O | | X | 
+  ** You're not playing. 
+  | O | | X | 
+  | |BAR| |v 
+  ** You're not playing. 
+  | X | | O | 
+  ** You're not playing. 
+  | X | | O | 
+  ** You're not playing. 
+  | X | | X O | 
+  ** You're not playing. 
+  | O X | | X O | 
+  ** You're not playing. 
+  | O X | | X O | 
+  +--1--2--3--4--5--6--------7--8--9-10-11-12-+
+  
+NAME 
+  rule2 - the direction you move pieces 
+DESCRIPTION 
+  (refer to the board shown in rule 1 for the numbers of the positions) 
+  One of the players (O) moves her or his pieces from position 1 to position 
+  in rule 1 you would move the X pieces from 24 to 1. The last six positions 
+  for each player (1-6 for O and 19-24 for X) are called the player's home 
+  the home board is on the left of the board from X's point of view and on 
+  the right from O's point of view. The server always shows a 'v' on one side 
+  of the board indicating the direction of your moves.
+  
+NAME 
+  rule3 - the goal of the game 
+DESCRIPTION 
+  When you have moved all of your pieces into your home board you can bear 
+  them off (remove them from the board according to the numbers on the dice). 
+  The winner of a game is the first player who succeeds in bearing of all 
+  own pieces from the board.
+  
+NAME 
+  rule4 - rolling the dice 
+DESCRIPTION 
+  At the beginning of a game each player rolls with a single die. If both 
+  players roll the same number they have to roll again. The player who 
+  finally rolls the higher number makes the first move using the two numbers 
+  just rolled. After the opening roll both players roll alternating using 
+  two dice.
+  
+NAME 
+  rule5 - moving pieces 
+DESCRIPTION 
+  After rolling the dice you have to move pieces. Moving pieces means either: 
+  - moving one or more pieces on the board. You move the number of positions 
+  according to the number of the dice. E.g: if one of the dice shows the 
+  number 4 you can move one of your pieces 4 positions in your direction. 
+  If you move one piece with both numbers on the dice this is considered 
+  being two separate moves. 
+  - entering one or more pieces from the bar into your opponent's home board 
+  according to the numbers on the dice. E.g.: if one of the dice shows the 
+  number 4 you can enter one piece from the bar to position 4 or 21 
+  (depending on where your opponent's home board is). 
+  - bearing off pieces from the the board if none of your pieces is on the 
+  bar or outside your home board. (see rule 7 for details)
+  
+NAME 
+  rule6 - moving pieces 
+DESCRIPTION 
+  a. If you roll a double the number on the dice is used four times to 
+  move a piece. 
+  a. You have to use both (all) numbers on the dice if possible. You can use 
+  any of the numbers first. If you can use either of the numbers but not 
+  both, you have to use the higher one for moving one piece. 
+  b. It's not allowed to move a piece to a position occupied by two or 
+  more pieces of your opponent. 
+  c. If you move a piece to a position occupied by a single piece (blot) 
+  of your opponent, this piece is removed from the board and placed on 
+  the bar. This piece can later be re-entered into your home board according 
+  to rule 5. 
+  d. If one of your pieces is on the bar, you are not allowed to move 
+  pieces on the board before the piece on the bar has been re-entered.
+  
+NAME 
+  rule7 - bearing off pieces 
+DESCRIPTION 
+  When you are allowed to bear off pieces (rule 5) you can bear off a piece 
+  from a position matching the number on a die (e.g. 5 or 20 if you have 
+  rolled a 5) or a piece from the highest occupied position smaller than 
+  the number on the die. If you roll a number matching an unoccupied 
+  position you are not allowed to bear off pieces from smaller positions if 
+  there are any pieces on higher positions. You have to move one of the 
+  pieces on the higher positions in this case. You are not forced to bear 
+  off pieces if it is also possible to move pieces inside your home board and 
+  rule 6 is not violated.
+  
+NAME 
+  rule8 - winning 
+DESCRIPTION 
+  The value of a game is the number of points the winner gains at the end of 
+  the game. This value is initially 1. 
+  The player who bears off all her or his pieces first is the winner of the 
+  game and wins the value of that game. If you win and your opponent couldn't 
+  bear off any piece the value of the game is doubled (this is called 
+  winning a 'gammon'). 
+  You win a 'backgammon' if your opponent couldn't bear off any piece and one 
+  or more of her or his pieces are still on the bar or inside your home
+  
+NAME 
+  rule9 - doubling 
+DESCRIPTION 
+  Any player may offer to double the value of a game. After the first double 
+  the right to offer the next one alternates between the two players. The 
+  player who has accepted the last double is the one who is allowed to offer 
+  the next one. You may offer a double when it's your turn to roll but you 
+  haven't rolled yet. An offered double can be accepted or rejected (declined). 
+  If a double is declined the game is over and the player who has offered the 
+  double wins the value of the game before the double was offered. 
+  If a player wins a gammon or a backgammon the value of the game as deter- 
+  mined by previous doubling is multiplied by 2 or 3 (see rule 8).
+  
+NAME 
+  save - save your current toggle settings 
+SYNOPSIS 
+  save 
+DESCRIPTION 
+  If you want to save the settings of your toggles just type 'save'. 
+  The next time you log in the server will restore the toggles as you 
+  saved them. The only toggle that won't be saved is the 'double' 
+  toggle (which is reset to YES before every game anyway). 
+SEE ALSO 
+  Toggle
+  
+NAME 
+  say - talk to your opponent 
+SYNOPSIS 
+  say <message>
+DESCRIPTION 
+  The say command allows you to say something to your opponent. It can only 
+  be used while you are playing. If you want to say something when you are not 
+  playing use the tell command. To say something to your opponent and all 
+  watching players use the 'kibitz' command. To say something to the watchers 
+  only you can use the 'whisper' command. You can use the single letter 's' 
+  as an abbreviation for 'say'. 
+SEE ALSO 
+  kibitz, shout, tell, whisper
+  
+NAME 
+  set - how to set variables that are not toggles 
+SYNOPSIS 
+  set 
+  set <variable>
+  set <variable <value>
+DESCRIPTION 
+  With the set commands it is possible to assign a value to a variable 
+  that is not a toggle. 'set' without argument displays the values of 
+  all available variables. 'set' with one argument <variable displays>
+  the value of <variable . 'set' with two arguments sets <variable to>
+  <value>. 
+  There are currently 6 variables you can set to a value: 
+  'linelength': see help on 'screen' 
+  'pagelength': see help on 'screen' 
+  'redoubles': see help on 'redouble' for details 
+  'sortwho'. see help on 'sortwho' 
+  'timezone': see help on 'timezones' 
+  You can abbreviate the name of the variable, eg 'set b 3' instead 
+  of 'set boardstyle 3'. 
+SEE ALSO
+  
+NAME 
+  shout - say something to all users 
+SYNOPSIS 
+  shout <message>
+DESCRIPTION 
+  With the shout command you can say <message to all users who are logged>
+  in and whose silent toggle is set to NO. If your own silent toggle is set 
+  to YES you can't use this command. 
+  LIMITATIONS 
+  The '!!' command doesn't work with shouts. 
+  The number of shouts is limited for newcomers. This is a Backgammon 
+  server. If you want to talk to lots of people rather than play 
+  Backgammon please use IRC (ask your system administrator how to 
+  use IRC). If your message is directed to one person only, you should 
+  use the 'tell' command. 
+SEE ALSO 
+  kibitz, say, tell, toggle-silent, whisper, !!
+  
+NAME 
+  show - Display information 
+SYNOPSIS 
+  show <item>
+DESCRIPTION 
+  You can use the show command to get information about <item>. 
+  There are only a few items currently available: 
+  'show games' gives you a list of all games that are played at the moment. 
+  'show saved' tells which of your matches are saved and what the score is. 
+  	 If one of your opponents in those matches is currently logged 
+  	 in, you'll see an asterisk '*' before his or her name. 
+  	 If your opponent is logged in and ready for a match you'll 
+  	 see two asterisks in front of the name. 
+  'show savedcount [player]' shows you how many saved games a player has. 
+  	 If you don't specify a player name, it gives you your own. 
+  	 This is an accurate count, and should be the same as what the 
+  	 player sees with 'show saved'. 
+  	 (Note: this is beta, and could be removed.) 
+  'show watchers' tells you who is watching who. 
+  'show max' displays the maximum of simultaneous users.
+  
+NAME 
+  shutdown - shutdown the server 
+SYNOPSIS 
+  shutdown <minutes>[restart] 
+  shutdown now [restart] 
+  shutdown stop 
+DESCRIPTION 
+  This command shuts down the server. It can only be used by 
+  privileged users. If the first argument is a number the server 
+  shuts down in that number of minutes. If the second argument 
+  is the word 'now' the server shuts down immediately. If the 
+  word 'stop' is given as the first argument the shutdown 
+  sequence is halted. You can use the optional argument 'restart' 
+  to restart the server immediately after the shutdown. This is 
+  useful for installing a new version of the server. 
+  During the last 10 minutes of a shutdown sequence the server 
+  disables all new logins.
+  
+NAME 
+  sortwho - how the 'who' command sorts it's output 
+DESCRIPTION 
+  The 'who' command can sort it's output in various styles. The 
+  style it uses is determined by the 'sortwho' variable. Valid 
+  values are: 
+  login - sort by login time 
+  name - sort by user name 
+  rating - sort by rating (lowest rating first) 
+  rrating - sort by reverse rating (highest rating first) 
+  You can set the 'sortwho' variable to one of the above values 
+  with the set command. If you want 'who' to sort by name you type: 
+  set sortwho name 
+SEE ALSO 
+  set, who
+  
+NAME 
+  stat - display system usage information about the server 
+SYNOPSIS 
+  stat 
+DESCRIPTION 
+  This command displays information about the system usage of the 
+  server on it's host machine (fibs.com). It's useful for the sysop only.
+  
+NAME 
+  tell - say something to a specific player 
+SYNOPSIS 
+  tell <name <message>
+DESCRIPTION 
+  The say command is used to tell <name that you say <message to her or>
+  to him. If you are playing with <player you can use the say command>
+  instead. To say something to all players and watchers of a game use the 
+  kibitz command. To say something to the watchers of a game only use the 
+  whisper command and to say something to all users use the shout command. 
+  You can use the single letter 't' as an abbreviation of 'tell'. 
+SEE ALSO 
+  kibitz, say, shout, whisper
+  
+NAME 
+  time - display the current time 
+SYNOPSIS 
+  time 
+  time <zone>
+  date 
+  date <zone>
+DESCRIPTION 
+  The time command displays the current time. The timezone used for this 
+  is determined by the 'timezone' variable (default is UTC) or by the 
+  optional argument. 
+SEE ALSO 
+  set, timezones
+  
+NAME 
+  timezones - How the server supports different timezones 
+DESCRIPTION 
+  The 'timezone' variable controls which timezone some commands use for 
+  displaying times. The commands that currently support timezones are 
+  'who', 'date', 'last' and 'time'. Other commands do not use timezones yet. 
+  To select a timezone you can type 'set timezone <zone ' where <zone>
+  is the name of your timezone. You'll get a list of all supported timezones 
+  if you try to choose an unknown timezone name. Please note that timezone 
+  names are now in the format 'Continent/City'. If the city you live in is 
+  not listed, choose another city in your timezone. 
+  EXAMPLES 
+  If you live in London, England type: 
+  set timezone Europe/London 
+  To see the current time on the Galapagos Islands type: 
+  time Pacific/Galapagos 
+SEE ALSO 
+  date, last, set, time, who
+  
+NAME 
+  tinyfugue - a few hints on using the TinyFugue client 
+DESCRIPTION 
+  o get it by ftp: from ferkel.ucsb.edu pub/mud/Clients/tf.2.1.beta2.tar.z 
+  NEW: An improved version that uses a separate window to display the 
+  backgammon board is available now by ftp from 
+  figment.csee.usf.edu in directory pub/misc/FIBS_client 
+  Use the patch file to update from the original client or get 
+  the file tf.2.1.beta2.fibs.tar.z for the whole package. 
+  o unpack it using the gunzip and the tar program. 
+  o read the documentation that comes with TinyFugue. (esp. INSTALLATION) 
+  o edit the Makefile if necessary. I had to replace -DTERMCAP by -DHARDCODE 
+  in the FLAGS=... line near the top of it. Try this if the program tells 
+  you it can't use visual mode when you run it. 
+  o type 'make install' 
+  o create a file called .tfrc in your home directory containing the lines: 
+  /visual on 
+  /addworld FIBS your_login_name your_password 129.16.235.90 4321 
+  (leave out name _and_ password if you don't like plain passwords on disk) 
+  (o make sure others can't read the file: chmod 600 .tfrc) 
+  o run the client 
+  o If you have problems using it, type the client's /help command. 
+  That's as much help as I can give. PLEASE don't send mail to me about 
+  problems with it. It worked for me and all I wanted to do is showing you 
+  that MUD clients can be used (and maybe expanded) for FIBS.
+  
+NAME 
+  toggle - display or change the value of toggles 
+SYNOPSIS 
+  toggle 
+  toggle <option [<option>...] 
+DESCRIPTION 
+  'toggle <option ' toggles the status of <option>. 
+  'toggle' without any option gives you a list of currently 
+  available options and their status. 
+  You can type 'to' instead of 'toggle' and also use any unique 
+  prefix for the option, eg 'to gr' for 'toggle greedy'. 
+  Valid options are: 
+  allowpip autoboard autodouble 
+  autoroll automove bell 
+  crawford double greedy 
+  ratings rawboard ready (or just 'r') 
+  report silent telnet 
+  wrap 
+  Type 'help toggle-<option ' to find out what <option>means. 
+  Example: To find out what the 'bell' toggle means type: 
+  help toggle-bell 
+SEE ALSO 
+  toggle-<option for all <option s given>above. 
+  
+NAME 
+  unwatch - stop watching a player 
+SYNOPSIS 
+  unwatch 
+DESCRIPTION 
+  'unwatch' is the opposite of 'watch'. You stop watching the player 
+  you are currently watching. 
+SEE ALSO 
+  Watch
+  
+NAME 
+  version - display version number of the server 
+SYNOPSIS 
+  version 
+DESCRIPTION 
+  Type 'version' if you want to know what version of the server 
+  is currently running.
+  
+NAME 
+  watch - watch a player 
+SYNOPSIS 
+  watch <name>
+DESCRIPTION 
+  'watch <name ' can be used to watch the game <name>plays. 
+  You'll be informed about all rolls, moves and doubles in that game. 
+  If your autoboard toggle is YES you'll also see the board after 
+  each move. The board will be shown from 'player's point of view. 
+  You can't watch if your playing yourself and you can't watch more 
+  than one player at the same time. Use the 'unwatch' command if you 
+  don't want to watch 'player' anymore. 
+  While watching you can use the kibitz and whisper commands to talk 
+  to players and other watchers. 
+SEE ALSO 
+  kibitz, toggle, toggle-autoboard, unwatch, whisper
+  
+NAME 
+  waitfor - wait for another player to log in 
+SYNOPSIS 
+  waitfor <name>
+DESCRIPTION 
+  With the 'waitfor' command you can request a notification to be sent 
+  to you when a certain player logs in. Let's say you type 
+  waitfor marvin 
+  and marvin logs in. You'll see a message saying 
+  ** FINALLY!!! marvin logs in 
+  and marvin will see a message saying: 
+  <whatever_your_name_is is waiting for you to log>in. 
+  You can wait for more than one player at a time. There is no way to 
+  stop waiting for a player unless that player logs in or you log out. 
+  If you just type 'waitfor' without a name you'll see a list of players 
+  you are waitng for.
+  
+NAME 
+  wave - wave goodbye before leaving 
+SYNOPSIS 
+  wave 
+DESCRIPTION 
+  All players who want to receive shouts are informed about the fact 
+  that you wave goodbye because you want to leave. If used twice it can 
+  also be used to log out. 
+SEE ALSO 
+  Bye
+  
+NAME 
+  where - display full hostnames 
+SYNOPSIS 
+  where 
+  where <name>
+DESCRIPTION 
+  The 'where' command can be used to display the hostname usually 
+  shown by the 'who' command. Unlike the who command the hostname 
+  is always shown without length limitation. (The who command 
+  displays at most 29 characters of the hostname). Note that this 
+  command (unlike the 'last' command) uses name completion but 
+  it can only be used to look up users who are currently logged in. 
+  If no parameter <name is given the server will show your>hostname. 
+SEE ALSO 
+  last, names, who
+  
+NAME 
+  whisper - say something to watchers of a game 
+SYNOPSIS 
+  whisper <message>
+DESCRIPTION 
+  You can use the whisper command if you are watching or playing a 
+  game and want to say something to all users watching this game. If 
+  you want to say something to the players too use the 'kibitz' command. 
+  You can use 'wh' as an abbreviation for 'whisper'. 
+SEE ALSO 
+  kibitz, say, shout, tell
+  
+NAME 
+  who - display information about currently logged in users 
+SYNOPSIS 
+  who [ ready | playing | away | count | <name | from <site>] 
+DESCRIPTION 
+  This command gives you a list of all players that are currently logged in. 
+  The optional arguments 'ready', 'playing' and 'away' limit the output 
+  to those players who are ready, playing or away. You can also give a 
+  player's <name as an argument to get information about that player>only, 
+  use the argument 'count' to find out how many people are logged in or use 
+  'from <site ' to get a list of all players who are logged in from a site>
+  containing <site as a>substring. 
+  There are several columns of output for every player: 
+  S: Status of the player. It is displayed in 3 columns: 
+  column 1: player is playing (P), ready to play (R), refusing to play (-) 
+  column 2: player is watching a game (W) 
+  column 3: player is marked away (A) 
+  username: The name you can use to contact the player 
+  rating: The player's rating in the rating system. 
+  exp: The player's experience in the rating system. 
+  login: login time 
+  idle: Idle time of the user in minutes and seconds. 
+  from: name or Internet address of the player's computer 
+  You can use 'w' as an abbreviation of 'who' 
+  The way who sorts it's output is determined by the 'sortwho' variable. 
+SEE ALSO 
+  ratings, set, sortwho
+  
+NAME 
+  whois - Display information about a player 
+SYNOPSIS 
+  whois <name>
+DESCRIPTION 
+  The 'whois' command can be used to get information about a player. 
+  You will see the following information about the player: 
+  - the last login time 
+  - the last logout time (if known) 
+  - whether she or he is logged in at the moment or not and if so: 
+  - whether she or he is ready/playing/watching/away 
+  - the idle time if she or he is logged in 
+  - rating and experience (No information on the rank in the rating 
+  list is given. Don't ask for it, I will not add it) 
+  - her or his email address if she or he has used the 'address' 
+  command to make the address known to others. 
+  Please not that this command does not use name completion so the 
+  name has to be given exactly. The command is case insensitive. 
+SEE ALSO 
+  address, names
+  
+NAME 
+  !! - repeat the last command 
+SYNOPSIS 
+  !! 
+DESCRIPTION 
+  If you want to repeat your last command just type !!. This does not 
+  work for the shout, tell, say, kibitz and whisper commands. For the 
+  message command it only works if you used it without arguments to 
+  check if there are new messages for you.
