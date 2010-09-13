@@ -102,7 +102,10 @@ class Move:
     def move(self,):
         for m in self.mv:
             z = m.split('-')
-            z0 = int(z[0])
+            if z[0] == 'bar':
+                z0 = self.control.direction[self.player]['bar']
+            else:
+                z0 = int(z[0])
             z1 = int(z[1])
             z = (z0,z1)
             print 'moving %d to %d' % (z0,z1)
@@ -126,6 +129,10 @@ class GameControl:
                             5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
         self.home = {'p1':0, 'p2':0}
         self.bar = {'p1':0, 'p2':0}
+        self.opp = {'p1':'p2', 'p2':'p1'}
+        self.direction = {'p1':{'home':0, 'bar':25}, 'p2':{'home':25, 'bar':0}}
+            # TODO:  wenn es hier definiert ist, dann muss es von hier
+            #        im board gesetzt werden.
         if STANDALONE:
             self.score = {'p1':1, 'p2':2}
         else:
@@ -175,20 +182,34 @@ class GameControl:
         # TODO: kontrollieren, ob der dran ist
         print move, 'changes the board'
         print 'player', player, 'whos_turn', self.whos_turn().name
-        if self.turn == 1:
+        if self.turn == 1:              # immer 'p1'  TODO: stimmt das?
+                                        #               dann kann self.turn weg!
             self.position[move[0]] -= 1
-            if self.position[move[1]] == -1:
+            if move[0] == 25:
+                print 'bar', self.bar
+                self.bar['p1'] -= 1
+            if self.position[move[1]] == -1:    # werfen
                 self.position[move[1]] = 1
-                self.position[25] += 1
+                self.position[0] -= 1
+                print player, 'wirft', self.opp[player]
+                self.bar[self.opp[player]] += 1   # TODO: siehe oben;
+                                                  #   hier könnte hart 'p2' hin
+                                                  #   dann kann self.opp weg
             else:
                 self.position[move[1]] += 1
         elif self.turn == 2:
             self.position[move[0]] += 1
-            if self.position[move[1]] == 1:
+            if move[0] == 0:
+                print 'bar', self.bar
+                self.bar['p2'] -= 1
+            if self.position[move[1]] == 1:    # werfen
                 self.position[move[1]] = -1
-                self.position[0] += 1
+                self.position[25] += 1
+                print player, 'wirft', self.opp[player]
+                self.bar[self.opp[player]] += 1
             else:
                 self.position[move[1]] -= 1
+        self.set_move()
 
     def hand_over(self,):
         self.turn = 3 - self.turn

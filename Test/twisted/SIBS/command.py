@@ -17,7 +17,7 @@ VERSION.register(__name__, REV)
 
 ## 0
 ## x tell
-## 0 help
+## x help
 ## 0 motd
 ## x version
 
