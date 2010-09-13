@@ -33,7 +33,7 @@ sequence = (
 #---------------------------------------------------
 ((1, 2), ['bar-1','12-14']),
 ((4, 2), ['20-16','16-14']),                # wirft
-((3, 6), ['','']),
+((3, 6), ['','']),               # white kann nicht
 ((1, 6), ['','']),
 ((1, 4), ['','']),
 ((2, 5), ['','']),
@@ -115,10 +115,12 @@ if __name__ == "__main__":
     while turn:
         game, player = log.get(turn)
         print 'player %s ist dran' % player
-        game.roll(player)
-        game.move(spiel.get_move(), player)
+        if game.roll(player):
+            game.move(spiel.get_move(), player)
+        else:
+            spiel.get_move()
         turn = spiel.hand_over()
         loops += 1
-        if loops > 11:
+        if loops > 13:
             break
         print '-'*120

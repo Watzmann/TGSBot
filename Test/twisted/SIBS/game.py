@@ -139,11 +139,16 @@ class GameControl:
             self.score = {'p1':0, 'p2':0}
         if not board is None:
             self.board = board
+            self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
+                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
+                # TODO:  position muss vom Board abgekupfert werden.
         else:
             self.board = Board()
             self.board.set_score((self.white.name, self.score['p1']),
                                  (self.black.name, self.score['p2']),
                                   self.game.ML)
+            self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
+                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
             self.set_position()
 
     def start(self,):
@@ -161,11 +166,39 @@ class GameControl:
     def whos_turn(self,):
         return {1:self.white, 2:self.black, 0:None}[self.turn]
 
+    def check_roll(self, dice, player):
+        """Checks for possible moves depending on 'dice'."""
+        print 'check_roll %s fuer spieler %s' % (dice, player)
+        exhausted = False
+        list_of_moves = []
+        pos = self.position
+        d1, d2 = dice
+        nr_of_moves = {True:4, False:2}[d1 == d2]
+        # -------------------------------------------enter from the bar
+        bar_moves = min(nr_of_moves, self.bar[player])
+        bar = self.direction[player]['bar']
+        print 'der spieler %s hat %d moves von der bar (%d)' % (player, bar_moves, bar)
+        for m in range(bar_moves):
+            d = dice[m]
+            if bar == 25:
+                p = bar - d
+                if abs(pos[p]) < 2:
+                    list_of_moves.append('bar-%d' % p)
+                print 'hab getested: bar %d  wurf %d   point %d   checker %d' % \
+                      (bar,d,p,abs(pos[p]))
+        if len(list_of_moves) < bar_moves:
+            nr_of_moves = len(list_of_moves)
+            exhausted = True
+        if exhausted:
+            print 'spieler %s kann nur %d zuege ziehen' % (player, nr_of_moves)
+        return (nr_of_moves, list_of_moves)
+        
     def roll(self, player):
         # TODO: kontrollieren, ob der dran ist
         d = self.dice.roll()    # TODO    turn und dice eintragen
         self.dice_roll = d
-        self.pieces = {True:4, False:2}[d[0]==d[1]]
+        self.possible_moves = self.check_roll(d, player)
+        self.pieces = self.possible_moves[0]
         self.board.set_dice(self.turn, d)
         self.set_move()
         return d
@@ -245,11 +278,14 @@ class Game:
     def roll(self, player):
         you,opp = self.players(player)
         d = self.control.roll(player)
-##        print 'rolling fool', player,you,opp
         you.chat('You roll %d, %d' % d)
         you.chat(self.control.board.show_board(self.player[you.running_game]))
         opp.chat('%s rolled %d, %d' % ((you.name,)+d))
         opp.chat(self.control.board.show_board(self.player[opp.running_game]))
+        if self.control.pieces == 0:
+            you.chat("You can't move.")
+            self.control.hand_over()
+        return self.control.pieces > 0
 
     def move(self, move, player):
         you,opp = self.players(player)
