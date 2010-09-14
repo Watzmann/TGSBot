@@ -7,11 +7,17 @@ from dice import getDice
 
 STANDALONE = False
 
-class GamesList:        # TODO: als Singleton ausführen
-                        # TODO: mit UsersList in eine Klasse überführen
+class GamesList:        # TODO: mit UsersList in eine Klasse überführen
+
+    __shared_state = {}     # Borg Pattern
+                            # http://code.activestate.com/recipes/66531-singleton-we-dont-need-no-stinkin-singleton-the-bo/
+                        # TODO: kann man das Borg Pattern ableitbar machen?
+                        
     def __init__(self,):
-        self.active_games = {}
-        self.active_ids = {}
+        self.__dict__ = self.__shared_state
+        if not hasattr(self, 'active_games'):
+            self.active_games = {}
+            self.active_ids = {}
 
     def add(self, game):
         for i in game.ids:
@@ -101,6 +107,8 @@ class Move:
 
     def move(self,):
         for m in self.mv:
+            if m == 'zero':
+                break
             z = m.split('-')
             if z[0] == 'bar':
                 z0 = self.control.direction[self.player]['bar']
@@ -125,8 +133,6 @@ class GameControl:
         self.dice = getDice(dice)
         self.cube = 1
         self.turn = 0       # TODO oder was im board-status richtig ist
-        self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
-                            5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
         self.home = {'p1':0, 'p2':0}
         self.bar = {'p1':0, 'p2':0}
         self.opp = {'p1':'p2', 'p2':'p1'}
@@ -178,14 +184,19 @@ class GameControl:
         bar_moves = min(nr_of_moves, self.bar[player])
         bar = self.direction[player]['bar']
         print 'der spieler %s hat %d moves von der bar (%d)' % (player, bar_moves, bar)
-        for m in range(bar_moves):
-            d = dice[m]
+        for d in dice:
             if bar == 25:
                 p = bar - d
-                if abs(pos[p]) < 2:
+                if pos[p] > -2:
                     list_of_moves.append('bar-%d' % p)
                 print 'hab getested: bar %d  wurf %d   point %d   checker %d' % \
-                      (bar,d,p,abs(pos[p]))
+                      (bar,d,p,pos[p])
+            if bar == 0:
+                p = bar + d
+                if pos[p] < 2:
+                    list_of_moves.append('bar-%d' % p)
+                print 'hab getested: bar %d  wurf %d   point %d   checker %d' % \
+                      (bar,d,p,pos[p])
         if len(list_of_moves) < bar_moves:
             nr_of_moves = len(list_of_moves)
             exhausted = True
@@ -203,7 +214,8 @@ class GameControl:
         self.set_move()
         return d
 
-    def set_move(self,):        # TODO: was passiert hier eigentlich
+    def set_move(self,):
+        """Sets certain groups of flags in the board."""
         p1 = (self.home['p1'], self.bar['p1'])
         p2 = (self.home['p2'], self.bar['p2'])
         self.board.set_move(p1, p2, self.pieces)
@@ -284,8 +296,7 @@ class Game:
         opp.chat(self.control.board.show_board(self.player[opp.running_game]))
         if self.control.pieces == 0:
             you.chat("You can't move.")
-            self.control.hand_over()
-        return self.control.pieces > 0
+            self.move(['zero',], player)
 
     def move(self, move, player):
         you,opp = self.players(player)
@@ -293,7 +304,8 @@ class Game:
         if mv.check():
             mv.move()
             you.chat(self.control.board.show_board(self.player[you.running_game]))
-            opp.chat('%s moves %s' % (you.name, mv))
+            if not str(mv) == 'zero':
+                opp.chat('%s moves %s' % (you.name, mv))
             opp.chat(self.control.board.show_board(self.player[opp.running_game]))
 
     def whos_turn(self,):

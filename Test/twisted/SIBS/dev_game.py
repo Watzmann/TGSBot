@@ -115,7 +115,8 @@ if __name__ == "__main__":
     while turn:
         game, player = log.get(turn)
         print 'player %s ist dran' % player
-        if game.roll(player):
+        game.roll(player)
+        if game.control.pieces:
             game.move(spiel.get_move(), player)
         else:
             spiel.get_move()
