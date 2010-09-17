@@ -17,8 +17,10 @@ log = GamesList()
 sequence_1 = (
 ((3, 6), []),
 ((6, 3), []),
-((1, 6), ['bar-1']),
-((6, 1), ['bar-1']),
+((1, 6), ['bar-1',]),
+((6, 1), ['bar-1',]),
+((1, 2), ['bar-1', 'bar-2']),
+((2, 1), ['bar-2', 'bar-1']),
 )
 
 class TestGame(unittest.TestCase):
@@ -39,7 +41,7 @@ class TestGame(unittest.TestCase):
         gc.set_position()
         gc.bar = {'p1':0, 'p2':1}
         gc.set_move()
-        for d in range(4):
+        for d in range(5):
             game.roll(player)
             ist = gc.possible_moves[1]
             soll = self.spiel.get_move()
@@ -47,6 +49,7 @@ class TestGame(unittest.TestCase):
             print '####', '%s - soll: %s   ist: %s' % (dice, soll, ist)
             self.assert_(ist == soll, '%s - soll: %s   ist: %s' % \
                                                          (dice, soll, ist))
+            print '='*80
 
 # testcases
 ##
@@ -55,6 +58,7 @@ class TestGame(unittest.TestCase):
 ##     zwei checker draußen, kommt rein
 ##     zwei checker draußen, einer kommt rein
 ##     zwei checker draußen, kommt nicht rein
+##     drei checker draußen, ....
 ##     genauso für den gegnerischen spieler
 
 if __name__ == "__main__":

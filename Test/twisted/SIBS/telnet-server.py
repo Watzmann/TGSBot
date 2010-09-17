@@ -64,10 +64,6 @@ class ProxyFactory(http.HTTPFactory):
             print 'got', ret
         return ret
 
-    def host(self,):
-        """soll den host des einloggenden spielers ermitteln."""
-        return 'unknown.host.NYI'  # TODO: richtige Werte verwenden
-
     def broadcast(self, msg, exceptions=()):
         """Sends msg as a broadcast to all logged clients."""
         users = self.active_users.get_all_users()

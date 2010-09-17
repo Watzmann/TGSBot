@@ -56,6 +56,10 @@ class CLIP(Echo):
         
     def connectionMade(self):
         Echo.connectionMade(self,)
+        self.client_host = self.transport.hostname
+##        print 'TEST HOST', self.transport.__dict__.keys(), \
+##              ['%s: %s   ' % (n,getattr(self.transport, n)) for n in \
+##               ('hostname','server','client','connected')] 
         msg = utils.render_file('intro').splitlines()
         # TODO:     folgender Timestamp im Format
         # Thursday, January 02 01:27:27 MET   ( Thu Jan  2 00:27:27 2003 UTC )
@@ -129,7 +133,7 @@ class CLIP(Echo):
                 elif not self.user is None:
                     self.user.set_protocol(self)
                     self.user.set_login_data(self.login_time,
-                                             self.factory.host())
+                                             self.client_host)
                     self.user.status.stamp()
                     self.welcome(self.user)
                     name = self.user.name

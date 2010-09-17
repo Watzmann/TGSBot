@@ -176,27 +176,46 @@ class GameControl:
         """Checks for possible moves depending on 'dice'."""
         print 'check_roll %s fuer spieler %s' % (dice, player)
         exhausted = False
-        list_of_moves = []
+        list_of_moves = []  # TODO: lieber dict?
         pos = self.position
         d1, d2 = dice
+        my_dice = list(dice[:])
         nr_of_moves = {True:4, False:2}[d1 == d2]
         # -------------------------------------------enter from the bar
         bar_moves = min(nr_of_moves, self.bar[player])
         bar = self.direction[player]['bar']
-        print 'der spieler %s hat %d moves von der bar (%d)' % (player, bar_moves, bar)
-        for d in dice:
-            if bar == 25:
-                p = bar - d
-                if pos[p] > -2:
-                    list_of_moves.append('bar-%d' % p)
-                print 'hab getested: bar %d  wurf %d   point %d   checker %d' % \
-                      (bar,d,p,pos[p])
-            if bar == 0:
-                p = bar + d
-                if pos[p] < 2:
-                    list_of_moves.append('bar-%d' % p)
-                print 'hab getested: bar %d  wurf %d   point %d   checker %d' % \
-                      (bar,d,p,pos[p])
+        if bar_moves:
+            print 'der spieler %s hat %d moves von der bar (%d)' % (player, bar_moves, bar)
+            for d in dice:
+                if bar == 25:
+                    p = bar - d
+                    if pos[p] > -2:
+                        list_of_moves.append('bar-%d' % p)
+                        my_dice.remove(d)
+                        bar_moves -=1
+    ##                print 'hab getested: bar %d  wurf %d   point %d   checker %d' % \
+    ##                      (bar,d,p,pos[p])
+                if bar == 0:
+                    p = bar + d
+                    if pos[p] < 2:
+                        list_of_moves.append('bar-%d' % p)
+                        my_dice.remove(d)
+                        bar_moves -=1
+    ##                print 'hab getested: bar %d  wurf %d   point %d   checker %d' % \
+    ##                      (bar,d,p,pos[p])
+
+##   jetzt kann bar_moves > 0   == 0    < 0    sein
+##   > 0:     es ist genau rein gegangen   oder
+##            es liegen noch welche auf der bar
+##      !!  man muss nicht weiter machen
+##                -> len(list_of_moves) ist zahl der pieces
+##   == 0:    es ist genau rein gegangen   oder
+##            es liegen noch welche auf der bar
+##            vielleicht genügend einsetzen und es sind noch züge übrig
+##
+##
+##
+
         if len(list_of_moves) < bar_moves:
             nr_of_moves = len(list_of_moves)
             exhausted = True
@@ -226,7 +245,7 @@ class GameControl:
     def move(self, move, player):
         # TODO: kontrollieren, ob der dran ist
         print move, 'changes the board'
-        print 'player', player, 'whos_turn', self.whos_turn().name
+        print 'player', player, 'turn', self.turn, 'whos_turn', self.whos_turn().name
         if self.turn == 1:              # immer 'p1'  TODO: stimmt das?
                                         #               dann kann self.turn weg!
             self.position[move[0]] -= 1
@@ -265,8 +284,8 @@ class Game:
     def __init__(self, gid, p1, p2, ML, board=None, dice='random'):
         self.id = gid #'908239874918'    # funny id, is that neccessary?
                                     # TODO: YES - die muss unique sein!!!!!
-        self.player1 = p1
-        self.player2 = p2
+        self.player1 = p1       # class User
+        self.player2 = p2       # class User
         self.ids = (self.id + '_p1', self.id + '_p2')
         self.player = dict(zip(self.ids,('p1','p2')))
         self.who = dict(zip(('p1','p2'),(p1,p2)))
@@ -307,7 +326,13 @@ class Game:
             if not str(mv) == 'zero':
                 opp.chat('%s moves %s' % (you.name, mv))
             opp.chat(self.control.board.show_board(self.player[opp.running_game]))
+        opposing_player = self.control.opp[player]
+        if not self.may_double(opposing_player):
+            self.roll(opposing_player)
 
+    def may_double(self, player):
+        return self.ML > 1
+            
     def whos_turn(self,):
         msg = 'It is your turn to move'
         self.control.whos_turn().chat(msg)
