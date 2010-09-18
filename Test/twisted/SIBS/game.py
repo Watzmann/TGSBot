@@ -54,9 +54,19 @@ check for valid moves etc.."""
         self.move_fmt = "%d:%d:%d:%d:%d:0:0:0"
         
     def set_score(self, p1, p2, ML):
-##        print you, opp, type(ML)
-        self.score = {'p1':self.score_fmt % ('You', p2[0], ML, p1[1], p2[1]),
-                      'p2':self.score_fmt % ('You', p1[0], ML, p2[1], p1[1])}
+        """('name_p1', score_p1), ('name_p2', score_p2), ML."""
+        self._score_info = (p1, p2, ML)
+
+    def _fmt_score(self, player):
+        pn1 = self._score_info[0][0]
+        pn2 = self._score_info[1][0]
+        sc1 = self._score_info[0][1]
+        sc2 = self._score_info[1][1]
+        ML = self._score_info[2]
+        if player == 'p1':
+            return self.score_fmt % ('You', pn2, ML, sc1, sc2)
+        else:
+            return self.score_fmt % ('You', pn1, ML, sc2, sc1)
 
     def set_dice(self, turn, dice,):
         print 'set_dice turn', turn
@@ -82,7 +92,7 @@ check for valid moves etc.."""
         return msg
 
     def show_board(self, whom):
-        score = self.score[whom]
+        score = self._fmt_score(whom)
         dice = self.dice[whom]
         cube = self.cube
         direction = self.direction[whom]
@@ -91,7 +101,33 @@ check for valid moves etc.."""
             return '%s | '*6 % (score, self.position, dice, cube, direction, move)
         else:
             return score + self.position + dice + cube + direction + move
+            #      0       5               31     36     41          45
 
+    def load(self, board):
+        b = board.split(':')
+        if b[0] == 'board':
+            b = b[1:]
+        if b[31] == b[40]:
+            self.set_score((b[1],int(b[4])),(b[0],int(b[3])),int(b[2]))
+            self._act_player = 'p2'
+        else:
+            self.set_score((b[0],int(b[3])),(b[1],int(b[4])),int(b[2]))
+            self._act_player = 'p1'
+        position = [int(p) for p in b[5:31]]
+        self.set_position(position)
+        turn = {'0':0, '1':1, '-1':2}[b[31]]
+        if turn == 0:
+            dice = (0,0)
+        elif b[31] == b[40]:
+            dice = (int(b[32]),int(b[33]))
+        else:
+            dice = (int(b[34]),int(b[35]))
+        self.set_dice(turn, dice)
+        self.set_move((int(b[44]),int(b[46])),(int(b[45]),int(b[47])),int(b[48]))
+
+    def get_act_player(self,):
+        return getattr(self, '_act_player', None)
+    
 class Move:
     def __init__(self, move, control, player):
         self.mv = move
