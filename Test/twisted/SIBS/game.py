@@ -85,7 +85,10 @@ check for valid moves etc.."""
                      'p2':self.move_fmt % (p2[0], p1[0], p2[1], p1[1], move)}
 
     def set_position(self, position):
-        self.position = self.position_fmt % tuple(position)
+        self._position_info = position
+
+    def _fmt_position(self,):
+        return self.position_fmt % tuple(self._position_info)
         
     def check(self, player, move):
         msg = "can't move to Berlin"
@@ -93,15 +96,16 @@ check for valid moves etc.."""
 
     def show_board(self, whom):
         score = self._fmt_score(whom)
+        position = self._fmt_position()
         dice = self.dice[whom]
         cube = self.cube
         direction = self.direction[whom]
         move = self.move[whom]
         if STANDALONE:
-            return '%s | '*6 % (score, self.position, dice, cube, direction, move)
+            return '%s | '*6 % (score, position, dice, cube, direction, move)
         else:
-            return score + self.position + dice + cube + direction + move
-            #      0       5               31     36     41          45
+            return score + position + dice + cube + direction + move
+            #      0       5          31     36     41          45
 
     def load(self, board):
         b = board.split(':')
