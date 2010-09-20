@@ -7,10 +7,11 @@ werden.
 
 import sys
 from sibs_user import getUser, UsersList
-from game import GamesList, set_standalone
+from game import GamesList, set_standalone, set_verbose
 from clip import Simple
 
 set_standalone()
+set_verbose()
 
 lou = UsersList()
 log = GamesList()
@@ -59,6 +60,10 @@ class Spiel:
         self.players = {'p1':self.white, 'p2':self.black}
         self.turn = None
 
+    def set_talkative(self,):
+        self.white.protocol.quiet = False
+        self.black.protocol.quiet = False
+
     def dice_and_moves(self, sequence, gid):
         dice = []
         moves = []
@@ -96,6 +101,7 @@ def get_game(player):
 
 if __name__ == "__main__":
     spiel = Spiel(ML)
+    spiel.set_talkative()
     games = log.active_games
     if len(games) > 2:
         print 'zuviele Einträge für diese simple Technik'

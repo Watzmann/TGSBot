@@ -25,7 +25,7 @@ class TestBoard(unittest.TestCase):
                  )
         for i in board:
             b.load(i)
-            b2 = b.show_board(b.get_act_player())
+            b2 = b.board_sl(b.get_act_player())
             self.assertEqual(i, b2)
 
 if __name__ == "__main__":

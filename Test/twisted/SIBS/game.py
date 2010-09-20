@@ -2,11 +2,17 @@
 # -*- coding: utf-8 -*-
 """Implementierung von Game-related Routinen."""
 
+from StringIO import StringIO
 from time import time
 from dice import getDice
 
 STANDALONE = False
+VERBOSE = False
 
+def talk(msg):
+    if VERBOSE:
+        print msg
+        
 class GamesList:        # TODO: mit UsersList in eine Klasse überführen
 
     __shared_state = {}     # Borg Pattern
@@ -33,7 +39,7 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
         gen = lambda: ''.join(('%f' % time()).split('.'))
         gid = gen()
         while self.active_ids.has_key(gid):
-            print 'collision with', gid
+            talk('collision with %s' % gid)
             gid = gen()
         return gid
 
@@ -52,7 +58,7 @@ check for valid moves etc.."""
         self.direction = {'p1':"1:-1:0:25:",
                           'p2':"-1:1:25:0:"}
         self.move_fmt = "%d:%d:%d:%d:%d:0:0:0"
-        
+
     def set_score(self, p1, p2, ML):
         """('name_p1', score_p1), ('name_p2', score_p2), ML."""
         self._score_info = (p1, p2, ML)
@@ -69,20 +75,35 @@ check for valid moves etc.."""
             return self.score_fmt % ('You', pn1, ML, sc2, sc1)
 
     def set_dice(self, turn, dice,):
-        print 'set_dice turn', turn
-        if turn == 1:
-            self.dice = {'p1':self.dice_fmt % ((1,) + dice + (0,0)),
-                         'p2':self.dice_fmt % ((1,) + (0,0) + dice)}
-        elif turn == 2:
-            self.dice = {'p1':self.dice_fmt % ((-1,) + (0,0) + dice),
-                         'p2':self.dice_fmt % ((-1,) + dice + (0,0))}
-        else:
-            self.dice = {'p1':self.dice_fmt % (0,)*5,}
-            self.dice['p2'] = self.dice['p1']
+        self._dice_info = (turn, dice)
 
-    def set_move(self, p1, p2, move):
-        self.move = {'p1':self.move_fmt % (p1[0], p2[0], p1[1], p2[1], move),
-                     'p2':self.move_fmt % (p2[0], p1[0], p2[1], p1[1], move)}
+    def _fmt_dice(self, player):
+        turn, dice = self._dice_info
+        if turn == 1:
+            ret = {'p1':self.dice_fmt % ((1,) + dice + (0,0)),
+                   'p2':self.dice_fmt % ((1,) + (0,0) + dice)}
+        elif turn == 2:
+            ret = {'p1':self.dice_fmt % ((-1,) + (0,0) + dice),
+                   'p2':self.dice_fmt % ((-1,) + dice + (0,0))}
+        else:
+            ret = {'p1':self.dice_fmt % (0,)*5,}
+            ret['p2'] = ret['p1']
+        return ret[player]
+
+    def set_move(self, p1, p2, pieces):
+        """('home_p1', bar_p1), ('home_p2', bar_p2), pieces to move."""
+        self._move_info = (p1, p2, pieces)
+
+    def _fmt_move(self, player):
+        hm1 = self._move_info[0][0]
+        hm2 = self._move_info[1][0]
+        br1 = self._move_info[0][1]
+        br2 = self._move_info[1][1]
+        pie = self._move_info[2]
+        if player == 'p1':
+            return self.move_fmt % (hm1, hm2, br1, br2, pie)
+        else:
+            return self.move_fmt % (hm2, hm1, br2, br1, pie)
 
     def set_position(self, position):
         self._position_info = position
@@ -94,13 +115,20 @@ check for valid moves etc.."""
         msg = "can't move to Berlin"
         return msg
 
-    def show_board(self, whom):
+    def show_board(self, whom, style):
+        if style in (1,2,3):
+            return {1: self.board_sl,
+                    3: self.board_sl,
+                    2: self.board_aa}[style](whom)
+
+    def board_sl(self, whom):
+        """Single line representation of the board."""
         score = self._fmt_score(whom)
         position = self._fmt_position()
-        dice = self.dice[whom]
+        dice = self._fmt_dice(whom)
         cube = self.cube
         direction = self.direction[whom]
-        move = self.move[whom]
+        move = self._fmt_move(whom)
         if STANDALONE:
             return '%s | '*6 % (score, position, dice, cube, direction, move)
         else:
@@ -132,6 +160,51 @@ check for valid moves etc.."""
     def get_act_player(self,):
         return getattr(self, '_act_player', None)
     
+    def board_aa(self, player, board=None):
+        """Ascii art representation of the board."""
+        skel = \
+            ("  +13-14-15-16-17-18-------19-20-21-22-23-24-+ X: %s - score: %d",
+             "  | %s  %s  %s  %s  %s  %s |   |  %s  %s  %s  %s  %s  %s |",
+              #"| O           X    |   |  X              O |"
+             " v|                  |BAR|                   |    %d-point match",
+             "  +12-11-10--9--8--7--------6--5--4--3--2--1-+ O: %s - score: %d",
+             "  BAR: O-%d X-%d   OFF: O-%d X-%d   Cube: %d  %s rolled %d %d.",
+             )
+        out = StringIO()
+        score = self._score_info
+        print >>out, skel[0] % (score[1][0], score[1][1])
+        for i in range(5):
+            pos = []
+            for p in self._position_info[13:25]:
+                if p > i:
+                    pos.append('O')
+                elif p < -i:
+                    pos.append('X')
+                else:
+                    pos.append(' ')
+            print >>out, skel[1] % tuple(pos)
+        print >>out, skel[2] % score[2]
+        for i in range(4,-1,-1):
+            pos = []
+            for p in self._position_info[1:13]:
+                if p > i:
+                    pos.append('O')
+                elif p < -i:
+                    pos.append('X')
+                else:
+                    pos.append(' ')
+            pos.reverse()
+            print >>out, skel[1] % tuple(pos)
+        print >>out, skel[3] % ('myself', score[0][1])
+        print >>out
+        move = self._move_info
+        dice = self._dice_info[1]
+        player = score[self._dice_info[0]-1][0]
+        print >>out, skel[4] % ((move[0][1],move[1][1],move[0][0],move[1][0],
+                                0,player,) + dice),
+##        print >>out, self._position_info
+        return out.getvalue()
+
 class Move:
     def __init__(self, move, control, player):
         self.mv = move
@@ -206,7 +279,7 @@ class GameControl:
         self.turn = {True:1, False:2}[a>b]
         self.pieces = {True:4, False:2}[d[0]==d[1]]
         self.board.set_dice(self.turn, d)
-        print 'in start', self.turn, self.pieces, self.board.dice
+        print 'in start', self.turn, self.pieces, self.board._dice_info
         self.set_move()
 
     def whos_turn(self,):
@@ -233,16 +306,14 @@ class GameControl:
                         list_of_moves.append('bar-%d' % p)
                         my_dice.remove(d)
                         bar_moves -=1
-    ##                print 'hab getested: bar %d  wurf %d   point %d   checker %d' % \
-    ##                      (bar,d,p,pos[p])
                 if bar == 0:
                     p = bar + d
                     if pos[p] < 2:
                         list_of_moves.append('bar-%d' % p)
                         my_dice.remove(d)
                         bar_moves -=1
-    ##                print 'hab getested: bar %d  wurf %d   point %d   checker %d' % \
-    ##                      (bar,d,p,pos[p])
+                print 'hab getested: bar %d  wurf %d   point %d   checker %d  (%s)' \
+                        % (bar,d,p,pos[p],list_of_moves)
 
 ##   jetzt kann bar_moves > 0   == 0    < 0    sein
 ##   > 0:     es ist genau rein gegangen   oder
@@ -350,9 +421,13 @@ class Game:
         you,opp = self.players(player)
         d = self.control.roll(player)
         you.chat('You roll %d, %d' % d)
-        you.chat(self.control.board.show_board(self.player[you.running_game]))
+        player = self.player[you.running_game]
+        board = you.settings.get_boardstyle()
+        you.chat(self.control.board.show_board(player, board))
         opp.chat('%s rolled %d, %d' % ((you.name,)+d))
-        opp.chat(self.control.board.show_board(self.player[opp.running_game]))
+        player = self.player[opp.running_game]
+        board = opp.settings.get_boardstyle()
+        opp.chat(self.control.board.show_board(player, board))
         if self.control.pieces == 0:
             you.chat("You can't move.")
             self.move(['zero',], player)
@@ -362,10 +437,14 @@ class Game:
         mv = Move(move, self.control, player)
         if mv.check():
             mv.move()
-            you.chat(self.control.board.show_board(self.player[you.running_game]))
+            player = self.player[you.running_game]
+            board = you.settings.get_boardstyle()
+            you.chat(self.control.board.show_board(player, board))
             if not str(mv) == 'zero':
                 opp.chat('%s moves %s' % (you.name, mv))
-            opp.chat(self.control.board.show_board(self.player[opp.running_game]))
+            player = self.player[opp.running_game]
+            board = opp.settings.get_boardstyle()
+            opp.chat(self.control.board.show_board(player, board))
         opposing_player = self.control.opp[player]
         if not self.may_double(opposing_player):
             self.roll(opposing_player)
@@ -399,3 +478,7 @@ def getGame(**kw):
 def set_standalone():
     global STANDALONE
     STANDALONE = True
+
+def set_verbose():
+    global VERBOSE
+    VERBOSE = True

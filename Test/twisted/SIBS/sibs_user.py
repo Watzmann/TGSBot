@@ -287,6 +287,9 @@ class Settings:
             res = "** Valid arguments are the numbers 1 to 3."
         return res
 
+    def get_boardstyle(self,):
+        return self._boardstyle
+
     def linelength(self, *values):
         vals = values[0]
 ##        print 'linelength', vals

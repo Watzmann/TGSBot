@@ -41,8 +41,8 @@ class TestGame(unittest.TestCase):
         gc.set_position()
         gc.bar = {'p1':0, 'p2':1}
         gc.set_move()
-        for d in range(5):
-            game.roll(player)
+        for d in range(6):
+            gc.roll(player)
             ist = gc.possible_moves[1]
             soll = self.spiel.get_move()
             dice = gc.dice_roll

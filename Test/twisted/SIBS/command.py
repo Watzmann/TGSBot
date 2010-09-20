@@ -421,8 +421,10 @@ class Command():
 # TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
 
     def c_board(self, line, me):            # implemented
+        # TODO: Fehlerbehandlung
         game, player = self.list_of_games.get(me.running_game)
-        return game.control.board.show_board(player)
+        board = me.settings.get_boardstyle()
+        return game.control.board.show_board(player, board)
 
     def c_pip(self, line, me):
         return 'you are 7 pips behind    %s' % NYI

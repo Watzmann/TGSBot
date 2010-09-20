@@ -265,5 +265,8 @@ class Simple:
     """Protokoll für Testzwecke."""
     def __init__(self, user_name='unknown'):
         self.prefix = 'TELL %s:' % user_name
+        self.quiet = True
+
     def tell(self, msg):
-        print self.prefix, msg
+        if not self.quiet:
+            print self.prefix, msg
