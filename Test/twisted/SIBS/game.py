@@ -32,7 +32,7 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
         # TODO: denk dran, beim Ende des Spiels aufzuräumen
 
     def get(self, gid, default=None):
-        #print 'returning gid %s' % gid
+        #talk('returning gid %s' % gid)
         return self.active_games.get(gid, default)
 
     def uid(self,):
@@ -207,7 +207,7 @@ check for valid moves etc.."""
 
 class Move:
     def __init__(self, move, control, player):
-        self.mv = move
+        self.moves = move
         self.control = control
         self.player = player
 
@@ -215,11 +215,11 @@ class Move:
 #       rollback in position ermöglichen
 
     def check(self,):
-        print 'checke %s' % self
+        talk('checke %s' % self)
         return True
 
     def move(self,):
-        for m in self.mv:
+        for m in self.moves:
             if m == 'zero':
                 break
             z = m.split('-')
@@ -229,13 +229,13 @@ class Move:
                 z0 = int(z[0])
             z1 = int(z[1])
             z = (z0,z1)
-            print 'moving %d to %d' % (z0,z1)
+            talk('Move: moving %d to %d' % (z0,z1))
             self.control.move(z, self.player)
         self.control.set_position()
         self.control.hand_over()
 
     def __str__(self,):
-        return ' '.join(self.mv)
+        return ' '.join(self.moves)
 
 class GameControl:
     """GameControl controls the process of playing a single game of BG."""
@@ -279,7 +279,8 @@ class GameControl:
         self.turn = {True:1, False:2}[a>b]
         self.pieces = {True:4, False:2}[d[0]==d[1]]
         self.board.set_dice(self.turn, d)
-        print 'in start', self.turn, self.pieces, self.board._dice_info
+        talk('in start  %s  %s  %s' % (self.turn, self.pieces,
+                                       self.board._dice_info))
         self.set_move()
 
     def whos_turn(self,):
@@ -287,7 +288,7 @@ class GameControl:
 
     def check_roll(self, dice, player):
         """Checks for possible moves depending on 'dice'."""
-        print 'check_roll %s fuer spieler %s' % (dice, player)
+        talk('check_roll %s fuer spieler %s' % (dice, player))
         exhausted = False
         list_of_moves = []  # TODO: lieber dict?
         pos = self.position
@@ -298,7 +299,8 @@ class GameControl:
         bar_moves = min(nr_of_moves, self.bar[player])
         bar = self.direction[player]['bar']
         if bar_moves:
-            print 'der spieler %s hat %d moves von der bar (%d)' % (player, bar_moves, bar)
+            talk('der spieler %s hat %d moves von der bar (%d)' % \
+                 (player, bar_moves, bar))
             for d in dice:
                 if bar == 25:
                     p = bar - d
@@ -312,8 +314,8 @@ class GameControl:
                         list_of_moves.append('bar-%d' % p)
                         my_dice.remove(d)
                         bar_moves -=1
-                print 'hab getested: bar %d  wurf %d   point %d   checker %d  (%s)' \
-                        % (bar,d,p,pos[p],list_of_moves)
+                talk('hab getested: bar %d  wurf %d   point %d   ' \
+                     'checker %d  (%s)' % (bar,d,p,pos[p],list_of_moves))
 
 ##   jetzt kann bar_moves > 0   == 0    < 0    sein
 ##   > 0:     es ist genau rein gegangen   oder
@@ -331,7 +333,7 @@ class GameControl:
             nr_of_moves = len(list_of_moves)
             exhausted = True
         if exhausted:
-            print 'spieler %s kann nur %d zuege ziehen' % (player, nr_of_moves)
+            talk('spieler %s kann nur %d zuege ziehen' % (player, nr_of_moves))
         return (nr_of_moves, list_of_moves)
         
     def roll(self, player):
@@ -355,18 +357,19 @@ class GameControl:
         
     def move(self, move, player):
         # TODO: kontrollieren, ob der dran ist
-        print move, 'changes the board'
-        print 'player', player, 'turn', self.turn, 'whos_turn', self.whos_turn().name
+        talk('%s changes the board' % (move,))
+        talk('player %s   turn %s   whos_turn %s' % \
+                    (player, self.turn, self.whos_turn().name))
         if self.turn == 1:              # immer 'p1'  TODO: stimmt das?
                                         #               dann kann self.turn weg!
             self.position[move[0]] -= 1
             if move[0] == 25:
-                print 'bar', self.bar
+                talk('bar  (player %s==p1)  %s' % (player, self.bar))
                 self.bar['p1'] -= 1
             if self.position[move[1]] == -1:    # werfen
                 self.position[move[1]] = 1
                 self.position[0] -= 1
-                print player, 'wirft', self.opp[player]
+                talk('%s wirft %s' % (player, self.opp[player]))
                 self.bar[self.opp[player]] += 1   # TODO: siehe oben;
                                                   #   hier könnte hart 'p2' hin
                                                   #   dann kann self.opp weg
@@ -375,12 +378,12 @@ class GameControl:
         elif self.turn == 2:
             self.position[move[0]] += 1
             if move[0] == 0:
-                print 'bar', self.bar
+                talk('bar  (player %s==p2)  %s' % (player, self.bar))
                 self.bar['p2'] -= 1
             if self.position[move[1]] == 1:    # werfen
                 self.position[move[1]] = -1
                 self.position[25] += 1
-                print player, 'wirft', self.opp[player]
+                talk('%s wirft %s' % (player, self.opp[player]))
                 self.bar[self.opp[player]] += 1
             else:
                 self.position[move[1]] -= 1
@@ -403,7 +406,7 @@ class Game:
         self.ML = int(ML)
         self.opp = {p1.name:p2, p2.name:p1}
         self.control = GameControl(self, board=board, dice=dice)
-        print 'New game with id %s, %s vs %s' % (self.id, p1.name, p2.name)
+        talk('New game with id %s, %s vs %s' % (self.id, p1.name, p2.name))
 
     def start(self,):
         msg = 'Starting a new game with %s'

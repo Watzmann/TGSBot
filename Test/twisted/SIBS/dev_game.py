@@ -1,5 +1,4 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+#!/usr/bin/python -*- coding: utf-8 -*-
 """Entwicklungs-Skript für die Entwicklung von game.py.
 Damit soll die mühsame Verbindung von 2 Spielern über telnet überflüssig
 werden.
@@ -10,14 +9,18 @@ from sibs_user import getUser, UsersList
 from game import GamesList, set_standalone, set_verbose
 from clip import Simple
 
-set_standalone()
-set_verbose()
-
 lou = UsersList()
 log = GamesList()
 
 ML = 1
 
+global VERBOSE
+VERBOSE = False
+
+def talk(msg):
+    if VERBOSE:
+        print msg
+        
 sequence = (
 ((2, 3), ['24-21','13-11']),
 ((4, 6), ['17-23','19-23']),
@@ -49,9 +52,13 @@ class Spiel:
         self.p1 = 'frieda'
         self.p2 = 'dortdann'
         self.white = getUser(user=self.p1, password='andreas', lou=lou)
+        if self.white == 1:
+            self.white = lou.get_active(self.p1)
         self.white.set_protocol(Simple(self.p1))
         self.white.dice = 'sequence'
         self.black = getUser(user=self.p2, password='hallo', lou=lou)
+        if self.black == 1:
+            self.black = lou.get_active(self.p2)
         self.black.set_protocol(Simple(self.p2))
         self.white.invite(self.p2, ml)
         self.white.join(self.black, log)
@@ -71,8 +78,8 @@ class Spiel:
             d,m = i
             dice.append(d)
             moves.append(m)
-        print dice
-        print moves
+        talk(str(dice))
+        talk(str(moves))
         game, player = log.get(gid)
         game.control.dice.set_sequence(dice)
         self.moves = iter(moves)
@@ -100,6 +107,9 @@ def get_game(player):
     return (None, None)
 
 if __name__ == "__main__":
+    VERBOSE = True
+    set_standalone()
+    set_verbose()
     spiel = Spiel(ML)
     spiel.set_talkative()
     games = log.active_games
