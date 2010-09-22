@@ -163,45 +163,72 @@ check for valid moves etc.."""
     def board_aa(self, player, board=None):
         """Ascii art representation of the board."""
         skel = \
-            ("  +13-14-15-16-17-18-------19-20-21-22-23-24-+ X: %s - score: %d",
+            ("  +13-14-15-16-17-18-------19-20-21-22-23-24-+ %c: %s - score: %d",
              "  | %s  %s  %s  %s  %s  %s |   |  %s  %s  %s  %s  %s  %s |",
-              #"| O           X    |   |  X              O |"
              " v|                  |BAR|                   |    %d-point match",
-             "  +12-11-10--9--8--7--------6--5--4--3--2--1-+ O: %s - score: %d",
+             "  +12-11-10--9--8--7--------6--5--4--3--2--1-+ %c: %s - score: %d",
              "  BAR: O-%d X-%d   OFF: O-%d X-%d   Cube: %d  %s rolled %d %d.",
              )
         out = StringIO()
         score = self._score_info
-        print >>out, skel[0] % (score[1][0], score[1][1])
-        for i in range(5):
-            pos = []
-            for p in self._position_info[13:25]:
-                if p > i:
-                    pos.append('O')
-                elif p < -i:
-                    pos.append('X')
-                else:
-                    pos.append(' ')
-            print >>out, skel[1] % tuple(pos)
-        print >>out, skel[2] % score[2]
-        for i in range(4,-1,-1):
-            pos = []
-            for p in self._position_info[1:13]:
-                if p > i:
-                    pos.append('O')
-                elif p < -i:
-                    pos.append('X')
-                else:
-                    pos.append(' ')
-            pos.reverse()
-            print >>out, skel[1] % tuple(pos)
-        print >>out, skel[3] % ('myself', score[0][1])
+        print >>out, 'announced player', player
+        if player == 'p1':
+            print >>out, skel[0] % ('X', score[1][0], score[1][1])
+            for i in range(5):
+                pos = []
+                for p in self._position_info[13:25]:
+                    if p > i:
+                        pos.append('O')
+                    elif p < -i:
+                        pos.append('X')
+                    else:
+                        pos.append(' ')
+                print >>out, skel[1] % tuple(pos)
+            print >>out, skel[2] % score[2]
+            for i in range(4,-1,-1):
+                pos = []
+                for p in self._position_info[1:13]:
+                    if p > i:
+                        pos.append('O')
+                    elif p < -i:
+                        pos.append('X')
+                    else:
+                        pos.append(' ')
+                pos.reverse()
+                print >>out, skel[1] % tuple(pos)
+            print >>out, skel[3] % ('O', 'myself', score[0][1])
+        else:
+            print >>out, skel[3] % ('X', score[0][0], score[0][1])
+            for i in range(5):
+                pos = []
+                for p in self._position_info[1:13]:
+                    if p > i:
+                        pos.append('O')
+                    elif p < -i:
+                        pos.append('X')
+                    else:
+                        pos.append(' ')
+                pos.reverse()
+                print >>out, skel[1] % tuple(pos)
+            print >>out, skel[2] % score[2]
+            for i in range(4,-1,-1):
+                pos = []
+                for p in self._position_info[13:25]:
+                    if p > i:
+                        pos.append('O')
+                    elif p < -i:
+                        pos.append('X')
+                    else:
+                        pos.append(' ')
+                print >>out, skel[1] % tuple(pos)
+            print >>out, skel[0] % ('O', 'myself', score[1][1])
         print >>out
         move = self._move_info
         dice = self._dice_info[1]
-        player = score[self._dice_info[0]-1][0]
+        onturn = {'p1': ('You',score[1][0])[self._dice_info[0]-1],
+                  'p2': (score[0][0],'You')[self._dice_info[0]-1]}[player]
         print >>out, skel[4] % ((move[0][1],move[1][1],move[0][0],move[1][0],
-                                0,player,) + dice),
+                                0,onturn,) + dice),
 ##        print >>out, self._position_info
         return out.getvalue()
 

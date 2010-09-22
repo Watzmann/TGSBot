@@ -1,4 +1,5 @@
-#!/usr/bin/python -*- coding: utf-8 -*-
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 """Entwicklungs-Skript für die Entwicklung von game.py.
 Damit soll die mühsame Verbindung von 2 Spielern über telnet überflüssig
 werden.
@@ -25,7 +26,7 @@ sequence = (
 ((2, 3), ['24-21','13-11']),
 ((4, 6), ['17-23','19-23']),
 ((1, 4), ['24-20','21-20']),
-((5, 6), ['1-7','7-12']),
+((5, 6), ['1-7','7-12']),       # 4
 #---------------------------------------------------
 ((2, 4), ['8-4','6-4']),
 ((5, 3), ['17-22','19-22']),
@@ -128,16 +129,25 @@ if __name__ == "__main__":
     spiel.dice_and_moves(sequence, id1)
     turn = spiel.whos_turn()
     loops = 0
+    wait_mode = True
     while turn:
         game, player = log.get(turn)
-        print 'player %s ist dran' % player
+        print 'loop %d:     player %s ist dran' % (loops, player)
+        print 'roll','-'*60
         game.roll(player)
+        print 'move','-'*60
         if game.control.pieces:
             game.move(spiel.get_move(), player)
         else:
             spiel.get_move()
         turn = spiel.hand_over()
         loops += 1
-        if loops > 13:
+        if loops > 4:
             break
+        if wait_mode:
+            a = raw_input('enter drücken (q,c) ')
+            if a.lower() == 'q':
+                break
+            if a.lower() == 'c':
+                wait_mode = False
         print '-'*120
