@@ -130,11 +130,16 @@ if __name__ == "__main__":
     turn = spiel.whos_turn()
     loops = 0
     wait_mode = True
+    
+    game, player = log.get(turn)
+    print 'roll','-'*60
+    game.roll(player)
     while turn:
-        game, player = log.get(turn)
         print 'loop %d:     player %s ist dran' % (loops, player)
-        print 'roll','-'*60
-        game.roll(player)
+        game, player = log.get(turn)
+##        print 'loop %d:     player %s ist dran' % (loops, player)
+##        print 'roll','-'*60
+##        game.roll(player)
         print 'move','-'*60
         if game.control.pieces:
             game.move(spiel.get_move(), player)

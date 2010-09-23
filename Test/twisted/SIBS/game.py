@@ -477,6 +477,7 @@ class Game:
             opp.chat(self.control.board.show_board(player, board))
         opposing_player = self.control.opp[player]
         if not self.may_double(opposing_player):
+            talk('autoroll because not may double')
             self.roll(opposing_player)
 
     def may_double(self, player):
