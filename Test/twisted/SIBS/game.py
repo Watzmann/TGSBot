@@ -7,7 +7,7 @@ from time import time
 from dice import getDice
 
 STANDALONE = False
-VERBOSE = False
+VERBOSE = True
 
 def talk(msg):
     if VERBOSE:
@@ -242,7 +242,7 @@ class Move:
 #       rollback in position ermöglichen
 
     def check(self,):
-        talk('checke %s' % self)
+        talk('checke eben noch nicht %s' % self)
         return True
 
     def move(self,):
@@ -259,6 +259,7 @@ class Move:
             talk('Move: moving %d to %d' % (z0,z1))
             self.control.move(z, self.player)
         self.control.set_position()
+        talk('in Move.move as %s' % self.player)
         self.control.hand_over()
 
     def __str__(self,):
@@ -332,30 +333,35 @@ class GameControl:
                 if bar == 25:
                     p = bar - d
                     if pos[p] > -2:
-                        list_of_moves.append('bar-%d' % p)
-                        my_dice.remove(d)
-                        bar_moves -=1
+                        if nr_of_moves == 2:
+                            list_of_moves.append('bar-%d' % p)
+                            my_dice.remove(d)
+                            bar_moves -=1
+                        else:
+                            list_of_moves = ['bar-%d' % p,]*bar_moves
+                            my_dice = [my_dice[0],]*(4-bar_moves)
+                            bar_moves = 0
+                            talk('pasch getested: bar %d  wurf %d   point %d   ' \
+                                 'checker %d  (%s) (%s) (%d)' % \
+                                 (bar,d,p,pos[p],list_of_moves,my_dice,bar_moves))
+                            break
                 if bar == 0:
                     p = bar + d
                     if pos[p] < 2:
-                        list_of_moves.append('bar-%d' % p)
-                        my_dice.remove(d)
-                        bar_moves -=1
+                        if nr_of_moves == 2:
+                            list_of_moves.append('bar-%d' % p)
+                            my_dice.remove(d)
+                            bar_moves -=1
+                        else:
+                            list_of_moves = ['bar-%d' % p,]*bar_moves
+                            my_dice = [my_dice[0],]*(4-bar_moves)
+                            bar_moves = 0
+                            talk('pasch getested: bar %d  wurf %d   point %d   ' \
+                                 'checker %d  (%s) (%s) (%d)' % \
+                                 (bar,d,p,pos[p],list_of_moves,my_dice,bar_moves))
+                            break
                 talk('hab getested: bar %d  wurf %d   point %d   ' \
                      'checker %d  (%s)' % (bar,d,p,pos[p],list_of_moves))
-
-##   jetzt kann bar_moves > 0   == 0    < 0    sein
-##   > 0:     es ist genau rein gegangen   oder
-##            es liegen noch welche auf der bar
-##      !!  man muss nicht weiter machen
-##                -> len(list_of_moves) ist zahl der pieces
-##   == 0:    es ist genau rein gegangen   oder
-##            es liegen noch welche auf der bar
-##            vielleicht genügend einsetzen und es sind noch züge übrig
-##
-##
-##
-
         if len(list_of_moves) < bar_moves:
             nr_of_moves = len(list_of_moves)
             exhausted = True
@@ -365,6 +371,7 @@ class GameControl:
         
     def roll(self, player):
         # TODO: kontrollieren, ob der dran ist
+        talk('der spieler %s hat die wuerfel' % (player,))
         d = self.dice.roll()    # TODO    turn und dice eintragen
         self.dice_roll = d
         self.possible_moves = self.check_roll(d, player)
@@ -419,6 +426,7 @@ class GameControl:
     def hand_over(self,):
         self.turn = 3 - self.turn
         self.board.set_dice(self.turn, (0,0))
+        talk('in handover:  -> %d' % self.turn)
 
 class Game:
     # players watchers
@@ -467,7 +475,9 @@ class Game:
         mv = Move(move, self.control, player)
         if mv.check():
             mv.move()
+            oooold_player = player
             player = self.player[you.running_game]
+            talk('nach mv.move() war ich %s - jetzt bin ich %s' % (oooold_player,player))
             board = you.settings.get_boardstyle()
             you.chat(self.control.board.show_board(player, board))
             if not str(mv) == 'zero':
@@ -475,10 +485,15 @@ class Game:
             player = self.player[opp.running_game]
             board = opp.settings.get_boardstyle()
             opp.chat(self.control.board.show_board(player, board))
-        opposing_player = self.control.opp[player]
-        if not self.may_double(opposing_player):
-            talk('autoroll because not may double')
-            self.roll(opposing_player)
+##     TODO: ganz zufällig ist hier auf player "opponent" umgestellt worden.
+##           Das sollte man nicht so lassen, sondern im folgenden explizit auf
+##           "Opponent" umstellen.
+##        opposing_player = self.control.opp[player]
+##        talk('....und der zu %s opposing player is %s' % (player,opposing_player))
+        if not self.may_double(player):
+            talk('autoroll ' + '-'*60)
+            talk('autoroll because not may double - new player %s' % player)
+            self.roll(player)
 
     def may_double(self, player):
         return self.ML > 1

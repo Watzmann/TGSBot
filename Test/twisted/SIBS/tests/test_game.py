@@ -130,6 +130,6 @@ if __name__ == "__main__":
     do_suites = (len(sys.argv) > 1) and (sys.argv[1] == 'suites')
 
     if not do_suites:
-        run_test(TestGame('testbar_roll_in_2b'))
+        run_test(TestGame('testbar_roll_in_1b'))
     else:
         run_suites(globals())
