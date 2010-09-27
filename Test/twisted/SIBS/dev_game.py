@@ -56,11 +56,15 @@ class Spiel:
         if self.white == 1:
             self.white = lou.get_active(self.p1)
         self.white.set_protocol(Simple(self.p1))
+        self.white.settings.boardstyle(['1',])
+##        self.white.save_settings()
         self.white.dice = 'sequence'
         self.black = getUser(user=self.p2, password='hallo', lou=lou)
         if self.black == 1:
             self.black = lou.get_active(self.p2)
         self.black.set_protocol(Simple(self.p2))
+        self.black.settings.boardstyle(['1',])
+##        self.black.save_settings()
         self.white.invite(self.p2, ml)
         self.white.join(self.black, log)
 ##        print log.active_games
@@ -129,7 +133,7 @@ if __name__ == "__main__":
     spiel.dice_and_moves(sequence, id1)
     turn = spiel.whos_turn()
     loops = 0
-    wait_mode = True
+    wait_mode = False
     
     game, player = log.get(turn)
     print 'roll','-'*60
