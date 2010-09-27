@@ -279,7 +279,7 @@ class Settings:
 ##        print 'boardstyle', vals
         if len(vals) == 0:
             res = "Value of 'boardstyle' is %d" % self._boardstyle
-        elif vals[0] in ('1','2','3'):
+        elif vals[0] in ('1','2','3','4'):
             self._boardstyle = int(vals[0])
             # TODO: hier und in den xxxxlength() muss int() getrapped werden
             res = "Value of 'boardstyle' set to %d." % self._boardstyle

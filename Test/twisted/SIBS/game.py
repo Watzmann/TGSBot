@@ -6,7 +6,6 @@ from StringIO import StringIO
 from time import time
 from dice import getDice
 
-STANDALONE = False
 VERBOSE = True
 
 def talk(msg):
@@ -49,10 +48,8 @@ check for valid moves etc.."""
 
     def __init__(self,):
         self.score_fmt = "board:%s:%s:%d:%d:%d:"
-        if STANDALONE:
-            self.position_fmt = "%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:"
-        else:
-            self.position_fmt = "%d:"*26
+        self.position_fmt_4 = "%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:"
+        self.position_fmt_3 = "%d:"*26
         self.dice_fmt = "%d:"*5
         self.cube = "1:1:1:0:"
         self.direction = {'p1':"1:-1:0:25:",
@@ -109,16 +106,22 @@ check for valid moves etc.."""
         self._position_info = position
 
     def _fmt_position(self,):
-        return self.position_fmt % tuple(self._position_info)
+        if self.style == 4:
+            position_fmt = self.position_fmt_4
+        else:
+            position_fmt = self.position_fmt_3
+        return position_fmt % tuple(self._position_info)
         
     def check(self, player, move):
         msg = "can't move to Berlin"
         return msg
 
     def show_board(self, whom, style):
-        if style in (1,2,3):
+        if style in (1,2,3,4):
+            self.style = style
             return {1: self.board_sl,
                     3: self.board_sl,
+                    4: self.board_sl,
                     2: self.board_aa}[style](whom)
 
     def board_sl(self, whom):
@@ -129,7 +132,7 @@ check for valid moves etc.."""
         cube = self.cube
         direction = self.direction[whom]
         move = self._fmt_move(whom)
-        if STANDALONE:
+        if self.style == 4:
             return '%s | '*6 % (score, position, dice, cube, direction, move)
         else:
             return score + position + dice + cube + direction + move
@@ -265,6 +268,13 @@ class Move:
     def __str__(self,):
         return ' '.join(self.moves)
 
+class Player:
+    def __init__(self, name, user, opponent, color):
+        self.name = name
+        self.user = user
+        self.opponent = opponent
+        self.color = color
+        
 class GameControl:
     """GameControl controls the process of playing a single game of BG."""
     def __init__(self, game, board=None, dice='random'):
@@ -280,10 +290,7 @@ class GameControl:
         self.direction = {'p1':{'home':0, 'bar':25}, 'p2':{'home':25, 'bar':0}}
             # TODO:  wenn es hier definiert ist, dann muss es von hier
             #        im board gesetzt werden.
-        if STANDALONE:
-            self.score = {'p1':1, 'p2':2}
-        else:
-            self.score = {'p1':0, 'p2':0}
+        self.score = {'p1':0, 'p2':0}
         if not board is None:
             self.board = board
             self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
@@ -520,10 +527,6 @@ def getGame(**kw):
     log.add(game)
     game.start()
     return game.ids
-
-def set_standalone():
-    global STANDALONE
-    STANDALONE = True
 
 def set_verbose():
     global VERBOSE

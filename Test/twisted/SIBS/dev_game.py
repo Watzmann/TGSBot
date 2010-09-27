@@ -7,7 +7,7 @@ werden.
 
 import sys
 from sibs_user import getUser, UsersList
-from game import GamesList, set_standalone, set_verbose
+from game import GamesList, set_verbose
 from clip import Simple
 
 lou = UsersList()
@@ -17,6 +17,7 @@ ML = 1
 
 global VERBOSE
 VERBOSE = False
+BOARDSTYLE = '4'
 
 def talk(msg):
     if VERBOSE:
@@ -56,14 +57,14 @@ class Spiel:
         if self.white == 1:
             self.white = lou.get_active(self.p1)
         self.white.set_protocol(Simple(self.p1))
-        self.white.settings.boardstyle(['1',])
+        self.white.settings.boardstyle([BOARDSTYLE,])
 ##        self.white.save_settings()
         self.white.dice = 'sequence'
         self.black = getUser(user=self.p2, password='hallo', lou=lou)
         if self.black == 1:
             self.black = lou.get_active(self.p2)
         self.black.set_protocol(Simple(self.p2))
-        self.black.settings.boardstyle(['1',])
+        self.black.settings.boardstyle([BOARDSTYLE,])
 ##        self.black.save_settings()
         self.white.invite(self.p2, ml)
         self.white.join(self.black, log)
@@ -113,7 +114,6 @@ def get_game(player):
 
 if __name__ == "__main__":
     VERBOSE = True
-    set_standalone()
     set_verbose()
     spiel = Spiel(ML)
     spiel.set_talkative()
@@ -136,6 +136,8 @@ if __name__ == "__main__":
     wait_mode = False
     
     game, player = log.get(turn)
+    game.control.score = {'p1':1, 'p2':2}
+    game.control.board.set_score((game.control.white.name, 1), (game.control.black.name, 2), 1)
     print 'roll','-'*60
     game.roll(player)
     while turn:
