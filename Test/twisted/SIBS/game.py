@@ -34,7 +34,7 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
         #talk('returning gid %s' % gid)
         return self.active_games.get(gid, default)
 
-    def uid(self,):
+    def uid(self,):     # TODO: hier muss noch ein locking mechanismus rein
         gen = lambda: ''.join(('%f' % time()).split('.'))
         gid = gen()
         while self.active_ids.has_key(gid):
@@ -274,13 +274,26 @@ class Player:
         self.user = user
         self.opponent = opponent
         self.color = color
-        
+
+class Status:
+    def __init__(self, position, dice, cube, direction, move):
+        self.position = position
+        self.dice = dice
+        self.cube = cube
+        self.direction = direction
+        self.move = move
+    
+class Match:
+    def __init__(self, score, cube,):
+        self.score = score
+        self.cube = cube
+    
 class GameControl:
     """GameControl controls the process of playing a single game of BG."""
     def __init__(self, game, board=None, dice='random'):
         self.game = game
-        self.white = game.player1   # TODO: sehr wichtig, diese Zuordnungen
-        self.black = game.player2   #       zu überarbeiten
+        self.p1 = game.player1
+        self.p2 = game.player2
         self.dice = getDice(dice)
         self.cube = 1
         self.turn = 0       # TODO oder was im board-status richtig ist
@@ -298,8 +311,8 @@ class GameControl:
                 # TODO:  position muss vom Board abgekupfert werden.
         else:
             self.board = Board()
-            self.board.set_score((self.white.name, self.score['p1']),
-                                 (self.black.name, self.score['p2']),
+            self.board.set_score((self.p1.name, self.score['p1']),
+                                 (self.p2.name, self.score['p2']),
                                   self.game.ML)
             self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
                                 5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
@@ -319,7 +332,7 @@ class GameControl:
         self.set_move()
 
     def whos_turn(self,):
-        return {1:self.white, 2:self.black, 0:None}[self.turn]
+        return {1:self.p1.user, 2:self.p2.user, 0:None}[self.turn]
 
     def check_roll(self, dice, player):
         """Checks for possible moves depending on 'dice'."""
@@ -438,13 +451,21 @@ class GameControl:
 class Game:
     # players watchers
     def __init__(self, gid, p1, p2, ML, board=None, dice='random'):
-        self.id = gid #'908239874918'    # funny id, is that neccessary?
-                                    # TODO: YES - die muss unique sein!!!!!
-        self.player1 = p1       # class User
-        self.player2 = p2       # class User
-        self.ids = (self.id + '_p1', self.id + '_p2')
+        """Represents a game of Backgammon.
+    gid:        unique Id
+    p1:         player 1, host, white, O (class User)
+    p2:         player 2, guest, black, X (class User)
+    ML:         match length (string, must be convertible to int)
+    board:      persistency hook
+    dice:       choice of dice (random, sequence, ...)
+"""
+        self.id = gid
+        self.player1 = Player(p1.name, p1, p2, 0)
+        self.player2 = Player(p2.name, p2, p1, 1)
+        self.ids = ['.'.join((self.id, 'p1')), '.'.join((self.id, 'p2'))]
+                                            # TODO: hier kommen noch watchers
         self.player = dict(zip(self.ids,('p1','p2')))
-        self.who = dict(zip(('p1','p2'),(p1,p2)))
+        self.who = dict(zip(('p1', 'p2'),(p1, p2)))
         self.ML = int(ML)
         self.opp = {p1.name:p2, p2.name:p1}
         self.control = GameControl(self, board=board, dice=dice)
@@ -452,15 +473,15 @@ class Game:
 
     def start(self,):
         msg = 'Starting a new game with %s'
-        self.player1.chat(msg % self.player2.name)
-        self.player2.chat(msg % self.player1.name)
+        self.player1.user.chat(msg % self.player2.name)
+        self.player2.user.chat(msg % self.player1.name)
         self.control.start()
         self.whos_turn()
 
     def starting_rolls(self, p1, p2):
         msg = 'You rolled %s, %s rolled %s'
-        self.player1.chat(msg % (p1, self.player2.name, p2))
-        self.player2.chat(msg % (p2, self.player1.name, p1))
+        self.player1.user.chat(msg % (p1, self.player2.name, p2))
+        self.player2.user.chat(msg % (p2, self.player1.name, p1))
 
     def roll(self, player):
         you,opp = self.players(player)

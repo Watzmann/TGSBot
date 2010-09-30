@@ -137,7 +137,7 @@ if __name__ == "__main__":
     
     game, player = log.get(turn)
     game.control.score = {'p1':1, 'p2':2}
-    game.control.board.set_score((game.control.white.name, 1), (game.control.black.name, 2), 1)
+    game.control.board.set_score((game.control.p1.name, 1), (game.control.p2.name, 2), 1)
     print 'roll','-'*60
     game.roll(player)
     while turn:
