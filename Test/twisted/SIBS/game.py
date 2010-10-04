@@ -287,7 +287,39 @@ class Match:
     def __init__(self, score, cube,):
         self.score = score
         self.cube = cube
-    
+
+from states import StateMachine
+from states import GameStarted, TurnStarted, Doubled, Taken, Rolled, Moved
+from states import GameFinished
+
+class BGMachine(StateMachine):
+    def __init__(self, caller):
+        states = dict((('game_started', GameStarted()),
+                       ('turn_started', TurnStarted()),
+                       ('doubled', Doubled()),
+                       ('taken', Taken()),
+                       ('rolled', Rolled()),
+                       ('moved', Moved()),
+                       ('finished', GameFinished()),
+                       ))
+        model = \
+            {'game_started': (('start', states['rolled'], True, caller.start),),
+             'turn_started': (('roll', states['rolled'], False, caller.roll),
+                        ('double', states['doubled'], False, caller.double),),
+             'doubled': (('take', states['taken'], False, caller.take),
+                        ('pass', states['finished'], False, caller.drop),),
+             'taken': (('roll', states['rolled'], True, caller.roll),),
+             'rolled': (('move', states['moved'], False, caller.move),
+                        ('cant_move', states['turn_started'], True, caller.nop),),
+             'moved': (('turn', states['taken'], False, caller.hand_over),
+                       ('win', states['finished'], True, caller.nop),),
+                }
+        # TODO: Parameter könnte man natürlich auch noch unterbringen
+        for s in model:
+            for k,x,y,z in model[s]:
+                states[s].actions[k] = {'action': z, 'follow_up': x, 'auto': y}
+        StateMachine.__init__(self, states)
+
 class GameControl:
     """GameControl controls the process of playing a single game of BG."""
     def __init__(self, game, board=None, dice='random'):
@@ -317,6 +349,9 @@ class GameControl:
             self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
                                 5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
             self.set_position()
+#-------------------------------------------------------------------
+        self.SM = BGMachine(self)
+#-------------------------------------------------------------------
 
     def start(self,):
         a = b = 0
@@ -399,6 +434,18 @@ class GameControl:
         self.board.set_dice(self.turn, d)
         self.set_move()
         return d
+
+    def double(self, player):
+        pass
+
+    def take(self, player):
+        pass
+
+    def drop(self, player):
+        pass
+
+    def nop(self, player):
+        pass
 
     def set_move(self,):
         """Sets certain groups of flags in the board."""
