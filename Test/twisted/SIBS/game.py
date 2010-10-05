@@ -2,9 +2,15 @@
 # -*- coding: utf-8 -*-
 """Implementierung von Game-related Routinen."""
 
+REV = '$Revision$'
+
 from StringIO import StringIO
 from time import time
 from dice import getDice
+from version import Version
+
+v = Version()
+v.register(__name__, REV)
 
 VERBOSE = True
 

@@ -5,18 +5,12 @@
 
 REV = '$Revision$'
 
+import logging
 from version import Version
 
 v = Version()
 v.register(__name__, REV)
 
-global VERBOSE
-VERBOSE = True
-
-def talk(msg):
-    if VERBOSE:
-        print msg
-        
 class State:
     """Base class for states in this state machine."""
     
@@ -29,7 +23,7 @@ class State:
     player:     class Player
     params:     **kw
     """
-        talk('%s: aktiviert mit player %s und Parametern %s)' % (self.name,player,params))
+        logging.info('%s: aktiviert mit player %s und Parametern %s)' % (self.name,player,params))
         self.player = player
         self.approved_player = self.player  # This may have to be overwritten
                                             # in special(); may be the opponent.
@@ -57,7 +51,7 @@ class State:
         if (len(self.actions) == 1):
             k = self.actions.keys()[0]
             if self.actions[k]['auto']:
-                talk('automatisches cmd: %s' % k)
+                logging.info('automatisches cmd: %s' % k)
                 self.action(self.player, k)
 
     def _state_check(self, player, cmd):
@@ -93,7 +87,7 @@ class State:
         if not msg is None:
             print msg
         else:
-            talk('%s: mit Aktivierung fertig' % (self.name,))
+            logging.info('%s: mit Aktivierung fertig' % (self.name,))
 
 class GameStarted(State):
     """State A: game has started."""
@@ -164,66 +158,68 @@ class StateMachine:
         self.states = states
         for s in states:
             self.states[s].machine = self.activate
-        talk('CONSTRUCTING (%d states)' % len(self.states))
+        logging.info('CONSTRUCTING (%d states)' % len(self.states))
 
     def start(self, player, **kw):
-        talk('STARTING')
+        logging.info('STARTING   player %s' % player.name)
         self.states['game_started'].activate(player, **kw)
 
     def action(self, player, cmd, **kw):
         #print 'DEBUG', kw
+        logging.info('ACTION   player %s (%s with %s)' % (player.name, cmd, kw))
         self.active.action(player, cmd, **kw)
 
     def activate(self, state):
         self.active = state
-        talk('%s: aktiviert (%s)' % (state.name, state.__doc__))
+        logging.info('ACTIVATING %s (%s)' % (state.name, state.__doc__))
 
     def done():
         return self.active.name == 'finished'
 
 class Commands:
     def start(self, player, **params):
-        talk('start: %s (%s)' % (player.name, params))
+        logging.info('start: %s (%s)' % (player.name, params))
         return {}
 
     def roll(self, player, **params):
-        talk('roll: %s (%s)' % (player.name, params))
+        logging.info('roll: %s (%s)' % (player.name, params))
         return {}
 
     def double(self, player, **params):
-        talk('double: %s (%s)' % (player.name, params))
+        logging.info('double: %s (%s)' % (player.name, params))
         return {}
 
     def take(self, player, **params):
-        talk('take: %s (%s)' % (player.name, params))
+        logging.info('take: %s (%s)' % (player.name, params))
         return {}
 
     def drop(self, player, **params):
-        talk('drop: %s (%s)' % (player.name, params))
+        logging.info('drop: %s (%s)' % (player.name, params))
         return {}
 
     def roll(self, player, **params):
-        talk('roll: %s (%s)' % (player.name, params))
+        logging.info('roll: %s (%s)' % (player.name, params))
         return {}
 
     def move(self, player, **params):
-        talk('move: %s (%s)' % (player.name, params))
+        logging.info('move: %s (%s)' % (player.name, params))
         return {}
 
     def nop(self, player, **params):
-        talk('nop: %s (%s)' % (player.name, params))
+        logging.info('nop: %s (%s)' % (player.name, params))
         return {}
 
     def hand_over(self, player, **params):
-        talk('hand_over: %s (%s)' % (player.name, params))
+        logging.info('hand_over: %s (%s)' % (player.name, params))
         return {}
 
 if __name__ == '__main__':
-    VERBOSE = True
-
     from game import Player
     from game import BGMachine
 
+    logging.basicConfig(level=logging.INFO,
+                    format='%(name)s %(asctime)s %(levelname)s %(message)s',
+                    )
     p1 = Player('white', 'user1', None, 0)
     p2 = Player('black', 'user2', p1, 0)
     p1.opponent = p2
