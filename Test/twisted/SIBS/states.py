@@ -23,7 +23,7 @@ class State:
     player:     class Player
     params:     **kw
     """
-        logging.info('%s: aktiviert mit player %s und Parametern %s)' % (self.name,player,params))
+        logging.info('%s: aktiviert mit player %s und Parametern %s)' % (self.name,player.name,params))
         self.player = player
         self.approved_player = self.player  # This may have to be overwritten
                                             # in special(); may be the opponent.
@@ -221,8 +221,11 @@ if __name__ == '__main__':
                     format='%(name)s %(asctime)s %(levelname)s %(message)s',
                     )
     p1 = Player('white', 'user1', None, 0)
-    p2 = Player('black', 'user2', p1, 0)
+    p2 = Player('black', 'u                                                                             ser2', p1, 0)
     p1.opponent = p2
     s = BGMachine(Commands())
+    logging.info('-'*40)
     s.start(p1)
+    logging.info('-'*40)
     s.action(p1, 'move', move='18-12 12-10')
+    logging.info('-'*40)
