@@ -97,6 +97,10 @@ class GameStarted(State):
         State.__init__(self)
 
     # automatisch weitergehen (generisch)
+
+    # you rolled, he rolled
+    # it is you turn; he makes the first move
+    # board
     
 class TurnStarted(State):
     """State B: a new turn has started."""
@@ -109,6 +113,8 @@ class TurnStarted(State):
         self.player = self.player.opponent        # switch players
 
     # automatisch weitergehen bei no_double oder auto_roll
+    #  sonst
+    # please roll or double
 
 class Doubled(State):
     """State C: the cube has been turned."""
@@ -117,7 +123,7 @@ class Doubled(State):
         self.name = 'doubled'
         State.__init__(self)
 
-    # mir fällt nix ein
+    # you double, please wait; he doubles, please accept
 
 class Taken(State):
     """State D: the cube has been taken."""
@@ -126,16 +132,28 @@ class Taken(State):
         self.name = 'taken'
         State.__init__(self)
 
-    # automatisch weitergehen (generisch)        stimmt das? in FIBS prüfen!
+    # you accept, the cube shows; he accepts, the cube shows
+    # automatisch weitergehen (generisch)
 
 class Rolled(State):
-    """State E: dice have been rolled."""
+    """State H: dice have been rolled."""
     
     def __init__(self,):
         self.name = 'rolled'
         State.__init__(self)
 
-    # check_dice     evtl. automatisch weitergehen
+    # he rolls; you roll
+    # check_dice     automatisch weitergehen
+    # please move n pieces
+
+class Checked(State):
+    """State E: dice have been checked."""
+    
+    def __init__(self,):
+        self.name = 'checked'
+        State.__init__(self)
+
+    # evtl. automatisch weitergehen
 
 class Moved(State):
     """State F: move has been made."""
@@ -144,6 +162,9 @@ class Moved(State):
         self.name = 'moved'
         State.__init__(self)
 
+    # he moves.....
+    # board
+    #  oder
     # Spiel zu Ende?   automatisch weitergehen (generisch)
 
 class GameFinished(State):
@@ -152,6 +173,8 @@ class GameFinished(State):
     def __init__(self,):
         self.name = 'finished'
         State.__init__(self)
+
+    # you win 1 point......
 
 class StateMachine:
     def __init__(self, states):
