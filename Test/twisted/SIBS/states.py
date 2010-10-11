@@ -98,6 +98,7 @@ class GameStarted(State):
 
     # automatisch weitergehen (generisch)
 
+    # +++++++++++ start
     # you rolled, he rolled
     # it is you turn; he makes the first move
     # board
@@ -115,6 +116,7 @@ class TurnStarted(State):
     # automatisch weitergehen bei no_double oder auto_roll
     #  sonst
     # please roll or double
+    # +++++++++++ roll, double
 
 class Doubled(State):
     """State C: the cube has been turned."""
@@ -124,6 +126,7 @@ class Doubled(State):
         State.__init__(self)
 
     # you double, please wait; he doubles, please accept
+    # +++++++++++ take, drop
 
 class Taken(State):
     """State D: the cube has been taken."""
@@ -133,7 +136,7 @@ class Taken(State):
         State.__init__(self)
 
     # you accept, the cube shows; he accepts, the cube shows
-    # automatisch weitergehen (generisch)
+    # +++++++++++ roll      (auto)
 
 class Rolled(State):
     """State H: dice have been rolled."""
@@ -143,7 +146,7 @@ class Rolled(State):
         State.__init__(self)
 
     # he rolls; you roll
-    # check_dice     automatisch weitergehen
+    # +++++++++++ check      (auto)
     # please move n pieces
 
 class Checked(State):
@@ -153,7 +156,7 @@ class Checked(State):
         self.name = 'checked'
         State.__init__(self)
 
-    # evtl. automatisch weitergehen
+    # +++++++++++ move      (evtl. auto)
 
 class Moved(State):
     """State F: move has been made."""
@@ -166,6 +169,7 @@ class Moved(State):
     # board
     #  oder
     # Spiel zu Ende?   automatisch weitergehen (generisch)
+    # +++++++++++ handover, nop      (auto)
 
 class GameFinished(State):
     """State G: game has ended."""
@@ -177,63 +181,74 @@ class GameFinished(State):
     # you win 1 point......
 
 class StateMachine:
+    """Container for a bundle of states. Hands out some controls. Controls
+which state is active.
+"""
     def __init__(self, states):
         self.states = states
         for s in states:
-            self.states[s].machine = self.activate
+            self.states[s].machine = self._activate
         logging.info('CONSTRUCTING (%d states)' % len(self.states))
 
     def start(self, player, **kw):
+        """Allows to start the state machine."""
         logging.info('STARTING   player %s' % player.name)
         self.states['game_started'].activate(player, **kw)
 
     def action(self, player, cmd, **kw):
+        """Allows control to send actions, taken by the players."""
         #print 'DEBUG', kw
         logging.info('ACTION   player %s (%s with %s)' % (player.name, cmd, kw))
         self.active.action(player, cmd, **kw)
 
-    def activate(self, state):
+    def _activate(self, state):
+        """States activate themselves using this method."""
         self.active = state
         logging.info('ACTIVATING %s (%s)' % (state.name, state.__doc__))
 
     def done():
+        """True, if game is finished."""
         return self.active.name == 'finished'
 
 class Commands:
     def start(self, player, **params):
-        logging.info('start: %s (%s)' % (player.name, params))
+        logging.info('stub cmd +++++ start: %s (%s)' % (player.name, params))
         return {}
 
     def roll(self, player, **params):
-        logging.info('roll: %s (%s)' % (player.name, params))
+        logging.info('stub cmd +++++ roll: %s (%s)' % (player.name, params))
         return {}
 
     def double(self, player, **params):
-        logging.info('double: %s (%s)' % (player.name, params))
+        logging.info('stub cmd +++++ double: %s (%s)' % (player.name, params))
         return {}
 
     def take(self, player, **params):
-        logging.info('take: %s (%s)' % (player.name, params))
+        logging.info('stub cmd +++++ take: %s (%s)' % (player.name, params))
         return {}
 
     def drop(self, player, **params):
-        logging.info('drop: %s (%s)' % (player.name, params))
+        logging.info('stub cmd +++++ drop: %s (%s)' % (player.name, params))
         return {}
 
     def roll(self, player, **params):
-        logging.info('roll: %s (%s)' % (player.name, params))
+        logging.info('stub cmd +++++ roll: %s (%s)' % (player.name, params))
+        return {}
+
+    def check_roll(self, player, **params):
+        logging.info('stub cmd +++++ check_roll: %s (%s)' % (player.name, params))
         return {}
 
     def move(self, player, **params):
-        logging.info('move: %s (%s)' % (player.name, params))
+        logging.info('stub cmd +++++ move: %s (%s)' % (player.name, params))
         return {}
 
     def nop(self, player, **params):
-        logging.info('nop: %s (%s)' % (player.name, params))
+        logging.info('stub cmd +++++ nop: %s (%s)' % (player.name, params))
         return {}
 
     def hand_over(self, player, **params):
-        logging.info('hand_over: %s (%s)' % (player.name, params))
+        logging.info('stub cmd +++++ hand_over: %s (%s)' % (player.name, params))
         return {}
 
 if __name__ == '__main__':
