@@ -11,6 +11,10 @@ from version import Version
 v = Version()
 v.register(__name__, REV)
 
+logging.basicConfig(level=logging.INFO,
+                format='%(name)s %(asctime)s %(levelname)s %(message)s',
+                )
+
 class State:
     """Base class for states in this state machine."""
     
@@ -211,9 +215,9 @@ which state is active.
         return self.active.name == 'finished'
 
 class Commands:
-    def start(self, player, **params):
-        logging.info('stub cmd +++++ start: %s (%s)' % (player.name, params))
-        return {}
+##    def start(self, player, **params):
+##        logging.info('stub cmd +++++ start: %s (%s)' % (player.name, params))
+##        return {}
 
     def roll(self, player, **params):
         logging.info('stub cmd +++++ roll: %s (%s)' % (player.name, params))
@@ -231,15 +235,11 @@ class Commands:
         logging.info('stub cmd +++++ drop: %s (%s)' % (player.name, params))
         return {}
 
-    def roll(self, player, **params):
-        logging.info('stub cmd +++++ roll: %s (%s)' % (player.name, params))
-        return {}
-
     def check_roll(self, player, **params):
         logging.info('stub cmd +++++ check_roll: %s (%s)' % (player.name, params))
         return {}
 
-    def move(self, player, **params):
+    def _move(self, player, **params):
         logging.info('stub cmd +++++ move: %s (%s)' % (player.name, params))
         return {}
 
@@ -255,9 +255,6 @@ if __name__ == '__main__':
     from game import Player
     from game import BGMachine
 
-    logging.basicConfig(level=logging.INFO,
-                    format='%(name)s %(asctime)s %(levelname)s %(message)s',
-                    )
     p1 = Player('white', 'user1', None, 0)
     p2 = Player('black', 'u                                                                             ser2', p1, 0)
     p1.opponent = p2

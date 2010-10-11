@@ -266,10 +266,9 @@ class Move:
             z1 = int(z[1])
             z = (z0,z1)
             talk('Move: moving %d to %d' % (z0,z1))
-            self.control.move(z, self.player)
-        self.control.set_position()
-        talk('in Move.move as %s' % self.player)
-        self.control.hand_over()
+            yield z
+##            self.control.move(z, self.player)
+##        self.control.set_position()
 
     def __str__(self,):
         return ' '.join(self.moves)
@@ -310,14 +309,14 @@ class BGMachine(StateMachine):
                        ('finished', GameFinished()),        # G
                        ))
         model = \
-            {'game_started': (('start', states['checked'], True, caller.start),),
+            {'game_started': (('start', states['checked'], True, caller.nop),),
              'turn_started': (('roll', states['rolled'], False, caller.roll),
                         ('double', states['doubled'], False, caller.double),),
              'doubled': (('take', states['taken'], False, caller.take),
                         ('pass', states['finished'], False, caller.drop),),
              'taken': (('roll', states['rolled'], True, caller.roll),),
              'rolled': (('check', states['checked'], True, caller.check_roll),),
-             'checked': (('move', states['moved'], False, caller.move),
+             'checked': (('move', states['moved'], False, caller._move),
                         ('cant_move', states['turn_started'], True, caller.nop),),
              'moved': (('turn', states['taken'], False, caller.hand_over),
                        ('win', states['finished'], True, caller.nop),),
@@ -333,7 +332,10 @@ class GameControl:
     def __init__(self, game, board=None, dice='random'):
         self.game = game
         self.p1 = game.player1
+        self.p1.nick = 'p1'     # TODO: muss bald weg, nur für den Übergang
         self.p2 = game.player2
+        self.p2.nick = 'p2'     # TODO: muss bald weg, nur für den Übergang
+        self.players = {'p1':self.p1, 'p2':self.p2}
         self.dice = getDice(dice)
         self.cube = 1
         self.turn = 0       # TODO oder was im board-status richtig ist
@@ -373,9 +375,14 @@ class GameControl:
         talk('in start  %s  %s  %s' % (self.turn, self.pieces,
                                        self.board._dice_info))
         self.set_move()
+        self.SM.start(self.whos_turn_p1())
 
     def whos_turn(self,):
         return {1:self.p1.user, 2:self.p2.user, 0:None}[self.turn]
+
+    def whos_turn_p1(self,):
+        # TODO   das hier muss dringend aufgeräumt werden (start-sequenz, self.start())
+        return {1:self.p1, 2:self.p2, 0:None}[self.turn]
 
     def check_roll(self, dice, player):
         """Checks for possible moves depending on 'dice'."""
@@ -444,16 +451,16 @@ class GameControl:
         return d
 
     def double(self, player):
-        pass
+        return {}
 
     def take(self, player):
-        pass
+        return {}
 
     def drop(self, player):
-        pass
+        return {}
 
     def nop(self, player):
-        pass
+        return {}
 
     def set_move(self,):
         """Sets certain groups of flags in the board."""
@@ -463,40 +470,52 @@ class GameControl:
 
     def set_position(self,):
         self.board.set_position(self.position)
-        
+
     def move(self, move, player):
+        p = self.players[player]
+##        print player, p, move
+        self.SM.action(p, 'move', move=move)
+        talk('in Move.move as %s' % player)
+        self.hand_over()
+        
+    def _move(self, player, **kw):
         # TODO: kontrollieren, ob der dran ist
-        talk('%s changes the board' % (move,))
-        talk('player %s   turn %s   whos_turn %s' % \
-                    (player, self.turn, self.whos_turn().name))
-        if self.turn == 1:              # immer 'p1'  TODO: stimmt das?
-                                        #               dann kann self.turn weg!
-            self.position[move[0]] -= 1
-            if move[0] == 25:
-                talk('bar  (player %s==p1)  %s' % (player, self.bar))
-                self.bar['p1'] -= 1
-            if self.position[move[1]] == -1:    # werfen
-                self.position[move[1]] = 1
-                self.position[0] -= 1
-                talk('%s wirft %s' % (player, self.opp[player]))
-                self.bar[self.opp[player]] += 1   # TODO: siehe oben;
-                                                  #   hier könnte hart 'p2' hin
-                                                  #   dann kann self.opp weg
-            else:
-                self.position[move[1]] += 1
-        elif self.turn == 2:
-            self.position[move[0]] += 1
-            if move[0] == 0:
-                talk('bar  (player %s==p2)  %s' % (player, self.bar))
-                self.bar['p2'] -= 1
-            if self.position[move[1]] == 1:    # werfen
-                self.position[move[1]] = -1
-                self.position[25] += 1
-                talk('%s wirft %s' % (player, self.opp[player]))
-                self.bar[self.opp[player]] += 1
-            else:
-                self.position[move[1]] -= 1
-        self.set_move()
+        move = kw['move']
+        mv = Move(kw['move'], self, player)
+        mv.check()
+        for m in mv.move():
+            talk('%s changes the board' % (m,))
+            talk('player %s   turn %s   whos_turn %s' % \
+                        (player.nick, self.turn, self.whos_turn().name))
+            if self.turn == 1:              # immer 'p1'  TODO: stimmt das?
+                                            #               dann kann self.turn weg!
+                self.position[m[0]] -= 1
+                if move[0] == 25:
+                    talk('bar  (player %s==p1)  %s' % (player, self.bar))
+                    self.bar['p1'] -= 1
+                if self.position[m[1]] == -1:    # werfen
+                    self.position[m[1]] = 1
+                    self.position[0] -= 1
+                    talk('%s wirft %s' % (player, self.opp[player]))
+                    self.bar[self.opp[player]] += 1   # TODO: siehe oben;
+                                                      #   hier könnte hart 'p2' hin
+                                                      #   dann kann self.opp weg
+                else:
+                    self.position[m[1]] += 1
+            elif self.turn == 2:
+                self.position[m[0]] += 1
+                if move[0] == 0:
+                    talk('bar  (player %s==p2)  %s' % (player, self.bar))
+                    self.bar['p2'] -= 1
+                if self.position[m[1]] == 1:    # werfen
+                    self.position[m[1]] = -1
+                    self.position[25] += 1
+                    talk('%s wirft %s' % (player, self.opp[player]))
+                    self.bar[self.opp[player]] += 1
+                else:
+                    self.position[m[1]] -= 1
+            self.set_move()
+        return {}
 
     def hand_over(self,):
         self.turn = 3 - self.turn
@@ -531,7 +550,7 @@ class Game:
         self.player1.user.chat(msg % self.player2.name)
         self.player2.user.chat(msg % self.player1.name)
         self.control.start()
-        self.whos_turn()
+##        self.whos_turn()      das macht jetzt die state-machine
 
     def starting_rolls(self, p1, p2):
         msg = 'You rolled %s, %s rolled %s'
@@ -554,29 +573,31 @@ class Game:
             self.move(['zero',], player)
 
     def move(self, move, player):
-        you,opp = self.players(player)
-        mv = Move(move, self.control, player)
-        if mv.check():
-            mv.move()
-            oooold_player = player
-            player = self.player[you.running_game]
-            talk('nach mv.move() war ich %s - jetzt bin ich %s' % (oooold_player,player))
-            board = you.settings.get_boardstyle()
-            you.chat(self.control.board.show_board(player, board))
-            if not str(mv) == 'zero':
-                opp.chat('%s moves %s' % (you.name, mv))
-            player = self.player[opp.running_game]
-            board = opp.settings.get_boardstyle()
-            opp.chat(self.control.board.show_board(player, board))
-##     TODO: ganz zufällig ist hier auf player "opponent" umgestellt worden.
-##           Das sollte man nicht so lassen, sondern im folgenden explizit auf
-##           "Opponent" umstellen.
-##        opposing_player = self.control.opp[player]
-##        talk('....und der zu %s opposing player is %s' % (player,opposing_player))
-        if not self.may_double(player):
-            talk('autoroll ' + '-'*60)
-            talk('autoroll because not may double - new player %s' % player)
-            self.roll(player)
+        self.control.move(move, player)
+##    def move(self, move, player):
+##        you,opp = self.players(player)
+##        mv = Move(move, self.control, player)
+##        if mv.check():
+##            mv.move()
+##            oooold_player = player
+##            player = self.player[you.running_game]
+##            talk('nach mv.move() war ich %s - jetzt bin ich %s' % (oooold_player,player))
+##            board = you.settings.get_boardstyle()
+##            you.chat(self.control.board.show_board(player, board))
+##            if not str(mv) == 'zero':
+##                opp.chat('%s moves %s' % (you.name, mv))
+##            player = self.player[opp.running_game]
+##            board = opp.settings.get_boardstyle()
+##            opp.chat(self.control.board.show_board(player, board))
+####     TODO: ganz zufällig ist hier auf player "opponent" umgestellt worden.
+####           Das sollte man nicht so lassen, sondern im folgenden explizit auf
+####           "Opponent" umstellen.
+####        opposing_player = self.control.opp[player]
+####        talk('....und der zu %s opposing player is %s' % (player,opposing_player))
+##        if not self.may_double(player):
+##            talk('autoroll ' + '-'*60)
+##            talk('autoroll because not may double - new player %s' % player)
+##            self.roll(player)
 
     def may_double(self, player):
         return self.ML > 1
