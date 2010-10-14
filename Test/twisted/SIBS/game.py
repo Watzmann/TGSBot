@@ -475,8 +475,6 @@ class GameControl:
         p = self.players[player]
 ##        print player, p, move
         self.SM.action(p, 'move', move=move)
-        talk('in Move.move as %s' % player)
-        self.hand_over()
         
     def _move(self, player, **kw):
         # TODO: kontrollieren, ob der dran ist
