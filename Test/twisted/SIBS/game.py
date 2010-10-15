@@ -266,7 +266,7 @@ class Move:
             z1 = int(z[1])
             z = (z0,z1)
             talk('Move: moving %d to %d' % (z0,z1))
-            yield z
+            yield z, m
 ##            self.control.move(z, self.player)
 ##        self.control.set_position()
 
@@ -286,6 +286,15 @@ class Player:
     def chat_opponent(self, msg):
         self.opponent.chat(msg)
 
+    def board_player(self,):
+        boardstyle = self.user.settings.get_boardstyle()
+        self.chat_player(self.board.show_board(self.nick, boardstyle))
+        
+    def board_opponent(self,):
+        boardstyle = self.opponent.settings.get_boardstyle()
+        opp_nick = {'p1':'p2', 'p2':'p1'}[self.nick]    # TODO: nick notlösung wegmachen
+        self.chat_opponent(self.board.show_board(opp_nick, boardstyle))
+        
 class Status:
     def __init__(self, position, dice, cube, direction, move):
         self.position = position
@@ -324,7 +333,7 @@ class BGMachine(StateMachine):
              'rolled': (('check', states['checked'], True, caller.check_roll),),
              'checked': (('move', states['moved'], False, caller._move),
                         ('cant_move', states['turn_started'], True, caller.nop),),
-             'moved': (('turn', states['taken'], False, caller.hand_over),
+             'moved': (('turn', states['turn_started'], True, caller.hand_over),
                        ('win', states['finished'], True, caller.nop),),
                 }
         # TODO: Parameter könnte man natürlich auch noch unterbringen
@@ -337,9 +346,21 @@ class GameControl:
     """GameControl controls the process of playing a single game of BG."""
     def __init__(self, game, board=None, dice='random'):
         self.game = game
+        if not board is None:
+            self.board = board
+            self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
+                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
+                # TODO:  position muss vom Board abgekupfert werden.
+        else:
+            self.board = Board()
+            self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
+                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
+            self.set_position()
         self.p1 = game.player1
+        self.p1.board = self.board
         self.p1.nick = 'p1'     # TODO: muss bald weg, nur für den Übergang
         self.p2 = game.player2
+        self.p2.board = self.board
         self.p2.nick = 'p2'     # TODO: muss bald weg, nur für den Übergang
         self.players = {'p1':self.p1, 'p2':self.p2}
         self.dice = getDice(dice)
@@ -352,19 +373,9 @@ class GameControl:
             # TODO:  wenn es hier definiert ist, dann muss es von hier
             #        im board gesetzt werden.
         self.score = {'p1':0, 'p2':0}
-        if not board is None:
-            self.board = board
-            self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
-                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
-                # TODO:  position muss vom Board abgekupfert werden.
-        else:
-            self.board = Board()
-            self.board.set_score((self.p1.name, self.score['p1']),
-                                 (self.p2.name, self.score['p2']),
-                                  self.game.ML)
-            self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
-                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
-            self.set_position()
+        self.board.set_score((self.p1.name, self.score['p1']),
+                             (self.p2.name, self.score['p2']),
+                              self.game.ML)
 #-------------------------------------------------------------------
         self.SM = BGMachine(self)
 #-------------------------------------------------------------------
@@ -479,7 +490,6 @@ class GameControl:
 
     def move(self, move, player):
         p = self.players[player]
-##        print player, p, move
         self.SM.action(p, 'move', move=move)
         
     def _move(self, player, **kw):
@@ -487,7 +497,8 @@ class GameControl:
         move = kw['move']
         mv = Move(kw['move'], self, player)
         mv.check()
-        for m in mv.move():
+        result = []
+        for m, label in mv.move():
             talk('%s changes the board' % (m,))
             talk('player %s   turn %s   whos_turn %s' % \
                         (player.nick, self.turn, self.whos_turn().name))
@@ -519,12 +530,16 @@ class GameControl:
                 else:
                     self.position[m[1]] -= 1
             self.set_move()
-        return {}
+            result.append(label)
+        return {'moved': result, 'finished': self.home[player.nick] == 15}
 
-    def hand_over(self,):
+    def hand_over(self, player, **kw):
         self.turn = 3 - self.turn
         self.board.set_dice(self.turn, (0,0))
-        talk('in handover:  -> %d' % self.turn)
+##        talk('in handover:  -> %d' % self.turn)
+        player.board_player()
+        player.board_opponent()
+        return {}
 
 class Game:
     # players watchers

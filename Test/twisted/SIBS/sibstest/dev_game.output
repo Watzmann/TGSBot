@@ -21,8 +21,8 @@ player p1   turn 1   whos_turn frieda
 Move: moving 13 to 11
 (13, 11) changes the board
 player p1   turn 1   whos_turn frieda
-TELL frieda: board:You:dortdann:1:1:2: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-3:0:  -5:0:1:0:0:1:  0: | -1:0:0:0:0: | 1:1:1:0: | 1:-1:0:25: | 0:0:0:0:2:0:0:0 | 
 TELL dortdann: frieda moves 24-21 13-11
+TELL frieda: board:You:dortdann:1:1:2: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-3:0:  -5:0:1:0:0:1:  0: | -1:0:0:0:0: | 1:1:1:0: | 1:-1:0:25: | 0:0:0:0:2:0:0:0 | 
 TELL dortdann: board:You:frieda:1:2:1: | 0:  -2:0:0:0:0:5:  0:3:0:0:1:-5:  4:0:0:0:-3:0:  -5:0:1:0:0:1:  0: | -1:0:0:0:0: | 1:1:1:0: | -1:1:25:0: | 0:0:0:0:2:0:0:0 | 
 autoroll ------------------------------------------------------------
 autoroll because not may double - new player p2
