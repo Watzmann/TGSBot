@@ -178,7 +178,7 @@ class Toggles:
             "** You allow the use of the server's 'pip' command.",
             "** The board will be refreshed after every move.",
             "** You agree that doublets during opening double the cube.",
-            "** You will be asked if you want to double.",
+            "** You won't be asked if you want to double.",
             "** Forced moves will be done automatically.",
 
             "** Your terminal will ring the bell if someone talks to you or invites you",
@@ -201,7 +201,7 @@ class Toggles:
             "** You don't allow the use the server's 'pip' command.",
             "** The board won't be refreshed after every move.",
             "** You don't agree that doublets during opening double the cube.",
-            "** You won't be asked if you want to double.",
+            "** You will be asked if you want to double.",
             "** Forced moves won't be done automatically.",
 
             "** Your terminal won't ring the bell if someone talks to you or invites you",

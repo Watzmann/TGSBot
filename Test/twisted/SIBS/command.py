@@ -200,6 +200,10 @@ class Command():
                 res = toggles.toggle(switch)
                 if switch == 'ready':
                     self.update_who(me)
+                if switch == 'autoroll':
+                    toggles.toggle('double')
+                if switch == 'double':
+                    toggles.toggle('autoroll')
         return res
 
     def c_set(self, line, me):              # implemented
