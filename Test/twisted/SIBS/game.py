@@ -280,6 +280,12 @@ class Player:
         self.opponent = opponent
         self.color = color
 
+    def chat_player(self, msg):
+        self.user.chat(msg)
+
+    def chat_opponent(self, msg):
+        self.opponent.chat(msg)
+
 class Status:
     def __init__(self, position, dice, cube, direction, move):
         self.position = position

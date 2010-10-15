@@ -59,7 +59,7 @@ class State:
                 self.action(self.player, k)
 
     def _state_check(self, player, cmd):
-        if (player == self.approved_player):
+        if (player.name == self.approved_player.name):
             if self.actions.has_key(cmd):
                 return ''
             else:
@@ -151,7 +151,7 @@ class Rolled(State):
 
     # he rolls; you roll
     # +++++++++++ check      (auto)
-    # please move n pieces
+    # please move n pieces          könnte doch auch in Checked sein?
 
 class Checked(State):
     """State E: dice have been checked."""
@@ -168,6 +168,10 @@ class Moved(State):
     def __init__(self,):
         self.name = 'moved'
         State.__init__(self)
+
+    def _chat(self,):
+        self.player.chat_player("hallo player")
+        self.player.chat_opponent("hallo opponent")
 
     # he moves.....
     # board
@@ -251,12 +255,19 @@ class Commands:
         logging.info('stub cmd +++++ hand_over: %s (%s)' % (player.name, params))
         return {}
 
+class TestUser:
+    def __init__(self, name):
+        self.name = name
+
+    def chat(self, msg):
+        print 'CHAT:', msg
+        
 if __name__ == '__main__':
     from game import Player
     from game import BGMachine
 
-    p1 = Player('white', 'user1', None, 0)
-    p2 = Player('black', 'u                                                                             ser2', p1, 0)
+    p1 = Player('white', TestUser('user1'), None, 0)
+    p2 = Player('black', TestUser('user2'), p1, 0)
     p1.opponent = p2
     s = BGMachine(Commands())
     logging.info('-'*40)

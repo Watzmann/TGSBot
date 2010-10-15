@@ -113,6 +113,11 @@ def get_game(player):
     return (None, None)
 
 if __name__ == "__main__":
+    nr_loops = 14
+    try:
+        nr_loops = int(sys.argv[1])
+    except:
+        pass
     VERBOSE = True
     set_verbose()
     spiel = Spiel(ML)
@@ -153,7 +158,7 @@ if __name__ == "__main__":
             spiel.get_move()
         turn = spiel.hand_over()
         loops += 1
-        if loops > 14:
+        if loops > nr_loops:
             break
         if wait_mode:
             a = raw_input('enter drücken (q,c) ')
