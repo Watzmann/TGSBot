@@ -169,29 +169,31 @@ class Status:
 
 class Toggles:
     toggle_names = (
-            'allowpip', 'autoboard', 'autodouble', 'automove', 'bell',
-            'crawford', 'double', 'greedy', 'moreboards', 'moves', 'notify',
-            'ratings', 'ready', 'report', 'silent', 'telnet', 'wrap',
+            'allowpip', 'autoboard', 'autodouble', 'autoroll', 'automove',
+            'bell', 'crawford', 'double', 'greedy', 'moreboards', 'moves',
+            'notify', 'ratings', 'ready', 'report', 'silent',
+            'telnet', 'wrap',
             )
     toggle_on_msgs = (
             "** You allow the use of the server's 'pip' command.",
             "** The board will be refreshed after every move.",
             "** You agree that doublets during opening double the cube.",
+            "** You will be asked if you want to double.",
             "** Forced moves will be done automatically.",
+
             "** Your terminal will ring the bell if someone talks to you or invites you",
-            
             "** You insist on playing with the Crawford rule.",
             "** You will be asked if you want to double.",
             "** Will use automatic greedy bearoffs.",
             "** Will send rawboards after rolling.",
-            "** You want a list of moves after this game.",
-            
+
+            "** You want a list of moves after this game.",            
             "** You will be notified when new users log in.",
             "** You'll see how the rating changes are calculated.",
-            "** You will be informed about starting and ending matches.",
-            "** You will hear what other players shout.",
+            "** You're now ready to invite or join someone.",
             "** You will be informed about starting and ending matches.",
 
+            "** You won't hear what other players shout.",
             "** You use telnet and don't need extra 'newlines'.",
             "** The server will wrap long lines.",
             )
@@ -199,21 +201,22 @@ class Toggles:
             "** You don't allow the use the server's 'pip' command.",
             "** The board won't be refreshed after every move.",
             "** You don't agree that doublets during opening double the cube.",
+            "** You won't be asked if you want to double.",
             "** Forced moves won't be done automatically.",
-            "** Your terminal won't ring the bell if someone talks to you or invites you",
 
+            "** Your terminal won't ring the bell if someone talks to you or invites you",
             "** You would like to play without using the Crawford rule.",
             "** You won't be asked if you want to double.",
             "** Won't use automatic greedy bearoffs.",
             "** Won't send rawboards after rolling.",
-            "** You won't see a list of moves after this game.",
 
+            "** You won't see a list of moves after this game.",
             "** You won't be notified when new users log in.",
             "** You won't see how the rating changes are calculated.",
             "** You're now refusing to play with someone.",
             "** You won't be informed about starting and ending matches.",
-            "** You won't hear what other players shout.",
 
+            "** You will hear what other players shout.",
             "** You use a client program and will receive extra 'newlines'.",
             "** Your terminal knows how to wrap long lines.",
             )
@@ -222,7 +225,7 @@ class Toggles:
             False: dict(zip(toggle_names, toggle_off_msgs))
             }
     toggle_std = (
-            True, True, False, True, False, True, True, False,
+            True, True, False, False, True, False, True, True, False,
             True, False, True, False, False, False, False, True, False,
             )
 
