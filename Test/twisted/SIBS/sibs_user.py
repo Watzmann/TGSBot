@@ -108,9 +108,9 @@ als Datencontainer dienen."""
         return out.getvalue()
 
     def array(self, battery):
-        s = self.toggles
+        s = self.toggles            # array() wird wohl nicht benutzt
         t = {0: ('allowpip', 'autoboard', 'autodouble', 'automove',),
-             1: ('bell', 'crawford', 'double',),
+             1: ('autoroll', 'bell', 'crawford', 'double',),
              2: ('greedy', 'moreboards', 'moves', 'notify',),
              3: ('ratings', 'ready',),
              4: ('report', 'silent',),

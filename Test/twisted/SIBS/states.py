@@ -127,6 +127,14 @@ class TurnStarted(State):
     # please roll or double
     # +++++++++++ roll, double
 
+    def _auto_action(self,):
+        """Decide whether player may double and automatically perform
+    'roll (state H)' if he may not.
+    """
+        if not self.params['may_double']:
+            logging.info('automatisches cmd: %s' % 'roll')
+            self.action(self.player, 'roll')
+
 class Doubled(State):
     """State C: the cube has been turned."""
     
@@ -157,6 +165,19 @@ class Rolled(State):
     # he rolls; you roll
     # +++++++++++ check      (auto)
     # please move n pieces          könnte doch auch in Checked sein?
+
+class TurnFinished(State):
+    """State I: this turn has been finished."""
+    
+    def __init__(self,):
+        self.name = 'turn_finished'
+        State.__init__(self)
+
+    # send board
+    # +++++++++++ hand_over      (auto)
+
+    def _special(self,):
+        self.player = self.player.opponent        # switch players
 
 class Checked(State):
     """State E: dice have been checked."""

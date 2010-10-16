@@ -294,6 +294,9 @@ class Player:
         boardstyle = self.opponent.settings.get_boardstyle()
         opp_nick = {'p1':'p2', 'p2':'p1'}[self.nick]    # TODO: nick notlösung wegmachen
         self.chat_opponent(self.board.show_board(opp_nick, boardstyle))
+
+    def may_double(self,):
+        return self.user.toggles.read('double')
         
 class Status:
     def __init__(self, position, dice, cube, direction, move):
@@ -307,6 +310,9 @@ class Match:
     def __init__(self, score, cube,):
         self.score = score
         self.cube = cube
+
+    def crawford(self,):
+        return False
 
 from states import StateMachine
 from states import GameStarted, TurnStarted, Doubled, Taken, Rolled, Moved
@@ -322,6 +328,7 @@ class BGMachine(StateMachine):
                        ('checked', Checked()),              # E
                        ('moved', Moved()),                  # F
                        ('finished', GameFinished()),        # G
+                       ('turn_finished', TurnFinished()),   # I
                        ))
         model = \
             {'game_started': (('start', states['checked'], True, caller.nop),),
@@ -335,6 +342,8 @@ class BGMachine(StateMachine):
                         ('cant_move', states['turn_started'], True, caller.nop),),
              'moved': (('turn', states['turn_started'], True, caller.hand_over),
                        ('win', states['finished'], True, caller.nop),),
+             'turn_finished': (('hand_over', states['turn_finished'], True,
+                                caller.nop),),
                 }
         # TODO: Parameter könnte man natürlich auch noch unterbringen
         for s in model:
@@ -539,8 +548,12 @@ class GameControl:
 ##        talk('in handover:  -> %d' % self.turn)
         player.board_player()
         player.board_opponent()
-        return {}
+        return {'may_double': self.may_double(player)}
 
+    def may_double(self, player):
+        return (self.game.ML > 1) and (not self.game.match.crawford()) \
+               and (player.may_double())
+            
 class Game:
     # players watchers
     def __init__(self, gid, p1, p2, ML, board=None, dice='random'):
@@ -563,6 +576,7 @@ class Game:
         self.opp = {p1.name:p2, p2.name:p1}
         self.control = GameControl(self, board=board, dice=dice)
         talk('New game with id %s, %s vs %s' % (self.id, p1.name, p2.name))
+        self.match = Match(0,1)
 
     def start(self,):
         msg = 'Starting a new game with %s'
@@ -618,9 +632,9 @@ class Game:
 ##            talk('autoroll because not may double - new player %s' % player)
 ##            self.roll(player)
 
-    def may_double(self, player):
-        return self.ML > 1
-            
+##    def may_double(self, player):
+##        return self.ML > 1
+##            
     def whos_turn(self,):
         msg = 'It is your turn to move'
         self.control.whos_turn().chat(msg)
