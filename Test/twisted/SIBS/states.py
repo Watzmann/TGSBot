@@ -119,9 +119,6 @@ class TurnStarted(State):
         self.name = 'turn_started'
         State.__init__(self)
 
-    def _special(self,):
-        self.player = self.player.opponent        # switch players
-
     # automatisch weitergehen bei no_double oder auto_roll
     #  sonst
     # please roll or double
@@ -178,6 +175,10 @@ class TurnFinished(State):
 
     def _special(self,):
         self.player = self.player.opponent        # switch players
+
+    def _chat(self, msg=None):
+        self.player.board_player()
+        self.player.board_opponent()
 
 class Checked(State):
     """State E: dice have been checked."""
@@ -291,7 +292,7 @@ class Commands:
 
     def hand_over(self, player, **params):
         logging.info('stub cmd +++++ hand_over: %s (%s)' % (player.name, params))
-        return {}
+        return {'may_double': False}
 
 class TestUser:
     def __init__(self, name):
@@ -306,7 +307,7 @@ if __name__ == '__main__':
 
     p1 = Player('white', TestUser('user1'), None, 0)
     p2 = Player('black', TestUser('user2'), p1, 0)
-    p1.opponent = p2.user
+    p1.set_opponent(p2)
     s = BGMachine(Commands())
     logging.info('-'*40)
     s.start(p1)

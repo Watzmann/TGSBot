@@ -274,24 +274,46 @@ class Move:
         return ' '.join(self.moves)
 
 class Player:
+    """Player represents a player in a game/match. It supports the statemachine
+    and the game control in communication with the players.
+
+    name:       string, User.name, name of the player
+    user:	User, the hosting player object
+    opponent:   Player, the opponent player object
+    color:      int, the color of the player as used in board (0, 1)
+                color stays the same for each player throughout the game/match
+
+    For convenience, Player offers the following attributes:
+
+    opp_name:   string, User.name, name of the player
+    opp_user:	User, the hosting player object
+    """
     def __init__(self, name, user, opponent, color):
         self.name = name
         self.user = user
-        self.opponent = opponent
         self.color = color
+        if not opponent is None:
+            self.set_opponent(opponent)
+
+    def set_opponent(self, opponent):
+        self.opponent = opponent
+        self.opp_user = opponent.user
+        self.opp_name = opponent.user.name
 
     def chat_player(self, msg):
         self.user.chat(msg)
 
     def chat_opponent(self, msg):
-        self.opponent.chat(msg)
+        self.opp_user.chat(msg)
 
     def board_player(self,):
+        """Display the board for the player."""
         boardstyle = self.user.settings.get_boardstyle()
         self.chat_player(self.board.show_board(self.nick, boardstyle))
         
     def board_opponent(self,):
-        boardstyle = self.opponent.settings.get_boardstyle()
+        """Display the board for the players opponent."""
+        boardstyle = self.opp_user.settings.get_boardstyle()
         opp_nick = {'p1':'p2', 'p2':'p1'}[self.nick]    # TODO: nick notlösung wegmachen
         self.chat_opponent(self.board.show_board(opp_nick, boardstyle))
 
@@ -316,7 +338,7 @@ class Match:
 
 from states import StateMachine
 from states import GameStarted, TurnStarted, Doubled, Taken, Rolled, Moved
-from states import GameFinished, Checked
+from states import GameFinished, Checked, TurnFinished
 
 class BGMachine(StateMachine):
     def __init__(self, caller):
@@ -546,13 +568,11 @@ class GameControl:
         self.turn = 3 - self.turn
         self.board.set_dice(self.turn, (0,0))
 ##        talk('in handover:  -> %d' % self.turn)
-        player.board_player()
-        player.board_opponent()
         return {'may_double': self.may_double(player)}
 
     def may_double(self, player):
         return (self.game.ML > 1) and (not self.game.match.crawford()) \
-               and (player.may_double())
+               and (player.may_double())   # TODO:  and Cube Besitz
             
 class Game:
     # players watchers
