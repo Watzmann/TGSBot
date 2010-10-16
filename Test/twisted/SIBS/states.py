@@ -176,9 +176,14 @@ class TurnFinished(State):
     def _special(self,):
         self.player = self.player.opponent        # switch players
 
-    def _chat(self, msg=None):
-        self.player.board_player()
-        self.player.board_opponent()
+##    def _chat(self, msg=None):
+##        self.player.board_player()
+##        self.player.board_opponent()
+
+    def _transit(self, next_state):
+        self.deactivate()
+        next_state.activate(self.player.opponent, **self.result)
+        # parameters come from _action
 
 class Checked(State):
     """State E: dice have been checked."""
@@ -213,7 +218,6 @@ class Moved(State):
     'nextturn (state B)' or 'wingame (state G)'.
     """
         follower = {True: 'win', False: 'turn'}[self.params['finished']]
-        logging.info('in MOVED _auto_action  %s' % self.actions[follower])
         if self.actions[follower]['auto']:
             logging.info('automatisches cmd: %s' % follower)
             self.action(self.player, follower)
