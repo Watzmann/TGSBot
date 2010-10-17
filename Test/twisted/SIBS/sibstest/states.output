@@ -1,0 +1,32 @@
+CONSTRUCTING (9 states)
+----------------------------------------
+STARTING   player white
+game_started: aktiviert mit player white und Parametern {})
+ACTIVATING game_started (State A: game has started.)
+game_started: mit Aktivierung fertig
+automatisches cmd: start
+stub cmd +++++ nop: white ({})
+checked: aktiviert mit player white und Parametern {})
+ACTIVATING checked (State E: dice have been checked.)
+checked: mit Aktivierung fertig
+----------------------------------------
+ACTION   player white (move with {'move': '18-12 12-10'})
+stub cmd +++++ _move: white ({'move': '18-12 12-10'})
+moved: aktiviert mit player white und Parametern {'finished': False, 'moved': ['24-23', '13-7']})
+ACTIVATING moved (State F: move has been made.)
+automatisches cmd: turn
+stub cmd +++++ hand_over: white ({})
+turn_started: aktiviert mit player white und Parametern {'may_double': False})
+ACTIVATING turn_started (State B: a new turn has started.)
+turn_started: mit Aktivierung fertig
+automatisches cmd: roll
+stub cmd +++++ roll: white ({})
+rolled: aktiviert mit player white und Parametern {})
+ACTIVATING rolled (State H: dice have been rolled.)
+rolled: mit Aktivierung fertig
+automatisches cmd: check
+stub cmd +++++ check_roll: white ({})
+checked: aktiviert mit player white und Parametern {})
+ACTIVATING checked (State E: dice have been checked.)
+checked: mit Aktivierung fertig
+----------------------------------------
