@@ -288,9 +288,9 @@ class Player:
     opp_name:   string, User.name, name of the player
     opp_user:	User, the hosting player object
     """
-    def __init__(self, name, user, opponent, color):
-        self.name = name
+    def __init__(self, user, opponent, color):
         self.user = user
+        self.name = user.name
         self.color = color
         if not opponent is None:
             self.set_opponent(opponent)
@@ -353,7 +353,7 @@ class BGMachine(StateMachine):
                        ('turn_finished', TurnFinished()),   # I
                        ))
         model = \
-            {'game_started': (('start', states['checked'], True, caller.nop),),
+            {'game_started': (('start', states['checked'], True, caller._start),),
              'turn_started': (('roll', states['rolled'], False, caller.roll),
                         ('double', states['doubled'], False, caller.double),),
              'doubled': (('take', states['taken'], False, caller.take),
@@ -364,7 +364,7 @@ class BGMachine(StateMachine):
                         ('cant_move', states['turn_finished'], True, caller.nop),),
              'moved': (('turn', states['turn_finished'], True, caller.hand_over),
                        ('win', states['finished'], True, caller.nop),),
-             'turn_finished': (('hand_over', states['turn_finished'], True,
+             'turn_finished': (('hand_over', states['turn_started'], True,
                                 caller.nop),),
                 }
         # TODO: Parameter könnte man natürlich auch noch unterbringen
@@ -412,6 +412,9 @@ class GameControl:
 #-------------------------------------------------------------------
 
     def start(self,):
+        self.SM.start()
+
+    def _start(self, p, **kw):
         a = b = 0
         while a == b:
             a,b = self.dice.roll()
@@ -423,7 +426,7 @@ class GameControl:
         talk('in start  %s  %s  %s' % (self.turn, self.pieces,
                                        self.board._dice_info))
         self.set_move()
-        self.SM.start(self.whos_turn_p1())
+        return {'roll': self.dice_roll, 'turn': self.whos_turn_p1()}
 
     def whos_turn(self,):
         return {1:self.p1.user, 2:self.p2.user, 0:None}[self.turn]

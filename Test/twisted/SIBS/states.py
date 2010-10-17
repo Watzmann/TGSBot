@@ -11,9 +11,12 @@ from version import Version
 v = Version()
 v.register(__name__, REV)
 
+TRACE = 15
+logging.addLevelName(TRACE, 'TRACE')
 logging.basicConfig(level=logging.INFO,
                 format='%(name)s %(asctime)s %(levelname)s %(message)s',
                 )
+logger = logging.getLogger('states')
 
 class State:
     """Base class for states in this state machine."""
@@ -27,7 +30,7 @@ class State:
     player:     class Player
     params:     **kw
     """
-        logging.info('%s: aktiviert mit player %s und Parametern %s)' % (self.name,player.name,params))
+        logger.log(TRACE, '%s: wird aktiviert mit player %s und Parametern %s)' % (self.name,player.name,params))
         self.player = player
         self.approved_player = self.player  # This may have to be overwritten
                                             # in special(); may be the opponent.
@@ -37,6 +40,8 @@ class State:
         self.machine(self)      # self.machine is set by the state machine
         self._special()
         self._chat()
+        buchstabe = self.__doc__.split()[1]
+        logger.info('%s %s: player %s ,Parameter %s)' % (buchstabe, self.name,player.name,params))
         self._auto_action()
 
     def deactivate(self,):
@@ -60,8 +65,8 @@ class State:
         if (len(self.actions) == 1):
             k = self.actions.keys()[0]
             if self.actions[k]['auto']:
-                logging.info('automatisches cmd: %s' % k)
-                self.action(self.player, k)
+                logger.log(TRACE, 'automatisch standard cmd: %s' % k)
+                self.action(self.player, k, self.params)
 
     def _state_check(self, player, cmd):
         if (player.name == self.approved_player.name):
@@ -75,6 +80,7 @@ class State:
 
     def _action(self, player, cmd, **params):
         action = self.actions[cmd]['action']
+        logger.debug('calling %s with %s' % (action, params))
         self.result = action(player, **params)
         # set attribute instead of return to be able to do some processing
         
@@ -96,7 +102,7 @@ class State:
         if not msg is None:
             print msg
         else:
-            logging.info('%s: mit Aktivierung fertig' % (self.name,))
+            logger.log(TRACE, '%s: hat nix zu chatten' % (self.name,))
 
 class GameStarted(State):
     """State A: game has started."""
@@ -105,7 +111,14 @@ class GameStarted(State):
         self.name = 'game_started'
         State.__init__(self)
 
-    # automatisch weitergehen (generisch)
+    def _action(self, player, cmd, **params):
+        """Special treatment while starting a game. Set active player as a
+    result of starting rolls.
+    """
+        action = self.actions[cmd]['action']
+        logger.debug('calling %s with %s' % (action, params))
+        self.result = action(player, **{})
+        self.player = self.result['turn']
 
     # +++++++++++ start
     # you rolled, he rolled
@@ -129,7 +142,7 @@ class TurnStarted(State):
     'roll (state H)' if he may not.
     """
         if not self.params['may_double']:
-            logging.info('automatisches cmd: %s' % 'roll')
+            logger.log(TRACE, 'automatisches cmd: %s' % 'roll')
             self.action(self.player, 'roll')
 
 class Doubled(State):
@@ -173,8 +186,8 @@ class TurnFinished(State):
     # send board
     # +++++++++++ hand_over      (auto)
 
-    def _special(self,):
-        self.player = self.player.opponent        # switch players
+##    def _special(self,):
+##        self.player = self.player.opponent        # switch players
 
 ##    def _chat(self, msg=None):
 ##        self.player.board_player()
@@ -182,6 +195,7 @@ class TurnFinished(State):
 
     def _transit(self, next_state):
         self.deactivate()
+        self.result = {'may_double': False}
         next_state.activate(self.player.opponent, **self.result)
         # parameters come from _action
 
@@ -219,7 +233,7 @@ class Moved(State):
     """
         follower = {True: 'win', False: 'turn'}[self.params['finished']]
         if self.actions[follower]['auto']:
-            logging.info('automatisches cmd: %s' % follower)
+            logger.log(TRACE, 'automatisches cmd: %s' % follower)
             self.action(self.player, follower)
 
 class GameFinished(State):
@@ -239,63 +253,66 @@ which state is active.
         self.states = states
         for s in states:
             self.states[s].machine = self._activate
-        logging.info('CONSTRUCTING (%d states)' % len(self.states))
+        logger.log(TRACE, 'CONSTRUCTING (%d states)' % len(self.states))
 
     def start(self, player, **kw):
         """Allows to start the state machine."""
-        logging.info('STARTING   player %s' % player.name)
+        logger.log(TRACE, 'STARTING   player %s' % player.name)
         self.states['game_started'].activate(player, **kw)
 
     def action(self, player, cmd, **kw):
         """Allows control to send actions, taken by the players."""
         #print 'DEBUG', kw
-        logging.info('ACTION   player %s (%s with %s)' % (player.name, cmd, kw))
+        logger.log(TRACE, 'ACTION   player %s (%s with %s)' % (player.name, cmd, kw))
         self.active.action(player, cmd, **kw)
 
     def _activate(self, state):
         """States activate themselves using this method."""
         self.active = state
-        logging.info('ACTIVATING %s (%s)' % (state.name, state.__doc__))
+        logger.log(TRACE, 'ACTIVATING %s (%s)' % (state.name, state.__doc__))
 
     def done():
         """True, if game is finished."""
         return self.active.name == 'finished'
 
 class Commands:
-##    def start(self, player, **params):
-##        logging.info('stub cmd +++++ start: %s (%s)' % (player.name, params))
-##        return {}
+    def __init__(self, player1):
+        self.player1 = player1
+        
+    def _start(self, p, **kw):
+        logger.log(TRACE, 'stub cmd +++++ _start')
+        return {'roll': (3,5), 'turn': self.player1}
 
     def roll(self, player, **params):
-        logging.info('stub cmd +++++ roll: %s (%s)' % (player.name, params))
+        logger.log(TRACE, 'stub cmd +++++ roll: %s (%s)' % (player.name, params))
         return {}
 
     def double(self, player, **params):
-        logging.info('stub cmd +++++ double: %s (%s)' % (player.name, params))
+        logger.log(TRACE, 'stub cmd +++++ double: %s (%s)' % (player.name, params))
         return {}
 
     def take(self, player, **params):
-        logging.info('stub cmd +++++ take: %s (%s)' % (player.name, params))
+        logger.log(TRACE, 'stub cmd +++++ take: %s (%s)' % (player.name, params))
         return {}
 
     def drop(self, player, **params):
-        logging.info('stub cmd +++++ drop: %s (%s)' % (player.name, params))
+        logger.log(TRACE, 'stub cmd +++++ drop: %s (%s)' % (player.name, params))
         return {}
 
     def check_roll(self, player, **params):
-        logging.info('stub cmd +++++ check_roll: %s (%s)' % (player.name, params))
+        logger.log(TRACE, 'stub cmd +++++ check_roll: %s (%s)' % (player.name, params))
         return {}
 
     def _move(self, player, **params):
-        logging.info('stub cmd +++++ _move: %s (%s)' % (player.name, params))
+        logger.log(TRACE, 'stub cmd +++++ _move: %s (%s)' % (player.name, params))
         return {'moved': ['24-23', '13-7'], 'finished': False}
 
     def nop(self, player, **params):
-        logging.info('stub cmd +++++ nop: %s (%s)' % (player.name, params))
+        logger.log(TRACE, 'stub cmd +++++ nop: %s (%s)' % (player.name, params))
         return {}
 
     def hand_over(self, player, **params):
-        logging.info('stub cmd +++++ hand_over: %s (%s)' % (player.name, params))
+        logger.log(TRACE, 'stub cmd +++++ hand_over: %s (%s)' % (player.name, params))
         return {'may_double': False}
 
 class TestUser:
@@ -303,18 +320,20 @@ class TestUser:
         self.name = name
 
     def chat(self, msg):
-        print 'CHAT:', msg
+        print 'CHAT -> %s:' % self.name, msg
         
 if __name__ == '__main__':
     from game import Player
     from game import BGMachine
 
-    p1 = Player('white', TestUser('user1'), None, 0)
-    p2 = Player('black', TestUser('user2'), p1, 0)
+    logger.setLevel(TRACE)
+
+    p1 = Player(TestUser('white'), None, 0)
+    p2 = Player(TestUser('black'), p1, 0)
     p1.set_opponent(p2)
-    s = BGMachine(Commands())
-    logging.info('-'*40)
+    s = BGMachine(Commands(p1))
+    logger.info('-'*40 + ' start')
     s.start(p1)
-    logging.info('-'*40)
+    logger.info('-'*40 + ' move 18-12 12-10')
     s.action(p1, 'move', move='18-12 12-10')
-    logging.info('-'*40)
+    logger.info('-'*40 + ' ??')
