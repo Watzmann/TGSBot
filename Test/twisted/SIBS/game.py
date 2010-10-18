@@ -353,7 +353,7 @@ class BGMachine(StateMachine):
                        ('turn_finished', TurnFinished()),   # I
                        ))
         model = \
-            {'game_started': (('start', states['checked'], True, caller._start),),
+            {'game_started': (('start', states['rolled'], True, caller._start),),
              'turn_started': (('roll', states['rolled'], False, caller.roll),
                         ('double', states['doubled'], False, caller.double),),
              'doubled': (('take', states['taken'], False, caller.take),
@@ -362,10 +362,10 @@ class BGMachine(StateMachine):
              'rolled': (('check', states['checked'], True, caller.check_roll),),
              'checked': (('move', states['moved'], False, caller._move),
                         ('cant_move', states['turn_finished'], True, caller.nop),),
-             'moved': (('turn', states['turn_finished'], True, caller.hand_over),
+             'moved': (('turn', states['turn_finished'], True, caller.nop),
                        ('win', states['finished'], True, caller.nop),),
              'turn_finished': (('hand_over', states['turn_started'], True,
-                                caller.nop),),
+                                caller.hand_over),),
                 }
         # TODO: Parameter könnte man natürlich auch noch unterbringen
         for s in model:
@@ -412,7 +412,7 @@ class GameControl:
 #-------------------------------------------------------------------
 
     def start(self,):
-        self.SM.start()
+        self.SM.start(self.p1)  # TODO: player is not relevant; can we drop it?
 
     def _start(self, p, **kw):
         a = b = 0
@@ -589,8 +589,9 @@ class Game:
     dice:       choice of dice (random, sequence, ...)
 """
         self.id = gid
-        self.player1 = Player(p1.name, p1, p2, 0)
-        self.player2 = Player(p2.name, p2, p1, 1)
+        self.player1 = Player(p1, None, 0)
+        self.player2 = Player(p2, self.player1, 1)
+        self.player1.set_opponent(self.player2)
         self.ids = ['.'.join((self.id, 'p1')), '.'.join((self.id, 'p2'))]
                                             # TODO: hier kommen noch watchers
         self.player = dict(zip(self.ids,('p1','p2')))

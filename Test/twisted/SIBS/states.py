@@ -5,6 +5,7 @@
 
 REV = '$Revision$'
 
+import sys
 import logging
 from version import Version
 
@@ -14,7 +15,7 @@ v.register(__name__, REV)
 TRACE = 15
 logging.addLevelName(TRACE, 'TRACE')
 logging.basicConfig(level=logging.INFO,
-                format='%(name)s %(asctime)s %(levelname)s %(message)s',
+                format='%(name)s %(levelname)s %(message)s',
                 )
 logger = logging.getLogger('states')
 
@@ -24,6 +25,7 @@ class State:
     def __init__(self,):
         self.active = False
         self.actions = {}
+        self.label = '%s %s' % (self.__doc__.split()[1], self.name)
 
     def activate(self, player, **params):
         """Activates this state.
@@ -40,14 +42,15 @@ class State:
         self.machine(self)      # self.machine is set by the state machine
         self._special()
         self._chat()
-        buchstabe = self.__doc__.split()[1]
-        logger.info('%s %s: player %s ,Parameter %s)' % (buchstabe, self.name,player.name,params))
+        logger.info('%s: player %s, Parameter %s' % (self.label, player.name,params))
         self._auto_action()
 
     def deactivate(self,):
         self.active = False
 
     def action(self, player, cmd, **params):
+        logger.info('%s: action called by %s: %s with %s' % \
+                                    (self.label, player.name, cmd, params))
         check = self._state_check(player, cmd)
         if check == '':                         # action is allowed, only,
             self._action(player, cmd, **params) # when state_check is passed
@@ -66,7 +69,7 @@ class State:
             k = self.actions.keys()[0]
             if self.actions[k]['auto']:
                 logger.log(TRACE, 'automatisch standard cmd: %s' % k)
-                self.action(self.player, k, self.params)
+                self.action(self.player, k, **self.params)
 
     def _state_check(self, player, cmd):
         if (player.name == self.approved_player.name):
@@ -118,7 +121,7 @@ class GameStarted(State):
         action = self.actions[cmd]['action']
         logger.debug('calling %s with %s' % (action, params))
         self.result = action(player, **{})
-        self.player = self.result['turn']
+        self.player = self.result.pop('turn')
 
     # +++++++++++ start
     # you rolled, he rolled
@@ -172,6 +175,12 @@ class Rolled(State):
         self.name = 'rolled'
         State.__init__(self)
 
+    def _chat(self, msg=None):
+        if msg is None:
+            msg = '%s rolls %s' % (self.player.name,
+                                   str(self.params['roll']))
+        self.player.chat_opponent(msg)  # TODO noch nicht korrekt
+
     # he rolls; you roll
     # +++++++++++ check      (auto)
     # please move n pieces          könnte doch auch in Checked sein?
@@ -195,7 +204,6 @@ class TurnFinished(State):
 
     def _transit(self, next_state):
         self.deactivate()
-        self.result = {'may_double': False}
         next_state.activate(self.player.opponent, **self.result)
         # parameters come from _action
 
@@ -207,6 +215,16 @@ class Checked(State):
         State.__init__(self)
 
     # +++++++++++ move      (evtl. auto)
+
+    def _auto_action(self,):
+        """Decide whether no moves can be made and automatically perform
+    the 'cant_move' automatic action.
+    """
+        if self.params['nr_pieces'] == 0:
+            follower = 'cant_move'
+            if self.actions[follower]['auto']:
+                logger.log(TRACE, 'automatic cmd: %s' % follower)
+                self.action(self.player, follower)
 
 class Moved(State):
     """State F: move has been made."""
@@ -229,11 +247,11 @@ class Moved(State):
 
     def _auto_action(self,):
         """Decide whether game is finished and automatically perform
-    'nextturn (state B)' or 'wingame (state G)'.
+    'nextturn (state I)' or 'wingame (state G)'.
     """
         follower = {True: 'win', False: 'turn'}[self.params['finished']]
         if self.actions[follower]['auto']:
-            logger.log(TRACE, 'automatisches cmd: %s' % follower)
+            logger.log(TRACE, 'automatic cmd: %s' % follower)
             self.action(self.player, follower)
 
 class GameFinished(State):
@@ -285,7 +303,7 @@ class Commands:
 
     def roll(self, player, **params):
         logger.log(TRACE, 'stub cmd +++++ roll: %s (%s)' % (player.name, params))
-        return {}
+        return {'roll': (3,5),}
 
     def double(self, player, **params):
         logger.log(TRACE, 'stub cmd +++++ double: %s (%s)' % (player.name, params))
@@ -301,11 +319,11 @@ class Commands:
 
     def check_roll(self, player, **params):
         logger.log(TRACE, 'stub cmd +++++ check_roll: %s (%s)' % (player.name, params))
-        return {}
+        return {'nr_pieces': 2}
 
     def _move(self, player, **params):
         logger.log(TRACE, 'stub cmd +++++ _move: %s (%s)' % (player.name, params))
-        return {'moved': ['24-23', '13-7'], 'finished': False}
+        return {'moved': params['move'].split(), 'finished': False}
 
     def nop(self, player, **params):
         logger.log(TRACE, 'stub cmd +++++ nop: %s (%s)' % (player.name, params))
@@ -326,7 +344,12 @@ if __name__ == '__main__':
     from game import Player
     from game import BGMachine
 
-    logger.setLevel(TRACE)
+    try:
+        trace = sys.argv[1] == '-t'
+    except:
+        trace = False
+    if trace:
+        logger.setLevel(TRACE)
 
     p1 = Player(TestUser('white'), None, 0)
     p2 = Player(TestUser('black'), p1, 0)
@@ -336,4 +359,6 @@ if __name__ == '__main__':
     s.start(p1)
     logger.info('-'*40 + ' move 18-12 12-10')
     s.action(p1, 'move', move='18-12 12-10')
+    logger.info('-'*40 + ' move 1-6 2-8')
+    s.action(p2, 'move', move='1-6 2-8')
     logger.info('-'*40 + ' ??')
