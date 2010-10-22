@@ -49,7 +49,7 @@ sequence = (
 )
 
 class Spiel:
-    def __init__(self, ml):
+    def __init__(self, ml, verbose=False):
         self.match_length = ml
         self.p1 = 'frieda'
         self.p2 = 'dortdann'
@@ -66,6 +66,8 @@ class Spiel:
         self.black.set_protocol(Simple(self.p2))
         self.black.settings.boardstyle([BOARDSTYLE,])
 ##        self.black.save_settings()
+        if verbose:
+            self.set_talkative()
         self.white.invite(self.p2, ml)
         self.white.join(self.black, log)
 ##        print log.active_games
@@ -120,8 +122,7 @@ if __name__ == "__main__":
         pass
     VERBOSE = True
     set_verbose()
-    spiel = Spiel(ML)
-    spiel.set_talkative()
+    spiel = Spiel(ML, verbose=VERBOSE)
     games = log.active_games
     if len(games) > 2:
         print 'zuviele Einträge für diese simple Technik'

@@ -140,6 +140,14 @@ class TurnStarted(State):
     # please roll or double
     # +++++++++++ roll, double
 
+    def _chat(self, msg=None):
+        self.player.board_opponent()
+        self.player.board_player()
+        if self.params['may_double']:
+            if msg is None:
+                msg = 'please roll or double'
+            self.player.chat_player(msg)  # TODO noch nicht korrekt
+
     def _auto_action(self,):
         """Decide whether player may double and automatically perform
     'roll (state H)' if he may not.
@@ -158,6 +166,11 @@ class Doubled(State):
     # you double, please wait; he doubles, please accept
     # +++++++++++ take, drop
 
+    def _chat(self, msg=None):
+        if msg is None:
+            msg = 'you double, please wait'
+        self.player.chat_player(msg)  # TODO noch nicht korrekt
+
 class Taken(State):
     """State D: the cube has been taken."""
     
@@ -168,6 +181,11 @@ class Taken(State):
     # you accept, the cube shows; he accepts, the cube shows
     # +++++++++++ roll      (auto)
 
+    def _chat(self, msg=None):
+        if msg is None:
+            msg = 'you accept, the cube shows'
+        self.player.chat_player(msg)  # TODO noch nicht korrekt
+
 class Rolled(State):
     """State H: dice have been rolled."""
     
@@ -177,9 +195,13 @@ class Rolled(State):
 
     def _chat(self, msg=None):
         if msg is None:
-            msg = '%s rolls %s' % (self.player.name,
-                                   str(self.params['roll']))
-        self.player.chat_opponent(msg)  # TODO noch nicht korrekt
+            a, b = self.params['roll']
+            msg = 'You roll %d, %d' % (a,b)
+            self.player.chat_player(msg)  # TODO noch nicht korrekt
+            self.player.board_player()
+            msg = '%s rolled %d, %d' % (self.player.name, a, b)
+            self.player.chat_opponent(msg)  # TODO noch nicht korrekt
+            self.player.board_opponent()
 
     # he rolls; you roll
     # +++++++++++ check      (auto)
@@ -194,13 +216,6 @@ class TurnFinished(State):
 
     # send board
     # +++++++++++ hand_over      (auto)
-
-##    def _special(self,):
-##        self.player = self.player.opponent        # switch players
-
-##    def _chat(self, msg=None):
-##        self.player.board_player()
-##        self.player.board_opponent()
 
     def _transit(self, next_state):
         self.deactivate()

@@ -435,8 +435,11 @@ class GameControl:
         # TODO   das hier muss dringend aufgeräumt werden (start-sequenz, self.start())
         return {1:self.p1, 2:self.p2, 0:None}[self.turn]
 
-    def check_roll(self, dice, player):
+    def check_roll(self, player, **kw):
         """Checks for possible moves depending on 'dice'."""
+        dice = kw['roll']
+        player = player.nick    # TODO: prüfen, was man hier am besten nimmt,
+                                #       um die Zuordnung zum Spieler zu kriegen
         talk('check_roll %s fuer spieler %s' % (dice, player))
         exhausted = False
         list_of_moves = []  # TODO: lieber dict?
@@ -488,18 +491,17 @@ class GameControl:
             exhausted = True
         if exhausted:
             talk('spieler %s kann nur %d zuege ziehen' % (player, nr_of_moves))
-        return (nr_of_moves, list_of_moves)
+        self.pieces = nr_of_moves
+        self.set_move()
+        return {'nr_pieces': nr_of_moves, 'list_of_moves': list_of_moves}
         
-    def roll(self, player):
+    def roll(self, player, **kw):
         # TODO: kontrollieren, ob der dran ist
-        talk('der spieler %s hat die wuerfel' % (player,))
+        talk('der spieler %s hat die wuerfel' % (player.nick,))
         d = self.dice.roll()    # TODO    turn und dice eintragen
         self.dice_roll = d
-        self.possible_moves = self.check_roll(d, player)
-        self.pieces = self.possible_moves[0]
         self.board.set_dice(self.turn, d)
-        self.set_move()
-        return d
+        return {'roll': d}
 
     def double(self, player):
         return {}
@@ -595,7 +597,7 @@ class Game:
         self.ids = ['.'.join((self.id, 'p1')), '.'.join((self.id, 'p2'))]
                                             # TODO: hier kommen noch watchers
         self.player = dict(zip(self.ids,('p1','p2')))
-        self.who = dict(zip(('p1', 'p2'),(p1, p2)))
+        self.who = dict(zip(('p1', 'p2'),(self.player1, self.player2)))
         self.ML = int(ML)
         self.opp = {p1.name:p2, p2.name:p1}
         self.control = GameControl(self, board=board, dice=dice)
@@ -609,25 +611,14 @@ class Game:
         self.control.start()
 ##        self.whos_turn()      das macht jetzt die state-machine
 
-    def starting_rolls(self, p1, p2):
+    def starting_rolls(self, p1, p2):   # TODO: gehoert hoch ins control
         msg = 'You rolled %s, %s rolled %s'
         self.player1.user.chat(msg % (p1, self.player2.name, p2))
         self.player2.user.chat(msg % (p2, self.player1.name, p1))
 
     def roll(self, player):
-        you,opp = self.players(player)
+        player = self.players(player)
         d = self.control.roll(player)
-        you.chat('You roll %d, %d' % d)
-        player = self.player[you.running_game]
-        board = you.settings.get_boardstyle()
-        you.chat(self.control.board.show_board(player, board))
-        opp.chat('%s rolled %d, %d' % ((you.name,)+d))
-        player = self.player[opp.running_game]
-        board = opp.settings.get_boardstyle()
-        opp.chat(self.control.board.show_board(player, board))
-        if self.control.pieces == 0:
-            you.chat("You can't move.")
-            self.move(['zero',], player)
 
     def move(self, move, player):
         self.control.move(move, player)
@@ -665,14 +656,8 @@ class Game:
 ##        self.player2.chat(msg % (p2, self.player1.name, p1))
 
     def players(self, player):
-        """Gibt die player des Spiels als Tupel (p1,p2) zurück."""
-        p1 = self.who[player]
-        p2 = self.opponent(p1.name)
-        return (p1, p2)
-        
-    def opponent(self, player):
-        return self.opp[player] # TODO: prüfen, ob man das nicht direkt mit opp
-                                #       machen kann. Überflüssige Schleife
+        """Matches 'pn' and the according Player object."""
+        return self.who[player]
 
 def getGame(**kw):
     log = kw['list_of_games']
