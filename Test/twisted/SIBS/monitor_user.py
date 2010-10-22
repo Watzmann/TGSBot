@@ -40,8 +40,9 @@ if __name__ == '__main__':
     for e,k in enumerate(keys):
         print e,k
         v = db.db[k]
+        address = getattr(v, 'address', '-')
         print '   ', v.login, v.host, v.name, v.passwd, v.rating, v.experience, \
-                      v.address
+                      address
         if options.verbose:
             print
             print '   ',v.toggles.values()
