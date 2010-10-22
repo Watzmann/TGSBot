@@ -541,7 +541,7 @@ class GameControl:
             if self.turn == 1:              # immer 'p1'  TODO: stimmt das?
                                             #               dann kann self.turn weg!
                 self.position[m[0]] -= 1
-                if move[0] == 25:
+                if m[0] == 25:
                     talk('bar  (player %s==p1)  %s' % (player.nick, self.bar))
                     self.bar['p1'] -= 1
                 if self.position[m[1]] == -1:    # werfen
@@ -555,7 +555,7 @@ class GameControl:
                     self.position[m[1]] += 1
             elif self.turn == 2:
                 self.position[m[0]] += 1
-                if move[0] == 0:
+                if m[0] == 0:
                     talk('bar  (player %s==p2)  %s' % (player.nick, self.bar))
                     self.bar['p2'] -= 1
                 if self.position[m[1]] == 1:    # werfen
