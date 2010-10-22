@@ -399,7 +399,7 @@ class GameControl:
         self.turn = 0       # TODO oder was im board-status richtig ist
         self.home = {'p1':0, 'p2':0}
         self.bar = {'p1':0, 'p2':0}
-        self.opp = {'p1':'p2', 'p2':'p1'}
+        self.opp = {'p1':'p2', 'p2':'p1'} # TODO: weg damit
         self.direction = {'p1':{'home':0, 'bar':25}, 'p2':{'home':25, 'bar':0}}
             # TODO:  wenn es hier definiert ist, dann muss es von hier
             #        im board gesetzt werden.
@@ -525,13 +525,13 @@ class GameControl:
         self.board.set_position(self.position)
 
     def move(self, move, player):
-        p = self.players[player]
+        p = self.players[player]    # TODO: hier aufräumen
         self.SM.action(p, 'move', move=move)
         
     def _move(self, player, **kw):
         # TODO: kontrollieren, ob der dran ist
         move = kw['move']
-        mv = Move(kw['move'], self, player)
+        mv = Move(kw['move'], self, player.nick)
         mv.check()
         result = []
         for m, label in mv.move():
@@ -542,13 +542,13 @@ class GameControl:
                                             #               dann kann self.turn weg!
                 self.position[m[0]] -= 1
                 if move[0] == 25:
-                    talk('bar  (player %s==p1)  %s' % (player, self.bar))
+                    talk('bar  (player %s==p1)  %s' % (player.nick, self.bar))
                     self.bar['p1'] -= 1
                 if self.position[m[1]] == -1:    # werfen
                     self.position[m[1]] = 1
                     self.position[0] -= 1
-                    talk('%s wirft %s' % (player, self.opp[player]))
-                    self.bar[self.opp[player]] += 1   # TODO: siehe oben;
+                    talk('%s wirft %s' % (player.nick, self.opp[player.nick]))
+                    self.bar[self.opp[player.nick]] += 1   # TODO: siehe oben;
                                                       #   hier könnte hart 'p2' hin
                                                       #   dann kann self.opp weg
                 else:
@@ -556,13 +556,13 @@ class GameControl:
             elif self.turn == 2:
                 self.position[m[0]] += 1
                 if move[0] == 0:
-                    talk('bar  (player %s==p2)  %s' % (player, self.bar))
+                    talk('bar  (player %s==p2)  %s' % (player.nick, self.bar))
                     self.bar['p2'] -= 1
                 if self.position[m[1]] == 1:    # werfen
                     self.position[m[1]] = -1
                     self.position[25] += 1
-                    talk('%s wirft %s' % (player, self.opp[player]))
-                    self.bar[self.opp[player]] += 1
+                    talk('%s wirft %s' % (player.nick, self.opp[player.nick]))
+                    self.bar[self.opp[player.nick]] += 1
                 else:
                     self.position[m[1]] -= 1
             self.set_move()
