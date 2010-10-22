@@ -198,10 +198,8 @@ class Rolled(State):
             a, b = self.params['roll']
             msg = 'You roll %d, %d' % (a,b)
             self.player.chat_player(msg)  # TODO noch nicht korrekt
-            self.player.board_player()
             msg = '%s rolled %d, %d' % (self.player.name, a, b)
             self.player.chat_opponent(msg)  # TODO noch nicht korrekt
-            self.player.board_opponent()
 
     # he rolls; you roll
     # +++++++++++ check      (auto)
@@ -229,7 +227,9 @@ class Checked(State):
         self.name = 'checked'
         State.__init__(self)
 
-    # +++++++++++ move      (evtl. auto)
+    def _chat(self,):
+        self.player.board_player()
+        self.player.board_opponent()
 
     def _auto_action(self,):
         """Decide whether no moves can be made and automatically perform
