@@ -40,7 +40,8 @@ if __name__ == '__main__':
     for e,k in enumerate(keys):
         print e,k
         v = db.db[k]
-        print '   ', v.login, v.host, v.name, v.passwd, v.rating, v.experience,
+        print '   ', v.login, v.host, v.name, v.passwd, v.rating, v.experience, \
+                      v.address
         if options.verbose:
             print
             print '   ',v.toggles.values()

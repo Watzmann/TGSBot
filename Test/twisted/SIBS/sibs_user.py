@@ -471,7 +471,11 @@ class User(Persistent):
         args['login'] = self.info.login
         args['hostname'] = self.info.host
         args['client'] = '-'            # TODO: richtige Werte verwenden
-        args['email'] = getattr(self.info, 'address', '-')
+        address = getattr(self.info, 'address', '')
+        if address:
+            args['email'] = address
+        else:
+            args['email'] = '-'
         w = '5 %(user)s %(opponent)s %(watching)s %(ready)s ' \
             '%(away)s %(rating)s %(experience)s %(idle)d %(login)s ' \
             '%(hostname)s %(client)s %(email)s' % args
