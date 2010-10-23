@@ -257,13 +257,16 @@ class Move:
     def move(self,):
         for m in self.moves:
             if m == 'zero':
-                break
+                break           # TODO: vermutlich Altlast, kann weg
             z = m.split('-')
             if z[0] == 'bar':
                 z0 = self.control.direction[self.player]['bar']
             else:
                 z0 = int(z[0])
-            z1 = int(z[1])
+            if z[1] == 'off':
+                z1 = self.control.direction[self.player]['home']
+            else:
+                z1 = int(z[1])
             z = (z0,z1)
             talk('Move: moving %d to %d' % (z0,z1))
             yield z, m
@@ -544,7 +547,10 @@ class GameControl:
                 if m[0] == 25:
                     talk('bar  (player %s==p1)  %s' % (player.nick, self.bar))
                     self.bar['p1'] -= 1
-                if self.position[m[1]] == -1:    # werfen
+                if m[1] == 0:                       # rauswürfeln
+                    talk('off  (player %s==p1)  %s' % (player.nick, self.home))
+                    self.home['p1'] += 1
+                elif self.position[m[1]] == -1:     # werfen
                     self.position[m[1]] = 1
                     self.position[0] -= 1
                     talk('%s wirft %s' % (player.nick, self.opp[player.nick]))
@@ -558,7 +564,10 @@ class GameControl:
                 if m[0] == 0:
                     talk('bar  (player %s==p2)  %s' % (player.nick, self.bar))
                     self.bar['p2'] -= 1
-                if self.position[m[1]] == 1:    # werfen
+                if m[1] == 25:                       # rauswürfeln
+                    talk('off  (player %s==p2)  %s' % (player.nick, self.home))
+                    self.home['p2'] += 1
+                elif self.position[m[1]] == 1:    # werfen
                     self.position[m[1]] = -1
                     self.position[25] += 1
                     talk('%s wirft %s' % (player.nick, self.opp[player.nick]))
