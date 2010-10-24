@@ -431,7 +431,9 @@ class Command():
         return game.control.board.show_board(player, board)
 
     def c_pip(self, line, me):
-        return 'you are 7 pips behind    %s' % NYI
+        # TODO:  abfragen, ob beide Spieler das erlauben
+        game, player = self.list_of_games.get(me.running_game)
+        return game.pips(player)
 
     def c_double(self, line, me):
         return 'you double    %s' % NYI

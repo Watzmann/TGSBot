@@ -125,6 +125,7 @@ check for valid moves etc.."""
     def show_board(self, whom, style):
         if style in (1,2,3,4):
             self.style = style
+            print self.board_sl(whom)
             return {1: self.board_sl,
                     3: self.board_sl,
                     4: self.board_sl,
@@ -323,13 +324,23 @@ class Player:
     def may_double(self,):
         return self.user.toggles.read('double')
         
-class Status:
+class Status:       # TODO: muss noch eingebunden werden
     def __init__(self, position, dice, cube, direction, move):
         self.position = position
         self.dice = dice
         self.cube = cube
         self.direction = direction
         self.move = move
+
+    def pips(self,):
+        pips1 = 0
+        pips2 = 0
+        for e,p in enumerate(self.position):
+            if p > 0:
+                pips1 += p*e
+            elif p < 0:
+                pips2 += p*(25-e)
+        return (pips1, abs(pips2))
     
 class Match:
     def __init__(self, score, cube,):
@@ -410,6 +421,7 @@ class GameControl:
         self.board.set_score((self.p1.name, self.score['p1']),
                              (self.p2.name, self.score['p2']),
                               self.game.ML)
+        self.status = Status(self.position, self.dice, self.cube, self.direction, 0)
 #-------------------------------------------------------------------
         self.SM = BGMachine(self)
 #-------------------------------------------------------------------
@@ -522,6 +534,7 @@ class GameControl:
         """Sets certain groups of flags in the board."""
         p1 = (self.home['p1'], self.bar['p1'])
         p2 = (self.home['p2'], self.bar['p2'])
+        print 'SET_MOVE',p1,p2,self.pieces
         self.board.set_move(p1, p2, self.pieces)
 
     def set_position(self,):
@@ -668,6 +681,15 @@ class Game:
         """Matches 'pn' and the according Player object."""
         return self.who[player]
 
+    def pips(self, player):
+        pips = self.control.status.pips()
+        opp_name = self.players(player).opp_name
+        s = {
+            'p1': {'you':pips[0], 'other':pips[1], 'opp': opp_name},
+            'p2': {'you':pips[1], 'other':pips[0], 'opp': opp_name},
+            }
+        return 'Pipcounts: You %(you)d   %(opp)s %(other)d' % s[player]
+        
 def getGame(**kw):
     log = kw['list_of_games']
     gid = log.uid()
