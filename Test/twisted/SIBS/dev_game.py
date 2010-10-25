@@ -146,7 +146,7 @@ if __name__ == "__main__":
     game.control.board.set_score((game.control.p1.name, 1), (game.control.p2.name, 2), 1)
     print 'roll','-'*60
     game.roll(player)
-    while turn:
+    while turn:     # TODO: Spielablauf auf die statemachine abstellen
         print 'loop %d:     player %s ist dran' % (loops, player)
         game, player = log.get(turn)
 ##        print 'loop %d:     player %s ist dran' % (loops, player)

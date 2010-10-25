@@ -56,8 +56,9 @@ class State:
             self._action(player, cmd, **params) # when state_check is passed
             self._transit(self.actions[cmd]['follow_up'])
         else:
-            self._chat(check)   # TODO: das muss wohl ein _error_chat sein,
-                                #       das nur den player adressiert.
+##            self._chat(check)   # TODO: das muss wohl ein _error_chat sein,
+##                                #       das nur den player adressiert.
+            self.player.chat_player(check)
 
     def _auto_action(self,):
         """Method intended for being overwritten. _auto_action() is the last
@@ -227,7 +228,7 @@ class Checked(State):
         self.name = 'checked'
         State.__init__(self)
 
-    def _chat(self,):
+    def _chat(self, msg=None):
         self.player.board_player()
         self.player.board_opponent()
 
@@ -236,6 +237,7 @@ class Checked(State):
     the 'cant_move' automatic action.
     """
         if self.params['nr_pieces'] == 0:
+            self.player.chat_player("You can't move.")
             follower = 'cant_move'
             if self.actions[follower]['auto']:
                 logger.log(TRACE, 'automatic cmd: %s' % follower)

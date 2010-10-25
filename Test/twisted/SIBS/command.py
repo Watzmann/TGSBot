@@ -40,7 +40,7 @@ VERSION.register(__name__, REV)
 ## x roll
 ## x move
 ## x board
-## pip
+## x pip
 ## leave             0
 ##
 ## register
@@ -430,7 +430,7 @@ class Command():
         board = me.settings.get_boardstyle()
         return game.control.board.show_board(player, board)
 
-    def c_pip(self, line, me):
+    def c_pip(self, line, me):              # implemented
         # TODO:  abfragen, ob beide Spieler das erlauben
         game, player = self.list_of_games.get(me.running_game)
         return game.pips(player)

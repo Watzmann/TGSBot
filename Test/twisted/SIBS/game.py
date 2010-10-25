@@ -125,7 +125,7 @@ check for valid moves etc.."""
     def show_board(self, whom, style):
         if style in (1,2,3,4):
             self.style = style
-            print self.board_sl(whom)
+##            print self.board_sl(whom)
             return {1: self.board_sl,
                     3: self.board_sl,
                     4: self.board_sl,
@@ -534,7 +534,7 @@ class GameControl:
         """Sets certain groups of flags in the board."""
         p1 = (self.home['p1'], self.bar['p1'])
         p2 = (self.home['p2'], self.bar['p2'])
-        print 'SET_MOVE',p1,p2,self.pieces
+##        print 'SET_MOVE',p1,p2,self.pieces
         self.board.set_move(p1, p2, self.pieces)
 
     def set_position(self,):
