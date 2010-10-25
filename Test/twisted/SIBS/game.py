@@ -7,17 +7,19 @@ REV = '$Revision$'
 from StringIO import StringIO
 from time import time
 from dice import getDice
+import logging
 from version import Version
 
 v = Version()
 v.register(__name__, REV)
 
-VERBOSE = True
+TRACE = 15
+logging.addLevelName(TRACE, 'TRACE')
+logging.basicConfig(level=logging.INFO,
+                format='%(name)s %(levelname)s %(message)s',
+                )
+logger = logging.getLogger('game')
 
-def talk(msg):
-    if VERBOSE:
-        print msg
-        
 class GamesList:        # TODO: mit UsersList in eine Klasse überführen
 
     __shared_state = {}     # Borg Pattern
@@ -28,23 +30,23 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
         self.__dict__ = self.__shared_state
         if not hasattr(self, 'active_games'):
             self.active_games = {}
-            self.active_ids = {}
+            self.active_ids = []
 
     def add(self, game):
         for i in game.ids:
             self.active_games[i] = (game, game.player[i])
-        self.active_ids[game.id] = game.id
+        self.active_ids.append(game.id)
         # TODO: denk dran, beim Ende des Spiels aufzuräumen
 
     def get(self, gid, default=None):
-        #talk('returning gid %s' % gid)
+        #logger.log(TRACE, 'returning gid %s' % gid)
         return self.active_games.get(gid, default)
 
     def uid(self,):     # TODO: hier muss noch ein locking mechanismus rein
         gen = lambda: ''.join(('%f' % time()).split('.'))
         gid = gen()
-        while self.active_ids.has_key(gid):
-            talk('collision with %s' % gid)
+        while gid in self.active_ids:
+            logger.error('collision with %s' % gid)
             gid = gen()
         return gid
 
@@ -252,7 +254,7 @@ class Move:
 #       rollback in position ermöglichen
 
     def check(self,):
-        talk('checke eben noch nicht %s' % self)
+        logger.log(TRACE, 'checke eben noch nicht %s' % self)
         return True
 
     def move(self,):
@@ -269,7 +271,7 @@ class Move:
             else:
                 z1 = int(z[1])
             z = (z0,z1)
-            talk('Move: moving %d to %d' % (z0,z1))
+            logger.info('Move: moving %d to %d' % (z0,z1))
             yield z, m
 ##            self.control.move(z, self.player)
 ##        self.control.set_position()
@@ -438,8 +440,8 @@ class GameControl:
         self.turn = {True:1, False:2}[a>b]
         self.pieces = {True:4, False:2}[d[0]==d[1]]
         self.board.set_dice(self.turn, d)
-        talk('in start  %s  %s  %s' % (self.turn, self.pieces,
-                                       self.board._dice_info))
+        logger.log(TRACE, 'in start  %s  %s  %s' % (self.turn, self.pieces,
+                                                    self.board._dice_info))
         self.set_move()
         return {'roll': self.dice_roll, 'turn': self.whos_turn_p1()}
 
@@ -455,7 +457,7 @@ class GameControl:
         dice = kw['roll']
         player = player.nick    # TODO: prüfen, was man hier am besten nimmt,
                                 #       um die Zuordnung zum Spieler zu kriegen
-        talk('check_roll %s fuer spieler %s' % (dice, player))
+        logger.info('check_roll %s fuer spieler %s' % (dice, player))
         exhausted = False
         list_of_moves = []  # TODO: lieber dict?
         pos = self.position
@@ -466,8 +468,8 @@ class GameControl:
         bar_moves = min(nr_of_moves, self.bar[player])
         bar = self.direction[player]['bar']
         if bar_moves:
-            talk('der spieler %s hat %d moves von der bar (%d)' % \
-                 (player, bar_moves, bar))
+            logger.info('der spieler %s hat %d moves von der bar (%d)' % \
+                        (player, bar_moves, bar))
             for d in dice:
                 if bar == 25:
                     p = bar - d
@@ -480,7 +482,7 @@ class GameControl:
                             list_of_moves = ['bar-%d' % p,]*bar_moves
                             my_dice = [my_dice[0],]*(4-bar_moves)
                             bar_moves = 0
-                            talk('pasch getested: bar %d  wurf %d   point %d   ' \
+                            logger.info('pasch getested: bar %d  wurf %d   point %d   ' \
                                  'checker %d  (%s) (%s) (%d)' % \
                                  (bar,d,p,pos[p],list_of_moves,my_dice,bar_moves))
                             break
@@ -495,24 +497,24 @@ class GameControl:
                             list_of_moves = ['bar-%d' % p,]*bar_moves
                             my_dice = [my_dice[0],]*(4-bar_moves)
                             bar_moves = 0
-                            talk('pasch getested: bar %d  wurf %d   point %d   ' \
+                            logger.info('pasch getested: bar %d  wurf %d   point %d   ' \
                                  'checker %d  (%s) (%s) (%d)' % \
                                  (bar,d,p,pos[p],list_of_moves,my_dice,bar_moves))
                             break
-                talk('hab getested: bar %d  wurf %d   point %d   ' \
+                logger.info('hab getested: bar %d  wurf %d   point %d   ' \
                      'checker %d  (%s)' % (bar,d,p,pos[p],list_of_moves))
         if len(list_of_moves) < bar_moves:
             nr_of_moves = len(list_of_moves)
             exhausted = True
         if exhausted:
-            talk('spieler %s kann nur %d zuege ziehen' % (player, nr_of_moves))
+            logger.info('spieler %s kann nur %d zuege ziehen' % (player, nr_of_moves))
         self.pieces = nr_of_moves
         self.set_move()
         return {'nr_pieces': nr_of_moves, 'list_of_moves': list_of_moves}
         
     def roll(self, player, **kw):
         # TODO: kontrollieren, ob der dran ist
-        talk('der spieler %s hat die wuerfel' % (player.nick,))
+        logger.info('der spieler %s hat die wuerfel' % (player.nick,))
         d = self.dice.roll()    # TODO    turn und dice eintragen
         self.dice_roll = d
         self.board.set_dice(self.turn, d)
@@ -551,22 +553,22 @@ class GameControl:
         mv.check()
         result = []
         for m, label in mv.move():
-            talk('%s changes the board' % (m,))
-            talk('player %s   turn %s   whos_turn %s' % \
+            logger.info('%s changes the board' % (m,))
+            logger.info('player %s   turn %s   whos_turn %s' % \
                         (player.nick, self.turn, self.whos_turn().name))
             if self.turn == 1:              # immer 'p1'  TODO: stimmt das?
                                             #               dann kann self.turn weg!
                 self.position[m[0]] -= 1
                 if m[0] == 25:
-                    talk('bar  (player %s==p1)  %s' % (player.nick, self.bar))
+                    logger.info('bar  (player %s==p1)  %s' % (player.nick, self.bar))
                     self.bar['p1'] -= 1
                 if m[1] == 0:                       # rauswürfeln
-                    talk('off  (player %s==p1)  %s' % (player.nick, self.home))
+                    logger.info('off  (player %s==p1)  %s' % (player.nick, self.home))
                     self.home['p1'] += 1
                 elif self.position[m[1]] == -1:     # werfen
                     self.position[m[1]] = 1
                     self.position[0] -= 1
-                    talk('%s wirft %s' % (player.nick, self.opp[player.nick]))
+                    logger.info('%s wirft %s' % (player.nick, self.opp[player.nick]))
                     self.bar[self.opp[player.nick]] += 1   # TODO: siehe oben;
                                                       #   hier könnte hart 'p2' hin
                                                       #   dann kann self.opp weg
@@ -575,15 +577,15 @@ class GameControl:
             elif self.turn == 2:
                 self.position[m[0]] += 1
                 if m[0] == 0:
-                    talk('bar  (player %s==p2)  %s' % (player.nick, self.bar))
+                    logger.info('bar  (player %s==p2)  %s' % (player.nick, self.bar))
                     self.bar['p2'] -= 1
                 if m[1] == 25:                       # rauswürfeln
-                    talk('off  (player %s==p2)  %s' % (player.nick, self.home))
+                    logger.info('off  (player %s==p2)  %s' % (player.nick, self.home))
                     self.home['p2'] += 1
                 elif self.position[m[1]] == 1:    # werfen
                     self.position[m[1]] = -1
                     self.position[25] += 1
-                    talk('%s wirft %s' % (player.nick, self.opp[player.nick]))
+                    logger.info('%s wirft %s' % (player.nick, self.opp[player.nick]))
                     self.bar[self.opp[player.nick]] += 1
                 else:
                     self.position[m[1]] -= 1
@@ -594,7 +596,7 @@ class GameControl:
     def hand_over(self, player, **kw):
         self.turn = 3 - self.turn
         self.board.set_dice(self.turn, (0,0))
-##        talk('in handover:  -> %d' % self.turn)
+##        logger.log(TRACE, 'in handover:  -> %d' % self.turn)
         return {'may_double': self.may_double(player)}
 
     def may_double(self, player):
@@ -618,12 +620,13 @@ class Game:
         self.player1.set_opponent(self.player2)
         self.ids = ['.'.join((self.id, 'p1')), '.'.join((self.id, 'p2'))]
                                             # TODO: hier kommen noch watchers
+                                            #       <id>.wn.px
         self.player = dict(zip(self.ids,('p1','p2')))
         self.who = dict(zip(('p1', 'p2'),(self.player1, self.player2)))
         self.ML = int(ML)
         self.opp = {p1.name:p2, p2.name:p1}
         self.control = GameControl(self, board=board, dice=dice)
-        talk('New game with id %s, %s vs %s' % (self.id, p1.name, p2.name))
+        logger.info('New game with id %s, %s vs %s' % (self.id, p1.name, p2.name))
         self.match = Match(0,1)
 
     def start(self,):
@@ -644,40 +647,12 @@ class Game:
 
     def move(self, move, player):
         self.control.move(move, player)
-##    def move(self, move, player):
-##        you,opp = self.players(player)
-##        mv = Move(move, self.control, player)
-##        if mv.check():
-##            mv.move()
-##            oooold_player = player
-##            player = self.player[you.running_game]
-##            talk('nach mv.move() war ich %s - jetzt bin ich %s' % (oooold_player,player))
-##            board = you.settings.get_boardstyle()
-##            you.chat(self.control.board.show_board(player, board))
-##            if not str(mv) == 'zero':
-##                opp.chat('%s moves %s' % (you.name, mv))
-##            player = self.player[opp.running_game]
-##            board = opp.settings.get_boardstyle()
-##            opp.chat(self.control.board.show_board(player, board))
-####     TODO: ganz zufällig ist hier auf player "opponent" umgestellt worden.
-####           Das sollte man nicht so lassen, sondern im folgenden explizit auf
-####           "Opponent" umstellen.
-####        opposing_player = self.control.opp[player]
-####        talk('....und der zu %s opposing player is %s' % (player,opposing_player))
-##        if not self.may_double(player):
-##            talk('autoroll ' + '-'*60)
-##            talk('autoroll because not may double - new player %s' % player)
-##            self.roll(player)
 
-##    def may_double(self, player):
-##        return self.ML > 1
-##            
-    def whos_turn(self,):
+    def whos_turn(self,):   # TODO: kann mittelfristig sicher weg; das macht SM
         msg = 'It is your turn to move'
         self.control.whos_turn().chat(msg)
-##        self.player2.chat(msg % (p2, self.player1.name, p1))
 
-    def players(self, player):
+    def players(self, player):  # TODO: soll mittelfristig weg
         """Matches 'pn' and the according Player object."""
         return self.who[player]
 
@@ -697,7 +672,3 @@ def getGame(**kw):
     log.add(game)
     game.start()
     return game.ids
-
-def set_verbose():
-    global VERBOSE
-    VERBOSE = True

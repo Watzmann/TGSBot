@@ -7,7 +7,8 @@ werden.
 
 import sys
 from sibs_user import getUser, UsersList
-from game import GamesList, set_verbose
+from game import GamesList, logger
+from logging import DEBUG
 from clip import Simple
 
 lou = UsersList()
@@ -121,7 +122,7 @@ if __name__ == "__main__":
     except:
         pass
     VERBOSE = True
-    set_verbose()
+    logger.setLevel(DEBUG)
     spiel = Spiel(ML, verbose=VERBOSE)
     games = log.active_games
     if len(games) > 2:
