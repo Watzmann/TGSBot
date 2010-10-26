@@ -52,13 +52,9 @@ class State:
         logger.info('%s: action called by %s: %s with %s' % \
                                     (self.label, player.name, cmd, params))
         check = self._state_check(player, cmd)
-        if check == '':                         # action is allowed, only,
+        if check:                               # action is allowed, only,
             self._action(player, cmd, **params) # when state_check is passed
             self._transit(self.actions[cmd]['follow_up'])
-        else:
-##            self._chat(check)   # TODO: das muss wohl ein _error_chat sein,
-##                                #       das nur den player adressiert.
-            self.player.chat_player(check)
 
     def _auto_action(self,):
         """Method intended for being overwritten. _auto_action() is the last
@@ -75,12 +71,15 @@ class State:
     def _state_check(self, player, cmd):
         if (player.name == self.approved_player.name):
             if self.actions.has_key(cmd):
-                return ''
+                return True
             else:
-                return "error: you can't %s" % cmd
+                msg = "error: you can't %s" % cmd
+                self.player.chat_player(msg)
         else:
-            return "error: it is not your turn to %s" % cmd
-        # TODO: hier einen qualifizierten Fehler zurückgeben oder (vermutlich) ''
+            msg = "error: it is not your turn to %s" % cmd
+            self.player.chat_opponent(msg)
+            return False
+        # TODO: hier die korrekte Fehlermeldung chatten
 
     def _action(self, player, cmd, **params):
         action = self.actions[cmd]['action']

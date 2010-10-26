@@ -30,9 +30,10 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
     Example:            1286806072940669.p1         player1
                         1286806072940669.w13.p1     watcher #13, watching pl
                         
-    Lists are
-        active_games    dict    '<gid>': (game, <player>)   <player> is p1,p2,...
-        active_ids      list    containing active uids as used in the gids
+    Lists are:
+    
+    active_games        dict    '<gid>': (game, <player>) <player> is p1,p2,...
+    active_ids          list    containing active uids as used in the gids
 """
     __shared_state = {}     # Borg Pattern
                             # http://code.activestate.com/recipes/66531-singleton-we-dont-need-no-stinkin-singleton-the-bo/
@@ -656,6 +657,8 @@ class Game:
         self.control.start()
 
     def stop(self,):
+        self.player1.user.teardown_game()
+        self.player2.user.teardown_game()
         self.teardown(self)
 
     def starting_rolls(self, p1, p2):   # TODO: gehoert hoch ins control

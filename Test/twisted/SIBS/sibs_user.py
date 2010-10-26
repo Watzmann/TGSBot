@@ -524,19 +524,19 @@ class User(Persistent):
             self.running_game,invited_and_joining.running_game = getGame(**kw)
             self.getGame = list_of_games.get
             invited_and_joining.getGame = list_of_games.get
-        del self.invitations[invited_and_joining.name]
+            del self.invitations[invited_and_joining.name]
 
-    def leave_game(self,):
-        running_game = getattr(self, 'running_game', '')
-        print 'in leave_game'
-        if running_game:
-            game,player = self.getGame(running_game)
-            him = game.players(player).opp_user
-            game.stop()
+    def teardown_game(self,):
             self.status.playing('-', ON=False)
             self.update_who(self)
-            him.status.playing('-', ON=False)
-            him.update_who(him)
+            if hasattr(self, 'running_game'):
+                del self.running_game
+
+    def leave_game(self,):
+        running_game = getattr(self, 'running_game', False)
+        if running_game:
+            game, player = self.getGame(running_game)
+            game.stop()
 
     def welcome(self,):
         info = self.info
@@ -559,7 +559,9 @@ class User(Persistent):
         else:
             self.protocol.wave_and_logout()
 
-    def update_who(self, user):
+    def update_who(self, user):   # TODO: das sollte zentrale Funktion sein,
+                                  #       nicht eine Methode (oder ohne 
+                                  #       parameter 'user')
         factory = self.protocol.factory
         who = user.who() + '\n6'
         factory.broadcast(who,)
