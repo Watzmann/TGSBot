@@ -21,7 +21,19 @@ logging.basicConfig(level=logging.INFO,
 logger = logging.getLogger('game')
 
 class GamesList:        # TODO: mit UsersList in eine Klasse überführen
+    """Keeps a list of active and saved games.
+    GamesList is implemented as a Borg pattern.
 
+    gid                 str     unique ids with postfix denoting player
+                                <uid>.<pid>[.<pid>]
+
+    Example:            1286806072940669.p1         player1
+                        1286806072940669.w13.p1     watcher #13, watching pl
+                        
+    Lists are
+        active_games    dict    '<gid>': (game, <player>)   <player> is p1,p2,...
+        active_ids      list    containing active uids as used in the gids
+"""
     __shared_state = {}     # Borg Pattern
                             # http://code.activestate.com/recipes/66531-singleton-we-dont-need-no-stinkin-singleton-the-bo/
                         # TODO: kann man das Borg Pattern ableitbar machen?
@@ -37,6 +49,14 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
             self.active_games[i] = (game, game.player[i])
         self.active_ids.append(game.id)
         # TODO: denk dran, beim Ende des Spiels aufzuräumen
+
+    def remove(self, game):
+        for i in game.ids:
+            del self.active_games[i]
+        try:
+            self.active_ids.remove(game.id)
+        except ValueError:
+            logger.error('Game id %s not in list of active ids!' % game.id)
 
     def get(self, gid, default=None):
         #logger.log(TRACE, 'returning gid %s' % gid)
@@ -624,7 +644,7 @@ class Game:
         self.player = dict(zip(self.ids,('p1','p2')))
         self.who = dict(zip(('p1', 'p2'),(self.player1, self.player2)))
         self.ML = int(ML)
-        self.opp = {p1.name:p2, p2.name:p1}
+        self.opp = {p1.name:p2, p2.name:p1}     # TODO: mittelfristig weg
         self.control = GameControl(self, board=board, dice=dice)
         logger.info('New game with id %s, %s vs %s' % (self.id, p1.name, p2.name))
         self.match = Match(0,1)
@@ -634,7 +654,9 @@ class Game:
         self.player1.user.chat(msg % self.player2.name)
         self.player2.user.chat(msg % self.player1.name)
         self.control.start()
-##        self.whos_turn()      das macht jetzt die state-machine
+
+    def stop(self,):
+        self.teardown(self)
 
     def starting_rolls(self, p1, p2):   # TODO: gehoert hoch ins control
         msg = 'You rolled %s, %s rolled %s'
@@ -669,6 +691,7 @@ def getGame(**kw):
     log = kw['list_of_games']
     gid = log.uid()
     game = Game(gid, kw['player1'], kw['player2'], kw['ML'], dice=kw['dice'])
+    game.teardown = log.remove
     log.add(game)
     game.start()
     return game.ids

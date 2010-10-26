@@ -145,8 +145,11 @@ class Status:
 ##            status = ('ready', 'online', 'playing')[status]
 ##        return status
 
-    def playing(self, opponent):
-        self.active_state[1] = 2
+    def playing(self, opponent, ON=True):
+        if ON:
+            self.active_state[1] = 2
+        else:
+            self.active_state[1] = 1
         self.opponent = opponent
         
     def get_readyflag(self,):
@@ -511,22 +514,29 @@ class User(Persistent):
         
     def join(self, invited_and_joining, list_of_games):
         ML = self.invitations.get(invited_and_joining.name, None)
-        self.status.playing(invited_and_joining.name)
-        invited_and_joining.status.playing(self.name)
-        # TODO: richtige Werte verwenden
-##        for i in ['5 Watzmann sorrytigger - 1 0 1547.30 20 74 1280588416 88-134-122-10-dynip.superkabel.de ?NT________________! -',
-##                  '6',
-##                  '5 sorrytigger Watzmann - 1 0 1805.07 11647 4 1281040244 88-134-122-10-dynip.superkabel.de ?NT________________! -',
-##                  '6',
-##                  ]:
-##            self.chat(i)
-##            print i
         if not ML is None:
+            self.status.playing(invited_and_joining.name)
+            invited_and_joining.status.playing(self.name)
             kw = {'player1':self, 'player2':invited_and_joining}
             kw['ML'] = ML
             kw['dice'] = self.dice
             kw['list_of_games'] = list_of_games
             self.running_game,invited_and_joining.running_game = getGame(**kw)
+            self.getGame = list_of_games.get
+            invited_and_joining.getGame = list_of_games.get
+        del self.invitations[invited_and_joining.name]
+
+    def leave_game(self,):
+        running_game = getattr(self, 'running_game', '')
+        print 'in leave_game'
+        if running_game:
+            game,player = self.getGame(running_game)
+            him = game.players(player).opp_user
+            game.stop()
+            self.status.playing('-', ON=False)
+            self.update_who(self)
+            him.status.playing('-', ON=False)
+            him.update_who(him)
 
     def welcome(self,):
         info = self.info
@@ -536,6 +546,7 @@ class User(Persistent):
         return '2 %s' % str(self.info)
 
     def drop_connection(self,):
+        self.leave_game()
         self.protocol.factory.broadcast('8 %s %s drops connection' % \
                                         (self.name,self.name), (self.name,)) 
 
@@ -547,6 +558,11 @@ class User(Persistent):
             return 'You wave goodbye.'
         else:
             self.protocol.wave_and_logout()
+
+    def update_who(self, user):
+        factory = self.protocol.factory
+        who = user.who() + '\n6'
+        factory.broadcast(who,)
 
     def __str__(self,):
         return self.who()
