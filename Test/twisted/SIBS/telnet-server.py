@@ -44,6 +44,8 @@ class ProxyFactory(http.HTTPFactory):
         ## TODO:  hier kommt er wohl gar nicht rein
         print 'shutting down users database'
         self.active_users.db.close()
+        print 'shutting down games database'
+        self.active_games.db.close()
 
     def incNumProtocols(self,):
         self.numProtocols += 1

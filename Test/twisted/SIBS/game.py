@@ -8,10 +8,13 @@ from StringIO import StringIO
 from time import time
 from dice import getDice
 import logging
+from persistency import Persistent, Db
 from version import Version
 
 v = Version()
 v.register(__name__, REV)
+
+DB_Games = 'db/games'
 
 TRACE = 15
 logging.addLevelName(TRACE, 'TRACE')
@@ -44,6 +47,9 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
         if not hasattr(self, 'active_games'):
             self.active_games = {}
             self.active_ids = []
+            self.db = saved_games = Db(DB_Games, 'games').db
+                            # TODO: hier so an der PersistenzKlasse
+                            #       vorbeizuangeln ist schon krass!
 
     def add(self, game):
         for i in game.ids:
@@ -624,7 +630,7 @@ class GameControl:
         return (self.game.ML > 1) and (not self.game.match.crawford()) \
                and (player.may_double())   # TODO:  and Cube Besitz
             
-class Game:
+class Game(Persistent):
     # players watchers
     def __init__(self, gid, p1, p2, ML, board=None, dice='random'):
         """Represents a game of Backgammon.
@@ -649,6 +655,10 @@ class Game:
         self.control = GameControl(self, board=board, dice=dice)
         logger.info('New game with id %s, %s vs %s' % (self.id, p1.name, p2.name))
         self.match = Match(0,1)
+        Persistent.__init__(self, DB_Games, 'games')
+        self.db_key = self.id
+        self.db_load = self.control.status
+        self.save
 
     def start(self,):
         msg = 'Starting a new game with %s'

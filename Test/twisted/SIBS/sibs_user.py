@@ -11,6 +11,8 @@ from command import NYI
 from persistency import Persistent, Db
 from version import Version
 
+# TODO: Logging
+
 v = Version()
 v.register(__name__, REV)
 
@@ -21,7 +23,8 @@ RESERVED_Users = ('guest', 'systemwart', 'administrator')
 class UsersList:        # TODO: als Singleton ausführen
     def __init__(self,):
         self.list_of_active_users = {}
-        self.db = all_users = Db(DB_Users).db
+        self.db = all_users = Db(DB_Users, 'users').db  # TODO: hier so an der
+                            #   PersistenzKlasse vorbeizuangeln ist schon krass!
         self.list_of_all_users = dict([(k,self.restore(all_users[k])) \
                                        for k in all_users.keys()])
 ##        for e,k in enumerate(self.list_of_all_users.keys()):
@@ -72,11 +75,6 @@ class Info:
     """Info soll selbst so wenig Methoden als möglich haben und lediglich
 als Datencontainer dienen."""
     def __init__(self, data, toggles, settings, messages):
-##        self.login = time.asctime(time.localtime(time.time()-150000))
-##        self.login = int(time.time()-150000)
-##        self.host = 'some.host.nyi' # % NYI
-##        self.name = name
-##        self.passwd = ''
         self.login, self.host, self.name, self.passwd, \
                 self.rating, self.experience = data
         self.toggles = toggles
@@ -385,7 +383,7 @@ class Settings:
 
 class User(Persistent):
     def __init__(self, data):
-        Persistent.__init__(self, DB_Users)
+        Persistent.__init__(self, DB_Users, 'users')
         self.info = data
         self.name = self.info.name
         self.settings = Settings(self.info)
