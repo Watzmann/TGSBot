@@ -11,11 +11,8 @@ v = Version()
 v.register(__name__, REV)
 
 class Db:
-    # TODO:   es ist jetzt ein Singleton (Borg), aber folgendes Problem:
-    #         natürlich will ich ein Singleton für die EINE DB (z.B. Users),
-    #         aber natürlich will ich genauso ein weiteres Singleton für die
-    #         nächste DB, z.B. Games. Es müssen von diesem Typ also mehrere
-    #         Singletons bestehen :)
+        # TODO: wegen Borg ist die Geschichte nicht Threadsave. Da muss
+        #       vielleicht noch mal gehirnt werden. Lock-Mechanismus
 
     __shared_state = {}     # Borg Pattern
                             # http://code.activestate.com/recipes/66531-singleton-we-dont-need-no-stinkin-singleton-the-bo/
@@ -28,8 +25,6 @@ class Db:
         if not hasattr(self, 'db_name'):
             self.db_name = db_name
             self.db = self._rawopen()
-        # TODO: wegen Borg ist die Geschichte nicht Threadsave. Da muss
-        #       vielleicht noch mal gehirnt werden. Lock-Mechanismus
 
     def _rawopen(self,):
         print 'DB:: opening', self.db_name
