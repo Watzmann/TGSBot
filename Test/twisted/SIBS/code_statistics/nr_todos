@@ -1,0 +1,3 @@
+#!/bin/bash
+
+grep TODO *.py | wc -l

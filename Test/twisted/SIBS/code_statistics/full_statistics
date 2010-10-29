@@ -1,2 +1,3 @@
 code_statistics/evaluate_commands | head -1
 code_statistics/lines_of_code | grep insgesamt | sed 's/insgesamt/lines of code/'
+echo `code_statistics/nr_todos` TODOs left
