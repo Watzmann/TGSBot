@@ -303,6 +303,7 @@ which state is active.
     def _activate(self, state):
         """States activate themselves using this method."""
         self.active = state
+        # TODO: self.persistent(state.name player **kw to game.status
         logger.log(TRACE, 'ACTIVATING %s (%s)' % (state.name, state.__doc__))
 
     def done():
@@ -310,6 +311,7 @@ which state is active.
         return self.active.name == 'finished'
 
 class Commands:
+    """Used for the little standalone test in the __main__ section."""
     def __init__(self, player1):
         self.player1 = player1
         
@@ -350,6 +352,7 @@ class Commands:
         return {'may_double': False}
 
 class TestUser:
+    """Used for the little standalone test in the __main__ section."""
     def __init__(self, name):
         self.name = name
 

@@ -361,7 +361,7 @@ class Status:       # TODO: muss noch eingebunden werden
         self.direction = direction
         self.move = move
 
-    def pips(self,):
+    def pips(self,):    # TODO: auslagern, wegen Persistenz
         pips1 = 0
         pips2 = 0
         for e,p in enumerate(self.position):
@@ -407,6 +407,7 @@ class BGMachine(StateMachine):
                         ('cant_move', states['turn_finished'], True, caller.nop),),
              'moved': (('turn', states['turn_finished'], True, caller.nop),
                        ('win', states['finished'], True, caller.nop),),
+             'finished': (('leave', None, True, caller.finish_game),),
              'turn_finished': (('hand_over', states['turn_started'], True,
                                 caller.hand_over),),
                 }
@@ -415,6 +416,7 @@ class BGMachine(StateMachine):
             for k,x,y,z in model[s]:
                 states[s].actions[k] = {'action': z, 'follow_up': x, 'auto': y}
         StateMachine.__init__(self, states)
+        self.persistent = caller.save_state_to_status
 
 class GameControl:
     """GameControl controls the process of playing a single game of BG."""
@@ -451,6 +453,7 @@ class GameControl:
                              (self.p2.name, self.score['p2']),
                               self.game.ML)
         self.status = Status(self.position, self.dice, self.cube, self.direction, 0)
+        self.match = Match(0,1)
 #-------------------------------------------------------------------
         self.SM = BGMachine(self)
 #-------------------------------------------------------------------
@@ -556,6 +559,10 @@ class GameControl:
     def drop(self, player):
         return {}
 
+    def finish_game(self,):
+        pass
+        # match up one notch
+        
     def nop(self, player):
         return {}
 
@@ -629,6 +636,10 @@ class GameControl:
     def may_double(self, player):
         return (self.game.ML > 1) and (not self.game.match.crawford()) \
                and (player.may_double())   # TODO:  and Cube Besitz
+
+    def save_state_to_status(self, name, player, kw):
+        self.status.state_name = name
+        # TODO: fertigstellen
             
 class Game(Persistent):
     # players watchers
@@ -654,11 +665,10 @@ class Game(Persistent):
         self.opp = {p1.name:p2, p2.name:p1}     # TODO: mittelfristig weg
         self.control = GameControl(self, board=board, dice=dice)
         logger.info('New game with id %s, %s vs %s' % (self.id, p1.name, p2.name))
-        self.match = Match(0,1)
         Persistent.__init__(self, DB_Games, 'games')
         self.db_key = self.id
         self.db_load = self.control.status
-        self.save
+        self.save()
 
     def start(self,):
         msg = 'Starting a new game with %s'

@@ -41,11 +41,11 @@ VERSION.register(__name__, REV)
 ## x move
 ## x board
 ## x pip
-## leave             0
+## x leave
 ##
-## register
-## authentication
-## CLIP
+## x register
+## x authentication
+## x CLIP
 
 
 ## 3
@@ -170,19 +170,19 @@ class Command():
     def c_wave(self, line, me):             # implemented
         return me.wave()
 
-    def c_adios(self, line, me):             # implemented
+    def c_adios(self, line, me):            # implemented
         return self.c_bye(line, me)
     def c_ciao(self, line, me):             # implemented
         return self.c_bye(line, me)
-    def c_end(self, line, me):             # implemented
+    def c_end(self, line, me):              # implemented
         return self.c_bye(line, me)
     def c_exit(self, line, me):             # implemented
         return self.c_bye(line, me)
-    def c_logout(self, line, me):             # implemented
+    def c_logout(self, line, me):           # implemented
         return self.c_bye(line, me)
     def c_quit(self, line, me):             # implemented
         return self.c_bye(line, me)
-    def c_tschoe(self, line, me):             # implemented
+    def c_tschoe(self, line, me):           # implemented
         return self.c_bye(line, me)
 
 # ----------------------------------------  Setting Commands
@@ -447,8 +447,9 @@ class Command():
     def c_resign(self, line, me):
         return 'you resign    %s' % NYI
 
-    def c_leave(self, line, me):
-        return 'you leave the game    %s' % NYI
+    def c_leave(self, line, me):            # implemented
+        me.leave_game()  # TODO: korrekte ausgaben/fehlerchecking
+        return 'you leave the game.'
 
     def c_redouble(self, line, me):
         return 'you redouble    %s' % NYI
