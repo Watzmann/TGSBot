@@ -4,15 +4,28 @@
 
 from persistency import Persistent, Db
 from sibs_user import Info
+from time import time
+
+logout = int(time())
 
 def data(v):
     return (v.login, v.host, v.name, v.passwd, v.rating, v.experience)            
+
+def ndata(v):
+    return (v.login, logout, v.host, v.name, v.passwd, v.rating,
+            v.experience, '-')
 
 def login_time(db, key, value):
     print key, value.passwd, value.rating, value.login, value.host
     value.login = int(value.login)
     print key, value.passwd, value.rating, value.login, value.host
     print
+
+def logout_time(db, key, value):
+    mydata = ndata(value)
+    info = Info(mydata, value.toggles, value.settings, value.messages)
+##    info.show()
+    db[key] = info
 
 def messages(db, key, value):
     vdata = data(value)
@@ -38,5 +51,6 @@ if __name__ == '__main__':
     #repair = login_time
     #repair = messages
     #repair = autoroll
+    #repair = logout_time
     for_all_users(db.db, repair)
     db.close()

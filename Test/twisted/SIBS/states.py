@@ -51,10 +51,10 @@ class State:
     def action(self, player, cmd, **params):
         logger.info('%s: action called by %s: %s with %s' % \
                                     (self.label, player.name, cmd, params))
-        check = self._state_check(player, cmd)
-        if check:                               # action is allowed, only,
+        if self._state_check(player, cmd):      # action is allowed, only,
             self._action(player, cmd, **params) # when state_check is passed
-            self._transit(self.actions[cmd]['follow_up'])
+            if not self.actions[cmd]['follow_up'] is None:
+                self._transit(self.actions[cmd]['follow_up'])
 
     def _auto_action(self,):
         """Method intended for being overwritten. _auto_action() is the last
@@ -77,7 +77,7 @@ class State:
                 self.player.chat_player(msg)
         else:
             msg = "error: it is not your turn to %s" % cmd
-            self.player.chat_opponent(msg)
+            self.approved_player.chat_opponent(msg)
             return False
         # TODO: hier die korrekte Fehlermeldung chatten
 
@@ -279,6 +279,45 @@ class GameFinished(State):
 
     # you win 1 point......
 
+class Resigned(State):
+    """State J: a player resigns the game."""
+    
+    def __init__(self,):
+        self.name = 'resigned'
+        State.__init__(self)
+
+    def _chat(self, msg=None):
+        if msg is None:
+            a = self.params['value']
+            msg = 'You resign %d point' % (a)
+            self.player.chat_player(msg)  # TODO noch nicht korrekt
+            msg = '%s resigns %d point' % (self.player.name, a)
+            self.player.chat_opponent(msg)  # TODO noch nicht korrekt
+
+    # you resign the game......
+
+    def action(self, player, cmd, **params):  # TODO: sieht so aus, als ob hier
+                                              #       alles wie in State ist
+                                              #       also kann es weg
+        logger.info('%s: action called by %s: %s with %s' % \
+                                    (self.label, player.name, cmd, params))
+        if self._state_check(player, cmd):      # action is allowed, only,
+            self._action(player, cmd, **params) # when state_check is passed
+            self._transit(self.actions[cmd]['follow_up'])
+
+    def _transit(self, next_state):
+        self.deactivate()
+        if self.result['response'] == 'accepted':
+            next_state.activate(self.player, **self.result)
+        else:
+            return_to = self.params['active_state']
+            player = return_to.player
+            params = return_to.params
+            return_to.activate(player, **params)
+
+    def _special(self,):
+        self.approved_player = self.player.opponent
+
 class StateMachine:
     """Container for a bundle of states. Hands out some controls. Controls
 which state is active.
@@ -297,8 +336,13 @@ which state is active.
     def action(self, player, cmd, **kw):
         """Allows control to send actions, taken by the players."""
         #print 'DEBUG', kw
-        logger.log(TRACE, 'ACTION   player %s (%s with %s)' % (player.name, cmd, kw))
-        self.active.action(player, cmd, **kw)
+        logger.log(TRACE, 'ACTION   player %s (%s with %s)' % \
+                                               (player.name, cmd, kw))
+        if cmd == 'resign':  # special treatment for 'resign'; like a "trap"
+            kw['active_state'] = self.active
+            self.states['resigned'].activate(player, **kw)            
+        else:
+            self.active.action(player, cmd, **kw)
 
     def _activate(self, state):
         """States activate themselves using this method."""

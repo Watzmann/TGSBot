@@ -45,6 +45,7 @@ class UsersList:        # TODO: als Singleton ausführen
 
     def restore(self, user_data):
         user = User(user_data)
+        user.status.logged_in = False
         ## TODO: auf restore() könnte man verzichten; andererseits kann man
         ##       jetzt hier spezielle Aktionen durchführen
         return user
@@ -58,7 +59,9 @@ class UsersList:        # TODO: als Singleton ausführen
     def drop(self, name):
         print 'deleting %s from list of active users' % name
         user = self.list_of_active_users[name]
+        user.set_logout_data(time.time())
         user.save()   # TODO:   muss das save hier sein??????
+        user.status.logged_in = False
         del self.list_of_active_users[name]
         # TODO: Fehler, wenn name not logged in
 
@@ -71,22 +74,34 @@ class UsersList:        # TODO: als Singleton ausführen
     def get_all_users(self,):
         return self.list_of_active_users.values()
 
+    def whois(self, name):
+        if name in self.list_of_active_users:
+            res = self.list_of_active_users[name].whois()
+        elif name in self.list_of_all_users:
+            res = self.list_of_all_users[name].whois()
+        else:
+            res = "No information found on user %s." % name
+        return res
+
 class Info:
     """Info soll selbst so wenig Methoden als möglich haben und lediglich
 als Datencontainer dienen."""
     def __init__(self, data, toggles, settings, messages):
-        self.login, self.host, self.name, self.passwd, \
-                self.rating, self.experience = data
+        self.login, self.last_logout, self.host, self.name, self.passwd, \
+                self.rating, self.experience, self.address = data
         self.toggles = toggles
         self.settings = settings
         self.messages = messages
-        self.address = ''
+        print 'initializing INFO', self.show()
 
     def set_login_data(self, login, host):
         self.last_login = self.login
         self.login = int(login)
         self.last_host = self.host
         self.host = host
+
+    def set_logout_data(self, logout,):
+        self.last_logout = int(logout)
 
     def set_rating(self, rating, experience):
         self.rating = rating
@@ -100,7 +115,8 @@ als Datencontainer dienen."""
     def show(self,):
         out = StringIO()
         v = self
-        print >>out, v.login, v.host, v.name, v.passwd, v.rating, v.experience
+        print >>out, v.login, v.last_logout, v.host, v.name, v.passwd, \
+                          v.rating, v.experience, v.address
         print >>out,v.toggles.values()
         print >>out,v.settings
         return out.getvalue()
@@ -434,6 +450,10 @@ class User(Persistent):
         self.info.set_login_data(login_time, host)
         self.save()
 
+    def set_logout_data(self, logout_time,):
+        self.info.set_logout_data(logout_time)
+        self.save()
+
     def tell(self, user, msg):
         user.chat('12 %s %s' % (self.name, msg))
         self.chat('16 %s %s' % (user.name, msg))
@@ -486,11 +506,21 @@ class User(Persistent):
         # TODO: das muss auch für nicht eingeloggte user funktionieren
         args = {}
         args['name'] = self.name
-        login = time.localtime(self.info.login)
+        login = time.localtime(self.info.login) # TODO: speedup; save this date
+                                                #       in ascii-format right away
         args['date'] = time.strftime("%A, %B %d %H:%M %Z", login)
-        login_details = "Still logged in. %s idle" % self.status.idle(True)
-        args['last_login_details'] = login_details
-        args['play_status'] = "%s is not ready to play, not watching, not playing." % self.name  # TODO: richtige Werte verwenden
+        if self.status.logged_in:
+            login_details = "Still logged in. %s idle" % self.status.idle(True)
+            args['last_login_details'] = login_details
+            args['play_status'] = "%s is not ready to play, not watching, " \
+                                                  "not playing." % self.name
+                                # TODO: richtige Werte verwenden
+        else:
+            logout = time.localtime(self.info.last_logout) # TODO: speedup; save this date
+                                                #       in ascii-format right away
+            logout_date = time.strftime("%A, %B %d %H:%M %Z", logout)
+            args['last_login_details'] = "Last logout: %s" % logout_date
+            args['play_status'] = "Not logged in right now."
         if self.status.away:
             args['away_status'] = "user is away:"       # TODO: richtige Werte verwenden
         args['rating_exp'] = "Rating: %.2f Experience: %d" % (self.info.rating,self.info.experience)
@@ -568,7 +598,7 @@ class User(Persistent):
         return self.who()
 
 def newUser(**kw):
-    data = (kw['login'],'',kw['user'],kw['password'],1500.,0)
+    data = (kw['login'],0,'',kw['user'],kw['password'],1500.,0)
     toggles = dict(zip(Toggles.toggle_names, Toggles.toggle_std))
     settings = [3, 0, 0, 'none', 'name', 'UTC']
     messages = []
@@ -586,4 +616,4 @@ def getUser(**kw):
     return user
 
 def dropUser(**kw):
-    kw['lou'].drop(kw['user'])
+    kw['lou'].drop(kw['user'])      # TODO: muss dieser Umweg sein? besser direkt?

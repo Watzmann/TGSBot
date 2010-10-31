@@ -56,9 +56,9 @@ VERSION.register(__name__, REV)
 ## stat
 ## off
 ## double
-## accept
-## reject
-## resign
+## x accept
+## x reject
+## x resign
 ## redouble
 
 NYI = '##NYI##'
@@ -335,11 +335,7 @@ class Command():
             res = "** please give a name as an argument."
         else:
             name = line[1]
-            lou = self.list_of_users.get_active_users()
-            if not name in lou:
-                res = "No information found on user %s." % name
-            else:
-                res = lou[name].whois()
+            res = self.list_of_users.whois(name)
         return res
 
     def c_ratings(self, line, me):
@@ -404,11 +400,17 @@ class Command():
 
     def c_roll(self, line, me):             # implemented
         game, player = self.list_of_games.get(me.running_game)
-        game.roll(player)
+        if game is None:
+            return "** You're not playing."
+        else:
+            game.roll(player)
 
     def c_move(self, line, me):             # implemented
         game, player = self.list_of_games.get(me.running_game)
-        game.move(line[1:], player)
+        if game is None:
+            return "** You're not playing."
+        else:
+            game.move(line[1:], player)
 
     def c_m(self, line, me):                # implemented
         self.c_move(line, me)
@@ -416,40 +418,61 @@ class Command():
     def c_off(self, line, me):
         return 'you bear off    %s' % NYI
 
-# TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
-    def c_game(self, line, me):
-
-        msg = utils.render_file('fake_game')
-
-        return msg
-# TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
-
     def c_board(self, line, me):            # implemented
         # TODO: Fehlerbehandlung
         game, player = self.list_of_games.get(me.running_game)
-        board = me.settings.get_boardstyle()
-        return game.control.board.show_board(player, board)
+        if game is None:
+            return "** You're not playing."
+        else:
+            board = me.settings.get_boardstyle()
+            return game.control.board.show_board(player, board)
 
     def c_pip(self, line, me):              # implemented
         # TODO:  abfragen, ob beide Spieler das erlauben
         game, player = self.list_of_games.get(me.running_game)
-        return game.pips(player)
+        if game is None:
+            return "** You're not playing."
+        else:
+            return game.pips(player)
 
     def c_double(self, line, me):
         return 'you double    %s' % NYI
 
-    def c_accept(self, line, me):
-        return 'you accept    %s' % NYI
+    def c_accept(self, line, me):           # implemented
+        game, player = self.list_of_games.get(me.running_game)
+        if game is None:
+            return "** You're not playing."
+        else:
+            game.accept(player)
 
-    def c_reject(self, line, me):
-        return 'you reject    %s' % NYI
+    def c_reject(self, line, me):           # implemented
+        game, player = self.list_of_games.get(me.running_game)
+        if game is None:
+            return "** You're not playing, so you can't give up."
+        else:
+            game.reject(player)
 
-    def c_resign(self, line, me):
-        return 'you resign    %s' % NYI
+    def c_resign(self, line, me):           # implemented
+        game, player = self.list_of_games.get(me.running_game)
+        if game is None:
+            return "** You're not playing."
+        arglen = len(line)
+        value_names = ('n', 'normal', 'g', 'gammon', 'b', 'backgammon')
+        values = dict(zip(value_names, (1,1,2,2,3,3)))
+        if (arglen < 2) or (not line[1] in value_names):
+            print arglen,line[1]
+            return "** Type 'n' (normal), 'g' (gammon) or 'b' (backgammon) " \
+                                                              "after resign."
+        else:
+            game.resign(player, values[line[1]])
 
     def c_leave(self, line, me):            # implemented
-        me.leave_game()  # TODO: korrekte ausgaben/fehlerchecking
-        return 'you leave the game.'
+        game, player = self.list_of_games.get(me.running_game)
+        if game is None:
+            return "** Error: No one to leave."
+        else:
+            me.leave_game()  # TODO: korrekte ausgaben/fehlerchecking
+            return '** You terminated the game. Saving games is not implemented, yet'
 
     def c_redouble(self, line, me):
         return 'you redouble    %s' % NYI

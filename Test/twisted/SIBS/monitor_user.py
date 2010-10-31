@@ -41,8 +41,8 @@ if __name__ == '__main__':
         print e,k
         v = db.db[k]
         address = getattr(v, 'address', '-')
-        print '   ', v.login, v.host, v.name, v.passwd, v.rating, v.experience, \
-                      address
+        print '   ', v.login, v.last_logout, v.host, v.name, v.passwd, \
+                     v.rating, v.experience, address
         if options.verbose:
             print
             print '   ',v.toggles.values()

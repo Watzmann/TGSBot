@@ -65,8 +65,8 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
         except ValueError:
             logger.error('Game id %s not in list of active ids!' % game.id)
 
-    def get(self, gid, default=None):
-        #logger.log(TRACE, 'returning gid %s' % gid)
+    def get(self, gid, default=(None,'')):
+        logger.log(TRACE, 'returning gid %s' % gid)
         return self.active_games.get(gid, default)
 
     def uid(self,):     # TODO: hier muss noch ein locking mechanismus rein
@@ -381,7 +381,7 @@ class Match:
 
 from states import StateMachine
 from states import GameStarted, TurnStarted, Doubled, Taken, Rolled, Moved
-from states import GameFinished, Checked, TurnFinished
+from states import GameFinished, Checked, TurnFinished, Resigned
 
 class BGMachine(StateMachine):
     def __init__(self, caller):
@@ -394,9 +394,11 @@ class BGMachine(StateMachine):
                        ('moved', Moved()),                  # F
                        ('finished', GameFinished()),        # G
                        ('turn_finished', TurnFinished()),   # I
+                       ('resigned', Resigned()),            # J
                        ))
-        model = \
-            {'game_started': (('start', states['rolled'], True, caller._start),),
+        model = {
+              # TODO: hier kurz mal sagen
+             'game_started': (('start', states['rolled'], True, caller._start),),
              'turn_started': (('roll', states['rolled'], False, caller.roll),
                         ('double', states['doubled'], False, caller.double),),
              'doubled': (('take', states['taken'], False, caller.take),
@@ -409,7 +411,10 @@ class BGMachine(StateMachine):
                        ('win', states['finished'], True, caller.nop),),
              'finished': (('leave', None, True, caller.finish_game),),
              'turn_finished': (('hand_over', states['turn_started'], True,
-                                caller.hand_over),),
+                                                           caller.hand_over),),
+             'resigned': (('accept', states['finished'], False,
+                                                           caller._accepted),
+                          ('reject', None, False, caller._rejected),),
                 }
         # TODO: Parameter könnte man natürlich auch noch unterbringen
         for s in model:
@@ -421,6 +426,7 @@ class BGMachine(StateMachine):
 class GameControl:
     """GameControl controls the process of playing a single game of BG."""
     def __init__(self, game, board=None, dice='random'):
+        # TODO: das komplette init() muss entrümpelt werden.
         self.game = game
         if not board is None:
             self.board = board
@@ -559,9 +565,14 @@ class GameControl:
     def drop(self, player):
         return {}
 
-    def finish_game(self,):
-        pass
+    def resign(self, player, value):
+        p = self.players[player]    # TODO: hier aufräumen
+        self.SM.action(p, 'resign', value=value)
+
+    def finish_game(self, player, **kw):
         # match up one notch
+        logger.info('%s in finish_game with %s' % (player.nick, kw))
+        return {}
         
     def nop(self, player):
         return {}
@@ -626,6 +637,20 @@ class GameControl:
             self.set_move()
             result.append(label)
         return {'moved': result, 'finished': self.home[player.nick] == 15}
+
+    def reject(self, player):
+        p = self.players[player]    # TODO: hier aufräumen
+        self.SM.action(p, 'reject')
+
+    def _rejected(self, player, **kw):
+        return {'response': 'rejected'}
+
+    def accept(self, player):
+        p = self.players[player]    # TODO: hier aufräumen
+        self.SM.action(p, 'accept')
+
+    def _accepted(self, player, **kw):
+        return {'response': 'accepted'}
 
     def hand_over(self, player, **kw):
         self.turn = 3 - self.turn
@@ -692,6 +717,15 @@ class Game(Persistent):
 
     def move(self, move, player):
         self.control.move(move, player)
+
+    def accept(self, player,):
+        self.control.accept(player)
+
+    def reject(self, player,):
+        self.control.reject(player)
+
+    def resign(self, player, value):
+        self.control.resign(player, value)
 
     def whos_turn(self,):   # TODO: kann mittelfristig sicher weg; das macht SM
         msg = 'It is your turn to move'

@@ -137,6 +137,7 @@ class CLIP(Echo):
                     self.user.status.stamp()
                     self.welcome(self.user)
                     name = self.user.name
+                    self.user.status.logged_in = True
                     self.myDataReceived = self.established
                     success = True
                     self.factory.broadcast('7 %s %s logs in' % (name, name),
