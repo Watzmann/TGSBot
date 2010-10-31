@@ -503,7 +503,8 @@ class User(Persistent):
         return w
 
     def whois(self,):
-        # TODO: das muss auch für nicht eingeloggte user funktionieren
+        # TODO: speed up: wenn formatiert, dann als attribut ablegen
+        #       detect, wenn sich was geändert hat
         args = {}
         args['name'] = self.name
         login = time.localtime(self.info.login) # TODO: speedup; save this date
