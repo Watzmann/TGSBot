@@ -436,7 +436,11 @@ class Command():
             return game.pips(player)
 
     def c_double(self, line, me):
-        return 'you double    %s' % NYI
+        game, player = self.list_of_games.get(me.running_game)
+        if game is None:
+            return "** You're not playing."
+        else:
+            game.double(player)
 
     def c_accept(self, line, me):           # implemented
         game, player = self.list_of_games.get_game_from_user(me)
@@ -460,7 +464,6 @@ class Command():
         value_names = ('n', 'normal', 'g', 'gammon', 'b', 'backgammon')
         values = dict(zip(value_names, (1,1,2,2,3,3)))
         if (arglen < 2) or (not line[1] in value_names):
-            print arglen,line[1]
             return "** Type 'n' (normal), 'g' (gammon) or 'b' (backgammon) " \
                                                               "after resign."
         else:

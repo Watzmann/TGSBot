@@ -6,6 +6,7 @@ REV = '$Revision$'
 
 from StringIO import StringIO
 from time import time
+from math import sqrt
 from dice import getDice
 import logging
 from persistency import Persistent, Db
@@ -282,7 +283,7 @@ class Move:
     def __init__(self, move, control, player):
         self.moves = move
         self.control = control
-        self.player = player
+        self.player = player    # TODO: player wird bisher nicht gebraucht
 
 # TODO: eigene exceptions fangen fehler beim move ab
 #       rollback in position ermöglichen
@@ -418,13 +419,14 @@ class BGMachine(StateMachine):
               # TODO: hier kurz mal sagen
              'game_started': (('start', states['rolled'], True, caller._start),),
              'turn_started': (('roll', states['rolled'], False, caller._roll),
-                        ('double', states['doubled'], False, caller.double),),
-             'doubled': (('take', states['taken'], False, caller.take),
-                        ('pass', states['finished'], False, caller.drop),),
+                        ('double', states['doubled'], False, caller._double),),
+             'doubled': (('take', states['taken'], False, caller._take),
+                        ('pass', states['finished'], False, caller._drop),),
              'taken': (('roll', states['rolled'], True, caller._roll),),
              'rolled': (('check', states['checked'], True, caller.check_roll),),
              'checked': (('move', states['moved'], False, caller._move),
-                        ('cant_move', states['turn_finished'], True, caller.nop),),
+                         ('cant_move', states['turn_finished'], True,
+                                                          caller.nop),),
              'moved': (('turn', states['turn_finished'], True, caller.nop),
                        ('win', states['finished'], True, caller._win),),
              'finished': (('leave', None, True, caller.finish_game),),
@@ -448,12 +450,12 @@ class GameControl:
         self.game = game
         if board is None:
             self.board = Board()
-##            self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
-##                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
+            self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
+                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
 ##            self.position = [0, 0,0,0,1,4,5, 0,3,0,0,0,0,
 ##                                0,0,0,2,0,0, -7,-5,-3,0,0,0, 0]
-            self.position = [0, 0,0,0,3,5,7, 0,0,-2,0,0,0,
-                                0,0,0,0,-3,0, -5,-4,-1,0,0,0, 0]
+##            self.position = [0, 0,0,0,3,5,7, 0,0,-2,0,0,0,
+##                                0,0,0,0,-3,0, -5,-4,-1,0,0,0, 0]
             self.set_position()
         else:
             self.board = board
@@ -474,7 +476,7 @@ class GameControl:
         self.bar = {'p1':0, 'p2':0}
         self.opp = {'p1':'p2', 'p2':'p1'} # TODO: weg damit
         self.direction = {'p1':{'home':0, 'bar':25}, 'p2':{'home':25, 'bar':0}}
-        self.home_board = {'p1':(1,6), 'p2':(19,24)}
+        self.home_board = {'p1':(1,7), 'p2':(19,25)}
             # TODO:  wenn es hier definiert ist, dann muss es von hier
             #        im board gesetzt werden.
         self.score = self.game.match.score
@@ -513,6 +515,7 @@ class GameControl:
     def check_roll(self, player, **kw):
         """Checks for possible moves depending on 'dice'."""
         dice = kw['roll']
+        player_obj = player     # TODO: ogottogott
         player = player.nick    # TODO: prüfen, was man hier am besten nimmt,
                                 #       um die Zuordnung zum Spieler zu kriegen
         logger.info('check_roll %s fuer spieler %s' % (dice, player))
@@ -544,7 +547,7 @@ class GameControl:
                                  'checker %d  (%s) (%s) (%d)' % \
                                  (bar,d,p,pos[p],list_of_moves,my_dice,bar_moves))
                             break
-                if bar == 0:
+                elif bar == 0:
                     p = bar + d
                     if pos[p] < 2:
                         if nr_of_moves == 2:
@@ -567,8 +570,13 @@ class GameControl:
         if exhausted:
             logger.info('spieler %s kann nur %d zuege ziehen' % (player, nr_of_moves))
         self.pieces = nr_of_moves
-        self.set_move()
-        return {'nr_pieces': nr_of_moves, 'list_of_moves': list_of_moves}
+        self.set_move()     # TODO: wurde hier was verändert, so dass man set_move()
+                            #       machen muss??
+        ret = {'nr_pieces': nr_of_moves, 'list_of_moves': list_of_moves,}
+        if player_obj.user.greedy_bearoff():
+            ret.update(self.greedy(player_obj, dice))
+        logger.debug('noch mal check_roll: %s   ' % ret)
+        return ret
         
     def roll(self, player):
         p = self.players[player]    # TODO: hier aufräumen
@@ -580,12 +588,16 @@ class GameControl:
         return {'roll': d}
 
     def double(self, player):
+        p = self.players[player]    # TODO: hier aufräumen
+        self.SM.action(p, 'double')
+
+    def _double(self, player, **kw):
         return {}
 
-    def take(self, player):
+    def _take(self, player):
         return {}
 
-    def drop(self, player):
+    def _drop(self, player):
         return {}
 
     def _win(self, player, **kw):
@@ -624,12 +636,41 @@ class GameControl:
     def set_position(self,):
         self.board.set_position(self.position)
 
+    def greedy(self, player, dice):
+        d1, d2 = dice
+        nick = player.nick
+        a,b = self.home_board[nick]
+        nr_home = sum(self.position[a:b]) + self.home[nick]
+        logger.debug('GREEDY: %d,%d   %s  %d:%d   %d home    %s' % \
+                     (d1, d2, nick, a, b, nr_home, self.position[a:b]))
+        if nr_home < 15:
+            return {'greedy_possible': False,}
+        if d1 == d2:
+            return {'greedy_possible': False,}  # TODO: pasch geht nicht
+        pos = self.position
+        moves = []
+        if nick == 'p1':                # TODO: weg mit p1 und konsorten
+            if (pos[d1] > 0) and (pos[d2] > 0):
+                moves = ['%d-0' % d1, '%d-0' % d2]
+            elif (d1+d2 < 7) and (pos[d1+d2] > 0):
+                moves = ['%d-%d' % (d1+d2,d1), '%d-0' % d1]
+        elif nick == 'p2':              # TODO: weg mit p1 und konsorten
+            p1 = 25 - d1
+            p2 = 25 - d2
+            pp = 25 - d1 + d2
+            if (pos[p1] < 0) and (pos[p2] < 0):
+                moves = ['%d-25' % p1, '%d-25' % p2]
+            elif (d1+d2 < 7) and (pos[pp] > 0):
+                moves = ['%d-%d' % (pp,p1), '%d-25' % p1]
+        res = {'greedy_possible': len(moves) > 0, 'moves': moves}
+        logger.debug('GREEDY: %s   ' % res)
+        return res
+
     def move(self, move, player):
         p = self.players[player]    # TODO: hier aufräumen
         self.SM.action(p, 'move', move=move)
-        
+
     def _move(self, player, **kw):
-        # TODO: kontrollieren, ob der dran ist
         move = kw['move']
         mv = Move(kw['move'], self, player.nick)
         mv.check()
@@ -640,6 +681,7 @@ class GameControl:
                         (player.nick, self.turn, self.whos_turn().name))
             if self.turn == 1:              # immer 'p1'  TODO: stimmt das?
                                             #               dann kann self.turn weg!
+                                            # ES STIMMT WOHL
                 self.position[m[0]] -= 1
                 if m[0] == 25:
                     logger.info('bar  (player %s==p1)  %s' % (player.nick, self.bar))
@@ -728,7 +770,7 @@ class Game(Persistent):
         self.who = dict(zip(('p1', 'p2'),(self.player1, self.player2)))
         self.opp = {p1.name:p2, p2.name:p1}     # TODO: mittelfristig weg
         self.dice = dice
-        self.match = Match(int(ML),{'p1': 2, 'p2': 0})
+        self.match = Match(int(ML),{'p1': 0, 'p2': 0})
         self.control = GameControl(self, board=board, dice=self.dice)
         logger.info('New game with id %s, %s vs %s' % (self.id, p1.name, p2.name))
         self.control.status.match = self.match
@@ -753,18 +795,44 @@ class Game(Persistent):
         if max(self.match.score.values()) < self.match.ML:
             self.control = GameControl(self, dice=self.dice)
             self.control.status.match = self.match
-            logger.info('Next game %s vs %s' % (self.player1.name,
+            logger.info('Next game in match %s vs %s' % (self.player1.name,
                                                 self.player2.name))
             self.start() #TODO: falls es stimmt
         else:
             self.book_game(kw['winner'])
             self.stop()
 
+    def weighed_experience(self, user, ML):
+        exp = user.experience() + ML 
+        if exp < 400:
+            exp = max(1, 5. - exp/100.)
+        return 4. * exp
+
     def book_game(self, winner):
-        # rating
-        # experience
+        loser = winner.opponent
+        ML = self.match.ML
+        Pw = winner.user.rating()
+        Ew = self.weighed_experience(winner.user, ML)
+        Pl = loser.user.rating()
+        El = self.weighed_experience(loser.user, ML)
+        D = abs(Pw - Pl)
+        n = sqrt(ML)
+        d = D*n/2000. + 1.
+        U = 1./10.**d
+        F = 1. - U
+        if Pw > Pl:
+            nU = n * U
+            Rw =   Ew * nU
+            Rl = - El * nU
+        else:
+            nU = n * F
+            Rw =   Ew * nU
+            Rl = - El * nU
         logger.info('booking the game for %s' % winner.name)
-        pass
+        logger.info('winner: rating %f' % Rw)
+        logger.info('loser:  rating %f' % Rl)
+        winner.user.advance_rating(Rw, ML)
+        loser.user.advance_rating(Rl, ML)
 
     def starting_rolls(self, p1, p2):   # TODO: gehoert hoch ins control
         msg = 'You rolled %s, %s rolled %s'
@@ -776,6 +844,9 @@ class Game(Persistent):
 
     def move(self, move, player):
         self.control.move(move, player)
+
+    def double(self, player):
+        self.control.double(player)
 
     def accept(self, player,):
         self.control.accept(player)

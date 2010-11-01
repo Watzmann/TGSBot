@@ -235,12 +235,19 @@ class Checked(State):
         """Decide whether no moves can be made and automatically perform
     the 'cant_move' automatic action.
     """
+        follower = 'move'       # TODO: hier ist ziemlich stark ausprogrammiert
+                                #       nicht sehr generisch
         if self.params['nr_pieces'] == 0:
             self.player.chat_player("You can't move.")
             follower = 'cant_move'
-            if self.actions[follower]['auto']:
-                logger.log(TRACE, 'automatic cmd: %s' % follower)
-                self.action(self.player, follower)
+        if self.player.user.greedy_bearoff():
+            logger.log(TRACE, 'automatic move because greedy')
+            if self.params['greedy_possible']:
+                params = {'move': self.params['moves']}
+                self.action(self.player, follower, **params)
+        if self.actions[follower]['auto']:
+            logger.log(TRACE, 'automatic cmd: %s' % follower)
+            self.action(self.player, follower)
 
 class Moved(State):
     """State F: move has been made."""

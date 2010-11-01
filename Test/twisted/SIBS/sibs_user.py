@@ -603,6 +603,15 @@ class User(Persistent):
         who = user.who() + '\n6'
         factory.broadcast(who,)
 
+    def greedy_bearoff(self,):
+        return self.toggles.read('greedy')
+
+    def rating(self,):
+        return self.info.rating
+
+    def experience(self,):
+        return self.info.experience
+
     def __str__(self,):
         return self.who()
 
