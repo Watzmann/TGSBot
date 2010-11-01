@@ -18,7 +18,7 @@ DB_Games = 'db/games'
 
 TRACE = 15
 logging.addLevelName(TRACE, 'TRACE')
-logging.basicConfig(level=logging.INFO,
+logging.basicConfig(level=logging.DEBUG,
                 format='%(name)s %(levelname)s %(message)s',
                 )
 logger = logging.getLogger('game')
@@ -65,9 +65,16 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
         except ValueError:
             logger.error('Game id %s not in list of active ids!' % game.id)
 
-    def get(self, gid, default=(None,'')):
+    def get(self, gid, default=None):
         logger.log(TRACE, 'returning gid %s' % gid)
         return self.active_games.get(gid, default)
+
+    def get_game_from_user(self, user, default=(None,'')):
+        logger.log(TRACE, 'returning gid for user %s' % user.name)
+        res = default
+        if hasattr(user, 'running_game'):
+            res = self.active_games.get(user.running_game, default)
+        return res
 
     def uid(self,):     # TODO: hier muss noch ein locking mechanismus rein
         gen = lambda: ''.join(('%f' % time()).split('.'))
@@ -284,11 +291,22 @@ class Move:
         logger.log(TRACE, 'checke eben noch nicht %s' % self)
         return True
 
+    def render(self, value):
+        z = value.split('-')
+        if len(z) == 2:
+            return z
+        if z[0] == '':
+            return ['0',z[2]]
+        if z[1] == '':
+            return [z[0],'0']
+
     def move(self,):
+        # folgendes muss gehen:   parsing ['m', '1--3', '-3-off']
         for m in self.moves:
             if m == 'zero':
                 break           # TODO: vermutlich Altlast, kann weg
-            z = m.split('-')
+            z = self.render(m)
+            logger.debug('in move mit %s aus %s' % (z, self.moves))
             if z[0] == 'bar':
                 z0 = self.control.direction[self.player]['bar']
             else:
@@ -408,7 +426,7 @@ class BGMachine(StateMachine):
              'checked': (('move', states['moved'], False, caller._move),
                         ('cant_move', states['turn_finished'], True, caller.nop),),
              'moved': (('turn', states['turn_finished'], True, caller.nop),
-                       ('win', states['finished'], True, caller.nop),),
+                       ('win', states['finished'], True, caller._win),),
              'finished': (('leave', None, True, caller.finish_game),),
              'turn_finished': (('hand_over', states['turn_started'], True,
                                                            caller.hand_over),),
@@ -428,21 +446,25 @@ class GameControl:
     def __init__(self, game, board=None, dice='random'):
         # TODO: das komplette init() muss entrümpelt werden.
         self.game = game
-        if not board is None:
+        if board is None:
+            self.board = Board()
+##            self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
+##                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
+##            self.position = [0, 0,0,0,1,4,5, 0,3,0,0,0,0,
+##                                0,0,0,2,0,0, -7,-5,-3,0,0,0, 0]
+            self.position = [0, 0,0,0,3,5,7, 0,0,-2,0,0,0,
+                                0,0,0,0,-3,0, -5,-4,-1,0,0,0, 0]
+            self.set_position()
+        else:
             self.board = board
             self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
                                 5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
                 # TODO:  position muss vom Board abgekupfert werden.
-        else:
-            self.board = Board()
-            self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
-                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
-            self.set_position()
         self.p1 = game.player1
-        self.p1.board = self.board
+        self.p1.board = self.board  # TODO: braucht man das?
         self.p1.nick = 'p1'     # TODO: muss bald weg, nur für den Übergang
         self.p2 = game.player2
-        self.p2.board = self.board
+        self.p2.board = self.board  # TODO: braucht man das?
         self.p2.nick = 'p2'     # TODO: muss bald weg, nur für den Übergang
         self.players = {'p1':self.p1, 'p2':self.p2}
         self.dice = getDice(dice)
@@ -452,9 +474,10 @@ class GameControl:
         self.bar = {'p1':0, 'p2':0}
         self.opp = {'p1':'p2', 'p2':'p1'} # TODO: weg damit
         self.direction = {'p1':{'home':0, 'bar':25}, 'p2':{'home':25, 'bar':0}}
+        self.home_board = {'p1':(1,6), 'p2':(19,24)}
             # TODO:  wenn es hier definiert ist, dann muss es von hier
             #        im board gesetzt werden.
-        self.score = {'p1':0, 'p2':0}   # TODO: aus dem Match holen
+        self.score = self.game.match.score
         self.status = Status(self.position, self.dice, self.cube, self.direction, 0)
         self.board.set_score((self.p1.name, self.score['p1']),
                              (self.p2.name, self.score['p2']),
@@ -538,7 +561,7 @@ class GameControl:
                             break
                 logger.info('hab getested: bar %d  wurf %d   point %d   ' \
                      'checker %d  (%s)' % (bar,d,p,pos[p],list_of_moves))
-        if len(list_of_moves) < bar_moves:
+        if bar_moves > 0:
             nr_of_moves = len(list_of_moves)
             exhausted = True
         if exhausted:
@@ -565,22 +588,28 @@ class GameControl:
     def drop(self, player):
         return {}
 
+    def _win(self, player, **kw):
+        if 'value' in kw:
+            value = kw['value']
+        else:
+            logger.debug('wins: %s    %s' % (player.name, self.position))
+            loser = player.opponent.nick
+            value = 1           # normal
+            if self.home[loser] == 0:
+                value = 2       # gammon
+                a,b = self.home_board[player.nick]
+                if sum(self.position[a:b]) != 0:
+                    value = 3   # backgammon
+        value = value * self.cube
+        return {'winner': player, 'value': value}
+
     def resign(self, player, value):
         p = self.players[player]    # TODO: hier aufräumen
         self.SM.action(p, 'resign', value=value)
 
     def finish_game(self, player, **kw):
-        out = {}
-        # wer hat gewonnen?
-        out['winner'] = 'p1'
-        # value bestimmen
-        out['value'] = 1
-        #    position (gammon?)
-        # cube? multiply
-        # match up one notch
         logger.info('%s in finish_game with %s' % (player.nick, kw))
-        self.game.game_over(**out)
-        return {}
+        self.game.game_over(**kw)
         
     def nop(self, player):
         return {}
@@ -644,7 +673,9 @@ class GameControl:
                     self.position[m[1]] -= 1
             self.set_move()
             result.append(label)
-        return {'moved': result, 'finished': self.home[player.nick] == 15}
+        logger.info('player %s finished?  %s %s' % (player.nick,
+                                    self.home[player.nick] >= 15, self.home))
+        return {'moved': result, 'finished': self.home[player.nick] >= 15}
 
     def reject(self, player):
         p = self.players[player]    # TODO: hier aufräumen
@@ -658,7 +689,7 @@ class GameControl:
         self.SM.action(p, 'accept')
 
     def _accepted(self, player, **kw):
-        return {'response': 'accepted'}
+        return {'response': 'accepted', 'winner': player}
 
     def hand_over(self, player, **kw):    # TODO: wird das noch gebraucht?
         self.turn = 3 - self.turn
@@ -697,7 +728,7 @@ class Game(Persistent):
         self.who = dict(zip(('p1', 'p2'),(self.player1, self.player2)))
         self.opp = {p1.name:p2, p2.name:p1}     # TODO: mittelfristig weg
         self.dice = dice
-        self.match = Match(int(ML),{'p1': 0, 'p2': 0})
+        self.match = Match(int(ML),{'p1': 2, 'p2': 0})
         self.control = GameControl(self, board=board, dice=self.dice)
         logger.info('New game with id %s, %s vs %s' % (self.id, p1.name, p2.name))
         self.control.status.match = self.match
@@ -718,9 +749,22 @@ class Game(Persistent):
         self.teardown(self)
 
     def game_over(self, **kw):
-        self.match.score[kw['winner']] += kw['value']
-        self.control = GameControl(self, dice=self.dice)
-        self.start() #TODO: falls es stimmt
+        self.match.score[kw['winner'].nick] += kw['value']
+        if max(self.match.score.values()) < self.match.ML:
+            self.control = GameControl(self, dice=self.dice)
+            self.control.status.match = self.match
+            logger.info('Next game %s vs %s' % (self.player1.name,
+                                                self.player2.name))
+            self.start() #TODO: falls es stimmt
+        else:
+            self.book_game(kw['winner'])
+            self.stop()
+
+    def book_game(self, winner):
+        # rating
+        # experience
+        logger.info('booking the game for %s' % winner.name)
+        pass
 
     def starting_rolls(self, p1, p2):   # TODO: gehoert hoch ins control
         msg = 'You rolled %s, %s rolled %s'

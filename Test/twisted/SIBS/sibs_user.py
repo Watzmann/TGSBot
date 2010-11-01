@@ -107,6 +107,10 @@ als Datencontainer dienen."""
         self.rating = rating
         self.experience = experience
 
+    def advance_rating(self, rating, experience):
+        self.rating += rating
+        self.experience += experience
+
     def message(self, msg):
         """message() is used for persistency of messages."""
         self.messages.append(msg)
@@ -452,6 +456,10 @@ class User(Persistent):
 
     def set_logout_data(self, logout_time,):
         self.info.set_logout_data(logout_time)
+        self.save()
+
+    def advance_rating(self, rating, experience):
+        self.info.advance_rating(rating, experience)
         self.save()
 
     def tell(self, user, msg):

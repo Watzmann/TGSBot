@@ -308,6 +308,7 @@ class Resigned(State):
     def _transit(self, next_state):
         self.deactivate()
         if self.result['response'] == 'accepted':
+            self.result['value'] = self.params['value']
             next_state.activate(self.player, **self.result)
         else:
             return_to = self.params['active_state']

@@ -399,14 +399,14 @@ class Command():
 # ----------------------------------------  Game Commands
 
     def c_roll(self, line, me):             # implemented
-        game, player = self.list_of_games.get(me.running_game)
+        game, player = self.list_of_games.get_game_from_user(me)
         if game is None:
             return "** You're not playing."
         else:
             game.roll(player)
 
     def c_move(self, line, me):             # implemented
-        game, player = self.list_of_games.get(me.running_game)
+        game, player = self.list_of_games.get_game_from_user(me)
         if game is None:
             return "** You're not playing."
         else:
@@ -420,7 +420,7 @@ class Command():
 
     def c_board(self, line, me):            # implemented
         # TODO: Fehlerbehandlung
-        game, player = self.list_of_games.get(me.running_game)
+        game, player = self.list_of_games.get_game_from_user(me)
         if game is None:
             return "** You're not playing."
         else:
@@ -429,7 +429,7 @@ class Command():
 
     def c_pip(self, line, me):              # implemented
         # TODO:  abfragen, ob beide Spieler das erlauben
-        game, player = self.list_of_games.get(me.running_game)
+        game, player = self.list_of_games.get_game_from_user(me)
         if game is None:
             return "** You're not playing."
         else:
@@ -439,21 +439,21 @@ class Command():
         return 'you double    %s' % NYI
 
     def c_accept(self, line, me):           # implemented
-        game, player = self.list_of_games.get(me.running_game)
+        game, player = self.list_of_games.get_game_from_user(me)
         if game is None:
             return "** You're not playing."
         else:
             game.accept(player)
 
     def c_reject(self, line, me):           # implemented
-        game, player = self.list_of_games.get(me.running_game)
+        game, player = self.list_of_games.get_game_from_user(me)
         if game is None:
             return "** You're not playing, so you can't give up."
         else:
             game.reject(player)
 
     def c_resign(self, line, me):           # implemented
-        game, player = self.list_of_games.get(me.running_game)
+        game, player = self.list_of_games.get_game_from_user(me)
         if game is None:
             return "** You're not playing."
         arglen = len(line)
@@ -467,7 +467,7 @@ class Command():
             game.resign(player, values[line[1]])
 
     def c_leave(self, line, me):            # implemented
-        game, player = self.list_of_games.get(me.running_game)
+        game, player = self.list_of_games.get_game_from_user(me)
         if game is None:
             return "** Error: No one to leave."
         else:
