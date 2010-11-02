@@ -301,17 +301,6 @@ class Resigned(State):
             msg = '%s resigns %d point' % (self.player.name, a)
             self.player.chat_opponent(msg)  # TODO noch nicht korrekt
 
-    # you resign the game......
-
-    def action(self, player, cmd, **params):  # TODO: sieht so aus, als ob hier
-                                              #       alles wie in State ist
-                                              #       also kann es weg
-        logger.info('%s: action called by %s: %s with %s' % \
-                                    (self.label, player.name, cmd, params))
-        if self._state_check(player, cmd):      # action is allowed, only,
-            self._action(player, cmd, **params) # when state_check is passed
-            self._transit(self.actions[cmd]['follow_up'])
-
     def _transit(self, next_state):
         self.deactivate()
         if self.result['response'] == 'accepted':

@@ -466,6 +466,10 @@ class User(Persistent):
         user.chat('12 %s %s' % (self.name, msg))
         self.chat('16 %s %s' % (user.name, msg))
 
+    def shout(self, msg):
+        self.protocol.factory.broadcast('13 %s %s' % (self.name, msg))
+        self.chat('17 %s' % (msg))
+
     def deliver_messages(self,):
         """Delivers messages when user logs in"""
         msgs = self.info.messages

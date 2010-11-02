@@ -47,9 +47,8 @@ VERSION.register(__name__, REV)
 ## x authentication
 ## x CLIP
 
-
 ## 3
-## say               0
+## x say               0
 ## x invite
 ## x join
 ## show
@@ -74,8 +73,11 @@ class Command():
 
 # ----------------------------------------  Chat and Settings for other Players
 
-    def c_shout(self, line, me):
-        return 'you shout: %s    %s' % (line[1:], NYI)
+    def c_shout(self, line, me):            # implemented
+        if me.toggles.read('silent'):
+            return "** Please type 'toggle silent' again before you shout."
+        else:
+            me.shout(' '.join(line[1:]))
 
     def c_kibitz(self, line, me):
         return 'you kibitz: %s    %s' % (line[1:], NYI)
@@ -89,8 +91,15 @@ class Command():
         else:
             me.tell(user, msg)
 
-    def c_say(self, line, me):
-        return 'you say: %s    %s' % (line[1:], NYI)
+    def c_say(self, line, me):              # implemented
+        game, player = self.list_of_games.get_game_from_user(me)
+        if game is None:
+            return "** 'say' can't be used outside a game."
+        else:
+            return game.pips(player)
+        msg = ' '.join(line[1:])
+        user = player.opponent.user
+        me.tell(user, msg)
 
     def c_whisper(self, line, me):
         return 'you whisper: %s    %s' % (line[1:], NYI)
