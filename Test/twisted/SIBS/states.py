@@ -73,6 +73,8 @@ class State:
             if self.actions.has_key(cmd):
                 return True
             else:
+                # TODO:     an dieser stelle muss man differenzierte meldungen
+                #           ausgeben. z.b. durch ein {<cmd>:msg} mit default
                 msg = "error: you can't %s" % cmd
                 self.player.chat_player(msg)
         else:
@@ -166,17 +168,13 @@ class Doubled(State):
     # you double, please wait; he doubles, please accept
     # +++++++++++ take, drop
 
-    # TODO:  x  wer gedoppelt hat, darf nicht mehr doppeln (wer darf doppeln)
-    #        x   autoroll geht über kreuz
-    #        x   board und game control beim doppeln
-    #           korrekte meldungen beim resign und doppeln
-
     def _chat(self, msg=None):
         if msg is None:
-            msg = 'you double, please wait'
-            self.player.chat_player(msg)  # TODO noch nicht korrekt
-            msg = '%s doubles, please accept or reject.' % (self.player.name)
-            self.player.chat_opponent(msg)  # TODO noch nicht korrekt
+            msg = 'You double. Please wait for %s to accept or reject.' % \
+                                                      self.player.opp_name
+            self.player.chat_player(msg)
+            msg = "%s doubles. Type 'accept' or 'reject'." % self.player.name
+            self.player.chat_opponent(msg)
 
     def _special(self,):
         self.approved_player = self.player.opponent
@@ -306,10 +304,18 @@ class Resigned(State):
     def _chat(self, msg=None):
         if msg is None:
             a = self.params['value']
-            msg = 'You resign %d point' % (a)
-            self.player.chat_player(msg)  # TODO noch nicht korrekt
-            msg = '%s resigns %d point' % (self.player.name, a)
-            self.player.chat_opponent(msg)  # TODO noch nicht korrekt
+            opp = self.player.opp_name
+            me = self.player.name
+            if a > 1:
+                msg_me = 'You want to resign. %s will win %d points.' % (opp, a)
+                msg_him = "%s wants to resign. You will win %d points." \
+                          " Type 'accept' or 'reject'." % (me, a)
+            elif a == 1:
+                msg_me = 'You want to resign. %s will win 1 point.' % opp
+                msg_him = "%s wants to resign. You will win 1 point." \
+                          " Type 'accept' or 'reject'." % me
+            self.player.chat_player(msg_me)
+            self.player.chat_opponent(msg_him)
 
     def _transit(self, next_state):
         self.deactivate()

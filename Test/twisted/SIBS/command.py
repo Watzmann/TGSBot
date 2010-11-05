@@ -126,13 +126,27 @@ class Command():
 # ----------------------------------------  Between Game Actions
 
     def c_invite(self, line, me):           # implemented
+        if len(line) < 2:
+            return '** invite who?'
         user = line[1]
-        ML = line[2]        # TODO:    resume hat keine ML
+        if user == me.name:
+            return "** You can't invite yourself."
+        if len(line) > 2:
+            ML = line[2]
+        else:                           # TODO:    resume organisieren
+            return '++ no resume of saved games implemented, yet.'
         him = self.list_of_users.get_active(user)
+        if him is None:
+            return '** There is no one called %s.' % user
+        if him.is_playing():            # TODO: dies hier und ready
+                                        #       das muss doch über status eleganter gehen
+            return '** %s is already playing with someone else.' % user
+        if not him.ready():
+            return '** %s is refusing games.' % user
+                        # TODO:    hier fehlen noch ne Menge Fälle
         me.invite(user, ML)
         him.chat('%s wants to play a %s point match with you.' % (me.name, ML))
-        msg = '** You invited %s to a %s point match.' % (user, ML,)
-        return msg
+        return '** You invited %s to a %s point match.' % (user, ML,)
 
     def c_join(self, line, me):             # implemented
         user = line[1]

@@ -176,6 +176,9 @@ class Status:
     def get_awayflag(self,):
         return int(self.away)
 
+    def get_playingflag(self,):
+        return int(self.active_state[1] == 2)
+
     def stamp(self,):
         self.timestamp = time.time()
 
@@ -615,6 +618,12 @@ class User(Persistent):
 
     def experience(self,):
         return self.info.experience
+
+    def ready(self,):
+        return self.toggles.read('ready')
+
+    def is_playing(self,):
+        return self.status.get_playingflag()
 
     def __str__(self,):
         return self.who()

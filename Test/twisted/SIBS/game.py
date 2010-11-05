@@ -371,12 +371,14 @@ class Player:
         """Display the board for the player."""
         boardstyle = self.user.settings.get_boardstyle()
         self.chat_player(self.board.show_board(self.nick, boardstyle))
+        logger.log(TRACE, "sent board to player %s" % self.name)
         
     def board_opponent(self,):
         """Display the board for the players opponent."""
         boardstyle = self.opp_user.settings.get_boardstyle()
         opp_nick = {'p1':'p2', 'p2':'p1'}[self.nick]    # TODO: nick notlösung wegmachen
         self.chat_opponent(self.board.show_board(opp_nick, boardstyle))
+        logger.log(TRACE, "sent board to player %s" % self.opp_name)
 
     def may_double(self,):
         return self.user.toggles.read('double') and \
@@ -394,6 +396,7 @@ class Status:       # TODO: muss noch eingebunden werden
         self.position = position
         self.dice = dice
         self.cube = cube
+        self.value = cube
         self.direction = direction
         self.move = move
 
@@ -449,7 +452,7 @@ class BGMachine(StateMachine):
                                                            caller.hand_over),),
              'resigned': (('accept', states['finished'], False,
                                                            caller._accepted),
-                          ('reject', None, False, caller._rejected),),
+                          ('reject', '', False, caller._rejected),),
                 }
         # TODO: Parameter könnte man natürlich auch noch unterbringen
         for s in model:
@@ -614,10 +617,11 @@ class GameControl:
         return {}
 
     def _take(self, player):
+        self.status.value = self.cube
         return {}
 
     def _drop(self, player):
-        return {}
+        return {'winner': player.opponent, 'value': self.status.value}
 
     def _win(self, player, **kw):
         if 'value' in kw:
@@ -631,7 +635,7 @@ class GameControl:
                 a,b = self.home_board[player.nick]
                 if sum(self.position[a:b]) != 0:
                     value = 3   # backgammon
-        value = value * self.cube
+        value = value * self.status.value
         return {'winner': player, 'value': value}
 
     def resign(self, player, value):
@@ -748,6 +752,9 @@ class GameControl:
         self.SM.action(p, 'reject')
 
     def _rejected(self, player, **kw):
+        player.chat_player('You reject. The game continues.')
+        player.chat_opponent('%s rejects. The game continues.' % player.name)
+        player.board_player()
         return {'response': 'rejected'}
 
     def accept(self, player):
@@ -755,6 +762,14 @@ class GameControl:
         self.SM.action(p, 'accept')
 
     def _accepted(self, player, **kw):
+        a = self.params['value']
+        if a > 1:
+            player.chat_player('You accept and win %d points.' % a)
+            player.chat_opponent('%s accepts and wins %d points.' % \
+                                                         (player.name,a))
+        elif a == 1:
+            player.chat_player('You accept and win 1 point.')
+            player.chat_opponent('%s accepts and wins 1 point.' % player.name)
         return {'response': 'accepted', 'winner': player}
 
     def hand_over(self, player, **kw):    # TODO: wird das noch gebraucht?
@@ -817,8 +832,10 @@ class Game(Persistent):
     def game_over(self, **kw):
         winner = kw['winner'].nick
         value = kw['value']
+        self.match.score[winner] += value
         winners_score = self.match.score[winner]
-        winners_score += value
+        logger.info('winner %s in game_over. value: %d. score %s' % \
+                    (kw['winner'].name, value, self.match.score))
         if winners_score < self.match.ML:
             self.match.crawford = ((self.match.ML - winners_score) == 1) and \
                         (self.player1.crawford() and self.player1.crawford())
