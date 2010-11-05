@@ -93,8 +93,8 @@ check for valid moves etc.."""
         self.score_fmt = "board:%s:%s:%d:%d:%d:"
         self.position_fmt_4 = "%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:%d:%d:%d:%d:%d:  %d:"
         self.position_fmt_3 = "%d:"*26
-        self.dice_fmt = "%d:"*5
-        self.cube = "1:1:1:0:"
+        self.dice_fmt = "%d:%d:%d:%d:%d:"
+        self.cube_fmt = "%d:%d:%d:%d:"
         self.direction = {'p1':"1:-1:0:25:",
                           'p2':"-1:1:25:0:"}
         self.move_fmt = "%d:%d:%d:%d:%d:0:0:0"
@@ -129,6 +129,14 @@ check for valid moves etc.."""
             ret = {'p1':self.dice_fmt % (0,)*5,}
             ret['p2'] = ret['p1']
         return ret[player]
+
+    def set_cube(self, cube, p1_allowed, p2_allowed, just_doubled, who=''):
+        p1_wd, p2_wd = {'': (0,0), 'p1': (0,1), 'p2': (1,0)}[who]
+        self._cube_info = {'p1': (cube, p1_allowed, p2_allowed, p1_wd),
+                           'p2': (cube, p2_allowed, p1_allowed, p2_wd),}
+
+    def _fmt_cube(self, player):
+        return self.cube_fmt % self._cube_info[player]
 
     def set_move(self, p1, p2, pieces):
         """('home_p1', bar_p1), ('home_p2', bar_p2), pieces to move."""
@@ -173,7 +181,7 @@ check for valid moves etc.."""
         score = self._fmt_score(whom)
         position = self._fmt_position()
         dice = self._fmt_dice(whom)
-        cube = self.cube
+        cube = self._fmt_cube(whom)
         direction = self.direction[whom]
         move = self._fmt_move(whom)
         if self.style == 4:
@@ -340,10 +348,11 @@ class Player:
     opp_name:   string, User.name, name of the player
     opp_user:	User, the hosting player object
     """
-    def __init__(self, user, opponent, color):
+    def __init__(self, user, opponent, color, owns_cube=False):
         self.user = user
         self.name = user.name
         self.color = color
+        self.owns_cube = owns_cube
         if not opponent is None:
             self.set_opponent(opponent)
 
@@ -370,7 +379,15 @@ class Player:
         self.chat_opponent(self.board.show_board(opp_nick, boardstyle))
 
     def may_double(self,):
-        return self.user.toggles.read('double')
+        return self.user.toggles.read('double') and \
+               (self.owns_cube or not self.opponent.owns_cube)
+
+    def crawford(self,):
+        return self.user.toggles.read('crawford')
+
+    def doubles(self,):
+        self.owns_cube = False
+        self.opponent.owns_cube = True
         
 class Status:       # TODO: muss noch eingebunden werden
     def __init__(self, position, dice, cube, direction, move):
@@ -394,9 +411,7 @@ class Match:
     def __init__(self, ML, score,):
         self.score = score
         self.ML = ML
-
-    def crawford(self,):    # TODO: auslagern, wegen Persistenz
-        return False
+        self.crawford = False
 
 from states import StateMachine
 from states import GameStarted, TurnStarted, Doubled, Taken, Rolled, Moved
@@ -420,8 +435,8 @@ class BGMachine(StateMachine):
              'game_started': (('start', states['rolled'], True, caller._start),),
              'turn_started': (('roll', states['rolled'], False, caller._roll),
                         ('double', states['doubled'], False, caller._double),),
-             'doubled': (('take', states['taken'], False, caller._take),
-                        ('pass', states['finished'], False, caller._drop),),
+             'doubled': (('accept', states['taken'], False, caller._take),
+                        ('reject', states['finished'], False, caller._drop),),
              'taken': (('roll', states['rolled'], True, caller._roll),),
              'rolled': (('check', states['checked'], True, caller.check_roll),),
              'checked': (('move', states['moved'], False, caller._move),
@@ -471,6 +486,7 @@ class GameControl:
         self.players = {'p1':self.p1, 'p2':self.p2}
         self.dice = getDice(dice)
         self.cube = 1
+        self.set_cube()
         self.turn = 0       # TODO oder was im board-status richtig ist
         self.home = {'p1':0, 'p2':0}
         self.bar = {'p1':0, 'p2':0}
@@ -592,6 +608,9 @@ class GameControl:
         self.SM.action(p, 'double')
 
     def _double(self, player, **kw):
+        self.cube = self.cube * 2
+        player.doubles()
+        self.set_cube(1, player.nick)
         return {}
 
     def _take(self, player):
@@ -635,6 +654,11 @@ class GameControl:
 
     def set_position(self,):
         self.board.set_position(self.position)
+
+    def set_cube(self, just_doubled=0, who=''):
+        p1 = self.p1.may_double()
+        p2 = self.p2.may_double()
+        self.board.set_cube(self.cube, p1, p2, just_doubled, who)
 
     def greedy(self, player, dice):
         d1, d2 = dice
@@ -734,15 +758,15 @@ class GameControl:
         return {'response': 'accepted', 'winner': player}
 
     def hand_over(self, player, **kw):    # TODO: wird das noch gebraucht?
-        self.turn = 3 - self.turn
+        self.turn = 3 - self.turn         #       JA, solange turn gebraucht wird
         self.board.set_dice(self.turn, (0,0))
-##        logger.log(TRACE, 'in handover:  -> %d' % self.turn)
-        return {'may_double': self.may_double(player)}
+        logger.log(TRACE, 'in handover:  -> %d' % self.turn)
+        return {'may_double': self.may_double(player.opponent)}
 
     def may_double(self, player):
         match = self.status.match
-        return (match.ML > 1) and (not match.crawford()) \
-               and (player.may_double())   # TODO:  and Cube Besitz
+        return (match.ML > 1) and (not match.crawford) \
+               and (player.may_double())
 
     def save_state_to_status(self, name, player, kw):
         self.status.state_name = name
@@ -791,15 +815,20 @@ class Game(Persistent):
         self.teardown(self)
 
     def game_over(self, **kw):
-        self.match.score[kw['winner'].nick] += kw['value']
-        if max(self.match.score.values()) < self.match.ML:
+        winner = kw['winner'].nick
+        value = kw['value']
+        winners_score = self.match.score[winner]
+        winners_score += value
+        if winners_score < self.match.ML:
+            self.match.crawford = ((self.match.ML - winners_score) == 1) and \
+                        (self.player1.crawford() and self.player1.crawford())
             self.control = GameControl(self, dice=self.dice)
             self.control.status.match = self.match
             logger.info('Next game in match %s vs %s' % (self.player1.name,
                                                 self.player2.name))
             self.start() #TODO: falls es stimmt
         else:
-            self.book_game(kw['winner'])
+            self.book_game(kw['winner'], value)
             self.stop()
 
     def weighed_experience(self, user, ML):

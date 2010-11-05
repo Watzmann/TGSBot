@@ -96,10 +96,9 @@ class Command():
         if game is None:
             return "** 'say' can't be used outside a game."
         else:
-            return game.pips(player)
-        msg = ' '.join(line[1:])
-        user = player.opponent.user
-        me.tell(user, msg)
+            msg = ' '.join(line[1:])
+            user = player.opponent.user
+            me.tell(user, msg)
 
     def c_whisper(self, line, me):
         return 'you whisper: %s    %s' % (line[1:], NYI)

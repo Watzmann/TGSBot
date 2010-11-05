@@ -166,10 +166,20 @@ class Doubled(State):
     # you double, please wait; he doubles, please accept
     # +++++++++++ take, drop
 
+    # TODO:  x  wer gedoppelt hat, darf nicht mehr doppeln (wer darf doppeln)
+    #        x   autoroll geht über kreuz
+    #        x   board und game control beim doppeln
+    #           korrekte meldungen beim resign und doppeln
+
     def _chat(self, msg=None):
         if msg is None:
             msg = 'you double, please wait'
-        self.player.chat_player(msg)  # TODO noch nicht korrekt
+            self.player.chat_player(msg)  # TODO noch nicht korrekt
+            msg = '%s doubles, please accept or reject.' % (self.player.name)
+            self.player.chat_opponent(msg)  # TODO noch nicht korrekt
+
+    def _special(self,):
+        self.approved_player = self.player.opponent
 
 class Taken(State):
     """State D: the cube has been taken."""
