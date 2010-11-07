@@ -7,6 +7,7 @@ Siehe http://wiki.python.org/moin/Twisted-Examples
 REV = '$Revision$'
 
 import sys
+import os
 
 from twisted.web import proxy, http
 #from twisted.internet import pollreactor
@@ -31,7 +32,12 @@ for m in v.registered_modules():
 print v.version()
 
 log.startLogging(sys.stdout)
- 
+
+if '.production' in os.listdir('.'):
+    PORT = 4321
+else:
+    PORT = 8080
+
 class ProxyFactory(http.HTTPFactory):
     protocol = CLIP   #Echo #proxy.Proxy
     numProtocols = 0
@@ -78,6 +84,7 @@ class ProxyFactory(http.HTTPFactory):
     ## TODO:  es muss für einen user "systemwart" eine eigene command-Klasse
     ##        geben. Darin Commands wie "stop", "flush", vielleich logginglevel
     ##        delete(user) und so weiter
-    
-reactor.listenTCP(8080, ProxyFactory())
+
+print 'Using port', PORT
+reactor.listenTCP(PORT, ProxyFactory())
 reactor.run()
