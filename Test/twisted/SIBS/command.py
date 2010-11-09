@@ -97,7 +97,7 @@ class Command():
             return "** 'say' can't be used outside a game."
         else:
             msg = ' '.join(line[1:])
-            user = player.opponent.user
+            user = game.players(player).opponent.user
             me.tell(user, msg)
 
     def c_whisper(self, line, me):

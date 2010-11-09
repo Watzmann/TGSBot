@@ -37,5 +37,5 @@ if __name__ == '__main__':
     for e,k in enumerate(keys):
         print e,k
         v = db.db[k]
-        print '   ', v.position, v.dice, v.cube, v.value, v.direction, v.move
+        print '   ', v.position, v.cube, v.value, v.direction, v.move
     db.close()

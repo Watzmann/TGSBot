@@ -13,6 +13,9 @@ def usage(progname):
     parser.add_option("-v", "--verbose",
                   action="store_true", dest="verbose", default=False,
                   help="print full entries to stdout")
+    parser.add_option("-p", "--password",
+                  action="store_true", dest="passwd", default=False,
+                  help="print passwords to stdout")
     return parser,usg
 
 if __name__ == '__main__':
@@ -41,7 +44,11 @@ if __name__ == '__main__':
         print e,k
         v = db.db[k]
         address = getattr(v, 'address', '-')
-        print '   ', v.login, v.last_logout, v.host, v.name, v.passwd, \
+        if options.passwd:
+            passwd = v.passwd
+        else:
+            passwd = '*****'
+        print '   ', v.login, v.last_logout, v.host, v.name, passwd, \
                      v.rating, v.experience, address
         if options.verbose:
             print

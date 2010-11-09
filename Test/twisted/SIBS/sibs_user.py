@@ -119,7 +119,7 @@ als Datencontainer dienen."""
     def show(self,):
         out = StringIO()
         v = self
-        print >>out, v.login, v.last_logout, v.host, v.name, v.passwd, \
+        print >>out, v.login, v.last_logout, v.host, v.name, '*****', \
                           v.rating, v.experience, v.address
         print >>out,v.toggles.values()
         print >>out,v.settings
@@ -629,7 +629,7 @@ class User(Persistent):
         return self.who()
 
 def newUser(**kw):
-    data = (kw['login'],0,'',kw['user'],kw['password'],1500.,0)
+    data = (kw['login'], 0, '', kw['user'], kw['password'], 1500., 0, '-')
     toggles = dict(zip(Toggles.toggle_names, Toggles.toggle_std))
     settings = [3, 0, 0, 'none', 'name', 'UTC']
     messages = []

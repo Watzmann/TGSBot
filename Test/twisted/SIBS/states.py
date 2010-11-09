@@ -317,6 +317,15 @@ class Resigned(State):
             self.player.chat_player(msg_me)
             self.player.chat_opponent(msg_him)
 
+    def _action(self, player, cmd, **params):
+        params.update(self.params)  # TODO: diese Zeile weicht von State ab;
+                                    #       unschöne Stelle; kann das nicht
+                                    #       für alle gelten??
+        action = self.actions[cmd]['action']
+        logger.debug('calling %s with %s' % (action, params))
+        self.result = action(player, **params)
+        # set attribute instead of return to be able to do some processing
+        
     def _transit(self, next_state):
         self.deactivate()
         if self.result['response'] == 'accepted':

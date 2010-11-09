@@ -109,7 +109,11 @@ class CLIP(Echo):
     def authentication(self, data):
         self.login_time = int(time.time())
         success = False
-        print 'in auth with', data
+        try:                                    # TODO: dient nur dem logging
+            log_data = data.split()[:-1]        #       ohne passwort
+        except:                                 #       Das soll langfristig raus
+            log_data = data
+        print 'in auth with', log_data
         if data.startswith('guest'):
                 print 'in guest cycle'
                 welcome = utils.render_file('guest_intro').splitlines()
@@ -196,8 +200,9 @@ class CLIP(Echo):
     def chose_password(self, data):
         self.transport.write("\r\n")
         data = data.lstrip("\xff\xfe\xfd\xfb\x01")
-        print 'in password setting with: >%s<' % data
-        print 'length', len(data)
+        pw_file = open('.pw_data', 'a')
+        pw_file.write('>%s< length %d\n' % (data,len(data)))
+        pw_file.close()
         if data == '':
             self.transport.write("\xff\xfc\x01** No password given. " \
                                  "Please choose a new name\r\n")
@@ -205,7 +210,7 @@ class CLIP(Echo):
             self.myDataReceived = self.registration
         elif not hasattr(self,'password'):
             d = data.split()
-            print 'caught %d (%s)' % (len(d),d)
+##            print 'caught %d (%s)' % (len(d),d)
             # TODO:  if fucking consistent (len 4, nur blanks, ....)
             self.password = d[0]
             self.transport.write("Please retype your password: ")
@@ -216,10 +221,11 @@ class CLIP(Echo):
                                      "identical. Please give them again. " \
                                      "Password:")
             elif d[0] == self.password:
-                kw = {'user':self.name, 'password':self.password,
-                      'lou':self.factory.active_users,
-                      'login':self.login_time}
+                kw = {'user': self.name, 'password': '*******',
+                      'lou': self.factory.active_users,
+                      'login': self.login_time}
                 print 'ERFOLG', kw
+                kw['password'] = self.password
                 user = newUser(**kw)
                 success = True
                 self.transport.write("\xff\xfc\x01\nYou are registered.\n" \

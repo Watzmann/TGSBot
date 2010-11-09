@@ -311,6 +311,7 @@ class Move:
 
     def move(self,):
         # folgendes muss gehen:   parsing ['m', '1--3', '-3-off']
+        # folgendes muss gehen:   parsing ['m', '24-28', '28-off']
         for m in self.moves:
             if m == 'zero':
                 break           # TODO: vermutlich Altlast, kann weg
@@ -323,7 +324,7 @@ class Move:
             if z[1] == 'off':
                 z1 = self.control.direction[self.player]['home']
             else:
-                z1 = int(z[1])
+                z1 = min(int(z[1]), 25)
             z = (z0,z1)
             logger.info('Move: moving %d to %d' % (z0,z1))
             yield z, m
@@ -381,8 +382,13 @@ class Player:
         logger.log(TRACE, "sent board to player %s" % self.opp_name)
 
     def may_double(self,):
-        return self.user.toggles.read('double') and \
-               (self.owns_cube or not self.opponent.owns_cube)
+        wd = self.user.toggles.read('double')
+        co = self.owns_cube
+        oco = self.opponent.owns_cube
+        md = wd and (co or not oco)
+        logger.debug('player.may_double %s; reason toggle %d   owns %s' \
+                                    '    opp owns %s' % (md, wd, co, oco))
+        return md
 
     def crawford(self,):
         return self.user.toggles.read('crawford')
@@ -392,9 +398,8 @@ class Player:
         self.opponent.owns_cube = True
         
 class Status:       # TODO: muss noch eingebunden werden
-    def __init__(self, position, dice, cube, direction, move):
+    def __init__(self, position, cube, direction, move):
         self.position = position
-        self.dice = dice
         self.cube = cube
         self.value = cube
         self.direction = direction
@@ -499,7 +504,7 @@ class GameControl:
             # TODO:  wenn es hier definiert ist, dann muss es von hier
             #        im board gesetzt werden.
         self.score = self.game.match.score
-        self.status = Status(self.position, self.dice, self.cube, self.direction, 0)
+        self.status = Status(self.position, self.cube, self.direction, 0)
         self.board.set_score((self.p1.name, self.score['p1']),
                              (self.p2.name, self.score['p2']),
                               self.game.match.ML)
@@ -665,12 +670,12 @@ class GameControl:
         self.board.set_cube(self.cube, p1, p2, just_doubled, who)
 
     def greedy(self, player, dice):
-        d1, d2 = dice
+        d1, d2 = dice           # TODO: mit waste auch noch machen
         nick = player.nick
         a,b = self.home_board[nick]
-        nr_home = sum(self.position[a:b]) + self.home[nick]
-        logger.debug('GREEDY: %d,%d   %s  %d:%d   %d home    %s' % \
-                     (d1, d2, nick, a, b, nr_home, self.position[a:b]))
+        nr_home = sum(self.position[a:b]) + self.home[nick] # TODO abs(sum())
+        logger.debug('GREEDY: %d,%d   %s  %d:%d   %d home    %s  %d' % \
+                (d1, d2, nick, a, b, nr_home, self.position[a:b], self.home[nick]))
         if nr_home < 15:
             return {'greedy_possible': False,}
         if d1 == d2:
@@ -762,7 +767,7 @@ class GameControl:
         self.SM.action(p, 'accept')
 
     def _accepted(self, player, **kw):
-        a = self.params['value']
+        a = kw['value']
         if a > 1:
             player.chat_player('You accept and win %d points.' % a)
             player.chat_opponent('%s accepts and wins %d points.' % \
@@ -780,8 +785,11 @@ class GameControl:
 
     def may_double(self, player):
         match = self.status.match
-        return (match.ML > 1) and (not match.crawford) \
-               and (player.may_double())
+        pmd = player.may_double()
+        md = (match.ML > 1) and (not match.crawford) and pmd
+        logger.debug('may_double %s; reason ML %d   CR %s   PMD %s' % \
+                     (md, match.ML, match.crawford, pmd))
+        return md
 
     def save_state_to_status(self, name, player, kw):
         self.status.state_name = name
@@ -845,7 +853,7 @@ class Game(Persistent):
                                                 self.player2.name))
             self.start() #TODO: falls es stimmt
         else:
-            self.book_game(kw['winner'], value)
+            self.book_game(kw['winner'])
             self.stop()
 
     def weighed_experience(self, user, ML):
@@ -861,6 +869,8 @@ class Game(Persistent):
         Ew = self.weighed_experience(winner.user, ML)
         Pl = loser.user.rating()
         El = self.weighed_experience(loser.user, ML)
+        logger.debug('winner:  %f %d    loser:  %f %d' % (Pw,
+                        winner.user.experience(), Pl, loser.user.experience()))
         D = abs(Pw - Pl)
         n = sqrt(ML)
         d = D*n/2000. + 1.
@@ -875,8 +885,8 @@ class Game(Persistent):
             Rw =   Ew * nU
             Rl = - El * nU
         logger.info('booking the game for %s' % winner.name)
-        logger.info('winner: rating %f' % Rw)
-        logger.info('loser:  rating %f' % Rl)
+        logger.debug('winner: rating %f' % Rw)
+        logger.debug('loser:  rating %f' % Rl)
         winner.user.advance_rating(Rw, ML)
         loser.user.advance_rating(Rl, ML)
 
