@@ -183,7 +183,7 @@ class Status:                       # TODO:  dringend überprüfen, ob der
         return int(self.active_state[1] == 2)
 
     def is_online(self,):
-        return self.logged_in
+        return hasattr('self','logged_in') and self.logged_in
 
     def stamp(self,):
         self.timestamp = time.time()

@@ -91,10 +91,8 @@ class CLIP(Echo):
             d = self.buffer
             self.buffer = ''
             ds = d.rstrip('\r\n')
-            if hasattr(self, 'user'):
+            if hasattr(self, 'user') and not self.user is None:
                 self.user.status.stamp()
-            else:
-                print 'GUT ZU WISSEN, ES GIBT KEINEN USER'   #TODO  wegmachen
             self.myDataReceived(ds)
         
     def established(self, data):
@@ -104,7 +102,7 @@ class CLIP(Echo):
             self.transport.write('%s\r\n' % (result,))
             for b in self.scheduled_broadcasts:
                 self.factory.broadcast(b)
-            self.scheduled_broadcasts = []      # TODO: wird hier viel garbadge erzeugt??
+            self.scheduled_broadcasts = []      # TODO: wird hier viel garbage erzeugt??
 
     def authentication(self, data):
         self.login_time = int(time.time())
@@ -130,32 +128,39 @@ class CLIP(Echo):
                       'password':d[3], 'lou':self.factory.active_users,
                       }
                 self.user = getUser(**kw)
-                if self.user.online():
-                    self.transport.write(
-                        "** Warning: You are already logged in.\r\n")
-                    success = True
-                elif not self.user is None:
-                    self.user.set_protocol(self)
-                    self.user.set_login_data(self.login_time,
-                                             self.client_host)
-                    self.user.status.stamp()
-                    self.welcome(self.user)
-                    name = self.user.name
-                    self.user.status.logged_in = True
-                    self.myDataReceived = self.established
-                    success = True
-                    self.factory.broadcast('7 %s %s logs in' % (name, name),
-                                           exceptions=(name,))
-                    who = self.factory.command.c_rawwho(['rawwho',],
-                                                self.user, user=self.user)
-                    self.factory.broadcast(who, exceptions=(name,))
-                    # TODO: evtl. ist die letzte msg nicht korrekt; aber wie
-                    #       erfahren die clients sonst vom login?
-                    #       vielleicht telnet clients ausnehmen?
-                    #       beachte toggle notify
-                    #       siehe CLIP Who Info 
+                if not self.user is None:
+                    if self.user.online():
+                        self.transport.write(
+                            "** Warning: You are already logged in.\r\n")
+                        del self.user
+                        self.dropConnection('user is already logged in')
+                    else:
+                        self.user.set_protocol(self)
+                        self.user.set_login_data(self.login_time,
+                                                 self.client_host)
+                        self.user.status.stamp()
+                        self.welcome(self.user)
+                        name = self.user.name
+                        self.user.status.logged_in = True
+                        self.myDataReceived = self.established
+                        success = True
+                        self.factory.broadcast('7 %s %s logs in' % (name, name),
+                                               exceptions=(name,))
+                        who = self.factory.command.c_rawwho(['rawwho',],
+                                                    self.user, user=self.user)
+                        self.factory.broadcast(who, exceptions=(name,))
+                        # TODO: evtl. ist die letzte msg nicht korrekt; aber wie
+                        #       erfahren die clients sonst vom login?
+                        #       vielleicht telnet clients ausnehmen?
+                        #       beachte toggle notify
+                        #       siehe CLIP Who Info 
                 else:
                     print 'user not known or wrong password'
+                    # TODO: evtl. hier JavaFIBS rausschmeissen
+                    self.transport.write(
+                            "** User not known or wrong password.\r\n")
+                    del self.user
+                    self.dropConnection('user not known or wrong pw')
             else:
                 reason = 'Login process cancelled - ' \
                          'not enough paramaeters (%d)' % len(d)
@@ -180,6 +185,7 @@ class CLIP(Echo):
                     msg = "** Please use another name. '%s' is already " \
                             "used by someone else." % name
                     self.transport.write('%s\r\n' % (msg,))
+                    print 'rejected: name already in use'
                 # TODO:
 ##                elif name is not valid:
 ##                    msg = "** Your name may only contain letters and " \

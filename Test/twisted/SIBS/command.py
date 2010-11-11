@@ -91,6 +91,9 @@ class Command():
         else:
             me.tell(user, msg)
 
+    def c_Say(self, line, me):              # implemented
+        self.c_say(line, me)
+
     def c_say(self, line, me):              # implemented
         game, player = self.list_of_games.get_game_from_user(me)
         if game is None:
