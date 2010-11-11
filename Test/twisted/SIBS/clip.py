@@ -130,7 +130,7 @@ class CLIP(Echo):
                       'password':d[3], 'lou':self.factory.active_users,
                       }
                 self.user = getUser(**kw)
-                if self.user == 1:
+                if self.user.online():
                     self.transport.write(
                         "** Warning: You are already logged in.\r\n")
                     success = True

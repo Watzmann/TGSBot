@@ -396,6 +396,11 @@ class Player:
     def doubles(self,):
         self.owns_cube = False
         self.opponent.owns_cube = True
+
+    def reset_toggles(self,):
+        self.user.toggles.set_switch('double', True)
+        self.user.toggles.set_switch('autoroll', False)
+        self.user.toggles.set_switch('greedy', False)
         
 class Status:       # TODO: muss noch eingebunden werden
     def __init__(self, position, cube, direction, move):
@@ -488,9 +493,11 @@ class GameControl:
         self.p1 = game.player1
         self.p1.board = self.board  # TODO: braucht man das?
         self.p1.nick = 'p1'     # TODO: muss bald weg, nur für den Übergang
-        self.p2 = game.player2
+        self.p1.reset_toggles()
+        self.p2 = game.player2  # TODO: methode, die die Player initialisiert
         self.p2.board = self.board  # TODO: braucht man das?
         self.p2.nick = 'p2'     # TODO: muss bald weg, nur für den Übergang
+        self.p2.reset_toggles()
         self.players = {'p1':self.p1, 'p2':self.p2}
         self.dice = getDice(dice)
         self.cube = 1

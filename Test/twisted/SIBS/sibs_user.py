@@ -34,12 +34,11 @@ class UsersList:        # TODO: als Singleton ausführen
         return self.list_of_active_users
 
     def get_user(self, name, password):
-        if self.list_of_active_users.has_key(name):
-            return 1    # user is already logged in and get's a warning
+        if self.list_of_active_users.has_key(name): # user is already logged in
+            return self.list_of_active_users[name]  # and get's a warning
         user = self.list_of_all_users.get(name, None)
         if (not user is None) and (user.info.passwd != password):
-            print 'found user', user.name
-            print 'wrong password:', password
+            print 'found user', user.name, 'wrong password'
             user = None
         return user
 
@@ -55,6 +54,8 @@ class UsersList:        # TODO: als Singleton ausführen
 
     def online(self, user):
         self.list_of_active_users[user.name] = user
+        # TODO: lieber hier online-flag (status.logged_in) TRUE setzen,
+        #       als in clip.py
 
     def drop(self, name):
         print 'deleting %s from list of active users' % name
@@ -144,7 +145,9 @@ als Datencontainer dienen."""
 ##        ret = '.'.join(t)
         return ret
 
-class Status:
+class Status:                       # TODO:  dringend überprüfen, ob der
+                                    #        IMMER aktuell ist.
+                                    #   x für self.logged_in sieht es gut aus
     def __init__(self, toggles):
 ##        self.timestamp = time.time()
         self.toggles = toggles
@@ -168,7 +171,7 @@ class Status:
             self.active_state[1] = 2
         else:
             self.active_state[1] = 1
-        self.opponent = opponent
+        self.opponent = opponent    # TODO: brauch ich das noch?
         
     def get_readyflag(self,):
         return int(self.toggles.read('ready'))
@@ -178,6 +181,9 @@ class Status:
 
     def get_playingflag(self,):
         return int(self.active_state[1] == 2)
+
+    def is_online(self,):
+        return self.logged_in
 
     def stamp(self,):
         self.timestamp = time.time()
@@ -266,6 +272,10 @@ class Toggles:
 
     def has(self, switch, default=None):
         return {True: switch, False: default}[switch in self._switches]
+
+    def set_switch(self, switch, value):
+        if value in (True, False) and self.has(switch):
+            self._switches[switch] = value
 
     def show(self,):
         out = StringIO()
@@ -625,6 +635,9 @@ class User(Persistent):
     def is_playing(self,):
         return self.status.get_playingflag()
 
+    def online(self,):
+        return self.status.is_online()
+
     def __str__(self,):
         return self.who()
 
@@ -642,7 +655,7 @@ def newUser(**kw):
 def getUser(**kw):
     lou = kw['lou']
     user = lou.get_user(kw['user'], kw['password'])
-    if not user is None and not user == 1:
+    if not user is None and not user.online():
         lou.online(user)
     return user
 
