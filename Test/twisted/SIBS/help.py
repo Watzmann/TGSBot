@@ -15,11 +15,13 @@ v.register(__name__, REV)
 #def render_file(filename):
 
 class Help:
-    def __init__(self,):
+    def __init__(self, implemented_commands):
         help_file = open(os.path.join('ressources','help'))
         self.texte = dict(self.parse(help_file))
         self.issues = self.texte.keys()
         self.issues.sort
+        self.tag(implemented_commands)  # TODO: implemented_commands can go
+                                        #       when tag() is deleted
 
     def parse(self, hfile):
         name = ''
@@ -50,8 +52,36 @@ class Help:
         ret = self.texte.get(cmd, "no help on topic '%s'" % cmd)
         return ret
 
+    def tag(self, implemented):
+        """tag() tags commands in the 'help'-help with an asterisk,
+    in order to give people information, which commands are implemented
+    as yet.
+    This method is supposed to be utilized so long as the full blown set
+    of commands is not available.
+    """
+        doit = False
+        lines = self.help_('help')
+        for e,l in enumerate(lines):
+            if l.startswith('  about'):
+                doit = True
+            elif len(l) < 5:
+                break
+            if doit:
+                lines[e] = ' ' + l
+                line = lines[e]
+                a = l.split()
+                for b in a:
+                    if b in implemented:
+                        c = line.find(b)
+                        lines[e] = line[:c-1] + '+' + line[c:]
+                        line = lines[e]
+
+        lines += ["  + for the time being commands are prefixed with a " \
+                  "'+' to indicate which\n",
+                  "    commands are already available.\n"]
+
 if __name__ == '__main__':
-    h = Help()
+    h = Help(['about', 'accept', 'address', 'adios', 'board', 'bye'])
 ##    key = 'accept'
 ##    print key, h.texte[key]
     for c in sys.argv[1:]:

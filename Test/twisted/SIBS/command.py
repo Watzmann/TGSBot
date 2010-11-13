@@ -69,7 +69,7 @@ class Command():
         self.list_of_users = lou
         self.list_of_games = log   # TODO: was besseres als log (log ist logging)
         print 'implemented commands:', self.list_of_implemented_commands
-        self.help = Help()
+        self.help = Help(self.list_of_implemented_commands)
 
 # ----------------------------------------  Chat and Settings for other Players
 
@@ -79,8 +79,8 @@ class Command():
         else:
             me.shout(' '.join(line[1:]))
 
-    def c_kibitz(self, line, me):
-        return 'you kibitz: %s    %s' % (line[1:], NYI)
+    def c_kibitz(self, line, me):           # implemented
+        self.c_say(line, me)        # TODO: notbehelf - reparieren!!!
 
     def c_tell(self, line, me):             # implemented
         name = line[1]
@@ -90,9 +90,6 @@ class Command():
             return '%s is not here' % name
         else:
             me.tell(user, msg)
-
-    def c_Say(self, line, me):              # implemented
-        self.c_say(line, me)
 
     def c_say(self, line, me):              # implemented
         game, player = self.list_of_games.get_game_from_user(me)
@@ -104,7 +101,7 @@ class Command():
             me.tell(user, msg)
 
     def c_whisper(self, line, me):
-        return 'you whisper: %s    %s' % (line[1:], NYI)
+        return '** you whisper: %s    %s' % (line[1:], NYI)
 
     def c_message(self, line, me):          # implemented
         name = line[1]
@@ -520,11 +517,11 @@ class Command():
 # ----------------------------------------  ====================
 
     def unknown(self, line, me):
-        return 'unknown command %s    %s' % (line[0], NYI)
+        return "** Unknown command: '%s'" % line[0]
 
     def command(self, cmd):
 ##        print self.commands.get(cmd, self.unknown)
-        return self.commands.get(cmd, self.unknown)
+        return self.commands.get(cmd.lower(), self.unknown)
 
     def sample_commands(self,):
         # TODO: falls man mal commands in den laufenden server injizieren will:
