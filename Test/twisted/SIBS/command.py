@@ -385,7 +385,7 @@ class Command():
 
     def c_version(self, line, me):          # implemented
         # TODO: version line wie in fibs
-        return 'SIBS  %s' % VERSION.version()
+        return 'TGS  %s' % VERSION.version()
 
     def c_stat(self, line, me):
         return 'status of SIBS    %s' % NYI

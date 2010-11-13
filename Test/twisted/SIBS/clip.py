@@ -180,7 +180,7 @@ class CLIP(Echo):
             elif d[0] == 'name' and len(d) > 1:
                 name = d[1]
                 print "trying '%s'" % name
-                if (name in RESERVED_Users) or \
+                if (name in RESERVED_Users) or \    # TODO: auslagern nach lou
                    (not self.factory.active_users.get_from_all(name) is None):
                     msg = "** Please use another name. '%s' is already " \
                             "used by someone else." % name
@@ -259,10 +259,10 @@ class CLIP(Echo):
 
     def welcome(self, user):
         welcome = ['', user.welcome()]
-        welcome += [user.own_info(),]
+        welcome.append(user.own_info())
+        welcome.append(self.factory.command.c_version(['',], self.user))
         welcome += utils.render_file('motd').splitlines()
-        # TODO: hier statt fake_messages die echten messages ausgeben
-        welcome += user.deliver_messages() #utils.render_file('fake_message').splitlines()
+        welcome += user.deliver_messages()
         who = self.factory.command.c_rawwho(['rawwho',], self.user)
         welcome += [who,]
         self.cycle_message(welcome)

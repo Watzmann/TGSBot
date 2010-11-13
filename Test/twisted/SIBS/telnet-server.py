@@ -36,7 +36,7 @@ log.startLogging(sys.stdout)
 if '.production' in os.listdir('.'):
     PORT = 4321
 else:
-    PORT = 8080
+    PORT = 8081
 
 class ProxyFactory(http.HTTPFactory):
     protocol = CLIP   #Echo #proxy.Proxy

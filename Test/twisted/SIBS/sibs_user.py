@@ -17,7 +17,8 @@ v = Version()
 v.register(__name__, REV)
 
 DB_Users = 'db/users'
-RESERVED_Users = ('guest', 'systemwart', 'administrator')
+RESERVED_Users = ('guest', 'systemwart', 'administrator',
+                  'sorrytigger', 'tigger', 'Watzmann', 'TigerGammon', 'TiGa')
 ## TODO: RESERVED_Users gehören nicht in OpenSource
 
 class UsersList:        # TODO: als Singleton ausführen
@@ -480,7 +481,8 @@ class User(Persistent):
         self.chat('16 %s %s' % (user.name, msg))
 
     def shout(self, msg):
-        self.protocol.factory.broadcast('13 %s %s' % (self.name, msg))
+        self.protocol.factory.broadcast('13 %s %s' % (self.name, msg),
+                                                        exceptions=(name,))
         self.chat('17 %s' % (msg))
 
     def deliver_messages(self,):

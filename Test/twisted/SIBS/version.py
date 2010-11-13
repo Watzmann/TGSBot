@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Version of SIBS."""
 
-VERSION = '0.1'
+VERSION = '0.4'
 VERSION_STRING = 'pre-alpha'
 REV = '$Revision$'
 
