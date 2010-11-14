@@ -60,7 +60,7 @@ VERSION.register(__name__, REV)
 ## x resign
 ## redouble
 
-NYI = '##NYI##'
+NYI = 'is not implemented, yet'
 
 class Command():
     def __init__(self, lou, log):
@@ -101,7 +101,7 @@ class Command():
             me.tell(user, msg)
 
     def c_whisper(self, line, me):
-        return '** you whisper: %s    %s' % (line[1:], NYI)
+        return '** whisper %s' % NYI
 
     def c_message(self, line, me):          # implemented
         name = line[1]
@@ -111,16 +111,15 @@ class Command():
             return "Don't know user %s" % name
         else:
             me.send_message(user, msg)
-##        return 'message sent to %s: %s    %s' % (line[1], line[2:], NYI)
 
     def c_waitfor(self, line, me):
-        return 'you now wait for: %s    %s' % (line[1], NYI)
+        return 'waitfor %s' % NYI
 
     def c_gag(self, line, me):
-        return 'you gagged: %s    %s' % (line[1], NYI)
+        return 'gag %s' % NYI
 
     def c_blind(self, line, me):
-        return 'you blinded: %s    %s' % (line[1], NYI)
+        return 'blind %s' % NYI
 
 
 # ----------------------------------------  Between Game Actions
@@ -161,25 +160,25 @@ class Command():
         return msg
 
     def c_watch(self, line, me):
-        return 'you now watch: %s    %s' % (line[1], NYI)
+        return 'watch %s' % NYI
 
     def c_unwatch(self, line, me):
-        return 'you are not watching any more: %s    %s' % (line[1], NYI)
+        return 'unwatch %s' % NYI
 
     def c_look(self, line, me):
-        return 'you look at: %s    %s' % (line[1], NYI)
+        return 'look %s' % NYI
 
     def c_oldboard(self, line, me):
-        return 'you see the oldboard of: %s    %s' % (line[1], NYI)
+        return 'oldboard %s' % NYI
 
     def c_oldmoves(self, line, me):
-        return 'you see your old moves    %s' % NYI
+        return 'oldmoves %s' % NYI
 
     def c_away(self, line, me):
-        return 'you are away    %s' % NYI
+        return 'away %s' % NYI
 
     def c_back(self, line, me):
-        return 'welcome back    %s' % NYI
+        return 'back %s' % NYI
 
     def c_bye(self, line, me):              # implemented
         # TODO: unklar ist, welche Texte gesendet werden, wenn
@@ -318,7 +317,7 @@ class Command():
         return ''.join(self.help.help_(line[1]))
 
     def c_show(self, line, me):
-        return 'shown: %s    %s' % (line[1], NYI)
+        return 'show %s' % NYI
 
     def c_info(self, line, me):
         return me.info.show()
@@ -351,7 +350,7 @@ class Command():
         return out.getvalue()
 
     def c_where(self, line, me):
-        return 'where is %s from    %s' % (line[1], NYI)
+        return 'where %s' % NYI
 
     def c_rawwho(self, line, me, user=None):  # implemented
         out = StringIO()
@@ -370,13 +369,13 @@ class Command():
         return res
 
     def c_ratings(self, line, me):
-        return 'ratings given    %s' % NYI
+        return 'ratings %s' % NYI
 
     def c_last(self, line, me):
-        return 'info about last player    %s' % NYI
+        return 'last %s' % NYI
 
     def c_time(self, line, me):
-        return 'it is 5 past 12    %s' % NYI
+        return 'time %s' % NYI
 
 # ----------------------------------------  SIBS Info
 
@@ -386,29 +385,32 @@ class Command():
     def c_about(self, line, me):            # implemented
         return utils.render_file('about')
 
+    def c_news(self, line, me):             # implemented
+        return utils.render_file('news')
+
     def c_average(self, line, me):
-        return 'the average is about 8.3    %s' % NYI
+        return 'average %s' % NYI
 
     def c_dicetest(self, line, me):
-        return 'the dice are nice and cubic    %s' % NYI
+        return 'dice  %s' % NYI
 
     def c_version(self, line, me):          # implemented
         # TODO: version line wie in fibs
         return 'TGS  %s' % VERSION.version()
 
     def c_stat(self, line, me):
-        return 'status of SIBS    %s' % NYI
+        return 'status %s' % NYI
 
 # ----------------------------------------  Other Commands
 
     def c_clear(self, line, me):
-        return 'other commands    %s' % NYI
+        return 'clear %s' % NYI
 
     def c_erase(self, line, me):
-        return 'other commands    %s' % NYI
+        return 'erase %s' % NYI
 
     def c_shutdown(self, line, me):
-        return 'other commands    %s' % NYI
+        return 'shutdown %s' % NYI
 
 # ----------------------------------------  Undocumented Commands
 
@@ -447,7 +449,7 @@ class Command():
         self.c_move(line, me)
 
     def c_off(self, line, me):
-        return 'you bear off    %s' % NYI
+        return 'off %s' % NYI
 
     def c_board(self, line, me):            # implemented
         # TODO: Fehlerbehandlung
@@ -509,19 +511,19 @@ class Command():
             return '** You terminated the game. Saving games is not implemented, yet'
 
     def c_redouble(self, line, me):
-        return 'you redouble    %s' % NYI
+        return 'redouble %s' % NYI
 
     def c_beaver(self, line, me):
-        return 'you beaver    %s' % NYI
+        return 'beaver %s' % NYI
 
     def c_raccoon(self, line, me):
-        return 'you raccoon    %s' % NYI
+        return 'raccoon %s' % NYI
 
     def c_otter(self, line, me):
-        return 'you otter    %s' % NYI
+        return 'otter %s' % NYI
 
     def c_panic(self, line, me):
-        return "don't panic ... where is your towel    %s" % NYI
+        return "don't panic ... where is your towel %s" % NYI
 
 # ----------------------------------------  ====================
 

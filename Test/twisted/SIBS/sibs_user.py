@@ -50,10 +50,16 @@ class UsersList:        # TODO: als Singleton ausführen
                 'rrating': self.sorted_keys_rrating}[sort](users)
 
     def sorted_keys_login(self, users):
-        return [u.name for u in users]
+        keys = [u.name for u in users]
+        lau = self.list_of_active_users
+        compare = lambda x,y: cmp(lau[x].info.login,lau[y].info.login)
+        return sorted(keys, compare)
 
     def sorted_keys_name(self, users):
-        return [u.name for u in users]
+        keys = [u.name for u in users]
+        lau = self.list_of_active_users
+        compare = lambda x,y: cmp(lau[x].name,lau[y].name)
+        return sorted(keys, compare)
 
     def sorted_keys_rating(self, users):
         keys = [u.name for u in users]
