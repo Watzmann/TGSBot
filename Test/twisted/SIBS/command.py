@@ -347,7 +347,7 @@ class Command():
             print >>out, loau[u].who()
         # TODO:  laut spez wird nur beim rawwho die 6 garantiert geschickt
         #        aber javafibs kriegt die 6 und schickt nur n ordinaeres who
-##        print >>out, '6'
+        print >>out, '6'
         return out.getvalue()
 
     def c_where(self, line, me):
