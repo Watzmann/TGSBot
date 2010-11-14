@@ -31,8 +31,32 @@ class UsersList:        # TODO: als Singleton ausführen
 ##        for e,k in enumerate(self.list_of_all_users.keys()):
 ##            print e,k
 
-    def get_active_users(self):
+    def get_active_users(self,):
         return self.list_of_active_users
+
+    def sorted_keys(self, sort):
+        return {'login': self.sorted_keys_login,
+                'name': self.sorted_keys_name,
+                'rating': self.sorted_keys_rating,
+                'rrating': self.sorted_keys_rrating}[sort]()
+
+    def sorted_keys_login(self,):
+        return self.list_of_active_users.keys()
+
+    def sorted_keys_name(self,):
+        return self.list_of_active_users.keys()
+
+    def sorted_keys_rating(self,):
+        keys = self.list_of_active_users.keys()
+        lau = self.list_of_active_users
+        compare = lambda x,y: cmp(lau[x].rating(),lau[y].rating())
+        return sorted(keys, compare)
+
+    def sorted_keys_rrating(self,):
+        keys = self.list_of_active_users.keys()
+        lau = self.list_of_active_users
+        compare = lambda x,y: cmp(lau[x].rating(),lau[y].rating())
+        return sorted(keys, compare, reverse=True)
 
     def get_user(self, name, password):
         if self.list_of_active_users.has_key(name): # user is already logged in
@@ -380,6 +404,9 @@ class Settings:
             res = "** Unknown value '%s'. Try 'login', 'name', " \
                   "'rating' or 'rrating'." % vals[0]
         return res
+
+    def get_sortwho(self,):
+        return self._sortwho
 
     def timezone(self, *values):
         vals = values[0]

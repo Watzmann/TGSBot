@@ -327,13 +327,15 @@ class Command():
         # TODO: wieder gerade ziehen
         #       user=None kommt weg und wird ersetzt durch "who user"
         #       Implementieren von "who" mit parametern
-        out = StringIO()
-        if user is None:
+#        if user is None:
+        if len(line) == 1:
             lou = self.list_of_users.get_active_users()
+            users = self.list_of_users.sorted_keys(me.settings.get_sortwho())
         else:
             lou = {user.name:user}
-        users = lou.keys()
-        # TODO          set sortwho auf  users  anwenden
+            users = [user.name,]
+
+        out = StringIO()
         for u in users:
             print >>out, lou[u].who()
         # TODO:  laut spez wird nur beim rawwho die 6 garantiert geschickt

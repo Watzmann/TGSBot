@@ -179,8 +179,8 @@ class CLIP(Echo):
                 self.logout('guest')            # closing connection
             elif d[0] == 'name' and len(d) > 1:
                 name = d[1]
-                print "trying '%s'" % name
-                if (name in RESERVED_Users) or \    # TODO: auslagern nach lou
+                print "trying '%s'" % name      # TODO: das Folgende auslagern nach lou
+                if (name in RESERVED_Users) or \
                    (not self.factory.active_users.get_from_all(name) is None):
                     msg = "** Please use another name. '%s' is already " \
                             "used by someone else." % name
