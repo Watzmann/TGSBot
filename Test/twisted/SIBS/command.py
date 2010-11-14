@@ -328,20 +328,26 @@ class Command():
         #       user=None kommt weg und wird ersetzt durch "who user"
         #       Implementieren von "who" mit parametern
 #        if user is None:
+        lou = self.list_of_users
+        loau = lou.get_active_users()
+        sort_who = me.settings.get_sortwho()
         if len(line) == 1:
-            lou = self.list_of_users.get_active_users()
-            users = self.list_of_users.sorted_keys(me.settings.get_sortwho())
+            users = lou.get_sorted_keys(sort = sort_who)
+        elif line[1] in ('away','ready','playing','count','from'):
+            users = lou.get_sorted_keys(ufilter=line[1], sort = sort_who)
         else:
-            user = self.list_of_users.get_from_all(line[1])
-            lou = {user.name: user}
-            users = [user.name,]
+            user = lou.get_active(line[1])
+            if not user is None:
+                users = [user.name,]
+            else:
+                return "** There is no one called '%s'" % line[1]
 
         out = StringIO()
         for u in users:
-            print >>out, lou[u].who()
+            print >>out, loau[u].who()
         # TODO:  laut spez wird nur beim rawwho die 6 garantiert geschickt
         #        aber javafibs kriegt die 6 und schickt nur n ordinaeres who
-        print >>out, '6'
+##        print >>out, '6'
         return out.getvalue()
 
     def c_where(self, line, me):

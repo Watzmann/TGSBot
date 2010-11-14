@@ -31,32 +31,40 @@ class UsersList:        # TODO: als Singleton ausführen
 ##        for e,k in enumerate(self.list_of_all_users.keys()):
 ##            print e,k
 
+    criterion = {'away': lambda u: u.is_away(),
+                 'ready': lambda u: u.is_ready(),
+                 'playing': lambda u: u.is_playing()
+                 }
+    
     def get_active_users(self,):
         return self.list_of_active_users
 
-    def sorted_keys(self, sort):
+    def get_sorted_keys(self, ufilter = '', sort = 'name'):
+        users = self.list_of_active_users.values()
+        if ufilter in ('away','ready','playing',):
+            users = filter(self.criterion[ufilter],
+                           self.list_of_active_users.values())
         return {'login': self.sorted_keys_login,
                 'name': self.sorted_keys_name,
                 'rating': self.sorted_keys_rating,
-                'rrating': self.sorted_keys_rrating}[sort]()
+                'rrating': self.sorted_keys_rrating}[sort](users)
 
-    def sorted_keys_login(self,):
-        return self.list_of_active_users.keys()
+    def sorted_keys_login(self, users):
+        return [u.name for u in users]
 
-    def sorted_keys_name(self,):
-        return self.list_of_active_users.keys()
+    def sorted_keys_name(self, users):
+        return [u.name for u in users]
 
-    def sorted_keys_rating(self,):
-        keys = self.list_of_active_users.keys()
+    def sorted_keys_rating(self, users):
+        keys = [u.name for u in users]
         lau = self.list_of_active_users
         compare = lambda x,y: cmp(lau[x].rating(),lau[y].rating())
         return sorted(keys, compare)
 
-    def sorted_keys_rrating(self,):
-        keys = self.list_of_active_users.keys()
-        lau = self.list_of_active_users
-        compare = lambda x,y: cmp(lau[x].rating(),lau[y].rating())
-        return sorted(keys, compare, reverse=True)
+    def sorted_keys_rrating(self, users):
+        keys = self.sorted_keys_rating(users)
+        keys.reverse()
+        return keys
 
     def get_user(self, name, password):
         if self.list_of_active_users.has_key(name): # user is already logged in
@@ -509,7 +517,7 @@ class User(Persistent):
 
     def shout(self, msg):
         self.protocol.factory.broadcast('13 %s %s' % (self.name, msg),
-                                                        exceptions=(name,))
+                                                    exceptions=(self.name,))
         self.chat('17 %s' % (msg))
 
     def deliver_messages(self,):
@@ -659,10 +667,16 @@ class User(Persistent):
         return self.info.experience
 
     def ready(self,):
-        return self.toggles.read('ready')
+        return self.toggles.read('ready')   # TODO: tell me the difference to is_ready()
 
     def is_playing(self,):
         return self.status.get_playingflag()
+
+    def is_away(self,):
+        return self.status.get_awayflag()
+
+    def is_ready(self,):
+        return self.ready()     # TODO - noch zu unsicher: status.get_readyflag()
 
     def online(self,):
         return self.status.is_online()
