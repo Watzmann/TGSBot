@@ -332,7 +332,8 @@ class Command():
             lou = self.list_of_users.get_active_users()
             users = self.list_of_users.sorted_keys(me.settings.get_sortwho())
         else:
-            lou = {user.name:user}
+            user = self.list_of_users.get_from_all(line[1])
+            lou = {user.name: user}
             users = [user.name,]
 
         out = StringIO()
