@@ -613,7 +613,11 @@ class User(Persistent):
         ML = self.invitations.get(invited_and_joining.name, None)
         if not ML is None:
             self.status.playing(invited_and_joining.name)
+            self.chat('** Player %s has joined you for a %s point ' \
+                                    'match' % (invited_and_joining.name, ML))
             invited_and_joining.status.playing(self.name)
+            invited_and_joining.chat('** You are now playing a %s point ' \
+                                            'match with %s.' % (ML, self.name))
             kw = {'player1':self, 'player2':invited_and_joining}
             kw['ML'] = ML
             kw['dice'] = self.dice

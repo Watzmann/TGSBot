@@ -449,7 +449,7 @@ class BGMachine(StateMachine):
              'turn_started': (('roll', states['rolled'], False, caller._roll),
                         ('double', states['doubled'], False, caller._double),),
              'doubled': (('accept', states['taken'], False, caller._take),
-                        ('reject', states['finished'], False, caller._drop),),
+                        ('reject', states['finished'], False, caller._pass),),
              'taken': (('roll', states['rolled'], True, caller._roll),),
              'rolled': (('check', states['checked'], True, caller.check_roll),),
              'checked': (('move', states['moved'], False, caller._move),
@@ -534,7 +534,8 @@ class GameControl:
         logger.log(TRACE, 'in start  %s  %s  %s' % (self.turn, self.pieces,
                                                     self.board._dice_info))
         self.set_move()
-        return {'roll': self.dice_roll, 'turn': self.whos_turn_p1()}
+        return {'roll': self.dice_roll, 'turn': self.whos_turn_p1(),
+                'game_started': True}
 
     def whos_turn(self,):
         return {1:self.p1.user, 2:self.p2.user, 0:None}[self.turn]
@@ -626,14 +627,16 @@ class GameControl:
         self.cube = self.cube * 2
         player.doubles()
         self.set_cube(1, player.nick)
-        return {}
+        return {'value': self.cube}
 
     def _take(self, player):
         self.status.value = self.cube
-        return {}
+        return {'value': self.cube}
 
-    def _drop(self, player):
-        return {'winner': player.opponent, 'value': self.status.value}
+    def _pass(self, player):
+        return {'winner': player.opponent,
+                'value': self.status.value,
+                'reason': 'passed'}
 
     def _win(self, player, **kw):
         if 'value' in kw:
@@ -648,7 +651,7 @@ class GameControl:
                 if sum(self.position[a:b]) != 0:
                     value = 3   # backgammon
         value = value * self.status.value
-        return {'winner': player, 'value': value}
+        return {'winner': player, 'value': value, 'reason': 'won'}
 
     def resign(self, player, value):
         p = self.players[player]    # TODO: hier aufräumen
@@ -774,15 +777,7 @@ class GameControl:
         self.SM.action(p, 'accept')
 
     def _accepted(self, player, **kw):
-        a = kw['value']
-        if a > 1:
-            player.chat_player('You accept and win %d points.' % a)
-            player.chat_opponent('%s accepts and wins %d points.' % \
-                                                         (player.name,a))
-        elif a == 1:
-            player.chat_player('You accept and win 1 point.')
-            player.chat_opponent('%s accepts and wins 1 point.' % player.name)
-        return {'response': 'accepted', 'winner': player}
+        return {'response': 'accepted', 'winner': player, 'reason': 'resigned'}
 
     def hand_over(self, player, **kw):    # TODO: wird das noch gebraucht?
         self.turn = 3 - self.turn         #       JA, solange turn gebraucht wird
@@ -834,9 +829,6 @@ class Game(Persistent):
         self.save()
 
     def start(self,):
-        msg = 'Starting a new game with %s'
-        self.player1.user.chat(msg % self.player2.name)
-        self.player2.user.chat(msg % self.player1.name)
         self.control.start()
 
     def stop(self,):
@@ -849,11 +841,19 @@ class Game(Persistent):
         value = kw['value']
         self.match.score[winner] += value
         winners_score = self.match.score[winner]
+        losers_score = self.match.score[kw['winner'].opponent.nick]
+        winner_name = kw['winner'].name
+        loser_name = kw['winner'].opp_name
         logger.info('winner %s in game_over. value: %d. score %s' % \
-                    (kw['winner'].name, value, self.match.score))
+                    (winner_name, value, self.match.score))
+        msg = 'score in %d point match: %s-%d %s-%d' % \
+                          (self.match.ML, winner_name, winners_score,
+                                               loser_name, losers_score)
+        kw['winner'].chat_player(msg)
+        kw['winner'].chat_opponent(msg)
         if winners_score < self.match.ML:
             self.match.crawford = ((self.match.ML - winners_score) == 1) and \
-                        (self.player1.crawford() and self.player1.crawford())
+                        (self.player1.crawford() and self.player2.crawford())
             self.control = GameControl(self, dice=self.dice)
             self.control.status.match = self.match
             logger.info('Next game in match %s vs %s' % (self.player1.name,

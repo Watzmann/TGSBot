@@ -116,6 +116,11 @@ class GameStarted(State):
         self.name = 'game_started'
         State.__init__(self)
 
+    def _chat(self, msg=None):
+        msg = 'Starting a new game with %s.'
+        self.player.chat_player(msg % self.player.opp_name)
+        self.player.chat_opponent(msg % self.player.name)
+
     def _action(self, player, cmd, **params):
         """Special treatment while starting a game. Set active player as a
     result of starting rolls.
@@ -147,8 +152,8 @@ class TurnStarted(State):
         self.player.board_player()
         if self.params['may_double']:
             if msg is None:
-                msg = 'please roll or double'
-            self.player.chat_player(msg)  # TODO noch nicht korrekt
+                msg = "It's your turn. Please roll or double"
+            self.player.chat_player(msg)
 
     def _auto_action(self,):
         """Decide whether player may double and automatically perform
@@ -191,8 +196,11 @@ class Taken(State):
 
     def _chat(self, msg=None):
         if msg is None:
-            msg = 'you accept, the cube shows'
-        self.player.chat_player(msg)  # TODO noch nicht korrekt
+            cube = 'The cube shows %d.' % self.params['value']
+            msg = 'You accept the double. %s' % cube
+            self.player.chat_opponent(msg)
+            msg = '%s accepts the double. %s' % (self.player.opp_name, cube)
+            self.player.chat_player(msg)
 
 class Rolled(State):
     """State H: dice have been rolled."""
@@ -202,16 +210,16 @@ class Rolled(State):
         State.__init__(self)
 
     def _chat(self, msg=None):
-        if msg is None:
+        if self.params.has_key('game_started'):
+            self.player.chat_player("It's your turn to move.")
+            self.player.chat_opponent('%s makes the first move.' % \
+                                                      self.player.name)
+        else:
             a, b = self.params['roll']
-            msg = 'You roll %d, %d' % (a,b)
-            self.player.chat_player(msg)  # TODO noch nicht korrekt
-            msg = '%s rolled %d, %d' % (self.player.name, a, b)
-            self.player.chat_opponent(msg)  # TODO noch nicht korrekt
-
-    # he rolls; you roll
-    # +++++++++++ check      (auto)
-    # please move n pieces          könnte doch auch in Checked sein?
+            msg = 'You roll %d and %d.' % (a,b)
+            self.player.chat_player(msg)
+            msg = '%s rolls %d and %d.' % (self.player.name, a, b)
+            self.player.chat_opponent(msg)
 
 class TurnFinished(State):
     """State I: this turn has been finished."""
@@ -256,6 +264,10 @@ class Checked(State):
         if self.actions[follower]['auto']:
             logger.log(TRACE, 'automatic cmd: %s' % follower)
             self.action(self.player, follower)
+            ## TODO: chat The only possible move is d-e ... j-k .
+        else:
+            self.player.chat_player("Please move %d pieces." % \
+                                        self.params['nr_pieces'])
 
 class Moved(State):
     """State F: move has been made."""
@@ -266,7 +278,7 @@ class Moved(State):
 
     def _chat(self, msg=None):
         if msg is None:
-            msg = '%s moves %s' % (self.player.name,
+            msg = '%s moves %s  .' % (self.player.name,
                                    ' '.join(self.params['moved']))
         self.player.chat_opponent(msg)
 
@@ -292,7 +304,35 @@ class GameFinished(State):
         self.name = 'finished'
         State.__init__(self)
 
-    # you win 1 point......
+    def _chat(self, msg=None):
+        if msg is None:
+            try:
+                reason = self.params['reason']
+            except:
+                logger.error("FINISH WITHOUT 'reason'!!!")
+                raise           # TODO: alle fälle abfangen, dann kann das hier weg
+            v = self.params['value']
+            opp = self.player.opp_name
+            me = self.player.name
+            if v == 1:
+                points = '1 point'
+            else:
+                points = '%d points' % v
+            if reason == 'won':
+                msg_me = 'You win the game and get %s. ' \
+                                         'Congratulations!' % points
+                msg_him = '%s wins the game and gets %s. Sorry.' % (me, points)
+            elif reason == 'passed':
+                msg_me = '%s gives up. You win %s.' % (opp, points)
+                msg_him = "You give up. %s wins %s." % (me, points)
+            elif reason == 'resigned':
+                msg_me = "%s accepts and wins %s." % (opp, points)
+                msg_him = 'You accept and win %s.' % points
+            else:
+                logger.warning("FINISH: reason '%s' not known!" % reason)
+                msg_him = msg_me = 'I feel a little confused.'
+            self.player.chat_player(msg_me)
+            self.player.chat_opponent(msg_him)
 
 class Resigned(State):
     """State J: a player resigns the game."""

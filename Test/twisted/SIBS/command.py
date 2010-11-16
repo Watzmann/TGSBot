@@ -153,11 +153,9 @@ class Command():
         if not him is None:
             him.join(me, self.list_of_games)    # TODO: deferred
             self.update_who(me)
-            self.update_who(him)
-            msg = '** You are now playing a n point match with %s.' % user
+            #self.update_who(him)       # TODO: broadcast doppelt, kann weg
         else:
-            msg = "user %s is not logged in" % user
-        return msg
+            return "user %s is not logged in" % user
 
     def c_watch(self, line, me):
         return 'watch %s' % NYI
