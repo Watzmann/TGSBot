@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.DEBUG,
                 )
 logger = logging.getLogger('utilities')
 
-def check_roll(dice, position, bar_nr, direction):
+def check_roll_old(dice, position, nr_bar, direction):
     """Checks for possible moves depending on 'dice'."""
     exhausted = False
     list_of_moves = []  # TODO: lieber dict?
@@ -70,3 +70,54 @@ def check_roll(dice, position, bar_nr, direction):
     if exhausted:
         logger.info('der spieler kann nur %d zuege ziehen' % nr_of_moves)
     return {'nr_pieces': nr_of_moves, 'list_of_moves': list_of_moves,}
+
+def check_roll(dice, position, bar_nr, direction):
+    """Checks for possible moves depending on 'dice'."""
+    exhausted = False
+    list_of_moves = []  # TODO: lieber dict?
+    pos = position      # TODO: vielleicht bei position bleiben
+    d1, d2 = dice
+    my_dice = list(dice[:])
+    nr_of_moves = {True:4, False:2}[d1 == d2]
+    # -------------------------------------------enter from the bar
+    bar_moves = min(nr_of_moves, bar_nr)
+    if bar_moves:
+        ret = check_bar_moves(dice, position, bar_moves, direction['bar'])
+        # ret {'remains': der rest,}
+    # -------------------------------------------
+    if bar_moves > 0:
+        nr_of_moves = len(list_of_moves)
+        exhausted = True
+    if exhausted:
+        logger.info('der spieler kann nur %d zuege ziehen' % nr_of_moves)
+    return {'nr_pieces': nr_of_moves, 'list_of_moves': list_of_moves,}
+
+def check_bar_moves(position, nr_bar_moves, bar):
+    list_of_moves = []  # TODO: lieber dict?
+    #pos = position      # TODO: vielleicht bei position bleiben
+    d1, d2 = dice
+    my_dice = list(dice[:])
+    nr_of_moves = {True:4, False:2}[d1 == d2]
+    if d1 == d2:
+        if bar == 25:
+            p = bar - d1
+            if position[p] > -2:
+                list_of_moves = ['bar-%d' % p,]*bar_moves
+                my_dice = [my_dice[0],]*(4-bar_moves)
+                bar_moves = 0
+                logger.info('pasch getested: bar %d  wurf %d   point %d   ' \
+                     'checker %d  (%s) (%s) (%d)' % \
+                     (bar,d,p,pos[p],list_of_moves,my_dice,bar_moves))
+                break
+        elif bar == 0:
+            p = bar + d1
+            if pos[p] < 2:
+                list_of_moves = ['bar-%d' % p,]*bar_moves
+                my_dice = [my_dice[0],]*(4-bar_moves)
+                bar_moves = 0
+                logger.info('pasch getested: bar %d  wurf %d   point %d   ' \
+                     'checker %d  (%s) (%s) (%d)' % \
+                     (bar,d,p,pos[p],list_of_moves,my_dice,bar_moves))
+                break
+    ret = {'remains': der rest,}
+    return ret

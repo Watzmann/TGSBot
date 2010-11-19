@@ -527,10 +527,11 @@ class GameControl:
         a = b = 0
         while a == b:
             a,b = self.dice.roll()
-            self.game.starting_rolls(a,b)
+            self.game.starting_rolls(a,b)   # communicate rolls to players
         self.dice_roll = d = (a,b)
         self.turn = {True:1, False:2}[a>b]
-        self.pieces = {True:4, False:2}[d[0]==d[1]]
+        self.pieces = 2             # TODO: hier gibt's doch keine pasch!!????
+                                    #       {True:4, False:2}[d[0]==d[1]]
         self.board.set_dice(self.turn, d)
         logger.log(TRACE, 'in start  %s  %s  %s' % (self.turn, self.pieces,
                                                     self.board._dice_info))
