@@ -306,10 +306,10 @@ DESCRIPTION
   Let's say that two players P1 and P2 were playing a n-point match. 
   The ratings of the players are r1 for P1 and r2 for P2 . 
   Let D = abs(r1-r2) (rating difference) 
-  Let P_upset = 1/(10^(D*sqrt(n)/2000)+1) (probability that underdog wins) 
+  Let P_upset = 1/(1+10^(D*sqrt(n)/2000)) (probability that underdog wins) 
   Let P=1-P_upset if the underdog wins and P=P_upset if the favorite wins. 
   For the winner: 
-  Let K = max ( 1 , -experience/400+2 ) 
+  Let K = max ( 1 , 5-experience/400 ) 
   The rating change is: 4*K*sqrt(n)*P 
   For the loser: 
   Let K = max ( 1 , -experience/400+2 ) 

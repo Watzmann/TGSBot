@@ -846,12 +846,12 @@ class Game(Persistent):
         loser_name = kw['winner'].opp_name
         logger.info('winner %s in game_over. value: %d. score %s' % \
                     (winner_name, value, self.match.score))
-        msg = 'score in %d point match: %s-%d %s-%d' % \
-                          (self.match.ML, winner_name, winners_score,
-                                               loser_name, losers_score)
-        kw['winner'].chat_player(msg)
-        kw['winner'].chat_opponent(msg)
         if winners_score < self.match.ML:
+            msg = 'score in %d point match: %s-%d %s-%d' % \
+                              (self.match.ML, winner_name, winners_score,
+                                                   loser_name, losers_score)
+            kw['winner'].chat_player(msg)
+            kw['winner'].chat_opponent(msg)
             self.match.crawford = ((self.match.ML - winners_score) == 1) and \
                         (self.player1.crawford() and self.player2.crawford())
             self.control = GameControl(self, dice=self.dice)
@@ -860,14 +860,20 @@ class Game(Persistent):
                                                 self.player2.name))
             self.start() #TODO: falls es stimmt
         else:
+            score = '%d-%d .' % (winners_score, losers_score)
+            ML = self.match.ML
+            msg = 'You win the %d point match %s' % (ML, score)
+            kw['winner'].chat_player(msg)
+            msg = '%s wins the %d point match %s' % (winner_name, ML, score)
+            kw['winner'].chat_opponent(msg)
             self.book_game(kw['winner'])
             self.stop()
 
     def weighed_experience(self, user, ML):
         exp = user.experience() + ML 
-        if exp < 400:
-            exp = max(1, 5. - exp/100.)
-        return 4. * exp
+        if exp < 400:               # TODO:  bitte dringend noch mal überprüfen
+            return 4. * max(1, 5. - exp/100.)
+        return 4.
 
     def book_game(self, winner):
         loser = winner.opponent
@@ -879,9 +885,9 @@ class Game(Persistent):
         logger.debug('winner:  %f %d    loser:  %f %d' % (Pw,
                         winner.user.experience(), Pl, loser.user.experience()))
         D = abs(Pw - Pl)
-        n = sqrt(ML)
-        d = D*n/2000. + 1.
-        U = 1./10.**d
+        n = sqrt(ML)            # TODO: die eigentliche Berechnung rauslösen
+        d = D*n/2000.           #       und durch unittests absichern
+        U = 1./(10.**d + 1.)
         F = 1. - U
         if Pw > Pl:
             nU = n * U
@@ -898,6 +904,7 @@ class Game(Persistent):
         loser.user.advance_rating(Rl, ML)
 
     def starting_rolls(self, p1, p2):   # TODO: gehoert hoch ins control
+                                        #       oder? kommunikation??
         msg = 'You rolled %s, %s rolled %s'
         self.player1.user.chat(msg % (p1, self.player2.name, p2))
         self.player2.user.chat(msg % (p2, self.player1.name, p1))
