@@ -12,7 +12,7 @@ import telnetlib
 import time
 
 HOST = "localhost"
-PORT = 8080
+PORT = 8081
 
 Nr = -1
 

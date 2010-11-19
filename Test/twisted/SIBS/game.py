@@ -10,6 +10,7 @@ from math import sqrt
 from dice import getDice
 import logging
 from persistency import Persistent, Db
+import game_utilities
 from version import Version
 
 v = Version()
@@ -551,60 +552,11 @@ class GameControl:
         player = player.nick    # TODO: prüfen, was man hier am besten nimmt,
                                 #       um die Zuordnung zum Spieler zu kriegen
         logger.info('check_roll %s fuer spieler %s' % (dice, player))
-        exhausted = False
-        list_of_moves = []  # TODO: lieber dict?
-        pos = self.position
-        d1, d2 = dice
-        my_dice = list(dice[:])
-        nr_of_moves = {True:4, False:2}[d1 == d2]
-        # -------------------------------------------enter from the bar
-        bar_moves = min(nr_of_moves, self.bar[player])
-        bar = self.direction[player]['bar']
-        if bar_moves:
-            logger.info('der spieler %s hat %d moves von der bar (%d)' % \
-                        (player, bar_moves, bar))
-            for d in dice:
-                if bar == 25:
-                    p = bar - d
-                    if pos[p] > -2:
-                        if nr_of_moves == 2:
-                            list_of_moves.append('bar-%d' % p)
-                            my_dice.remove(d)
-                            bar_moves -=1
-                        else:
-                            list_of_moves = ['bar-%d' % p,]*bar_moves
-                            my_dice = [my_dice[0],]*(4-bar_moves)
-                            bar_moves = 0
-                            logger.info('pasch getested: bar %d  wurf %d   point %d   ' \
-                                 'checker %d  (%s) (%s) (%d)' % \
-                                 (bar,d,p,pos[p],list_of_moves,my_dice,bar_moves))
-                            break
-                elif bar == 0:
-                    p = bar + d
-                    if pos[p] < 2:
-                        if nr_of_moves == 2:
-                            list_of_moves.append('bar-%d' % p)
-                            my_dice.remove(d)
-                            bar_moves -=1
-                        else:
-                            list_of_moves = ['bar-%d' % p,]*bar_moves
-                            my_dice = [my_dice[0],]*(4-bar_moves)
-                            bar_moves = 0
-                            logger.info('pasch getested: bar %d  wurf %d   point %d   ' \
-                                 'checker %d  (%s) (%s) (%d)' % \
-                                 (bar,d,p,pos[p],list_of_moves,my_dice,bar_moves))
-                            break
-                logger.info('hab getested: bar %d  wurf %d   point %d   ' \
-                     'checker %d  (%s)' % (bar,d,p,pos[p],list_of_moves))
-        if bar_moves > 0:
-            nr_of_moves = len(list_of_moves)
-            exhausted = True
-        if exhausted:
-            logger.info('spieler %s kann nur %d zuege ziehen' % (player, nr_of_moves))
-        self.pieces = nr_of_moves
+        ret = game_utilities.check_roll(dice, self.position,
+                                    self.bar[player], self.direction[player])
+        self.pieces = ret['nr_pieces']
         self.set_move()     # TODO: wurde hier was verändert, so dass man set_move()
                             #       machen muss??
-        ret = {'nr_pieces': nr_of_moves, 'list_of_moves': list_of_moves,}
         if player_obj.user.greedy_bearoff():
             ret.update(self.greedy(player_obj, dice))
         logger.debug('noch mal check_roll: %s   ' % ret)
