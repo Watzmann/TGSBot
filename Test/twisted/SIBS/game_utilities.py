@@ -73,9 +73,6 @@ def check_roll_old(dice, position, nr_bar, direction):
 
 def check_roll(dice, position, bar_nr, direction):
     """Checks for possible moves depending on 'dice'."""
-    exhausted = False
-    #list_of_moves = []  # TODO: lieber dict?
-    #pos = position      # TODO: vielleicht bei position bleiben
     d1, d2 = dice
     if d1 == d2:
         nr_of_moves = 4
@@ -85,27 +82,34 @@ def check_roll(dice, position, bar_nr, direction):
         my_dice = list(dice[:])
     list_of_moves = []
     nr_moved_pieces = 0
-    forced_move = False
+    forced_move = True
     checks_neccessary = True
     # ------------------------------------------- enter from the bar
     bar_moves = min(nr_of_moves, bar_nr)
+    my_pos = position[:]
+    print my_pos
     if bar_moves:
-        ret = check_bar_moves(dice, position, bar_moves, direction['bar'])
+        ret = check_bar_moves(dice, my_pos, bar_moves, direction['bar'])
         my_dice = ret['my_dice']
         list_of_moves = ret['list_of_moves']
         forced_move = ret['forced_move']
         checks_neccessary = ret['checks_neccessary']
         nr_moved_pieces = ret['nr_moved_pieces']
         nr_of_moves = ret['remaining_moves']
+        print '..... ret', ret
     # ------------------------------------------- moves in the board
+    print my_pos
     if checks_neccessary:
         print '+++++++++++++', nr_of_moves
-        ret = check_board_moves(tuple(my_dice), position[1:-1], nr_of_moves,
+        ret = check_board_moves(tuple(my_dice), my_pos[1:-1], nr_of_moves,
                                                         direction['bar'])
         print '##### ret', ret
         # TODO  not (if len(dice) > 2 elif (len(dice) == 2) if dice[0] == dice[1])
         #       and if forced move oder vielleicht nicht alle gesetzt
         #       dann noch mal mit vertauschten dice durch check_board_moves
+        nr_moved_pieces += ret['nr_moved_pieces']
+        list_of_moves += ret['list_of_moves']
+        forced_move = forced_move and ret['forced_move']
     if nr_moved_pieces < nr_of_moves:
         nr_of_moves = len(list_of_moves)
         logger.info('der spieler kann nur %d zuege ziehen' % nr_of_moves)
@@ -123,9 +127,9 @@ def check_board_moves(dice, position, nr_of_moves, bar):
                 if p > 0:
                     if (e >= d) and (position[e-d] > -2):
                         list_of_moves.append('%d-%d' % (e+1,e+1-d))
-                        if not found:
-                            position[e] -= 1
-                            position[e-d] += 1
+##                        if not found:
+                        position[e] -= 1
+                        position[e-d] += 1
                         remaining_moves -= 1
                         found += 1
                         logger.debug('found: wurf %d   point %d,%d  move %s   ' \
@@ -140,11 +144,15 @@ def check_board_moves(dice, position, nr_of_moves, bar):
                 if p < 0:
                     if (e+d < 24) and (position[e+d] < 2):
                         list_of_moves.append('%d-%d' % (e+1,e+1+d))
-                        if not found:
-                            position[e] -= 1
-                            position[e+d] += 1
+##                        if not found:
+                        position[e] -= 1
+                        position[e+d] += 1
                         remaining_moves -= 1
                         found += 1
+                        logger.debug('found: wurf %d   point %d,%d  move %s   ' \
+                                     '(%s) Forced move: %s' % \
+                                     (d, e, p, list_of_moves[-1],
+                                      list_of_moves, forced_move))
                 if (found > 1) or ((found == 1) and not forced_move):
                     forced_move = False
                     break
@@ -174,6 +182,11 @@ def check_bar_moves(dice, position, nr_bar_moves, bar):
         if move_possible:
             nr_moved_pieces = min(nr_bar_moves, 4)
             remaining_moves = 4 - nr_moved_pieces
+            if bar == 25:
+                position[p] = nr_moved_pieces
+            elif bar == 0:
+                position[p] = -nr_moved_pieces
+            print position
             forced_move = remaining_moves == 0
             checks_neccessary = remaining_moves > 0
             list_of_moves = ['bar-%d' % p,] * nr_moved_pieces
@@ -197,6 +210,7 @@ def check_bar_moves(dice, position, nr_bar_moves, bar):
                     list_of_moves.append('bar-%d' % p)
                     my_dice.remove(d)
                     remaining_moves -= 1
+                    position[p] = 1
                 logger.debug('normal testing: bar %d  wurf %d   point %d   ' \
                      'checker %d  (%s) (%s) (%d)  Forced move: %s' % \
                      (bar, d, p, position[p], list_of_moves, my_dice,
@@ -208,6 +222,7 @@ def check_bar_moves(dice, position, nr_bar_moves, bar):
                     list_of_moves.append('bar-%d' % p)
                     my_dice.remove(d)
                     remaining_moves -= 1
+                    position[p] = -1
                 logger.debug('normal testing: bar %d  wurf %d   point %d   ' \
                      'checker %d  (%s) (%s) (%d)  Forced move: %s' % \
                      (bar, d, p, position[p], list_of_moves, my_dice,
@@ -238,10 +253,18 @@ def check_bar_moves(dice, position, nr_bar_moves, bar):
     return ret
 
 if __name__ == '__main__':
-    data = [{'dice':[(6,6), (5,5), (3,3), (6,5), (6,2), (2,1),],
-             'pos': [0, 0,0,0,1,4,5, 0,3,0,0,0,0,
+    data = [{'dice':[(6,6), ],  #(5,5), (3,3), (6,5), (6,2), (2,1),],
+             'pos': [0, 0,0,0,1,4,1, 0,3,0,-4,-2,0,
                      0,0,0,2,0,0, -7,-5,-3,0,0,0, 0],
-             'dir': {'home':0, 'bar':25}, 'bar': [0,1,2,]},
+             'dir': {'home':0, 'bar':25}, 'bar': [0,]},
+            {'dice':[(5,1),],
+             'pos': [0, 2,0,-1,2,2,2, 0,2,0,0,0,0,
+                     0,0,1,1,1,0, 1,0,0,-7,1,-7, 0],
+             'dir': {'home':25, 'bar':0}, 'bar': [0,]},
+            {'dice':[(6,3),],
+             'pos': [0, 2,0,0,2,2,2, 0,2,0,0,0,0,
+                     0,0,1,1,1,0, 1,0,0,-7,1,-7, 0],
+             'dir': {'home':25, 'bar':0}, 'bar': [1,]},
         ]
     for d in data:
         pos = d['pos']
