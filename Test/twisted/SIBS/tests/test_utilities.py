@@ -333,10 +333,37 @@ class TestBarMovesOnly(unittest.TestCase):
 ##     drei checker draußen, ....
 ##     genauso für den gegnerischen spieler
 
+class TestBoardMovesOnly(unittest.TestCase):
+
+    def setUp(self):
+        self.position_25 = [0, 0,0,0,1,4,1, 0,3,0,-4,-2,0,
+                               0,0,0,2,0,0, -7,-5,-3,0,0,0, 0]
+        self.position_50 = [0, 2,0,-1,2,2,2, 0,2,0,0,0,0,
+                               0,0,1,1,1,0, 1,0,0,-7,1,-7, 0],
+##            {'dice':[(5,1), (1,5)],
+##             
+##             'dir': {'home':25, 'bar':0}, 'bar': [0,]},
+        self.position_75 = [0, 2,0,0,2,2,2, 0,2,0,0,0,0,
+                               0,0,1,1,1,0, 1,0,0,-7,1,-7, 0],
+##            {'dice':[(6,3),],
+##             'dir': {'home':25, 'bar':0}, 'bar': [1,]},
+
+##    def tearDown(self):
+
+    def testcheck_25_66(self):
+        ret = check_board_moves((6,6), self.position_25, 4, 25)
+        self.assertEqual(len(ret), 6)
+        self.assertEqual(ret['my_dice'], [])
+        self.assertEqual(ret['list_of_moves'], [])
+        self.assertEqual(ret['nr_moved_pieces'], 0)
+        self.assertEqual(ret['remaining_moves'], 0)
+        self.assertEqual(ret['forced_move'], True)
+        self.assertEqual(ret['checks_neccessary'], False)
+
 if __name__ == "__main__":
     do_suites = (len(sys.argv) > 1) and (sys.argv[1] == 'suites')
 
     if not do_suites:
-        run_test(TestBarMoves('testcheck_bar_1_66'))
+        run_test(TestBoardMovesOnly('testcheck_25_66'))
     else:
         run_suites(globals())

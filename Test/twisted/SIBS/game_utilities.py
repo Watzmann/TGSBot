@@ -87,7 +87,7 @@ def check_roll(dice, position, bar_nr, direction):
     # ------------------------------------------- enter from the bar
     bar_moves = min(nr_of_moves, bar_nr)
     my_pos = position[:]
-    print my_pos
+    #print my_pos
     if bar_moves:
         ret = check_bar_moves(dice, my_pos, bar_moves, direction['bar'])
         my_dice = ret['my_dice']
@@ -98,7 +98,7 @@ def check_roll(dice, position, bar_nr, direction):
         nr_of_moves = ret['remaining_moves']
         print '..... ret', ret
     # ------------------------------------------- moves in the board
-    print my_pos
+    #print my_pos
     if checks_neccessary:
         print '+++++++++++++', nr_of_moves
         ret = check_board_moves(tuple(my_dice), my_pos[1:-1], nr_of_moves,
@@ -122,6 +122,7 @@ def check_board_moves(dice, position, nr_of_moves, bar):
     remaining_moves = nr_of_moves
     for d in dice:
         found = 0
+        logger.log(TRACE, 'check_board_moves in loop with die %d' % d)
         if bar == 25:
             for e,p in enumerate(position):
                 if p > 0:
@@ -136,7 +137,7 @@ def check_board_moves(dice, position, nr_of_moves, bar):
                                      '(%s) Forced move: %s' % \
                                      (d, e, p, list_of_moves[-1],
                                       list_of_moves, forced_move))
-                if (found > 1) or ((found == 1) and not forced_move):
+                if (found > 1) or ((found == 1) and forced_move):
                     forced_move = False
                     break
         elif bar == 0:
@@ -153,7 +154,7 @@ def check_board_moves(dice, position, nr_of_moves, bar):
                                      '(%s) Forced move: %s' % \
                                      (d, e, p, list_of_moves[-1],
                                       list_of_moves, forced_move))
-                if (found > 1) or ((found == 1) and not forced_move):
+                if (found > 1) or ((found == 1) and forced_move):
                     forced_move = False
                     break
         else:
@@ -186,7 +187,7 @@ def check_bar_moves(dice, position, nr_bar_moves, bar):
                 position[p] = nr_moved_pieces
             elif bar == 0:
                 position[p] = -nr_moved_pieces
-            print position
+            #print position
             forced_move = remaining_moves == 0
             checks_neccessary = remaining_moves > 0
             list_of_moves = ['bar-%d' % p,] * nr_moved_pieces
@@ -253,11 +254,11 @@ def check_bar_moves(dice, position, nr_bar_moves, bar):
     return ret
 
 if __name__ == '__main__':
-    data = [{'dice':[(6,6), ],  #(5,5), (3,3), (6,5), (6,2), (2,1),],
+    data = [{'dice':[(6,6), (6,5), (6,2), (2,1),],  #(5,5), (3,3), ],
              'pos': [0, 0,0,0,1,4,1, 0,3,0,-4,-2,0,
                      0,0,0,2,0,0, -7,-5,-3,0,0,0, 0],
              'dir': {'home':0, 'bar':25}, 'bar': [0,]},
-            {'dice':[(5,1),],
+            {'dice':[(5,1), (1,5)],
              'pos': [0, 2,0,-1,2,2,2, 0,2,0,0,0,0,
                      0,0,1,1,1,0, 1,0,0,-7,1,-7, 0],
              'dir': {'home':25, 'bar':0}, 'bar': [0,]},
