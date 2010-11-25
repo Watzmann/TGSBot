@@ -351,14 +351,60 @@ class TestBoardMovesOnly(unittest.TestCase):
 ##    def tearDown(self):
 
     def testcheck_25_66(self):
-        ret = check_board_moves((6,6), self.position_25, 4, 25)
-        self.assertEqual(len(ret), 6)
-        self.assertEqual(ret['my_dice'], [])
-        self.assertEqual(ret['list_of_moves'], [])
-        self.assertEqual(ret['nr_moved_pieces'], 0)
-        self.assertEqual(ret['remaining_moves'], 0)
+        ret = check_board_moves((6,6,6,6), self.position_25[1:-1], 4, 25)
+        self.assertEqual(len(ret), 3)
+        self.assertEqual(ret['list_of_moves'], ['8-2', '8-2', '8-2'])
+        self.assertEqual(ret['nr_moved_pieces'], 3)
         self.assertEqual(ret['forced_move'], True)
-        self.assertEqual(ret['checks_neccessary'], False)
+
+    def testcheck_25_55(self):
+        ret = check_board_moves((5,5,5,5), self.position_25[1:-1], 4, 25)
+        self.assertEqual(len(ret), 3)
+        self.assertEqual(ret['list_of_moves'], ['6-1', '8-3', '8-3', '8-3'])
+        self.assertEqual(ret['nr_moved_pieces'], 4)
+        self.assertEqual(ret['forced_move'], True)
+
+    def testcheck_25_33(self):
+        ret = check_board_moves((3,3,3,3), self.position_25[1:-1], 4, 25)
+        self.assertEqual(len(ret), 3)
+        self.assertEqual(ret['list_of_moves'], ['4-1', '5-2', '6-3', '5-2', '8-5'])
+        self.assertEqual(ret['nr_moved_pieces'], 4)
+        self.assertEqual(ret['forced_move'], False)
+
+    def testcheck_25_65(self):
+        ret = check_board_moves((6,5), self.position_25[1:-1], 2, 25)
+        self.assertEqual(len(ret), 3)
+        self.assertEqual(ret['list_of_moves'], ['8-2', '6-1', '8-3'])
+        self.assertEqual(ret['nr_moved_pieces'], 2)
+        self.assertEqual(ret['forced_move'], False)
+
+    def testcheck_25_62(self):
+        ret = check_board_moves((6,2), self.position_25[1:-1], 2, 25)
+        self.assertEqual(len(ret), 3)
+        self.assertEqual(ret['list_of_moves'], ['8-2', '4-2', '5-3'])
+        self.assertEqual(ret['nr_moved_pieces'], 2)
+        self.assertEqual(ret['forced_move'], False)
+
+    def testcheck_25_21(self):
+        ret = check_board_moves((2,1), self.position_25[1:-1], 2, 25)
+        self.assertEqual(len(ret), 3)
+        self.assertEqual(ret['list_of_moves'], ['4-2', '2-1', '5-4'])
+        self.assertEqual(ret['nr_moved_pieces'], 2)
+        self.assertEqual(ret['forced_move'], False)
+
+    def testcheck_50_51(self):
+        ret = check_board_moves((5,1), self.position_50[1:-1], 2, 0)
+        self.assertEqual(len(ret), 3)
+        self.assertEqual(ret['list_of_moves'], ['22-23',])
+        self.assertEqual(ret['nr_moved_pieces'], 1)
+        self.assertEqual(ret['forced_move'], True)
+
+    def testcheck_50_15(self):
+        ret = check_board_moves((1,5), self.position_50[1:-1], 2, 0)
+        self.assertEqual(len(ret), 3)
+        self.assertEqual(ret['list_of_moves'], ['22-23',])
+        self.assertEqual(ret['nr_moved_pieces'], 1)
+        self.assertEqual(ret['forced_move'], True)
 
 if __name__ == "__main__":
     do_suites = (len(sys.argv) > 1) and (sys.argv[1] == 'suites')

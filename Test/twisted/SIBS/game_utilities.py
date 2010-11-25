@@ -120,6 +120,8 @@ def check_board_moves(dice, position, nr_of_moves, bar):
     list_of_moves = []
     forced_move = True
     remaining_moves = nr_of_moves
+    if len(dice) > 1:
+        pasch = dice[0] == dice[1]
     for d in dice:
         found = 0
         logger.log(TRACE, 'check_board_moves in loop with die %d' % d)
@@ -254,7 +256,7 @@ def check_bar_moves(dice, position, nr_bar_moves, bar):
     return ret
 
 if __name__ == '__main__':
-    data = [{'dice':[(6,6), (6,5), (6,2), (2,1),],  #(5,5), (3,3), ],
+    data = [{'dice':[(6,6), (5,5), (3,3), (6,5), (6,2), (2,1),],  #(5,5), (3,3), ],
              'pos': [0, 0,0,0,1,4,1, 0,3,0,-4,-2,0,
                      0,0,0,2,0,0, -7,-5,-3,0,0,0, 0],
              'dir': {'home':0, 'bar':25}, 'bar': [0,]},
