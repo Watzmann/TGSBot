@@ -339,68 +339,70 @@ class TestBoardMovesOnly(unittest.TestCase):
         self.position_25 = [0, 0,0,0,1,4,1, 0,3,0,-4,-2,0,
                                0,0,0,2,0,0, -7,-5,-3,0,0,0, 0]
         self.position_50 = [0, 2,0,-1,2,2,2, 0,2,0,0,0,0,
-                               0,0,1,1,1,0, 1,0,0,-7,1,-7, 0],
+                               0,0,1,1,1,0, 1,0,0,-7,1,-7, 0]
 ##            {'dice':[(5,1), (1,5)],
 ##             
 ##             'dir': {'home':25, 'bar':0}, 'bar': [0,]},
         self.position_75 = [0, 2,0,0,2,2,2, 0,2,0,0,0,0,
-                               0,0,1,1,1,0, 1,0,0,-7,1,-7, 0],
+                               0,0,1,1,1,0, 1,0,0,-7,1,-7, 0]
 ##            {'dice':[(6,3),],
 ##             'dir': {'home':25, 'bar':0}, 'bar': [1,]},
+        self.ox_0 = OX(0)
+        self.ox_25 = OX(25)
 
 ##    def tearDown(self):
 
     def testcheck_25_66(self):
-        ret = check_board_moves((6,6,6,6), self.position_25[1:-1], 4, 25)
+        ret = check_board_moves((6,6,6,6), self.position_25[1:-1], 4, self.ox_25)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['8-2', '8-2', '8-2'])
         self.assertEqual(ret['nr_moved_pieces'], 3)
         self.assertEqual(ret['forced_move'], True)
 
     def testcheck_25_55(self):
-        ret = check_board_moves((5,5,5,5), self.position_25[1:-1], 4, 25)
+        ret = check_board_moves((5,5,5,5), self.position_25[1:-1], 4, self.ox_25)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['6-1', '8-3', '8-3', '8-3'])
         self.assertEqual(ret['nr_moved_pieces'], 4)
         self.assertEqual(ret['forced_move'], True)
 
     def testcheck_25_33(self):
-        ret = check_board_moves((3,3,3,3), self.position_25[1:-1], 4, 25)
+        ret = check_board_moves((3,3,3,3), self.position_25[1:-1], 4, self.ox_25)
         self.assertEqual(len(ret), 3)
-        self.assertEqual(ret['list_of_moves'], ['4-1', '5-2', '6-3', '5-2', '8-5'])
+        self.assertEqual(ret['list_of_moves'], ['4-1', '5-2', '5-2', '5-2', '6-3'])
         self.assertEqual(ret['nr_moved_pieces'], 4)
         self.assertEqual(ret['forced_move'], False)
 
     def testcheck_25_65(self):
-        ret = check_board_moves((6,5), self.position_25[1:-1], 2, 25)
+        ret = check_board_moves((6,5), self.position_25[1:-1], 2, self.ox_25)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['8-2', '6-1', '8-3'])
         self.assertEqual(ret['nr_moved_pieces'], 2)
         self.assertEqual(ret['forced_move'], False)
 
     def testcheck_25_62(self):
-        ret = check_board_moves((6,2), self.position_25[1:-1], 2, 25)
+        ret = check_board_moves((6,2), self.position_25[1:-1], 2, self.ox_25)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['8-2', '4-2', '5-3'])
         self.assertEqual(ret['nr_moved_pieces'], 2)
         self.assertEqual(ret['forced_move'], False)
 
     def testcheck_25_21(self):
-        ret = check_board_moves((2,1), self.position_25[1:-1], 2, 25)
+        ret = check_board_moves((2,1), self.position_25[1:-1], 2, self.ox_25)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['4-2', '2-1', '5-4'])
         self.assertEqual(ret['nr_moved_pieces'], 2)
         self.assertEqual(ret['forced_move'], False)
 
     def testcheck_50_51(self):
-        ret = check_board_moves((5,1), self.position_50[1:-1], 2, 0)
+        ret = check_board_moves((5,1), self.position_50[1:-1], 2, self.ox_0)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['22-23',])
         self.assertEqual(ret['nr_moved_pieces'], 1)
         self.assertEqual(ret['forced_move'], True)
 
     def testcheck_50_15(self):
-        ret = check_board_moves((1,5), self.position_50[1:-1], 2, 0)
+        ret = check_board_moves((1,5), self.position_50[1:-1], 2, self.ox_0)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['22-23',])
         self.assertEqual(ret['nr_moved_pieces'], 1)
