@@ -553,13 +553,22 @@ class GameControl:
         player = player.nick    # TODO: prüfen, was man hier am besten nimmt,
                                 #       um die Zuordnung zum Spieler zu kriegen
         logger.info('check_roll %s fuer spieler %s' % (dice, player))
-        ret = game_utilities.check_roll(dice, self.position,
+        bear_off = game_utilities.bear_off(self.position,
+                                    self.home_board[player], self.home[player])
+        if bear_off:
+            d1, d2 = dice
+            if d1 == d2:
+                self.pieces = 4
+            else:
+                self.pieces = 2
+            ret = {'nr_pieces': self.pieces}
+        else:
+            ret = game_utilities.check_roll(dice, self.position,
                                     self.bar[player], self.direction[player])
-        self.pieces = ret['nr_pieces']
-        self.set_move()     # TODO: wurde hier was verändert, so dass man set_move()
-                            #       machen muss??
-        if player_obj.user.greedy_bearoff():
-            ret.update(self.greedy(player_obj, dice))
+            self.pieces = ret['nr_pieces']
+        self.set_move()     # self.pieces wurde hier verändert, daher set_move()
+        if bear_off and player_obj.user.greedy_bearoff():
+            ret.update(game_utilities.greedy(player_obj, dice, self.position,))
         logger.debug('noch mal check_roll: %s   ' % ret)
         return ret
         
@@ -631,36 +640,6 @@ class GameControl:
         p1 = self.p1.may_double()
         p2 = self.p2.may_double()
         self.board.set_cube(self.cube, p1, p2, just_doubled, who)
-
-    def greedy(self, player, dice):
-        d1, d2 = dice           # TODO: mit waste auch noch machen
-        nick = player.nick
-        a,b = self.home_board[nick]
-        nr_home = sum(self.position[a:b]) + self.home[nick] # TODO abs(sum())
-        logger.debug('GREEDY: %d,%d   %s  %d:%d   %d home    %s  %d' % \
-                (d1, d2, nick, a, b, nr_home, self.position[a:b], self.home[nick]))
-        if nr_home < 15:
-            return {'greedy_possible': False,}
-        if d1 == d2:
-            return {'greedy_possible': False,}  # TODO: pasch geht nicht
-        pos = self.position
-        moves = []
-        if nick == 'p1':                # TODO: weg mit p1 und konsorten
-            if (pos[d1] > 0) and (pos[d2] > 0):
-                moves = ['%d-0' % d1, '%d-0' % d2]
-            elif (d1+d2 < 7) and (pos[d1+d2] > 0):
-                moves = ['%d-%d' % (d1+d2,d1), '%d-0' % d1]
-        elif nick == 'p2':              # TODO: weg mit p1 und konsorten
-            p1 = 25 - d1
-            p2 = 25 - d2
-            pp = 25 - d1 + d2
-            if (pos[p1] < 0) and (pos[p2] < 0):
-                moves = ['%d-25' % p1, '%d-25' % p2]
-            elif (d1+d2 < 7) and (pos[pp] > 0):
-                moves = ['%d-%d' % (pp,p1), '%d-25' % p1]
-        res = {'greedy_possible': len(moves) > 0, 'moves': moves}
-        logger.debug('GREEDY: %s   ' % res)
-        return res
 
     def move(self, move, player):
         p = self.players[player]    # TODO: hier aufräumen

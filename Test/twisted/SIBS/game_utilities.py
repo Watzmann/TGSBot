@@ -79,12 +79,14 @@ class OX:
             self.move_schema = self.move_schema_O
             self.leave = self.leave_O
             self.reach = self.reach_O
+            self.homeboard = (1,7)
         elif bar == 0:
             self.his_checkers = self.his_checkers_X
             self.possible_move = self.possible_move_X
             self.move_schema = self.move_schema_X
             self.leave = self.leave_X
             self.reach = self.reach_X
+            self.homeboard = (19,25)
         else:
             logger.error("Wrong use of the 'bar'-field (%d)!" % bar)
 
@@ -95,10 +97,12 @@ class OX:
         return p < 0
 
     def possible_move_O(self, e, d, position):
-        return (e >= d) and (position[e-d] > -2)
+        return ((e >= d) and (position[e-d] > -2)) or \
+            (bear_off(position, self.homeboard, 0) and (e <=d))
 
     def possible_move_X(self, e, d, position):
-        return (e+d < 24) and (position[e+d] < 2)
+        return ((e+d < 24) and (position[e+d] < 2)) or \
+            (bear_off(position, self.homeboard, 0) and (e+d >= 25))
 
     def move_schema_O(self, e, d):
         return '%d-%d' % (e+1,e+1-d)
@@ -129,6 +133,8 @@ class OX:
 def check_roll(dice, position, bar_nr, direction):
     """Checks for possible moves depending on 'dice'."""
     d1, d2 = dice
+    logger.debug('enters check_roll with: dice %s position %s   bar_nr %d' \
+                 ' direction %s' % (str(dice), position, bar_nr, direction))
     pasch = d1 == d2
     if pasch:
         nr_of_moves = 4
@@ -144,14 +150,15 @@ def check_roll(dice, position, bar_nr, direction):
     # ------------------------------------------- enter from the bar
     bar_moves = min(nr_of_moves, bar_nr)
     my_pos = position[:]
+    bar_nr_moved_pieces = 0
     #print my_pos
     if bar_moves:
         ret = check_bar_moves(dice, my_pos, bar_moves, direction['bar'])
         my_dice = ret['my_dice']
-        bar_list_of_moves = ret['list_of_moves']
+        list_of_moves = ret['list_of_moves']
         forced_move = ret['forced_move']
         checks_neccessary = ret['checks_neccessary']
-        nr_moved_pieces = ret['nr_moved_pieces']
+        bar_nr_moved_pieces = ret['nr_moved_pieces']
         nr_of_moves = ret['remaining_moves']
         print '..... ret', ret
     # ------------------------------------------- moves in the board
@@ -165,9 +172,8 @@ def check_roll(dice, position, bar_nr, direction):
         # TODO  not (if len(dice) > 2 elif (len(dice) == 2) if dice[0] == dice[1])
         #       and if forced move oder vielleicht nicht alle gesetzt
         #       dann noch mal mit vertauschten dice durch check_board_moves
-        nr_moved_pieces += ret['nr_moved_pieces']
+        nr_moved_pieces = ret['nr_moved_pieces']
         board_list_of_moves = ret['list_of_moves']
-        forced_move = forced_move and ret['forced_move']
         print (not pasch),(nr_moved_pieces < nr_of_moves),(nr_of_moves > 1)
         if (not pasch) and (nr_moved_pieces < nr_of_moves) and (nr_of_moves > 1):
             board = board_o[:]
@@ -176,35 +182,74 @@ def check_roll(dice, position, bar_nr, direction):
             print '2#### ret', ret
             nr_moved_pieces = ret['nr_moved_pieces']
             board_list_of_moves.update(ret['list_of_moves'])
-            forced_move = forced_move and ret['forced_move']
             print board_list_of_moves
         print (not pasch), (nr_moved_pieces == 1), (nr_of_moves == 2)
         if (not pasch) and (nr_moved_pieces == 1) and (nr_of_moves == 2):
+            # now looking for a long move moving both dice with a single checker
             board = board_o[:]
             ret = check_single_moves(tuple(my_dice), board, ox)
             print '3#### ret', ret
-    #print board
-    if nr_moved_pieces < nr_of_moves:
-        nr_of_moves = len(list_of_moves)
-        logger.info('der spieler kann nur %d zuege ziehen' % nr_of_moves)
+            if ret['nr_moved_pieces'] == 2:
+                board_list_of_moves = ret['list_of_moves']
+        #print board
+        for l in board_list_of_moves.values():
+            list_of_moves += l
+        nr_moved_pieces = min(len(list_of_moves), nr_of_moves+bar_nr_moved_pieces)
+        forced_move = nr_moved_pieces <= nr_of_moves
+        if nr_moved_pieces == nr_of_moves:
+            # looking for alternate moves
+            
+            # TODO: kann sein, dass das nicht immer stimmt, mit dem original
+            #       board; siehe den Testfall mit den (6,5)
+            #       wenn man die 5 von der 8 zieht, wo ist dann die 6?
+##-------------------- dice (6, 5)
+##utilities DEBUG enters check_roll with: dice (6, 5) position [0, 0, 0, 0, 1, 4, 1, 0, 3, 0, -4, -2, 0, 0, 0, 0, 2, 0, 0, -7, -5, -3, 0, 0, 0, 0]   bar_nr 0 direction {'home': 0, 'bar': 25}
+##+++++++++++++ 2
+##utilities TRACE check_board_moves in loop with die 6
+##utilities DEBUG found: wurf 6   point 7,3  move 8-2   # 1
+##utilities TRACE check_board_moves in loop with die 5
+##utilities DEBUG found: wurf 5   point 5,1  move 6-1   # 0
+##1#### ret {'nr_moved_pieces': 2, 'list_of_moves': {5: ['6-1'], 6: ['8-2']}}
+##True False True
+##True False True
+##utilities TRACE check_board_moves in loop with die 6
+##utilities TRACE check_board_moves in loop with die 5
+##utilities DEBUG found: wurf 5   point 7,2  move 8-3   # 1
+##4#### ret {'nr_moved_pieces': 1, 'list_of_moves': {5: ['8-3']}}
+##utilities DEBUG check_roll results: nr_moved_pieces 2  list_of_moves ['6-1', '8-2']  forced False
+##{'list_of_moves': ['6-1', '8-2'], 'forced_move': False, 'nr_pieces': 2}
+            
+            if pasch:
+                alt_dice = (my_dice[0],)
+            else:
+                alt_dice = tuple(my_dice)
+            ret = check_board_moves(alt_dice, board, nr_of_moves, ox,
+                                    no_moves = list_of_moves)
+            print '4#### ret', ret
+            forced_move = ret['nr_moved_pieces'] < 1
+    logger.debug('check_roll results: nr_moved_pieces %d  list_of_moves %s' \
+                 '  forced %s' % (nr_moved_pieces, list_of_moves, forced_move))
+    if forced_move:
+        logger.info('der spieler kann nur %d zuege ziehen' % nr_moved_pieces)
     return {'nr_pieces': nr_moved_pieces, 'list_of_moves': list_of_moves,
             'forced_move': forced_move}
 
-def check_board_moves(dice, position, nr_of_moves, ox):
+def check_board_moves(dice, position, nr_of_moves, ox, no_moves=[]):
     list_of_moves = dict(zip(range(1,7),([],[],[],[],[],[])))
     original_position = position[:]
     remaining_moves = nr_of_moves
     if len(dice) == 0:
         logger.error('what happens here: in check_board_moves with ' \
                      'unappropriate dice (%s)' % str(dice))
-        return {'list_of_moves': [], 'nr_moved_pieces': 0,
-                'forced_move': False,}
+        return {'list_of_moves': [], 'nr_moved_pieces': 0,}
     for d in dice:
         logger.log(TRACE, 'check_board_moves in loop with die %d' % d)
         for e,p in enumerate(position):
             if ox.his_checkers(p):
                 if ox.possible_move(e, d, position):
                     move = ox.move_schema(e, d)
+                    if move in no_moves:
+                        continue
                     list_of_moves[d].append(move)
                     ox.leave(position, e)
                     ox.reach(position, e, d)
@@ -220,8 +265,7 @@ def check_board_moves(dice, position, nr_of_moves, ox):
         if not len(list_of_moves[l]):
             del list_of_moves[l]
     return {'list_of_moves': list_of_moves,
-            'nr_moved_pieces': nr_moved_pieces,
-            'forced_move': remaining_moves >= 0,}
+            'nr_moved_pieces': nr_moved_pieces,}
     
 def check_single_moves(dice, position, ox):
     list_of_moves = dict(zip(range(1,7),([],[],[],[],[],[])))
@@ -230,8 +274,7 @@ def check_single_moves(dice, position, ox):
     if len(dice) != 2:
         logger.error('what happens here: in check_single_moves with ' \
                      'unappropriate dice (%s)' % str(dice))
-        return {'list_of_moves': [], 'nr_moved_pieces': 0,
-                'forced_move': False,}
+        return {'list_of_moves': [], 'nr_moved_pieces': 0,}
     sum_dice = dice[0] + dice[1]
     logger.log(TRACE, 'check_single_moves before loop with dice %s' % str(dice))
     nr_moved_pieces = 0
@@ -265,8 +308,7 @@ def check_single_moves(dice, position, ox):
         if not len(list_of_moves[l]):
             del list_of_moves[l]
     return {'list_of_moves': list_of_moves,
-            'nr_moved_pieces': nr_moved_pieces,
-            'forced_move': remaining_moves >= 0,}
+            'nr_moved_pieces': nr_moved_pieces,}
     
 def check_bar_moves(dice, position, nr_bar_moves, bar):
     list_of_moves = []
@@ -355,6 +397,37 @@ def check_bar_moves(dice, position, nr_bar_moves, bar):
            'forced_move': forced_move, 'checks_neccessary': checks_neccessary}
     return ret
 
+def bear_off(position, homeboard, home):
+    a,b = homeboard
+    nr_home = abs(sum(position[a:b])) + home # TODO abs(sum())
+    logger.debug('bear_off: %d,%d   %d    %s   %d' % \
+            (a, b, nr_home, position[a:b], home))
+    return nr_home == 15
+    
+def greedy(dice, position,):
+    d1, d2 = dice           # TODO: mit waste auch noch machen
+    logger.debug('GREEDY: %d,%d   %s' % (d1, d2, position))
+    if d1 == d2:
+        return {'greedy_possible': False,}  # TODO: pasch geht nicht
+    pos = position
+    moves = []
+    if nick == 'p1':                # TODO: weg mit p1 und konsorten
+        if (pos[d1] > 0) and (pos[d2] > 0):
+            moves = ['%d-0' % d1, '%d-0' % d2]
+        elif (d1+d2 < 7) and (pos[d1+d2] > 0):
+            moves = ['%d-%d' % (d1+d2,d1), '%d-0' % d1]
+    elif nick == 'p2':              # TODO: weg mit p1 und konsorten
+        p1 = 25 - d1
+        p2 = 25 - d2
+        pp = 25 - d1 + d2
+        if (pos[p1] < 0) and (pos[p2] < 0):
+            moves = ['%d-25' % p1, '%d-25' % p2]
+        elif (d1+d2 < 7) and (pos[pp] > 0):
+            moves = ['%d-%d' % (pp,p1), '%d-25' % p1]
+    res = {'greedy_possible': len(moves) > 0, 'moves': moves}
+    logger.debug('GREEDY: %s   ' % res)
+    return res
+
 if __name__ == '__main__':
     data = [{'dice':[(6,6), (5,5), (3,3), (6,5), (6,2), (2,1),],
              'pos': [0, 0,0,0,1,4,1, 0,3,0,-4,-2,0,
@@ -368,12 +441,19 @@ if __name__ == '__main__':
              'pos': [0, 2,0,0,2,2,2, 0,2,0,0,0,0,
                         0,0,1,1,1,0, 1,0,0,-7,1,-7, 0],
              'dir': {'home':25, 'bar':0}, 'bar': [1,]},
+            # TODO: sollte der hier nicht forced sein?
             {'dice':[(6,2),],
              'pos': [0, 0,0,3,3,0,0, -2,0,0,0,0,0,
                         2,0,0,0,0,0, 0,0,0,-7,-1,-7, 0],
              'dir': {'home':0, 'bar':25}, 'bar': [0,]},
             {'dice':[(4,3),],
              'pos': [0, 3,3,0,0,0,0, -2,0,0,0,2,0,
+                        0,0,0,0,0,0, 0,0,0,-7,-1,-7, 0],
+             'dir': {'home':0, 'bar':25}, 'bar': [0,]},
+            # TODO: der hier muss forced sein! die 4-1 steht nicht als
+            #       alternative zur verfügung
+            {'dice':[(6,5),],
+             'pos': [0, 3,3,2,0,0,0, -2,0,0,0,0,0,
                         0,0,0,0,0,0, 0,0,0,-7,-1,-7, 0],
              'dir': {'home':0, 'bar':25}, 'bar': [0,]},
         ]
