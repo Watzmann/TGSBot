@@ -113,25 +113,24 @@ class OX:
         position[p] += 1
 
     def reach_O(self, position, e, d):
-        position[e-d] += 1
+        if position[e-d] == -1:
+            position[e-d] = 1
+        elif position[e-d] > -1:
+            position[e-d] += 1
+        return e-d
 
     def reach_X(self, position, e, d):
-        position[e+d] -= 1
-##                if p > 0: # his_checkers_O/X
-##                    if (e >= d) and (position[e-d] > -2): # possible_move(e,d)
-##                        move = '%d-%d' % (e+1,e+1-d) # move_schema
-##                            position[e] -= 1    #leave(position, e)
-##                            position[e-d] += 1  #reach(position, e)
-##                if p < 0:
-##                    if (e+d < 24) and (position[e+d] < 2):
-##                        move = '%d-%d' % (e+1,e+1+d)
-##                            position[e] += 1
-##                            position[e-d] -= 1
+        if position[e+d] == 1:
+            position[e+d] = -1
+        elif position[e+d] < 1:
+            position[e+d] -= 1
+        return e+d
 
 def check_roll(dice, position, bar_nr, direction):
     """Checks for possible moves depending on 'dice'."""
     d1, d2 = dice
-    if d1 == d2:
+    pasch = d1 == d2
+    if pasch:
         nr_of_moves = 4
         my_dice = [d1,] * 4
     else:
@@ -149,7 +148,7 @@ def check_roll(dice, position, bar_nr, direction):
     if bar_moves:
         ret = check_bar_moves(dice, my_pos, bar_moves, direction['bar'])
         my_dice = ret['my_dice']
-        list_of_moves = ret['list_of_moves']
+        bar_list_of_moves = ret['list_of_moves']
         forced_move = ret['forced_move']
         checks_neccessary = ret['checks_neccessary']
         nr_moved_pieces = ret['nr_moved_pieces']
@@ -159,14 +158,32 @@ def check_roll(dice, position, bar_nr, direction):
     #print my_pos
     if checks_neccessary:
         print '+++++++++++++', nr_of_moves
-        ret = check_board_moves(tuple(my_dice), my_pos[1:-1], nr_of_moves, ox)
-        print '##### ret', ret
+        board_o = my_pos[1:-1]
+        board = board_o[:]
+        ret = check_board_moves(tuple(my_dice), board, nr_of_moves, ox)
+        print '1#### ret', ret
         # TODO  not (if len(dice) > 2 elif (len(dice) == 2) if dice[0] == dice[1])
         #       and if forced move oder vielleicht nicht alle gesetzt
         #       dann noch mal mit vertauschten dice durch check_board_moves
         nr_moved_pieces += ret['nr_moved_pieces']
-        list_of_moves += ret['list_of_moves']
+        board_list_of_moves = ret['list_of_moves']
         forced_move = forced_move and ret['forced_move']
+        print (not pasch),(nr_moved_pieces < nr_of_moves),(nr_of_moves > 1)
+        if (not pasch) and (nr_moved_pieces < nr_of_moves) and (nr_of_moves > 1):
+            board = board_o[:]
+            my_dice.reverse()
+            ret = check_board_moves(tuple(my_dice), board, nr_of_moves, ox)
+            print '2#### ret', ret
+            nr_moved_pieces = ret['nr_moved_pieces']
+            board_list_of_moves.update(ret['list_of_moves'])
+            forced_move = forced_move and ret['forced_move']
+            print board_list_of_moves
+        print (not pasch), (nr_moved_pieces == 1), (nr_of_moves == 2)
+        if (not pasch) and (nr_moved_pieces == 1) and (nr_of_moves == 2):
+            board = board_o[:]
+            ret = check_single_moves(tuple(my_dice), board, ox)
+            print '3#### ret', ret
+    #print board
     if nr_moved_pieces < nr_of_moves:
         nr_of_moves = len(list_of_moves)
         logger.info('der spieler kann nur %d zuege ziehen' % nr_of_moves)
@@ -174,50 +191,79 @@ def check_roll(dice, position, bar_nr, direction):
             'forced_move': forced_move}
 
 def check_board_moves(dice, position, nr_of_moves, ox):
-    list_of_moves = []
+    list_of_moves = dict(zip(range(1,7),([],[],[],[],[],[])))
     original_position = position[:]
-    print original_position
     remaining_moves = nr_of_moves
     if len(dice) == 0:
+        logger.error('what happens here: in check_board_moves with ' \
+                     'unappropriate dice (%s)' % str(dice))
         return {'list_of_moves': [], 'nr_moved_pieces': 0,
                 'forced_move': False,}
-    if (len(dice) == 1) or (dice[0] == dice[1]):
-        dice = dice + (dice[0],)    # double or singular die
-    else:
-        a, b = dice
-        dice = (a, b, b, a, a, b)
     for d in dice:
         logger.log(TRACE, 'check_board_moves in loop with die %d' % d)
         for e,p in enumerate(position):
             if ox.his_checkers(p):
                 if ox.possible_move(e, d, position):
                     move = ox.move_schema(e, d)
-                    if (remaining_moves > 0) or not (move in list_of_moves):
-                        list_of_moves.append(move)
-                        ox.leave(position, e)
-                        ox.reach(position, e, d)
-                        remaining_moves -= 1
-                        logger.debug('found: wurf %d   point %d,%d  move ' \
-                                     '%s   # %d' \
-                                 % (d, e, p, move, remaining_moves))
-                        break
-##        elif bar == 0:
-##            for e,p in enumerate(position):
-##                if p < 0:
-##                    if (e+d < 24) and (position[e+d] < 2):
-##                        move = '%d-%d' % (e+1,e+1+d)
-##                        if (remaining_moves > 0) or not (move in list_of_moves):
-##                            list_of_moves.append('%d-%d' % (e+1,e+1-d))
-##                            position[e] += 1
-##                            position[e-d] -= 1
-##                            remaining_moves -= 1
-##                            logger.debug('found: wurf %d   point %d,%d  move ' \
-##                                         '%s   # %d' \
-##                                     % (d, e, p, move, remaining_moves))
-##                            break
+                    list_of_moves[d].append(move)
+                    ox.leave(position, e)
+                    ox.reach(position, e, d)
+                    remaining_moves -= 1
+                    logger.debug('found: wurf %d   point %d,%d  move ' \
+                                 '%s   # %d' \
+                             % (d, e, p, move, remaining_moves))
+                    break
         if remaining_moves < 0:
             break
     nr_moved_pieces = min(nr_of_moves, nr_of_moves - remaining_moves)
+    for l in range(1,7):
+        if not len(list_of_moves[l]):
+            del list_of_moves[l]
+    return {'list_of_moves': list_of_moves,
+            'nr_moved_pieces': nr_moved_pieces,
+            'forced_move': remaining_moves >= 0,}
+    
+def check_single_moves(dice, position, ox):
+    list_of_moves = dict(zip(range(1,7),([],[],[],[],[],[])))
+    original_position = position[:]
+    remaining_moves = 2
+    if len(dice) != 2:
+        logger.error('what happens here: in check_single_moves with ' \
+                     'unappropriate dice (%s)' % str(dice))
+        return {'list_of_moves': [], 'nr_moved_pieces': 0,
+                'forced_move': False,}
+    sum_dice = dice[0] + dice[1]
+    logger.log(TRACE, 'check_single_moves before loop with dice %s' % str(dice))
+    nr_moved_pieces = 0
+    for e,p in enumerate(position):
+        if ox.his_checkers(p):
+            if ox.possible_move(e, sum_dice, position):
+                d1, d2 = dice
+                if ox.possible_move(e, d1, position):
+                    move = ox.move_schema(e, d1)
+                    list_of_moves[d1].append(move)
+                    ox.leave(position, e)
+                    e1 = ox.reach(position, e, d1)
+                    remaining_moves -= 1
+                    logger.debug('found: wurf %d   point %d,%d  move ' \
+                                 '%s   # %d' \
+                             % (d1, e, p, move, remaining_moves))
+                    if ox.possible_move(e1, d2, position):
+                        move = ox.move_schema(e1, d2)
+                        list_of_moves[d2].append(move)
+                        ox.leave(position, e1)
+                        ox.reach(position, e1, d2)
+                        remaining_moves -= 1
+                        logger.debug('found: wurf %d   point %d  move ' \
+                                     '%s   # %d' \
+                                 % (d2, e1, move, remaining_moves))
+                        nr_moved_pieces = 2
+                break
+        if remaining_moves < 0:
+            break
+    for l in range(1,7):
+        if not len(list_of_moves[l]):
+            del list_of_moves[l]
     return {'list_of_moves': list_of_moves,
             'nr_moved_pieces': nr_moved_pieces,
             'forced_move': remaining_moves >= 0,}
@@ -312,16 +358,24 @@ def check_bar_moves(dice, position, nr_bar_moves, bar):
 if __name__ == '__main__':
     data = [{'dice':[(6,6), (5,5), (3,3), (6,5), (6,2), (2,1),],
              'pos': [0, 0,0,0,1,4,1, 0,3,0,-4,-2,0,
-                     0,0,0,2,0,0, -7,-5,-3,0,0,0, 0],
+                        0,0,0,2,0,0, -7,-5,-3,0,0,0, 0],
              'dir': {'home':0, 'bar':25}, 'bar': [0,]},
             {'dice':[(5,1), (1,5)],
              'pos': [0, 2,0,-1,2,2,2, 0,2,0,0,0,0,
-                     0,0,1,1,1,0, 1,0,0,-7,1,-7, 0],
+                        0,0,1,1,1,0, 1,0,0,-7,1,-7, 0],
              'dir': {'home':25, 'bar':0}, 'bar': [0,]},
             {'dice':[(6,3),],
              'pos': [0, 2,0,0,2,2,2, 0,2,0,0,0,0,
-                     0,0,1,1,1,0, 1,0,0,-7,1,-7, 0],
+                        0,0,1,1,1,0, 1,0,0,-7,1,-7, 0],
              'dir': {'home':25, 'bar':0}, 'bar': [1,]},
+            {'dice':[(6,2),],
+             'pos': [0, 0,0,3,3,0,0, -2,0,0,0,0,0,
+                        2,0,0,0,0,0, 0,0,0,-7,-1,-7, 0],
+             'dir': {'home':0, 'bar':25}, 'bar': [0,]},
+            {'dice':[(4,3),],
+             'pos': [0, 3,3,0,0,0,0, -2,0,0,0,2,0,
+                        0,0,0,0,0,0, 0,0,0,-7,-1,-7, 0],
+             'dir': {'home':0, 'bar':25}, 'bar': [0,]},
         ]
     for d in data:
         pos = d['pos']

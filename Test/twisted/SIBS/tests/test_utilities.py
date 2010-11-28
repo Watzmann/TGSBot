@@ -390,7 +390,7 @@ class TestBoardMovesOnly(unittest.TestCase):
     def testcheck_25_21(self):
         ret = check_board_moves((2,1), self.position_25[1:-1], 2, self.ox_25)
         self.assertEqual(len(ret), 3)
-        self.assertEqual(ret['list_of_moves'], ['4-2', '2-1', '5-4'])
+        self.assertEqual(ret['list_of_moves'], {1: ['2-1'], 2: ['4-2']})
         self.assertEqual(ret['nr_moved_pieces'], 2)
         self.assertEqual(ret['forced_move'], False)
 
