@@ -317,7 +317,7 @@ class Move:
             if m == 'zero':
                 break           # TODO: vermutlich Altlast, kann weg
             z = self.render(m)
-            logger.debug('in move mit %s aus %s' % (z, self.moves))
+            logger.log(TRACE, 'in move mit %s aus %s' % (z, self.moves))
             if z[0] == 'bar':
                 z0 = self.control.direction[self.player]['bar']
             else:
@@ -327,7 +327,7 @@ class Move:
             else:
                 z1 = min(int(z[1]), 25)
             z = (z0,z1)
-            logger.info('Move: moving %d to %d' % (z0,z1))
+            logger.debug('Move: moving %d to %d' % (z0,z1))
             yield z, m
 ##            self.control.move(z, self.player)
 ##        self.control.set_position()
@@ -546,16 +546,32 @@ class GameControl:
         # TODO   das hier muss dringend aufgeräumt werden (start-sequenz, self.start())
         return {1:self.p1, 2:self.p2, 0:None}[self.turn]
 
+    def contact(self,):
+        logger.log(TRACE, 'checking contact')
+        if sum(self.bar.values()) > 0:
+            logger.debug('contact because sum(self.bar.values()) = %d' % \
+                        sum(self.bar.values()))
+            return True
+        x = False
+        for p in self.position:
+            if p < 0:
+                x = True
+            elif x and p > 0:
+                logger.debug('contact because checker O on point %d' % p)
+                return True
+        logger.debug('no indication for contact')
+        return False
+        
     def check_roll(self, player, **kw):
         """Checks for possible moves depending on 'dice'."""
         dice = kw['roll']
         player_obj = player     # TODO: ogottogott
         player = player.nick    # TODO: prüfen, was man hier am besten nimmt,
                                 #       um die Zuordnung zum Spieler zu kriegen
-        logger.info('check_roll %s fuer spieler %s' % (dice, player))
-        bear_off = game_utilities.bear_off(self.position,
-                                    self.home_board[player], self.home[player])
-        if bear_off:
+        logger.log(TRACE, 'check_roll %s fuer spieler %s' % (dice, player))
+        ox = game_utilities.OX(self.direction[player]['bar'], self.home[player])
+        bear_off = ox.bear_off(self.position[1:-1])
+        if not self.contact():
             d1, d2 = dice
             if d1 == d2:
                 self.pieces = 4
@@ -564,11 +580,11 @@ class GameControl:
             ret = {'nr_pieces': self.pieces}
         else:
             ret = game_utilities.check_roll(dice, self.position,
-                                    self.bar[player], self.direction[player])
+                    self.bar[player], self.direction[player], ox)
             self.pieces = ret['nr_pieces']
         self.set_move()     # self.pieces wurde hier verändert, daher set_move()
         if bear_off and player_obj.user.greedy_bearoff():
-            ret.update(game_utilities.greedy(player_obj, dice, self.position,))
+            ret.update(game_utilities.greedy(dice, self.position, ox))
         logger.debug('noch mal check_roll: %s   ' % ret)
         return ret
         

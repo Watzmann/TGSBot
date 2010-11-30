@@ -258,7 +258,7 @@ class Checked(State):
             follower = 'cant_move'
         if self.player.user.greedy_bearoff():
             logger.log(TRACE, 'automatic move because greedy')
-            if self.params['greedy_possible']:
+            if self.params.get('greedy_possible', False):
                 params = {'move': self.params['moves']}
                 self.action(self.player, follower, **params)
         if self.actions[follower]['auto']:

@@ -72,21 +72,26 @@ def check_roll_old(dice, position, nr_bar, direction):
     return {'nr_pieces': nr_of_moves, 'list_of_moves': list_of_moves,}
 
 class OX:
-    def __init__(self, bar):
+    def __init__(self, bar, home_cnt):
+        self.home = home_cnt
         if bar == 25:
             self.his_checkers = self.his_checkers_O
             self.possible_move = self.possible_move_O
             self.move_schema = self.move_schema_O
             self.leave = self.leave_O
             self.reach = self.reach_O
-            self.homeboard = (1,7)
+            self.greedy_moves = self.greedy_moves_O
+            self.homeboard = (0,6)
+            self.sum_home = lambda x,y: x + max(0, y)
         elif bar == 0:
             self.his_checkers = self.his_checkers_X
             self.possible_move = self.possible_move_X
             self.move_schema = self.move_schema_X
             self.leave = self.leave_X
             self.reach = self.reach_X
-            self.homeboard = (19,25)
+            self.greedy_moves = self.greedy_moves_X
+            self.homeboard = (18,24)
+            self.sum_home = lambda x,y: x + min(0, y)
         else:
             logger.error("Wrong use of the 'bar'-field (%d)!" % bar)
 
@@ -97,18 +102,31 @@ class OX:
         return p < 0
 
     def possible_move_O(self, e, d, position):
+##        print 'e+1 d-1  %d,%d  pos[:] %s  # %d' % (e+1,6,position[e+1:6],reduce(self.sum_home, position[e+1:6], 0))
         return ((e >= d) and (position[e-d] > -2)) or \
-            (bear_off(position, self.homeboard, 0) and (e <=d))
+            (self.bear_off(position) and (e == d-1)) or \
+            (self.bear_off(position) and (e < d-1) and \
+             not reduce(self.sum_home, position[e+1:6], 0))
 
     def possible_move_X(self, e, d, position):
         return ((e+d < 24) and (position[e+d] < 2)) or \
-            (bear_off(position, self.homeboard, 0) and (e+d >= 25))
+            (self.bear_off(position) and (e+d == 24)) or \
+            (self.bear_off(position) and (e+d > 24) and \
+             not reduce(self.sum_home, position[18:e-1], 0))
 
     def move_schema_O(self, e, d):
-        return '%d-%d' % (e+1,e+1-d)
+        t = e+1-d
+        if t > 0:
+            return '%d-%d' % (e+1, t)
+        else:
+            return '%d-off' % (e+1,)
 
     def move_schema_X(self, e, d):
-        return '%d-%d' % (e+1,e+1+d)
+        t = e+1+d
+        if t < 25:
+            return '%d-%d' % (e+1, t)
+        else:
+            return '%d-off' % (e+1,)
 
     def leave_O(self, position, p):
         position[p] -= 1
@@ -117,20 +135,101 @@ class OX:
         position[p] += 1
 
     def reach_O(self, position, e, d):
-        if position[e-d] == -1:
-            position[e-d] = 1
-        elif position[e-d] > -1:
-            position[e-d] += 1
-        return e-d
+        np = e - d
+        if np >= 0:
+            if position[np] == -1:
+                position[np] = 1
+            elif position[np] > -1:
+                position[np] += 1
+        else:
+            self.home += 1
+        return np
 
     def reach_X(self, position, e, d):
-        if position[e+d] == 1:
-            position[e+d] = -1
-        elif position[e+d] < 1:
-            position[e+d] -= 1
-        return e+d
+        np = e + d
+        if np < 24:
+            if position[np] == 1:
+                position[np] = -1
+            elif position[np] < 1:
+                position[np] -= 1
+        else:
+            self.home += 1
+        return np
 
-def check_roll(dice, position, bar_nr, direction):
+    def bear_off(self, position,):
+        a,b = self.homeboard
+        nr_home = abs(reduce(self.sum_home, position[a:b], 0)) + self.home
+        logger.debug('OX.bear_off: %d,%d   %d    %s   %d' % \
+                (a, b, nr_home, position[a:b], self.home))
+        return nr_home == 15
+
+    def greedy_roll(self, dice, position):
+        d = list(dice)
+        d.sort(reverse=True)
+        a,b = self.homeboard
+        nr_home = abs(reduce(self.sum_home, position[a:b], 0))
+        d1,d2 = d
+        if nr_home == 1:
+            d = [d1,]
+        elif d1 == d2:
+            d = [d1,]*4
+        logger.log(TRACE, 'greedy roll: %s' % (d,))
+        return d
+
+    def greedy_moves_O(self, dice, position):
+        """O is positiv and runs towards the 0."""
+        moves = []
+        dd = self.greedy_roll(dice, position)
+        for d in dd:
+            logger.debug('in greedy_moves_O   die %d' % d)
+            if position[d-1] > 0:            # point is available
+                moves.append('%d-0' % d)
+                position[d-1] -= 1
+            elif not reduce(self.sum_home, position[d:6], 0):
+                r = d
+                while r > 0:
+                    r -= 1
+                    logger.debug('checking  die %d on r %d' % (d,r))
+                    if position[r] > 0:            # point is available
+                        moves.append('%d-0' % (r+1,))
+                        position[r] -= 1
+                        break
+            # TODO: fehlt der Fall mit "ich setze EINEN höheren" (bei >1
+            #                                   Möglichkeiten darf ich nicht)
+##        if (len(moves) < 2) and (len(dd) == 2) and \
+##           (sum(dd) < 7) and (pos[sum(dd)-1] > 0):    # long move is available
+##            moves = ['%d-%d' % (d1+d2,d1), '%d-0' % d1]   ????
+                # TODO: denk an Contact!
+                # TODO: gibt es beim long move waste????
+        return moves
+        
+    def greedy_moves_X(self, dice, position):
+        """X is negativ and runs towards the 25."""
+        moves = []
+        dd = self.greedy_roll(dice, position)
+        for d in dd:
+            logger.debug('in greedy_moves_O   die %d' % d)
+            if position[24-d] < 0:            # point is available
+                moves.append('%d-off' % (25-d))
+                position[24-d] += 1
+            elif not reduce(self.sum_home, position[18:23-d], 0):
+                r = 24 - d
+                while r < 24:
+                    r += 1
+                    logger.debug('checking  die %d on r %d' % (d,r))
+                    if position[r] < 0:            # point is available
+                        moves.append('%d-off' % (r+1,))
+                        position[r] += 1
+                        break
+
+#-------- TODO: siehe oben
+##        elif (d1+d2 < 7) and (pos[24-(d1+d2)] > 0): # long move is available
+##                                                    # TODO: denk an Contact!
+##            moves = ['%d-%d' % (24-(d1+d2),24-d1), '%d-off' % (24-d1,)]
+#--------------------------
+        return moves
+        
+def check_roll(dice, position, bar_nr, direction, ox):
     """Checks for possible moves depending on 'dice'."""
     d1, d2 = dice
     logger.debug('enters check_roll with: dice %s position %s   bar_nr %d' \
@@ -146,7 +245,6 @@ def check_roll(dice, position, bar_nr, direction):
     nr_moved_pieces = 0
     forced_move = True
     checks_neccessary = True
-    ox = OX(direction['bar'])
     # ------------------------------------------- enter from the bar
     bar_moves = min(nr_of_moves, bar_nr)
     my_pos = position[:]
@@ -159,6 +257,7 @@ def check_roll(dice, position, bar_nr, direction):
         forced_move = ret['forced_move']
         checks_neccessary = ret['checks_neccessary']
         bar_nr_moved_pieces = ret['nr_moved_pieces']
+        nr_moved_pieces = bar_nr_moved_pieces
         nr_of_moves = ret['remaining_moves']
         print '..... ret', ret
     # ------------------------------------------- moves in the board
@@ -195,6 +294,7 @@ def check_roll(dice, position, bar_nr, direction):
         for l in board_list_of_moves.values():
             list_of_moves += l
         nr_moved_pieces = min(len(list_of_moves), nr_of_moves+bar_nr_moved_pieces)
+                # TODO: stimmt nicht, wenn man einen von der bar hat
         forced_move = nr_moved_pieces <= nr_of_moves
         if nr_moved_pieces == nr_of_moves:
             # looking for alternate moves
@@ -397,37 +497,44 @@ def check_bar_moves(dice, position, nr_bar_moves, bar):
            'forced_move': forced_move, 'checks_neccessary': checks_neccessary}
     return ret
 
-def bear_off(position, homeboard, home):
-    a,b = homeboard
-    nr_home = abs(sum(position[a:b])) + home # TODO abs(sum())
-    logger.debug('bear_off: %d,%d   %d    %s   %d' % \
-            (a, b, nr_home, position[a:b], home))
-    return nr_home == 15
+##def bear_off(position, homeboard, home):
+##    a,b = homeboard
+##    nr_home = abs(sum(position[a:b])) + home # TODO abs(sum())
+##    logger.debug('bear_off: %d,%d   %d    %s   %d' % \
+##            (a, b, nr_home, position[a:b], home))
+##    return nr_home == 15
     
-def greedy(dice, position,):
-    d1, d2 = dice           # TODO: mit waste auch noch machen
-    logger.debug('GREEDY: %d,%d   %s' % (d1, d2, position))
-    if d1 == d2:
-        return {'greedy_possible': False,}  # TODO: pasch geht nicht
-    pos = position
-    moves = []
-    if nick == 'p1':                # TODO: weg mit p1 und konsorten
-        if (pos[d1] > 0) and (pos[d2] > 0):
-            moves = ['%d-0' % d1, '%d-0' % d2]
-        elif (d1+d2 < 7) and (pos[d1+d2] > 0):
-            moves = ['%d-%d' % (d1+d2,d1), '%d-0' % d1]
-    elif nick == 'p2':              # TODO: weg mit p1 und konsorten
-        p1 = 25 - d1
-        p2 = 25 - d2
-        pp = 25 - d1 + d2
-        if (pos[p1] < 0) and (pos[p2] < 0):
-            moves = ['%d-25' % p1, '%d-25' % p2]
-        elif (d1+d2 < 7) and (pos[pp] > 0):
-            moves = ['%d-%d' % (pp,p1), '%d-25' % p1]
+def greedy(dice, position, ox):
+    logger.debug('GREEDY: %s   %s' % (dice, position))
+    moves = ox.greedy_moves(dice, position[1:-1])
     res = {'greedy_possible': len(moves) > 0, 'moves': moves}
     logger.debug('GREEDY: %s   ' % res)
     return res
 
+##def greedy(dice, position,):
+##    d1, d2 = dice           # TODO: mit waste auch noch machen
+##    logger.debug('GREEDY: %d,%d   %s' % (d1, d2, position))
+##    if d1 == d2:
+##        return {'greedy_possible': False,}  # TODO: pasch geht nicht
+##    pos = position
+##    moves = []
+##    if nick == 'p1':                # TODO: weg mit p1 und konsorten
+##        if (pos[d1] > 0) and (pos[d2] > 0):
+##            moves = ['%d-0' % d1, '%d-0' % d2]
+##        elif (d1+d2 < 7) and (pos[d1+d2] > 0):
+##            moves = ['%d-%d' % (d1+d2,d1), '%d-0' % d1]
+##    elif nick == 'p2':              # TODO: weg mit p1 und konsorten
+##        p1 = 25 - d1
+##        p2 = 25 - d2
+##        pp = 25 - d1 + d2
+##        if (pos[p1] < 0) and (pos[p2] < 0):
+##            moves = ['%d-25' % p1, '%d-25' % p2]
+##        elif (d1+d2 < 7) and (pos[pp] > 0):
+##            moves = ['%d-%d' % (pp,p1), '%d-25' % p1]
+##    res = {'greedy_possible': len(moves) > 0, 'moves': moves}
+##    logger.debug('GREEDY: %s   ' % res)
+##    return res
+##
 if __name__ == '__main__':
     data = [{'dice':[(6,6), (5,5), (3,3), (6,5), (6,2), (2,1),],
              'pos': [0, 0,0,0,1,4,1, 0,3,0,-4,-2,0,
@@ -455,19 +562,35 @@ if __name__ == '__main__':
             {'dice':[(6,5),],
              'pos': [0, 3,3,2,0,0,0, -2,0,0,0,0,0,
                         0,0,0,0,0,0, 0,0,0,-7,-1,-7, 0],
-             'dir': {'home':0, 'bar':25}, 'bar': [0,]},
+             # TODO: auch hier muss forced sein! wenn man von der ursprünglichen
+             #       pos ausgeht, sieht man das
+             # TODO: das Konzept forced muss anders sein. die Aufgabe ist:
+             #       finde im Original pos eine ausreichende Kombination mit einem
+             #       anderen Endzustand
+             'dir': {'home':0, 'bar':25}, 'bar': [0,], 'home': 7},
+            {'dice':[(2,5),],
+             'pos': [0, -2,6,2,2,0,2, -2,0,0,0,0,0,
+                        0,0,0,0,0,0, 0,0,0,-7,-1,-7, 0],
+             # TODO: auch hier muss forced sein! wenn man von der ursprünglichen
+             #       pos ausgeht, sieht man das
+             # TODO: das Konzept forced muss anders sein. die Aufgabe ist:
+             #       finde im Original pos eine ausreichende Kombination mit einem
+             #       anderen Endzustand
+             'dir': {'home':0, 'bar':25}, 'bar': [0,], 'home': 3},
         ]
     for d in data:
         pos = d['pos']
         direction = d['dir']
+        home_count = d.get('home', 0)
+        ox = OX(direction['bar'], home_count)
         print 'Testing position', pos, '  ->', direction, '='*10
         for b in d['bar']:
             print '-'*40, 'bar', b
             for die in d['dice']:
                 print '-'*20, 'dice', die
-                print check_roll(die, pos, b, direction)
+                print check_roll(die, pos, b, direction, ox)
                 print
     print '#'*50
-    ret = check_board_moves((5,1), data[1]['pos'][1:-1], 2, OX(0))
+    ret = check_board_moves((5,1), data[1]['pos'][1:-1], 2, OX(0,0))
     print ret
 

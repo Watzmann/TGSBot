@@ -347,8 +347,8 @@ class TestBoardMovesOnly(unittest.TestCase):
                                0,0,1,1,1,0, 1,0,0,-7,1,-7, 0]
 ##            {'dice':[(6,3),],
 ##             'dir': {'home':25, 'bar':0}, 'bar': [1,]},
-        self.ox_0 = OX(0)
-        self.ox_25 = OX(25)
+        self.ox_0 = OX(0, 0)
+        self.ox_25 = OX(25, 0)
 
 ##    def tearDown(self):
 
@@ -416,69 +416,150 @@ class TestCheckRoll(unittest.TestCase):
 ##             'dir': {'home':25, 'bar':0}, 'bar': [1,]},
         self.dir_0 = {'home':25, 'bar':0}
         self.dir_25 = {'home':0, 'bar':25}
+        self.ox_0 = OX(0, 0)
+        self.ox_25 = OX(25, 0)
 
 ##    def tearDown(self):
 
     def testcheck_25_66(self):
-        ret = check_roll((6,6), self.position_25, 0, self.dir_25)
+        ret = check_roll((6,6), self.position_25, 0, self.dir_25, self.ox_25)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['8-2', '8-2', '8-2'])
         self.assertEqual(ret['nr_pieces'], 3)
         self.assertEqual(ret['forced_move'], True)
 
     def testcheck_25_55(self):
-        ret = check_roll((5,5), self.position_25, 0, self.dir_25)
+        ret = check_roll((5,5), self.position_25, 0, self.dir_25, self.ox_25)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['6-1', '8-3', '8-3', '8-3'])
         self.assertEqual(ret['nr_pieces'], 4)
         self.assertEqual(ret['forced_move'], True)
 
     def testcheck_25_33(self):
-        ret = check_roll((3,3), self.position_25, 0, self.dir_25)
+        ret = check_roll((3,3), self.position_25, 0, self.dir_25, self.ox_25)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['4-1', '5-2', '5-2', '5-2'])
         self.assertEqual(ret['nr_pieces'], 4)
         self.assertEqual(ret['forced_move'], False)
 
     def testcheck_25_65(self):
-        ret = check_roll((6,5), self.position_25, 0, self.dir_25)
+        ret = check_roll((6,5), self.position_25, 0, self.dir_25, self.ox_25)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['6-1', '8-2'])
         self.assertEqual(ret['nr_pieces'], 2)
         self.assertEqual(ret['forced_move'], False)
 
     def testcheck_25_62(self):
-        ret = check_roll((6,2), self.position_25, 0, self.dir_25)
+        ret = check_roll((6,2), self.position_25, 0, self.dir_25, self.ox_25)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['4-2', '8-2'])
         self.assertEqual(ret['nr_pieces'], 2)
         self.assertEqual(ret['forced_move'], False)
 
     def testcheck_25_21(self):
-        ret = check_roll((2,1), self.position_25, 0, self.dir_25)
+        ret = check_roll((2,1), self.position_25, 0, self.dir_25, self.ox_25)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['2-1', '4-2'])
         self.assertEqual(ret['nr_pieces'], 2)
         self.assertEqual(ret['forced_move'], False)
 
     def testcheck_50_51(self):
-        ret = check_roll((5,1), self.position_50, 0, self.dir_0)
+        ret = check_roll((5,1), self.position_50, 0, self.dir_0, self.ox_0)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['22-23',])
         self.assertEqual(ret['nr_pieces'], 1)
         self.assertEqual(ret['forced_move'], True)
 
     def testcheck_50_15(self):
-        ret = check_roll((1,5), self.position_50, 0, self.dir_0)
+        ret = check_roll((1,5), self.position_50, 0, self.dir_0, self.ox_0)
         self.assertEqual(len(ret), 3)
         self.assertEqual(ret['list_of_moves'], ['22-23',])
         self.assertEqual(ret['nr_pieces'], 1)
         self.assertEqual(ret['forced_move'], True)
 
+    def testcheck_bar_01(self):
+        position = [0, 0,2,0,2,2,3, 1,0,0,0,0,0,
+                       0,0,0,0,0,0, 0,0,-1,-3,-3,-2, 0]
+        ret = check_roll((4,5), position, 5, self.dir_25, self.ox_25)
+        self.assertEqual(len(ret), 3)
+        self.assertEqual(ret['list_of_moves'], ['bar-21', 'bar-20'])
+        self.assertEqual(ret['nr_pieces'], 2)
+        self.assertEqual(ret['forced_move'], True)
+
+    def testcheck_bar_02(self):
+        position = [0, 0,1,2,2,2,2, 0,3,0,0,0,1,
+                       0,0,0,0,0,0, -2,2,-2,-5,-2,-3, 0]
+        ret = check_roll((1,6), position, 1, self.dir_0, self.ox_0)
+        self.assertEqual(len(ret), 3)
+        self.assertEqual(ret['list_of_moves'], ['bar-1', '1-7'])
+        self.assertEqual(ret['nr_pieces'], 2)
+        self.assertEqual(ret['forced_move'], True)
+
+    def testcheck_bearoff_01(self):
+        position = [0, 3,4,0,0,-1,0, 0,0,0,0,0,0,
+                       0,0,0,0,0,0, 0,0,-2,-6,-2,-4, 0]
+        ret = check_roll((3,5), position, 0, self.dir_25, OX(25, 8))
+        self.assertEqual(len(ret), 3)
+        self.assertEqual(ret['list_of_moves'], ['2-off', '2-off'])
+        self.assertEqual(ret['nr_pieces'], 2)
+        self.assertEqual(ret['forced_move'], True)
+
+class TestCheckGreedy(unittest.TestCase):
+
+    def setUp(self):
+        self.position_25 = [0, 8,2,2,0,0,0, 0,0,0,0,0,0,
+                               0,0,0,0,0,0, 0,0,0,1,1,2, 0]
+        self.position_50 = [0, 2,0,-1,2,2,2, 0,2,0,0,0,0,
+                               0,0,1,1,1,0, 1,0,0,-7,1,-7, 0]
+        self.position_75 = [0, 2,0,0,2,2,2, 0,2,0,0,0,0,
+                               0,0,1,1,1,0, 1,0,0,-7,1,-7, 0]
+        self.dir_0 = {'home':25, 'bar':0}
+        self.dir_25 = {'home':0, 'bar':25}
+        self.ox_0 = OX(0, 0)
+        self.ox_25 = OX(25, 0)
+
+##    def tearDown(self):
+
+    def testgreedy_25_23(self):
+        ret = greedy((2,3), self.position_25, OX(25,3))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['3-0', '2-0'])
+        self.assertEqual(ret['greedy_possible'], True)
+
+    def testgreedy_25_32(self):
+        ret = greedy((3,2), self.position_25, OX(25,3))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['3-0', '2-0'])
+        self.assertEqual(ret['greedy_possible'], True)
+
+    def testgreedy_25_42(self):
+        ret = greedy((4,2), self.position_25, OX(25,3))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['3-0', '2-0'])
+        self.assertEqual(ret['greedy_possible'], True)
+
+    def testgreedy_25_45(self):
+        ret = greedy((4,5), self.position_25, OX(25,3))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['3-0', '3-0'])
+        self.assertEqual(ret['greedy_possible'], True)
+
+    def testgreedy_25_55(self):
+        ret = greedy((5,5), self.position_25, OX(25,3))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['3-0', '3-0', '2-0', '2-0'])
+        self.assertEqual(ret['greedy_possible'], True)
+
+    def testgreedy_25_33(self):
+        ret = greedy((3,3), self.position_25, OX(25,3))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['3-0', '3-0', '2-0', '2-0'])
+        self.assertEqual(ret['greedy_possible'], True)
+
 if __name__ == "__main__":
     do_suites = (len(sys.argv) > 1) and (sys.argv[1] == 'suites')
 
     if not do_suites:
-        run_test(TestBoardMovesOnly('testcheck_25_66'))
+        run_test(TestCheckRoll('testcheck_bearoff_01'))
     else:
         run_suites(globals())
