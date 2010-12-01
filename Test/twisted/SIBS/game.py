@@ -521,6 +521,8 @@ class GameControl:
 #-------------------------------------------------------------------
 
     def start(self,):
+        self.p1.owns_cube = False  # TODO: is this the proper place to reset this?
+        self.p2.owns_cube = False
         self.SM.start(self.p1)  # TODO: player is not relevant; can we drop it?
 
     def _start(self, p, **kw):

@@ -508,15 +508,11 @@ class TestCheckGreedy(unittest.TestCase):
 
     def setUp(self):
         self.position_25 = [0, 8,2,2,0,0,0, 0,0,0,0,0,0,
-                               0,0,0,0,0,0, 0,0,0,1,1,2, 0]
-        self.position_50 = [0, 2,0,-1,2,2,2, 0,2,0,0,0,0,
-                               0,0,1,1,1,0, 1,0,0,-7,1,-7, 0]
-        self.position_75 = [0, 2,0,0,2,2,2, 0,2,0,0,0,0,
-                               0,0,1,1,1,0, 1,0,0,-7,1,-7, 0]
-        self.dir_0 = {'home':25, 'bar':0}
-        self.dir_25 = {'home':0, 'bar':25}
-        self.ox_0 = OX(0, 0)
-        self.ox_25 = OX(25, 0)
+                               0,0,0,0,0,0, 0,0,0,-1,-1,-2, 0]
+        self.position_50 = [0, 1,2,0,0,0,0, 0,0,0,0,0,0,
+                               0,0,0,0,0,0, 0,0,0,0,-1,-2, 0]
+        self.position_75 = [0, 0,0,0,1,0,0, 0,0,0,0,0,0,
+                               0,0,0,0,0,0, 0,-1,0,0,0,0, 0]
 
 ##    def tearDown(self):
 
@@ -525,11 +521,19 @@ class TestCheckGreedy(unittest.TestCase):
         self.assertEqual(len(ret), 2)
         self.assertEqual(ret['moves'], ['3-0', '2-0'])
         self.assertEqual(ret['greedy_possible'], True)
+        ret = greedy((2,3), self.position_25, OX(0,11))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['22-off', '23-off'])
+        self.assertEqual(ret['greedy_possible'], True)
 
     def testgreedy_25_32(self):
         ret = greedy((3,2), self.position_25, OX(25,3))
         self.assertEqual(len(ret), 2)
         self.assertEqual(ret['moves'], ['3-0', '2-0'])
+        self.assertEqual(ret['greedy_possible'], True)
+        ret = greedy((3,2), self.position_25, OX(0,11))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['22-off', '23-off'])
         self.assertEqual(ret['greedy_possible'], True)
 
     def testgreedy_25_42(self):
@@ -537,11 +541,19 @@ class TestCheckGreedy(unittest.TestCase):
         self.assertEqual(len(ret), 2)
         self.assertEqual(ret['moves'], ['3-0', '2-0'])
         self.assertEqual(ret['greedy_possible'], True)
+        ret = greedy((4,2), self.position_25, OX(0,11))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['22-off', '23-off'])
+        self.assertEqual(ret['greedy_possible'], True)
 
     def testgreedy_25_45(self):
         ret = greedy((4,5), self.position_25, OX(25,3))
         self.assertEqual(len(ret), 2)
         self.assertEqual(ret['moves'], ['3-0', '3-0'])
+        self.assertEqual(ret['greedy_possible'], True)
+        ret = greedy((4,5), self.position_25, OX(0,11))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['22-off', '23-off'])
         self.assertEqual(ret['greedy_possible'], True)
 
     def testgreedy_25_55(self):
@@ -549,11 +561,59 @@ class TestCheckGreedy(unittest.TestCase):
         self.assertEqual(len(ret), 2)
         self.assertEqual(ret['moves'], ['3-0', '3-0', '2-0', '2-0'])
         self.assertEqual(ret['greedy_possible'], True)
+        ret = greedy((5,5), self.position_25, OX(0,11))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['22-off', '23-off', '24-off', '24-off'])
+        self.assertEqual(ret['greedy_possible'], True)
 
     def testgreedy_25_33(self):
         ret = greedy((3,3), self.position_25, OX(25,3))
         self.assertEqual(len(ret), 2)
         self.assertEqual(ret['moves'], ['3-0', '3-0', '2-0', '2-0'])
+        self.assertEqual(ret['greedy_possible'], True)
+        ret = greedy((3,3), self.position_25, OX(0,11))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['22-off', '23-off', '24-off', '24-off'])
+        self.assertEqual(ret['greedy_possible'], True)
+
+    def testgreedy_50_33(self):
+        ret = greedy((3,3), self.position_50, OX(25,12))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['2-0', '2-0', '1-0'])
+        self.assertEqual(ret['greedy_possible'], True)
+        ret = greedy((3,3), self.position_50, OX(0,12))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['23-off', '24-off', '24-off'])
+        self.assertEqual(ret['greedy_possible'], True)
+
+    def testgreedy_50_61(self):
+        ret = greedy((6,1), self.position_50, OX(25,12))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['2-0', '1-0'])
+        self.assertEqual(ret['greedy_possible'], True)
+        ret = greedy((6,1), self.position_50, OX(0,12))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['23-off', '24-off'])
+        self.assertEqual(ret['greedy_possible'], True)
+
+    def testgreedy_75_61(self):
+        ret = greedy((6,1), self.position_75, OX(25,12))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['4-0',])
+        self.assertEqual(ret['greedy_possible'], True)
+        ret = greedy((6,1), self.position_75, OX(0,12))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['20-off',])
+        self.assertEqual(ret['greedy_possible'], True)
+
+    def testgreedy_75_41(self):
+        ret = greedy((4,1), self.position_75, OX(25,12))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['4-0',])
+        self.assertEqual(ret['greedy_possible'], True)
+        ret = greedy((4,1), self.position_75, OX(0,12))
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['20-24', '24-off'])
         self.assertEqual(ret['greedy_possible'], True)
 
 if __name__ == "__main__":

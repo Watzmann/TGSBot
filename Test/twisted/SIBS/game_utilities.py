@@ -214,7 +214,7 @@ class OX:
                 position[24-d] += 1
             elif not reduce(self.sum_home, position[18:23-d], 0):
                 r = 24 - d
-                while r < 24:
+                while r < 23:
                     r += 1
                     logger.debug('checking  die %d on r %d' % (d,r))
                     if position[r] < 0:            # point is available
