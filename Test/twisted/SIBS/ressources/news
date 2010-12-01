@@ -3,7 +3,13 @@
 |                                                                    |
 | new commands: shout, sortwho, who                                  |
 |                                                                    |
-| fixed bugs:                                                        |
+| fixed bugs:   1) most games messages now work; clients should      |
+|                  work properly, now.                               |
+|               2) calculation of possible moves should be correct   |
+|                  in most cases, now.                               |
+|                                                                    |
+| known bugs:   1) greedy bearoff does not work correctly, better    |
+|                  not use it.                                       |
 |                                                                    |
 +--------------------------------------------------------------------+
 4
