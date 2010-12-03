@@ -132,6 +132,7 @@ als Datencontainer dienen."""
         self.toggles = toggles
         self.settings = settings
         self.messages = messages
+        self.away = 0
         print 'initializing INFO', self.show()
 
     def set_login_data(self, login, host):
@@ -168,7 +169,7 @@ als Datencontainer dienen."""
     def array(self, battery):
         s = self.toggles            # array() wird wohl nicht benutzt
         t = {0: ('allowpip', 'autoboard', 'autodouble', 'automove',),
-             1: ('autoroll', 'bell', 'crawford', 'double',),
+             1: ('bell', 'crawford', 'double',),            # 'autoroll', ???
              2: ('greedy', 'moreboards', 'moves', 'notify',),
              3: ('ratings', 'ready',),
              4: ('report', 'silent',),
@@ -178,25 +179,26 @@ als Datencontainer dienen."""
     def __str__(self,):
         _t = {True: '1', False: '0'}
         t = [' '.join([_t[i] for i in self.array(p)]) for p in range(5)]
-        ret = '%s %s %s %s %d %s %.2f %s %s %s %s' % \
-            (self.name, t[0], '<away>=[0,1]', t[1], self.experience, t[2],
-             self.rating, t[3], self.settings[3], t[4], self.settings[5],)
-##        ret = '.'.join(t)
+        ret = '%s %s %d %s %d %s %.2f %s %s %s %s' % \
+            (self.name, t[0], getattr(self, 'away', 0), t[1], self.experience,
+             t[2], self.rating, t[3], self.settings[3], t[4], self.settings[5],)
         return ret
 
 class Status:                       # TODO:  dringend überprüfen, ob der
                                     #        IMMER aktuell ist.
                                     #   x für self.logged_in sieht es gut aus
-    def __init__(self, toggles):
+    def __init__(self, toggles, user):
 ##        self.timestamp = time.time()
         self.toggles = toggles
-        self.away = False   # TODO: sollte in Info() aufgehen
+        self.away = False
+        self.away_msg = ''
         # status: online ready playing / watching
         self.states = (('', 'offline',),
                        ('', 'online', 'ready', 'playing'),
                        ('', 'watching',))
         self.active_state = [1, 0, 0]
         self.opponent = '-'
+        self.user = user
 
 ##    def get_state(self,):
 ##        if self.toggles.read('ready'):
@@ -218,11 +220,24 @@ class Status:                       # TODO:  dringend überprüfen, ob der
     def get_awayflag(self,):
         return int(self.away)
 
+    def get_away_messge(self,):
+        return int(self.away_msg)
+
     def get_playingflag(self,):
         return int(self.active_state[1] == 2)
 
     def is_online(self,):
         return hasattr('self','logged_in') and self.logged_in
+
+    def set_away(self, msg):
+        self.away = True
+        self.away_msg = msg
+        self.user.info.away = 1
+
+    def set_back(self,):
+        self.away = False
+        self.away_msg = ''
+        self.user.info.away = 0
 
     def stamp(self,):
         self.timestamp = time.time()
@@ -463,7 +478,8 @@ class User(Persistent):
         self.name = self.info.name
         self.settings = Settings(self.info)
         self.toggles = Toggles(self.info)
-        self.status = Status(self.toggles)
+        self.status = Status(self.toggles, self)
+##        self.info.is_away = self.is_away
         self._waves = 0
         self.invitations = {}   # TODO: wegen der Persistenz muss ich User()
                         # vielleicht wrappen, damit der Kern - User() - deep

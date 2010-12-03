@@ -340,11 +340,14 @@ class Command():
                 return "** There is no one called '%s'" % line[1]
 
         out = StringIO()
-        for u in users:
-            print >>out, loau[u].who()
-        # TODO:  laut spez wird nur beim rawwho die 6 garantiert geschickt
-        #        aber javafibs kriegt die 6 und schickt nur n ordinaeres who
-        print >>out, '6'
+        if len(users) == 0:
+            print >>out, 'No  S  username        rating   exp login  idle from'
+        else:
+            for u in users:
+                print >>out, loau[u].who()
+            # TODO:  laut spez wird nur beim rawwho die 6 garantiert geschickt
+            #        aber javafibs kriegt die 6 und schickt nur n ordinaeres who
+            print >>out, '6'
         return out.getvalue()
 
     def c_where(self, line, me):
