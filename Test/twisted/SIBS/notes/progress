@@ -1,0 +1,90 @@
+
+
+auf knapp unter 80% runterskalieren
+
+
+der fortschrittsbalken für den gesamtaufwand "spiele"
+je mehr 'x', desto fertich
+
+    |xxxxxxxxxxxxxxxxxxxxxxxxxxxxx|xxxxxxxxxxxx--------------------|
+
+und hier noch mal unterteilt für die verschiedenen bereiche; da sieht man, 
+welcher teil des spiels schon besonders weit fortgeschritten ist.
+
+    |xxxxxxxxxxxxxxxxxx--|xxxx----------------|xxxxxxxxxxxxxxxxx--x|
+        spielbrett       ^   fehlerchecks     ^   clients sauber   ^
+      implementieren     |    einziehen       |      bedienen      |
+                        /                    /                    /
+                       /                    /                    /
+             schönwetterflug           durchatmen           testspiel
+                                                           zweiwürfel
+
+
+spielbrett implementieren:
+  
+   x anzeige korrekt
+   x züge korrekt
+   x geschlagene/herausgewürfelte steine korrekt
+   x verdopplung korrekt
+
+fehlerchecks einziehen:
+
+   x wer spielt/ist dran
+   - züge syntaktisch richtig
+   - züge logisch richtig
+   - züge erlaubt
+   x verdopplung erlaubt
+
+clients sauber bedienen:
+
+   x protokoll implementieren (ca. 20 typen von nachrichten)
+   x java-client geht
+   x 3d-client geht
+
+========================================================================================================================
+
+der fortschrittsbalken für den gesamtaufwand "befehle"
+je mehr 'x', desto fertich
+(ein 'o' ist beinahe ein 'x', da fehlt noch kosmetik)
+
+    |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|xxxxxxxxxxoo---------------------------|
+
+und hier noch mal unterteilt für die verschiedenen bereiche; da sieht man, welche 
+befehlsgruppen schon besonders weit fortgeschritten sind.
+
+    |xxxxxxxxx------|xxx------------|xxxxxxxxxxxxx--|xxxxxxxxx------|xxxxxxxxxxxoo--|
+    |   chat + x    |    between    |   settings    |     info      |     game      |
+
+
+    Chat and Settings for other Players   |    Setting Commands 
+      x shout                             |      x toggle       
+        kibitz                            |      x set          
+      x tell                              |      x address      
+      x say                               |      x password     
+        whisper                           |      x save         
+      x message                           |    Sibs Info
+        waitfor                           |      x motd
+        gag                               |      x about
+        blind                             |        average
+    Between Game Actions                  |        dicetest
+      x invite                            |      x version
+      x join                              |        stat
+        watch                             |        black
+        unwatch                           |      x bye
+        look                              |      x wave
+        oldboard                          |    Game Commands
+        oldmoves                          |      x roll
+        away                              |      x move
+    General Info                          |        off
+      x help                              |      x board
+        show                              |      o pip
+      x who                               |      x double
+        where                             |      x accept
+      x rawwho                            |      x reject
+      x whois                             |      x resign
+        ratings                           |      o leave
+        last                              |        redouble
+        time                              |  
+    
+    
+    

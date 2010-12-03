@@ -1,0 +1,49 @@
+budget
+
+23.8.2010 9:40
+--------------
+
+bisher erbrachte Aufwände:
+1.7. - 25.7.	twisted-Tutorial und andere Vorarbeiten
+26.7. -		Implementierung    ca. 2x8h pro Woche
+
+= ca. 64h gesamt
+
+erreicht: 
+
+1689 loc (lines of code)  (1418 netto, also ohne Leerzeilen)
+
+~ 26.4/h (22.2/h)
+
+23.8.	3h 	Implementierung Welcome/Login/Persistency
+24.8.	2h 	Implementierung Welcome/Login
+25.8.	1h 	Implementierung Welcome/Login
+29.8.  ~6h	Tests/Mantis/Spoofen  (übers Wochenende)
+30.8.   1h	Mantis, Version, Roadmap
+ 2.9.   2h	Version, divers
+ 5.9.   2h	schleifen
+ 6.9.   2h	Informationen für who()
+ 8.9.   5h	Informationen für who(), ...
+-------------------------------------------------------------
+                                                          88h
+ 9.9.   1h	#0002
+11.9.   2h      help, .....
+13.9.   4h      werfen, .....
+14.9.   1h      bloggen
+14.9.   3h      unittests
+14.9.   2h      check_roll()
+15.9.   1h      auto roll
+19.9.   6h      board_show(), board_aa()
+24.9.   4h      board und game.control, unittests, dev_game
+3.10.   7h	state-machine, Konzeption und Umsetzung
+5.10.   4h	state-machine, Umsetzung
+10.10.  4h	state-machine, Umsetzung
+14.10.  2h	state-machine, Umsetzung
+17.10. 10h	state-machine, Einbau
+24.10. 10h	state-machine, Einbau
+-------------------------------------------------------------
+                                                         149h
+ 1.11. 20h	Ende des Spiels, Match                               muss noch mit Hamster verifiziert werden
+
+
+

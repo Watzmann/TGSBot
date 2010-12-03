@@ -1,0 +1,96 @@
+Notizen und Erkenntnisse zu SIBS
+---------------------------------------------------------------
+
+Problem: Javafibs kann sich nicht einloggen (mit der Anmeldemaske).
+
+Lösung:  Daten sammeln, bis die Zeile voll ist.
+
+  Mit Wireshark gespooft. 
+  Siehe /var/develop/Python.file/Test/twisted/SIBS/fibstest/spoof.local.log
+        Filter: tcp.srcport == 8080 || tcp.dstport == 8080 
+  Die Login-Meldung von Javafibs (login f f sorrytigger kkkkkkk) kommt in
+  einzelnen Paketen zeichenweise und wird halt durch 0x0d0a abgeschlossen.
+
+  Also sammle ich die Daten in CLIP::DataReceived()
+
+....................................................................
+
+bloggen
+
+(((das problem mit dem javaclient ist erst mal gelöst. eine anpassung auf protokollebene war nötig. damit können tests jetzt auch mit dem javaclient durchgeführt werden. vor allem für die durchführung eines spiels ist das sehr hilfreich. man aber bei allen kommandos sofort, ob das protokoll eingehalten wurde.)))
+
+(Ist im blog drin)
+....................................................................
+
+bloggen
+
+(((das spielen wird langsam. man kann schon
+
+  - einladen
+  - teilnehmen
+  - man bekommt den ersten wurf benannt...
+  - ...und wer dran ist
+
+ah: die meldungen kommen noch etwas durcheinander. das liegt daran, dass die verschiedenen aufrufe sich gegenseitig blockieren. es wird wichtig, das zu ändern.
+
+ich muss mich also noch mal sammeln. die großen punkte sind
+
+  - persistenz
+  - deferreds
+  - architektur
+  - unit testing
+
+ein kleinerer
+
+  - socket-limit
+
+letzterer ist schon als unproblematisch identifiziert. technisch sollten auf gängigen systemen ca. 200 000 möglich sein.)))
+
+(Ist im blog drin)
+....................................................................
+====================================================================
+ändern
+
+in "erstes testspiel......":     erste zeile: "ein erstes mit zweiwürfelchen hat stattgefunden"..... usw
+
+(Ist im blog drin)
+....................................................................
+
+bloggen
+
+(((also, das implementieren des spiels ist jetzt definitiv erst mal unterbrochen. dafür schreitet die implementierung von protokoll und befehlen munter voran. die neuen befehle werden mit den clients getestet, dabei wird auch offenbar, wo die clients bisher ihre bauchschmerzen hatten. die setzen nämlich nach dem einloggen eine ganze reihe von befehlen ab, um infos zu sammeln und einstellungen vorzunehmen. wenn sie dann nicht zufriedengestellt werden, hängen sie einfach. ich glaube, das brauch ich jetzt nicht mehr jedesmal detailliert zu erläutern.
+
+es gibt jetzt hier einen neuen fortschrittsbalken, der diese abschnitte veranschaulicht. das protokoll erwähne ich nicht weiter. die arbeit an den befehlen stellt den löwenanteil dar.
+
+langsam wird das fehlen von persistenz und einer gewissen menge von spielern auffällig. viele der befehle beziehen sich auf einstellungen oder den status von spielern. ich werde mich bald an das abspeichern von spielern und spielen machen müssen, damit ich nicht auf dem niveau von simulationen hängen bleibe. mist. es tun sich doch dauernd neue zwänge auf. dennoch bin ich mit dem fortschritt insgesamt zufrieden.
+
+ein ganz reales ziel ist jetzt eine alpha-version zum ersten septemberwochenende. dann ist in der eifel nämlich großes spielertreffen. da möchte ich meinen server gerne schon mal vorführen.)))
+
+(Ist im blog drin)
+....................................................................
+
+bloggen
+
+(((mit der jetzt vorhandenen persistenz überarbeite ich den kompletten login-prozess. all die kleinen abkürzungen, die ich am anfang genommen habe, werden jetzt korrekt ausimplementiert. natürlich bleibt immer noch der eine oder andere hack, zur ganzen schönheit wird es erst am ende kommen. ziel ist jetzt, alle losen enden zu verknüpfen und die logik korrekt abzubilden. die absolut zutreffende welcome-message gibt es erst am schluss.
+
+der guest-login funktioniert bereits. die auswahl des passworts ist noch nicht fertig und der nick wird noch nicht auf korrekte form überprüft. kleinigkeiten für später. hier hängt nicht mehr viel lose. allerdings macht der javaclient die registrierung noch nicht mit (mal wieder :().
+
+ich muss jetzt mal langsam ne roadmap aufstellen. (hihi - die deutschen nennen sowas ja gern mal ne 'straßenkarte' - lol) neee - was werde ich bis zu welchem zeitpunkt gemacht haben.....was wird dann der leistungsumfang sein......damit meine fans dann nen metermaß nehmen und jeden tag n abschnitt abschneiden können.......damit man endlich weiß, worauf man hinfiebert :))))
+
+(Ist im blog drin)
+....................................................................
+
+bloggen
+
+(((da der java-client jetzt geht, kann ich mich wieder der state-machine widmen. state-machine? na klar! der spiele-teil ist eine "state-machine". so nennt man einen automatismus, der nach bestimmten regeln von einem zustand in den nächsten übergeht. informatiker reiben sich die hände, weil sie hier auf vertrautem grund sind. :)
+
+in unserem falle ist man bei so einem spiel in einem bestimmten zustand, zum beispiel der anfangsaufstellung, und wirft dann die würfel, und gerät dann unter befolgung der regeln in den nächsten zustand, zum beispiel "haare raufen" oder "diebisch freuen". ich werde diese automatik im folgenden einfach state-machine nennen.
+
+um die kann ich mich jetzt also endlich wieder kümmern. und hab gleich dafür gesorgt, dass man werfen kann. und anschließend natürlich von der bar einsetzen. und.....ooooh.....mist.....daran hab ich ja gar nicht gedacht. da kommt ja schon wieder die nächste komplikation. der server - die state-machine - merkt nämlich, wenn der spieler nicht "reinkommt" und gibt den wurf direkt an den gegner zurück. ich muss also jetzt zuerst den teil programmieren, der rausfindet, ob der spieler ein, zwei, drei oder vier steine setzen kann, oder eben keinen. na.....dann mal los.
+
+und weil das recht kompliziert und fehleranfällig ist, muss ich jetzt endlich, wirklich mit den unittests anfangen. was das ist, erklär ich erst im nächsten abschnitt. jetzt schaff ich erst mal....)))
+
+(Ist im blog drin)
+....................................................................
+
+sogar das anstandswidrige verlassen einer sicher verlornen partie unter inkaufnahme eines eben noch siegesgewissen, nun aber sehr enttäuschten gegners geht

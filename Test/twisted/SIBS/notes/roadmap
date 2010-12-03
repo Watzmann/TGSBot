@@ -1,0 +1,38 @@
+Roadmap
+
+Die Roadmap gibt an, wie die Entwicklung der nächsten Versionen geplant ist:
+
+  1) wie die Version bezeichnet wird,
+  2) wann sie erscheinen soll.
+  3) was sie leisten soll,
+
+Auf die Releasedaten will ich nicht festgelegt werden, da es sich doch um ne 
+Freizeitbeschäftigung handelt. Sie stellen nur so ne Art Machbarkeitsaussage
+dar. Gegenüber der ersten Aussage ergibt sich eine Verschiebung von ein bis
+zwei Monaten.
+
+Hier die derzeitige Planung (in Klammern jeweils das Plan-Datum):
+
+Version		Release		Beschreibung
+------------------------------------------------------------------------------
+0.2 pre-alpha   (31.10.2010)	Vorarbeiten; Features noch mit Lücken; 
+				Spiel geht noch nicht ohne größere Mängel,
+				lässt sich aber auf beiden clients bedienen.
+
+0.5 alpha	(08.11.2010)	Kann als erste Alpha-Version mehreren Spielern 
+				zugänglich gemacht werden.
+				Bekannte Defizite; nicht alle Features ausimp-
+				lementiert; Spiel geht (mit kleineren Mängeln).
+
+0.9 beta	(12.12.2010)	Der Server läuft stabil und kann von einer 
+				größeren Gruppe Spielern getestet werden. Es 
+				ist davon auszugehen, dass die verschiedenen 
+				Clients noch einiges an Fehlern fördern.
+				Nur wenige Commands sind noch nicht implemen-
+				tiert.
+
+1.0 Tiger	(01.02.2010)	Der Server kann. Alle notwendigen Features 
+    Gammon			sind implementiert, bis dahin bekannte Fehler
+				sind behoben. Es gibt einen Namen.
+				Die Features umfassen das Spektrum von FIBS.
+				Es gibt noch keine zusätzlichen Features.

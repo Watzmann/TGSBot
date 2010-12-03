@@ -1,0 +1,83 @@
+Eine Liste von ToDos und Wünschen für SIBS
+---------------------------------------------------------------
+  - Abschluss/leave vom Spiel
+  - save/load
+  - Match
+  - volle Umstellung auf SM
+    - Control
+    - Board
+  - watching
+---------------------------------------------------------------
+jetzt noch den algorithmus für die zahl der möglichen züge
+das doppeln
+das resignen
+und die match-logik (also buchhaltung)
+und das prüfen der moves auf legalität
+
+2 6en rein, 2 6en nachrücken, oder aber die weiter entfernten 6en in einem rutsch rein. das sind formal andere züge, aber das gleiche ergebnis
+
+oder situationen wo man erst die kleine zahl setzen muß damit man die große auch noch setzen kann (oder umgekehrt)
+
+---------------------------------------------------------------
+
+Name
+  FIBS    Fast Internet B.... Server
+
+Internationalization
+  command language <language>
+  Texte (und Kommandos?) in der jeweiligen Sprache
+
+Invitations
+  bleiben stehen (es gilt nicht nur die letzte Invitation)?
+  es werden Änderungen gepushed (die Invitation wird gedropped, 
+     	    	       		 wenn der Spieler was anderes macht)
+
+unquietable shouts
+  für administrative Bekanntmachungen
+
+Chouette
+  spezielle Routinen für Chouette, spezielle Gruppe, spezieller chat Befehl,
+  spezielle Einladung
+  Wie wird das Rating berechnet?
+  Wenn die Leute erst beraten dürfen, wenn gedoppelt ist.....dann müsste man ihnen die anderen
+    Chat-Kanäle blocken. (Sie können dann natürlich immer noch skypen, oder so.)
+
+Timecontrol (Schachuhr)
+  Spiele können gegen die Uhr gespielt werden.
+
+Analysen zuschicken lassen (PremiumAccount)
+
+Logging
+  geradeziehen und print-statements ausmerzen
+
+Hinweis auf "Player Profile Protocol" in "CLIP Who Info beachten"
+
+Rating  (Sita)
+  Maximum Likeleyhood Methoden
+
+Züge    (void)
+  Man kann beobachten, welche Zugversuche der Gegner macht; das ist fast wie live
+
+Messaging
+  Man kann (wenn id bekannt) an andere Messagingkanäle ICQ, ... messages schicken und erhöht so die Erreichbarkeit.
+
+State-Machine
+  wie sieht das Spiel beim closed-board aus? Kann man noch resignen oder doppeln?
+
+Aided Play (Hilfsfunktionen für das Spiel sind an)
+  könnte man davon abhängig machen, dass beide Spieler zustimmen.
+
+look
+  Meldung, wenn einer look macht.
+
+Passwort restaurieren
+  -> kgs
+
+Trainingsmode
+  Ein Spiel kann einen Modus haben.
+  Im Trainingsmode geht es nicht ins Rating ein. Beide Spieler müssen zustimmen. Außer Pips wird dann Equity angezeigt und ein Signal, dass gedoppelt werden muss/kann.
+
+Bots
+  Kann von telnet_client.py ausgehen.
+
+
