@@ -148,14 +148,22 @@ class Command():
         return '** You invited %s to a %s point match.' % (user, ML,)
 
     def c_join(self, line, me):             # implemented
+        if len(line) < 2:
+            return "** Error: Join who?"    # TODO: noch nicht komplett
         user = line[1]
         him = self.list_of_users.get_active(user)
         if not him is None:
-            him.join(me, self.list_of_games)    # TODO: deferred
+            if not him.is_ready():
+                return "** %s is refusing games." % user
+            if him.is_playing():
+                return "** Error: %s is already playing with someone else." % \
+                                                                           user
+                # TODO: didn't invite you????
+            him.join(me, self.list_of_games)    # TODO: deferred?
             self.update_who(me)
             #self.update_who(him)       # TODO: broadcast doppelt, kann weg
         else:
-            return "user %s is not logged in" % user
+            return "** %s is not logged in" % user
 
     def c_watch(self, line, me):
         return 'watch %s' % NYI
