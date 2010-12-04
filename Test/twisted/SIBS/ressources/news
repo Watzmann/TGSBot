@@ -1,15 +1,15 @@
 3
-+ News --------------------------------------------------------------+
++ News ------------------------------------------------ Dec. 04 2010 +
 |                                                                    |
-| new commands: shout, sortwho, who                                  |
-|                                                                    |
-| fixed bugs:   1) most games messages now work; clients should      |
-|                  work properly, now.                               |
-|               2) calculation of possible moves should be correct   |
-|                  in most cases, now.                               |
+| new commands: kibitz works, but is an exact copy of say            |
 |                                                                    |
 | known bugs:   1) greedy bearoff does not work correctly, better    |
 |                  not use it.                                       |
+|               2) calculation of possible moves still fails in      |
+|                  some cases. Don't use automove.                   |
+|               3) in some cases, clients don't show the dice.       |
+|                  To continue the game, you have to use the         |
+|                  command 'roll' on the commandline.                |
 |                                                                    |
 +--------------------------------------------------------------------+
 4
