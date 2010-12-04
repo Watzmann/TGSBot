@@ -34,8 +34,10 @@ if __name__ == '__main__':
         for e,k in enumerate(keys):
             print e, k, asctime(localtime(float(k)/1000000.))
 
+#    import pickle
     for e,k in enumerate(keys):
         print e,k
         v = db.db[k]
-        print '   ', v.position, v.cube, v.value, v.direction, v.move
+        print '   ', v.position, v.cube, getattr(v,'value', '--'), v.direction, v.move
+#        print pickle.dumps(v)
     db.close()
