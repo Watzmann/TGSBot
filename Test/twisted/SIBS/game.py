@@ -67,6 +67,13 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
         except ValueError:
             logger.error('Game id %s not in list of active ids!' % game.id)
 
+    def show_games(self,):
+        out = StringIO()
+        for g in self.active_ids:
+            game = self.get(g + '.p1')[0]
+            print >>out, game.show_game()
+        return out.getvalue()
+
     def get(self, gid, default=None):
         logger.log(TRACE, 'returning gid %s' % gid)
         return self.active_games.get(gid, default)
@@ -365,9 +372,13 @@ class Player:
 
     def chat_player(self, msg):
         self.user.chat(msg)
+        for w in self.user.watchers.values():
+            w.chat(msg)
 
     def chat_opponent(self, msg):
         self.opp_user.chat(msg)
+        for w in self.opp_user.watchers.values():
+            w.chat(msg)
 
     def board_player(self,):
         """Display the board for the player."""
@@ -893,6 +904,13 @@ class Game(Persistent):
             'p2': {'you':pips[1], 'other':pips[0], 'opp': opp_name},
             }
         return 'Pipcounts: You %(you)d   %(opp)s %(other)d' % s[player]
+
+    def show_game(self,):
+        p1 = self.player1
+        p2 = self.player2
+        m = self.match
+        return '%-15s - %15s (%s point match %d-%d)' % (p1.name, p2.name, m.ML,
+                                        m.score[p1.nick], m.score[p2.nick])
         
 def getGame(**kw):
     log = kw['list_of_games']

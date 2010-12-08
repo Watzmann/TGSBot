@@ -78,7 +78,7 @@ class Help:
 
         lines += ["  + for the time being commands are prefixed with a " \
                   "'+' to indicate which\n",
-                  "    commands are already available.\n", "\n"]
+                  "    commands are already available.\n", "\n", "\n"]
 
 if __name__ == '__main__':
     h = Help(['about', 'accept', 'address', 'adios', 'board', 'bye'])

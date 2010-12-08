@@ -79,9 +79,15 @@ class Command():
         else:
             me.shout(' '.join(line[1:]))
 
+    def c_k(self, line, me):                # implemented
+        self.c_kibitz(line, me)
+        
     def c_kibitz(self, line, me):           # implemented
         self.c_say(line, me)        # TODO: notbehelf - reparieren!!!
 
+    def c_t(self, line, me):                # implemented
+        self.c_tell(line, me)
+        
     def c_tell(self, line, me):             # implemented
         name = line[1]
         msg = ' '.join(line[2:])
@@ -113,13 +119,13 @@ class Command():
             me.send_message(user, msg)
 
     def c_waitfor(self, line, me):
-        return 'waitfor %s' % NYI
+        return '** waitfor %s' % NYI
 
     def c_gag(self, line, me):
-        return 'gag %s' % NYI
+        return '** gag %s' % NYI
 
     def c_blind(self, line, me):
-        return 'blind %s' % NYI
+        return '** blind %s' % NYI
 
 
 # ----------------------------------------  Between Game Actions
@@ -133,10 +139,12 @@ class Command():
         if len(line) > 2:
             ML = line[2]
         else:                           # TODO:    resume organisieren
-            return '++ no resume of saved games implemented, yet.'
+            return '** no resume of saved games implemented, yet.'
         him = self.list_of_users.get_active(user)
         if him is None:
             return '** There is no one called %s.' % user
+        me.toggles.set_switch('ready', True)
+        self.update_who(me)
         if him.is_playing():            # TODO: dies hier und ready
                                         #       das muss doch über status eleganter gehen
             return '** %s is already playing with someone else.' % user
@@ -165,26 +173,47 @@ class Command():
         else:
             return "** %s is not logged in" % user
 
-    def c_watch(self, line, me):
-        return 'watch %s' % NYI
+    def c_watch(self, line, me):            # implemented
+        if me.is_watching():
+            me.chat(self.c_unwatch(line, me))
+        if me.is_playing():
+            return "** You can't watch another game while you're playing."
+        if len(line) < 2:
+            return "** Watch who?"
+        user = line[1]
+        if user is me.name:
+            return "** Use a mirror to do that." % user
+        him = self.list_of_users.get_active(user)
+        if him is None:
+            return "** There's no one called %s." % user
+        if not him.is_playing():
+            return '%s is not doing anything interesting.' % user
+        # TODO: blinded fehlt
+        him.watch(me)
+        return "You're now watching %s" % user
 
-    def c_unwatch(self, line, me):
-        return 'unwatch %s' % NYI
+    def c_unwatch(self, line, me):          # implemented
+        watchee = me.is_watching()
+        if watchee:
+            me.unset_watching()
+            return 'You stop watching %s' % watchee
+        else:
+            return "** You're not watching"
 
     def c_look(self, line, me):
-        return 'look %s' % NYI
+        return '** look %s' % NYI
 
     def c_oldboard(self, line, me):
-        return 'oldboard %s' % NYI
+        return '** oldboard %s' % NYI
 
     def c_oldmoves(self, line, me):
-        return 'oldmoves %s' % NYI
+        return '** oldmoves %s' % NYI
 
     def c_away(self, line, me):
-        return 'away %s' % NYI
+        return '** away %s' % NYI
 
     def c_back(self, line, me):
-        return 'back %s' % NYI
+        return '** back %s' % NYI
 
     def c_bye(self, line, me):              # implemented
         # TODO: unklar ist, welche Texte gesendet werden, wenn
@@ -322,8 +351,25 @@ class Command():
             line.append('help')
         return ''.join(self.help.help_(line[1]))
 
-    def c_show(self, line, me):
-        return 'show %s' % NYI
+
+    def c_show(self, line, me):             # implemented
+        if len(line) < 2:
+            return "** show what?"
+        command = line[1]
+        if not command in ('games','saved','watchers','max',):
+            return "** Don't know how to show %s" % command
+
+        out = StringIO()
+        if command == 'games':
+            print >>out, 'List of games:'
+            print >>out, self.list_of_games.show_games()
+        if command == 'saved':
+            return 'no saved games.'            # TODO: missing games
+        if command == 'watchers':
+            return 'Watching players: none.'    # TODO: missing names
+        if command == 'max':
+            return 'max_logins is nnn (maximum: nnn)' # TODO: missing numbers
+        return out.getvalue()
 
     def c_info(self, line, me):
         return me.info.show()
@@ -359,7 +405,7 @@ class Command():
         return out.getvalue()
 
     def c_where(self, line, me):
-        return 'where %s' % NYI
+        return '** where %s' % NYI
 
     def c_rawwho(self, line, me, user=None):  # implemented
         out = StringIO()
@@ -378,13 +424,13 @@ class Command():
         return res
 
     def c_ratings(self, line, me):
-        return 'ratings %s' % NYI
+        return '** ratings %s' % NYI
 
     def c_last(self, line, me):
-        return 'last %s' % NYI
+        return '** last %s' % NYI
 
     def c_time(self, line, me):
-        return 'time %s' % NYI
+        return '** time %s' % NYI
 
 # ----------------------------------------  SIBS Info
 
@@ -398,45 +444,45 @@ class Command():
         return utils.render_file('news')
 
     def c_average(self, line, me):
-        return 'average %s' % NYI
+        return '** average %s' % NYI
 
     def c_dicetest(self, line, me):
-        return 'dice  %s' % NYI
+        return '** dice  %s' % NYI
 
     def c_version(self, line, me):          # implemented
         # TODO: version line wie in fibs
         return 'TGS  %s' % VERSION.version()
 
     def c_stat(self, line, me):
-        return 'status %s' % NYI
+        return '** status %s' % NYI
 
 # ----------------------------------------  Other Commands
 
     def c_clear(self, line, me):
-        return 'clear %s' % NYI
+        return '** clear %s' % NYI
 
     def c_erase(self, line, me):
-        return 'erase %s' % NYI
+        return '** erase %s' % NYI
 
     def c_shutdown(self, line, me):
-        return 'shutdown %s' % NYI
+        return '** shutdown %s' % NYI
 
 # ----------------------------------------  Undocumented Commands
 
     def c_port(self, line, me):
-        return 'undocumented commands    %s' % NYI
+        return '** undocumented commands    %s' % NYI
 
     def c_name(self, line, me):             # implemented
         return "** You're not supposed to change your name."
 
     def c_co(self, line, me):
-        return 'undocumented commands    %s' % NYI
+        return '** undocumented commands    %s' % NYI
 
     def c_ne(self, line, me):
-        return 'undocumented commands    %s' % NYI
+        return '** undocumented commands    %s' % NYI
 
     def c_ye(self, line, me):
-        return 'undocumented commands    %s' % NYI
+        return '** undocumented commands    %s' % NYI
 
 # ----------------------------------------  Game Commands
 
@@ -458,7 +504,7 @@ class Command():
         self.c_move(line, me)
 
     def c_off(self, line, me):
-        return 'off %s' % NYI
+        return '** off %s' % NYI
 
     def c_board(self, line, me):            # implemented
         # TODO: Fehlerbehandlung
@@ -520,19 +566,19 @@ class Command():
             return '** You terminated the game. Saving games is not implemented, yet'
 
     def c_redouble(self, line, me):
-        return 'redouble %s' % NYI
+        return '** redouble %s' % NYI
 
     def c_beaver(self, line, me):
-        return 'beaver %s' % NYI
+        return '** beaver %s' % NYI
 
     def c_raccoon(self, line, me):
-        return 'raccoon %s' % NYI
+        return '** raccoon %s' % NYI
 
     def c_otter(self, line, me):
-        return 'otter %s' % NYI
+        return '** otter %s' % NYI
 
     def c_panic(self, line, me):
-        return "don't panic ... where is your towel %s" % NYI
+        return "** don't panic ... where is your towel %s" % NYI
 
 # ----------------------------------------  ====================
 

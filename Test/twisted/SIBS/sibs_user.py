@@ -197,8 +197,12 @@ class Status:                       # TODO:  dringend überprüfen, ob der
                        ('', 'online', 'ready', 'playing'),
                        ('', 'watching',))
         self.active_state = [1, 0, 0]
-        self.opponent = '-'
+        self.opponent = None
+        self.opponent_name = '-'
+        self.watchee = None
+        self.watchee_name = '-'
         self.user = user
+        self.ready_fmt = {True: '', False: 'not '}
 
 ##    def get_state(self,):
 ##        if self.toggles.read('ready'):
@@ -210,12 +214,28 @@ class Status:                       # TODO:  dringend überprüfen, ob der
     def playing(self, opponent, ON=True):
         if ON:
             self.active_state[1] = 2
+            self.opponent = opponent
+            self.opponent_name = opponent.name
         else:
             self.active_state[1] = 1
-        self.opponent = opponent    # TODO: brauch ich das noch?
-        
+            self.opponent = None
+            self.opponent_name = '-'
+
+    def set_watching(self, watchee, ON=True):
+        if ON:
+            self.active_state[2] = 1
+            self.watchee = watchee
+            self.watchee_name = watchee.name
+        else:
+            self.active_state[2] = 0
+            self.watchee = watchee
+            self.watchee_name = '-'
+
     def get_readyflag(self,):
         return int(self.toggles.read('ready'))
+
+    def get_watchflag(self,):
+        return self.active_state[2] == 1
 
     def get_awayflag(self,):
         return int(self.away)
@@ -249,6 +269,18 @@ class Status:                       # TODO:  dringend überprüfen, ob der
                 ret = "%02d seconds" % int(ret)
             else:
                 ret = "%s minutes" % time.strftime("%M:%S", time.gmtime(ret))
+        return ret
+
+    def play_status(self, name):
+        ready = self.ready_fmt[self.get_readyflag()]
+        if self.get_playingflag():
+            ret = "%s is playing with %s" % (name, self.opponent_name)
+        elif self.get_watchflag():
+            ret = "%s is %sready to play, watching %s, not playing." % \
+                                              (name, ready, self.watchee.name)
+        else:
+            ret = "%s is %sready to play, not watching, not playing." % \
+                                              (name, ready,)
         return ret
 
 class Toggles:
@@ -488,6 +520,7 @@ class User(Persistent):
         self.dice = 'random'
         self.db_key = self.name
         self.db_load = self.info
+        self.watchers = {}
 
     def set_protocol(self, protocol):
         self.protocol = protocol
@@ -566,8 +599,8 @@ class User(Persistent):
     def who(self,):
         args = {}
         args['user'] = self.name
-        args['opponent'] = self.status.opponent
-        args['watching'] = '-'          # TODO: richtige Werte verwenden
+        args['opponent'] = self.status.opponent_name
+        args['watching'] = self.status.watchee_name
         args['ready'] = self.status.get_readyflag()
         args['away'] = self.status.get_awayflag()
         args['rating'] = self.info.rating
@@ -597,9 +630,7 @@ class User(Persistent):
         if self.status.logged_in:
             login_details = "Still logged in. %s idle" % self.status.idle(True)
             args['last_login_details'] = login_details
-            args['play_status'] = "%s is not ready to play, not watching, " \
-                                                  "not playing." % self.name
-                                # TODO: richtige Werte verwenden
+            args['play_status'] = self.status.play_status(self.name)
         else:
             logout = time.localtime(self.info.last_logout) # TODO: speedup; save this date
                                                 #       in ascii-format right away
@@ -628,10 +659,10 @@ class User(Persistent):
     def join(self, invited_and_joining, list_of_games):
         ML = self.invitations.get(invited_and_joining.name, None)
         if not ML is None:
-            self.status.playing(invited_and_joining.name)
+            self.status.playing(invited_and_joining)
             self.chat('** Player %s has joined you for a %s point ' \
                                     'match' % (invited_and_joining.name, ML))
-            invited_and_joining.status.playing(self.name)
+            invited_and_joining.status.playing(self)
             invited_and_joining.chat('** You are now playing a %s point ' \
                                             'match with %s.' % (ML, self.name))
             kw = {'player1':self, 'player2':invited_and_joining}
@@ -654,6 +685,43 @@ class User(Persistent):
         if running_game:
             game, player = self.getGame(running_game)
             game.stop()
+
+    def watch(self, user):
+        # TODO: blind mechanism
+        # TODO: user logs out
+        self.watchers[user.name] = user
+        user.set_watching(self)
+        self.chat('%s is watching you.' % user.name)
+        self.status.opponent.chat('%s starts watching %s.' % \
+                                              (user.name, self.name))
+
+    def unwatch(self, user):
+        del self.watchers[user.name]
+        self.chat('%s stops watching you.' % user.name)
+        self.status.opponent.chat('%s stops watching %s.' % \
+                                              (user.name, self.name))
+
+    def set_watching(self, user):
+        self.status.set_watching(user, ON=True)
+        self.update_who(self)
+        
+    def unset_watching(self,):      # TODO: wieso geh ich nicht auch über
+                                    #       unwatch() rein?
+                                    #       Das scheint inkonsequent        
+        if self.status.get_watchflag():
+            self.status.watchee.unwatch(self)
+            self.status.set_watching(None, ON=False)
+            self.update_who(self)
+        
+##    def set_watching(self, watchee, ON=True):
+##        if ON:
+##            self.active_state[2] = 1
+##            self.watchee = watchee
+##        else:
+##            self.active_state[2] = 0
+##            self.watchee = None
+        
+        
 
     def welcome(self,):
         info = self.info
@@ -697,6 +765,12 @@ class User(Persistent):
 
     def is_playing(self,):
         return self.status.get_playingflag()
+
+    def is_watching(self,):
+        if self.status.watchee is None:
+            return ''
+        else:
+            return self.status.watchee.name
 
     def is_away(self,):
         return self.status.get_awayflag()
