@@ -156,6 +156,9 @@ class Command():
         return '** You invited %s to a %s point match.' % (user, ML,)
 
     def c_join(self, line, me):             # implemented
+        if me.is_playing():
+            me.continue_match()
+            return
         if len(line) < 2:
             return "** Error: Join who?"    # TODO: noch nicht komplett
         user = line[1]

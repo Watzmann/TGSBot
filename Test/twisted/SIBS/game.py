@@ -328,7 +328,7 @@ class Move:
             if z[0] == 'bar':
                 z0 = self.control.direction[self.player]['bar']
             else:
-                z0 = int(z[0])
+                z0 = min(int(z[0]), 25)
             if z[1] == 'off':
                 z1 = self.control.direction[self.player]['home']
             else:
@@ -792,6 +792,15 @@ class Game(Persistent):
     def start(self,):
         self.control.start()
 
+    def continue_game(self,):
+        del self.player1.user.ready_to_continue
+        del self.player2.user.ready_to_continue
+        self.control = GameControl(self, dice=self.dice)
+        self.control.status.match = self.match
+        logger.info('Next game in match %s vs %s' % (self.player1.name,
+                                            self.player2.name))
+        self.start()
+
     def stop(self,):
         self.player1.user.teardown_game()
         self.player2.user.teardown_game()
@@ -815,11 +824,11 @@ class Game(Persistent):
             kw['winner'].chat_opponent(msg)
             self.match.crawford = ((self.match.ML - winners_score) == 1) and \
                         (self.player1.crawford() and self.player2.crawford())
-            self.control = GameControl(self, dice=self.dice)
-            self.control.status.match = self.match
-            logger.info('Next game in match %s vs %s' % (self.player1.name,
-                                                self.player2.name))
-            self.start() #TODO: falls es stimmt
+                        # TODO: bei player.crawford() wär ein OR angebracht?
+            msg = "Type 'join' if you want to play the next game, type " \
+                                                      "'leave' if you don't."
+            kw['winner'].chat_player(msg)
+            kw['winner'].chat_opponent(msg)
         else:
             score = '%d-%d .' % (winners_score, losers_score)
             ML = self.match.ML

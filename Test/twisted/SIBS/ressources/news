@@ -1,7 +1,11 @@
 3
-+ News ------------------------------------------------ Dec. 04 2010 +
++ News ------------------------------------------------ Dec. 08 2010 +
 |                                                                    |
-| new commands: kibitz works, but is an exact copy of say            |
+| abbreviations:   k (kibitz), t (tell)                              |
+| new commands:    watch, unwatch, show games                        |
+|                  (not implemented yet but coming up: whisper, ...) |
+|                                                                    |
+| some minor bugs fixed                                              |
 |                                                                    |
 | known bugs:   1) greedy bearoff does not work correctly, better    |
 |                  not use it.                                       |
@@ -11,7 +15,8 @@
 |                  To continue the game, you have to use the         |
 |                  command 'roll' on the commandline.                |
 |                                                                    |
-|                                                   |
+| working on    1) finishing 'watch'                                 |
+|               2) save games                                        |
 |                                                                    |
 +--------------------------------------------------------------------+
 4

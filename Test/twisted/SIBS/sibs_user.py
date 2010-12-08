@@ -674,6 +674,18 @@ class User(Persistent):
             invited_and_joining.getGame = list_of_games.get
             del self.invitations[invited_and_joining.name]
 
+    def continue_match(self,):
+        self.ready_to_continue = True
+        if getattr(self.status.opponent, 'ready_to_continue', False):
+            if self.status.opponent.ready_to_continue:
+                running_game = getattr(self, 'running_game', False)
+                if running_game:
+                    game, player = self.getGame(running_game)
+                    game.continue_game()
+        else:
+            self.chat('** Please wait for %s to join too.' % \
+                                          self.status.opponent_name)
+
     def teardown_game(self,):
             self.status.playing('-', ON=False)
             self.update_who(self)
@@ -713,16 +725,6 @@ class User(Persistent):
             self.status.set_watching(None, ON=False)
             self.update_who(self)
         
-##    def set_watching(self, watchee, ON=True):
-##        if ON:
-##            self.active_state[2] = 1
-##            self.watchee = watchee
-##        else:
-##            self.active_state[2] = 0
-##            self.watchee = None
-        
-        
-
     def welcome(self,):
         info = self.info
         return '1 %s %s %s' % (self.name, info.last_login, info.last_host)
