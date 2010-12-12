@@ -72,13 +72,13 @@ class Help:
                 a = l.split()
                 for b in a:
                     if b in implemented:
-                        c = line.find(b)
-                        lines[e] = line[:c-1] + '+' + line[c:]
+                        c = line.find(' '+b)
+                        lines[e] = line[:c] + '+' + line[c+1:]
                         line = lines[e]
 
         lines += ["  + for the time being commands are prefixed with a " \
                   "'+' to indicate which\n",
-                  "    commands are already available.\n", "\n", "\n"]
+                  "    commands are already available.\n", "\n"]
 
 if __name__ == '__main__':
     h = Help(['about', 'accept', 'address', 'adios', 'board', 'bye'])

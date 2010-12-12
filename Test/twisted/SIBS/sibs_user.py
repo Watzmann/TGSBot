@@ -699,6 +699,9 @@ class User(Persistent):
             game.stop()
 
     def watch(self, user):
+        """Perform 'watch' on the player being watched.
+    self.watchers is a dictionary listing the players that watch user.
+"""
         # TODO: blind mechanism
         # TODO: user logs out
         self.watchers[user.name] = user
@@ -708,22 +711,40 @@ class User(Persistent):
                                               (user.name, self.name))
 
     def unwatch(self, user):
+        """Perform 'unwatch' on the player being watched.
+    The player stopping to watch calls this and is thereby deleted
+    from the watchers list.
+"""
         del self.watchers[user.name]
         self.chat('%s stops watching you.' % user.name)
-        self.status.opponent.chat('%s stops watching %s.' % \
-                                              (user.name, self.name))
+        opp = self.status.opponent
+        if not opp is None:
+            opp.chat('%s stops watching %s.' % (user.name, self.name))
 
     def set_watching(self, user):
+        """Perform 'set_watching' on the player starting to watch.
+    It is called by his watchee and updates his status.
+"""
         self.status.set_watching(user, ON=True)
         self.update_who(self)
         
-    def unset_watching(self,):      # TODO: wieso geh ich nicht auch über
-                                    #       unwatch() rein?
-                                    #       Das scheint inkonsequent        
+    def unset_watching(self, forced=False):
+        """Perform 'unset_watching' on the player stopping to watch.
+    If watching at all, his watchee is being ridded of him and his
+    status is updated.
+"""
+        # TODO: wieso geh ich nicht auch über unwatch() rein?
+        #       Das scheint inkonsequent
         if self.status.get_watchflag():
-            self.status.watchee.unwatch(self)
+            if not forced:
+                self.status.watchee.unwatch(self)
             self.status.set_watching(None, ON=False)
             self.update_who(self)
+
+    def rid_watchers(self, reason):
+        for w in self.watchers.values():
+            w.chat("%s. You're not watching anymore." % reason)
+            w.unset_watching(forced=True)
         
     def welcome(self,):
         info = self.info
@@ -734,6 +755,8 @@ class User(Persistent):
 
     def drop_connection(self,):
         self.leave_game()
+        self.rid_watchers('%s logs out.' % self.name) # TODO: other messages
+        # TODO: stop watching
         self.protocol.factory.broadcast('8 %s %s drops connection' % \
                                         (self.name,self.name), (self.name,)) 
 
