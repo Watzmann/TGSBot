@@ -131,6 +131,9 @@ class Command():
 # ----------------------------------------  Between Game Actions
 
     def c_invite(self, line, me):           # implemented
+        if not me.ready():
+            me.toggles.toggle('ready',)
+            self.update_who(me)
         if len(line) < 2:
             return '** invite who?'
         user = line[1]
@@ -138,13 +141,17 @@ class Command():
             return "** You can't invite yourself."
         if len(line) > 2:
             ML = line[2]
-        else:                           # TODO:    resume organisieren
-            return '** no resume of saved games implemented, yet.'
+            msg_invite = '%s wants to play a %s point match with you.' % \
+                                                                 (me.name, ML)
+            msg_reflect = '** You invited %s to a %s point match.' % (user, ML,)
+        else:
+            ML = -1
+            msg_invite = '%s wants to resume a saved match with you.' % me.name
+            msg_reflect = '** You invited %s to resume a saved match.' % user
+##            return '** no resume of saved games implemented, yet.'
         him = self.list_of_users.get_active(user)
         if him is None:
             return '** There is no one called %s.' % user
-        me.toggles.set_switch('ready', True)
-        self.update_who(me)
         if him.is_playing():            # TODO: dies hier und ready
                                         #       das muss doch über status eleganter gehen
             return '** %s is already playing with someone else.' % user
@@ -604,6 +611,7 @@ class Command():
     def update_who(self, me):
         factory = me.protocol.factory
         who = self.c_rawwho(['rawwho',], me, user=me)
+        # TODO: muss auf "rawwho user" umgestellt werden (siehe c_who())
         factory.broadcast(who,)
 
     def list_implemented(self, verbose=False):

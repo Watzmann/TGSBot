@@ -56,3 +56,7 @@ class Persistent:
         self.db.db[self.db_key] = self.db_load
         self.db.sync()
 
+    def delete(self,):
+        print 'persistency deleting', self.db_key
+        del self.db.db[self.db_key]
+        self.db.sync()

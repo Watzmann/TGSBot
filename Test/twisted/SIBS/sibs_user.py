@@ -126,12 +126,13 @@ class UsersList:        # TODO: als Singleton ausführen
 class Info:
     """Info soll selbst so wenig Methoden als möglich haben und lediglich
 als Datencontainer dienen."""
-    def __init__(self, data, toggles, settings, messages):
+    def __init__(self, data, toggles, settings, messages, saved_games):
         self.login, self.last_logout, self.host, self.name, self.passwd, \
                 self.rating, self.experience, self.address = data
         self.toggles = toggles
         self.settings = settings
         self.messages = messages
+        self.saved_games = saved_games
         self.away = 0
         print 'initializing INFO', self.show()
 
@@ -153,9 +154,14 @@ als Datencontainer dienen."""
         self.experience += experience
 
     def message(self, msg):
-        """message() is used for persistency of messages."""
+        """message() is used for persisting messages."""
         self.messages.append(msg)
-        print 'message:', msg
+        print 'saving message:', msg
+
+    def save_game(self, gid):
+        """save_game() is used for persisting games."""
+        self.saved_games.append(gid)
+        print 'saving game:', gid
 
     def show(self,):
         out = StringIO()
@@ -686,10 +692,12 @@ class User(Persistent):
             self.chat('** Please wait for %s to join too.' % \
                                           self.status.opponent_name)
 
-    def teardown_game(self,):
+    def teardown_game(self, save=False):
             self.status.playing('-', ON=False)
             self.update_who(self)
             if hasattr(self, 'running_game'):
+                if save:
+                    self.info.save_game(self.running_game)
                 del self.running_game
 
     def leave_game(self,):
@@ -745,6 +753,7 @@ class User(Persistent):
         for w in self.watchers.values():
             w.chat("%s. You're not watching anymore." % reason)
             w.unset_watching(forced=True)
+        self.watchers = {}
         
     def welcome(self,):
         info = self.info
@@ -756,7 +765,7 @@ class User(Persistent):
     def drop_connection(self,):
         self.leave_game()
         self.rid_watchers('%s logs out.' % self.name) # TODO: other messages
-        # TODO: stop watching
+        self.unset_watching()
         self.protocol.factory.broadcast('8 %s %s drops connection' % \
                                         (self.name,self.name), (self.name,)) 
 
@@ -813,8 +822,7 @@ def newUser(**kw):
     data = (kw['login'], 0, '', kw['user'], kw['password'], 1500., 0, '-')
     toggles = dict(zip(Toggles.toggle_names, Toggles.toggle_std))
     settings = [3, 0, 0, 'none', 'name', 'UTC']
-    messages = []
-    info = Info(data, toggles, settings, messages)
+    info = Info(data, toggles, settings, [], [])
     user = User(info)
     user.save()
     kw['lou'].add(user)

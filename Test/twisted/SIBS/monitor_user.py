@@ -27,7 +27,8 @@ def list_all(keys, db, verbose=False):
             print '   ',v.toggles.values()
         print '   ',v.settings
         if verbose:
-            print '   ',v.messages
+            print '   ', v.messages
+            print '   ', v.saved_games
 
 def delete_users(keys, db, verbose=False):
     print 'Deleting these users', keys

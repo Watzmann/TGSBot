@@ -78,6 +78,10 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
         logger.log(TRACE, 'returning gid %s' % gid)
         return self.active_games.get(gid, default)
 
+    def get_saved_game(self, gid,):
+        logger.log(TRACE, 'returning saved game with gid %s' % gid)
+        return self.db[gid]
+
     def get_game_from_user(self, user, default=(None,'')):
         logger.log(TRACE, 'returning gid for user %s' % user.name)
         res = default
@@ -422,7 +426,7 @@ class Status:       # TODO: muss noch eingebunden werden
         self.direction = direction
         self.move = move
 
-    def pips(self,):    # TODO: auslagern, wegen Persistenz
+    def pips(self,):    # ist nicht persistent, muss nicht ausgelagert werden
         pips1 = 0
         pips2 = 0
         for e,p in enumerate(self.position):
@@ -485,52 +489,45 @@ class BGMachine(StateMachine):
 
 class GameControl:
     """GameControl controls the process of playing a single game of BG."""
-    def __init__(self, game, board=None, dice='random'):
+    def __init__(self, game, status, dice='random'):
         # TODO: das komplette init() muss entrümpelt werden.
         self.game = game
-        if board is None:
-            self.board = Board()
-            self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
-                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
-##            self.position = [0, 0,0,0,1,4,5, 0,3,0,0,0,0,
-##                                0,0,0,2,0,0, -7,-5,-3,0,0,0, 0]
-##            self.position = [0, 0,0,0,3,5,7, 0,0,-2,0,0,0,
-##                                0,0,0,0,-3,0, -5,-4,-1,0,0,0, 0]
-            self.set_position()
-        else:
-            self.board = board
-            self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
-                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
-                # TODO:  position muss vom Board abgekupfert werden.
-        self.p1 = game.player1
-        self.p1.board = self.board  # TODO: braucht man das?
-        self.p1.nick = 'p1'     # TODO: muss bald weg, nur für den Übergang
-        self.p1.reset_toggles()
-        self.p2 = game.player2  # TODO: methode, die die Player initialisiert
-        self.p2.board = self.board  # TODO: braucht man das?
-        self.p2.nick = 'p2'     # TODO: muss bald weg, nur für den Übergang
-        self.p2.reset_toggles()
+        self.status = status
+    # PERSIST  position <- db
+        self.board = Board()
+        self.position = self.status.position
+        self.set_position()
+        self.p1 = self.set_player(game.player1, 'p1')
+        self.p2 = self.set_player(game.player2, 'p2')
         self.players = {'p1':self.p1, 'p2':self.p2}
         self.dice = getDice(dice)
-        self.cube = 1
+    # PERSIST  cube <- db
+    # PERSIST  what about value??
+        self.cube = self.status.cube
         self.set_cube()
         self.turn = 0       # TODO oder was im board-status richtig ist
         self.home = {'p1':0, 'p2':0}
         self.bar = {'p1':0, 'p2':0}
         self.opp = {'p1':'p2', 'p2':'p1'} # TODO: weg damit
-        self.direction = {'p1':{'home':0, 'bar':25}, 'p2':{'home':25, 'bar':0}}
-        self.home_board = {'p1':(1,7), 'p2':(19,25)}
+        self.direction = self.status.direction
+        self.home_board = {'p1':(1,7), 'p2':(19,25)}  # TODO: gehört nach OX
             # TODO:  wenn es hier definiert ist, dann muss es von hier
             #        im board gesetzt werden.
-        self.score = self.game.match.score
-        self.status = Status(self.position, self.cube, self.direction, 0)
+        self.score = self.status.match.score
         self.board.set_score((self.p1.name, self.score['p1']),
                              (self.p2.name, self.score['p2']),
-                              self.game.match.ML)
+                              self.status.match.ML)
 #-------------------------------------------------------------------
         self.SM = BGMachine(self)
 #-------------------------------------------------------------------
 
+    def set_player(self, player, nick):
+        p = player
+        p.board = self.board    # needed for Player.board.... methods
+        p.nick = nick           # TODO: muss bald weg, nur für den Übergang
+        p.reset_toggles()
+        return p
+        
     def start(self,):
         self.p1.owns_cube = False  # TODO: is this the proper place to reset this?
         self.p2.owns_cube = False
@@ -583,6 +580,7 @@ class GameControl:
                                 #       um die Zuordnung zum Spieler zu kriegen
         logger.log(TRACE, 'check_roll %s fuer spieler %s' % (dice, player))
         ox = game_utilities.OX(self.direction[player]['bar'], self.home[player])
+        # TODO: OX gehört in den Player
         bear_off = ox.bear_off(self.position[1:-1])
         if not self.contact():
             d1, d2 = dice
@@ -760,7 +758,7 @@ class GameControl:
             
 class Game(Persistent):
     # players watchers
-    def __init__(self, gid, p1, p2, ML, board=None, dice='random'):
+    def __init__(self, gid, p1, p2, ML, resume=False, dice='random'):
         """Represents a game of Backgammon.
     gid:        unique Id
     p1:         player 1, host, white, O (class User)
@@ -779,15 +777,25 @@ class Game(Persistent):
         self.player = dict(zip(self.ids,('p1','p2')))
         self.who = dict(zip(('p1', 'p2'),(self.player1, self.player2)))
         self.opp = {p1.name:p2, p2.name:p1}     # TODO: mittelfristig weg
-        self.dice = dice
-        self.match = Match(int(ML),{'p1': 0, 'p2': 0})
-        self.control = GameControl(self, board=board, dice=self.dice)
+        self.dice = dice                    # TODO: braucht der die permanent??
+        if resume:
+            status = log.get_saved_game(gid)
+        else:
+            position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
+                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
+##            self.position = [0, 0,0,0,1,4,5, 0,3,0,0,0,0,
+##                                0,0,0,2,0,0, -7,-5,-3,0,0,0, 0]
+##            self.position = [0, 0,0,0,3,5,7, 0,0,-2,0,0,0,
+##                                0,0,0,0,-3,0, -5,-4,-1,0,0,0, 0]
+            direction = {'p1':{'home':0, 'bar':25}, 'p2':{'home':25, 'bar':0}}
+            status = Status(position, 1, direction, 0)
+            status.match = Match(int(ML),{'p1': 0, 'p2': 0})
+        self.control = GameControl(self, status, dice=self.dice)
         logger.info('New game with id %s, %s vs %s' % (self.id, p1.name, p2.name))
-        self.control.status.match = self.match
         Persistent.__init__(self, DB_Games, 'games')
         self.db_key = self.id
         self.db_load = self.control.status
-        self.save()
+        self.save()     # TODO: an dieser Stelle vermutlich überflüssig
 
     def start(self,):
         self.control.start()
@@ -801,9 +809,13 @@ class Game(Persistent):
                                             self.player2.name))
         self.start()
 
-    def stop(self,):
-        self.player1.user.teardown_game()
-        self.player2.user.teardown_game()
+    def stop(self, save=True):
+        if save:
+            self.save()
+        else:
+            self.delete()
+        self.player1.user.teardown_game(save)
+        self.player2.user.teardown_game(save)
         self.teardown(self)
 
     def game_over(self, **kw):
@@ -837,7 +849,7 @@ class Game(Persistent):
             msg = '%s wins the %d point match %s' % (winner_name, ML, score)
             kw['winner'].chat_opponent(msg)
             self.book_game(kw['winner'])
-            self.stop()
+            self.stop(save=False)
 
     def weighed_experience(self, user, ML):
         exp = user.experience() + ML 
@@ -924,7 +936,8 @@ class Game(Persistent):
 def getGame(**kw):
     log = kw['list_of_games']
     gid = log.uid()
-    game = Game(gid, kw['player1'], kw['player2'], kw['ML'], dice=kw['dice'])
+    game = Game(gid, kw['player1'], kw['player2'], kw['ML'], resume=False,
+                                                            dice=kw['dice'])
     game.teardown = log.remove
     log.add(game)
     game.start()
