@@ -36,8 +36,12 @@ def messages(db, key, value):
     
 def special(db, key, value):
     vdata = data(value)
+    saved_games = getattr(value, 'saved_games', [])
+    gagged = getattr(value, 'gagged', [])
+    blinded = getattr(value, 'blinded', [])
+    special = getattr(value, 'special', '')
     info = Info(vdata, value.toggles, value.settings, value.messages,
-                value.saved_games, value.gagged, value.blinded, '')
+                saved_games, gagged, blinded, special)
     db[key] = info
     
 def autoroll(db, key, value):
