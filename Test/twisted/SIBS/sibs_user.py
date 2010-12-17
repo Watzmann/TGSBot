@@ -126,13 +126,17 @@ class UsersList:        # TODO: als Singleton ausführen
 class Info:
     """Info soll selbst so wenig Methoden als möglich haben und lediglich
 als Datencontainer dienen."""
-    def __init__(self, data, toggles, settings, messages, saved_games):
+    def __init__(self, data, toggles, settings, messages, saved_games,
+                 gagged, blinded, special):
         self.login, self.last_logout, self.host, self.name, self.passwd, \
                 self.rating, self.experience, self.address = data
         self.toggles = toggles
         self.settings = settings
         self.messages = messages
         self.saved_games = saved_games
+        self.gagged = gagged
+        self.blinded = blinded
+        self.special = special      # special users flag
         self.away = 0
         print 'initializing INFO', self.show()
 
@@ -162,6 +166,16 @@ als Datencontainer dienen."""
         """save_game() is used for persisting games."""
         self.saved_games.append(gid)
         print 'saving game:', gid
+
+    def blind(self, user):
+        """blind() is used for persisting blinded users."""
+        self.blinded.append(user)
+        print 'blinding:', user
+
+    def gag(self, user):
+        """gag() is used for persisting gagged users."""
+        self.gagged.append(user)
+        print 'gagging:', user
 
     def show(self,):
         out = StringIO()
@@ -572,8 +586,41 @@ class User(Persistent):
         self.info.advance_rating(rating, experience)
         self.save()
 
+    def get_kibitz_addressees(self,):
+        ret = {}
+        running_game = getattr(self, 'running_game', False)
+        if running_game:
+            opponent = self.status.opponent
+            ret['players'] = [opponent,]
+            ret['watchers'] = self.watchers.values() + \
+                              opponent.watchers.values()
+        else:
+            watchee = self.status.watchee
+            ret = watchee.get_kibitz_addressees()
+            ret['players'].append(watchee)
+            ret['watchers'].remove(self)
+        return ret
+
+    def kibitz(self, msg):
+        kibitz = '15 %s %s' % (self.name, msg)
+        ka = self.get_kibitz_addressees()
+        ka = ka['players'] + ka['watchers']
+        for k in ka:
+            k.chat(kibitz)
+        self.chat('19 %s' % msg)
+        n = len(ka)
+        if n > 1:
+            users = '%d users' % n
+        else:
+            users = '1 user'
+        self.chat('** %s heard you.' % users)
+
     def tell(self, user, msg):
         user.chat('12 %s %s' % (self.name, msg))
+        self.chat('16 %s %s' % (user.name, msg))
+
+    def say(self, user, msg):
+        user.chat('12 %s' % msg)
         self.chat('16 %s %s' % (user.name, msg))
 
     def shout(self, msg):
@@ -822,7 +869,7 @@ def newUser(**kw):
     data = (kw['login'], 0, '', kw['user'], kw['password'], 1500., 0, '-')
     toggles = dict(zip(Toggles.toggle_names, Toggles.toggle_std))
     settings = [3, 0, 0, 'none', 'name', 'UTC']
-    info = Info(data, toggles, settings, [], [])
+    info = Info(data, toggles, settings, [], [], [], [])
     user = User(info)
     user.save()
     kw['lou'].add(user)

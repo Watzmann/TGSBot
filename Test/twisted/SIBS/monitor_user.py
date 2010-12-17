@@ -29,6 +29,9 @@ def list_all(keys, db, verbose=False):
         if verbose:
             print '   ', v.messages
             print '   ', v.saved_games
+            print '   ', v.blinded
+            print '   ', v.gagged
+            print '   ', v.special
 
 def delete_users(keys, db, verbose=False):
     print 'Deleting these users', keys

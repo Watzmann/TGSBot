@@ -80,13 +80,21 @@ class Command():
             me.shout(' '.join(line[1:]))
 
     def c_k(self, line, me):                # implemented
-        self.c_kibitz(line, me)
+        return self.c_kibitz(line, me)
         
     def c_kibitz(self, line, me):           # implemented
-        self.c_say(line, me)        # TODO: notbehelf - reparieren!!!
+        game, player = self.list_of_games.get_game_from_user(me)
+        watchee = me.is_watching()
+        print '#######',game, watchee
+        if (game is None) and (not watchee):
+            return "** You're not watching or playing."
+        else:
+            msg = ' '.join(line[1:])
+##            user = game.players(player).opponent.user
+            me.kibitz(msg)
 
     def c_t(self, line, me):                # implemented
-        self.c_tell(line, me)
+        return self.c_tell(line, me)
         
     def c_tell(self, line, me):             # implemented
         name = line[1]
@@ -104,7 +112,7 @@ class Command():
         else:
             msg = ' '.join(line[1:])
             user = game.players(player).opponent.user
-            me.tell(user, msg)
+            me.say(user, msg)  # TODO: stimmt das jetzt so?
 
     def c_whisper(self, line, me):
         return '** whisper %s' % NYI
@@ -196,7 +204,7 @@ class Command():
         him = self.list_of_users.get_active(user)
         if him is None:
             return "** There's no one called %s." % user
-        if not him.is_playing():
+        if not him.is_playing(): # TODO: nicht CLIP konform. dies sollte nur eine zusätzliche meldung sein!!!!
             return '%s is not doing anything interesting.' % user
         # TODO: blinded fehlt
         him.watch(me)
