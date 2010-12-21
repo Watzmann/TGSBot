@@ -38,6 +38,13 @@ if __name__ == '__main__':
     for e,k in enumerate(keys):
         print e,k
         v = db.db[k]
-        print '   ', v.position, v.cube, getattr(v,'value', '--'), v.direction, v.move
+        try:
+            state = v.state
+        except:
+            state = ()
+        print '   ', v.cube, getattr(v,'value', '--'), v.direction, v.move
+        print '   ', state
+        print '   ', v.position
+        #print v.__dict__
 #        print pickle.dumps(v)
     db.close()

@@ -388,6 +388,10 @@ which state is active.
         self.states = states
         for s in states:
             self.states[s].machine = self._activate
+            # TODO: Verbesserung im Code!!
+            #       Aber nur mit Test und in eigenem Verbesserungszyklus machen!
+            ##        for s in states.values():
+            ##            s.machine = self._activate
         logger.log(TRACE, 'CONSTRUCTING (%d states)' % len(self.states))
 
     def start(self, player, **kw):
@@ -409,7 +413,8 @@ which state is active.
     def _activate(self, state):
         """States activate themselves using this method."""
         self.active = state
-        # TODO: self.persistent(state.name player **kw to game.status
+        self.persistent(state.name, state.player, state.params)
+        #  TODO: vielleicht nur in states B E C J (performanz)
         logger.log(TRACE, 'ACTIVATING %s (%s)' % (state.name, state.__doc__))
 
     def done():

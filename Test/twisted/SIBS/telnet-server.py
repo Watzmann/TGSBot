@@ -81,10 +81,12 @@ class ProxyFactory(http.HTTPFactory):
                 continue
             u.chat(msg)
 
+    def __str__(self,):
+        return """TGS TigerGammon Server: %s""" % v.version()
+
     ## TODO:  es muss für einen user "systemwart" eine eigene command-Klasse
     ##        geben. Darin Commands wie "stop", "flush", vielleich logginglevel
     ##        delete(user) und so weiter
 
-print 'Using port', PORT
 reactor.listenTCP(PORT, ProxyFactory())
 reactor.run()

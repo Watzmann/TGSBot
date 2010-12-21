@@ -418,7 +418,7 @@ class Player:
         self.user.toggles.set_switch('autoroll', False)
         self.user.toggles.set_switch('greedy', False)
         
-class Status:       # TODO: muss noch eingebunden werden
+class Status:
     def __init__(self, position, cube, direction, move):
         self.position = position
         self.cube = cube
@@ -752,13 +752,14 @@ class GameControl:
                      (md, match.ML, match.crawford, pmd))
         return md
 
-    def save_state_to_status(self, name, player, kw):
-        self.status.state_name = name
+    def save_state_to_status(self, state, player, params):
+        self.status.state = (state, player.name, params)
+        self.game.save()
         # TODO: fertigstellen
             
 class Game(Persistent):
     # players watchers
-    def __init__(self, gid, p1, p2, ML, resume=False, dice='random'):
+    def __init__(self, gid, p1, p2, ML, status=None, dice='random'):
         """Represents a game of Backgammon.
     gid:        unique Id
     p1:         player 1, host, white, O (class User)
@@ -778,9 +779,7 @@ class Game(Persistent):
         self.who = dict(zip(('p1', 'p2'),(self.player1, self.player2)))
         self.opp = {p1.name:p2, p2.name:p1}     # TODO: mittelfristig weg
         self.dice = dice                    # TODO: braucht der die permanent??
-        if resume:
-            status = log.get_saved_game(gid)
-        else:
+        if status is None:
             position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
                                 5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
 ##            self.position = [0, 0,0,0,1,4,5, 0,3,0,0,0,0,
@@ -814,8 +813,11 @@ class Game(Persistent):
             self.save()
         else:
             self.delete()
-        self.player1.user.teardown_game(save)
-        self.player2.user.teardown_game(save)
+        ms = self.control.status.match.score
+        score = ms['p1'], ms['p2']
+        self.player1.user.teardown_game(score, save)
+        score = ms['p2'], ms['p1']
+        self.player2.user.teardown_game(score, save)
         self.teardown(self)
 
     def game_over(self, **kw):
@@ -929,15 +931,24 @@ class Game(Persistent):
     def show_game(self,):
         p1 = self.player1
         p2 = self.player2
-        m = self.match
+        m = self.status.match
         return '%-15s - %15s (%s point match %d-%d)' % (p1.name, p2.name, m.ML,
                                         m.score[p1.nick], m.score[p2.nick])
         
 def getGame(**kw):
     log = kw['list_of_games']
-    gid = log.uid()
-    game = Game(gid, kw['player1'], kw['player2'], kw['ML'], resume=False,
-                                                            dice=kw['dice'])
+    p1 = kw['player1']          # TODO: why do I resolve the dict kw????
+    p2 = kw['player2']          #       why not just call Game(gid, **kw)
+    ML = kw['ML']
+    if ML is None:
+        gid = kw['gid']
+        status = log.get_saved_game(gid)
+        print 'saved game returned'
+        print status
+        game = Game(gid, p1, p2, ML, status=status, dice=kw['dice'])
+    else:
+        gid = log.uid()
+        game = Game(gid, p1, p2, ML, dice=kw['dice'])
     game.teardown = log.remove
     log.add(game)
     game.start()

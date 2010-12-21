@@ -36,12 +36,19 @@ def messages(db, key, value):
     
 def special(db, key, value):
     vdata = data(value)
-    saved_games = getattr(value, 'saved_games', [])
+    saved_games = getattr(value, 'saved_games', {})
     gagged = getattr(value, 'gagged', [])
     blinded = getattr(value, 'blinded', [])
     special = getattr(value, 'special', '')
     info = Info(vdata, value.toggles, value.settings, value.messages,
                 saved_games, gagged, blinded, special)
+    db[key] = info
+    
+def saved(db, key, value):
+    vdata = data(value)
+    special = getattr(value, 'special', '')
+    info = Info(vdata, value.toggles, value.settings, value.messages,
+                {}, [], [], special)
     db[key] = info
     
 def autoroll(db, key, value):
@@ -63,6 +70,7 @@ if __name__ == '__main__':
     #repair = login_time
     #repair = messages
     #repair = special
+    repair = saved
     #repair = autoroll
     #repair = logout_time
     for_all_users(db.db, repair)

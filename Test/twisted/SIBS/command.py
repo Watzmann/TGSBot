@@ -18,7 +18,7 @@ VERSION.register(__name__, REV)
 ## 0
 ## x tell
 ## x help
-## 0 motd
+## x motd
 ## x version
 
 ## 1
@@ -51,10 +51,10 @@ VERSION.register(__name__, REV)
 ## x say               0
 ## x invite
 ## x join
-## show
+## x show
 ## stat
 ## off
-## double
+## x double
 ## x accept
 ## x reject
 ## x resign
@@ -70,6 +70,20 @@ class Command():
         self.list_of_games = log   # TODO: was besseres als log (log ist logging)
         print 'implemented commands:', self.list_of_implemented_commands
         self.help = Help(self.list_of_implemented_commands)
+        aliases = (('k', 'kibitz'),
+                   ('t', 'tell'),
+                   ('s', 'say'),
+                   ('m', 'move'),
+                   ('adios', 'bye'),
+                   ('ciao', 'bye'),
+                   ('end', 'bye'),
+                   ('exit', 'bye'),
+                   ('logout', 'bye'),
+                   ('quit', 'bye'),
+                   ('tschoe', 'bye'),
+                   )
+        for k,v in aliases:
+            self.commands[k] = self.commands[v]
 
 # ----------------------------------------  Chat and Settings for other Players
 
@@ -79,13 +93,12 @@ class Command():
         else:
             me.shout(' '.join(line[1:]))
 
-    def c_k(self, line, me):                # implemented
-        return self.c_kibitz(line, me)
+##    def c_k(self, line, me):                # implemented
+##        return self.c_kibitz(line, me)
         
     def c_kibitz(self, line, me):           # implemented
         game, player = self.list_of_games.get_game_from_user(me)
         watchee = me.is_watching()
-        print '#######',game, watchee
         if (game is None) and (not watchee):
             return "** You're not watching or playing."
         else:
@@ -93,8 +106,8 @@ class Command():
 ##            user = game.players(player).opponent.user
             me.kibitz(msg)
 
-    def c_t(self, line, me):                # implemented
-        return self.c_tell(line, me)
+##    def c_t(self, line, me):                # implemented
+##        return self.c_tell(line, me)
         
     def c_tell(self, line, me):             # implemented
         name = line[1]
@@ -147,16 +160,6 @@ class Command():
         user = line[1]
         if user == me.name:
             return "** You can't invite yourself."
-        if len(line) > 2:
-            ML = line[2]
-            msg_invite = '%s wants to play a %s point match with you.' % \
-                                                                 (me.name, ML)
-            msg_reflect = '** You invited %s to a %s point match.' % (user, ML,)
-        else:
-            ML = -1
-            msg_invite = '%s wants to resume a saved match with you.' % me.name
-            msg_reflect = '** You invited %s to resume a saved match.' % user
-##            return '** no resume of saved games implemented, yet.'
         him = self.list_of_users.get_active(user)
         if him is None:
             return '** There is no one called %s.' % user
@@ -166,9 +169,21 @@ class Command():
         if not him.ready():
             return '** %s is refusing games.' % user
                         # TODO:    hier fehlen noch ne Menge Fälle
-        me.invite(user, ML)
-        him.chat('%s wants to play a %s point match with you.' % (me.name, ML))
-        return '** You invited %s to a %s point match.' % (user, ML,)
+        if len(line) > 2:
+            ML = line[2]
+            msg_invite = '%s wants to play a %s point match with you.' % \
+                                                                 (me.name, ML)
+            msg_reflect = '** You invited %s to a %s point match.' % (user, ML,)
+        else:
+            ML = None
+            msg_invite = '%s wants to resume a saved match with you.' % me.name
+            msg_reflect = '** You invited %s to resume a saved match.' % user
+        if me.invite(user, ML, him):
+            him.chat(msg_invite)
+            return msg_reflect
+        else:
+            return "** There's no saved match with" \
+                                    " %s. Please give a match lenth." % user
 
     def c_join(self, line, me):             # implemented
         if me.is_playing():
@@ -244,20 +259,20 @@ class Command():
     def c_wave(self, line, me):             # implemented
         return me.wave()
 
-    def c_adios(self, line, me):            # implemented
-        return self.c_bye(line, me)
-    def c_ciao(self, line, me):             # implemented
-        return self.c_bye(line, me)
-    def c_end(self, line, me):              # implemented
-        return self.c_bye(line, me)
-    def c_exit(self, line, me):             # implemented
-        return self.c_bye(line, me)
-    def c_logout(self, line, me):           # implemented
-        return self.c_bye(line, me)
-    def c_quit(self, line, me):             # implemented
-        return self.c_bye(line, me)
-    def c_tschoe(self, line, me):           # implemented
-        return self.c_bye(line, me)
+##    def c_adios(self, line, me):            # implemented
+##        return self.c_bye(line, me)
+##    def c_ciao(self, line, me):             # implemented
+##        return self.c_bye(line, me)
+##    def c_end(self, line, me):              # implemented
+##        return self.c_bye(line, me)
+##    def c_exit(self, line, me):             # implemented
+##        return self.c_bye(line, me)
+##    def c_logout(self, line, me):           # implemented
+##        return self.c_bye(line, me)
+##    def c_quit(self, line, me):             # implemented
+##        return self.c_bye(line, me)
+##    def c_tschoe(self, line, me):           # implemented
+##        return self.c_bye(line, me)
 
 # ----------------------------------------  Setting Commands
 
@@ -382,7 +397,13 @@ class Command():
             print >>out, 'List of games:'
             print >>out, self.list_of_games.show_games()
         if command == 'saved':
-            return 'no saved games.'            # TODO: missing games
+            saved = me.show_saved()
+            if saved == '':
+                print >>out, 'no saved games.'
+            else:
+                print >>out, '  opponent          matchlength   score' \
+                                                      '(your points first)'
+                print >>out, saved
         if command == 'watchers':
             return 'Watching players: none.'    # TODO: missing names
         if command == 'max':
@@ -391,6 +412,12 @@ class Command():
 
     def c_info(self, line, me):
         return me.info.show()
+
+    def c_invitations(self, line, me):
+        out = StringIO()
+        print >>out, 'online', me.online()
+        print >>out, 'invita', me.invitations
+        return out.getvalue()
 
     def c_who(self, line, me, user=None):   # implemented
         # TODO: wieder gerade ziehen
@@ -518,8 +545,8 @@ class Command():
         else:
             game.move(line[1:], player)
 
-    def c_m(self, line, me):                # implemented
-        self.c_move(line, me)
+##    def c_m(self, line, me):                # implemented
+##        self.c_move(line, me)
 
     def c_off(self, line, me):
         return '** off %s' % NYI
@@ -527,11 +554,19 @@ class Command():
     def c_board(self, line, me):            # implemented
         # TODO: Fehlerbehandlung
         game, player = self.list_of_games.get_game_from_user(me)
-        if game is None:
+        watchee = me.is_watching()
+        if (game is None) and (not watchee):
             return "** You're not playing."
         else:
             board = me.settings.get_boardstyle()
+            if game is None:
+                if not hasattr(me.status.watchee, 'running_game'):
+                    return "** %s is not playing." % watchee
+                else:
+                    game, player = self.list_of_games.get_game_from_user\
+                                                           (me.status.watchee)
             return game.control.board.show_board(player, board)
+        # TODO: das ist noch nicht die richtige sicht, wenn er watcher ist!!!!!
 
     def c_pip(self, line, me):              # implemented
         # TODO:  abfragen, ob beide Spieler das erlauben

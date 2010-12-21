@@ -6,15 +6,21 @@ REV = '$Revision$'
 
 import time
 from StringIO import StringIO
+import logging
 from game import getGame
 from command import NYI
 from persistency import Persistent, Db
 from version import Version
 
-# TODO: Logging
-
 v = Version()
 v.register(__name__, REV)
+
+TRACE = 15
+logging.addLevelName(TRACE, 'TRACE')
+logging.basicConfig(level=logging.INFO,
+                format='%(name)s %(levelname)s %(message)s',
+                )
+logger = logging.getLogger('users')
 
 DB_Users = 'db/users'
 RESERVED_Users = ('guest', 'systemwart', 'administrator',
@@ -77,13 +83,14 @@ class UsersList:        # TODO: als Singleton ausführen
             return self.list_of_active_users[name]  # and get's a warning
         user = self.list_of_all_users.get(name, None)
         if (not user is None) and (user.info.passwd != password):
-            print 'found user', user.name, 'wrong password'
+            logger.debug('found user %s; wrong password' % user.name)
             user = None
         return user
 
     def restore(self, user_data):
         user = User(user_data)
         user.status.logged_in = False
+        user.getUser = self.get_from_all
         ## TODO: auf restore() könnte man verzichten; andererseits kann man
         ##       jetzt hier spezielle Aktionen durchführen
         return user
@@ -97,7 +104,7 @@ class UsersList:        # TODO: als Singleton ausführen
         #       als in clip.py
 
     def drop(self, name):
-        print 'deleting %s from list of active users' % name
+        logger.debug('deleting %s from list of active users' % name)
         user = self.list_of_active_users[name]
         user.set_logout_data(time.time())
         user.save()   # TODO:   muss das save hier sein??????
@@ -136,9 +143,9 @@ als Datencontainer dienen."""
         self.saved_games = saved_games
         self.gagged = gagged
         self.blinded = blinded
-        self.special = special      # special users flag
+        self.special = special      # special flag (test, premium, bot, ...)
         self.away = 0
-        print 'initializing INFO', self.show()
+        logger.info('initializing INFO %s' % self.show())
 
     def set_login_data(self, login, host):
         self.last_login = self.login
@@ -160,22 +167,23 @@ als Datencontainer dienen."""
     def message(self, msg):
         """message() is used for persisting messages."""
         self.messages.append(msg)
-        print 'saving message:', msg
+        logger.info('saving message: %s' % msg)
 
-    def save_game(self, gid):
+    def save_game(self, opponent, gid, score, ML):
         """save_game() is used for persisting games."""
-        self.saved_games.append(gid)
-        print 'saving game:', gid
+        self.saved_games[opponent] = {'gid':gid, 'score':score, 'ML':ML,}
+        # this could be changed to record multiple games between 2 players
+        logger.info('saving game: %s' % gid)
 
     def blind(self, user):
         """blind() is used for persisting blinded users."""
         self.blinded.append(user)
-        print 'blinding:', user
+        logger.info('blinding: %s' % user)
 
     def gag(self, user):
         """gag() is used for persisting gagged users."""
         self.gagged.append(user)
-        print 'gagging:', user
+        logger.info('gagging: %s' % user)
 
     def show(self,):
         out = StringIO()
@@ -267,7 +275,7 @@ class Status:                       # TODO:  dringend überprüfen, ob der
         return int(self.active_state[1] == 2)
 
     def is_online(self,):
-        return hasattr('self','logged_in') and self.logged_in
+        return hasattr(self,'logged_in') and self.logged_in
 
     def set_away(self, msg):
         self.away = True
@@ -533,10 +541,7 @@ class User(Persistent):
         self.status = Status(self.toggles, self)
 ##        self.info.is_away = self.is_away
         self._waves = 0
-        self.invitations = {}   # TODO: wegen der Persistenz muss ich User()
-                        # vielleicht wrappen, damit der Kern - User() - deep
-                        # gespeichert werden kann und dynamical stuff wie
-                        # invitations oder games nicht gespeichert werden.
+        self.invitations = {}
         self.dice = 'random'
         self.db_key = self.name
         self.db_load = self.info
@@ -700,32 +705,70 @@ class User(Persistent):
             args['email'] = "No email address."
         
         return """Information about %(name)s:
-  Last login:  %(date)s from p987987.dip.t-dialin.net
+  Last login:  %(date)s from xyz.net
   %(last_login_details)s
   %(play_status)s
   %(rating_exp)s
   %(email)s""" % args
 
-    def invite(self, name, ML):
-        self.invitations[name] = ML
+    def invite(self, name, ML, opponent):
+        valid = True
+        inv = {'ML': ML}
+        if ML is None:
+            sg = self.info.saved_games.get(name, None)
+            if sg is None:
+                valid = False
+            else:
+                inv['gid'] = sg['gid']
+                gid = inv['gid'].split('.')[0]
+                valid = opponent.has_saved_game(self.name, gid)
+        if valid:
+            self.invitations[name] = inv
+        return valid
         
     def join(self, invited_and_joining, list_of_games):
-        ML = self.invitations.get(invited_and_joining.name, None)
-        if not ML is None:
-            self.status.playing(invited_and_joining)
-            self.chat('** Player %s has joined you for a %s point ' \
-                                    'match' % (invited_and_joining.name, ML))
-            invited_and_joining.status.playing(self)
-            invited_and_joining.chat('** You are now playing a %s point ' \
-                                            'match with %s.' % (ML, self.name))
-            kw = {'player1':self, 'player2':invited_and_joining}
-            kw['ML'] = ML
-            kw['dice'] = self.dice
-            kw['list_of_games'] = list_of_games
-            self.running_game,invited_and_joining.running_game = getGame(**kw)
-            self.getGame = list_of_games.get
-            invited_and_joining.getGame = list_of_games.get
-            del self.invitations[invited_and_joining.name]
+        inv = self.invitations.get(invited_and_joining.name, None)
+        ML = inv['ML']
+        kw = {'ML':ML, 'dice':self.dice, 'list_of_games':list_of_games}
+        iaj = invited_and_joining
+        if ML is None:
+            ML = self.info.saved_games[iaj.name]['ML']
+            score = self.info.saved_games[iaj.name]['score']
+            s, t = score
+            opp_score = (t, s)
+            self.status.playing(iaj)
+            rml = 'Your running match was loaded.'
+            self.chat('%s has joined you. %s' % (iaj.name, rml))
+            iaj.status.playing(self)
+            iaj.chat('** You are now playing with %s. %s' % (self.name, rml))
+            gid = inv['gid']
+# ------------------------------------ TODO: auf p1 und p2 mappen und dann ausserhalb
+            if not gid.endswith('.p1'):
+                pass
+                                # des if blocks von p1 und p2 abhängig machen
+            kw['player1'] = self    # the inviting player is p1
+            kw['player2'] = iaj
+            kw['gid'] = gid.split('.')[0]
+# ------------------------------------            
+        else:
+            score = (0, 0)
+            opp_score = (0, 0)
+            self.status.playing(iaj)
+            self.chat('** Player %s has joined you for a %s point match' % \
+                                                                (iaj.name, ML))
+            iaj.status.playing(self)
+            iaj.chat('** You are now playing a %s point match with %s.' % \
+                                                                (ML, self.name))
+            kw['player1'] = self    # the inviting player is p1
+            kw['player2'] = iaj
+        self.running_game,iaj.running_game = getGame(**kw)
+        self.info.save_game(iaj.name, self.running_game, score, ML)
+        self.save()
+        iaj.info.save_game(self.name, iaj.running_game, opp_score, ML)
+        iaj.save()
+        self.getGame = list_of_games.get # TODO: schau mal, ob du das einsetzen kannst
+        iaj.getGame = list_of_games.get  #       JA - in continue_match und leave_game
+        del self.invitations[iaj.name]
 
     def continue_match(self,):
         self.ready_to_continue = True
@@ -739,13 +782,17 @@ class User(Persistent):
             self.chat('** Please wait for %s to join too.' % \
                                           self.status.opponent_name)
 
-    def teardown_game(self, save=False):
-            self.status.playing('-', ON=False)
-            self.update_who(self)
-            if hasattr(self, 'running_game'):
-                if save:
-                    self.info.save_game(self.running_game)
-                del self.running_game
+    def teardown_game(self, score, save=False):
+        opp = self.status.opponent_name
+        self.status.playing('-', ON=False)
+        self.update_who(self)
+        if hasattr(self, 'running_game'):
+            if save:
+                self.info.saved_games[opp]['score'] = score
+                self.save()
+            else:
+                del self.info.saved_games[opp]
+            del self.running_game
 
     def leave_game(self,):
         running_game = getattr(self, 'running_game', False)
@@ -813,6 +860,7 @@ class User(Persistent):
         self.leave_game()
         self.rid_watchers('%s logs out.' % self.name) # TODO: other messages
         self.unset_watching()
+        self.invitations = {}
         self.protocol.factory.broadcast('8 %s %s drops connection' % \
                                         (self.name,self.name), (self.name,)) 
 
@@ -860,7 +908,27 @@ class User(Persistent):
         return self.ready()     # TODO - noch zu unsicher: status.get_readyflag()
 
     def online(self,):
+        logger.info('online status: %s' %self.status.is_online())
         return self.status.is_online()
+
+    def show_saved(self,):
+        out = StringIO()
+        for s, v in self.info.saved_games.iteritems():
+            pre = '  '
+            if s == self.status.opponent_name:
+                pre = ' *'
+            elif self.getUser(s) and self.getUser(s).online():
+                pre = '**'
+            try:
+                print '**********', self.getUser(s), self.getUser(s).online()
+            except:
+                print '**********', self.getUser(s)
+            print >>out, '%s%-22s %2s               %2d - %2d' % \
+                                              ((pre, s, v['ML']) + v['score'])
+        return out.getvalue()
+
+    def has_saved_game(self, name, gid):
+        return self.info.saved_games[name]['gid'].split('.')[0] == gid
 
     def __str__(self,):
         return self.who()
@@ -869,9 +937,10 @@ def newUser(**kw):
     data = (kw['login'], 0, '', kw['user'], kw['password'], 1500., 0, '-')
     toggles = dict(zip(Toggles.toggle_names, Toggles.toggle_std))
     settings = [3, 0, 0, 'none', 'name', 'UTC']
-    info = Info(data, toggles, settings, [], [], [], [])
+    info = Info(data, toggles, settings, [], [], [], [], '')
     user = User(info)
     user.save()
+    user.getUser = kw['lou'].get_from_all
     kw['lou'].add(user)
     return user
 
