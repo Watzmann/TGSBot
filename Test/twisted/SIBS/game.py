@@ -115,16 +115,22 @@ check for valid moves etc.."""
         """('name_p1', score_p1), ('name_p2', score_p2), ML."""
         self._score_info = (p1, p2, ML)
 
-    def _fmt_score(self, player):
+    def _fmt_score(self, player, watcher=False):
         pn1 = self._score_info[0][0]
         pn2 = self._score_info[1][0]
         sc1 = self._score_info[0][1]
         sc2 = self._score_info[1][1]
         ML = self._score_info[2]
-        if player == 'p1':
-            return self.score_fmt % ('You', pn2, ML, sc1, sc2)
-        else:
-            return self.score_fmt % ('You', pn1, ML, sc2, sc1)
+        if watcher:
+            if player == 'p1':
+                return self.score_fmt % (pn1, pn2, ML, sc1, sc2)
+            else:
+                return self.score_fmt % (pn2, pn1, ML, sc2, sc1)
+        else.
+            if player == 'p1':
+                return self.score_fmt % ('You', pn2, ML, sc1, sc2)
+            else:
+                return self.score_fmt % ('You', pn1, ML, sc2, sc1)
 
     def set_dice(self, turn, dice,):
         self._dice_info = (turn, dice)
@@ -138,7 +144,7 @@ check for valid moves etc.."""
             ret = {'p1':self.dice_fmt % ((-1,) + (0,0) + dice),
                    'p2':self.dice_fmt % ((-1,) + dice + (0,0))}
         else:
-            ret = {'p1':self.dice_fmt % (0,)*5,}
+            ret = {'p1':self.dice_fmt % ((0,)*5)}
             ret['p2'] = ret['p1']
         return ret[player]
 
@@ -179,18 +185,17 @@ check for valid moves etc.."""
         msg = "can't move to Berlin"
         return msg
 
-    def show_board(self, whom, style):
+    def show_board(self, whom, style, watcher=False):
         if style in (1,2,3,4):
             self.style = style
-##            print self.board_sl(whom)
             return {1: self.board_sl,
                     3: self.board_sl,
                     4: self.board_sl,
-                    2: self.board_aa}[style](whom)
+                    2: self.board_aa}[style](whom, watcher)
 
-    def board_sl(self, whom):
+    def board_sl(self, whom, watcher=False):
         """Single line representation of the board."""
-        score = self._fmt_score(whom)
+        score = self._fmt_score(whom, watcher)
         position = self._fmt_position()
         dice = self._fmt_dice(whom)
         cube = self._fmt_cube(whom)
@@ -200,7 +205,7 @@ check for valid moves etc.."""
             return '%s | '*6 % (score, position, dice, cube, direction, move)
         else:
             return score + position + dice + cube + direction + move
-            #      0       5          31     36     41          45
+            #      0       5          31     36     40          44
 
     def load(self, board):
         b = board.split(':')
@@ -365,6 +370,7 @@ class Player:
         self.user = user
         self.name = user.name
         self.color = color
+        self.turn = color + 1
         self.owns_cube = owns_cube
         if not opponent is None:
             self.set_opponent(opponent)
@@ -376,26 +382,35 @@ class Player:
 
     def chat_player(self, msg):
         self.user.chat(msg)
-        for w in self.user.watchers.values():
-            w.chat(msg)
 
     def chat_opponent(self, msg):
         self.opp_user.chat(msg)
-        for w in self.opp_user.watchers.values():
-            w.chat(msg)
 
     def board_player(self,):
         """Display the board for the player."""
         boardstyle = self.user.settings.get_boardstyle()
         self.chat_player(self.board.show_board(self.nick, boardstyle))
-        logger.log(TRACE, "sent board to player %s" % self.name)
+        self.board_watchers(self.user, self.nick)
+        logger.info("sent board to player %s and watchers" % self.name)
         
     def board_opponent(self,):
         """Display the board for the players opponent."""
         boardstyle = self.opp_user.settings.get_boardstyle()
         opp_nick = {'p1':'p2', 'p2':'p1'}[self.nick]    # TODO: nick notlösung wegmachen
         self.chat_opponent(self.board.show_board(opp_nick, boardstyle))
-        logger.log(TRACE, "sent board to player %s" % self.opp_name)
+        self.board_watchers(self.opp_user, opp_nick)
+        logger.info("sent board to player %s and watchers" % self.opp_name)
+
+    def board_watchers(self, player, nick):
+        if len(player.watchers):
+            boards = {}
+            for w in player.watchers.values():
+                brdstyle = w.get_boardstyle()
+                board = boards.get(brdstyle, None)
+                if board is None:
+                    board = self.board.show_board(nick, brdstyle, watcher=True)
+                    boards[brdstyle] = board
+                w.chat(board)
 
     def may_double(self,):
         wd = self.user.toggles.read('double')
@@ -419,12 +434,15 @@ class Player:
         self.user.toggles.set_switch('greedy', False)
         
 class Status:
-    def __init__(self, position, cube, direction, move):
-        self.position = position
-        self.cube = cube
-        self.value = cube
-        self.direction = direction
-        self.move = move
+    def __init__(self,):
+        self.cube = 1
+        self.value = 1
+        self.position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
+                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
+##            self.position = [0, 0,0,0,1,4,5, 0,3,0,0,0,0,
+##                                0,0,0,2,0,0, -7,-5,-3,0,0,0, 0]
+##            self.position = [0, 0,0,0,3,5,7, 0,0,-2,0,0,0,
+##                                0,0,0,0,-3,0, -5,-4,-1,0,0,0, 0]
 
     def pips(self,):    # ist nicht persistent, muss nicht ausgelagert werden
         pips1 = 0
@@ -461,7 +479,8 @@ class BGMachine(StateMachine):
                        ))
         model = {
               # TODO: hier kurz mal sagen
-             'game_started': (('start', states['rolled'], True, caller._start),),
+             'game_started': (('start', states['rolled'], True, caller._start),
+                              ('resume', None, True, caller._resume),),
              'turn_started': (('roll', states['rolled'], False, caller._roll),
                         ('double', states['doubled'], False, caller._double),),
              'doubled': (('accept', states['taken'], False, caller._take),
@@ -502,21 +521,19 @@ class GameControl:
         self.players = {'p1':self.p1, 'p2':self.p2}
         self.dice = getDice(dice)
     # PERSIST  cube <- db
-    # PERSIST  what about value??
+    # PERSIST  what about value??    (seems to be unneccessary)
         self.cube = self.status.cube
-        self.set_cube()
+        just_doubled, who = getattr(self.status, 'doubles', (0,''))
+        self.set_cube(just_doubled, who)
         self.turn = 0       # TODO oder was im board-status richtig ist
         self.home = {'p1':0, 'p2':0}
         self.bar = {'p1':0, 'p2':0}
         self.opp = {'p1':'p2', 'p2':'p1'} # TODO: weg damit
-        self.direction = self.status.direction
+        self.direction = {'p1':{'home':0, 'bar':25}, 'p2':{'home':25, 'bar':0}}
         self.home_board = {'p1':(1,7), 'p2':(19,25)}  # TODO: gehört nach OX
             # TODO:  wenn es hier definiert ist, dann muss es von hier
             #        im board gesetzt werden.
-        self.score = self.status.match.score
-        self.board.set_score((self.p1.name, self.score['p1']),
-                             (self.p2.name, self.score['p2']),
-                              self.status.match.ML)
+        self.set_score()
 #-------------------------------------------------------------------
         self.SM = BGMachine(self)
 #-------------------------------------------------------------------
@@ -528,10 +545,15 @@ class GameControl:
         p.reset_toggles()
         return p
         
-    def start(self,):
-        self.p1.owns_cube = False  # TODO: is this the proper place to reset this?
-        self.p2.owns_cube = False
-        self.SM.start(self.p1)  # TODO: player is not relevant; can we drop it?
+    def start(self, resume):
+        if resume:
+            action = 'resume'
+            self.status.resume = [s for s in self.status.state]
+            print 'ANGERICHTET', self.status.resume
+        else:
+            action = 'start'
+        self.SM.start(self.p1, action=action)
+                # player neccessary (states.state_check), no matter which one
 
     def _start(self, p, **kw):
         a = b = 0
@@ -542,12 +564,42 @@ class GameControl:
         self.turn = {True:1, False:2}[a>b]
         self.pieces = 2             # TODO: hier gibt's doch keine pasch!!????
                                     #       {True:4, False:2}[d[0]==d[1]]
-        self.board.set_dice(self.turn, d)
+        self.set_dice(self.turn, d)
+        self.p1.owns_cube = False  # TODO: is this the proper
+        self.p2.owns_cube = False  #       place to reset this?
         logger.log(TRACE, 'in start  %s  %s  %s' % (self.turn, self.pieces,
                                                     self.board._dice_info))
         self.set_move()
         return {'roll': self.dice_roll, 'turn': self.whos_turn_p1(),
                 'game_started': True}
+
+    def _resume(self, p, **kw):
+        state, player, params = self.status.resume
+        del self.status.resume
+        if player == self.p1.name:
+            player = self.p1
+        elif player == self.p2.name:
+            player = self.p2
+        else:
+            logging.error('control._resume: Wrong player name!!!! %s not in ' \
+                                        '(%s, %s)' % (name, p1.name, p2.name))
+        logger.log(TRACE, 'in resume  %s  %s  %s' % (state, player.name, params))
+        params['follow'] = self.SM.states[state]
+        params['turn'] = player
+        roll = params.get('roll', self.status.dice)
+        self.turn = player.turn
+        self.set_dice(self.turn, roll)
+        self.pieces = self.status.pieces
+        for p in ('p1', 'p2'):
+            self.home[p], self.bar[p] = self.status.checkers[p]
+        self.set_move()
+        score = self.status.match.score
+        msg = "turn: %s.\nmatch length: %d\npoints for %s: %d\npoints for " \
+              "%s: %d" % (player.name, self.status.match.ML,
+                          self.p1.name, score['p1'], self.p2.name, score['p2'])
+        self.p1.chat_player(msg)
+        self.p1.chat_opponent(msg)
+        return params
 
     def whos_turn(self,):
         return {1:self.p1.user, 2:self.p2.user, 0:None}[self.turn]
@@ -605,7 +657,7 @@ class GameControl:
 
     def _roll(self, player, **kw):
         d = self.dice.roll()    # TODO    turn und dice eintragen
-        self.board.set_dice(self.turn, d)
+        self.set_dice(self.turn, d)
         return {'roll': d}
 
     def double(self, player):
@@ -615,6 +667,7 @@ class GameControl:
     def _double(self, player, **kw):
         self.cube = self.cube * 2
         player.doubles()
+        # TODO: player.owns.cube setzen
         self.set_cube(1, player.nick)
         return {'value': self.cube}
 
@@ -651,22 +704,36 @@ class GameControl:
         self.game.game_over(**kw)
         
     def nop(self, player):
-        return {}
+        return {}       # TODO: sollte mittelfristig verschwinden
 
     def set_move(self,):
         """Sets certain groups of flags in the board."""
         p1 = (self.home['p1'], self.bar['p1'])
         p2 = (self.home['p2'], self.bar['p2'])
-##        print 'SET_MOVE',p1,p2,self.pieces
+        self.status.pieces = self.pieces
+        self.status.checkers = {'p1': p1, 'p2': p2}
         self.board.set_move(p1, p2, self.pieces)
 
     def set_position(self,):
         self.board.set_position(self.position)
 
+    def set_dice(self, turn, dice):
+        self.status.dice = dice
+        self.board.set_dice(turn, dice)     # TODO: turn hier berechnen
+                                            #       z.B. mit player.turn
+                    #       player muss evtl. von der SM abgefragt werden
+
     def set_cube(self, just_doubled=0, who=''):
         p1 = self.p1.may_double()
         p2 = self.p2.may_double()
+        self.status.doubles = (just_doubled, who)
         self.board.set_cube(self.cube, p1, p2, just_doubled, who)
+
+    def set_score(self,):
+        score = self.status.match.score
+        self.board.set_score((self.p1.name, score['p1']),
+                             (self.p2.name, score['p2']),
+                              self.status.match.ML)
 
     def move(self, move, player):
         p = self.players[player]    # TODO: hier aufräumen
@@ -739,8 +806,8 @@ class GameControl:
         return {'response': 'accepted', 'winner': player, 'reason': 'resigned'}
 
     def hand_over(self, player, **kw):    # TODO: wird das noch gebraucht?
-        self.turn = 3 - self.turn         #       JA, solange turn gebraucht wird
-        self.board.set_dice(self.turn, (0,0))
+        self.turn = 3 - self.turn         #   JA, solange turn gebraucht wird
+        self.set_dice(self.turn, (0,0))
         logger.log(TRACE, 'in handover:  -> %d' % self.turn)
         return {'may_double': self.may_double(player.opponent)}
 
@@ -753,13 +820,16 @@ class GameControl:
         return md
 
     def save_state_to_status(self, state, player, params):
-        self.status.state = (state, player.name, params)
-        self.game.save()
-        # TODO: fertigstellen
+        if state in ('turn_started', 'doubled', 'checked', 'resigned'):
+            mparams = params
+            if 'active_state' in params:
+                mparams = params.copy()
+                del mparams['active_state']  # TODO: muss sauber gepickelt werden
+            self.status.state = (state, player.name, mparams)
+            self.game.save()
             
 class Game(Persistent):
-    # players watchers
-    def __init__(self, gid, p1, p2, ML, status=None, dice='random'):
+    def __init__(self, gid, p1, p2, ML, status, dice='random'):
         """Represents a game of Backgammon.
     gid:        unique Id
     p1:         player 1, host, white, O (class User)
@@ -773,21 +843,14 @@ class Game(Persistent):
         self.player2 = Player(p2, self.player1, 1)
         self.player1.set_opponent(self.player2)
         self.ids = ['.'.join((self.id, 'p1')), '.'.join((self.id, 'p2'))]
-                                            # TODO: hier kommen noch watchers
-                                            #       <id>.wn.px
+                                        # TODO: variante watchers  <id>.wn.px
         self.player = dict(zip(self.ids,('p1','p2')))
         self.who = dict(zip(('p1', 'p2'),(self.player1, self.player2)))
         self.opp = {p1.name:p2, p2.name:p1}     # TODO: mittelfristig weg
         self.dice = dice                    # TODO: braucht der die permanent??
-        if status is None:
-            position = [0, -2,0,0,0,0,5, 0,3,0,0,0,-5,
-                                5,0,0,0,-3,0, -5,0,0,0,0,2, 0]
-##            self.position = [0, 0,0,0,1,4,5, 0,3,0,0,0,0,
-##                                0,0,0,2,0,0, -7,-5,-3,0,0,0, 0]
-##            self.position = [0, 0,0,0,3,5,7, 0,0,-2,0,0,0,
-##                                0,0,0,0,-3,0, -5,-4,-1,0,0,0, 0]
-            direction = {'p1':{'home':0, 'bar':25}, 'p2':{'home':25, 'bar':0}}
-            status = Status(position, 1, direction, 0)
+        if status is None:  # TODO: status könnte auch in getGame gebaut werden
+                            #       (wie newUser)
+            status = Status()
             status.match = Match(int(ML),{'p1': 0, 'p2': 0})
         self.control = GameControl(self, status, dice=self.dice)
         logger.info('New game with id %s, %s vs %s' % (self.id, p1.name, p2.name))
@@ -796,17 +859,18 @@ class Game(Persistent):
         self.db_load = self.control.status
         self.save()     # TODO: an dieser Stelle vermutlich überflüssig
 
-    def start(self,):
-        self.control.start()
+    def start(self, resume):
+        self.control.start(resume)
 
     def continue_game(self,):
         del self.player1.user.ready_to_continue
         del self.player2.user.ready_to_continue
-        self.control = GameControl(self, dice=self.dice)
-        self.control.status.match = self.match
+        new_status = Status()
+        new_status.match = self.control.status.match
+        self.control = GameControl(self, new_status, dice=self.dice)
         logger.info('Next game in match %s vs %s' % (self.player1.name,
                                             self.player2.name))
-        self.start()
+        self.start(False)
 
     def stop(self, save=True):
         if save:
@@ -823,20 +887,21 @@ class Game(Persistent):
     def game_over(self, **kw):
         winner = kw['winner'].nick
         value = kw['value']
-        self.match.score[winner] += value
-        winners_score = self.match.score[winner]
-        losers_score = self.match.score[kw['winner'].opponent.nick]
+        match = self.control.status.match
+        match.score[winner] += value
+        winners_score = match.score[winner]
+        losers_score = match.score[kw['winner'].opponent.nick]
         winner_name = kw['winner'].name
         loser_name = kw['winner'].opp_name
         logger.info('winner %s in game_over. value: %d. score %s' % \
-                    (winner_name, value, self.match.score))
-        if winners_score < self.match.ML:
+                    (winner_name, value, match.score))
+        if winners_score < match.ML:
             msg = 'score in %d point match: %s-%d %s-%d' % \
-                              (self.match.ML, winner_name, winners_score,
+                                  (match.ML, winner_name, winners_score,
                                                    loser_name, losers_score)
             kw['winner'].chat_player(msg)
             kw['winner'].chat_opponent(msg)
-            self.match.crawford = ((self.match.ML - winners_score) == 1) and \
+            match.crawford = ((match.ML - winners_score) == 1) and \
                         (self.player1.crawford() and self.player2.crawford())
                         # TODO: bei player.crawford() wär ein OR angebracht?
             msg = "Type 'join' if you want to play the next game, type " \
@@ -845,7 +910,7 @@ class Game(Persistent):
             kw['winner'].chat_opponent(msg)
         else:
             score = '%d-%d .' % (winners_score, losers_score)
-            ML = self.match.ML
+            ML = match.ML
             msg = 'You win the %d point match %s' % (ML, score)
             kw['winner'].chat_player(msg)
             msg = '%s wins the %d point match %s' % (winner_name, ML, score)
@@ -861,7 +926,7 @@ class Game(Persistent):
 
     def book_game(self, winner):
         loser = winner.opponent
-        ML = self.match.ML
+        ML = self.status.match.ML
         Pw = winner.user.rating()
         Ew = self.weighed_experience(winner.user, ML)
         Pl = loser.user.rating()
@@ -943,13 +1008,13 @@ def getGame(**kw):
     if ML is None:
         gid = kw['gid']
         status = log.get_saved_game(gid)
-        print 'saved game returned'
-        print status
-        game = Game(gid, p1, p2, ML, status=status, dice=kw['dice'])
+        resume = True
     else:
         gid = log.uid()
-        game = Game(gid, p1, p2, ML, dice=kw['dice'])
+        status = None
+        resume = False
+    game = Game(gid, p1, p2, ML, status, dice=kw['dice'])
     game.teardown = log.remove
     log.add(game)
-    game.start()
+    game.start(resume)
     return game.ids

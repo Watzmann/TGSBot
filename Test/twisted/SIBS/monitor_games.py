@@ -42,9 +42,9 @@ if __name__ == '__main__':
             state = v.state
         except:
             state = ()
-        print '   ', v.cube, getattr(v,'value', '--'), v.direction, v.move
+        print '   ', v.cube, v.dice, v.pieces, v.doubles, v.checkers
         print '   ', state
         print '   ', v.position
-        #print v.__dict__
+        print v.__dict__
 #        print pickle.dumps(v)
     db.close()

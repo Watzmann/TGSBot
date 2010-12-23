@@ -740,14 +740,16 @@ class User(Persistent):
             rml = 'Your running match was loaded.'
             self.chat('%s has joined you. %s' % (iaj.name, rml))
             iaj.status.playing(self)
-            iaj.chat('** You are now playing with %s. %s' % (self.name, rml))
+            iaj.chat('You are now playing with %s. %s' % (self.name, rml))
             gid = inv['gid']
 # ------------------------------------ TODO: auf p1 und p2 mappen und dann ausserhalb
-            if not gid.endswith('.p1'):
-                pass
+            if gid.endswith('.p1'):
+                kw['player1'] = self    # the inviting player is p1
+                kw['player2'] = iaj
+            else:
+                kw['player2'] = self    # the inviting player is p1
+                kw['player1'] = iaj
                                 # des if blocks von p1 und p2 abhängig machen
-            kw['player1'] = self    # the inviting player is p1
-            kw['player2'] = iaj
             kw['gid'] = gid.split('.')[0]
 # ------------------------------------            
         else:

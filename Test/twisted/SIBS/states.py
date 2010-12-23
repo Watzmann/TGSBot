@@ -117,9 +117,16 @@ class GameStarted(State):
         State.__init__(self)
 
     def _chat(self, msg=None):
-        msg = 'Starting a new game with %s.'
-        self.player.chat_player(msg % self.player.opp_name)
-        self.player.chat_opponent(msg % self.player.name)
+        if self.params['action'] == 'start':
+            msg = 'Starting a new game with %s.'
+            self.player.chat_player(msg % self.player.opp_name)
+            self.player.chat_opponent(msg % self.player.name)
+
+    def _auto_action(self,):
+        """Start or resume the game, as given by params."""
+        cmd = self.params['action']
+        logger.log(TRACE, 'automatically starting cmd: %s' % cmd)
+        self.action(self.player, cmd, **self.params)
 
     def _action(self, player, cmd, **params):
         """Special treatment while starting a game. Set active player as a
@@ -129,6 +136,8 @@ class GameStarted(State):
         logger.debug('calling %s with %s' % (action, params))
         self.result = action(player, **{})
         self.player = self.result.pop('turn')
+        if cmd == 'resume':
+            self.actions[cmd]['follow_up'] = self.result.pop('follow')
 
     # +++++++++++ start
     # you rolled, he rolled
@@ -394,10 +403,14 @@ which state is active.
             ##            s.machine = self._activate
         logger.log(TRACE, 'CONSTRUCTING (%d states)' % len(self.states))
 
-    def start(self, player, **kw):
+    def start(self, player, state=None, **kw):
         """Allows to start the state machine."""
+        if state is None:
+            state_name = 'game_started'
+        else:
+            state_name, player, kw = state
         logger.log(TRACE, 'STARTING   player %s' % player.name)
-        self.states['game_started'].activate(player, **kw)
+        self.states[state_name].activate(player, **kw)
 
     def action(self, player, cmd, **kw):
         """Allows control to send actions, taken by the players."""
