@@ -93,9 +93,6 @@ class Command():
         else:
             me.shout(' '.join(line[1:]))
 
-##    def c_k(self, line, me):                # implemented
-##        return self.c_kibitz(line, me)
-        
     def c_kibitz(self, line, me):           # implemented
         game, player = self.list_of_games.get_game_from_user(me)
         watchee = me.is_watching()
@@ -106,9 +103,6 @@ class Command():
 ##            user = game.players(player).opponent.user
             me.kibitz(msg)
 
-##    def c_t(self, line, me):                # implemented
-##        return self.c_tell(line, me)
-        
     def c_tell(self, line, me):             # implemented
         name = line[1]
         msg = ' '.join(line[2:])
@@ -200,8 +194,8 @@ class Command():
                 return "** Error: %s is already playing with someone else." % \
                                                                            user
                 # TODO: didn't invite you????
-            him.join(me, self.list_of_games)    # TODO: deferred?
             self.update_who(me)
+            him.join(me, self.list_of_games)    # TODO: deferred?
             #self.update_who(him)       # TODO: broadcast doppelt, kann weg
         else:
             return "** %s is not logged in" % user
@@ -258,21 +252,6 @@ class Command():
 
     def c_wave(self, line, me):             # implemented
         return me.wave()
-
-##    def c_adios(self, line, me):            # implemented
-##        return self.c_bye(line, me)
-##    def c_ciao(self, line, me):             # implemented
-##        return self.c_bye(line, me)
-##    def c_end(self, line, me):              # implemented
-##        return self.c_bye(line, me)
-##    def c_exit(self, line, me):             # implemented
-##        return self.c_bye(line, me)
-##    def c_logout(self, line, me):           # implemented
-##        return self.c_bye(line, me)
-##    def c_quit(self, line, me):             # implemented
-##        return self.c_bye(line, me)
-##    def c_tschoe(self, line, me):           # implemented
-##        return self.c_bye(line, me)
 
 # ----------------------------------------  Setting Commands
 
@@ -442,6 +421,7 @@ class Command():
         if len(users) == 0:
             print >>out, 'No  S  username        rating   exp login  idle from'
         else:
+            print 'in who()', users
             for u in users:
                 print >>out, loau[u].who()
             # TODO:  laut spez wird nur beim rawwho die 6 garantiert geschickt
@@ -545,9 +525,6 @@ class Command():
         else:
             game.move(line[1:], player)
 
-##    def c_m(self, line, me):                # implemented
-##        self.c_move(line, me)
-
     def c_off(self, line, me):
         return '** off %s' % NYI
 
@@ -565,8 +542,7 @@ class Command():
                 else:
                     game, player = self.list_of_games.get_game_from_user\
                                                            (me.status.watchee)
-            return game.control.board.show_board(player, board)
-        # TODO: das ist noch nicht die richtige sicht, wenn er watcher ist!!!!!
+            return game.control.board.show_board(player, board, watcher=True)
 
     def c_pip(self, line, me):              # implemented
         # TODO:  abfragen, ob beide Spieler das erlauben
@@ -616,7 +592,7 @@ class Command():
             return "** Error: No one to leave."
         else:
             me.leave_game()  # TODO: korrekte ausgaben/fehlerchecking
-            return '** You terminated the game. Saving games is not implemented, yet'
+            return '** You terminated the game. Saving games implemented but still has some bugs.'
 
     def c_redouble(self, line, me):
         return '** redouble %s' % NYI

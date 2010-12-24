@@ -126,7 +126,7 @@ check for valid moves etc.."""
                 return self.score_fmt % (pn1, pn2, ML, sc1, sc2)
             else:
                 return self.score_fmt % (pn2, pn1, ML, sc2, sc1)
-        else.
+        else:
             if player == 'p1':
                 return self.score_fmt % ('You', pn2, ML, sc1, sc2)
             else:
@@ -383,8 +383,14 @@ class Player:
     def chat_player(self, msg):
         self.user.chat(msg)
 
+    def chat_player_watchers(self, msg):
+        self.user.chat_watchers(msg)
+
     def chat_opponent(self, msg):
         self.opp_user.chat(msg)
+
+    def chat_opponent_watchers(self, msg):
+        self.opp_user.chat_watchers(msg)
 
     def board_player(self,):
         """Display the board for the player."""
@@ -405,7 +411,7 @@ class Player:
         if len(player.watchers):
             boards = {}
             for w in player.watchers.values():
-                brdstyle = w.get_boardstyle()
+                brdstyle = w.settings.get_boardstyle()
                 board = boards.get(brdstyle, None)
                 if board is None:
                     board = self.board.show_board(nick, brdstyle, watcher=True)

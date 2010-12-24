@@ -130,6 +130,11 @@ class UsersList:        # TODO: als Singleton ausführen
             res = "No information found on user %s." % name
         return res
 
+    def game_reports(self, msg):
+        for u in self.get_active_users.values():
+            if u.toggles.read('report'):
+                u.chat(msg)
+        
 class Info:
     """Info soll selbst so wenig Methoden als möglich haben und lediglich
 als Datencontainer dienen."""
@@ -654,6 +659,10 @@ class User(Persistent):
     def chat(self, msg):
         self.protocol.tell(msg)
 
+    def chat_watchers(self, msg):
+        for w in self.watchers.values():
+            w.chat(msg)
+
     def who(self,):
         args = {}
         args['user'] = self.name
@@ -685,6 +694,8 @@ class User(Persistent):
         login = time.localtime(self.info.login) # TODO: speedup; save this date
                                                 #       in ascii-format right away
         args['date'] = time.strftime("%A, %B %d %H:%M %Z", login)
+        args['host'] = getattr(self.info, 'last_host', self.info.host)
+                                    # TODO: warum kann last_host fehlen??????
         if self.status.logged_in:
             login_details = "Still logged in. %s idle" % self.status.idle(True)
             args['last_login_details'] = login_details
@@ -705,7 +716,7 @@ class User(Persistent):
             args['email'] = "No email address."
         
         return """Information about %(name)s:
-  Last login:  %(date)s from xyz.net
+  Last login:  %(date)s from %(host)s
   %(last_login_details)s
   %(play_status)s
   %(rating_exp)s
@@ -737,18 +748,23 @@ class User(Persistent):
             s, t = score
             opp_score = (t, s)
             self.status.playing(iaj)
+            watchers_msg = '%s and %s are resuming their %s point match'
             rml = 'Your running match was loaded.'
             self.chat('%s has joined you. %s' % (iaj.name, rml))
+            game_reports = watchers_msg % (self.name, iaj.name, ML)
+            self.chat_watchers(game_reports)
             iaj.status.playing(self)
             iaj.chat('You are now playing with %s. %s' % (self.name, rml))
+            iaj.chat_watchers(watchers_msg % (iaj.name, self.name, ML))
+            msg = 
             gid = inv['gid']
 # ------------------------------------ TODO: auf p1 und p2 mappen und dann ausserhalb
             if gid.endswith('.p1'):
                 kw['player1'] = self    # the inviting player is p1
                 kw['player2'] = iaj
-            else:
-                kw['player2'] = self    # the inviting player is p1
-                kw['player1'] = iaj
+            else:                   # TODO: das funktioniert noch nicht
+                kw['player1'] = iaj     # the inviting player is p1
+                kw['player2'] = self
                                 # des if blocks von p1 und p2 abhängig machen
             kw['gid'] = gid.split('.')[0]
 # ------------------------------------            
@@ -756,13 +772,18 @@ class User(Persistent):
             score = (0, 0)
             opp_score = (0, 0)
             self.status.playing(iaj)
+            watchers_msg = '%s and %s start a %s point match'
             self.chat('** Player %s has joined you for a %s point match' % \
                                                                 (iaj.name, ML))
+            game_reports = watchers_msg % (self.name, iaj.name, ML)
+            self.chat_watchers(game_reports)
             iaj.status.playing(self)
             iaj.chat('** You are now playing a %s point match with %s.' % \
                                                                 (ML, self.name))
+            iaj.chat_watchers(watchers_msg % (iaj.name, self.name, ML))
             kw['player1'] = self    # the inviting player is p1
             kw['player2'] = iaj
+        self.game_reports(game_reports)
         self.running_game,iaj.running_game = getGame(**kw)
         self.info.save_game(iaj.name, self.running_game, score, ML)
         self.save()
@@ -850,7 +871,7 @@ class User(Persistent):
             w.chat("%s. You're not watching anymore." % reason)
             w.unset_watching(forced=True)
         self.watchers = {}
-        
+
     def welcome(self,):
         info = self.info
         return '1 %s %s %s' % (self.name, info.last_login, info.last_host)

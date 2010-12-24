@@ -120,7 +120,9 @@ class GameStarted(State):
         if self.params['action'] == 'start':
             msg = 'Starting a new game with %s.'
             self.player.chat_player(msg % self.player.opp_name)
+            self.player.chat_player_watchers(msg % self.player.opp_name)
             self.player.chat_opponent(msg % self.player.name)
+            self.player.chat_opponent_watchers(msg % self.player.name)
 
     def _auto_action(self,):
         """Start or resume the game, as given by params."""
@@ -229,6 +231,8 @@ class Rolled(State):
             self.player.chat_player(msg)
             msg = '%s rolls %d and %d.' % (self.player.name, a, b)
             self.player.chat_opponent(msg)
+            self.player.player_watchers(msg)
+            self.player.chat_opponent_watchers(msg)
 
 class TurnFinished(State):
     """State I: this turn has been finished."""
