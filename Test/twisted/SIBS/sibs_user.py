@@ -931,8 +931,9 @@ class User(Persistent):
         return self.ready()     # TODO - noch zu unsicher: status.get_readyflag()
 
     def online(self,):
-        logger.info('online status: %s' %self.status.is_online())
-        return self.status.is_online()
+	online = self.status.is_online()
+        logger.info('online status: %s' % online)
+        return online
 
     def show_saved(self,):
         out = StringIO()
