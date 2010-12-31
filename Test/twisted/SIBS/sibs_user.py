@@ -134,7 +134,10 @@ class UsersList:        # TODO: als Singleton ausführen
         for u in self.get_active_users.values():
             if u.toggles.read('report'):
                 u.chat(msg)
-        
+
+from twisted.internet import threads, defer
+from subprocess import Popen, PIPE
+
 class Info:
     """Info soll selbst so wenig Methoden als möglich haben und lediglich
 als Datencontainer dienen."""
@@ -157,6 +160,8 @@ als Datencontainer dienen."""
         self.login = int(login)
         self.last_host = self.host
         self.host = host
+        d = threads.deferToThread(self.nslookup, host)
+        d.addCallback(self.host_dns_name)
 
     def set_logout_data(self, logout,):
         self.last_logout = int(logout)
@@ -216,6 +221,21 @@ als Datencontainer dienen."""
             (self.name, t[0], getattr(self, 'away', 0), t[1], self.experience,
              t[2], self.rating, t[3], self.settings[3], t[4], self.settings[5],)
         return ret
+
+    def nslookup(self, ip):
+        output = Popen(["nslookup", ip], stdout=PIPE).communicate()[0]
+        ret = output.find('name = ')
+        if ret == -1:
+            ret = ''
+        else:
+            ret = output[ret+7:].splitlines()[0]
+            if ret[-1] == '.':
+                ret = ret[:-1]
+        return ret
+
+    def host_dns_name(self, host_name):
+        if host_name:
+            self.host = host_name
 
 class Status:                       # TODO:  dringend überprüfen, ob der
                                     #        IMMER aktuell ist.
@@ -695,7 +715,9 @@ class User(Persistent):
                                                 #       in ascii-format right away
         args['date'] = time.strftime("%A, %B %d %H:%M %Z", login)
         args['host'] = getattr(self.info, 'last_host', self.info.host)
-                                    # TODO: warum kann last_host fehlen??????
+                                # TODO: warum kann last_host fehlen??????
+                                # TODO: wenn er eingeloggt ist, was ist dann
+                                # der richtige? der jetzige oder der davor???
         if self.status.logged_in:
             login_details = "Still logged in. %s idle" % self.status.idle(True)
             args['last_login_details'] = login_details
@@ -756,7 +778,7 @@ class User(Persistent):
             iaj.status.playing(self)
             iaj.chat('You are now playing with %s. %s' % (self.name, rml))
             iaj.chat_watchers(watchers_msg % (iaj.name, self.name, ML))
-            msg = 
+           # msg = 
             gid = inv['gid']
 # ------------------------------------ TODO: auf p1 und p2 mappen und dann ausserhalb
             if gid.endswith('.p1'):

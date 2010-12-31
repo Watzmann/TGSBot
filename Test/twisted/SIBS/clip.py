@@ -87,6 +87,8 @@ class CLIP(Echo):
 
     def dataReceived(self, data):
         self.buffer += data
+        # TODO: this data collection stuff is most likely unneccessary
+        #       deriving from LineReceiver would probably do (investigate!!)
         if self.buffer.endswith('\n'):
             d = self.buffer
             self.buffer = ''

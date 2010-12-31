@@ -893,6 +893,8 @@ class Game(Persistent):
     def game_over(self, **kw):
         winner = kw['winner'].nick
         value = kw['value']
+        # TODO: woher kommt der value?
+        #       und was haeltst du vom cube??????
         match = self.control.status.match
         match.score[winner] += value
         winners_score = match.score[winner]
