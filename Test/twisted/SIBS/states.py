@@ -189,8 +189,10 @@ class Doubled(State):
             msg = 'You double. Please wait for %s to accept or reject.' % \
                                                       self.player.opp_name
             self.player.chat_player(msg)
-            msg = "%s doubles. Type 'accept' or 'reject'." % self.player.name
-            self.player.chat_opponent(msg)
+            msg = "%s doubles." % self.player.name
+            self.player.chat_opponent(msg + " Type 'accept' or 'reject'.")
+            self.player.chat_player_watchers(msg)
+            self.player.chat_opponent_watchers(msg)
 
     def _special(self,):
         self.approved_player = self.player.opponent
@@ -210,8 +212,10 @@ class Taken(State):
             cube = 'The cube shows %d.' % self.params['value']
             msg = 'You accept the double. %s' % cube
             self.player.chat_opponent(msg)
-            msg = '%s accepts the double. %s' % (self.player.opp_name, cube)
-            self.player.chat_player(msg)
+            msg = '%s accepts the double.' % self.player.opp_name
+            self.player.chat_player(msg + ' %s' % cube)
+            self.player.chat_player_watchers(msg)
+            self.player.chat_opponent_watchers(msg)
 
 class Rolled(State):
     """State H: dice have been rolled."""
@@ -223,15 +227,17 @@ class Rolled(State):
     def _chat(self, msg=None):
         if self.params.has_key('game_started'):
             self.player.chat_player("It's your turn to move.")
-            self.player.chat_opponent('%s makes the first move.' % \
-                                                      self.player.name)
+            msg = '%s makes the first move.' % self.player.name
+            self.player.chat_opponent(msg)
+            self.player.chat_player_watchers(msg)
+            self.player.chat_opponent_watchers(msg)
         else:
             a, b = self.params['roll']
             msg = 'You roll %d and %d.' % (a,b)
             self.player.chat_player(msg)
             msg = '%s rolls %d and %d.' % (self.player.name, a, b)
             self.player.chat_opponent(msg)
-            self.player.player_watchers(msg)
+            self.player.chat_player_watchers(msg)
             self.player.chat_opponent_watchers(msg)
 
 class TurnFinished(State):
@@ -334,18 +340,24 @@ class GameFinished(State):
             if reason == 'won':
                 msg_me = 'You win the game and get %s. ' \
                                          'Congratulations!' % points
-                msg_him = '%s wins the game and gets %s. Sorry.' % (me, points)
+                msg = '%s wins the game and gets %s.'
+                msg_him = msg % (me, points,) + ' Sorry.'
+                msg_watchers = msg % (me, points,)
             elif reason == 'passed':
                 msg_me = '%s gives up. You win %s.' % (opp, points)
                 msg_him = "You give up. %s wins %s." % (me, points)
+                msg_watchers = '%s gives up. %s wins %s.' % (opp, me, points)
             elif reason == 'resigned':
                 msg_me = "%s accepts and wins %s." % (opp, points)
                 msg_him = 'You accept and win %s.' % points
+                msg_watchers = msg_me
             else:
                 logger.warning("FINISH: reason '%s' not known!" % reason)
                 msg_him = msg_me = 'I feel a little confused.'
             self.player.chat_player(msg_me)
             self.player.chat_opponent(msg_him)
+            self.player.chat_player_watchers(msg_watchers)
+            self.player.chat_opponent_watchers(msg_watchers)
 
 class Resigned(State):
     """State J: a player resigns the game."""
@@ -360,15 +372,17 @@ class Resigned(State):
             opp = self.player.opp_name
             me = self.player.name
             if a > 1:
-                msg_me = 'You want to resign. %s will win %d points.' % (opp, a)
+                msg_me = '%%s want to resign. %s will win %d points.' % (opp, a)
                 msg_him = "%s wants to resign. You will win %d points." \
                           " Type 'accept' or 'reject'." % (me, a)
             elif a == 1:
-                msg_me = 'You want to resign. %s will win 1 point.' % opp
+                msg_me = '%%s want to resign. %s will win 1 point.' % opp
                 msg_him = "%s wants to resign. You will win 1 point." \
                           " Type 'accept' or 'reject'." % me
-            self.player.chat_player(msg_me)
+            self.player.chat_player(msg_me % 'You')
             self.player.chat_opponent(msg_him)
+            self.player.chat_player_watchers(msg_me % me)
+            self.player.chat_opponent_watchers(msg_me % me)
 
     def _action(self, player, cmd, **params):
         params.update(self.params)  # TODO: diese Zeile weicht von State ab;

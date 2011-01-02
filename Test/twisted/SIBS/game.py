@@ -121,6 +121,7 @@ check for valid moves etc.."""
         sc1 = self._score_info[0][1]
         sc2 = self._score_info[1][1]
         ML = self._score_info[2]
+        logger.debug("_fmt_score with player '%s' and watcher '%s'" % (player, watcher))
         if watcher:
             if player == 'p1':
                 return self.score_fmt % (pn1, pn2, ML, sc1, sc2)
@@ -232,7 +233,7 @@ check for valid moves etc.."""
     def get_act_player(self,):
         return getattr(self, '_act_player', None)
     
-    def board_aa(self, player, board=None):
+    def board_aa(self, player, board=None, watcher=False):
         """Ascii art representation of the board."""
         skel = \
             ("  +13-14-15-16-17-18-------19-20-21-22-23-24-+ %c: %s - score: %d",
@@ -431,6 +432,7 @@ class Player:
         return self.user.toggles.read('crawford')
 
     def doubles(self,):
+        logger.log(TRACE, 'player %s doubles' % self.name)
         self.owns_cube = False
         self.opponent.owns_cube = True
 
@@ -549,6 +551,7 @@ class GameControl:
         p.board = self.board    # needed for Player.board.... methods
         p.nick = nick           # TODO: muss bald weg, nur für den Übergang
         p.reset_toggles()
+        p.owns_cube = False
         return p
         
     def start(self, resume):
@@ -571,8 +574,6 @@ class GameControl:
         self.pieces = 2             # TODO: hier gibt's doch keine pasch!!????
                                     #       {True:4, False:2}[d[0]==d[1]]
         self.set_dice(self.turn, d)
-        self.p1.owns_cube = False  # TODO: is this the proper
-        self.p2.owns_cube = False  #       place to reset this?
         logger.log(TRACE, 'in start  %s  %s  %s' % (self.turn, self.pieces,
                                                     self.board._dice_info))
         self.set_move()
@@ -800,7 +801,10 @@ class GameControl:
 
     def _rejected(self, player, **kw):
         player.chat_player('You reject. The game continues.')
-        player.chat_opponent('%s rejects. The game continues.' % player.name)
+        msg = '%s rejects. The game continues.' % player.name
+        player.chat_opponent(msg)
+        player.chat_player_watchers(msg)
+        player.chat_opponent_watchers(msg)
         player.board_player()
         return {'response': 'rejected'}
 
@@ -903,12 +907,14 @@ class Game(Persistent):
         loser_name = kw['winner'].opp_name
         logger.info('winner %s in game_over. value: %d. score %s' % \
                     (winner_name, value, match.score))
-        if winners_score < match.ML:
+        if winners_score < match.ML:    # match continues
             msg = 'score in %d point match: %s-%d %s-%d' % \
                                   (match.ML, winner_name, winners_score,
                                                    loser_name, losers_score)
             kw['winner'].chat_player(msg)
             kw['winner'].chat_opponent(msg)
+            kw['winner'].chat_player_watchers(msg)
+            kw['winner'].chat_opponent_watchers(msg)
             match.crawford = ((match.ML - winners_score) == 1) and \
                         (self.player1.crawford() and self.player2.crawford())
                         # TODO: bei player.crawford() wär ein OR angebracht?
@@ -916,13 +922,15 @@ class Game(Persistent):
                                                       "'leave' if you don't."
             kw['winner'].chat_player(msg)
             kw['winner'].chat_opponent(msg)
-        else:
+        else:                           # match is over
             score = '%d-%d .' % (winners_score, losers_score)
             ML = match.ML
             msg = 'You win the %d point match %s' % (ML, score)
             kw['winner'].chat_player(msg)
             msg = '%s wins the %d point match %s' % (winner_name, ML, score)
             kw['winner'].chat_opponent(msg)
+            kw['winner'].chat_player_watchers(msg)
+            kw['winner'].chat_opponent_watchers(msg)
             self.book_game(kw['winner'])
             self.stop(save=False)
 
@@ -962,9 +970,13 @@ class Game(Persistent):
 
     def starting_rolls(self, p1, p2):   # TODO: gehoert hoch ins control
                                         #       oder? kommunikation??
-        msg = 'You rolled %s, %s rolled %s'
-        self.player1.user.chat(msg % (p1, self.player2.name, p2))
-        self.player2.user.chat(msg % (p2, self.player1.name, p1))
+        line = '%%s rolled %s, %s rolled %s'
+        msg = line % (p1, self.player2.name, p2)
+        self.player1.user.chat(msg % 'You')
+        self.player1.user.chat_watchers(msg % self.player1.name)
+        msg = line % (p2, self.player1.name, p1)
+        self.player2.user.chat(msg % 'You')
+        self.player2.user.chat_watchers(msg % self.player2.name)
 
     def roll(self, player):
         self.control.roll(player)

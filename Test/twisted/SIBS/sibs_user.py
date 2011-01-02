@@ -91,6 +91,7 @@ class UsersList:        # TODO: als Singleton ausführen
         user = User(user_data)
         user.status.logged_in = False
         user.getUser = self.get_from_all
+        user.gameReports = self.game_reports
         ## TODO: auf restore() könnte man verzichten; andererseits kann man
         ##       jetzt hier spezielle Aktionen durchführen
         return user
@@ -131,7 +132,7 @@ class UsersList:        # TODO: als Singleton ausführen
         return res
 
     def game_reports(self, msg):
-        for u in self.get_active_users.values():
+        for u in self.get_active_users().values():
             if u.toggles.read('report'):
                 u.chat(msg)
 
@@ -770,15 +771,15 @@ class User(Persistent):
             s, t = score
             opp_score = (t, s)
             self.status.playing(iaj)
-            watchers_msg = '%s and %s are resuming their %s point match'
             rml = 'Your running match was loaded.'
             self.chat('%s has joined you. %s' % (iaj.name, rml))
-            game_reports = watchers_msg % (self.name, iaj.name, ML)
-            self.chat_watchers(game_reports)
+            watchers_msg = '%s and %s are resuming their %s point match'
+            game_report = watchers_msg % (self.name, iaj.name, ML)
+            self.chat_watchers(game_report)
             iaj.status.playing(self)
             iaj.chat('You are now playing with %s. %s' % (self.name, rml))
             iaj.chat_watchers(watchers_msg % (iaj.name, self.name, ML))
-           # msg = 
+           # TODO msg = ????????? was wollt ich hier?
             gid = inv['gid']
 # ------------------------------------ TODO: auf p1 und p2 mappen und dann ausserhalb
             if gid.endswith('.p1'):
@@ -794,18 +795,18 @@ class User(Persistent):
             score = (0, 0)
             opp_score = (0, 0)
             self.status.playing(iaj)
-            watchers_msg = '%s and %s start a %s point match'
             self.chat('** Player %s has joined you for a %s point match' % \
                                                                 (iaj.name, ML))
-            game_reports = watchers_msg % (self.name, iaj.name, ML)
-            self.chat_watchers(game_reports)
+            watchers_msg = '%s and %s start a %s point match'
+            game_report = watchers_msg % (self.name, iaj.name, ML)
+            self.chat_watchers(game_report)
             iaj.status.playing(self)
             iaj.chat('** You are now playing a %s point match with %s.' % \
                                                                 (ML, self.name))
             iaj.chat_watchers(watchers_msg % (iaj.name, self.name, ML))
             kw['player1'] = self    # the inviting player is p1
             kw['player2'] = iaj
-        self.game_reports(game_reports)
+        self.gameReports(game_report)
         self.running_game,iaj.running_game = getGame(**kw)
         self.info.save_game(iaj.name, self.running_game, score, ML)
         self.save()
@@ -953,7 +954,7 @@ class User(Persistent):
         return self.ready()     # TODO - noch zu unsicher: status.get_readyflag()
 
     def online(self,):
-	online = self.status.is_online()
+        online = self.status.is_online()
         logger.info('online status: %s' % online)
         return online
 
@@ -987,6 +988,7 @@ def newUser(**kw):
     user = User(info)
     user.save()
     user.getUser = kw['lou'].get_from_all
+    user.gameReports = kw['lou'].game_reports
     kw['lou'].add(user)
     return user
 
@@ -999,3 +1001,7 @@ def getUser(**kw):
 
 def dropUser(**kw):
     kw['lou'].drop(kw['user'])      # TODO: muss dieser Umweg sein? besser direkt?
+                                    #       Wenn überhaupt, dann, weil diese
+                                    #       Funktionen Convenience sind. Dann
+                                    #       darf aber nicht nötig sein, dass man
+                                    #       alles in **kw mitgibt.

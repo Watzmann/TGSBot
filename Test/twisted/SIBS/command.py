@@ -194,8 +194,9 @@ class Command():
                 return "** Error: %s is already playing with someone else." % \
                                                                            user
                 # TODO: didn't invite you????
-            self.update_who(me)
             him.join(me, self.list_of_games)    # TODO: deferred?
+            self.update_who(me)                 # this update is very important
+                                    # for the clients - see #0061
             #self.update_who(him)       # TODO: broadcast doppelt, kann weg
         else:
             return "** %s is not logged in" % user
@@ -532,6 +533,7 @@ class Command():
         # TODO: Fehlerbehandlung
         game, player = self.list_of_games.get_game_from_user(me)
         watchee = me.is_watching()
+        state = False
         if (game is None) and (not watchee):
             return "** You're not playing."
         else:
@@ -540,9 +542,10 @@ class Command():
                 if not hasattr(me.status.watchee, 'running_game'):
                     return "** %s is not playing." % watchee
                 else:
+                    state = True
                     game, player = self.list_of_games.get_game_from_user\
                                                            (me.status.watchee)
-            return game.control.board.show_board(player, board, watcher=True)
+            return game.control.board.show_board(player, board, watcher=state)
 
     def c_pip(self, line, me):              # implemented
         # TODO:  abfragen, ob beide Spieler das erlauben
