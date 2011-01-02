@@ -45,6 +45,10 @@ class UsersList:        # TODO: als Singleton ausführen
     def get_active_users(self,):
         return self.list_of_active_users
 
+    def get_active_toggled_users(self, toggle, value):
+        return [u for u in self.list_of_active_users.values() \
+                                if u.toggles.read(toggle) == value]
+
     def get_sorted_keys(self, ufilter = '', sort = 'name'):
         users = self.list_of_active_users.values()
         if ufilter in ('away','ready','playing',):
@@ -55,8 +59,8 @@ class UsersList:        # TODO: als Singleton ausführen
                 'rating': self.sorted_keys_rating,
                 'rrating': self.sorted_keys_rrating}[sort](users)
 
-    def sorted_keys_login(self, users):
-        keys = [u.name for u in users]
+    def sorted_keys_login(self, users):     # TODO: die drei sorted_keys hier
+        keys = [u.name for u in users]      #       können zusammengefsst werden
         lau = self.list_of_active_users
         compare = lambda x,y: cmp(lau[x].info.login,lau[y].info.login)
         return sorted(keys, compare)
@@ -92,6 +96,7 @@ class UsersList:        # TODO: als Singleton ausführen
         user.status.logged_in = False
         user.getUser = self.get_from_all
         user.gameReports = self.game_reports
+        user.shouts = self.shouts
         ## TODO: auf restore() könnte man verzichten; andererseits kann man
         ##       jetzt hier spezielle Aktionen durchführen
         return user
@@ -132,9 +137,14 @@ class UsersList:        # TODO: als Singleton ausführen
         return res
 
     def game_reports(self, msg):
-        for u in self.get_active_users().values():
-            if u.toggles.read('report'):
-                u.chat(msg)
+        for u in self.get_active_toggled_users('report', True):
+            u.chat(msg)
+
+    def shouts(self, msg, exceptions=[]):
+        for u in self.get_active_toggled_users('silent', False):
+            if u.name in exceptions:
+                continue
+            u.chat(msg)
 
 from twisted.internet import threads, defer
 from subprocess import Popen, PIPE
@@ -183,7 +193,7 @@ als Datencontainer dienen."""
     def save_game(self, opponent, gid, score, ML):
         """save_game() is used for persisting games."""
         self.saved_games[opponent] = {'gid':gid, 'score':score, 'ML':ML,}
-        # this could be changed to record multiple games between 2 players
+        # TODO: this could be changed to record multiple games between 2 players
         logger.info('saving game: %s' % gid)
 
     def blind(self, user):
@@ -395,8 +405,8 @@ class Toggles:
             False: dict(zip(toggle_names, toggle_off_msgs))
             }
     toggle_std = (
-            True, True, False, False, True, False, True, True, False,
-            True, False, True, False, False, False, False, True, False,
+            True, True, False, False, False, False, True, True, False,
+            False, False, True, False, False, True, False, True, False,
             )
 
     def __init__(self, info):
@@ -632,10 +642,13 @@ class User(Persistent):
             ret['watchers'].remove(self)
         return ret
 
-    def kibitz(self, msg):
+    def kibitz(self, msg, whisper=False):
         kibitz = '15 %s %s' % (self.name, msg)
         ka = self.get_kibitz_addressees()
-        ka = ka['players'] + ka['watchers']
+        if whisper:
+            ka = ka['watchers']
+        else:
+            ka = ka['players'] + ka['watchers']
         for k in ka:
             k.chat(kibitz)
         self.chat('19 %s' % msg)
@@ -655,8 +668,7 @@ class User(Persistent):
         self.chat('16 %s %s' % (user.name, msg))
 
     def shout(self, msg):
-        self.protocol.factory.broadcast('13 %s %s' % (self.name, msg),
-                                                    exceptions=(self.name,))
+        self.shouts('13 %s %s' % (self.name, msg), exceptions=(self.name,))
         self.chat('17 %s' % (msg))
 
     def deliver_messages(self,):
@@ -781,11 +793,12 @@ class User(Persistent):
             iaj.chat_watchers(watchers_msg % (iaj.name, self.name, ML))
            # TODO msg = ????????? was wollt ich hier?
             gid = inv['gid']
+            print 'inviting gid is %s' % gid
 # ------------------------------------ TODO: auf p1 und p2 mappen und dann ausserhalb
             if gid.endswith('.p1'):
                 kw['player1'] = self    # the inviting player is p1
                 kw['player2'] = iaj
-            else:                   # TODO: das funktioniert noch nicht
+            else:
                 kw['player1'] = iaj     # the inviting player is p1
                 kw['player2'] = self
                                 # des if blocks von p1 und p2 abhängig machen
@@ -807,14 +820,17 @@ class User(Persistent):
             kw['player1'] = self    # the inviting player is p1
             kw['player2'] = iaj
         self.gameReports(game_report)
-        self.running_game,iaj.running_game = getGame(**kw)
+        kw['player1'].running_game, kw['player2'].running_game = getGame(**kw)
+        sg = self.info.saved_games.get(iaj.name, None) # overwrite a saved game?
+        if not sg is None:                             # yes
+            list_of_games.delete_saved_game(sg['gid'])
         self.info.save_game(iaj.name, self.running_game, score, ML)
         self.save()
         iaj.info.save_game(self.name, iaj.running_game, opp_score, ML)
         iaj.save()
-        self.getGame = list_of_games.get # TODO: schau mal, ob du das einsetzen kannst
-        iaj.getGame = list_of_games.get  #       JA - in continue_match und leave_game
-        del self.invitations[iaj.name]
+        self.getGame = list_of_games.get #  schau mal, ob du das einsetzen kannst
+        iaj.getGame = list_of_games.get  #  JA - in continue_match und leave_game
+        del self.invitations[iaj.name]   # TODO: kein synch! kann das zu problemen führen????
 
     def continue_match(self,):
         self.ready_to_continue = True
@@ -844,6 +860,8 @@ class User(Persistent):
         running_game = getattr(self, 'running_game', False)
         if running_game:
             game, player = self.getGame(running_game)
+            self.status.opponent.chat('** Player %s has left the game. ' \
+                                          'The game was saved.' % self.name)
             game.stop()
 
     def watch(self, user):
@@ -989,6 +1007,7 @@ def newUser(**kw):
     user.save()
     user.getUser = kw['lou'].get_from_all
     user.gameReports = kw['lou'].game_reports
+    user.shouts = kw['lou'].shouts
     kw['lou'].add(user)
     return user
 

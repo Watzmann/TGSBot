@@ -72,8 +72,10 @@ class Command():
         self.help = Help(self.list_of_implemented_commands)
         aliases = (('k', 'kibitz'),
                    ('t', 'tell'),
+                   ('tellx', 'tell'),
                    ('s', 'say'),
                    ('m', 'move'),
+                   ('resi', 'resign'),
                    ('adios', 'bye'),
                    ('ciao', 'bye'),
                    ('end', 'bye'),
@@ -100,8 +102,10 @@ class Command():
             return "** You're not watching or playing."
         else:
             msg = ' '.join(line[1:])
-##            user = game.players(player).opponent.user
-            me.kibitz(msg)
+            whisper = line[0].lower() == 'whisper'
+            me.kibitz(msg, whisper)
+
+    c_whisper = c_kibitz                    # implemented
 
     def c_tell(self, line, me):             # implemented
         name = line[1]
@@ -120,9 +124,6 @@ class Command():
             msg = ' '.join(line[1:])
             user = game.players(player).opponent.user
             me.say(user, msg)  # TODO: stimmt das jetzt so?
-
-    def c_whisper(self, line, me):
-        return '** whisper %s' % NYI
 
     def c_message(self, line, me):          # implemented
         name = line[1]
@@ -595,7 +596,7 @@ class Command():
             return "** Error: No one to leave."
         else:
             me.leave_game()  # TODO: korrekte ausgaben/fehlerchecking
-            return '** You terminated the game. Saving games implemented but still has some bugs.'
+            return '** You terminated the game. The game was saved.'
 
     def c_redouble(self, line, me):
         return '** redouble %s' % NYI

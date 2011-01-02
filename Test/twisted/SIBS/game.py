@@ -49,7 +49,7 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
         if not hasattr(self, 'active_games'):
             self.active_games = {}
             self.active_ids = []
-            self.db = saved_games = Db(DB_Games, 'games').db
+            self.db = Db(DB_Games, 'games').db
                             # TODO: hier so an der PersistenzKlasse
                             #       vorbeizuangeln ist schon krass!
 
@@ -75,15 +75,25 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
         return out.getvalue()
 
     def get(self, gid, default=None):
-        logger.log(TRACE, 'returning gid %s' % gid)
+        logger.info('returning gid %s' % gid)
         return self.active_games.get(gid, default)
 
     def get_saved_game(self, gid,):
-        logger.log(TRACE, 'returning saved game with gid %s' % gid)
+        logger.info('returning saved game with gid %s' % gid)
         return self.db[gid]
 
+    def delete_saved_game(self, gid,):
+        g = gid.split('.')
+        if len(g):
+            g = g[0]
+        if g in self.db:
+            logger.info('deleting saved game with gid %s' % g)
+            del self.db[g]
+        else:
+            logger.debug('could not find game with %s' % g)        
+
     def get_game_from_user(self, user, default=(None,'')):
-        logger.log(TRACE, 'returning gid for user %s' % user.name)
+        logger.info('returning gid for user %s' % user.name)
         res = default
         if hasattr(user, 'running_game'):
             res = self.active_games.get(user.running_game, default)
@@ -461,6 +471,13 @@ class Status:
             elif p < 0:
                 pips2 += p*(25-e)
         return (pips1, abs(pips2))
+
+    def __str__(self,):
+        out = StringIO()
+        print >>out, self.cube, self.value, self.position,
+        return out.getvalue()
+
+    __repr__ = __str__
     
 class Match:
     def __init__(self, ML, score,):
@@ -468,6 +485,13 @@ class Match:
         self.ML = ML
         self.crawford = False
 
+    def __str__(self,):
+        out = StringIO()
+        print >>out, self.score, self.ML, self.crawford,
+        return out.getvalue()
+
+    __repr__ = __str__
+    
 from states import StateMachine
 from states import GameStarted, TurnStarted, Doubled, Taken, Rolled, Moved
 from states import GameFinished, Checked, TurnFinished, Resigned
@@ -862,6 +886,8 @@ class Game(Persistent):
                             #       (wie newUser)
             status = Status()
             status.match = Match(int(ML),{'p1': 0, 'p2': 0})
+        logger.debug('GAME with p1 %s p2 %s   status %s match %s' % \
+                         (p1.name, p2.name, status, status.match))
         self.control = GameControl(self, status, dice=self.dice)
         logger.info('New game with id %s, %s vs %s' % (self.id, p1.name, p2.name))
         Persistent.__init__(self, DB_Games, 'games')

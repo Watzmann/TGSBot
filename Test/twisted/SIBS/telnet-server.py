@@ -66,7 +66,7 @@ class ProxyFactory(http.HTTPFactory):
         a = data.split()
         ret = ''
         if len(a) > 0:
-            print 'parsing',a
+##            print 'parsing',a
             cmd = c.command(a[0])
             ret = cmd(a, me)
             print 'got', ret
