@@ -855,6 +855,7 @@ class GameControl:
 
     def save_state_to_status(self, state, player, params):
         if state in ('turn_started', 'doubled', 'checked', 'resigned'):
+            # TODO: fehlt G wegen dem join (das fehlt auch im Bild von der SM)
             mparams = params
             if 'active_state' in params:
                 mparams = params.copy()
@@ -902,6 +903,7 @@ class Game(Persistent):
         del self.player1.user.ready_to_continue
         del self.player2.user.ready_to_continue
         new_status = Status()
+        self.db_load = new_status
         new_status.match = self.control.status.match
         self.control = GameControl(self, new_status, dice=self.dice)
         logger.info('Next game in match %s vs %s' % (self.player1.name,
