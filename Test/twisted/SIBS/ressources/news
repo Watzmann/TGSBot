@@ -1,19 +1,18 @@
 3
-+ News ------------------------------------------------ Jan. 01 2011 +
++ News ------------------------------------------------ Jan. 03 2011 +
 |                                                                    |
 | known bugs:   1) greedy bearoff does not work correctly, better    |
 |                  not use it.                                       |
 |               2) calculation of possible moves still fails in      |
 |                  some cases. Don't use automove.                   |
 |                                                                    |
-|           fixed  in some cases, clients don't show the dice.       |
-|                  To continue the game, you have to use the         |
-|                  command 'roll' on the commandline.                |
+| fixed:           "in some cases, clients don't show the dice."     |
 |                                                                    |
 | new:                                                               |
 |               1) bugfixes 'watch'                                  |
 |               2) kibitz, (whisper)                                 |
-|               3) save/resume games                                 |
+|               3) show saved, savedcount, watchers                  |
+|               4) save/resume games                                 |
 |                                                                    |
 +--------------------------------------------------------------------+
 4
