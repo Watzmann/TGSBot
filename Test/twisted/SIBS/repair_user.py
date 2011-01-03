@@ -5,6 +5,7 @@
 from persistency import Persistent, Db
 from sibs_user import Info
 from time import time
+import types
 
 logout = int(time())
 
@@ -37,6 +38,8 @@ def messages(db, key, value):
 def special(db, key, value):
     vdata = data(value)
     saved_games = getattr(value, 'saved_games', {})
+    if type(saved_games) is types.ListType:
+        saved_games = {}
     gagged = getattr(value, 'gagged', [])
     blinded = getattr(value, 'blinded', [])
     special = getattr(value, 'special', '')
@@ -69,8 +72,8 @@ if __name__ == '__main__':
     db = Db('db/users')
     #repair = login_time
     #repair = messages
-    #repair = special
-    repair = saved
+    repair = special
+    #repair = saved
     #repair = autoroll
     #repair = logout_time
     for_all_users(db.db, repair)

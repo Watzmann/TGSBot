@@ -968,7 +968,7 @@ class Game(Persistent):
 
     def book_game(self, winner):
         loser = winner.opponent
-        ML = self.status.match.ML
+        ML = self.control.status.match.ML
         Pw = winner.user.rating()
         Ew = self.weighed_experience(winner.user, ML)
         Pl = loser.user.rating()
@@ -1042,7 +1042,7 @@ class Game(Persistent):
     def show_game(self,):
         p1 = self.player1
         p2 = self.player2
-        m = self.status.match
+        m = self.control.status.match
         return '%-15s - %15s (%s point match %d-%d)' % (p1.name, p2.name, m.ML,
                                         m.score[p1.nick], m.score[p2.nick])
         

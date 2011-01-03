@@ -127,6 +127,10 @@ class UsersList:        # TODO: als Singleton ausführen
     def get_all_users(self,):
         return self.list_of_active_users.values()
 
+    def get_watchers(self,):
+        return [u for u in self.list_of_active_users.values() \
+                                if not u.status.watchee is None]
+
     def whois(self, name):
         if name in self.list_of_active_users:
             res = self.list_of_active_users[name].whois()
@@ -793,7 +797,6 @@ class User(Persistent):
             iaj.chat_watchers(watchers_msg % (iaj.name, self.name, ML))
            # TODO msg = ????????? was wollt ich hier?
             gid = inv['gid']
-            print 'inviting gid is %s' % gid
 # ------------------------------------ TODO: auf p1 und p2 mappen und dann ausserhalb
             if gid.endswith('.p1'):
                 kw['player1'] = self    # the inviting player is p1
@@ -984,10 +987,6 @@ class User(Persistent):
                 pre = ' *'
             elif self.getUser(s) and self.getUser(s).online():
                 pre = '**'
-            try:
-                print '**********', self.getUser(s), self.getUser(s).online()
-            except:
-                print '**********', self.getUser(s)
             print >>out, '%s%-22s %2s               %2d - %2d' % \
                                               ((pre, s, v['ML']) + v['score'])
         return out.getvalue()
@@ -1002,7 +1001,7 @@ def newUser(**kw):
     data = (kw['login'], 0, '', kw['user'], kw['password'], 1500., 0, '-')
     toggles = dict(zip(Toggles.toggle_names, Toggles.toggle_std))
     settings = [3, 0, 0, 'none', 'name', 'UTC']
-    info = Info(data, toggles, settings, [], [], [], [], '')
+    info = Info(data, toggles, settings, [], {}, [], [], '')
     user = User(info)
     user.save()
     user.getUser = kw['lou'].get_from_all

@@ -370,9 +370,8 @@ class Command():
         if len(line) < 2:
             return "** show what?"
         command = line[1]
-        if not command in ('games','saved','watchers','max',):
+        if not command in ('games','saved','savedcount','watchers','max',):
             return "** Don't know how to show %s" % command
-
         out = StringIO()
         if command == 'games':
             print >>out, 'List of games:'
@@ -385,10 +384,31 @@ class Command():
                 print >>out, '  opponent          matchlength   score' \
                                                       '(your points first)'
                 print >>out, saved
+        if command == 'savedcount':
+            if len(line) > 2:
+                name = line[2]
+                him = self.list_of_users.get_from_all(name)
+                if him is None:
+                    print >>out, "** There is no user called '%s'." % name
+                    saved = -1
+                else:
+                    saved = len(him.info.saved_games)
+            else:
+                name = me.name
+                saved = len(me.info.saved_games)
+            if saved == 0:
+                print >>out, '%s has no saved games. ' % name
+            elif saved == 1:
+                print >>out, '%s has 1 saved game. ' % name
+            elif saved > 1:
+                print >>out, '%s has %d saved games. ' % (name, saved)
         if command == 'watchers':
-            return 'Watching players: none.'    # TODO: missing names
+            print >>out, 'Watching players:'
+            for u in self.list_of_users.get_watchers():
+                print >>out, '%s is watching %s.' % (u.name, u.is_watching())
         if command == 'max':
-            return 'max_logins is nnn (maximum: nnn)' # TODO: missing numbers
+            print >>out, 'max_logins is %d (maximum: 1000)' % \
+                                   me.protocol.factory.maxProtocols
         return out.getvalue()
 
     def c_info(self, line, me):
