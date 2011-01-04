@@ -8,9 +8,10 @@ REV = '$Revision$'
 
 import time
 from twisted.internet.protocol import Protocol
-##from twisted.python import log
+##from twisted.python import log                TODO: logging
 from sibs_user import getUser, dropUser, newUser, RESERVED_Users
 import sibs_utils as utils
+from command import ZONEINFO
 from version import Version
 
 v = Version()
@@ -57,14 +58,8 @@ class CLIP(Echo):
     def connectionMade(self):
         Echo.connectionMade(self,)
         self.client_host = self.transport.hostname
-##        print 'TEST HOST', self.transport.__dict__.keys(), \
-##              ['%s: %s   ' % (n,getattr(self.transport, n)) for n in \
-##               ('hostname','server','client','connected')] 
         msg = utils.render_file('intro').splitlines()
-        # TODO:     folgender Timestamp im Format
-        # Thursday, January 02 01:27:27 MET   ( Thu Jan  2 00:27:27 2003 UTC )
-        msg += [time.asctime(time.localtime(time.time())) + ' ' + \
-                time.asctime(time.gmtime(time.time())),]
+        msg += [ZONEINFO.long_time(zone='MET'),]
         self.cycle_message(msg)
         self.transport.write('login: ')
 

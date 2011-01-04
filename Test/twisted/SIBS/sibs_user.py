@@ -8,7 +8,7 @@ import time
 from StringIO import StringIO
 import logging
 from game import getGame
-from command import NYI
+from command import NYI, ZONEINFO
 from persistency import Persistent, Db
 from version import Version
 
@@ -112,7 +112,7 @@ class UsersList:        # TODO: als Singleton ausführen
     def drop(self, name):
         logger.debug('deleting %s from list of active users' % name)
         user = self.list_of_active_users[name]
-        user.set_logout_data(time.time())
+        user.set_logout_data(time.time())       # TODO: rather formated string?
         user.save()   # TODO:   muss das save hier sein??????
         user.status.logged_in = False
         del self.list_of_active_users[name]
@@ -328,7 +328,7 @@ class Status:                       # TODO:  dringend überprüfen, ob der
         self.user.info.away = 0
 
     def stamp(self,):
-        self.timestamp = time.time()
+        self.timestamp = time.time()    # must be seconds; used for delta
 
     def idle(self, formatted=False):
         ret = time.time() - self.timestamp
@@ -443,11 +443,11 @@ class Toggles:
 
 class Settings:
     def __init__(self, info):
-##        self._boardstyle = 3
+##        self._boardstyle = 2          defaults from FIBS (nada, telnet)
 ##        self._linelength = 0
 ##        self._pagelength = 0
 ##        self._redoubles = 'none'
-##        self._sortwho = 'name'
+##        self._sortwho = 'login'
 ##        self._timezone = 'UTC'
         self._settings = info.settings
         # TODO: hier sollte statt info DRINGEND nur "settings" übergeben werden.
@@ -539,18 +539,18 @@ class Settings:
 
     def timezone(self, *values):
         vals = values[0]
-##        print 'timezone', vals
         if len(vals) == 0:
             res = "Value of 'timezone' is %s" % self._timezone
-        elif vals[0] in ('UTC', ):
-            self._timezone = int(vals[0])
+        elif ZONEINFO.is_valid(vals[0]):
+            self._timezone = vals[0]
             res = "Value of 'timezone' set to %s." % self._timezone
         else:
-            res = "Can't find timezone '%s'. Try one of: " \
-                    "Africa/Abidjan, Africa/Accra, Africa/Addis_Ababa, Africa/Algiers," \
-                    "Africa/Asmera, Africa/Bamako, Africa/Bangui, Africa/Banjul, Africa/Bissau," \
-                    % vals[0]
+            res = "Can't find timezone '%s'. Try one of: \n" % vals[0] + \
+                                                                  ZONEINFO.text
         return res
+
+    def get_timezone(self,):
+        return self._timezone
 
     def show(self,):    # TODO
         out = StringIO()
@@ -620,11 +620,11 @@ class User(Persistent):
         self.save()
 
     def set_login_data(self, login_time, host):
-        self.info.set_login_data(login_time, host)
+        self.info.set_login_data(login_time, host)  # TODO: rather formated string?
         self.save()
 
     def set_logout_data(self, logout_time,):
-        self.info.set_logout_data(logout_time)
+        self.info.set_logout_data(logout_time)      # TODO: rather formated string?
         self.save()
 
     def advance_rating(self, rating, experience):
@@ -647,15 +647,17 @@ class User(Persistent):
         return ret
 
     def kibitz(self, msg, whisper=False):
-        kibitz = '15 %s %s' % (self.name, msg)
         ka = self.get_kibitz_addressees()
         if whisper:
+            kibitz = '14 %s %s' % (self.name, msg)
             ka = ka['watchers']
+            self.chat('18 %s' % msg)
         else:
+            kibitz = '15 %s %s' % (self.name, msg)
             ka = ka['players'] + ka['watchers']
+            self.chat('19 %s' % msg)
         for k in ka:
             k.chat(kibitz)
-        self.chat('19 %s' % msg)
         n = len(ka)
         if n > 1:
             users = '%d users' % n
@@ -684,7 +686,7 @@ class User(Persistent):
 
     def send_message(self, user, msg):
         """Use send_message() to send a message to another player."""
-        user.message(self.name, int(time.time()), msg)
+        user.message(self.name, int(time.time()), msg)  # time.time() correct
 
     def message(self, user, at_time, msg):
         """message() will receive a message from another player."""
@@ -1000,7 +1002,7 @@ class User(Persistent):
 def newUser(**kw):
     data = (kw['login'], 0, '', kw['user'], kw['password'], 1500., 0, '-')
     toggles = dict(zip(Toggles.toggle_names, Toggles.toggle_std))
-    settings = [3, 0, 0, 'none', 'name', 'UTC']
+    settings = [2, 0, 0, 'none', 'login', 'UTC']
     info = Info(data, toggles, settings, [], {}, [], [], '')
     user = User(info)
     user.save()

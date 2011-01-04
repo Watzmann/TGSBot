@@ -9,55 +9,21 @@ REV = '$Revision$'
 from StringIO import StringIO
 import inspect
 import sibs_utils as utils
+from tz_utils import TZ
 from help import Help
 from version import Version
 
 VERSION = Version()
 VERSION.register(__name__, REV)
 
-## 0
-## x tell
-## x help
-## x motd
-## x version
+ZONEINFO = TZ()
 
-## 1
-## x bye
-## x wave
 ## where
-## time
-## 0 about
-
-## x persistency
-
-## 2
-## x message
 ## waitfor
 ## gag
-## x password
-## x whois
 ## last   
-## x roll
-## x move
-## x board
-## x pip
-## x leave
-##
-## x register
-## x authentication
-## x CLIP
-
-## 3
-## x say               0
-## x invite
-## x join
-## x show
 ## stat
 ## off
-## x double
-## x accept
-## x reject
-## x resign
 ## redouble
 
 NYI = 'is not implemented, yet'
@@ -76,6 +42,7 @@ class Command():
                    ('s', 'say'),
                    ('m', 'move'),
                    ('resi', 'resign'),
+                   ('ver', 'version'),
                    ('adios', 'bye'),
                    ('ciao', 'bye'),
                    ('end', 'bye'),
@@ -279,32 +246,31 @@ class Command():
     def c_set(self, line, me):              # implemented
         
         def boardstyle(*values):
-##            print 'in boardstyle of', me.name, 'with', values
             return me.settings.boardstyle(values[0])
         
         def linelength(*values):
-##            print 'in linelength of', me.name, 'with', values
             return me.settings.linelength(values[0])
             
         def pagelength(*values):
-##            print 'in pagelength of', me.name, 'with', values
             return me.settings.pagelength(values[0])
 
         def redoubles(*values):
-##            print 'in redoubles of', me.name, 'with', values
             return me.settings.redoubles(values[0])
 
         def sortwho(*values):
-##            print 'in sortwho of', me.name, 'with', values
             return me.settings.sortwho(values[0])
 
         def timezone(*values):
-##            print 'in timezone of', me.name, 'with', values
             return me.settings.timezone(values[0])
 
         def show_settings():
-##            print 'in timezone of', me.name, 'with', values
             return me.settings.show()
+
+        def alias(keys, v):
+            for k in keys:
+                if k.startswith(v):
+                    return keys[k]
+            return None
 
         # TODO: das hier kann man stark vereinfachen!!! etwas programmierarbeit
         
@@ -315,17 +281,15 @@ class Command():
                         'sortwho': sortwho,
                         'timezone': timezone,
                         }
-##        print 'the line', line
         arglen = len(line)
         if arglen == 1:
             res = show_settings()
         else:
-            cmd = sub_commands.get(line[1], None)
+            cmd = sub_commands.get(line[1], alias(sub_commands, line[1]))
             if cmd is None:
                 res = "** Invalid argument. Type 'help set'."
             else:
                 res = cmd(line[2:])
-##        print 'the result', res
         return res
     
     def c_address(self, line, me):          # implemented
@@ -476,8 +440,19 @@ class Command():
     def c_last(self, line, me):
         return '** last %s' % NYI
 
-    def c_time(self, line, me):
-        return '** time %s' % NYI
+    def c_time(self, line, me):             # implemented
+        if len(line) == 1:
+            zone = me.settings.get_timezone()
+            ret = ZONEINFO.long_time(zone=zone)
+        if len(line) > 1:
+            if ZONEINFO.is_valid(line[1]):
+                ret = ZONEINFO.long_time(zone=line[1])
+            else:
+                ret = "Can't find timezone '%s'. Try one of: \n" % line[1] + \
+                                                                  ZONEINFO.text
+        return ret
+
+    c_date = c_time
 
 # ----------------------------------------  SIBS Info
 
