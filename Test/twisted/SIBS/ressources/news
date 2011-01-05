@@ -1,5 +1,5 @@
 3
-+ News ------------------------------------------------ Jan. 03 2011 +
++ News ------------------------------------------------ Jan. 05 2011 +
 |                                                                    |
 | known bugs:   1) greedy bearoff does not work correctly, better    |
 |                  not use it.                                       |
@@ -9,7 +9,7 @@
 | fixed:           "in some cases, clients don't show the dice."     |
 |                                                                    |
 | new:                                                               |
-|               1) bugfixes 'watch'                                  |
+|               1) watch, unwatch, look, time, set timezone          |
 |               2) kibitz, whisper                                   |
 |               3) show saved, savedcount, watchers                  |
 |               4) save/resume games                                 |

@@ -21,7 +21,9 @@ logging.basicConfig(level=logging.DEBUG,
                 )
 logger = logging.getLogger('tz_utils')
 
-def date_from_timestamp(stamp=time.time()):
+def date_from_timestamp(stamp=None):
+    if stamp is None:
+        stamp = time.time()
     return datetime.datetime.fromtimestamp(stamp, pytz.utc)
 
 class TZ:
@@ -35,11 +37,15 @@ class TZ:
     def is_valid(self, tz):
         return tz in pytz.all_timezones
 
-    def long_time(self, utc_dt=date_from_timestamp(), zone=None):
+    def long_time(self, utc_dt=None, zone=None):
+        if utc_dt is None:
+            utc_dt = date_from_timestamp()
         _utc = utc_dt.strftime(self.sfmt) 
         return '%s   ( %s )' % (self.fmt_time(utc_dt, zone), _utc)
 
-    def fmt_time(self, utc_dt=date_from_timestamp(), zone=None):
+    def fmt_time(self, utc_dt=None, zone=None):
+        if utc_dt is None:
+            utc_dt = date_from_timestamp()
         if zone is None:
             ret = utc_dt.strftime(self.fmt)
         else:

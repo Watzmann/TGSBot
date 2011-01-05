@@ -178,15 +178,16 @@ class Command():
             return "** Watch who?"
         user = line[1]
         if user is me.name:
-            return "** Use a mirror to do that." % user
+            return "** Use a mirror to do that."
         him = self.list_of_users.get_active(user)
         if him is None:
             return "** There's no one called %s." % user
-        if not him.is_playing(): # TODO: nicht CLIP konform. dies sollte nur eine zusätzliche meldung sein!!!!
-            return '%s is not doing anything interesting.' % user
+        ret = "You're now watching %s" % user
+        if not him.is_playing():
+            ret += '\n%s is not doing anything interesting.' % user
         # TODO: blinded fehlt
         him.watch(me)
-        return "You're now watching %s" % user
+        return ret
 
     def c_unwatch(self, line, me):          # implemented
         watchee = me.is_watching()
@@ -196,8 +197,24 @@ class Command():
         else:
             return "** You're not watching"
 
-    def c_look(self, line, me):
-        return '** look %s' % NYI
+    def c_look(self, line, me):             # implemented
+        if len(line) < 2:
+            return "** Look at who?"
+        user = line[1]
+        if user is me.name:
+            return "You look great."
+        him = self.list_of_users.get_active(user)
+        if him is None:
+            return "** There's no one called %s." % user
+        if not him.is_playing():
+            return '%s is not playing.' % user
+        # TODO: blinded fehlt
+        board = me.settings.get_boardstyle()
+        game, player = self.list_of_games.get_game_from_user(him)
+        if game is None:        # playing safe: game might just have ended
+            if not hasattr(me.status.watchee, 'running_game'):
+                return "** %s is not playing." % watchee
+        return game.control.board.show_board(player, board, watcher=True)
 
     def c_oldboard(self, line, me):
         return '** oldboard %s' % NYI
