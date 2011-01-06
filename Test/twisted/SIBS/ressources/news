@@ -1,5 +1,5 @@
 3
-+ News ------------------------------------------------ Jan. 05 2011 +
++ News ------------------------------------------------ Jan. 06 2011 +
 |                                                                    |
 | known bugs:   1) greedy bearoff does not work correctly, better    |
 |                  not use it.                                       |
@@ -13,6 +13,7 @@
 |               2) kibitz, whisper                                   |
 |               3) show saved, savedcount, watchers                  |
 |               4) save/resume games                                 |
+|               5) bots :)                                           |
 |                                                                    |
 +--------------------------------------------------------------------+
 4
