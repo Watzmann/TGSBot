@@ -5,10 +5,18 @@
 REV = '$Revision$'
 
 import shelve
+import logging
 from version import Version
 
 v = Version()
 v.register(__name__, REV)
+
+TRACE = 15
+logging.addLevelName(TRACE, 'TRACE')
+logging.basicConfig(level=logging.INFO,
+                format='%(name)s %(levelname)s %(message)s',
+                )
+logger = logging.getLogger('persistency')
 
 class Db:
         # TODO: wegen Borg ist die Geschichte nicht Threadsave. Da muss
@@ -21,28 +29,28 @@ class Db:
         if not db in self.__shared_state:
             self.__shared_state[db] = {}
         self.__dict__ = self.__shared_state[db]
-        print 'DB:: initializing', db_name, 'as', db
+        logger.info('DB:: initializing %s as %s' % (db_name, db))
         if not hasattr(self, 'db_name'):
             self.db_name = db_name
             self.db = self._rawopen()
 
     def _rawopen(self,):
-        print 'DB:: opening', self.db_name
+        logger.info('DB:: opening %s' % self.db_name)
         open_db = shelve.open(self.db_name, writeback=True)
         self.open = True
         return open_db
     
     def sync(self,):
-        print 'DB:: syncing', self.db_name
+        logger.info('DB:: syncing %s' % self.db_name)
         self.db.sync()
 
     def close(self,):
-        print 'DB:: closing', self.db_name
+        logger.info('DB:: closing %s' % self.db_name)
         self.db.close()
         self.open = False
 
     def reopen(self,):
-        print 'DB:: reopening', self.db_name
+        logger.info('DB:: reopening %s' % self.db_name)
         if not self.open:
             self.db = self._rawopen()
 
@@ -51,12 +59,12 @@ class Persistent:
         self.db_key = str(id(self))
         self.db = Db(db_name, db)
         
-    def save(self,):
-        print 'persistency saving', self.db_load, 'to', self.db_key
+    def save(self, log=''):
+        logger.info('saving (%s) %s to %s' % (log, self.db_load, self.db_key))
         self.db.db[self.db_key] = self.db_load
         self.db.sync()
 
     def delete(self,):
-        print 'persistency deleting', self.db_key
+        logger.info('deleting %s' % self.db_key)
         del self.db.db[self.db_key]
         self.db.sync()

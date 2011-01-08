@@ -861,7 +861,7 @@ class GameControl:
                 mparams = params.copy()
                 del mparams['active_state']  # TODO: muss sauber gepickelt werden
             self.status.state = (state, player.name, mparams)
-            self.game.save()
+            self.game.save('control.save_state_to_status')
             
 class Game(Persistent):
     def __init__(self, gid, p1, p2, ML, status, dice='random'):
@@ -894,7 +894,7 @@ class Game(Persistent):
         Persistent.__init__(self, DB_Games, 'games')
         self.db_key = self.id
         self.db_load = self.control.status
-        self.save()     # TODO: an dieser Stelle vermutlich überflüssig
+        self.save('game.__init__')     # TODO: an dieser Stelle vermutlich überflüssig
 
     def start(self, resume):
         self.control.start(resume)
@@ -912,7 +912,7 @@ class Game(Persistent):
 
     def stop(self, save=True):
         if save:
-            self.save()
+            self.save('game.stop')
         else:
             self.delete()
         ms = self.control.status.match.score

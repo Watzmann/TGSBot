@@ -48,7 +48,8 @@ def delete_users(keys, db, options):
 def change_nick(keys, db, options):
     verbose = options.verbose
     if not len(keys) == 2:
-        print 'Have exactly 2 names to change nicks'
+        print 'Give exactly 2 names to change nicks'
+        print 'monitor_user.py -c <old_nick> <new_nick>'
         return
     k1, k2 = keys
     print 'Changing user', k1, 'to', k2
@@ -88,7 +89,7 @@ def usage(progname):
                   help="delete given users")
     parser.add_option("-c", "--change",
                   action="store_true", dest="change", default=False,
-                  help="change nick of given users")
+                  help="change nick of given users (-c <old_nick> <new_nick>)")
     parser.add_option("-l", "--list",
                   action="store_true", dest="list_show", default=False,
                   help="show a full list of users")
@@ -101,6 +102,9 @@ def usage(progname):
     parser.add_option("-T", "--hide-test-users",
                   action="store_true", dest="hide_test", default=False,
                   help="omit test users from listing")
+    parser.add_option("-s", "--show-data",
+                  action="store", dest="show_data", default='',
+                  help="show these data (comma-separated list) (e.g. -s host,rating)")
     return parser,usg
 
 if __name__ == '__main__':
@@ -120,8 +124,15 @@ if __name__ == '__main__':
     print 'Registered users'
     e = 1
     for k in keys:
-        if consider(db.db[k], options.show_test, options.hide_test):
-            print e,k
+        if db.db.has_key(k) and \
+               consider(db.db[k], options.show_test, options.hide_test):
+            additional = ''
+            if options.show_data:
+                v = db.db[k]
+                for s in options.show_data.split(','):
+                    a = getattr(v, s, None)
+                    additional += str(a) + ' '
+            print e, k, additional
             e += 1
 
     if options.list_show:

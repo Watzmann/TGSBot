@@ -113,7 +113,8 @@ class UsersList:        # TODO: als Singleton ausführen
         logger.debug('deleting %s from list of active users' % name)
         user = self.list_of_active_users[name]
         user.set_logout_data(time.time())       # TODO: rather formated string?
-        user.save()   # TODO:   muss das save hier sein??????
+        user.save('usersList.drop')   # is this save neccessary?
+                                      # no, but it doesn't hurt either!
         user.status.logged_in = False
         del self.list_of_active_users[name]
         # TODO: Fehler, wenn name not logged in
@@ -596,7 +597,7 @@ class User(Persistent):
     def set_password(self, password):
         # TODO:  warum hab ich hier neben change_password() ne extra funktion?
         self.info.passwd = password
-        self.save()
+        self.save('user.set_password')
 
     def change_password(self, passwords):
         passwords = passwords.split(':')
@@ -613,23 +614,23 @@ class User(Persistent):
 
     def set_address(self, address):
         self.info.address = address
-        self.save()
+        self.save('user.set_address')
 
     def save_settings(self,):
         self.settings.save()
-        self.save()
+        self.save('user.save_settings')
 
     def set_login_data(self, login_time, host):
         self.info.set_login_data(login_time, host)  # TODO: rather formated string?
-        self.save()
+        self.save('user.set_login_data')
 
     def set_logout_data(self, logout_time,):
         self.info.set_logout_data(logout_time)      # TODO: rather formated string?
-        self.save()
+        self.save('user.set_logout_data')
 
     def advance_rating(self, rating, experience):
         self.info.advance_rating(rating, experience)
-        self.save()
+        self.save('user.advance_rating')
 
     def get_kibitz_addressees(self,):
         ret = {}
@@ -680,8 +681,9 @@ class User(Persistent):
     def deliver_messages(self,):
         """Delivers messages when user logs in"""
         msgs = self.info.messages
-        self.info.messages = []
-        self.save()
+        if msgs:
+            self.info.messages = []
+            self.save('user.deliver_messages')
         return msgs
 
     def send_message(self, user, msg):
@@ -692,7 +694,7 @@ class User(Persistent):
         """message() will receive a message from another player."""
         # 9 from time message
         self.info.messages.append('9 %s %d %s' % (user, at_time, msg))
-        self.save()
+        self.save('user.message')
         # TODO: if logged in trigger receive_message()
 
     def chat(self, msg):
@@ -830,9 +832,9 @@ class User(Persistent):
         if not sg is None:                             # yes
             list_of_games.delete_saved_game(sg['gid'])
         self.info.save_game(iaj.name, self.running_game, score, ML)
-        self.save()
+        self.save('user.join')
         iaj.info.save_game(self.name, iaj.running_game, opp_score, ML)
-        iaj.save()
+        iaj.save('user.join')
         self.getGame = list_of_games.get #  schau mal, ob du das einsetzen kannst
         iaj.getGame = list_of_games.get  #  JA - in continue_match und leave_game
         del self.invitations[iaj.name]   # TODO: kein synch! kann das zu problemen führen????
@@ -856,7 +858,7 @@ class User(Persistent):
         if hasattr(self, 'running_game'):
             if save:
                 self.info.saved_games[opp]['score'] = score
-                self.save()
+                self.save('user.teardown_game')
             else:
                 del self.info.saved_games[opp]
             del self.running_game
@@ -1005,7 +1007,7 @@ def newUser(**kw):
     settings = [2, 0, 0, 'none', 'login', 'UTC']
     info = Info(data, toggles, settings, [], {}, [], [], '')
     user = User(info)
-    user.save()
+    user.save('newUser')
     user.getUser = kw['lou'].get_from_all
     user.gameReports = kw['lou'].game_reports
     user.shouts = kw['lou'].shouts
