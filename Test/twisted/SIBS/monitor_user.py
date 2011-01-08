@@ -3,8 +3,11 @@
 """Tool zum Untersuchen und Warten der Users-DB."""
 
 import sys
+import time
 from optparse import OptionParser
 from persistency import Persistent, Db
+
+time_fmt = "%d.%m.%y %H:%M"
 
 def list_all(keys, db, options):
     verbose = options.verbose
@@ -25,7 +28,9 @@ def list_all(keys, db, options):
             passwd = v.passwd
         else:
             passwd = '*****'
-        print '   ', v.login, v.last_logout, v.host, v.name, passwd, \
+        login = time.strftime(time_fmt, time.localtime(v.login))
+        logout = time.strftime(time_fmt, time.localtime(v.last_logout))
+        print '   ', login, logout, v.host, v.name, passwd, \
                      v.rating, v.experience, address
         if verbose:
             print
@@ -56,6 +61,7 @@ def change_nick(keys, db, options):
     if k1 == k2:
         print keys, 'are identical'
         return
+    db.db[k1].name = k2
     db.db[k2] = db.db[k1]
     del db.db[k1]
     return
