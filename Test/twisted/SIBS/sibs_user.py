@@ -24,7 +24,7 @@ logger = logging.getLogger('users')
 
 DB_Users = 'db/users'
 RESERVED_Users = ('guest', 'systemwart', 'administrator',
-                  'sorrytigger', 'tigger', 'Watzmann', 'TigerGammon', 'TiGa')
+                  'sorrytigger', 'tigger', 'watzmann', 'tigergammon', 'tiga')
 ## TODO: RESERVED_Users gehören nicht in OpenSource
 
 class UsersList:        # TODO: als Singleton ausführen
@@ -106,8 +106,9 @@ class UsersList:        # TODO: als Singleton ausführen
 
     def online(self, user):
         self.list_of_active_users[user.name] = user
-        # TODO: lieber hier online-flag (status.logged_in) TRUE setzen,
-        #       als in clip.py
+        # lieber hier online-flag (status.logged_in) TRUE setzen,
+        # als in clip.py ......NEIN, GEHT NICHT WEIL danach erst geprüft wird,
+        # ob er BEREITS online ist.
 
     def drop(self, name):
         logger.debug('deleting %s from list of active users' % name)
@@ -584,7 +585,7 @@ class User(Persistent):
         self._waves = 0
         self.invitations = {}
         self.dice = 'random'
-        self.db_key = self.name
+        self.db_key = self.name.lower()
         self.db_load = self.info
         self.watchers = {}
 
@@ -675,7 +676,9 @@ class User(Persistent):
         self.chat('16 %s %s' % (user.name, msg))
 
     def shout(self, msg):
-        self.shouts('13 %s %s' % (self.name, msg), exceptions=(self.name,))
+        shout = '13 %s %s' % (self.name, msg)
+        logger.info(shout)
+        self.shouts(shout, exceptions=(self.name,))
         self.chat('17 %s' % (msg))
 
     def deliver_messages(self,):
@@ -1002,7 +1005,8 @@ class User(Persistent):
         return self.who()
 
 def newUser(**kw):
-    data = (kw['login'], 0, '', kw['user'], kw['password'], 1500., 0, '-')
+    data = (kw['login'], 0, kw['host'], kw['user'], kw['password'],
+                                                            1500., 0, '-')
     toggles = dict(zip(Toggles.toggle_names, Toggles.toggle_std))
     settings = [2, 0, 0, 'none', 'login', 'UTC']
     info = Info(data, toggles, settings, [], {}, [], [], '')
@@ -1012,6 +1016,8 @@ def newUser(**kw):
     user.gameReports = kw['lou'].game_reports
     user.shouts = kw['lou'].shouts
     kw['lou'].add(user)
+    kw['lou'].online(user)
+    user.status.stamp()
     return user
 
 def getUser(**kw):

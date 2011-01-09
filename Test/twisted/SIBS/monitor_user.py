@@ -30,7 +30,7 @@ def list_all(keys, db, options):
             passwd = '*****'
         login = time.strftime(time_fmt, time.localtime(v.login))
         logout = time.strftime(time_fmt, time.localtime(v.last_logout))
-        print '   ', login, logout, v.host, v.name, passwd, \
+        print '   <%s>  <%s>' % (login, logout), v.host, v.name, passwd, \
                      v.rating, v.experience, address
         if verbose:
             print
@@ -117,7 +117,7 @@ if __name__ == '__main__':
     parser,usg = usage(sys.argv[0])
     (options, args) = parser.parse_args()
     if len(args) > 0:
-        users = args
+        users = [l.lower() for l in args]
     else:
         users = ''
 
@@ -128,6 +128,7 @@ if __name__ == '__main__':
     else:
         keys = users
     print 'Registered users'
+    print keys
     e = 1
     for k in keys:
         if db.db.has_key(k) and \

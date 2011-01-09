@@ -68,13 +68,31 @@ def for_all_users(db, repair):
         repair(db, k, db[k])
     db.sync()
     
+def lower_keys(db,):
+    keys = db.keys()
+    for k in keys:
+        l = k.lower()
+        if l == k:
+            continue
+        if l in keys:
+            print 'ERROR lower in keys', l, k
+            del db[k]
+        entry = db.get(k, db.get(k.lower(), None))
+        if entry is None:
+            print 'Warning: problems with %s (%s)' % (k,l)
+        else:
+            db[l] = entry
+            del entry
+    db.sync()
+    
 if __name__ == '__main__':
     db = Db('db/users')
     #repair = login_time
     #repair = messages
-    repair = special
+    #repair = special
     #repair = saved
     #repair = autoroll
     #repair = logout_time
-    for_all_users(db.db, repair)
+    #for_all_users(db.db, repair)
+    lower_keys(db.db)
     db.close()

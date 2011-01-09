@@ -317,7 +317,8 @@ class Command():
             me.set_address(line[1])
             ret = "Your email address is '%s'." % line[1]
             who = self.c_rawwho(['rawwho',], me, user=me)
-            me.protocol.schedule_broadcast(who)
+            me.protocol.schedule_broadcast(who) # TODO: bitte direkt broadcast
+                                                # und dann schedule... entfernen
         return ret
   
     def c_password(self, line, me):         # implemented
@@ -424,7 +425,7 @@ class Command():
         if len(users) == 0:
             print >>out, 'No  S  username        rating   exp login  idle from'
         else:
-            print 'in who()', users
+##            print 'in who()', users
             for u in users:
                 print >>out, loau[u].who()
             # TODO:  laut spez wird nur beim rawwho die 6 garantiert geschickt

@@ -92,7 +92,10 @@ class CLIP(Echo):
                 self.user.status.stamp()
             self.myDataReceived(ds)
         
-    def established(self, data):
+    def established(self, data):    # TODO: this is the proper place to
+                                    #       differenciate between administrator
+                                    #       Clients and telnet
+                                    #       Simply use other "established"s
         print 'heard:', data
         result = self.factory.parse(data, self.user)
         if not result is None:
@@ -109,7 +112,8 @@ class CLIP(Echo):
         except:                                 #       Das soll langfristig raus
             log_data = data
         print 'in auth with', log_data
-        if data.startswith('guest'):
+        if data.startswith('guest'):    # TODO: should be possible for more than
+                                        #       one to register at the same time
                 print 'in guest cycle'
                 welcome = utils.render_file('guest_intro').splitlines()
                 self.cycle_message(welcome)
@@ -143,13 +147,10 @@ class CLIP(Echo):
                         success = True
                         self.factory.broadcast('7 %s %s logs in' % (name, name),
                                                exceptions=(name,))
-                        who = self.factory.command.c_rawwho(['rawwho',],
-                                                    self.user, user=self.user)
-                        self.factory.broadcast(who, exceptions=(name,))
-                        # TODO: evtl. ist die letzte msg nicht korrekt; aber wie
-                        #       erfahren die clients sonst vom login?
-                        #       vielleicht telnet clients ausnehmen?
-                        #       beachte toggle notify
+                        # TODO: beachte toggle notify (see CLIP who info)
+                        who = self.user.who() + '\n6\n'
+                        self.factory.broadcast(who,)
+                        # TODO: evtl. ist die letzte msg nicht korrekt;
                         #       siehe CLIP Who Info 
                 else:
                     print 'user not known or wrong password'
@@ -226,11 +227,21 @@ class CLIP(Echo):
             elif d[0] == self.password:
                 kw = {'user': self.name, 'password': '*******',
                       'lou': self.factory.active_users,
-                      'login': self.login_time}
+                      'login': self.login_time,
+                      'host': self.client_host}
                 print 'ERFOLG', kw
                 kw['password'] = self.password
-                user = newUser(**kw)
+                self.user = newUser(**kw)
                 success = True
+                self.user.set_protocol(self)
+                self.user.status.logged_in = True
+                self.myDataReceived = self.established
+                name = self.user.name
+                self.factory.broadcast('7 %s %s logs in' % (name, name),
+                                       exceptions=(name,))
+                # TODO: beachte toggle notify (see CLIP who info)
+                who = self.user.who() + '\n6\n'
+                self.factory.broadcast(who, exceptions=(name,))
                 self.transport.write("\xff\xfc\x01\nYou are registered.\n" \
                                  "Type 'help beginner' to get started.\n> ")
 
