@@ -76,14 +76,32 @@ def lower_keys(db,):
             continue
         if l in keys:
             print 'ERROR lower in keys', l, k
+            print keys
             del db[k]
         entry = db.get(k, db.get(k.lower(), None))
         if entry is None:
             print 'Warning: problems with %s (%s)' % (k,l)
         else:
+            print 'working on %s (key %s)' % (entry.name, l)
             db[l] = entry
             del entry
     db.sync()
+
+def clear_db(db,):
+    clear = True
+    keys = db.keys()
+    for k in keys:
+        if not db.has_key(k):
+            print 'key error', k
+            clear = False
+    if clear:
+        return
+    db2 = Db('db/users.clean', 'clean')
+    for k in keys:
+        if db.has_key(k):
+            db2.db[k] = db[k]
+    db2.sync()
+    db2.close()
     
 if __name__ == '__main__':
     db = Db('db/users')
@@ -94,5 +112,8 @@ if __name__ == '__main__':
     #repair = autoroll
     #repair = logout_time
     #for_all_users(db.db, repair)
+    
+    #clear_db(db.db)
+
     lower_keys(db.db)
     db.close()

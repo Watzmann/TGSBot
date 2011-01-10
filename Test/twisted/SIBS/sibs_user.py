@@ -7,6 +7,7 @@ REV = '$Revision$'
 import time
 from StringIO import StringIO
 import logging
+from twisted.python import log as tw_log
 from game import getGame
 from command import NYI, ZONEINFO
 from persistency import Persistent, Db
@@ -18,7 +19,7 @@ v.register(__name__, REV)
 TRACE = 15
 logging.addLevelName(TRACE, 'TRACE')
 logging.basicConfig(level=logging.INFO,
-                format='%(name)s %(levelname)s %(message)s',
+                format='%(asctime)s %(name)s %(levelname)s %(message)s',
                 )
 logger = logging.getLogger('users')
 
@@ -60,19 +61,19 @@ class UsersList:        # TODO: als Singleton ausführen
                 'rrating': self.sorted_keys_rrating}[sort](users)
 
     def sorted_keys_login(self, users):     # TODO: die drei sorted_keys hier
-        keys = [u.name for u in users]      #       können zusammengefsst werden
+        keys = [u.name.lower() for u in users] # können zusammengefasst werden??
         lau = self.list_of_active_users
         compare = lambda x,y: cmp(lau[x].info.login,lau[y].info.login)
         return sorted(keys, compare)
 
     def sorted_keys_name(self, users):
-        keys = [u.name for u in users]
+        keys = [u.name.lower() for u in users]
         lau = self.list_of_active_users
         compare = lambda x,y: cmp(lau[x].name,lau[y].name)
         return sorted(keys, compare)
 
     def sorted_keys_rating(self, users):
-        keys = [u.name for u in users]
+        keys = [u.name.lower() for u in users]
         lau = self.list_of_active_users
         compare = lambda x,y: cmp(lau[x].rating(),lau[y].rating())
         return sorted(keys, compare)
@@ -83,6 +84,7 @@ class UsersList:        # TODO: als Singleton ausführen
         return keys
 
     def get_user(self, name, password):
+        name = name.lower()
         if self.list_of_active_users.has_key(name): # user is already logged in
             return self.list_of_active_users[name]  # and get's a warning
         user = self.list_of_all_users.get(name, None)
@@ -102,29 +104,31 @@ class UsersList:        # TODO: als Singleton ausführen
         return user
 
     def add(self, user):
-        self.list_of_all_users[user.name] = user
+        self.list_of_all_users[user.name.lower()] = user
 
     def online(self, user):
-        self.list_of_active_users[user.name] = user
+        self.list_of_active_users[user.name.lower()] = user
         # lieber hier online-flag (status.logged_in) TRUE setzen,
         # als in clip.py ......NEIN, GEHT NICHT WEIL danach erst geprüft wird,
         # ob er BEREITS online ist.
 
     def drop(self, name):
         logger.debug('deleting %s from list of active users' % name)
-        user = self.list_of_active_users[name]
-        user.set_logout_data(time.time())       # TODO: rather formated string?
-        user.save('usersList.drop')   # is this save neccessary?
-                                      # no, but it doesn't hurt either!
-        user.status.logged_in = False
-        del self.list_of_active_users[name]
-        # TODO: Fehler, wenn name not logged in
+        name = name.lower()
+        user = self.list_of_active_users.get(name)
+        if not user is None:
+            user.set_logout_data(time.time())   # TODO: rather formated string?
+            user.save('usersList.drop')   # is this save neccessary?
+                                          # no, but it doesn't hurt either!
+            user.status.logged_in = False
+            del self.list_of_active_users[name]
 
     def get_from_all(self, name, default=None):
-        return self.list_of_all_users.get(name, default)
+        return self.list_of_all_users.get(name.lower(), default)
 
     def get_active(self, name, default=None):
-        return self.list_of_active_users.get(name, default)
+##        print self.list_of_active_users.keys()
+        return self.list_of_active_users.get(name.lower(), default)
 
     def get_all_users(self,):
         return self.list_of_active_users.values()
@@ -133,14 +137,18 @@ class UsersList:        # TODO: als Singleton ausführen
         return [u for u in self.list_of_active_users.values() \
                                 if not u.status.watchee is None]
 
-    def whois(self, name):
-        if name in self.list_of_active_users:
-            res = self.list_of_active_users[name].whois()
-        elif name in self.list_of_all_users:
-            res = self.list_of_all_users[name].whois()
+    def whois(self, name):      # TODO: hier analog Fibs case sensitive
+        lname = name.lower()
+        if lname in self.list_of_active_users:
+            user = self.list_of_active_users[lname]
+            if user.name == name:
+                return user.whois()
+        elif lname in self.list_of_all_users:
+            user = self.list_of_all_users[name]
+            if user.name == name:
+                return user.whois()
         else:
-            res = "No information found on user %s." % name
-        return res
+            return "No information found on user %s." % name
 
     def game_reports(self, msg):
         for u in self.get_active_toggled_users('report', True):
@@ -677,7 +685,7 @@ class User(Persistent):
 
     def shout(self, msg):
         shout = '13 %s %s' % (self.name, msg)
-        logger.info(shout)
+        tw_log.msg(shout)
         self.shouts(shout, exceptions=(self.name,))
         self.chat('17 %s' % (msg))
 

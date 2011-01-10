@@ -402,11 +402,10 @@ class Command():
         print >>out, 'invita', me.invitations
         return out.getvalue()
 
-    def c_who(self, line, me, user=None):   # implemented
+    def c_who(self, line, me):              # implemented
         # TODO: wieder gerade ziehen
         #       user=None kommt weg und wird ersetzt durch "who user"
         #       Implementieren von "who" mit parametern
-#        if user is None:
         lou = self.list_of_users
         loau = lou.get_active_users()
         sort_who = me.settings.get_sortwho()
@@ -414,10 +413,11 @@ class Command():
             users = lou.get_sorted_keys(sort = sort_who)
         elif line[1] in ('away','ready','playing','count','from'):
             users = lou.get_sorted_keys(ufilter=line[1], sort = sort_who)
+            # from: weiteres argument holen, abfragen
         else:
             user = lou.get_active(line[1])
             if not user is None:
-                users = [user.name,]
+                users = [user.name.lower(),]
             else:
                 return "** There is no one called '%s'" % line[1]
 
@@ -436,9 +436,9 @@ class Command():
     def c_where(self, line, me):
         return '** where %s' % NYI
 
-    def c_rawwho(self, line, me, user=None):  # implemented
+    def c_rawwho(self, line, me):           # implemented
         out = StringIO()
-        print >>out, self.c_who(line, me, user),
+        print >>out, self.c_who(line, me),
 ##        print >>out, '6'
         # TODO   siehe TODO bei c_who()
         return out.getvalue()
@@ -646,8 +646,7 @@ class Command():
 
     def update_who(self, me):
         factory = me.protocol.factory
-        who = self.c_rawwho(['rawwho',], me, user=me)
-        # TODO: muss auf "rawwho user" umgestellt werden (siehe c_who())
+        who = self.c_rawwho(['rawwho', me.name], me)
         factory.broadcast(who,)
 
     def list_implemented(self, verbose=False):
