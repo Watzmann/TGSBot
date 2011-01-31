@@ -35,8 +35,9 @@ class UsersList:        # TODO: als Singleton ausführen
                             #   PersistenzKlasse vorbeizuangeln ist schon krass!
         self.list_of_all_users = dict([(k,self.restore(all_users[k])) \
                                        for k in all_users.keys()])
-##        for e,k in enumerate(self.list_of_all_users.keys()):
+##        for e,k in enumerate(all_users.keys()):
 ##            print e,k
+##            print all_users[k]
 
     criterion = {'away': lambda u: u.is_away(),
                  'ready': lambda u: u.is_ready(),
@@ -144,7 +145,7 @@ class UsersList:        # TODO: als Singleton ausführen
             if user.name == name:
                 return user.whois()
         elif lname in self.list_of_all_users:
-            user = self.list_of_all_users[name]
+            user = self.list_of_all_users[lname]
             if user.name == name:
                 return user.whois()
         else:
@@ -242,9 +243,10 @@ als Datencontainer dienen."""
     def __str__(self,):
         _t = {True: '1', False: '0'}
         t = [' '.join([_t[i] for i in self.array(p)]) for p in range(5)]
-        ret = '%s %s %d %s %d %s %.2f %s %s %s %s' % \
+        ret = '%s %s %d %s %d %s %.2f %s %s %s %s (%s)' % \
             (self.name, t[0], getattr(self, 'away', 0), t[1], self.experience,
-             t[2], self.rating, t[3], self.settings[3], t[4], self.settings[5],)
+             t[2], self.rating, t[3], self.settings[3], t[4], self.settings[5],
+             self.host)
         return ret
 
     def nslookup(self, ip):
@@ -585,6 +587,7 @@ class User(Persistent):
     def __init__(self, data):
         Persistent.__init__(self, DB_Users, 'users')
         self.info = data
+        print 'in User',data
         self.name = self.info.name
         self.settings = Settings(self.info)
         self.toggles = Toggles(self.info)

@@ -8,6 +8,7 @@ REV = '$Revision$'
 
 import sys
 import os
+import time
 
 from twisted.web import proxy, http
 #from twisted.internet import pollreactor
@@ -67,9 +68,12 @@ class ProxyFactory(http.HTTPFactory):
         ret = ''
         if len(a) > 0:
 ##            print 'parsing',a
+            time_before = time.time()
             cmd = c.command(a[0])
             ret = cmd(a, me)
+            time_after = time.time()
             print 'got', ret
+            print 'time used for %s: %f sec' % (a[0], time_after - time_before)
         return ret
 
     def broadcast(self, msg, exceptions=()):
