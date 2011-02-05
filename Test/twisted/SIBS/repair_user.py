@@ -84,7 +84,8 @@ def lower_keys(db,):
         else:
             print 'working on %s (key %s)' % (entry.name, l)
             db[l] = entry
-            del entry
+            if db.has_key(k):
+                del db[k]
     db.sync()
 
 def clear_db(db,):
