@@ -5,7 +5,8 @@
 |                  not use it.                                       |
 |               2) calculation of possible moves still fails in      |
 |                  some cases. Don't use automove.                   |
-|               3) tigergammon_bots fall dead after cube actions     |
+|               3) tigergammon_bots fall dead after cube actions,    |
+|                  better just play 1-pointers                       |
 |                                                                    |
 | fixed:           "in some cases, clients don't show the dice."     |
 |                                                                    |
