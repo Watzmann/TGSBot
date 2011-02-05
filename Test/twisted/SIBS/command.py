@@ -165,7 +165,7 @@ class Command():
             him.join(me, self.list_of_games)    # TODO: deferred?
             self.update_who(me)                 # this update is very important
                                     # for the clients - see #0061
-            #self.update_who(him)       # TODO: broadcast doppelt, kann weg
+            self.update_who(him)       # TODO: broadcast doppelt, kann weg
         else:
             return "** %s is not logged in" % user
 
