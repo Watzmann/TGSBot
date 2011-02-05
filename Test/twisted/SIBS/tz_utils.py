@@ -74,10 +74,10 @@ class TZ:
             text += '\n'
         return text
 
-    def max_line_width(self, from_file=False):
+    def max_line_width(self, from_file=False):  # TODO: is not needed any more??
         max_w = 0                   # original version results in 77
         if from_file:
-            with open('ressources/timezones') as tz:
+            with open('resources/timezones') as tz:
                 for line in tz:
                     max_w = max(max_w, len(line))
             max_w -= 1

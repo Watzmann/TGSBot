@@ -72,7 +72,8 @@ class ProxyFactory(http.HTTPFactory):
             ret = cmd(a, me)
             time_after = time.time()
             print 'got', ret
-            print 'time used for %s: %f sec' % (a[0], time_after - time_before)
+            print 'time used for %s: %f sec (%d users)' % \
+              (a[0], time_after - time_before, self.active_users.nr_logged_in())
         return ret
 
     def broadcast(self, msg, exceptions=()):

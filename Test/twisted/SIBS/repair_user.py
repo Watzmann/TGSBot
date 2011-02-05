@@ -108,11 +108,11 @@ if __name__ == '__main__':
     db = Db('db/users')
     #repair = login_time
     #repair = messages
-    #repair = special
-    repair = saved
+    repair = special
+    #repair = saved
     #repair = autoroll
     #repair = logout_time
-    for_all_users(db.db, repair)
+  #  for_all_users(db.db, repair)
     
     #clear_db(db.db)
 

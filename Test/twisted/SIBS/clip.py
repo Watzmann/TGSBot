@@ -167,7 +167,7 @@ class CLIP(Echo):
             self.transport.write('send key > ')
             self.myDataReceived = self.administration
             success = True
-        elif isUser(user=user.name, lou = self.factory.active_users):
+        elif isUser(user=data, lou = self.factory.active_users):
             print 'here goes telnet login'
             success = False
         else:

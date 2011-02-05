@@ -12,7 +12,7 @@ v = Version()
 v.register(__name__, REV)
 
 def render_file(filename):
-    f = open(os.path.join('ressources',filename))
+    f = open(os.path.join('resources',filename))
     txt = f.read()
     f.close()
     return txt

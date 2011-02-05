@@ -16,7 +16,7 @@ v.register(__name__, REV)
 
 class Help:
     def __init__(self, implemented_commands):
-        help_file = open(os.path.join('ressources','help'))
+        help_file = open(os.path.join('resources','help'))
         self.texte = dict(self.parse(help_file))
         self.issues = self.texte.keys()
         self.issues.sort

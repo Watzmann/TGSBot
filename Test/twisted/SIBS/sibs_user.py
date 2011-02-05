@@ -138,6 +138,9 @@ class UsersList:        # TODO: als Singleton ausführen
         return [u for u in self.list_of_active_users.values() \
                                 if not u.status.watchee is None]
 
+    def nr_logged_in(self,):
+        return len(self.list_of_active_users)
+
     def whois(self, name):      # TODO: hier analog Fibs case sensitive
         lname = name.lower()
         if lname in self.list_of_active_users:
