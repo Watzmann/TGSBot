@@ -9,7 +9,7 @@ REV = '$Revision$'
 import time
 from twisted.internet.protocol import Protocol
 ##from twisted.python import log                TODO: logging
-from sibs_user import getUser, dropUser, newUser, RESERVED_Users
+from sibs_user import getUser, dropUser, isUser, newUser, RESERVED_Users
 import sibs_utils as utils
 from command import ZONEINFO
 from version import Version
@@ -114,12 +114,12 @@ class CLIP(Echo):
         print 'in auth with', log_data
         if data.startswith('guest'):    # TODO: should be possible for more than
                                         #       one to register at the same time
-                print 'in guest cycle'
-                welcome = utils.render_file('guest_intro').splitlines()
-                self.cycle_message(welcome)
-                self.transport.write('> ')
-                self.myDataReceived = self.registration
-                success = True
+            print 'in guest cycle'
+            welcome = utils.render_file('guest_intro').splitlines()
+            self.cycle_message(welcome)
+            self.transport.write('> ')
+            self.myDataReceived = self.registration
+            success = True
         elif data.startswith('login'):
             #login <client_name> <clip_version> <name> <password>\r\n
             d = data.split()[1:]
@@ -162,6 +162,14 @@ class CLIP(Echo):
             else:
                 reason = 'Login process cancelled - ' \
                          'not enough paramaeters (%d)' % len(d)
+        elif data.startswith('administration'):
+            print 'in administration cycle'
+            self.transport.write('send key > ')
+            self.myDataReceived = self.administration
+            success = True
+        elif isUser(user=user.name, lou = self.factory.active_users):
+            print 'here goes telnet login'
+            success = False
         else:
             print 'falscher Befehl - kein login'
         if not success:
@@ -244,6 +252,18 @@ class CLIP(Echo):
                 self.factory.broadcast(who, exceptions=(name,))
                 self.transport.write("\xff\xfc\x01\nYou are registered.\n" \
                                  "Type 'help beginner' to get started.\n> ")
+
+    def administration(self, data):
+        key = utils.render_file('admin_key').rstrip('\n')
+        if data == key:
+            print 'admitted'
+            self.transport.write('hello sir :)\r\n')
+            success = True
+        else:
+            print key + '<'
+            print data + '<'
+            print 'wrong key'
+            success = False
 
     def logout(self, special_name=''):
         user = getattr(self,'user',None)

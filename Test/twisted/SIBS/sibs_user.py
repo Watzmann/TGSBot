@@ -587,7 +587,7 @@ class User(Persistent):
     def __init__(self, data):
         Persistent.__init__(self, DB_Users, 'users')
         self.info = data
-        print 'in User',data
+        #print 'in User',data
         self.name = self.info.name
         self.settings = Settings(self.info)
         self.toggles = Toggles(self.info)
@@ -1038,6 +1038,9 @@ def getUser(**kw):
         lou.online(user)
     return user
 
+def isUser(**kw):
+    return not kw['lou'].get_from_all(kw['user']) is None
+    
 def dropUser(**kw):
     kw['lou'].drop(kw['user'])      # TODO: muss dieser Umweg sein? besser direkt?
                                     #       Wenn überhaupt, dann, weil diese
