@@ -1,0 +1,6 @@
+server.log*
+logs*
+dev_game.output.*
+tigergammon.server.log
+0.6-alpha
+pre-alpha
