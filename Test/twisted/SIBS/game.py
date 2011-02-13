@@ -446,6 +446,9 @@ class Player:
         self.owns_cube = False
         self.opponent.owns_cube = True
 
+    def get_delay(self,):
+        return self.user.settings.get_delay()
+
     def reset_toggles(self,):
         self.user.toggles.set_switch('double', True)
         self.user.toggles.set_switch('autoroll', False)

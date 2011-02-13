@@ -464,6 +464,7 @@ class Settings:
 ##        self._redoubles = 'none'
 ##        self._sortwho = 'login'
 ##        self._timezone = 'UTC'
+##        self._delay = '0.3'
         self._settings = info.settings
         # TODO: hier sollte statt info DRINGEND nur "settings" übergeben werden.
         #       Diese Abhängigkeit von Info() ist nicht akzeptabel.
@@ -473,6 +474,7 @@ class Settings:
         self._redoubles = info.settings[3]
         self._sortwho = info.settings[4]
         self._timezone = info.settings[5]
+        self._delay = info.settings[6]
     # TODO: die methoden hier kann man stark vereinfachen!!!
     #       etwas programmierarbeit
 
@@ -567,6 +569,25 @@ class Settings:
     def get_timezone(self,):
         return self._timezone
 
+    def delay(self, *values):
+        vals = values[0]
+        if len(vals) == 0:
+            res = "Value of 'delay' is %s" % self._delay
+        else:
+            try:
+                self._delay = float(vals[0])
+                res = "Value of 'delay' set to %.3f." % self._delay
+            except ValueError:
+                res = "** Valid arguments are seconds like 1 or 0.5 or 2.7555. " \
+                      "Use 0. for the default value (0.3 seconds)."
+        return res
+
+    def get_delay(self,):
+        return self._delay
+
+    def get_default_delay(self,):
+        return 0.3
+
     def show(self,):    # TODO
         out = StringIO()
         print >> out, 'Settings of variables:'
@@ -576,6 +597,7 @@ class Settings:
         print >> out, '%-12s%s' % ('redoubles:', self._redoubles)
         print >> out, '%-12s%s' % ('sortwho:', self._sortwho)
         print >> out, '%-12s%s' % ('timezone:', self._timezone)
+        print >> out, '%-12s%.3f' % ('delay:', self._delay)
         return out.getvalue()
 
     def save(self,):
@@ -585,6 +607,7 @@ class Settings:
         self._settings[3] = self._redoubles
         self._settings[4] = self._sortwho
         self._settings[5] = self._timezone
+        self._settings[6] = self._delay
 
 class User(Persistent):
     def __init__(self, data):
@@ -1022,7 +1045,7 @@ def newUser(**kw):
     data = (kw['login'], 0, kw['host'], kw['user'], kw['password'],
                                                             1500., 0, '-')
     toggles = dict(zip(Toggles.toggle_names, Toggles.toggle_std))
-    settings = [2, 0, 0, 'none', 'login', 'UTC']
+    settings = [2, 0, 0, 'none', 'login', 'UTC', 0.3]
     info = Info(data, toggles, settings, [], {}, [], [], '')
     user = User(info)
     user.save('newUser')

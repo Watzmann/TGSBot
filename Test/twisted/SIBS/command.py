@@ -162,10 +162,11 @@ class Command():
                 return "** Error: %s is already playing with someone else." % \
                                                                            user
                 # TODO: didn't invite you????
-            him.join(me, self.list_of_games)    # TODO: deferred?
+            him.join(me, self.list_of_games)    # TODO: deferred? still a good
+                                                #       idea; join seems to take
+                                                #       about > .1 seconds
             self.update_who(me)                 # this update is very important
-                                    # for the clients - see #0061
-            self.update_who(him)       # TODO: broadcast doppelt, kann weg
+            self.update_who(him)                # for the clients - see #0061
         else:
             return "** %s is not logged in" % user
 
@@ -280,6 +281,9 @@ class Command():
         def timezone(*values):
             return me.settings.timezone(values[0])
 
+        def delay(*values):
+            return me.settings.delay(values[0])
+
         def show_settings():
             return me.settings.show()
 
@@ -297,6 +301,7 @@ class Command():
                         'redoubles': redoubles,
                         'sortwho': sortwho,
                         'timezone': timezone,
+                        'delay': delay,
                         }
         arglen = len(line)
         if arglen == 1:
@@ -316,7 +321,7 @@ class Command():
         else:
             me.set_address(line[1])
             ret = "Your email address is '%s'." % line[1]
-            who = self.c_rawwho(['rawwho',], me, user=me)
+            who = self.c_rawwho(['rawwho', me.name], me)
             me.protocol.schedule_broadcast(who) # TODO: bitte direkt broadcast
                                                 # und dann schedule... entfernen
         return ret
@@ -413,16 +418,15 @@ class Command():
             users = lou.get_sorted_keys(sort = sort_who)
         elif line[1] in ('away','ready','playing','count','from'):
             users = lou.get_sorted_keys(ufilter=line[1], sort = sort_who)
-            # from: weiteres argument holen, abfragen
+            # TODO: weiteres argument holen, abfragen
         else:
             user = lou.get_active(line[1])
             if not user is None:
                 users = [user.name.lower(),]
             else:
                 return "** There is no one called '%s'" % line[1]
-
         out = StringIO()
-        if len(users) == 0:
+        if len(users) == 0:     # TODO: was soll diese erste Bedingung??? nur wenn die Liste leer ist???????
             print >>out, 'No  S  username        rating   exp login  idle from'
         else:
 ##            print 'in who()', users

@@ -62,6 +62,15 @@ def autoroll(db, key, value):
     info = Info(vdata, toggles, value.settings, value.messages)
     db[key] = info
     
+def settings(db, key, value):
+    vdata = data(value)
+    settings = value.settings
+    if len(settings) < 7:
+        settings.append(0.3)
+    info = Info(vdata, value.toggles, settings, value.messages,
+                value.saved_games, value.gagged, value.blinded, value.special)
+    db[key] = info
+    
 def for_all_users(db, repair):
     keys = db.keys()
     for e,k in enumerate(keys):
@@ -69,6 +78,8 @@ def for_all_users(db, repair):
     db.sync()
     
 def lower_keys(db,):
+    # TODO: wenn man das hier noch mal braucht:
+    #       auf db2 schreiben und hinterher moven
     keys = db.keys()
     for k in keys:
         l = k.lower()
@@ -109,10 +120,11 @@ if __name__ == '__main__':
     #repair = login_time
     #repair = messages
     repair = special
+    repair = settings
     #repair = saved
     #repair = autoroll
     #repair = logout_time
-  #  for_all_users(db.db, repair)
+    for_all_users(db.db, repair)
     
     #clear_db(db.db)
 
