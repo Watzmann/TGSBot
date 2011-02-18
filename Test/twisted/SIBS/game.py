@@ -213,10 +213,12 @@ check for valid moves etc.."""
         direction = self.direction[whom]
         move = self._fmt_move(whom)
         if self.style == 4:
-            return '%s | '*6 % (score, position, dice, cube, direction, move)
+            board = '%s | '*6 % (score, position, dice, cube, direction, move)
         else:
-            return score + position + dice + cube + direction + move
+            board = score + position + dice + cube + direction + move
             #      0       5          31     36     40          44
+        logger.info(board)
+        return board
 
     def load(self, board):
         b = board.split(':')
