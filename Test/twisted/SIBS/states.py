@@ -69,9 +69,6 @@ class State:
             if self.actions[k]['auto']:
                 logger.log(TRACE, '(State) automatisch standard cmd: %s' % k)
                 self.action(self.player, k, **self.params)
-                logger.log(TRACE, 'SLEEPING: a %s (in %s)' % \
-                                   (self.player.get_delay(), self.label))
-                time.sleep(self.player.get_delay())
 
     def _state_check(self, player, cmd):
         if (player.name == self.approved_player.name):
@@ -285,16 +282,10 @@ class Checked(State):
             if self.params.get('greedy_possible', False):
                 params = {'move': self.params['moves']}
                 self.action(self.player, follower, **params)
-                logger.log(TRACE, 'SLEEPING: b %s (in %s)' % \
-                                   (self.player.get_delay(), self.label))
-                time.sleep(self.player.get_delay())
         if self.actions[follower]['auto']:
             logger.log(TRACE, 'automatic cmd: %s' % follower)
             self.action(self.player, follower)
             ## TODO: chat The only possible move is d-e ... j-k .
-            logger.log(TRACE, 'SLEEPING: c %s (in %s)' % \
-                                   (self.player.get_delay(), self.label))
-            time.sleep(self.player.get_delay())
         else:
             self.player.chat_player("Please move %d pieces." % \
                                         self.params['nr_pieces'])

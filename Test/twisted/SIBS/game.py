@@ -8,6 +8,7 @@ from StringIO import StringIO
 from time import time
 from math import sqrt
 from dice import getDice
+from twisted.internet import reactor
 import logging
 from persistency import Persistent, Db
 import game_utilities
@@ -363,6 +364,40 @@ class Move:
 
     def __str__(self,):
         return ' '.join(self.moves)
+
+class Waiter:
+    """Waiter delays actions by a minimum amount of time.
+    It grants the player a certain length of time to grasp the board,
+    when otherwise automatic actions or bots react so quick, that details
+    of the board could could be overlooked.
+
+    Minimum lag is determined by an individual setting (set delay).
+
+    The action is awaken by virtue of twisted.reactor.call_later().
+    """
+
+    def __init__(self, lag):
+        self.load_action = self.delay_action
+        self.action = self._idle
+        self.player = None
+        self.cmd = None
+        self.params = None
+        reactor.call_later(lag, self._wake())
+
+    def _wake(self,):
+        self.action(self.player, self.cmd, **self.params)
+
+    def delay_action(self, action, player, cmd, params):
+        self.player = player
+        self.cmd = cmd
+        self.params = params
+        self.action = action
+
+    def execute_action(self, action, player, cmd, params):
+        action(player, cmd, **params)
+        
+    def _idle(self, player, cmd, **params):
+        self.load_action = self.execute_action
 
 class Player:
     """Player represents a player in a game/match. It supports the statemachine
