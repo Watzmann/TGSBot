@@ -376,13 +376,18 @@ class Waiter:
     The action is awaken by virtue of twisted.reactor.call_later().
     """
 
-    def __init__(self, lag):
+    def __init__(self, lag, name):
         self.load_action = self.delay_action
         self.action = self._idle
         self.player = None
         self.cmd = None
-        self.params = None
-        reactor.call_later(lag, self._wake())
+        self.params = {}
+        logger.info("delay board for %s for player %s" % (lag, name))
+        self._call = reactor.callLater(lag, self._wake)
+
+    def __del__(self,):
+        if not self._call is None:
+            self._call.cancel()
 
     def _wake(self,):
         self.action(self.player, self.cmd, **self.params)
@@ -398,6 +403,7 @@ class Waiter:
         
     def _idle(self, player, cmd, **params):
         self.load_action = self.execute_action
+        self._call = None
 
 class Player:
     """Player represents a player in a game/match. It supports the statemachine
@@ -443,6 +449,7 @@ class Player:
     def board_player(self,):
         """Display the board for the player."""
         boardstyle = self.user.settings.get_boardstyle()
+        self.waiter = Waiter(self.get_delay(), self.name)
         self.chat_player(self.board.show_board(self.nick, boardstyle))
         self.board_watchers(self.user, self.nick)
         logger.info("sent board to player %s and watchers" % self.name)
