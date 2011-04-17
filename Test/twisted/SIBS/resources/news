@@ -1,5 +1,5 @@
 3
-+ News ------------------------------------------------ Jan. 09 2011 +
++ News ------------------------------------------------ Feb. 18 2011 +
 |                                                                    |
 | known bugs:   1) greedy bearoff does not work correctly, better    |
 |                  not use it.                                       |
@@ -7,15 +7,12 @@
 |                  some cases. Don't use automove.                   |
 |               3) tigergammon_bots fall dead after cube actions,    |
 |                  better just play 1-pointers                       |
+|               4) tigergammon_bots get lost every once in a while,  |
+|                  most likely those games are corrupt, then.        |
 |                                                                    |
-| fixed:           "in some cases, clients don't show the dice."     |
+| currently working on:         1, 4                                 |
 |                                                                    |
-| new:                                                               |
-|               1) watch, unwatch, look, time, set timezone          |
-|               2) kibitz, whisper                                   |
-|               3) show saved, savedcount, watchers                  |
-|               4) save/resume games                                 |
-|               5) bots :)                                           |
+| 4) mostly fixed                                                    |
 |                                                                    |
 +--------------------------------------------------------------------+
 4
