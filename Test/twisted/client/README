@@ -1,0 +1,18 @@
+example-telnet-client.py	telnetlib - vermutlich ein Download, meine
+				Änderungen folgen
+telnet_client.py		telnetlib - schreibt 2 Brocken raus und versucht
+				zu lesen
+my_telnet_client.py		telnetlib - Erweiterung zu telnet_client,
+				versucht mit time.sleep() das Lesen zu
+				verbessern
+sibs_test_telnet_client.py	baut auf den telnet-clients auf; Lasttest für
+				SIBS
+  sibs.stress			  command-file hierzu
+  sibs.stress.1000		  command-file hierzu
+  sibs.test.ah.log		  log-file hierzu
+
+ircLogBot.py			Der Client zum Beispiel aus twisted_core.pdf
+
+twisted-client-r56.py		kuckst du svn??
+twisted-client.py		EIN Beispiel zum Client aus twisted_core.pdf
+twisted-client1.py		ein anderes Beispiel zum Client von dort
