@@ -16,6 +16,7 @@ logging.basicConfig(level=logging.DEBUG,
                 format='%(name)s %(levelname)s %(message)s',
                 )
 logger = logging.getLogger('utilities')
+#logger.setLevel(logging.DEBUG)
 
 def check_roll_old(dice, position, nr_bar, direction):
     """Checks for possible moves depending on 'dice'."""
@@ -170,7 +171,8 @@ class OX:
         nr_home = abs(reduce(self.sum_home, position[a:b], 0))
         d1,d2 = d
         if nr_home == 1:
-            d = [d1,]
+            d = [d1,]   # TODO: FALSCH, die frage ist doch, ob die summe zum
+                        #       bearoff reicht (also evtl. beide wuerfel
         elif d1 == d2:
             d = [d1,]*4
         logger.log(TRACE, 'greedy roll: %s' % (d,))
@@ -178,6 +180,7 @@ class OX:
 
     def greedy_moves_O(self, dice, position):
         """O is positiv and runs towards the 0."""
+        # TODO: wie sind die Regeln fuer greedy?????s
         moves = []
         dd = self.greedy_roll(dice, position)
         for d in dd:

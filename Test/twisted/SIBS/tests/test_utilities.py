@@ -513,7 +513,10 @@ class TestCheckGreedy(unittest.TestCase):
                                0,0,0,0,0,0, 0,0,0,0,-1,-2, 0]
         self.position_75 = [0, 0,0,0,1,0,0, 0,0,0,0,0,0,
                                0,0,0,0,0,0, 0,-1,0,0,0,0, 0]
-
+        
+        # now some testcases destilled from livetest
+        self.position_contact_25 = [0, 0,0,0,0,1,3, 0,0,1,0,0,0,
+                                       1,0,0,0,0,2, -2,-6,3,-2,-4,4, 0]
 ##    def tearDown(self):
 
     def testgreedy_25_23(self):
@@ -616,10 +619,18 @@ class TestCheckGreedy(unittest.TestCase):
         self.assertEqual(ret['moves'], ['20-24', '24-off'])
         self.assertEqual(ret['greedy_possible'], True)
 
+    def testgreedy_contact_25_15(self):
+        ret = greedy((1,5), self.position_contact_25, OX(0,1))
+        print ret
+        self.assertEqual(len(ret), 2)
+        self.assertEqual(ret['moves'], ['4-0',])
+        self.assertEqual(ret['greedy_possible'], False)
+
 if __name__ == "__main__":
     do_suites = (len(sys.argv) > 1) and (sys.argv[1] == 'suites')
 
     if not do_suites:
-        run_test(TestCheckRoll('testcheck_bearoff_01'))
+        test = 'testgreedy_contact_25_15' #'testcheck_bearoff_01'
+        run_test(TestCheckGreedy(test))
     else:
         run_suites(globals())

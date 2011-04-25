@@ -92,5 +92,7 @@ class ProxyFactory(http.HTTPFactory):
     ##        geben. Darin Commands wie "stop", "flush", vielleich logginglevel
     ##        delete(user) und so weiter
 
+    ## TODO:  Application Object lesen - Twisted core.pdf, Seite 163
+
 reactor.listenTCP(PORT, ProxyFactory())
 reactor.run()
