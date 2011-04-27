@@ -4,14 +4,14 @@
 CLIP specification V 1.008 - 08 Mar 1997
 """
 
-from twisted.internet.protocol import Protocol
+from twisted.protocols.basic import LineOnlyReceiver
 from twisted.python import log
 
-class Echo(Protocol):
-    def dataReceived(self, data):
-        print 'heard:', data
-        self.transport.write('echo %d: %s\r\n' % (self.id,data))
-        if data.startswith('exit'):
+class Echo(LineOnlyReceiver):
+    def lineReceived(self, line):
+        print 'heard:', line
+        self.transport.write('echo %d: %s\r\n' % (self.id, line))
+        if line.startswith('exit'):
             print 'lasse die Verbindung %d fallen' % self.id
             self.transport.loseConnection()
 
@@ -67,17 +67,20 @@ class TestCLIP(Echo):
             dropUser(user=user.name, lou = self.factory.active_users)
         Echo.connectionLost(self, reason)
 
-    def dataReceived(self, data):
-        self.buffer += data
-        # TODO: this data collection stuff is most likely unneccessary
-        #       deriving from LineReceiver would probably do (investigate!!)
-        print 'raw:  ', tuple(data)
-        if self.buffer.endswith('\n'):
-            d = self.buffer
-            self.buffer = ''
-            ds = d.rstrip('\r\n')
-            print '#>'+ds+'<#'
-        
+##    def dataReceived(self, data):
+##        self.buffer += data
+##        # TODO: this data collection stuff is most likely unneccessary
+##        #       deriving from LineReceiver would probably do (investigate!!)
+##        print 'raw:  ', tuple(data)
+##        if self.buffer.endswith('\n'):
+##            d = self.buffer
+##            self.buffer = ''
+##            ds = d.rstrip('\r\n')
+##            print '#>'+ds+'<#'
+
+    def lineReceived(self, line):
+        print '#>'+line+'<#'
+
     def established(self, data):    # TODO: this is the proper place to
                                     #       differenciate between administrator
                                     #       Clients and telnet

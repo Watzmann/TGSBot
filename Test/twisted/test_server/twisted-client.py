@@ -11,7 +11,7 @@ from sys import stdout
 def communicate(protocol):
     """Do a bit of manual communication with the server. Quit with a keyword."""
     s = raw_input('give me some >> ')
-    if s.lower() in ('bye', 'exit', 'quit'):
+    if s.lower() in ('bye', 'quit'):
         reactor.stop()
     protocol.sendMessage(s)
 
