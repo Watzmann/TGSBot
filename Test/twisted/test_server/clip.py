@@ -39,7 +39,7 @@ class Echo(Protocol):
         #        dann sollte aber der user auch aus der liste gedroppt werden.
         print 'aus die maus', self.id
 
-class CLIP(Echo):
+class TestCLIP(Echo):
     def __init__(self,):
         self.buffer = ''
         self.myDataReceived = self.established
@@ -76,7 +76,7 @@ class CLIP(Echo):
             d = self.buffer
             self.buffer = ''
             ds = d.rstrip('\r\n')
-            print ds
+            print '#>'+ds+'<#'
         
     def established(self, data):    # TODO: this is the proper place to
                                     #       differenciate between administrator
@@ -89,50 +89,3 @@ class CLIP(Echo):
             for b in self.scheduled_broadcasts:
                 self.factory.broadcast(b)
             self.scheduled_broadcasts = []      # TODO: wird hier viel garbage erzeugt??
-
-    def logout(self, special_name=''):
-        user = getattr(self,'user',None)
-        if not user is None:
-            name = self.user.name
-        else:
-            name = special_name
-        logout = utils.render_file('extro') + utils.render_file('about')
-        self.transport.write('%s\r\n' % (logout,))
-        print 'wrote logout message'
-        self.dropConnection('orderly waving goodbye')
-
-    def wave_and_logout(self,):
-        self.factory.broadcast('%s waves goodbye again.' % \
-                                        (self.user.name,), (self.user.name,)) 
-        self.transport.write('You wave goodbye again and log out.\r\n')
-        self.logout()
-
-    def tell(self, msg):
-        self.transport.write('%s\r\n' % (msg,))
-
-    def welcome(self, user):
-        welcome = ['', user.welcome()]
-        welcome.append(user.own_info())
-        welcome.append(self.factory.command.c_version(['',], self.user))
-        welcome += utils.render_file('motd').splitlines()
-        welcome += user.deliver_messages()
-        who = self.factory.command.c_rawwho(['rawwho',], self.user)
-        welcome += [who,]
-        self.cycle_message(welcome)
-
-    def cycle_message(self, msg):
-        for m in msg:
-            self.transport.write('%s\r\n' % m)
-
-    def schedule_broadcast(self, msg):
-        self.scheduled_broadcasts.append(msg)
-
-class Simple:
-    """Protokoll für Testzwecke."""
-    def __init__(self, user_name='unknown'):
-        self.prefix = 'TELL %s:' % user_name
-        self.quiet = True
-
-    def tell(self, msg):
-        if not self.quiet:
-            print self.prefix, msg

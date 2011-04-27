@@ -21,7 +21,9 @@ class Com(Protocol):
         
     def sendMessage(self, msg):
         print 'in sendMessage with', msg
-        self.transport.write("MESSAGE %s\r\n" % msg)
+        self.transport.write('n')
+        self.transport.write("MESSAGE1\r\n%s\r\n" % msg)
+        self.transport.write("MESSAGE2\r\n%s\r\n" % msg)
         reactor.callLater(1, communicate, self)
 
     def connectionMade(self,):

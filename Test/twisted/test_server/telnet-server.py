@@ -13,7 +13,7 @@ from twisted.web import proxy, http
 #pollreactor.install()
 from twisted.internet import reactor
 from twisted.python import log
-from clip import CLIP
+from clip import TestCLIP
 
 log.startLogging(sys.stdout)
 
@@ -27,7 +27,7 @@ class Command:
         self.answer = 'hallo - ich bin der server'
 
 class ProxyFactory(http.HTTPFactory):
-    protocol = CLIP   #Echo #proxy.Proxy
+    protocol = TestCLIP   #Echo #proxy.Proxy
     numProtocols = 0
     maxProtocols = 0
     command = Command()
