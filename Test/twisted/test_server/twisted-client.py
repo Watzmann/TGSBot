@@ -8,9 +8,25 @@ from twisted.internet.protocol import Protocol, ClientFactory
 from twisted.internet import reactor
 from sys import stdout
 
+def communicate(protocol):
+    """Do a bit of manual communication with the server. Quit with a keyword."""
+    s = raw_input('give me some >> ')
+    if s.lower() in ('bye', 'exit', 'quit'):
+        reactor.stop()
+    protocol.sendMessage(s)
+
 class Com(Protocol):
     def dataReceived(self, data):
         stdout.write('RETURN: '+data)
+        
+    def sendMessage(self, msg):
+        print 'in sendMessage with', msg
+        self.transport.write("MESSAGE %s\r\n" % msg)
+        reactor.callLater(1, communicate, self)
+
+    def connectionMade(self,):
+        print 'connectionMade'
+        reactor.callLater(1, communicate, self)
 
 class ComClientFactory(ClientFactory):
     def startedConnecting(self, connector):
@@ -22,11 +38,14 @@ class ComClientFactory(ClientFactory):
 
     def clientConnectionLost(self, connector, reason):
         print 'Lost connection. Reason:', reason
-        reactor.stop()
+##        reactor.stop()
 
     def clientConnectionFailed(self, connector, reason):
         print 'Connection failed. Reason:', reason
         reactor.stop()
 
-reactor.connectTCP('localhost', 8082, ComClientFactory())
+factory = ComClientFactory()
+reactor.connectTCP('localhost', 8082, factory)
 reactor.run()
+
+#communicate(factory)

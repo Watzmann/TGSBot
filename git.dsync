@@ -130,7 +130,3 @@ only in Python.file
    f Python.file/Test/fibs/villains
    f Python.file/Test/fibs/matches
    f Python.file/Test/fibs/do_merge
-only in Python.git
-   d Python.git/.git
-   f Python.git/Test/fibs/matches.ganymed
-   f Python.git/Test/fibs/ratings.ganymed
