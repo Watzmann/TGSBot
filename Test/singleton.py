@@ -37,9 +37,11 @@ class Singleton:
 # Test it
 s1 = Singleton()
 print id(s1), s1.spam()
+setattr(s1,'affe','andreas')
 
 s2 = Singleton()
 print id(s2), s2.spam()
+print getattr(s2,'affe')
 
 # Sample output, the second (inner) id is constant:
 # 8172684 8176268

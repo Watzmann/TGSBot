@@ -10,7 +10,7 @@ from StringIO import StringIO
 from subprocess import Popen, PIPE
 from my_shelve import Shelve
 
-OFF = False
+OFF = True
 _DEBUG = True
 def DEBUG(msg, ON=True):
     if _DEBUG and ON:
@@ -427,7 +427,7 @@ show score\n"""
                             'player','pl_score','matchlength','xxx','crawford',)
 
     def __init__(self,):
-        arg = 'gnubg -t'
+        arg = 'gnubg -tq'
         DEBUG('starting gnubg', OFF)
         self.gnubg = Popen(arg,shell=True,stdin=PIPE,stdout=PIPE,stderr=PIPE)
         DEBUG('setting Pipes', OFF)
@@ -435,7 +435,7 @@ show score\n"""
         self.stdout = self.gnubg.stdout
         self.stderr = self.gnubg.stderr
         DEBUG('reading', OFF)
-        self.start_output = self.read(6)
+        self.start_output = self.start()
         DEBUG("gnubg running with '%s'" % (arg,), OFF)
         self.alive = True
         self.loaded_match = False
@@ -503,8 +503,19 @@ show score\n"""
 
     def write(self, msg):
         self.stdin.write(msg)
+ 
+    def start(self,stop="ESD"):
+        OFF = False
+        ret = []
+        while True:
+            r = self.stdout.readline()
+            ret.append(r)
+            DEBUG('##%s##' % (r,), OFF)
+            if r.startswith(stop):
+                break
+        return ret
 
-    def read(self,n=0):
+    def read(self,n=0,stop="Keine Partie"):
         #OFF = True
         ret = []
         last_line_empty = False

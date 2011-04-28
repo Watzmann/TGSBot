@@ -12,6 +12,8 @@ from el_listen import Line
 from my_matches import JavaMatches, JavaMatch, get_matches, print_opponents
 from my_matches import JavaRatings, JavaRating
 
+__TODO__=""" 1 bei opponents -v eine Summe bilden ueber alle gelisteten Gegner.
+"""
 class Opponents(JavaMatches):
 
     pass

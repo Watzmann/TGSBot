@@ -435,7 +435,7 @@ show score\n"""
         self.stdout = self.gnubg.stdout
         self.stderr = self.gnubg.stderr
         DEBUG('reading', OFF)
-        self.start_output = self.read(6)
+        self.start_output = self.read(20)
         DEBUG("gnubg running with '%s'" % (arg,), OFF)
         self.alive = True
         self.loaded_match = False
