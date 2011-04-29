@@ -1,5 +1,5 @@
 date
-svn info | grep Revision
+#svn info | grep Revision
 code_statistics/evaluate_commands | head -1
 rm -f ah.[012]
 code_statistics/lines_of_code | tail -1 | sed 's/insgesamt/lines of code/'
