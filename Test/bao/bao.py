@@ -47,11 +47,11 @@ class Strategy:
     def __init__(self, spiel):
         self.spiel = spiel
         self.zuege = {}
-        for z in self.zugliste('+'):
-            print z
-            test = copy.deepcopy(spiel)
-            test.zug(z[1],z[0])
-            self.zuege[z[2]] = test
+        for c in ('+', '-'):
+            for z in self.zugliste(c):
+                test = copy.deepcopy(spiel)
+                test.zug(z[1],z[0])
+                self.zuege[z[2]] = test
 
     def zugliste(self,c):
         return ((c,i,'%s%s' % (c,i)) for i in range(16))
@@ -59,8 +59,12 @@ class Strategy:
     def __str__(self,):
         output = StringIO.StringIO()
         for k in self.zuege:
-            print >>output, k
-            print >>output, self.zuege[k]
+            z = self.zuege[k]
+            b = z.bao[1-z.turn]
+            print >>output, k, 'Beute %d' % b.sbeute, \
+                    'Front %d' % b.front_zahl(), \
+                    'Gegners leere %d' % b.gegners_leere()
+            print >>output, z
             print >>output, '='*60
         return output.getvalue()
         
@@ -169,6 +173,7 @@ class Bao:
             loch = self.loch(idx)
             loch.add()
         beute = self.check_opposite(loch)
+        self.sbeute += beute
         self.debug_info = (loch.zahl, beute)
         loch.add(beute)
         talk('beute %s' % beute)
@@ -209,6 +214,7 @@ erfolgt.
 '+' ist im Uhrzeigersinn,
 '-' ist im Gegenuhrzeigersinn."""
         dbg("%s %s %s" % (self.name, loch, richtung))
+        self.sbeute = 0
         if self.debug:
             self.loch(loch).show(img=' 0 ')
             self.loch(loch).mark()
@@ -227,6 +233,17 @@ erfolgt.
     
     def strategy(self,):
         return self.spiel.strategy()
+
+    def front_zahl(self,):
+        return sum([self.loch(i).zahl for i in range(8)])
+
+    def gegners_leere(self,):
+        g = self.gegner
+        s = 0
+        for i in range(8):
+            if g.loch(i).zahl == 0:
+                s += 1
+        return s
 
     def show(self, img='', special=''):
         for i in self.board:
@@ -341,8 +358,8 @@ if __name__ == "__main__":
 ##    print
 ##    print spiel
 ##    print
-##    spiel.show(img=' + ', special='index')
-##    print spiel
+    spiel.show(img=' + ', special='index')
+    print spiel
     print '='*60
     print spiel.strategy()
 #    spiel.spielen()

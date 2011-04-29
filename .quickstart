@@ -1,0 +1,9 @@
+# quickstart twisted tutorial
+#
+evince Dropbox/Dokumentation/twisted-core.pdf &
+cd /var/develop/Python.file/Test/twisted/client/
+gnome-terminal --geometry=95x42
+idle twisted-client.py sibs_test_telnet_client.py ../twisted-proxy.py ../protocols.py ../Finger/finger.py &
+
+cd ..
+gnome-terminal --command="./twisted-proxy.py"

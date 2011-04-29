@@ -1,4 +1,4 @@
-#!/usr/bin/python2.5
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 u"""liest die Shelve-Datenbank <DB> aus.
     Mit 'verbose' lassen sich die Datensätze ausgeben.
