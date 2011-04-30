@@ -1,4 +1,4 @@
-#!/usr/bin/python2.5
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 u"""Stellt Einträge in 'matches'-Datei zur Verfügung."""
 
@@ -121,7 +121,7 @@ class JavaMatches(Liste):
         return ret
 
     def get_averages(self, up_to_index=0):
-        spans = (3,5,10,20,50,100)
+        spans = (3,5,10,20,50,100,1000)
         rspans = list(spans)
         spans = spans + (len(self.liste),)
         rspans.reverse()

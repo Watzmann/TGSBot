@@ -103,11 +103,11 @@ def interact():
 
     python_version = string.split(sys.version)[0]
     try:
-	pygtk_version = string.join(map(str, gtk.pygtk_version), '.')
-	gtk_version = string.join(map(str, gtk.gtk_version), '.')
+        pygtk_version = string.join(map(str, gtk.pygtk_version), '.')
+        gtk_version = string.join(map(str, gtk.gtk_version), '.')
     except:
-	pygtk_version = '0.6.x'
-	gtk_version = '1.2.x'
+        pygtk_version = '0.6.x'
+        gtk_version = '1.2.x'
 
     banner = """Python %s, PyGTK %s (Gtk+ %s)
 Interactive console to manipulate GTK+ widgets.""" % (python_version,

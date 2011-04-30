@@ -1,38 +1,16 @@
 different
-   f Python.file/Test/which_encoding.py
-   f Python.file/Test/singleton.py
-   f Python.file/Test/twisted/SIBS/game.py
-   f Python.file/Test/twisted/SIBS/states.py
-   f Python.file/Test/twisted/SIBS/version.py
-   f Python.file/Test/twisted/SIBS/sibs_utils.py
-   f Python.file/Test/twisted/SIBS/game_utilities.py
-   f Python.file/Test/twisted/SIBS/help.py
-   f Python.file/Test/twisted/SIBS/clip.py
-   f Python.file/Test/twisted/SIBS/sibs_user.py
-   f Python.file/Test/twisted/SIBS/telnet-server.py
-   f Python.file/Test/twisted/SIBS/persistency.py
-   f Python.file/Test/twisted/SIBS/command.py
-   f Python.file/Test/Sudoku/spiele.py
-   f Python.file/Test/gnubg/my_shelve.py
-   f Python.file/Test/gnubg/opponents.py
-   f Python.file/Test/gnubg/tgnubg.py
-   f Python.file/Test/gnubg/my_pickle.py
-   f Python.file/Test/gnubg/mgnubg.py
-   f Python.file/Test/gnubg/my_matches.py
-   f Python.file/Test/gnubg/gnubg.db
-   f Python.file/Test/gnubg/rating.ods
-   f Python.file/Test/gnubg/average.ods
-   f Python.file/Test/gnubg/read_shelve.py
-   f Python.file/Test/bao/bao.py
-   f Python.file/Test/gtk/pygtkconsole.py
-   f Python.file/Test/twisted/client/twisted-client1.py
-   f Python.file/Test/twisted/SIBS/resources/news
-   f Python.file/Test/twisted/SIBS/resources/motd
-   f Python.file/Test/twisted/SIBS/code_statistics/statistics
-   f Python.file/Test/twisted/twisted-proxy.py
+   f Python.file/Test/twisted/SIBS/game.py		!!!	delay
+   f Python.file/Test/twisted/SIBS/states.py		!!!	delay
+   f Python.file/Test/twisted/SIBS/version.py			Revision
+   f Python.file/Test/twisted/SIBS/sibs_utils.py		Revision
+   f Python.file/Test/twisted/SIBS/game_utilities.py		Revision
+   f Python.file/Test/twisted/SIBS/help.py			Revision
+   f Python.file/Test/twisted/SIBS/clip.py			Revision
+   f Python.file/Test/twisted/SIBS/sibs_user.py			Revision
+   f Python.file/Test/twisted/SIBS/telnet-server.py		Revision
+   f Python.file/Test/twisted/SIBS/persistency.py		Revision
+   f Python.file/Test/twisted/SIBS/command.py			Revision
 only in Python.file
-   d Python.file/SIBS
-   f Python.file/.quickstart
    d Python.file/Test/twisted/SIBS/db
    d Python.file/Test/twisted/SIBS/tmp
    d Python.file/Test/twisted/SIBS/tmp2
@@ -73,7 +51,6 @@ only in Python.file
    f Python.file/scripts/rename_ripped_mp3.py
    f Python.file/Test/twisted/Finger/twistd.log
    f Python.file/Test/twisted/Finger/twistd.pid
-   f Python.file/Test/gtk/gpython.py
    f Python.file/Test/twisted/client/sibs.stress
    f Python.file/Test/twisted/client/twisted-client-r56.py
    f Python.file/Test/twisted/client/sibs.stress.1000
@@ -109,24 +86,7 @@ only in Python.file
    f Python.file/Test/twisted/SIBS/sibstest/server.log.2.gz
    f Python.file/Test/twisted/SIBS/sibstest/dev_game.output.2.d
    f Python.file/Test/twisted/SIBS/sibstest/server.log.5
-   f Python.file/Test/bao/spiel1
-   f Python.file/Test/bao/ah
-   f Python.file/Test/bao/singleton.py
    f Python.file/Test/Logger/log.log
    f Python.file/Test/Sudoku/literally_ausprobieren.xcf
    f Python.file/Test/Sudoku/cvt_gnome_sudoku.py
    f Python.file/Test/Sudoku/sudoku.py.new
-   f Python.file/Test/fibs/ratings
-   f Python.file/Test/fibs/matches.mac
-   f Python.file/Test/fibs/villains.saturn
-   f Python.file/Test/fibs/ratings.mac
-   f Python.file/Test/fibs/friends
-   f Python.file/Test/fibs/matches.saturn
-   f Python.file/Test/fibs/friends.saturn
-   f Python.file/Test/fibs/villains.mac
-   f Python.file/Test/fibs/friends.mac
-   f Python.file/Test/fibs/ratings.saturn
-   f Python.file/Test/fibs/are_these_matches_in_matches
-   f Python.file/Test/fibs/villains
-   f Python.file/Test/fibs/matches
-   f Python.file/Test/fibs/do_merge

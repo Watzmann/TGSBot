@@ -42,5 +42,9 @@ if __name__ == "__main__":
         try:
             d = string.decode(i)
             print 'hat funktioniert mit', i
+            if options.verbose:
+                print d
         except:
             print ' schief gegangen mit', i
+            if options.verbose:
+                print d
