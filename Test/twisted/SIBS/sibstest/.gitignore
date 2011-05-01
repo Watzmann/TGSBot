@@ -1,0 +1,11 @@
+server.log*
+logs*
+dev_game.output.*
+tigergammon.server.log
+0.6-alpha
+pre-alpha
+#
+game.log.7-sleep
+greedy-analyse
+greedy-nachspielen
+structured_state_protocol

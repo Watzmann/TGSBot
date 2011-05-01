@@ -1,6 +1,0 @@
-.ignore
-.pw_data
-.production
-db
-db.*
-tmp*
