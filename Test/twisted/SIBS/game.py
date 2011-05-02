@@ -25,7 +25,6 @@ logging.basicConfig(level=logging.DEBUG,
                 format='%(name)s %(levelname)s %(message)s',
                 )
 logger = logging.getLogger('game')
-logger.setLevel(TRACE)
 
 class GamesList:        # TODO: mit UsersList in eine Klasse überführen
     """Keeps a list of active and saved games.
@@ -377,49 +376,28 @@ class Waiter:
     The action is awaken by virtue of twisted.reactor.call_later().
     """
 
-    def __init__(self, lag, name):
-        self._created = time()
-        if lag > 0.:
-            self.load_action = self.delay_action
-            self.action = self._idle
-            self.player = None
-            self.cmd = None
-            self.params = {}
-            logger.info("delay board for %s for player %s" % (lag, name))
-            self._call = reactor.callLater(lag, self._wake)
-        else:
-            logger.info("zero delay for %s for player %s" % (lag, name))
-            self.load_action = self.execute_action
-
-    def __del__(self,):
-        if not self._call is None:
-            self._call.cancel()
-
-    def _stamp(self,):
-        return time() - self._created
+    def __init__(self, lag):
+        self.load_action = self.delay_action
+        self.action = self._idle
+        self.player = None
+        self.cmd = None
+        self.params = None
+        reactor.call_later(lag, self._wake())
 
     def _wake(self,):
-        logger.log(TRACE, "[%.3f] wake (%s)" % (self._stamp(),self.action.__name__))
-        self.action(self.player, self.cmd, self.params)
+        self.action(self.player, self.cmd, **self.params)
 
     def delay_action(self, action, player, cmd, params):
-        logger.log(TRACE, "[%.3f] delay %s for %s with %s" % \
-                   (self._stamp(), action.__name__, player.name, cmd))
         self.player = player
         self.cmd = cmd
         self.params = params
         self.action = action
 
     def execute_action(self, action, player, cmd, params):
-        logger.log(TRACE, "[%.3f] execute %s for %s with %s" % \
-                   (self._stamp(), action.__name__, player.name, cmd))
-        action(player, cmd, params)
+        action(player, cmd, **params)
         
-    def _idle(self, player, cmd, params):
-        logger.log(TRACE, "[%.3f] idle for %s with %s" % \
-                   (self._stamp(), player, cmd))
+    def _idle(self, player, cmd, **params):
         self.load_action = self.execute_action
-        self._call = None
 
 class Player:
     """Player represents a player in a game/match. It supports the statemachine
@@ -442,7 +420,6 @@ class Player:
         self.color = color
         self.turn = color + 1
         self.owns_cube = owns_cube
-        self.waiter = Waiter(0., self.name)
         if not opponent is None:
             self.set_opponent(opponent)
 
@@ -466,7 +443,6 @@ class Player:
     def board_player(self,):
         """Display the board for the player."""
         boardstyle = self.user.settings.get_boardstyle()
-        self.waiter = Waiter(self.get_delay(), self.name)
         self.chat_player(self.board.show_board(self.nick, boardstyle))
         self.board_watchers(self.user, self.nick)
         logger.info("sent board to player %s and watchers" % self.name)

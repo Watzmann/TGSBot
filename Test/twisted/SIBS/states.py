@@ -53,14 +53,10 @@ class State:
     def action(self, player, cmd, **params):
         logger.info('%s: action called by %s: %s with %s' % \
                                     (self.label, player.name, cmd, params))
-                        # action is allowed, only, when state_check is passed
-        if self._state_check(player, cmd):          # .... and may be delayed
-            player.waiter.load_action(self._resume_action, player, cmd, params)
-
-    def _resume_action(self, player, cmd, params):
-        self._action(player, cmd, **params)
-        if not self.actions[cmd]['follow_up'] is None:
-            self._transit(self.actions[cmd]['follow_up'])
+        if self._state_check(player, cmd):      # action is allowed, only,
+            self._action(player, cmd, **params) # when state_check is passed
+            if not self.actions[cmd]['follow_up'] is None:
+                self._transit(self.actions[cmd]['follow_up'])
 
     def _auto_action(self,):
         """Method intended for being overwritten. _auto_action() is the last
