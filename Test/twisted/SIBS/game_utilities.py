@@ -81,7 +81,7 @@ class OX:
             self.move_schema = self.move_schema_O
             self.leave = self.leave_O
             self.reach = self.reach_O
-            self.greedy_moves = self.greedy_moves_O
+            self.greedy_moves = self.greedy_moves_O_old
             self.homeboard = (0,6)
             self.sum_home = lambda x,y: x + max(0, y)
         elif bar == 0:
@@ -169,18 +169,17 @@ class OX:
         d.sort(reverse=True)
         a,b = self.homeboard
         nr_home = abs(reduce(self.sum_home, position[a:b], 0))
+        logger.debug('OX.greedy_roll: nr_home %d' % nr_home)
         d1,d2 = d
-        if nr_home == 1:
-            d = [d1,]   # TODO: FALSCH, die frage ist doch, ob die summe zum
-                        #       bearoff reicht (also evtl. beide wuerfel
+        if d2 > d1:
+            d = [d2, d1]
         elif d1 == d2:
             d = [d1,]*4
         logger.log(TRACE, 'greedy roll: %s' % (d,))
         return d
 
-    def greedy_moves_O(self, dice, position):
+    def greedy_moves_O_old(self, dice, position):
         """O is positiv and runs towards the 0."""
-        # TODO: wie sind die Regeln fuer greedy?????s
         moves = []
         dd = self.greedy_roll(dice, position)
         for d in dd:
@@ -204,6 +203,38 @@ class OX:
 ##            moves = ['%d-%d' % (d1+d2,d1), '%d-0' % d1]   ????
                 # TODO: denk an Contact!
                 # TODO: gibt es beim long move waste????
+        return moves
+        
+    def greedy_moves_O(self, dice, position):
+        """O is positiv and runs towards the 0."""
+        # Die Regeln fuer greedy:
+        #   not pasch:
+        #     bearoff 2, two or more checker in home
+        #     - both dice can be born off by value
+        #     - one dice can be born off by value,
+        #       scnd checker because pips are greater than highest field
+        #     - both checker because pips are greater than highest field
+        #     bearoff 1, two or more checker in home
+        #     - 
+        moves = []
+        dd = self.greedy_roll(dice, position)
+        if len(dd) == 4:
+            return self.greedy_moves_O_pasch(dd)
+        if 
+        for d in dd:
+            logger.debug('in greedy_moves_O   die %d' % d)
+            if position[d-1] > 0:            # point is available
+                moves.append('%d-0' % d)
+                position[d-1] -= 1
+            elif not reduce(self.sum_home, position[d:6], 0):
+                r = d
+                while r > 0:
+                    r -= 1
+                    logger.debug('checking  die %d on r %d' % (d,r))
+                    if position[r] > 0:            # point is available
+                        moves.append('%d-0' % (r+1,))
+                        position[r] -= 1
+                        break
         return moves
         
     def greedy_moves_X(self, dice, position):
