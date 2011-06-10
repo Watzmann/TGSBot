@@ -220,7 +220,7 @@ class OX:
         dd = self.greedy_roll(dice, position)
         if len(dd) == 4:
             return self.greedy_moves_O_pasch(dd)
-        if 
+        #if 
         for d in dd:
             logger.debug('in greedy_moves_O   die %d' % d)
             if position[d-1] > 0:            # point is available
