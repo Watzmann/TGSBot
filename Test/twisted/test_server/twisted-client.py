@@ -8,17 +8,11 @@ from twisted.internet.protocol import Protocol, ClientFactory
 from twisted.internet import reactor
 from sys import stdout
 
-# nächster schritt:
-# server aufsetzen, auf den von außen messages gesetzt werden können, die
-# der client dann weiter schickt
-# (alternative wär dann über den äußeren server per 'tell <message>'
-
 def communicate(protocol):
     """Do a bit of manual communication with the server. Quit with a keyword."""
     s = raw_input('give me some >> ')
     if s.lower() in ('bye', 'quit'):
-        reactor.stop()   # so geht's nicht - muss protocol.stop()
-                        # und das macht transport.loseConnection()
+        protocol.dropConnection()
     protocol.sendMessage(s)
 
 class Com(Protocol):
@@ -36,6 +30,10 @@ class Com(Protocol):
         print 'connectionMade'
         reactor.callLater(1, communicate, self)
 
+    def dropConnection(self,):
+        print 'dropConnection'
+        self.transport.loseConnection()
+
 class ComClientFactory(ClientFactory):
     def startedConnecting(self, connector):
         print 'Started to connect.'
@@ -46,7 +44,7 @@ class ComClientFactory(ClientFactory):
 
     def clientConnectionLost(self, connector, reason):
         print 'Lost connection. Reason:', reason
-##        reactor.stop()
+        reactor.stop()
 
     def clientConnectionFailed(self, connector, reason):
         print 'Connection failed. Reason:', reason
