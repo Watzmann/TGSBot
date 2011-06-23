@@ -24,3 +24,7 @@ if __name__ == '__main__':
     for s in examples:
         r = s.decode('utf-8').encode('latin-1')
         print s, '->', my_lower(r)
+    f = open('/home/andreas/test.encoding')
+    string = f.readline()
+    f.close()
+    print string.decode('latin-1'), '->', my_lower(string)
