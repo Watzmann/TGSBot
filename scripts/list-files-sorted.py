@@ -59,7 +59,7 @@ class ListOfFiles:
         return self.fileList
 
 def usage(progname):
-    usg = """usage: %s <file>
+    usg = u"""usage: %s <file>
   %s
 
   <file>    file containing list of files
@@ -68,19 +68,19 @@ def usage(progname):
     parser = OptionParser(usg)
     parser.add_option("-V", "--version",
                   action="store_true", dest="version", default=False,
-                  help="print version info, todos and exit")
+                  help=u"print version info, todos and exit")
     parser.add_option("-v", "--verbose",
                   action="store_true", dest="verbose", default=False,
-                  help="print status messages to stdout")
+                  help=u"print status messages to stdout")
     parser.add_option("-n", "--noisy",
                   action="store_true", dest="noisy", default=False,
-                  help="print details to stdout")
+                  help=u"print details to stdout")
     parser.add_option("-r", "--reverse",
                   action="store_true", dest="reverse", default=False,
-                  help="print list in reverse order")
+                  help=u"print list in reverse order")
     parser.add_option("-d", "--date",
                   action="store_true", dest="sort", default=False,
-                  help="sort list of files by date")
+                  help=u"sort list of files by date")
     return parser,usg
 
 if __name__ == "__main__":
