@@ -5,15 +5,30 @@ Basiert auf client/twisted-client1.py. Das Reconnecting-Zeugs ist raus.
 """
 
 from twisted.internet.protocol import Protocol, ClientFactory
-from twisted.internet import reactor
+from twisted.internet import reactor, defer
 from sys import stdout
+import random
+
+MESSAGES = ('shout ' + 'Ich bin heute mal hier!',
+            'shout ' + 'Ist Gustav da?',
+            'shout ' + 'Do you have a cookie?',
+            'shout ' + 'Where is Patti?',
+            'shout ' + 'Spielt jemand mit mir',
+            )
 
 def communicate(protocol):
     """Do a bit of manual communication with the server. Quit with a keyword."""
+    protocol.waiting_for_input = True
     s = raw_input('give me some >> ')
+    protocol.waiting_for_input = False
     if s.lower() in ('bye', 'quit'):
         protocol.dropConnection()
     protocol.sendMessage(s)
+
+def randomMessage(protocol):
+    """Do a bit of random communication with the server."""
+    msg = random.choice(MESSAGES)
+    protocol.sendMessage(msg)
 
 class Com(Protocol):
     def dataReceived(self, data):
@@ -21,14 +36,15 @@ class Com(Protocol):
         
     def sendMessage(self, msg):
         print 'in sendMessage with', msg
-        self.transport.write('n')
-        self.transport.write("MESSAGE1\r\n%s\r\n" % msg)
-        self.transport.write("MESSAGE2\r\n%s\r\n" % msg)
-        reactor.callLater(1, communicate, self)
+        self.transport.write(msg + '\r\n')
+        reactor.callLater(1, randomMessage, self)
+        if not self.waiting_for_input:
+            reactor.callLater(0.1, communicate, self)
 
     def connectionMade(self,):
         print 'connectionMade'
-        reactor.callLater(1, communicate, self)
+        reactor.callLater(0.2, randomMessage, self)
+        reactor.callLater(0.1, communicate, self)
 
     def dropConnection(self,):
         print 'dropConnection'
