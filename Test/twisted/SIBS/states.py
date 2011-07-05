@@ -19,7 +19,7 @@ logging.basicConfig(level=logging.INFO,
                 format='%(name)s %(levelname)s %(message)s',
                 )
 logger = logging.getLogger('states')
-logger.setLevel(TRACE)
+logger.setLevel(logging.DEBUG)
 
 class State:
     """Base class for states in this state machine."""
