@@ -25,6 +25,7 @@ logging.basicConfig(level=logging.DEBUG,
                 format='%(name)s %(levelname)s %(message)s',
                 )
 logger = logging.getLogger('game')
+logger.setLevel(logging.DEBUG)
 
 class GamesList:        # TODO: mit UsersList in eine Klasse überführen
     """Keeps a list of active and saved games.
