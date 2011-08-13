@@ -169,12 +169,15 @@ class OX:
         d.sort(reverse=True)
         a,b = self.homeboard
         nr_home = abs(reduce(self.sum_home, position[a:b], 0))
+        # TODO is it possible, nr_home is used only for debug?
         logger.debug('OX.greedy_roll: nr_home %d' % nr_home)
         d1,d2 = d
+        self.is_pasch = False
         if d2 > d1:
             d = [d2, d1]
         elif d1 == d2:
             d = [d1,]*4
+            self.is_pasch = True
         logger.log(TRACE, 'greedy roll: %s' % (d,))
         return d
 
@@ -208,35 +211,65 @@ class OX:
     def greedy_moves_O(self, dice, position):
         """O is positiv and runs towards the 0."""
         # Die Regeln fuer greedy:
+        #                   (no forced moves!!)
         #   not pasch:
-        #     bearoff 2, two or more checker in home
-        #     - both dice can be born off by value
-        #     - one dice can be born off by value,
-        #       scnd checker because pips are greater than highest field
-        #     - both checker because pips are greater than highest field
-        #     bearoff 1, two or more checker in home
-        #     - 
-        moves = []
+        #     bearoff 2
+        #     - both dice can be born off by value (2==)
+        #     (forced) - one dice can be born off by value,
+        #     (forced)   scnd checker because pips are greater than highest field
+        #     (forced) - both checker because pips are greater than highest field
+        #     bearoff 1, one checker is exactly the sum of pips
+        #     - long move where d1+d2 is a checker
+        #
         dd = self.greedy_roll(dice, position)
-        if len(dd) == 4:
-            return self.greedy_moves_O_pasch(dd)
-        #if 
-        for d in dd:
-            logger.debug('in greedy_moves_O   die %d' % d)
-            if position[d-1] > 0:            # point is available
-                moves.append('%d-0' % d)
-                position[d-1] -= 1
-            elif not reduce(self.sum_home, position[d:6], 0):
-                r = d
-                while r > 0:
-                    r -= 1
-                    logger.debug('checking  die %d on r %d' % (d,r))
-                    if position[r] > 0:            # point is available
-                        moves.append('%d-0' % (r+1,))
-                        position[r] -= 1
-                        break
-        return moves
-        
+        if self.pasch:
+            return self.greedy_pasch_moves_O(dd[0])
+        logger.debug('in greedy_moves_O  no pasch  dice %s' % dd)
+        d1,d2 = dd
+        if position[d1-1] > 0 and position[d2-1] > 0:   # points are available
+            moves = ['%d-0' % d1, '%d-0' % d2]
+            logger.debug('greedy_moves_O:  2==  %s' % moves)
+            return moves
+        if position[d1-1] < 1 and position[d2-1] < 1:   # points not available
+            if position[d1+d2-1] > 0:                   # long move possible
+                if not position[d2-1] < 0:
+                    moves = ['%d-%d' % (d1+d2,d2), '%d-0' % d2]
+                    logger.debug('greedy_moves_O:  0==  %s' % moves)
+                elif not position[d1-1] < 0:
+                    moves = ['%d-%d' % (d1+d2,d1), '%d-0' % d1]
+                    logger.debug('greedy_moves_O:  0==  %s' % moves)
+                else:
+                    moves = []
+                    logger.debug('greedy_moves_O:  0==  blocked')
+                return moves
+
+    def greedy_pasch_moves_O(self, pips):
+        """O is positiv and runs towards the 0."""
+        # Die Regeln fuer greedy:
+        #                   (no forced moves!!)
+        #   pasch:
+        #     bearoff 4
+        #     - 4 dice can be born off by value (4==)
+        #     bearoff 3
+        #     - 3 dice can be born off by value (2==), 1 checker is 2*pips
+        #     bearoff 2
+        #     - (0==), 2 checkers are 2*pips
+        #
+        logger.debug('in greedy_pasch_moves_O  pasch  dice %s' % pips)
+        if position[pips-1] > 3:                                # 4==
+            moves = ['%d-0' % pips,] * 4
+            logger.debug('greedy_pasch_moves_O:  4==  %s' % moves)
+            return moves
+        if position[pips-1] > 1 and position[2*pips-1] > 0:     # 2== + 2*
+            moves = ['%d-0' % pips,] * 2
+            moves.append(['%d-%d' % (2*pips,pips), '%d-0' % pips])
+            logger.debug('greedy_pasch_moves_O:  2== + 2* %s' % moves)
+            return moves
+        if position[2*pips-1] > 1:                              # 2* 2*
+            moves = ['%d-%d' % (2*pips,pips), '%d-0' % pips] * 2
+            logger.debug('greedy_pasch_moves_O:  2* 2* %s' % moves)
+            return moves
+
     def greedy_moves_X(self, dice, position):
         """X is negativ and runs towards the 25."""
         moves = []
