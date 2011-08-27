@@ -87,10 +87,12 @@ class CLIP(Echo):
         if self.buffer.endswith('\n'):
             d = self.buffer
             self.buffer = ''
-            ds = d.rstrip('\r\n')
             if hasattr(self, 'user') and not self.user is None:
                 self.user.status.stamp()
-            self.myDataReceived(ds)
+            for dp in d.split('\n'):
+                ds = dp.rstrip('\r\n')
+                if ds:
+                    self.myDataReceived(ds)
         
     def established(self, data):    # TODO: this is the proper place to
                                     #       differenciate between administrator
