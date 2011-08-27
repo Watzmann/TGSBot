@@ -3,3 +3,8 @@ db.*
 tmp*
 .pw_data
 ah*
+#
+fibstest/spoof.bug-bots.log
+git.dsync
+sibstest/check_rolls
+

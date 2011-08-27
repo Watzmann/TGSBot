@@ -25,7 +25,8 @@ logger = logging.getLogger('users')
 
 DB_Users = 'db/users'
 RESERVED_Users = ('guest', 'systemwart', 'administrator',
-                  'sorrytigger', 'tigger', 'watzmann', 'tigergammon', 'tiga')
+                  'sorrytigger', 'tigger', 'watzmann', 'tigergammon', 'tiga',
+		  'vegas_vic',)
 ## TODO: RESERVED_Users gehören nicht in OpenSource
 
 class UsersList:        # TODO: als Singleton ausführen
@@ -33,8 +34,16 @@ class UsersList:        # TODO: als Singleton ausführen
         self.list_of_active_users = {}
         self.db = all_users = Db(DB_Users, 'users').db  # TODO: hier so an der
                             #   PersistenzKlasse vorbeizuangeln ist schon krass!
-        self.list_of_all_users = dict([(k,self.restore(all_users[k])) \
-                                       for k in all_users.keys()])
+        alle_leute = all_users.keys()
+        #self.list_of_all_users = dict([(k,self.restore(all_users[k])) for k in alle_leute])
+        volle_liste = []
+        for k in alle_leute:
+            try:
+                d = self.restore(all_users[k])
+                volle_liste.append((k,d))
+            except:
+                logger.error('could not load %s' % k)
+        self.list_of_all_users = dict(volle_liste)
 ##        for e,k in enumerate(all_users.keys()):
 ##            print e,k
 ##            print all_users[k]
