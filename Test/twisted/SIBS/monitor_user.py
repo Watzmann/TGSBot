@@ -14,7 +14,8 @@ def list_all(keys, db, options):
     print 'Users entries'
 
     if verbose:
-        print '   ',db.db.values()[0].toggles.keys()
+        first_entry = db.db.keys()[0]
+        print '   ',db.db[first_entry].toggles.keys()
 
     e = 1
     for k in keys:
@@ -131,16 +132,23 @@ if __name__ == '__main__':
     print keys
     e = 1
     for k in keys:
-        if db.db.has_key(k) and \
-               consider(db.db[k], options.show_test, options.hide_test):
-            additional = ''
-            if options.show_data:
-                v = db.db[k]
-                for s in options.show_data.split(','):
-                    a = getattr(v, s, None)
-                    additional += str(a) + ' '
-            print e, k, additional
-            e += 1
+        if db.db.has_key(k):
+            try:
+                data = db.db[k]
+            except:
+                print 'ERROR occurred when reading %s' % k
+            else:
+                if consider(data, options.show_test, options.hide_test):
+                    additional = ''
+                    if options.show_data:
+                        v = db.db[k]
+                        for s in options.show_data.split(','):
+                            a = getattr(v, s, None)
+                            additional += str(a) + ' '
+                    print e, k, additional
+                    e += 1
+        else:
+            print 'Warning: key /%s/ not found in DB' % k
 
     if options.list_show:
         list_all(keys, db, options)
