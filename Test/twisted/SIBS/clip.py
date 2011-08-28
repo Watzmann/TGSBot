@@ -135,9 +135,14 @@ class CLIP(Echo):
                     if self.user.online():
                         self.transport.write(
                             "** Warning: You are already logged in.\r\n")
-                        del self.user
-                        self.dropConnection('user is already logged in')
-                    else:
+                        if self.user.tried_second_login():
+                            print 'disconnecting',self.user.name,'for second login'
+                            self.user.disconnect_hard()
+                            self.user = getUser(**kw)
+                            self.user.set_second_login(0)
+                        else:
+                            self.user.set_second_login(1)
+                    if not self.user.online():
                         self.user.set_protocol(self)
                         self.user.set_login_data(self.login_time,
                                                  self.client_host)

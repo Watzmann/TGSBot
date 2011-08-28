@@ -634,9 +634,19 @@ class User(Persistent):
         self.db_key = self.name.lower()
         self.db_load = self.info
         self.watchers = {}
+        self.nr_of_logins = 0
 
     def set_protocol(self, protocol):
         self.protocol = protocol
+
+    def disconnect_hard(self,):
+        self.protocol.dropConnection('hard disconnect')
+
+    def tried_second_login(self,):
+        return self.nr_of_logins
+
+    def set_second_login(self, cnt):
+        self.nr_of_logins = cnt
 
     def check_password(self, password):
         return self.info.passwd == password
