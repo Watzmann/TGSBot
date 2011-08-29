@@ -223,15 +223,29 @@ als Datencontainer dienen."""
         # TODO: this could be changed to record multiple games between 2 players
         logger.info('saving game: %s' % gid)
 
-    def blind(self, user):
-        """blind() is used for persisting blinded users."""
-        self.blinded.append(user)
-        logger.info('blinding: %s' % user)
-
     def gag(self, user):
         """gag() is used for persisting gagged users."""
-        self.gagged.append(user)
-        logger.info('gagging: %s' % user)
+        if user in self.gagged:
+            self.gagged.remove(user)
+            logger.info('ungagging: %s' % user)
+            msg = "** You ungag %s" % user
+        else:
+            self.gagged.append(user)
+            logger.info('gagging: %s' % user)
+            msg = "** You gag %s" % user
+        return msg
+
+    def blind(self, user):
+        """blind() is used for persisting blinded users."""
+        if user in self.blinded:
+            self.blinded.remove(user)
+            logger.info('unblinding: %s' % user)
+            msg = "** You unblind %s" % user
+        else:
+            self.blinded.append(user)
+            logger.info('blinding: %s' % user)
+            msg = "** You blind %s" % user
+        return msg
 
     def show(self,):
         out = StringIO()
@@ -969,6 +983,28 @@ class User(Persistent):
             w.unset_watching(forced=True)
         self.watchers = {}
 
+    def gag(self, user):
+        msg = self.info.gag(user)
+        self.save('user.gag')
+        return msg
+
+    def show_gagged(self,):
+        if len(self.info.gagged):
+            return "** Gagged users: " + ','.join(self.info.gagged)
+        else:
+            return "** Gagged users: none"
+
+    def blind(self, user):
+        msg = self.info.blind(user)
+        self.save('user.blind')
+        return msg
+
+    def show_blinded(self,):
+        if len(self.info.blinded):
+            return "** Blinded users: " + ','.join(self.info.blinded)
+        else:
+            return "** Blinded users: none"
+    
     def welcome(self,):
         info = self.info
         return '1 %s %s %s' % (self.name, info.last_login, info.last_host)
@@ -991,6 +1027,7 @@ class User(Persistent):
                                         (self.name,), (self.name,)) 
             return 'You wave goodbye.'
         else:
+            self._waves = 0
             self.protocol.wave_and_logout()
 
     def update_who(self, user):   # TODO: das sollte zentrale Funktion sein,
@@ -1026,6 +1063,12 @@ class User(Persistent):
 
     def is_ready(self,):
         return self.ready()     # TODO - noch zu unsicher: status.get_readyflag()
+
+    def is_gagged(self, name):
+        return name in self.info.gagged
+
+    def is_blinded(self, name):
+        return name in self.info.blinded
 
     def online(self,):
         online = self.status.is_online()

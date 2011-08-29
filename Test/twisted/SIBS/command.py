@@ -100,16 +100,38 @@ class Command():
             return "Don't know user %s" % name
         else:
             me.send_message(user, msg)
+            # TODO: complete message alltogether
 
     def c_waitfor(self, line, me):
         return '** waitfor %s' % NYI
 
     def c_gag(self, line, me):
-        return '** gag %s' % NYI
+        arglen = len(line)
+        if arglen == 1:
+            return me.show_gagged()
+        else:
+            name = line[1]
+            user = self.list_of_users.get_active(name, None)
+            if user is None:
+                return "** There is no one called '%s'" % name
+            elif name == me.name:
+                return "** You talk too much, don't you?"                
+            else:
+                return me.gag(name)
 
     def c_blind(self, line, me):
-        return '** blind %s' % NYI
-
+        arglen = len(line)
+        if arglen == 1:
+            return me.show_blinded()
+        else:
+            name = line[1]
+            user = self.list_of_users.get_active(name, None)
+            if user is None:
+                return "** There is no one called '%s'" % name
+            elif name == me.name:
+                return "** You can't read this message now, can you?"                
+            else:
+                return me.blind(name)
 
 # ----------------------------------------  Between Game Actions
 
