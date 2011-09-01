@@ -167,9 +167,9 @@ class UsersList:        # TODO: als Singleton ausführen
         for u in self.get_active_toggled_users('report', True):
             u.chat(msg)
 
-    def shouts(self, msg, exceptions=[]):
+    def shouts(self, msg, name, exceptions=[]):
         for u in self.get_active_toggled_users('silent', False):
-            if u.name in exceptions:
+            if (u.name in exceptions) or u.is_gagged(name):
                 continue
             u.chat(msg)
 
@@ -738,7 +738,8 @@ class User(Persistent):
         self.chat('** %s heard you.' % users)
 
     def tell(self, user, msg):
-        user.chat('12 %s %s' % (self.name, msg))
+        if not self.info.special == 'banned':
+            user.chat('12 %s %s' % (self.name, msg))
         self.chat('16 %s %s' % (user.name, msg))
 
     def say(self, user, msg):
@@ -748,8 +749,10 @@ class User(Persistent):
     def shout(self, msg):
         shout = '13 %s %s' % (self.name, msg)
         tw_log.msg(shout)
-        self.shouts(shout, exceptions=(self.name,))
         self.chat('17 %s' % (msg))
+        if not self.info.special == 'banned':
+            excpt = self.info.gagged + [self.name,]
+            self.shouts(shout, self.name, exceptions=excpt)
 
     def deliver_messages(self,):
         """Delivers messages when user logs in"""
@@ -866,6 +869,7 @@ class User(Persistent):
             self.status.playing(iaj)
             rml = 'Your running match was loaded.'
             self.chat('%s has joined you. %s' % (iaj.name, rml))
+            # TODO hier fehlt ein blind (spez watch)
             watchers_msg = '%s and %s are resuming their %s point match'
             game_report = watchers_msg % (self.name, iaj.name, ML)
             self.chat_watchers(game_report)
@@ -890,6 +894,7 @@ class User(Persistent):
             self.status.playing(iaj)
             self.chat('** Player %s has joined you for a %s point match' % \
                                                                 (iaj.name, ML))
+            # TODO hier fehlt ein blind (spez watch)
             watchers_msg = '%s and %s start a %s point match'
             game_report = watchers_msg % (self.name, iaj.name, ML)
             self.chat_watchers(game_report)

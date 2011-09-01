@@ -79,9 +79,14 @@ class Command():
         msg = ' '.join(line[2:])
         user = self.list_of_users.get_active(name, None)
         if user is None:
-            return '%s is not here' % name
-        else:
-            me.tell(user, msg)
+            return '** There is no one called %s' % name
+        elif user.is_gagged(me.name):
+            return "** %s won't listen to you." % name
+        elif me.is_gagged(name):
+            return "** You can't talk if you won't listen."
+        elif name == me.name:
+            msg = "You say to yourself: %s" % msg
+        me.tell(user, msg)
 
     def c_say(self, line, me):              # implemented
         game, player = self.list_of_games.get_game_from_user(me)
@@ -200,15 +205,18 @@ class Command():
         if len(line) < 2:
             return "** Watch who?"
         user = line[1]
-        if user is me.name:
+        if user == me.name or me.info.special == 'banned':
             return "** Use a mirror to do that."
         him = self.list_of_users.get_active(user)
         if him is None:
             return "** There's no one called %s." % user
+        if him.is_blinded(me.name):
+            return "** %s doesn't want you to watch." % him.name
+        if him.is_playing and him.status.opponent.is_blinded(me.name):
+            return "** %s doesn't want you to watch." % him.status.opponent.name
         ret = "You're now watching %s" % user
         if not him.is_playing():
             ret += '\n%s is not doing anything interesting.' % user
-        # TODO: blinded fehlt
         him.watch(me)
         return ret
 
@@ -229,6 +237,10 @@ class Command():
         him = self.list_of_users.get_active(user)
         if him is None:
             return "** There's no one called %s." % user
+        if him.is_blinded(me.name):
+            return "** %s doesn't want you to look." % him.name
+        if him.is_playing and him.status.opponent.is_blinded(me.name):
+            return "** %s doesn't want you to look." % him.status.opponent.name
         if not him.is_playing():
             return '%s is not playing.' % user
         # TODO: blinded fehlt
