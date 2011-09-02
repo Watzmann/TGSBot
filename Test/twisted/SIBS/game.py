@@ -718,7 +718,7 @@ class GameControl:
                     self.bar[player], self.direction[player], ox)
             self.pieces = ret['nr_pieces']
         self.set_move()     # self.pieces wurde hier verändert, daher set_move()
-        if bear_off and player_obj.user.greedy_bearoff():
+        if bear_off and False: #player_obj.user.greedy_bearoff():
             ret.update(game_utilities.greedy(dice, self.position, ox))
         logger.debug('noch mal check_roll: %s   ' % ret)
         return ret
