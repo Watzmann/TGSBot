@@ -9,7 +9,7 @@ REV = '$Revision$'
 import time
 from twisted.internet.protocol import Protocol
 ##from twisted.python import log                TODO: logging
-from sibs_user import getUser, dropUser, isUser, newUser, RESERVED_Users
+from sibs_user import getUser, dropUser, isUser, newUser
 import sibs_utils as utils
 from command import ZONEINFO
 from version import Version
@@ -201,7 +201,8 @@ class CLIP(Echo):
             elif d[0] == 'name' and len(d) > 1:
                 name = d[1]
                 print "trying '%s'" % name      # TODO: das Folgende auslagern nach lou
-                if (name in RESERVED_Users) or \
+                reserved = utils.render_file('reserved').splitlines()
+                if (name in reserved) or \
                    (not self.factory.active_users.get_from_all(name) is None):
                     msg = "** Please use another name. '%s' is already " \
                             "used by someone else." % name

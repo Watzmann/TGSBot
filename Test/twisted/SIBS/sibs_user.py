@@ -24,10 +24,6 @@ logging.basicConfig(level=logging.INFO,
 logger = logging.getLogger('users')
 
 DB_Users = 'db/users'
-RESERVED_Users = ('guest', 'systemwart', 'administrator',
-                  'sorrytigger', 'tigger', 'watzmann', 'tigergammon', 'tiga',
-		  'vegas_vic',)
-## TODO: RESERVED_Users gehören nicht in OpenSource
 
 class UsersList:        # TODO: als Singleton ausführen
     def __init__(self,):
