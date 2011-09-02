@@ -654,6 +654,7 @@ class User(Persistent):
         self.protocol = protocol
 
     def disconnect_hard(self,):
+        self.chat('** You are disconnected.')
         self.protocol.dropConnection('hard disconnect')
 
     def tried_second_login(self,):

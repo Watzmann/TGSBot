@@ -17,6 +17,7 @@ from twisted.internet import reactor
 from twisted.python import log
 from clip import CLIP
 from command import Command
+from administration import Service
 from sibs_user import UsersList
 from game import GamesList
 from version import Version
@@ -46,6 +47,7 @@ class ProxyFactory(http.HTTPFactory):
     active_users = UsersList()
     active_games = GamesList()
     command = Command(active_users, active_games)
+    administration = Service(active_users, active_games)
 
     def __del__(self,):
         print 'ProxyFactory.__del__: shutting down users database'
@@ -61,14 +63,25 @@ class ProxyFactory(http.HTTPFactory):
     def decNumProtocols(self,):
         self.numProtocols -= 1
 
-    def parse(self, data, me):
-        c = self.command
+    def service(self, data, protocol):
         a = data.split()
         ret = ''
         if len(a) > 0:
-##            print 'parsing',a
             time_before = time.time()
-            cmd = c.command(a[0])
+            cmd = self.administration.command(a[0])
+            ret = cmd(a, protocol)
+            time_after = time.time()
+            print 'got', ret
+            print 'time used for administration %s: %f sec (%d users)' % \
+              (a[0], time_after - time_before, self.active_users.nr_logged_in())
+        return ret
+        
+    def parse(self, data, me):
+        a = data.split()
+        ret = ''
+        if len(a) > 0:
+            time_before = time.time()
+            cmd = self.command.command(a[0])
             ret = cmd(a, me)
             time_after = time.time()
             print 'got', ret

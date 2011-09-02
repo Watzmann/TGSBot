@@ -232,7 +232,7 @@ class Command():
         if len(line) < 2:
             return "** Look at who?"
         user = line[1]
-        if user is me.name:
+        if user is me.name or me.info.special == 'banned':
             return "You look great."
         him = self.list_of_users.get_active(user)
         if him is None:
@@ -243,7 +243,6 @@ class Command():
             return "** %s doesn't want you to look." % him.status.opponent.name
         if not him.is_playing():
             return '%s is not playing.' % user
-        # TODO: blinded fehlt
         board = me.settings.get_boardstyle()
         game, player = self.list_of_games.get_game_from_user(him)
         if game is None:        # playing safe: game might just have ended

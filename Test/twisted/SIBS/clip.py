@@ -104,7 +104,15 @@ class CLIP(Echo):
             self.transport.write('%s\r\n' % (result,))
             for b in self.scheduled_broadcasts:
                 self.factory.broadcast(b)
-            self.scheduled_broadcasts = []      # TODO: wird hier viel garbage erzeugt??
+            self.scheduled_broadcasts = []      # TODO: besser in call_later???
+
+    def service(self, data):
+        """The part, where the administrator comes in."""
+        print 'admin says:', data
+        result = self.factory.service(data, self)
+        if not result is None:
+            self.transport.write('%s\r\n' % (result,))
+        self.transport.write('# ')
 
     def authentication(self, data):
         self.login_time = int(time.time())
@@ -265,6 +273,8 @@ class CLIP(Echo):
         if data == key:
             print 'admitted'
             self.transport.write('hello sir :)\r\n')
+            self.myDataReceived = self.service
+            self.transport.write('# ')
             success = True
         else:
             print key + '<'
