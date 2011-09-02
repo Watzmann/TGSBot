@@ -110,7 +110,7 @@ class Command():
     def c_waitfor(self, line, me):
         return '** waitfor %s' % NYI
 
-    def c_gag(self, line, me):
+    def c_gag(self, line, me):              # implemented
         arglen = len(line)
         if arglen == 1:
             return me.show_gagged()
@@ -124,7 +124,7 @@ class Command():
             else:
                 return me.gag(name)
 
-    def c_blind(self, line, me):
+    def c_blind(self, line, me):            # implemented
         arglen = len(line)
         if arglen == 1:
             return me.show_blinded()
