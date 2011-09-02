@@ -16,6 +16,7 @@ from twisted.web import proxy, http
 from twisted.internet import reactor
 from twisted.python import log
 from clip import CLIP
+import sibs_utils as utils
 from command import Command
 from administration import Service
 from sibs_user import UsersList
@@ -48,6 +49,7 @@ class ProxyFactory(http.HTTPFactory):
     active_games = GamesList()
     command = Command(active_users, active_games)
     administration = Service(active_users, active_games)
+    IPs = {}
 
     def __del__(self,):
         print 'ProxyFactory.__del__: shutting down users database'
@@ -62,6 +64,17 @@ class ProxyFactory(http.HTTPFactory):
  
     def decNumProtocols(self,):
         self.numProtocols -= 1
+
+    def denyIP(self, IP):
+        ips = utils.render_file('blockedIPs').splitlines()
+        if IP in ips:
+            return True
+        if IP in self.IPs:
+            self.IPs[IP] += 1
+            return self.IPs[IP] > 10
+        else:
+            self.IPs[IP] = 1
+            return False
 
     def service(self, data, protocol):
         a = data.split()

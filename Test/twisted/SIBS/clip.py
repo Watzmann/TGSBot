@@ -58,6 +58,9 @@ class CLIP(Echo):
     def connectionMade(self):
         Echo.connectionMade(self,)
         self.client_host = self.transport.hostname
+        if self.factory.denyIP(self.client_host):
+            Echo.dropConnection(self, "%s did not pass IP Filter" % \
+                                                        self.client_host)
         msg = utils.render_file('intro').splitlines()
         msg += [ZONEINFO.long_time(zone='MET'),]
         self.cycle_message(msg)
