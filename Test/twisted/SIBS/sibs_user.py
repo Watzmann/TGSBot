@@ -744,12 +744,15 @@ class User(Persistent):
         self.chat('16 %s %s' % (user.name, msg))
 
     def shout(self, msg):
-        shout = '13 %s %s' % (self.name, msg)
-        tw_log.msg(shout)
         self.chat('17 %s' % (msg))
         if not self.info.special == 'banned':
+            shout = '13 %s %s' % (self.name, msg)
             excpt = self.info.gagged + [self.name,]
             self.shouts(shout, self.name, exceptions=excpt)
+            tw_log.msg(shout)
+        else:
+            shout = '13 (blocked) %s %s' % (self.name, msg)
+            tw_log.msg(shout)
 
     def deliver_messages(self,):
         """Delivers messages when user logs in"""
