@@ -21,6 +21,9 @@ class Service():
 
 # ----------------------------------------  Other Commands
 
+    def a_help(self, line, protocol):
+        return '%s' % self.list_implemented()
+
     def a_kick(self, line, protocol):
         arglen = len(line)
         if arglen == 1:
@@ -41,7 +44,7 @@ class Service():
 
 # ----------------------------------------  ====================
 
-    def unknown(self, line):
+    def unknown(self, line, protocol):
         return "** Unknown administrative command: '%s'" % line[0]
 
     def command(self, cmd):

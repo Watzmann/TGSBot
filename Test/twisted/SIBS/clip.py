@@ -8,6 +8,7 @@ REV = '$Revision$'
 
 import time
 from twisted.internet.protocol import Protocol
+from twisted.internet import reactor
 ##from twisted.python import log                TODO: logging
 from sibs_user import getUser, dropUser, isUser, newUser
 import sibs_utils as utils
@@ -59,12 +60,19 @@ class CLIP(Echo):
         Echo.connectionMade(self,)
         self.client_host = self.transport.hostname
         if self.factory.denyIP(self.client_host):
-            Echo.dropConnection(self, "%s did not pass IP Filter" % \
-                                                        self.client_host)
-        msg = utils.render_file('intro').splitlines()
-        msg += [ZONEINFO.long_time(zone='MET'),]
-        self.cycle_message(msg)
-        self.transport.write('login: ')
+            print 'denying access to', self.client_host
+            self.myDataReceived = self.do_nothing
+            reactor.callLater(21,
+                Echo.dropConnection, self,
+                "%s did not pass IP Filter" % self.client_host)
+        else:
+            msg = utils.render_file('intro').splitlines()
+            msg += [ZONEINFO.long_time(zone='MET'),]
+            self.cycle_message(msg)
+            self.transport.write('login: ')
+            self.login_timeout = reactor.callLater(60,
+                Echo.dropConnection, self,
+                "%s timed out during login." % self.client_host)
 
     def dropConnection(self, reason):
         user = getattr(self, 'user', None)
@@ -117,6 +125,9 @@ class CLIP(Echo):
             self.transport.write('%s\r\n' % (result,))
         self.transport.write('# ')
 
+    def do_nothing(self, data):
+        pass
+
     def authentication(self, data):
         self.login_time = int(time.time())
         success = False
@@ -132,6 +143,7 @@ class CLIP(Echo):
             self.cycle_message(welcome)
             self.transport.write('> ')
             self.myDataReceived = self.registration
+            self.login_timeout.reset(120)
             success = True
         elif data.startswith('login'):
             #login <client_name> <clip_version> <name> <password>\r\n
@@ -154,6 +166,7 @@ class CLIP(Echo):
                         else:
                             self.user.set_second_login(1)
                     if not self.user.online():
+                        self.login_timeout.cancel()
                         self.user.set_protocol(self)
                         self.user.set_login_data(self.login_time,
                                                  self.client_host)
@@ -252,6 +265,7 @@ class CLIP(Echo):
                                      "identical. Please give them again. " \
                                      "Password:")
             elif d[0] == self.password:
+                self.login_timeout.cancel()
                 kw = {'user': self.name, 'password': '*******',
                       'lou': self.factory.active_users,
                       'login': self.login_time,
@@ -275,6 +289,7 @@ class CLIP(Echo):
     def administration(self, data):
         key = utils.render_file('admin_key').rstrip('\n')
         if data == key:
+            self.login_timeout.cancel()
             print 'admitted'
             self.transport.write('hello sir :)\r\n')
             self.myDataReceived = self.service
