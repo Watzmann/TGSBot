@@ -19,6 +19,19 @@ class Service():
         print 'implemented administrative commands:', self.list_of_implemented_commands
         #self.help = Help(self.list_of_implemented_commands)
 
+# ----------------------------------------  DB Maintenance
+
+    def a_delete_user(self, line, protocol):
+        return 'not yet'
+
+    def a_set_special(self, line, protocol):
+        user = self.list_of_users.get_from_all(line[1])
+        user.set_special_flag(line[2])
+        return 'set special flag for %s to %s' % (line[1], line[2])
+
+    def a_delete_user(self, line, protocol):
+        return 'not yet'
+
 # ----------------------------------------  Other Commands
 
     def a_help(self, line, protocol):

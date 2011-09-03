@@ -1016,7 +1016,7 @@ class User(Persistent):
             return "** Blinded users: " + ','.join(self.info.blinded)
         else:
             return "** Blinded users: none"
-    
+
     def welcome(self,):
         info = self.info
         return '1 %s %s %s' % (self.name, info.last_login, info.last_host)
@@ -1104,6 +1104,13 @@ class User(Persistent):
 
     def __str__(self,):
         return self.who()
+
+    # ------------------------ administrative hooks
+
+    def set_special_flag(self, value):
+        """For use by DB-administrator."""
+        self.info.special = value
+        self.save('user.special_flag')
 
 def newUser(**kw):
     data = (kw['login'], 0, kw['host'], kw['user'], kw['password'],
