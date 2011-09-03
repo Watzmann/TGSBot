@@ -76,6 +76,11 @@ class ProxyFactory(http.HTTPFactory):
             self.IPs[IP] = 1
             return False
 
+    def reduceIP(self, IP):
+        if IP in self.IPs:
+            if self.IPs[IP] > 0:
+                self.IPs[IP] -= 1
+
     def service(self, data, protocol):
         a = data.split()
         ret = ''

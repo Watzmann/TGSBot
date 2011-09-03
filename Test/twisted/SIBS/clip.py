@@ -44,6 +44,7 @@ class Echo(Protocol):
 
     def connectionLost(self, reason):
         self.factory.decNumProtocols()
+        self.factory.reduceIP(self.transport.hostname)
         print 'connection lost'
         print reason
         # TODO:  wenn die connection lost ist (z.B. disconnect in client),
