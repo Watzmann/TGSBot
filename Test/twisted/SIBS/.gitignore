@@ -7,4 +7,4 @@ ah*
 fibstest/spoof.bug-bots.log
 git.dsync
 sibstest/check_rolls
-
+sibstest/*.log
