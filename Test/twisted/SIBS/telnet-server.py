@@ -100,6 +100,7 @@ class ProxyFactory(http.HTTPFactory):
         if len(a) > 0:
             time_before = time.time()
             cmd = self.command.command(a[0])
+            me.send_away_message()
             ret = cmd(a, me)
             time_after = time.time()
             print 'got', ret

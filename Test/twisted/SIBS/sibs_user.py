@@ -342,7 +342,7 @@ class Status:                       # TODO:  dringend überprüfen, ob der
     def get_awayflag(self,):
         return int(self.away)
 
-    def get_away_messge(self,):
+    def get_away_message(self,):
         return int(self.away_msg)
 
     def get_playingflag(self,):
@@ -1020,6 +1020,22 @@ class User(Persistent):
         else:
             return "** Blinded users: none"
 
+    def set_away(self, msg):
+        self.status.set_away(msg)
+
+    def set_back(self,):
+        self.status.set_back()
+
+    def get_away_message(self, me):
+        if self.name == me:
+            ret = "You: %s" % self.status.get_away_message()
+        else:
+            ret = "%s: %s" % (self.name, self.status.get_away_message())
+
+    def send_away_message(self, me):
+        if self.is_away():
+            self.chat("You're away. Please type 'back'.")
+        
     def welcome(self,):
         info = self.info
         return '1 %s %s %s' % (self.name, info.last_login, info.last_host)
