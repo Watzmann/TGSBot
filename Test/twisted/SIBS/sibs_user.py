@@ -343,7 +343,7 @@ class Status:                       # TODO:  dringend überprüfen, ob der
         return int(self.away)
 
     def get_away_message(self,):
-        return int(self.away_msg)
+        return self.away_msg
 
     def get_playingflag(self,):
         return int(self.active_state[1] == 2)
@@ -826,7 +826,8 @@ class User(Persistent):
             args['last_login_details'] = "Last logout: %s" % logout_date
             args['play_status'] = "Not logged in right now."
         if self.status.away:
-            args['away_status'] = "user is away:"       # TODO: richtige Werte verwenden
+            args['play_status'] += "\n  %s is away: %s" % (self.name,
+            self.status.get_away_message())
         args['rating_exp'] = "Rating: %.2f Experience: %d" % (self.info.rating,self.info.experience)
         address = getattr(self.info, 'address', '')
         if address:
@@ -1031,8 +1032,9 @@ class User(Persistent):
             ret = "You: %s" % self.status.get_away_message()
         else:
             ret = "%s: %s" % (self.name, self.status.get_away_message())
+        return ret
 
-    def send_away_message(self, me):
+    def send_away_message(self,):
         if self.is_away():
             self.chat("You're away. Please type 'back'.")
         

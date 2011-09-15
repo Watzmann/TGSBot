@@ -258,17 +258,19 @@ class Command():
 
     def c_away(self, line, me):             # implemented
         if len(line) < 2:
-            awayees = lou.get_sorted_keys(ufilter='away',)
+            awayees = self.list_of_users.get_sorted_keys(ufilter='away',)
             if len(awayees) == 0:
                 return "None of the users is away."
             else:
                 out = StringIO()
                 print >>out, "The following users are away:"
                 for a in awayees:
-                    print >>out, a.get_away_message(me.name)
+                    user = self.list_of_users.get_from_all(a)
+                    print >>out, user.get_away_message(me.name)
                 ret = out.getvalue()
-                out.close()
+                #out.close()
                 return ret
+            # TODO: away message at 'invite' fehlt
         else:
             away_message = ' '.join(line[1:])
             me.set_away(away_message)
