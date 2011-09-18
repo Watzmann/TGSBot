@@ -28,7 +28,10 @@ DB_Users = 'db/users'
 class UsersList:        # TODO: als Singleton ausführen
     def __init__(self,):
         self.list_of_active_users = {}
-        self.db = all_users = Db(DB_Users, 'users').db  # TODO: hier so an der
+        self.database = Db(DB_Users, 'users')
+        self.database.rereference = self.rereference_db     # for packing DB
+        self.db = all_users = self.database.get_db()
+                            # TODO: hier so an der
                             #   PersistenzKlasse vorbeizuangeln ist schon krass!
         alle_leute = all_users.keys()
         #self.list_of_all_users = dict([(k,self.restore(all_users[k])) for k in alle_leute])
@@ -43,6 +46,9 @@ class UsersList:        # TODO: als Singleton ausführen
 ##        for e,k in enumerate(all_users.keys()):
 ##            print e,k
 ##            print all_users[k]
+
+    def rereference_db(self,):
+        self.db = self.database.get_db()
 
     criterion = {'away': lambda u: u.is_away(),
                  'ready': lambda u: u.is_ready(),

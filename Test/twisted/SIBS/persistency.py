@@ -4,6 +4,7 @@
 
 REV = '$Revision$'
 
+import os
 import shelve
 import logging
 from version import Version
@@ -21,18 +22,24 @@ logger = logging.getLogger('persistency')
 class Db:
         # TODO: wegen Borg ist die Geschichte nicht Threadsave. Da muss
         #       vielleicht noch mal gehirnt werden. Lock-Mechanismus
+        #
+        #       NICHT THREADSAVE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+        #
 
     __shared_state = {}     # Borg Pattern
                             # http://code.activestate.com/recipes/66531-singleton-we-dont-need-no-stinkin-singleton-the-bo/
 
     def __init__(self, db_name='shelve.db', db='default'):
         if not db in self.__shared_state:
-            self.__shared_state[db] = {}
+            self.__shared_state[db] = {'database': db}
         self.__dict__ = self.__shared_state[db]
         logger.info('DB:: initializing %s as %s' % (db_name, db))
         if not hasattr(self, 'db_name'):
             self.db_name = db_name
             self.db = self._rawopen()
+
+    def get_db(self,):
+        return self.db
 
     def _rawopen(self,):
         logger.info('DB:: opening %s' % self.db_name)
@@ -49,10 +56,28 @@ class Db:
         self.db.close()
         self.open = False
 
+    def delete(self,):
+        del self.__shared_state[self.database]
+
     def reopen(self,):
         logger.info('DB:: reopening %s' % self.db_name)
         if not self.open:
             self.db = self._rawopen()
+
+    def pack(self,):
+        packed_db_name = '.'.join((self.db_name,'packed'))
+        old_db_name = '.'.join((self.db_name,'old'))
+        db = Db(packed_db_name, 'packing')
+        for k,v in self.db.items():
+            print k,v
+            db.db[k] = v
+        db.close()
+        db.delete()
+        self.close()
+        os.rename(self.db_name, old_db_name)
+        os.rename(packed_db_name, self.db_name)
+        self.reopen()
+        self.rereference()
 
 class Persistent:
     def __init__(self, db_name='persistency.db', db='default'):

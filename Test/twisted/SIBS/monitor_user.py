@@ -15,7 +15,9 @@ def list_all(keys, db, options):
 
     if verbose:
         first_entry = db.db.keys()[0]
-        print '   ',db.db[first_entry].toggles.keys()
+        toggle_keys = db.db[first_entry].toggles.keys()
+        toggle_keys.sort()
+        print '   ',toggle_keys
 
     e = 1
     for k in keys:
@@ -34,8 +36,9 @@ def list_all(keys, db, options):
         print '   <%s>  <%s>' % (login, logout), v.host, v.name, passwd, \
                      v.rating, v.experience, address
         if verbose:
+            values = [v.toggles[k] for k in toggle_keys]
             print
-            print '   ',v.toggles.values()
+            print '   ',values
         print '   ',v.settings
         if verbose:
             print ' ms ', v.messages

@@ -20,7 +20,6 @@ ZONEINFO = TZ()
 
 ## where
 ## waitfor
-## gag
 ## last   
 ## stat
 ## off
@@ -129,6 +128,7 @@ class Command():
         if arglen == 1:
             return me.show_blinded()
         else:
+            # TODO: blind watchers while playing
             name = line[1]
             user = self.list_of_users.get_active(name, None)
             if user is None:
