@@ -28,7 +28,10 @@ DB_Users = 'db/users'
 class UsersList:        # TODO: als Singleton ausführen
     def __init__(self,):
         self.list_of_active_users = {}
-        self.db = all_users = Db(DB_Users, 'users').db  # TODO: hier so an der
+        self.database = Db(DB_Users, 'users')
+        self.database.rereference = self.rereference_db     # for packing DB
+        self.db = all_users = self.database.get_db()
+                            # TODO: hier so an der
                             #   PersistenzKlasse vorbeizuangeln ist schon krass!
         alle_leute = all_users.keys()
         #self.list_of_all_users = dict([(k,self.restore(all_users[k])) for k in alle_leute])
@@ -43,6 +46,9 @@ class UsersList:        # TODO: als Singleton ausführen
 ##        for e,k in enumerate(all_users.keys()):
 ##            print e,k
 ##            print all_users[k]
+
+    def rereference_db(self,):
+        self.db = self.database.get_db()
 
     criterion = {'away': lambda u: u.is_away(),
                  'ready': lambda u: u.is_ready(),
@@ -342,8 +348,8 @@ class Status:                       # TODO:  dringend überprüfen, ob der
     def get_awayflag(self,):
         return int(self.away)
 
-    def get_away_messge(self,):
-        return int(self.away_msg)
+    def get_away_message(self,):
+        return self.away_msg
 
     def get_playingflag(self,):
         return int(self.active_state[1] == 2)
@@ -826,7 +832,8 @@ class User(Persistent):
             args['last_login_details'] = "Last logout: %s" % logout_date
             args['play_status'] = "Not logged in right now."
         if self.status.away:
-            args['away_status'] = "user is away:"       # TODO: richtige Werte verwenden
+            args['play_status'] += "\n  %s is away: %s" % (self.name,
+            self.status.get_away_message())
         args['rating_exp'] = "Rating: %.2f Experience: %d" % (self.info.rating,self.info.experience)
         address = getattr(self.info, 'address', '')
         if address:
@@ -1020,6 +1027,23 @@ class User(Persistent):
         else:
             return "** Blinded users: none"
 
+    def set_away(self, msg):
+        self.status.set_away(msg)
+
+    def set_back(self,):
+        self.status.set_back()
+
+    def get_away_message(self, me):
+        if self.name == me:
+            ret = "You: %s" % self.status.get_away_message()
+        else:
+            ret = "%s: %s" % (self.name, self.status.get_away_message())
+        return ret
+
+    def send_away_message(self,):
+        if self.is_away():
+            self.chat("You're away. Please type 'back'.")
+        
     def welcome(self,):
         info = self.info
         return '1 %s %s %s' % (self.name, info.last_login, info.last_host)

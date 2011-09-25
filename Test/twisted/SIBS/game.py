@@ -51,9 +51,14 @@ class GamesList:        # TODO: mit UsersList in eine Klasse überführen
         if not hasattr(self, 'active_games'):
             self.active_games = {}
             self.active_ids = []
-            self.db = Db(DB_Games, 'games').db
+            self.database = Db(DB_Games, 'games')
+            self.database.rereference = self.rereference_db     # for packing DB
+            self.db = self.database.get_db()
                             # TODO: hier so an der PersistenzKlasse
                             #       vorbeizuangeln ist schon krass!
+
+    def rereference_db(self,):
+        self.db = self.database.get_db()
 
     def add(self, game):
         for i in game.ids:

@@ -20,7 +20,6 @@ ZONEINFO = TZ()
 
 ## where
 ## waitfor
-## gag
 ## last   
 ## stat
 ## off
@@ -129,6 +128,7 @@ class Command():
         if arglen == 1:
             return me.show_blinded()
         else:
+            # TODO: blind watchers while playing
             name = line[1]
             user = self.list_of_users.get_active(name, None)
             if user is None:
@@ -256,11 +256,33 @@ class Command():
     def c_oldmoves(self, line, me):
         return '** oldmoves %s' % NYI
 
-    def c_away(self, line, me):
-        return '** away %s' % NYI
+    def c_away(self, line, me):             # implemented
+        if len(line) < 2:
+            awayees = self.list_of_users.get_sorted_keys(ufilter='away',)
+            if len(awayees) == 0:
+                return "None of the users is away."
+            else:
+                out = StringIO()
+                print >>out, "The following users are away:"
+                for a in awayees:
+                    user = self.list_of_users.get_from_all(a)
+                    print >>out, user.get_away_message(me.name)
+                ret = out.getvalue()
+                #out.close()
+                return ret
+            # TODO: away message at 'invite' fehlt
+        else:
+            away_message = ' '.join(line[1:])
+            me.set_away(away_message)
+            return "You're away. Please type 'back'."
 
-    def c_back(self, line, me):
-        return '** back %s' % NYI
+    def c_back(self, line, me):             # implemented
+        if not me.is_away():
+            ret = "** You're not away."
+        else:
+            me.set_back()
+            ret = "Welcome back."
+        return ret
 
     def c_bye(self, line, me):              # implemented
         # TODO: unklar ist, welche Texte gesendet werden, wenn

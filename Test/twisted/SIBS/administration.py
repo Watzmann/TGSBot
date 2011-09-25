@@ -29,13 +29,21 @@ class Service():
         user.set_special_flag(line[2])
         return 'set special flag for %s to %s' % (line[1], line[2])
 
-    def a_delete_user(self, line, protocol):
-        return 'not yet'
+    def a_pack(self, line, protocol):
+        arglen = len(line)
+        if arglen == 1:
+            res = "** please give a DB ('users', 'games') as an argument."
+        elif line[1] == 'users':
+            self.list_of_users.database.pack()
+            res = "probably packed successful"
+        elif line[1] == 'games':
+            self.list_of_games.database.pack()
+            res = "probably packed successful"
+        else:
+            res = "** please pick one of 'users', 'games'."
+        return res
 
-# ----------------------------------------  Other Commands
-
-    def a_help(self, line, protocol):
-        return '%s' % self.list_implemented()
+# ----------------------------------------  User Commands
 
     def a_kick(self, line, protocol):
         arglen = len(line)
@@ -49,6 +57,11 @@ class Service():
                 user.disconnect_hard()
                 res = 'kicked %s' % line[1]
         return res
+
+# ----------------------------------------  Other Commands
+
+    def a_help(self, line, protocol):
+        return '%s' % self.list_implemented()
 
     def a_bye(self, line, protocol):
         protocol.logout()

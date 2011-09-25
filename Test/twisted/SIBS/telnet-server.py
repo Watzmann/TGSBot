@@ -101,6 +101,7 @@ class ProxyFactory(http.HTTPFactory):
             time_before = time.time()
             cmd = self.command.command(a[0])
             ret = cmd(a, me)
+            me.send_away_message()
             time_after = time.time()
             print 'got', ret
             print 'time used for %s: %f sec (%d users)' % \
