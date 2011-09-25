@@ -6,6 +6,7 @@ REV = '$Revision$'
 
 import inspect
 from version import Version
+from sibs_user import deleteUser
 
 VERSION = Version()
 VERSION.register(__name__, REV)
@@ -22,7 +23,11 @@ class Service():
 # ----------------------------------------  DB Maintenance
 
     def a_delete_user(self, line, protocol):
-        return 'not yet'
+        if len(line) == 1:
+            res = "** please give a user as an argument."
+        kw = {'lou': self.list_of_users, 'user': line[1]}
+        deleteUser(**kw)
+        return 'deleted %s' % kw['user']
 
     def a_set_special(self, line, protocol):
         user = self.list_of_users.get_from_all(line[1])
@@ -57,6 +62,13 @@ class Service():
                 user.disconnect_hard()
                 res = 'kicked %s' % line[1]
         return res
+
+# ----------------------------------------  Community Commands
+
+    def a_nr_users(self, line, protocol):
+        return '%s/%s users logged in.' % \
+               (self.list_of_users.nr_logged_in(),
+                self.list_of_users.nr_registered(),)
 
 # ----------------------------------------  Other Commands
 

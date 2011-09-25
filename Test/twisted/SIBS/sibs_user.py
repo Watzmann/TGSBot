@@ -135,11 +135,18 @@ class UsersList:        # TODO: als Singleton ausführen
             user.status.logged_in = False
             del self.list_of_active_users[name]
 
+    def delete(self, name):
+        logger.debug('deleting %s from list of registered users' % name)
+        name = name.lower()
+        user = self.get_from_all(name)
+        if not user is None:
+            del self.list_of_all_users[name]
+            del self.db[name]
+
     def get_from_all(self, name, default=None):
         return self.list_of_all_users.get(name.lower(), default)
 
     def get_active(self, name, default=None):
-##        print self.list_of_active_users.keys()
         return self.list_of_active_users.get(name.lower(), default)
 
     def get_all_users(self,):
@@ -151,6 +158,9 @@ class UsersList:        # TODO: als Singleton ausführen
 
     def nr_logged_in(self,):
         return len(self.list_of_active_users)
+
+    def nr_registered(self,):
+        return len(self.list_of_all_users)
 
     def whois(self, name):      # TODO: hier analog Fibs case sensitive
         lname = name.lower()
@@ -1171,3 +1181,7 @@ def dropUser(**kw):
                                     #       Funktionen Convenience sind. Dann
                                     #       darf aber nicht nötig sein, dass man
                                     #       alles in **kw mitgibt.
+
+def deleteUser(**kw):
+    dropUser(**kw)                  # user may be logged in, must be dropped
+    kw['lou'].delete(kw['user'])
