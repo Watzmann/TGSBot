@@ -142,6 +142,11 @@ class UsersList:        # TODO: als Singleton ausführen
         if not user is None:
             del self.list_of_all_users[name]
             del self.db[name]
+            self.database.sync()
+            res = 'successfully deleted %s' % name
+        else:
+            res = "couldn't find user %s" % name
+        return res
 
     def get_from_all(self, name, default=None):
         return self.list_of_all_users.get(name.lower(), default)
@@ -1149,6 +1154,16 @@ class User(Persistent):
         self.info.special = value
         self.save('user.special_flag')
 
+    def set_password(self, password):
+        """For use by DB-administrator."""
+        self.info.passwd = password
+        self.save('user.set_password')
+
+    def set_rating(self, rating, experience):
+        """For use by DB-administrator."""
+        self.info.set_rating(float(rating), int(experience))
+        self.save('user.set_rating')
+
 def newUser(**kw):
     data = (kw['login'], 0, kw['host'], kw['user'], kw['password'],
                                                             1500., 0, '-')
@@ -1184,4 +1199,5 @@ def dropUser(**kw):
 
 def deleteUser(**kw):
     dropUser(**kw)                  # user may be logged in, must be dropped
-    kw['lou'].delete(kw['user'])
+    res = kw['lou'].delete(kw['user'])
+    return res

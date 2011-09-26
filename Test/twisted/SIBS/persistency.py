@@ -68,9 +68,13 @@ class Db:
         packed_db_name = '.'.join((self.db_name,'packed'))
         old_db_name = '.'.join((self.db_name,'old'))
         db = Db(packed_db_name, 'packing')
-        for k,v in self.db.items():
-            print k,v
-            db.db[k] = v
+        for k in self.db.keys():
+            try:
+                v = self.db[k]
+                print k,v
+                db.db[k] = v
+            except:
+                logger.error("Cannot read and pack %s" % k)
         db.close()
         db.delete()
         self.close()

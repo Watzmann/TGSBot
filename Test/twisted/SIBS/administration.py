@@ -18,21 +18,35 @@ class Service():
         self.list_of_users = lou
         self.list_of_games = log   # TODO: was besseres als log (log ist logging)
         print 'implemented administrative commands:', self.list_of_implemented_commands
-        #self.help = Help(self.list_of_implemented_commands)
 
 # ----------------------------------------  DB Maintenance
 
     def a_delete_user(self, line, protocol):
         if len(line) == 1:
-            res = "** please give a user as an argument."
+            return "** please give a user as an argument."
         kw = {'lou': self.list_of_users, 'user': line[1]}
-        deleteUser(**kw)
-        return 'deleted %s' % kw['user']
+        return deleteUser(**kw)
 
-    def a_set_special(self, line, protocol):
-        user = self.list_of_users.get_from_all(line[1])
-        user.set_special_flag(line[2])
-        return 'set special flag for %s to %s' % (line[1], line[2])
+    def a_set_field(self, line, protocol):
+        fields = ('special', 'password', 'rating', )
+        if len(line) < 3 or not line[2] in fields:
+            return """** Please give a user and field as an argument.
+   Fields are %s.""" % (fields,)
+        name = line[1]
+        field = line[2]
+        args = line[3:]
+        user = self.list_of_users.get_from_all(name)
+        if user is None:
+            return "No user called %s." % name
+        config = dict(zip(fields,((1, user.set_special_flag),
+                                  (1, user.set_password),
+                                  (2, user.set_rating), )))
+        nr_args, setter = config[field]
+        if len(args) < nr_args:
+            return "** Please give %d argument(s) for field %s." % \
+                                                           (nr_args, field)
+        res = setter(*args)
+        return 'set %s for %s to %s' % (field, name, args)
 
     def a_pack(self, line, protocol):
         arglen = len(line)
@@ -73,7 +87,7 @@ class Service():
 # ----------------------------------------  Other Commands
 
     def a_help(self, line, protocol):
-        return '%s' % self.list_implemented()
+        return '%s' % self.list_of_implemented_commands
 
     def a_bye(self, line, protocol):
         protocol.logout()
@@ -89,8 +103,6 @@ class Service():
         return self.commands.get(cmd, self.unknown)
 
     def sample_commands(self,):
-        # TODO: falls man mal commands in den laufenden server injizieren will:
-        #       als Plugin realisieren
         # TODO: inspect.getmembers() halte ich nicht für der Weisheit letzten
         #       Schluss; vielleicht gibt es da eine bessere (offiziellere) Lösung
         lofc = [(f[0][2:],f[1]) for f in inspect.getmembers(self) \
@@ -103,10 +115,7 @@ class Service():
         for c in imp[:]:
             try:
                 ret = self.commands[c]([c,'list',],None)
-##                print c
-##                print ret
                 if ret.endswith(NYI):
-##                    print 'removed', c
                     imp.remove(c)
             except:
                 pass
