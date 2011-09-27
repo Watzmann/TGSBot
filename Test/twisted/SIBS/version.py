@@ -24,7 +24,7 @@ class Version:
 
     def version(self, module=None):
         if module is None:
-            max_rev = str(max(self.revisions.values()))
+            max_rev = '6'    #str(max(self.revisions.values()))
             return '%s.%s  %s' % (VERSION, max_rev, VERSION_STRING)
         else:
             revs = self.revisions
