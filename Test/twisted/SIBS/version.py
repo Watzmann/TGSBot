@@ -2,9 +2,13 @@
 # -*- coding: utf-8 -*-
 """Version of SIBS."""
 
+import subprocess
+
 VERSION = '0.7'
 VERSION_STRING = 'alpha'
 REV = '$Revision$'
+
+GIT_VERSION = subprocess.call(['git', 'describe'])
 
 class Version:
     
@@ -24,8 +28,7 @@ class Version:
 
     def version(self, module=None):
         if module is None:
-            max_rev = '6'    #str(max(self.revisions.values()))
-            return '%s.%s  %s' % (VERSION, max_rev, VERSION_STRING)
+            return GIT_VERSION
         else:
             revs = self.revisions
             if revs.has_key(module):
