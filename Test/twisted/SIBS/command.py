@@ -97,14 +97,27 @@ class Command():
             me.say(user, msg)  # TODO: stimmt das jetzt so?
 
     def c_message(self, line, me):          # implemented
-        name = line[1]
-        msg = ' '.join(line[2:])
-        user = self.list_of_users.get_from_all(name, None)
-        if user is None:
-            return "Don't know user %s" % name
+        arglen = len(line)
+        if arglen == 1:
+            msgs = me.deliver_messages()
+            if len(msgs):
+                out = StringIO()
+                for m in msgs:
+                    print >>out, m
+                ret = out.getvalue()
+            else:
+                ret = "There are no new messages for you."
         else:
-            me.send_message(user, msg)
-            # TODO: complete message alltogether
+            name = line[1]
+            user = self.list_of_users.get_from_all(name, None)
+            if arglen < 3:
+                ret = "** usage: message <user> <text>"
+            elif user is None:
+                ret = "** Don't know user %s." % name
+            else:
+                msg = ' '.join(line[2:])
+                ret = me.send_message(user, msg)
+        return ret
 
     def c_waitfor(self, line, me):
         return '** waitfor %s' % NYI

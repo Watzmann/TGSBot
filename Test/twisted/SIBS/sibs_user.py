@@ -776,23 +776,31 @@ class User(Persistent):
             tw_log.msg(shout)
 
     def deliver_messages(self,):
-        """Delivers messages when user logs in"""
+        """Delivers messages when user logs in or requests."""
         msgs = self.info.messages
-        if msgs:
-            self.info.messages = []
-            self.save('user.deliver_messages')
         return msgs
+
+    def delete_messages(self,):
+        """Delete all messages when user logs out."""
+        if self.info.messages:
+            self.info.messages = []
+            self.save('user.delete_messages')
 
     def send_message(self, user, msg):
         """Use send_message() to send a message to another player."""
-        user.message(self.name, int(time.time()), msg)  # time.time() correct
+        return user.message(self.name, int(time.time()), msg)
 
     def message(self, user, at_time, msg):
         """message() will receive a message from another player."""
         # 9 from time message
-        self.info.messages.append('9 %s %d %s' % (user, at_time, msg))
+        clip_message = '9 %s %d %s' % (user, at_time, msg)
+        self.info.messages.append(clip_message)
         self.save('user.message')
-        # TODO: if logged in trigger receive_message()
+        if self.status.is_online():
+            self.chat(clip_message)
+            return "10 %s" % self.name
+        else:
+            return "11 %s" % self.name
 
     def chat(self, msg):
         self.protocol.tell(msg)
@@ -1071,6 +1079,7 @@ class User(Persistent):
         self.rid_watchers('%s logs out.' % self.name) # TODO: other messages
         self.unset_watching()
         self.invitations = {}
+        self.delete_messages()
         self.protocol.factory.broadcast('8 %s %s drops connection' % \
                                         (self.name,self.name), (self.name,)) 
 
