@@ -24,6 +24,12 @@ logger.setLevel(logging.DEBUG)
 class State:
     """Base class for states in this state machine."""
     
+    error_turn = {'roll': ("** It's not your turn to roll the dice.", False),
+                  'move': ("** It's not your turn to move.", False),
+                  'double': ("** Please wait until %s has moved.", True),
+                  'off': ("** It's not your turn.", False),
+                  }
+
     def __init__(self,):
         self.active = False
         self.actions = {}
@@ -77,11 +83,11 @@ class State:
             else:
                 # TODO:     an dieser stelle muss man differenzierte meldungen
                 #           ausgeben. z.b. durch ein {<cmd>:msg} mit default
-                msg = "error: you can't %s" % cmd
-                self.player.chat_player(msg)
+                message = self._error_msg_wrong_cmd(cmd)
+                self.player.chat_player(message)
         else:
-            msg = "error: it is not your turn to %s" % cmd
-            self.approved_player.chat_opponent(msg)
+            message = self._error_msg_turn(cmd, self.approved_player.name)
+            self.approved_player.chat_opponent(message)
             return False
         # TODO: hier die korrekte Fehlermeldung chatten
 
@@ -110,6 +116,24 @@ class State:
             print msg
         else:
             logger.log(TRACE, '%s: hat nix zu chatten' % (self.name,))
+
+    def _error_msg_turn(self, cmd, name):
+        """Generate a qualified error message in case the command is issued
+    by the player not in turn.
+    """
+        msg, give_user = self.error_turn.get(cmd,
+                        ("** Error, no qualified message available", False))
+        if give_user:
+            msg = msg % name
+        return msg
+
+    def _error_msg_wrong_cmd(self, cmd):
+        """Generate a qualified error message in case a wrong command is issued
+    by the player in turn.
+    """
+        msg = self.error_wrong_cmd.get(cmd,
+                        "** Error, no qualified message available")
+        return msg
 
 class GameStarted(State):
     """State A: game has started."""
@@ -151,6 +175,10 @@ class GameStarted(State):
 class TurnStarted(State):
     """State B: a new turn has started."""
     
+    error_wrong_cmd = {'move': "** You have to roll the dice before moving.",
+#                  'double': "** You can only double before you roll the dice.",
+                  }
+
     def __init__(self,):
         self.name = 'turn_started'
         State.__init__(self)
@@ -259,7 +287,11 @@ class TurnFinished(State):
 
 class Checked(State):
     """State E: dice have been checked."""
-    
+
+    error_wrong_cmd = {'roll': "** You did already roll the dice.",
+#                  'double': "** You can only double before you roll the dice.",
+                  }
+
     def __init__(self,):
         self.name = 'checked'
         State.__init__(self)

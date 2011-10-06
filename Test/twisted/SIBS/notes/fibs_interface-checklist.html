@@ -6,11 +6,13 @@
   <a>
   <meta http-equiv="content-type"
  content="text/html; charset=ISO-8859-1">
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
   <title>FIBS Client Protocol Detailed Specification</title>
   </a>
 </head>
 <body>
-<basefont face="Arial">
+<a> </a><basefont face="Arial">
 <p align="center"><b><font size="+3">FIBS Client Protocol Detailed
 Specification</font></b></p>
 <p align="center"><font size="-1">Copyright 2003-2004 Evan
@@ -778,7 +780,6 @@ due to the way FIBS host name resolving works.</td>
       <tr valign="top">
         <td><code><i>client</i></code>:&nbsp;</td>
         <td>The client the user is using (see <a href="#stdlogin">login</a>)
-
 or
 a
 hyphen
@@ -4573,6 +4574,7 @@ correctly.</p>
 <!-- ====================================================================== -->
 <a name="roll">
 <h2>Roll</h2>
+state B
 </a>
 <p>If you do not have possession of the doubling cube, or you have
 <a href="#toggle_double">double</a> toggled off then FIBS will roll the
@@ -4580,6 +4582,7 @@ dice
 for you automatically. Otherwise it will
 <a href="#play_state_players_turn">prompt you</a> to use the <code>roll</code>
 or <code>double</code> command. When you roll you get:</p>
+<div style="background-color: rgb(213, 255, 255);">#AHA#
 <blockquote>
   <pre>You roll <i>a</i> and <i>b</i>.</pre>
 </blockquote>
@@ -4600,13 +4603,16 @@ get
 <blockquote>
   <pre>** You're not playing.</pre>
 </blockquote>
+</div>
 <p><font size="-2"><b><a href="#toc">TOC</a></b></font></p>
 <!-- ====================================================================== -->
 <a name="move">
 <h2>Move</h2>
+state E
 </a>
 <p>When you make a valid move FIBS goes straight to the
 <a href="#play_state_opponents_turn">opponent's turn</a>.</p>
+<div style="background-color: rgb(153, 255, 255);">#AHA#
 <p>If you try and use the <code>move</code> command during your
 <a href="#play_state_opponents_turn">opponent's turn</a> you get:</p>
 <blockquote>
@@ -4617,6 +4623,7 @@ get
 <blockquote>
   <pre>** You have to roll the dice before moving.</pre>
 </blockquote>
+</div>
 <p>If you specify any invalid arguments for you move then you get:</p>
 <blockquote>
   <pre>** first move: legal words are 'bar', 'home', 'off', 'b', 'h' and 'o'.</pre>
@@ -4697,10 +4704,12 @@ get:</p>
 <blockquote>
   <pre>** You're not playing.</pre>
 </blockquote>
+<div style="background-color: rgb(213, 255, 255);">#AHA#
 <p>If its not your turn to move:</p>
 <blockquote>
   <pre>** It's not your turn.</pre>
 </blockquote>
+</div>
 <p><font size="-2"><b><a href="#toc">TOC</a></b></font></p>
 <!-- ====================================================================== -->
 <a name="board">
@@ -4762,6 +4771,7 @@ players.</p>
 <!-- ====================================================================== -->
 <a name="double">
 <h2>Double</h2>
+state B
 </a>
 <p>When you use the <code>double</code> command at a valid point in
 the game
@@ -4772,6 +4782,7 @@ you get:</p>
 <p>See <a href="#play_state_player_doubles">Player Doubles</a> for
 what happens
 after this.</p>
+<div style="background-color: rgb(213, 255, 255);">#AHA#
 <p>If you try and double after you have already rolled the dice you get:</p>
 <blockquote>
   <pre>** You can only double before you roll the dice.</pre>
@@ -4781,6 +4792,7 @@ after this.</p>
 <blockquote>
   <pre>** Please wait until <i>user</i> has moved.</pre>
 </blockquote>
+</div>
 <p>If you do not have possession of the doubling cube and you try and
 double
 you get:</p>
@@ -4790,13 +4802,15 @@ you get:</p>
 <p>Note that you also get this if you have doubled and the opponent
 hasn't
 accepted or rejected yet.</p>
+<div style="background-color: rgb(153, 255, 255);">#AHA#
 <p>If you are not playing a game:</p>
 <blockquote>
   <pre>** You're not playing.</pre>
 </blockquote>
+</div>
 <p><font size="-2"><b><a href="#toc">TOC</a></b></font></p>
 <!-- ====================================================================== -->
-<a name="accept">
+<a name="accept"> state C
 <h2>Accept</h2>
 </a>
 <p>You use <code>accept</code> to accept a <a href="#double">double</a>
@@ -4818,7 +4832,7 @@ point when your opponent has doubled or resigned you get:</p>
 </blockquote>
 <p><font size="-2"><b><a href="#toc">TOC</a></b></font></p>
 <!-- ====================================================================== -->
-<a name="reject">
+<a name="reject"> state C
 <h2>Reject</h2>
 </a>
 <p>You use <code>reject</code> to reject a <a href="#double">double</a>
