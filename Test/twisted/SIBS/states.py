@@ -30,6 +30,8 @@ class State:
                   'off': ("** It's not your turn.", False),
                   }
 
+    error_wrong_cmd = {}
+
     def __init__(self,):
         self.active = False
         self.actions = {}
@@ -81,15 +83,17 @@ class State:
             if self.actions.has_key(cmd):
                 return True
             else:
-                # TODO:     an dieser stelle muss man differenzierte meldungen
-                #           ausgeben. z.b. durch ein {<cmd>:msg} mit default
                 message = self._error_msg_wrong_cmd(cmd)
-                self.player.chat_player(message)
+                logger.log(TRACE, 'Message %s Player %s Approved %s' % \
+                           (message, player.name, self.approved_player.name))
+                player.chat_player(message)
         else:
             message = self._error_msg_turn(cmd, self.approved_player.name)
-            self.approved_player.chat_opponent(message)
+##            self.player.chat_player(message)
+            logger.log(TRACE, 'Message %s Player %s Approved %s' % \
+                           (message, player.name, self.approved_player.name))
+            player.chat_player(message)
             return False
-        # TODO: hier die korrekte Fehlermeldung chatten
 
     def _action(self, player, cmd, **params):
         action = self.actions[cmd]['action']
@@ -105,7 +109,7 @@ class State:
     def _special(self,):
         """Method intended for being overwritten. _special() is being
     called during activation phase.
-"""
+    """
         pass
 
     def _chat(self, msg=None):
@@ -121,8 +125,12 @@ class State:
         """Generate a qualified error message in case the command is issued
     by the player not in turn.
     """
-        msg, give_user = self.error_turn.get(cmd,
-                        ("** Error, no qualified message available", False))
+        if not self.error_turn.has_key(cmd):
+            msg = "** Error, no qualified message available for '%s'" % cmd
+            give_user = False
+            logger.error(msg)
+        else:
+            msg, give_user = self.error_turn[cmd]
         if give_user:
             msg = msg % name
         return msg
@@ -131,8 +139,11 @@ class State:
         """Generate a qualified error message in case a wrong command is issued
     by the player in turn.
     """
-        msg = self.error_wrong_cmd.get(cmd,
-                        "** Error, no qualified message available")
+        if not self.error_wrong_cmd.has_key(cmd):
+            msg = "** Error, no qualified message available for '%s'" % cmd
+            logger.error(msg)
+        else:
+            msg = self.error_wrong_cmd[cmd]
         return msg
 
 class GameStarted(State):
@@ -175,9 +186,7 @@ class GameStarted(State):
 class TurnStarted(State):
     """State B: a new turn has started."""
     
-    error_wrong_cmd = {'move': "** You have to roll the dice before moving.",
-#                  'double': "** You can only double before you roll the dice.",
-                  }
+    error_wrong_cmd = {'move': "** You have to roll the dice before moving.",}
 
     def __init__(self,):
         self.name = 'turn_started'
@@ -288,9 +297,7 @@ class TurnFinished(State):
 class Checked(State):
     """State E: dice have been checked."""
 
-    error_wrong_cmd = {'roll': "** You did already roll the dice.",
-#                  'double': "** You can only double before you roll the dice.",
-                  }
+    error_wrong_cmd = {'roll': "** You did already roll the dice.",}
 
     def __init__(self,):
         self.name = 'checked'

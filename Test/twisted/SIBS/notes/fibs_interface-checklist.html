@@ -4628,10 +4628,12 @@ state E
 <blockquote>
   <pre>** first move: legal words are 'bar', 'home', 'off', 'b', 'h' and 'o'.</pre>
 </blockquote>
+<div style="background-color: rgb(153, 255, 255);">#AHA#
 <p>If your not playing:</p>
 <blockquote>
   <pre>** You're not playing.</pre>
 </blockquote>
+</div>
 <p>The rest of the messages you can get all relate to specifying an
 invalid set
 of moves.</p>
@@ -4717,6 +4719,7 @@ get:</p>
 </a>
 <p>When you are playing or watching a game, you get a
 <a href="#board_state">board state</a> line back.</p>
+<div style="background-color: rgb(153, 255, 255);">#AHA#
 <p>If you are not playing or watching then the <code>board</code>
 command
 returns:</p>
@@ -4729,6 +4732,7 @@ you get:</p>
 <blockquote>
   <pre>** <i>user</i> is not playing.</pre>
 </blockquote>
+</div>
 <p><font size="-2"><b><a href="#toc">TOC</a></b></font></p>
 <!-- ====================================================================== -->
 <a name="pip">
@@ -4773,6 +4777,7 @@ players.</p>
 <h2>Double</h2>
 state B
 </a>
+<div style="background-color: rgb(153, 255, 255);">#AHA#
 <p>When you use the <code>double</code> command at a valid point in
 the game
 you get:</p>
@@ -4782,6 +4787,7 @@ you get:</p>
 <p>See <a href="#play_state_player_doubles">Player Doubles</a> for
 what happens
 after this.</p>
+</div>
 <div style="background-color: rgb(213, 255, 255);">#AHA#
 <p>If you try and double after you have already rolled the dice you get:</p>
 <blockquote>
@@ -4799,10 +4805,22 @@ you get:</p>
 <blockquote>
   <pre>** It's not your turn to double</pre>
 </blockquote>
+<div style="background-color: rgb(153, 255, 255);">#AHA#
+<p style="color: red;"><strong>Note:</strong> this use case appears to
+be not possible in
+TigerGammon; commands may be impossible to be issued in this case
+(autoroll).
+</p>
 <p>Note that you also get this if you have doubled and the opponent
 hasn't
 accepted or rejected yet.</p>
-<div style="background-color: rgb(153, 255, 255);">#AHA#
+<p style="color: red;">
+<strong>Note:</strong> in this case the turn is handed over to the
+opponent so that you will get
+</p>
+<blockquote style="color: red;">
+  <pre>** Please wait until <i>user</i> has moved.</pre>
+</blockquote>
 <p>If you are not playing a game:</p>
 <blockquote>
   <pre>** You're not playing.</pre>
@@ -4814,17 +4832,18 @@ accepted or rejected yet.</p>
 <h2>Accept</h2>
 </a>
 <p>You use <code>accept</code> to accept a <a href="#double">double</a>
-or a
-<a href="#resign">resignation</a> from your opponent.</p>
-<p>See <a href="#play_state_opponent_doubles">Opponent Doubles</a> and
-<a href="#play_state_resigning">Resigning</a> for the messages you get
+or a <a href="#resign">resignation</a> from your opponent.</p>
+<p>See <a href="#play_state_opponent_doubles">Opponent Doubles</a>
+and <a href="#play_state_resigning">Resigning</a> for the messages you
+get
 when
 using <code>accept</code> in these cases.</p>
 <p>If you're not playing a game:</p>
 <blockquote>
   <pre>** You're not playing.</pre>
 </blockquote>
-<p>If you use the <code>accept</code> command during the game, but not
+<p>If you use the <code>accept</code> command during the game, but
+not
 at the
 point when your opponent has doubled or resigned you get:</p>
 <blockquote>
@@ -4836,17 +4855,18 @@ point when your opponent has doubled or resigned you get:</p>
 <h2>Reject</h2>
 </a>
 <p>You use <code>reject</code> to reject a <a href="#double">double</a>
-or a
-<a href="#resign">resignation</a> from your opponent.</p>
-<p>See <a href="#play_state_opponent_doubles">Opponent Doubles</a> and
-<a href="#play_state_resigning">Resigning</a> for the messages you get
+or a <a href="#resign">resignation</a> from your opponent.</p>
+<p>See <a href="#play_state_opponent_doubles">Opponent Doubles</a>
+and <a href="#play_state_resigning">Resigning</a> for the messages you
+get
 when
 using <code>reject</code> in these cases.</p>
 <p>If you're not playing a game:</p>
 <blockquote>
   <pre>** You're not playing, so you can't give up.</pre>
 </blockquote>
-<p>If you use the <code>reject</code> command during the game, but not
+<p>If you use the <code>reject</code> command during the game, but
+not
 at the
 point when your opponent has doubled or resigned you get:</p>
 <blockquote>
@@ -4857,10 +4877,12 @@ point when your opponent has doubled or resigned you get:</p>
 <a name="resign">
 <h2>Resign</h2>
 </a>
-<p>See <a href="#play_state_resigning">Resigning</a> for what you get
+<p>See <a href="#play_state_resigning">Resigning</a> for what you
+get
 back for
 valid uses of the <code>resign</code> command.</p>
-<p>If you use the <code>resign</code> command without an argument, or
+<p>If you use the <code>resign</code> command without an argument,
+or
 with an
 invalid argument you get:</p>
 <blockquote>
@@ -4882,9 +4904,9 @@ your opponent has accepted or rejected your resignation you get:</p>
 <blockquote>
   <pre>** <i>user</i> hasn't accepted or rejected your resign yet.</pre>
 </blockquote>
-<p>If your opponent has offered a resignation and you try to use a
-<a href="#game_commands">game command</a> other than
-<a href="#accept">accept</a> or <a href="#reject">reject</a> you get:</p>
+<p>If your opponent has offered a resignation and you try to use a <a
+ href="#game_commands">game command</a> other than <a href="#accept">accept</a>
+or <a href="#reject">reject</a> you get:</p>
 <blockquote>
   <pre>** <i>user</i> wanted to resign. Type 'accept' or 'reject'.</pre>
 </blockquote>
@@ -4906,17 +4928,19 @@ your opponent has accepted or rejected your resignation you get:</p>
 <a name="redouble">
 <h2>Redouble</h2>
 </a>
-<p>See <a href="#play_state_redoubling">Redoubling</a> for examples of
+<p>See <a href="#play_state_redoubling">Redoubling</a> for examples
+of
 valid
 use of the <code>redouble</code> command.</p>
-<p>The <code>redouble</code> command can only be used in an unlimited
+<p>The <code>redouble</code> command can only be used in an
+unlimited
 match.
 If you try and use it in another type of game you get:</p>
 <blockquote>
   <pre>** Instant redoubles are only available for unlimited matches.</pre>
 </blockquote>
-<p>If you have reached the limit of redoubling allowed (see
-<a href="#set_redoubles">set redoubles</a>) in an unlimited game, and
+<p>If you have reached the limit of redoubling allowed (see <a
+ href="#set_redoubles">set redoubles</a>) in an unlimited game, and
 you try
 and redouble again you get:</p>
 <blockquote>
@@ -4938,12 +4962,13 @@ their turn).</p>
 <a name="beaver">
 <h2>Beaver</h2>
 </a>
-<p>The <code>beaver</code> command can be used for the first redouble
+<p>The <code>beaver</code> command can be used for the first
+redouble
 only.
 You can use it in place of the <a href="#redouble">redouble</a>
 command in this
-case. In addition to all the messages you can get for the
-<a href="#redouble">redouble</a> command, you can also get one of the
+case. In addition to all the messages you can get for the <a
+ href="#redouble">redouble</a> command, you can also get one of the
 following
 messages if you try and use it for the wrong redouble:</p>
 <blockquote>
@@ -4958,8 +4983,8 @@ messages if you try and use it for the wrong redouble:</p>
 redouble only.
 You can use it in place of the <a href="#redouble">redouble</a>
 command in this
-case. In addition to all the messages you can get for the
-<a href="#redouble">redouble</a> command, you can also get one of the
+case. In addition to all the messages you can get for the <a
+ href="#redouble">redouble</a> command, you can also get one of the
 following
 messages if you try and use it for the wrong redouble:</p>
 <blockquote>
@@ -4974,8 +4999,8 @@ messages if you try and use it for the wrong redouble:</p>
 only.
 You can use it in place of the <a href="#redouble">redouble</a>
 command in this
-case. In addition to all the messages you can get for the
-<a href="#redouble">redouble</a> command, you can also get one of the
+case. In addition to all the messages you can get for the <a
+ href="#redouble">redouble</a> command, you can also get one of the
 following
 messages if you try and use it for the wrong redouble:</p>
 <blockquote>
@@ -4986,7 +5011,8 @@ messages if you try and use it for the wrong redouble:</p>
 <a name="panic">
 <h2>Panic</h2>
 </a>
-<p>This is a special command to use while playing a game if you find a
+<p>This is a special command to use while playing a game if you find
+a
 bug. If
 you are actually going to use this command, please check the help for
 it in the
@@ -5009,16 +5035,20 @@ panic</code>&#8221;</nobr> first.</p>
 is a
 way of encoding player information in the <code><i>client</i></code>
 field. It
-was designed by Peter Nevalainen, the author of
-<a href="http://www.fibs.com/%7Ecthulhu/" target="_blank">JavaFIBS 2001</a>
+was designed by Peter Nevalainen, the author of <a
+ href="http://www.fibs.com/%7Ecthulhu/" target="_blank">JavaFIBS
+2001</a>
 who
 has kindly given me permission to repeat it here.</p>
-<p>The characters in the player profile protocol are divided as follows:</p>
-<p>Char 1 - Identified this protocol and holds the gender of the player.</p>
+<p>The characters in the player profile protocol are divided as
+follows:</p>
+<p>Char 1 - Identified this protocol and holds the gender of the
+player.</p>
 <blockquote>
   <pre>01111 xy <br>----- -- <br> |    |  <br> |   specifies the gender (00 = male "&gt;", 10 = female "&lt;", 01 = computer "=", 11 = unknown "?")<br>specifies that this protocol is used (60) (along with a string length of 20).</pre>
 </blockquote>
-<p>Chars 2-3 - The player's country which is specified by the (capital)
+<p>Chars 2-3 - The player's country which is specified by the
+(capital)
 two
 letter country code.</p>
 <blockquote>eg. &#8220;<code>SE</code>&#8221; for Sweden, and
@@ -5031,7 +5061,8 @@ with a
 capital letter and only A-Z, a-z and the underscore character _
 (simulates
 space char) are allowed in the name.</blockquote>
-<blockquote>To not waste a character for a space between first and last
+<blockquote>To not waste a character for a space between first and
+last
 name
 the first letter in the last name is subtracted with 30 so it becomes a
 non
@@ -5063,7 +5094,8 @@ instead.</blockquote>
   <tbody>
     <tr valign="top">
       <td>[1]&nbsp;</td>
-      <td><a href="http://www.fibs.com/" target="_blank">First Internet
+      <td><a href="http://www.fibs.com/" target="_blank">First
+Internet
 Backgammon Server<br>
 http://www.fibs.com/</a><br>
 Andreas Schneider</td>
@@ -5071,8 +5103,7 @@ Andreas Schneider</td>
   </tbody>
 </table>
 </p>
-<p><a name="cite2">
-</a>
+<p><a name="cite2"> </a>
 <table border="0" cellpadding="0" cellspacing="0">
   <tbody>
     <tr valign="top">
@@ -5085,8 +5116,7 @@ Andreas Schneider</td>
   </tbody>
 </table>
 </p>
-<p><a name="cite3">
-</a>
+<p><a name="cite3"> </a>
 <table border="0" cellpadding="0" cellspacing="0">
   <tbody>
     <tr valign="top">
@@ -5099,8 +5129,7 @@ Paul Ferguson</td>
   </tbody>
 </table>
 </p>
-<p><a name="cite4">
-</a>
+<p><a name="cite4"> </a>
 <table border="0" cellpadding="0" cellspacing="0">
   <tbody>
     <tr valign="top">
@@ -5112,8 +5141,7 @@ http://www.fibs.com/CommandReference/index.html</a></td>
   </tbody>
 </table>
 </p>
-<p><a name="cite5">
-</a>
+<p><a name="cite5"> </a>
 <table border="0" cellpadding="0" cellspacing="0">
   <tbody>
     <tr valign="top">
@@ -5124,8 +5152,7 @@ http://www.fibs.com/CommandReference/index.html</a></td>
   </tbody>
 </table>
 </p>
-<p><a name="cite6">
-</a>
+<p><a name="cite6"> </a>
 <table border="0" cellpadding="0" cellspacing="0">
   <tbody>
     <tr valign="top">
@@ -5137,8 +5164,7 @@ Dana Burns and Avi Kivity</td>
   </tbody>
 </table>
 </p>
-<p><a name="cite7">
-</a>
+<p><a name="cite7"> </a>
 <table border="0" cellpadding="0" cellspacing="0">
   <tbody>
     <tr valign="top">
