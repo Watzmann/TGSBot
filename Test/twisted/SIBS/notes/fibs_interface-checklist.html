@@ -3,16 +3,14 @@
 <head>
   <meta http-equiv="content-type"
  content="text/html; charset=ISO-8859-1">
-  <a>
   <meta http-equiv="content-type"
  content="text/html; charset=ISO-8859-1">
   <meta http-equiv="content-type"
  content="text/html; charset=ISO-8859-1">
   <title>FIBS Client Protocol Detailed Specification</title>
-  </a>
 </head>
 <body>
-<a> </a><basefont face="Arial">
+<a> </a><a> </a><basefont face="Arial">
 <p align="center"><b><font size="+3">FIBS Client Protocol Detailed
 Specification</font></b></p>
 <p align="center"><font size="-1">Copyright 2003-2004 Evan
@@ -4838,6 +4836,7 @@ and <a href="#play_state_resigning">Resigning</a> for the messages you
 get
 when
 using <code>accept</code> in these cases.</p>
+<div style="background-color: rgb(153, 255, 255);">#AHA#
 <p>If you're not playing a game:</p>
 <blockquote>
   <pre>** You're not playing.</pre>
@@ -4849,6 +4848,7 @@ point when your opponent has doubled or resigned you get:</p>
 <blockquote>
   <pre>** <i>user</i> didn't double or resign.</pre>
 </blockquote>
+</div>
 <p><font size="-2"><b><a href="#toc">TOC</a></b></font></p>
 <!-- ====================================================================== -->
 <a name="reject"> state C
@@ -4861,6 +4861,7 @@ and <a href="#play_state_resigning">Resigning</a> for the messages you
 get
 when
 using <code>reject</code> in these cases.</p>
+<div style="background-color: rgb(213, 255, 255);">#AHA#
 <p>If you're not playing a game:</p>
 <blockquote>
   <pre>** You're not playing, so you can't give up.</pre>
@@ -4872,6 +4873,7 @@ point when your opponent has doubled or resigned you get:</p>
 <blockquote>
   <pre>** <i>user</i> didn't double or resign.</pre>
 </blockquote>
+</div>
 <p><font size="-2"><b><a href="#toc">TOC</a></b></font></p>
 <!-- ====================================================================== -->
 <a name="resign">
@@ -4894,10 +4896,12 @@ you get:</p>
 <blockquote>
   <pre>** You already did that.</pre>
 </blockquote>
+<div style="background-color: rgb(153, 255, 255);">#AHA#
 <p>If you're not playing a game:</p>
 <blockquote>
   <pre>** You're not playing.</pre>
 </blockquote>
+</div>
 <p>If you try and use another <a href="#game_commands">game command</a>
 before
 your opponent has accepted or rejected your resignation you get:</p>

@@ -28,13 +28,20 @@ class State:
                   'move': ("** It's not your turn to move.", False),
                   'double': ("** Please wait until %s has moved.", True),
                   'off': ("** It's not your turn.", False),
+                  'accept': ("** %s didn't double or resign.", True),
                   }
 
     error_wrong_cmd = {}
 
+    error_wrong_cmd_genericals = {
+                  'accept': ("** %s didn't double or resign.", True),
+                  'reject': ("** %s didn't double or resign.", True),
+                  }
+
     def __init__(self,):
         self.active = False
         self.actions = {}
+        self.error_wrong_cmd.update(self.error_wrong_cmd_genericals)
         self.label = '%s %s' % (self.__doc__.split()[1], self.name)
 
     def activate(self, player, **params):
@@ -83,15 +90,19 @@ class State:
             if self.actions.has_key(cmd):
                 return True
             else:
-                message = self._error_msg_wrong_cmd(cmd)
-                logger.log(TRACE, 'Message %s Player %s Approved %s' % \
-                           (message, player.name, self.approved_player.name))
+                message = self._error_message(self.error_wrong_cmd, cmd,
+                                                player.opp_name)
+                logger.log(TRACE, 'Wrong cmd message (%s) Player %s Approved ' \
+                        '%s CMD %s' % (message, player.name,
+                                       self.approved_player.name, cmd))
                 player.chat_player(message)
+                return False
         else:
-            message = self._error_msg_turn(cmd, self.approved_player.name)
-##            self.player.chat_player(message)
-            logger.log(TRACE, 'Message %s Player %s Approved %s' % \
-                           (message, player.name, self.approved_player.name))
+            message = self._error_message(self.error_turn, cmd,
+                                               self.approved_player.name)
+            logger.log(TRACE, 'Wrong turn message %s Player %s Approved ' \
+                       '%s CMD %s' % (message, player.name,
+                                      self.approved_player.name, cmd))
             player.chat_player(message)
             return False
 
@@ -121,29 +132,18 @@ class State:
         else:
             logger.log(TRACE, '%s: hat nix zu chatten' % (self.name,))
 
-    def _error_msg_turn(self, cmd, name):
+    def _error_message(self, error_messages, cmd, name):
         """Generate a qualified error message in case the command is issued
-    by the player not in turn.
+    by the player not in turn or an erroneous command by the player in turn.
     """
-        if not self.error_turn.has_key(cmd):
+        if not error_messages.has_key(cmd):
             msg = "** Error, no qualified message available for '%s'" % cmd
             give_user = False
-            logger.error(msg)
+            logger.error("%s (%s)" % (msg, name))
         else:
-            msg, give_user = self.error_turn[cmd]
+            msg, give_user = error_messages[cmd]
         if give_user:
             msg = msg % name
-        return msg
-
-    def _error_msg_wrong_cmd(self, cmd):
-        """Generate a qualified error message in case a wrong command is issued
-    by the player in turn.
-    """
-        if not self.error_wrong_cmd.has_key(cmd):
-            msg = "** Error, no qualified message available for '%s'" % cmd
-            logger.error(msg)
-        else:
-            msg = self.error_wrong_cmd[cmd]
         return msg
 
 class GameStarted(State):
