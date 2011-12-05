@@ -16,3 +16,19 @@ ircLogBot.py			Der Client zum Beispiel aus twisted_core.pdf
 twisted-client-r56.py		kuckst du svn??
 twisted-client.py		EIN Beispiel zum Client aus twisted_core.pdf
 twisted-client1.py		ein anderes Beispiel zum Client von dort
+
+--------------------------------------------------------------------------------
+
+Manual twisted_core:
+
+Kap. 2.2.3 Simple, single-use clients
+
+  Einfache, stehende Verbindung.
+  Die Verbindung wird über ein deferred aufgebaut. Die Antwort ist ein Protokoll.
+  Über dieses Protokoll (mit einfachem sendMessage()) werden Messages verschickt.
+  Zum Abschluss wird die Verbindung ordentlich beendet.
+
+Kap. 2.2.4 ClientFactory
+
+  Hier liegt der Fokus auf der Behandlung der connection. Methoden hierzu liegen
+  der ClientFactory. Ein Beispiel ist Reconnecting.
