@@ -6,3 +6,4 @@ ah_opp
 gliding-averages
 opp_*
 update_opps
+tmp/*.pos
