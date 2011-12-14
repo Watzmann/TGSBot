@@ -32,11 +32,11 @@ class Answer:
                 m += 1
             ret += not msgs[m+1].startswith('4')
             m = m + 2
-            while not msgs[m].startswith('5 '):
+            while msgs[m].startswith('5 '):
                 m += 1
-            ret += not msgs[m+2].startswith('6')
-            ret += not msgs[m+4].startswith('5 %s' % user)
-            ret += not msgs[m+5].startswith('6')
+            ret += not msgs[m].startswith('6')
+            ret += not msgs[m+2].startswith('5 %s' % user)
+            ret += not msgs[m+3].startswith('6')
             #print '****** %s ****' % ret, msgs[m+5], '#'
         except:
             return False

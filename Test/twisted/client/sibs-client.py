@@ -18,6 +18,8 @@ MESSAGES = (('shout', 'Ich bin heute mal hier!'),
             ('shout', 'Where is Patti?'),
             ('shout', 'Spielt jemand mit mir'),
             ('tell', 'hannes Schau mal an'),
+            ('tell', 'andreas das hab ich dem hannes auch gesagt.'),
+            ('tell', '####### das wollt ich auch sagen.'),
             )
 
 def randomMessage(protocol):
@@ -44,8 +46,9 @@ class Commands:
         self.wait = True
     
     def tell(self, message):
-        self.cmd = ' '.join(['shout', message])
-        self.expected = '17 %s' % message
+        user = message.split()[0]
+        self.cmd = ' '.join(['tell', message])
+        self.expected = '16 %s' % message
         self.wait = True
     
 class Com(Protocol):
