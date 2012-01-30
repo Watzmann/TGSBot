@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 """Testing decorator syntax."""
 
+# Wonderful explanation in answer 1 and 2:
+# http://stackoverflow.com/questions/739654/understanding-python-decorators
+
 import sys
 
 def decorator(decoree):
