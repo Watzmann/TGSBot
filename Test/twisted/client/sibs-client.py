@@ -8,7 +8,7 @@ from twisted.internet.protocol import Protocol, ClientFactory
 from twisted.internet import reactor, defer
 from sys import stdout
 import random
-from test_client import Dispatch
+from test_client import Dispatch, BYE
 
 VERBOSE = False
 
@@ -19,13 +19,14 @@ MESSAGES = (('shout', 'Ich bin heute mal hier!'),
             ('shout', 'Spielt jemand mit mir'),
             ('tell', 'hannes Schau mal an'),
             ('tell', 'andreas das hab ich dem hannes auch gesagt.'),
+            ('wave', 'You wave goodbye.'),
+            ('wave', 'You wave goodbye again and log out.\n'+BYE[:-2]),
             ('tell', '####### das wollt ich auch sagen.'),
             )
 
 def randomMessage(protocol):
     """Do a bit of random communication with the server."""
     return random.choice(MESSAGES)
-    
 
 class Commands:
 
@@ -51,6 +52,12 @@ class Commands:
         self.expected = '16 %s' % message
         self.wait = True
     
+    def wave(self, receipt):
+        print '++', receipt
+        self.cmd = 'wave'
+        self.expected = receipt
+        self.wait = True
+
 class Com(Protocol):
 
     wait = 3
