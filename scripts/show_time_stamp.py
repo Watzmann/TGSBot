@@ -5,6 +5,9 @@ import sys
 import time
 
 def convert(stamp):
+    if len(stamp) < 16:
+        stamp = stamp.rstrip('.')
+        stamp += '0'*(16-len(stamp))
     return time.asctime(time.localtime(float(stamp)/1000000.))
 
 if __name__ == "__main__":
