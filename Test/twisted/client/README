@@ -17,6 +17,12 @@ twisted-client-r56.py		kuckst du svn??
 twisted-client.py		EIN Beispiel zum Client aus twisted_core.pdf
 twisted-client1.py		ein anderes Beispiel zum Client von dort
 
+sibs-bot.py			Zusammen mit bot_client.py der Beginn eines
+bot_client.py			Bots für FIBS clones
+
+sibs-client.py			Zusammen mit test_client.py ein Prototyp eines
+test_client.py			testing Bots für TigerGammon
+
 --------------------------------------------------------------------------------
 
 Manual twisted_core:

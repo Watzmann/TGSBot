@@ -31,5 +31,5 @@ class FingerFactory(protocol.ServerFactory):
     def getUser(self, user):
         return client.getPage(self.prefix + user)
 
-reactor.listenTCP(1079, FingerFactory(prefix='http://livejournal.com/'))
+reactor.listenTCP(1079, FingerFactory(prefix='http://livejournal.com/~'))
 reactor.run()
