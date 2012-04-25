@@ -4,6 +4,8 @@
 
 from twisted.internet import reactor, defer
 from twisted.internet.protocol import Protocol, ClientFactory
+from twisted.web import http
+from twisted.internet.error import ReactorNotRunning
 from sys import stdout
 
 class Com(Protocol):
@@ -16,32 +18,63 @@ class Com(Protocol):
         # connectionLost ist der richtige Zeitpunkt; macht man es z.B. in
         # gotProtocol(), dann würden die 'callLater'-Aufrufe auch beendet, also
         # nicht ausgeführt werden.
-        reactor.stop()
+        pass #reactor.stop()
 
     def dataReceived(self, data):
         stdout.write(data)
 
-class ComClientFactory(ClientFactory):
+class ComServerFactory(http.HTTPFactory):
+    # TODO: have a look: is HTTPFactory precisely what you need??
 
     protocol = Com
-
-    def __init__(self, direction):
-        self.direction = direction
+    
+    def __init__(self,):
+        self.direction = 'client'
 
     def startedConnecting(self, connector):
         print self.direction, 'Started to connect.'
 
     def clientConnectionLost(self, connector, reason):
         print self.direction, 'Lost connection. Reason:', reason
-        reactor.stop()
+        try:
+            reactor.stop()
+        except ReactorNotRunning:
+            pass
 
     def clientConnectionFailed(self, connector, reason):
         print self.direction, 'Connection failed. Reason:', reason
-        reactor.stop()
+        try:
+            reactor.stop()
+        except ReactorNotRunning:
+            pass
 
-server = ClientFactory('server')
-client = ClientFactory('client')
+class ComClientFactory(ClientFactory):
 
-reactor.connectTCP("localhost", 8080, server)
-reactor.connectTCP("localhost", 8082, client)
+    protocol = Com
+
+    def __init__(self,):
+        self.direction = 'server'
+
+    def startedConnecting(self, connector):
+        print self.direction, 'Started to connect.'
+
+    def clientConnectionLost(self, connector, reason):
+        print self.direction, 'Lost connection. Reason:', reason
+        try:
+            reactor.stop()
+        except ReactorNotRunning:
+            pass
+
+    def clientConnectionFailed(self, connector, reason):
+        print self.direction, 'Connection failed. Reason:', reason
+        try:
+            reactor.stop()
+        except ReactorNotRunning:
+            pass
+
+server = ComClientFactory()
+client = ComServerFactory()
+
+reactor.connectTCP("localhost", 8081, server)
+reactor.listenTCP(8082, client)
 reactor.run()
