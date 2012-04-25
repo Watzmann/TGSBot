@@ -9,37 +9,43 @@ from twisted.internet.error import ReactorNotRunning
 from sys import stdout
 
 class Com(Protocol):
+
     def sendMessage(self, msg):
         print 'in sendMessage with', msg
         self.transport.write("MESSAGE %s\n" % msg)
 
+    def connectionMade(self):
+        if self.factory.direction == 'client':
+            print 'client connected'
+        self.factory.partner.receiver = self.sendMessage
+        self.factory.is_listening = True
+        self.buffer = []
+
     def connectionLost(self, reason):
-        # Damit wird der reactor beendet; sonst würde das Ding endlos laufen
-        # connectionLost ist der richtige Zeitpunkt; macht man es z.B. in
-        # gotProtocol(), dann würden die 'callLater'-Aufrufe auch beendet, also
-        # nicht ausgeführt werden.
-        pass #reactor.stop()
+        if self.factory.direction != 'client':
+            return
+        print 'client Lost connection. Reason:', reason
+        try:
+            reactor.stop()
+        except ReactorNotRunning:
+            pass
 
     def dataReceived(self, data):
-        stdout.write(data)
+#        stdout.write('From %s heard:' % self.factory.direction)
+#        stdout.write(data)
+        if self.factory.partner.is_listening:
+            self.factory.receiver(data)
+        else:
+            self.buffer += data
 
 class ComServerFactory(http.HTTPFactory):
     # TODO: have a look: is HTTPFactory precisely what you need??
 
     protocol = Com
+    is_listening = False
     
     def __init__(self,):
         self.direction = 'client'
-
-    def startedConnecting(self, connector):
-        print self.direction, 'Started to connect.'
-
-    def clientConnectionLost(self, connector, reason):
-        print self.direction, 'Lost connection. Reason:', reason
-        try:
-            reactor.stop()
-        except ReactorNotRunning:
-            pass
 
     def clientConnectionFailed(self, connector, reason):
         print self.direction, 'Connection failed. Reason:', reason
@@ -51,6 +57,7 @@ class ComServerFactory(http.HTTPFactory):
 class ComClientFactory(ClientFactory):
 
     protocol = Com
+    is_listening = False
 
     def __init__(self,):
         self.direction = 'server'
@@ -74,6 +81,8 @@ class ComClientFactory(ClientFactory):
 
 server = ComClientFactory()
 client = ComServerFactory()
+server.partner = client
+client.partner = server
 
 reactor.connectTCP("localhost", 8081, server)
 reactor.listenTCP(8082, client)
