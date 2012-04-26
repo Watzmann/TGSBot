@@ -1,12 +1,17 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""A twisted proxy to sniff communication between TiGa server and client."""
+"""A twisted proxy to sniff communication between client and TiGa server."""
 
+import sys
+from optparse import OptionParser
 from twisted.internet import reactor, defer
 from twisted.internet.protocol import Protocol, ClientFactory
 from twisted.web import http
 from twisted.internet.error import ReactorNotRunning
 from datetime import date
+import time
+
+LISTEN=8082
 
 # TODO: one issue is:
 #       it would be nice to have a different client log in and have it
@@ -22,7 +27,8 @@ class Com(Protocol):
     def connectionMade(self):
         if self.factory.side == 'client':
             print 'client connected'
-            reactor.connectTCP("localhost", 8081, server)
+            host, port = self.factory.server_data
+            reactor.connectTCP(host, port, self.factory.partner)
         self.factory.partner.receiver = self.sendMessage
         self.factory.is_listening = True
         self.buffer = []
@@ -91,14 +97,50 @@ class ComClientFactory(ClientFactory):
         except ReactorNotRunning:
             pass
 
+def usage(progname):
+    usg = """usage: %prog [<user>]
+  %prog """ + __doc__
+    parser = OptionParser(usg)
+    def_name = 'proxy_%s.log' % time.strftime("%y%m%d-%H%M")
+    parser.add_option("-l", "--log-file",
+                  action="store", dest="sniff_file_name", default=def_name,
+                  help="write sniffers log to <log-file> [%s]" % def_name)
+    parser.add_option("-s", "--host",
+                  action="store", dest="host", default='localhost',
+                  help="use <host> as a server [localhost].")
+    parser.add_option("-p", "--port",
+                  action="store", dest="port", default='8081',
+                  help="use <port> to connect [8081].")
+    return parser,usg
 
-sniff_file = open('proxy.log', 'a')
-sniff_file.write('\n\n\n%s %s\n' % ('='*75, date.today().ctime()))
-server = ComClientFactory(sniff_file)
-client = ComServerFactory(sniff_file)
-server.partner = client
-client.partner = server
+# TODO: next step is
+#       2) für den Fehler mit der Playlist (3DFibs) verwenden (siehe new5/todo.3)
 
-reactor.listenTCP(8082, client)
-reactor.run()
-sniff_file.close()
+if __name__ == '__main__':
+    parser,usg = usage(sys.argv[0])
+    (options, args) = parser.parse_args()
+    if len(args) > 0:
+        a = args[0].split(':')
+        if len(a) == 2:
+            options.host = a[0]
+            options.port = a[1]
+        else:
+            print "Excess arguments maybe 'host:port'.\nElse they are ignored!"
+
+    print "Writing to", options.sniff_file_name
+    print "Connecting to %s:%s" % (options.host, options.port)
+    print "Listening on", LISTEN
+
+    sniff_file = open(options.sniff_file_name, 'a')
+    sniff_file.write('\n\n\n%s %s\n' % ('='*75, date.today().ctime()))
+    server = ComClientFactory(sniff_file)
+    client = ComServerFactory(sniff_file)
+
+    server_data = (options.host, int(options.port))
+    server.partner = client
+    client.partner = server
+    client.server_data = server_data
+
+    reactor.listenTCP(LISTEN, client)
+    reactor.run()
+    sniff_file.close()
