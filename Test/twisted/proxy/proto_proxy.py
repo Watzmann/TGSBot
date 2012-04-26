@@ -6,7 +6,7 @@ from twisted.internet import reactor, defer
 from twisted.internet.protocol import Protocol, ClientFactory
 from twisted.web import http
 from twisted.internet.error import ReactorNotRunning
-from sys import stdout
+from datetime import date
 
 class Com(Protocol):
 
@@ -14,14 +14,14 @@ class Com(Protocol):
         self.transport.write("%s" % msg)
 
     def connectionMade(self):
-        if self.factory.direction == 'client':
+        if self.factory.side == 'client':
             print 'client connected'
         self.factory.partner.receiver = self.sendMessage
         self.factory.is_listening = True
         self.buffer = []
 
     def connectionLost(self, reason):
-        if self.factory.direction != 'client':
+        if self.factory.side != 'client':
             return
         print 'client Lost connection. Reason:', reason
         try:
@@ -30,8 +30,9 @@ class Com(Protocol):
             pass
 
     def dataReceived(self, data):
-        self.factory.logger.write('From %s heard:' % self.factory.direction)
-        self.factory.logger.write(data)
+        self.factory.sniffer.write(self.factory.separator)
+        self.factory.sniffer.write(data)
+        self.factory.sniffer.flush()
         if self.factory.partner.is_listening:
             self.factory.receiver(data)
         else:
@@ -43,12 +44,13 @@ class ComServerFactory(http.HTTPFactory):
     protocol = Com
     is_listening = False
     
-    def __init__(self, logger):
-        self.direction = 'client'
-        self.logger = logger
+    def __init__(self, sniffer):
+        self.side = 'client'
+        self.separator = '%s server\n' % ('>'*75,)
+        self.sniffer = sniffer
 
     def clientConnectionFailed(self, connector, reason):
-        print self.direction, 'Connection failed. Reason:', reason
+        print self.side, 'Connection failed. Reason:', reason
         try:
             reactor.stop()
         except ReactorNotRunning:
@@ -59,34 +61,37 @@ class ComClientFactory(ClientFactory):
     protocol = Com
     is_listening = False
 
-    def __init__(self, logger):
-        self.direction = 'server'
-        self.logger = logger
+    def __init__(self, sniffer):
+        self.side = 'server'
+        self.separator = '%s client\n' % ('<'*75,)
+        self.sniffer = sniffer
 
     def startedConnecting(self, connector):
-        print self.direction, 'Started to connect.'
+        print self.side, 'Started to connect.'
 
     def clientConnectionLost(self, connector, reason):
-        print self.direction, 'Lost connection. Reason:', reason
+        print self.side, 'Lost connection. Reason:', reason
         try:
             reactor.stop()
         except ReactorNotRunning:
             pass
 
     def clientConnectionFailed(self, connector, reason):
-        print self.direction, 'Connection failed. Reason:', reason
+        print self.side, 'Connection failed. Reason:', reason
         try:
             reactor.stop()
         except ReactorNotRunning:
             pass
 
-logfile = open('proxy.log', 'w+')
-server = ComClientFactory(logfile)
-client = ComServerFactory(logfile)
+
+sniff_file = open('proxy.log', 'a')
+sniff_file.write('\n\n\n%s %s\n' % ('='*75, date.today().ctime()))
+server = ComClientFactory(sniff_file)
+client = ComServerFactory(sniff_file)
 server.partner = client
 client.partner = server
 
 reactor.connectTCP("localhost", 8081, server)
 reactor.listenTCP(8082, client)
 reactor.run()
-logfile.close()
+sniff_file.close()
