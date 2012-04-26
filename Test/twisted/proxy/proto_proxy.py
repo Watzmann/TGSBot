@@ -11,8 +11,7 @@ from sys import stdout
 class Com(Protocol):
 
     def sendMessage(self, msg):
-        print 'in sendMessage with', msg
-        self.transport.write("MESSAGE %s\n" % msg)
+        self.transport.write("%s" % msg)
 
     def connectionMade(self):
         if self.factory.direction == 'client':
@@ -31,8 +30,8 @@ class Com(Protocol):
             pass
 
     def dataReceived(self, data):
-#        stdout.write('From %s heard:' % self.factory.direction)
-#        stdout.write(data)
+        self.factory.logger.write('From %s heard:' % self.factory.direction)
+        self.factory.logger.write(data)
         if self.factory.partner.is_listening:
             self.factory.receiver(data)
         else:
@@ -44,8 +43,9 @@ class ComServerFactory(http.HTTPFactory):
     protocol = Com
     is_listening = False
     
-    def __init__(self,):
+    def __init__(self, logger):
         self.direction = 'client'
+        self.logger = logger
 
     def clientConnectionFailed(self, connector, reason):
         print self.direction, 'Connection failed. Reason:', reason
@@ -59,8 +59,9 @@ class ComClientFactory(ClientFactory):
     protocol = Com
     is_listening = False
 
-    def __init__(self,):
+    def __init__(self, logger):
         self.direction = 'server'
+        self.logger = logger
 
     def startedConnecting(self, connector):
         print self.direction, 'Started to connect.'
@@ -79,11 +80,13 @@ class ComClientFactory(ClientFactory):
         except ReactorNotRunning:
             pass
 
-server = ComClientFactory()
-client = ComServerFactory()
+logfile = open('proxy.log', 'w+')
+server = ComClientFactory(logfile)
+client = ComServerFactory(logfile)
 server.partner = client
 client.partner = server
 
 reactor.connectTCP("localhost", 8081, server)
 reactor.listenTCP(8082, client)
 reactor.run()
+logfile.close()
