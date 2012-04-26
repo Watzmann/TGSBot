@@ -60,7 +60,7 @@ class ComServerFactory(http.HTTPFactory):
     
     def __init__(self, sniffer):
         self.side = 'client'
-        self.separator = '%s server\n' % ('>'*75,)
+        self.separator = '%s client\n' % ('>'*75,)
         self.sniffer = sniffer
 
     def clientConnectionFailed(self, connector, reason):
@@ -77,7 +77,7 @@ class ComClientFactory(ClientFactory):
 
     def __init__(self, sniffer):
         self.side = 'server'
-        self.separator = '%s client\n' % ('<'*75,)
+        self.separator = '%s server\n' % ('<'*75,)
         self.sniffer = sniffer
 
     def startedConnecting(self, connector):
