@@ -8,6 +8,12 @@ from twisted.web import http
 from twisted.internet.error import ReactorNotRunning
 from datetime import date
 
+# TODO: one issue is:
+#       it would be nice to have a different client log in and have it
+#       recorded, too. Then the sniffing protocol had to be 'signed' in order
+#       to tell things apart.
+#       Presently the second client 'robbs' the stream from the first.
+
 class Com(Protocol):
 
     def sendMessage(self, msg):
@@ -16,6 +22,7 @@ class Com(Protocol):
     def connectionMade(self):
         if self.factory.side == 'client':
             print 'client connected'
+            reactor.connectTCP("localhost", 8081, server)
         self.factory.partner.receiver = self.sendMessage
         self.factory.is_listening = True
         self.buffer = []
@@ -37,6 +44,7 @@ class Com(Protocol):
             self.factory.receiver(data)
         else:
             self.buffer += data
+            print 'WARNING: buffered data!!'
 
 class ComServerFactory(http.HTTPFactory):
     # TODO: have a look: is HTTPFactory precisely what you need??
@@ -91,7 +99,6 @@ client = ComServerFactory(sniff_file)
 server.partner = client
 client.partner = server
 
-reactor.connectTCP("localhost", 8081, server)
 reactor.listenTCP(8082, client)
 reactor.run()
 sniff_file.close()
