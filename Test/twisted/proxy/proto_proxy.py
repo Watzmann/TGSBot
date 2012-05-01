@@ -43,6 +43,8 @@ class Com(Protocol):
             pass
 
     def dataReceived(self, data):
+        # TODO: put in a time stamp :)
+        self.factory.sniffer.write(time.strftime("%H:%M:%S"))
         self.factory.sniffer.write(self.factory.separator)
         self.factory.sniffer.write(data)
         self.factory.sniffer.flush()
@@ -60,7 +62,7 @@ class ComServerFactory(http.HTTPFactory):
     
     def __init__(self, sniffer):
         self.side = 'client'
-        self.separator = '%s client\n' % ('>'*75,)
+        self.separator = '  %s client\n' % ('>'*65,)
         self.sniffer = sniffer
 
     def clientConnectionFailed(self, connector, reason):
@@ -77,7 +79,7 @@ class ComClientFactory(ClientFactory):
 
     def __init__(self, sniffer):
         self.side = 'server'
-        self.separator = '%s server\n' % ('<'*75,)
+        self.separator = '  %s server\n' % ('<'*65,)
         self.sniffer = sniffer
 
     def startedConnecting(self, connector):
@@ -132,7 +134,7 @@ if __name__ == '__main__':
     print "Listening on", LISTEN
 
     sniff_file = open(options.sniff_file_name, 'a')
-    sniff_file.write('\n\n\n%s %s\n' % ('='*75, date.today().ctime()))
+    sniff_file.write('\n\n\n%s %s\n' % ('='*75, time.asctime()))
     server = ComClientFactory(sniff_file)
     client = ComServerFactory(sniff_file)
 
