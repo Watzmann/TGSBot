@@ -3,6 +3,9 @@
 """Extrahiert csv-Datei aus HTML mit Liste von Login-Daten für PartnerPortale (Haufe).
   Einfacher Aufruf. In liste.html ist die besagte html-Datei
   (zB Dropbox-Safe/else/Haufe Gruppe Partner Portal Client.html).
+
+  EXAMPLE
+    ./haufe_PP_login_data.py > liste.csv
 """
 
 import sys
@@ -18,7 +21,7 @@ class MyHTMLParser(HTMLParser):
         self.attach = False
         self.data = False
         self.entity = False
-        self.columns = ('Portal', 'Login', 'Zugang', 'Key', 'Type', 'IPs',)
+        self.columns = ('Portal', 'aktiv', 'Login', 'Zugang', 'Key', 'Type', 'Lebenszeit', 'IPs', 'Mails')
         self.entities = {'amp': '&'}
         return
 
@@ -54,16 +57,19 @@ class MyHTMLParser(HTMLParser):
         if self.record and tag == 'table':
             self.record = False
         elif self.attach and tag == 'tr':
+            #print '-'*80, '\n', self.line
             self.attach = False
-            for d in (5,3,2,0):
-                if len(self.line) > d:
+            for d in (8,6,5,3,2,0):          # leere Elemente löschen,
+                if len(self.line) > d:       # die durch <span> entstehen
                     del self.line[d]
-            if len(self.line) > 15 and self.line[1] == '-':
-                for d in (16,14,13,11,10,8,7,5,4,2):
+            #print self.line
+            if len(self.line) > 7 and self.line[2] == '-':    # dito
+                for d in (20,18,17,15,14,12,11,9,8,6,5,3):    # dito
+                #for d in (8,6,5,3):
                     if len(self.line) > d:
                         del self.line[d]
+            #print self.line
             self.lines.append(dict(zip(self.columns,self.line)))
-            #self.lines.append(self.line)
         elif self.data and tag == 'td':
             self.data = False
 
@@ -94,9 +100,10 @@ if __name__ == "__main__":
     f.close()
 
     print >> sys.stderr, len(liste)
-    print '"Portal", "Login erlaubt", "Zugang", "Schlüssel", "Verschlüsselungstyp", "IP Adressen"'
+    print '"Portal", "aktiv", "Login erlaubt", "Zugang", "Schlüssel", "Verschlüsselungstyp", "Lebenszeit", "IP Adressen", "Mails"'
     for l in liste:
         try:
-            print '"%(Portal)s","%(Login)s","%(Zugang)s","%(Key)s","%(Type)s","%(IPs)s"' % l
+            print '"%(Portal)s","%(aktiv)s","%(Login)s","%(Zugang)s","%(Key)s","%(Type)s","%(Lebenszeit)s",' \
+                  '"%(IPs)s","%(Mails)s"' % l
         except:
             pass
