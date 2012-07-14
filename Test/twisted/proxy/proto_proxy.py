@@ -10,6 +10,7 @@ from twisted.web import http
 from twisted.internet.error import ReactorNotRunning
 from datetime import date
 import time
+import random
 
 LISTEN=8082
 
@@ -29,6 +30,8 @@ class Com(Protocol):
             print 'client connected'
             host, port = self.factory.server_data
             reactor.connectTCP(host, port, self.factory.partner)
+            self.auto_cmd = {False: self.dont_keep_alive,
+                             True: self.keep_alive}[self.factory.keep_alive]
         self.factory.partner.receiver = self.sendMessage
         self.factory.is_listening = True
         self.buffer = []
@@ -50,15 +53,34 @@ class Com(Protocol):
         self.factory.sniffer.flush()
         if self.factory.partner.is_listening:
             self.factory.receiver(data)
+            self.keep_alive()
         else:
             self.buffer += data
             print 'WARNING: buffered data!!'
+
+    def keep_alive(self,):
+        cka = getattr(self, '_call_keep_alive', None)
+        if cka is None:
+            delay = self.factory.get_delay()
+            self._call_keep_alive = reactor.callLater(delay, self.send_cmd)
+        else:
+            cka.reset()
+
+    def dont_keep_alive(self,):
+        pass
+
+    def send_cmd(self,):
+        cmd = random.choice(self.factory.cmd_repository)
+        self.sendMessage(cmd)
+        del self._call_keep_alive
 
 class ComServerFactory(http.HTTPFactory):
     # TODO: have a look: is HTTPFactory precisely what you need??
 
     protocol = Com
     is_listening = False
+    cmd_repository = ("whois sorrytigger",)
+    interval = (4., 9.)
     
     def __init__(self, sniffer):
         self.side = 'client'
@@ -71,6 +93,10 @@ class ComServerFactory(http.HTTPFactory):
             reactor.stop()
         except ReactorNotRunning:
             pass
+
+    def get_delay(self,):
+        return self.interval[0] + (self.interval[1] -
+                                   self.interval[0]) * random.random()
 
 class ComClientFactory(ClientFactory):
 
@@ -113,10 +139,10 @@ def usage(progname):
     parser.add_option("-p", "--port",
                   action="store", dest="port", default='8081',
                   help="use <port> to connect [8081].")
+    parser.add_option("-k", "--keep-alive",
+                  action="store_true", dest="keep_alive", default=False,
+                  help="send keep-alive commands to FIBS to avoid timeout.")
     return parser,usg
-
-# TODO: next step is
-#       2) für den Fehler mit der Playlist (3DFibs) verwenden (siehe new5/todo.3)
 
 if __name__ == '__main__':
     parser,usg = usage(sys.argv[0])
@@ -142,7 +168,8 @@ if __name__ == '__main__':
     server.partner = client
     client.partner = server
     client.server_data = server_data
-
+    client.keep_alive = options.keep_alive  # signals the client to send
+                                            # commands to avoid FIBS timeout
     reactor.listenTCP(LISTEN, client)
     reactor.run()
     sniff_file.close()
