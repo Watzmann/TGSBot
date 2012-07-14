@@ -7,7 +7,7 @@ TODO = """x) zwischen jedem Zugriff ein paar Sekunden warten
 x) Label ausformulieren
 x) game_id noch einbauen"""
 
-from httplib import *
+from http.client import *
 from read_zeit_sudoku import ZeitSudoku
 import time
 
@@ -17,7 +17,7 @@ class Sucher(object):
         self.game = self.compose_game(year, month, day, level)
         self.label = self.compose_label(year, month, day, level)
         self.nowait = False
-        
+
     def compose_game(self, year, month, day, level):
         if level > 2:
             action = 'level'
@@ -33,7 +33,7 @@ class Sucher(object):
 
     def extract(self, text):
         return text
-        
+
     def suche (self,):
         verbindung = HTTPConnection('sudoku.zeit.de')     # hier darf natuerlich nur der Server benannt werden
                                                           # also nicht gleich in /cgi-bin/sudoku hinabsteigen
@@ -44,12 +44,12 @@ class Sucher(object):
             if False:       # dient nur als Weiche zum Debugging
                 htmltext = antwort.read()
                 ergebnis = self.extract(htmltext)
-                print ergebnis
+                print(ergebnis)
             else:
                 self.zs = ZeitSudoku(antwort)
                 self.zs.write()
         else:
-            print 'Keine Antwort von Die Zeit auf', suchwort     #6
+            print('Keine Antwort von Die Zeit auf', suchwort)     #6
         verbindung.close()
         if not self.nowait:
             time.sleep(2)
@@ -64,5 +64,3 @@ class Benutzungsoberflaeche(object):
 if __name__ == '__main__':
     Benutzungsoberflaeche()
 
-
-                    

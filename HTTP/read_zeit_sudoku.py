@@ -3,7 +3,7 @@
 """was macht das script"""
 
 import sys
-from HTMLParser import HTMLParser
+from html.parser import HTMLParser
 
 class MyHTMLParser(HTMLParser):
 
@@ -82,8 +82,8 @@ class ZeitSudoku:
                 f = 99
             j = e/2 + 1
             if f != j:
-                print \
-        'Warning: Synchronisation Error!! Fieldname %d != %d list index' % (f,j)
+                print( \
+        'Warning: Synchronisation Error!! Fieldname %d != %d list index' % (f,j))
             v = i['value']
             if v == '':
                 v = '.'
@@ -105,10 +105,10 @@ class ZeitSudoku:
     def write(self,):
         fmt = "    '%s': ("+"'%s',"*9+"),"
         gt = (a for a in self.game).next
-        print fmt % (self.g_label,gt(),gt(),gt(),gt(),gt(),gt(),gt(),gt(),gt())
+        print(fmt % (self.g_label,gt(),gt(),gt(),gt(),gt(),gt(),gt(),gt(),gt()))
         gt = (a for a in self.result).next
-        print fmt % (self.r_label,gt(),gt(),gt(),gt(),gt(),gt(),gt(),gt(),gt())
-        print "    '%s_id': %s," % (self.g_label,self.game_id)
+        print(fmt % (self.r_label,gt(),gt(),gt(),gt(),gt(),gt(),gt(),gt(),gt()))
+        print("    '%s_id': %s," % (self.g_label,self.game_id))
 
     def entries(self,):
         h = {}
