@@ -13,6 +13,9 @@ import time
 import random
 import re
 
+pattern = re.compile("There are [0123456789]* users logged on.")
+the_number = re.compile("[0123456789]*")
+
 LISTEN=8082
 
 # TODO: one issue is:
@@ -49,11 +52,13 @@ class Com(Protocol):
             pass
 
     def dataReceived(self, data):
-        # TODO: put in a time stamp :)
         self.factory.sniffer.write(time.strftime("%H:%M:%S"))
         self.factory.sniffer.write(self.factory.separator)
         self.factory.sniffer.write(data)
         self.factory.sniffer.flush()
+        found_nr_users = pattern.match(data)
+        if self.factory.side == 'server' and not found_nr_users is None:
+            self.factory.partner.adjust_interval(data)
         if self.factory.partner.is_listening:
             self.factory.receiver(data)
             self.auto_cmd()
@@ -101,7 +106,11 @@ class ComServerFactory(http.HTTPFactory):
         self.side = 'client'
         self.separator = '  %s client\n' % ('>'*65,)
         self.sniffer = sniffer
-        self.interval = (250., 550.)
+        self.interval_groups = {150: (500., 850.),
+                                200: (350., 550.),
+                                220: (250., 400.),
+                                300: (150., 250.),}
+        self.interval = self.interval_groups[220]
 
     def clientConnectionFailed(self, connector, reason):
         print self.side, 'Connection failed. Reason:', reason
@@ -109,6 +118,20 @@ class ComServerFactory(http.HTTPFactory):
             reactor.stop()
         except ReactorNotRunning:
             pass
+
+    def adjust_interval(self, message):
+        found = [f for f in the_number.findall(message) if f]
+        if found:
+            number = int(found[0])
+            groups = self.interval_groups.keys()
+            groups.sort()
+            for n in groups:
+                if n > number:
+                    group = n
+                    break
+            if self.interval != self.interval_groups[group]:
+                self.interval = self.interval_groups[group]
+                print 'adjusting interval to %s (%d users)' % (self.interval, number)
 
     def get_delay(self,):
         return self.interval[0] + (self.interval[1] -
