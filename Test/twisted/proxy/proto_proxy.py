@@ -11,6 +11,7 @@ from twisted.internet.error import ReactorNotRunning
 from datetime import date
 import time
 import random
+import re
 
 LISTEN=8082
 
@@ -32,6 +33,8 @@ class Com(Protocol):
             reactor.connectTCP(host, port, self.factory.partner)
             self.auto_cmd = {False: self.dont_keep_alive,
                              True: self.keep_alive}[self.factory.keep_alive]
+        else:
+            self.auto_cmd = self.dont_keep_alive
         self.factory.partner.receiver = self.sendMessage
         self.factory.is_listening = True
         self.buffer = []
@@ -53,39 +56,52 @@ class Com(Protocol):
         self.factory.sniffer.flush()
         if self.factory.partner.is_listening:
             self.factory.receiver(data)
-            self.keep_alive()
+            self.auto_cmd()
         else:
             self.buffer += data
             print 'WARNING: buffered data!!'
 
     def keep_alive(self,):
+        delay = self.factory.get_delay()
+        #print 'shooting in %s secs' % delay
+        #print 'delayed calls:', [(dc, dc.active(), dc.getTime()) for dc in reactor.getDelayedCalls()]
         cka = getattr(self, '_call_keep_alive', None)
         if cka is None:
-            delay = self.factory.get_delay()
             self._call_keep_alive = reactor.callLater(delay, self.send_cmd)
+            #print 'setting', self._call_keep_alive
         else:
-            cka.reset()
+            cka.reset(delay)
+            #print 'resetting', cka
 
     def dont_keep_alive(self,):
         pass
 
     def send_cmd(self,):
+        #print '..bang..'
         cmd = random.choice(self.factory.cmd_repository)
-        self.sendMessage(cmd)
         del self._call_keep_alive
+        self.dataReceived(cmd)
 
 class ComServerFactory(http.HTTPFactory):
     # TODO: have a look: is HTTPFactory precisely what you need??
 
     protocol = Com
     is_listening = False
-    cmd_repository = ("whois sorrytigger",)
-    interval = (4., 9.)
+    cmd_repository = ("whois sorrytigger\n",
+                      "tell TourneyBot tourneys open\n",
+                      "who count\n",
+                      "show games\n",
+                      "show max\n",
+                      )
+    pattern = re.compile("There are [0123456789]* users logged on.")
+    the_number = re.compile("[0123456789]*")
     
     def __init__(self, sniffer):
+        http.HTTPFactory.__init__(self)
         self.side = 'client'
         self.separator = '  %s client\n' % ('>'*65,)
         self.sniffer = sniffer
+        self.interval = (250., 550.)
 
     def clientConnectionFailed(self, connector, reason):
         print self.side, 'Connection failed. Reason:', reason
@@ -104,6 +120,7 @@ class ComClientFactory(ClientFactory):
     is_listening = False
 
     def __init__(self, sniffer):
+        #ClientFactory.__init__(self)
         self.side = 'server'
         self.separator = '  %s server\n' % ('<'*65,)
         self.sniffer = sniffer
