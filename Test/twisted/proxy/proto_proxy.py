@@ -123,15 +123,16 @@ class ComServerFactory(http.HTTPFactory):
         found = [f for f in the_number.findall(message) if f]
         if found:
             number = int(found[0])
-            groups = self.interval_groups.keys()
-            groups.sort()
-            for n in groups:
-                if n > number:
-                    group = n
-                    break
-            if self.interval != self.interval_groups[group]:
-                self.interval = self.interval_groups[group]
-                print 'adjusting interval to %s (%d users)' % (self.interval, number)
+            if number:
+                groups = self.interval_groups.keys()
+                groups.sort()
+                for n in groups:
+                    if n > number:
+                        group = n
+                        break
+                if self.interval != self.interval_groups[group]:
+                    self.interval = self.interval_groups[group]
+                    print 'adjusting interval to %s (%d users)' % (self.interval, number)
 
     def get_delay(self,):
         return self.interval[0] + (self.interval[1] -
