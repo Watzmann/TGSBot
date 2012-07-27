@@ -7,7 +7,7 @@ class Welcome(Request):
         self.expected = "WELCOME TO"
         Request.__init__(self, dispatch, manage,)
 
-    def receive(self, message):
+    def received(self, message):
         self.purge()
         self.dispatch.login()
 
@@ -21,20 +21,19 @@ class Login(Request):
 
         def login_answer(self, expected, message):
             user = expected[0]
-            msgs = message.split('\n')
             try:
-                ret = not msgs[1].startswith('1 %s' % user)
-                ret += not msgs[2].startswith('2 %s' % user)
-                ret += not msgs[3].startswith('3')
-                ret += not msgs[4].startswith('+--')
+                ret = not message[1].startswith('1 %s' % user)
+                ret += not message[2].startswith('2 %s' % user)
+                ret += not message[3].startswith('3')
+                ret += not message[4].startswith('+--')
                 m = 5
-                while not msgs[m].startswith('+--'):
+                while not message[m].startswith('+--'):
                     m += 1
-                ret += not msgs[m+1].startswith('4')
+                ret += not message[m+1].startswith('4')
                 m = m + 3
-                while msgs[m].startswith('5 '):
+                while message[m].startswith('5 '):
                     m += 1
-                ret += not msgs[m].startswith('6')
+                ret += not message[m].startswith('6')
             except:
                 return False
             return not ret
@@ -43,12 +42,13 @@ class Login(Request):
         self.expected = self.Answer(user)
         Request.__init__(self, dispatch, manage,)
 
-    def receive(self, message):
+    def received(self, message):
 ##        print 'TESTE -------------------', message
         expected_answer = self.expected.test(message)
 ##        print 'FINDE -------------------', expected_answer
         if expected_answer:
             self.purge()
+            self.dispatch.set_boardstyle()
             self.dispatch.query_status()
         return expected_answer
 

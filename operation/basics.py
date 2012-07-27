@@ -5,7 +5,7 @@ class Request:
         self.manage = manage
         self.update()
         
-    def receive(self, message):
+    def received(self, message):
         print 'got expected answer: >%s<' % message
 
     def update(self,):
