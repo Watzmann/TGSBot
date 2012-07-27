@@ -29,16 +29,16 @@ class Toggle(Request):
 
     def received(self, message):
         self.toggles = {}
-        print 'TOGGLE: READ MY LINES', message
+        #print 'TOGGLE: READ MY LINES', message
         try:
             for t in message[1:]:
-                print 'TOGGLE: working on >%s<' % t
+                #print 'TOGGLE: working on >%s<' % t
                 s = t.split()
                 self.toggles[s[0]] = s[-1]
         except:
-            raise RuntimeError('Toggle got unexpected data: >%s<' % message)
+            raise RuntimeError('TOGGLE got unexpected data: >%s<' % message)
         self.dispatch.toggles = self.toggles
-        print 'TOGGLE: FIND READY', self.toggles['ready']
+        #print 'TOGGLE: FIND READY', self.toggles['ready']
         if self.toggles['ready'] == 'NO':
             self.set_ready()
         self.purge()
@@ -54,15 +54,15 @@ class Set(Request):
 
     def received(self, message):
         self.settings = {}
-        print 'SET: READ MY LINES', message
+        #print 'SET: READ MY LINES', message
         try:
             for t in message[1:8]:
-                print 'SET: working on >%s<' % t
+                #print 'SET: working on >%s<' % t
                 s = t.split()
                 key = s[0].rstrip(':')
                 self.settings[key] = s[-1]
         except:
-            raise RuntimeError('Set got unexpected data: >%s<' % message)
+            raise RuntimeError('SET got unexpected data: >%s<' % message)
         self.dispatch.settings = self.settings
         if self.settings['boardstyle'] != '3':
             self.set_boardstyle()
