@@ -26,8 +26,8 @@ class Dispatch:
         toggle = Toggle(self, self.requests)
         toggle.send_command('toggle')
 
-    def join(self, opponent):
-        join = Join(self, self.requests)
+    def join(self, opponent, ML):
+        join = Join(self, self.requests, opponent, ML)
         join.send_command('join %s' % opponent)
 
     def login(self,):
@@ -49,6 +49,7 @@ class Dispatch:
         lines = message.splitlines()
         cmd_line = lines[0].split()
         print 'COMMAND LINE', cmd_line
+        print 'REQUEST', self.requests
         message_done = False
         checks = [0]
         for e,l in enumerate(lines[1:],1):
@@ -80,6 +81,6 @@ class Dispatch:
                     else:
                         ML = None
                         print 'resuming a match with %s' % opponent
-                    self.join(opponent)
+                    self.join(opponent, ML)
                 else:
                     print 'got from server: >%s<' % '\n'.join(lines[c:])

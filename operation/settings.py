@@ -10,6 +10,8 @@ class Toggle(Request):
   1) Upon instanciation the expected server answer string is set to
        self.expected = "The current settings are:".
      This takes effect in Request.__init__ as it is stored to 'manage'.
+     The instanciated object is stored in 'manage' which is held alive in
+     'self.requests' in the dispatcher.
 
   2) The dispatcher may invoke the 'toggle'-command as it likes.
 
