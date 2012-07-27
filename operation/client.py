@@ -19,15 +19,15 @@ class Dispatch:
 
     def query_status(self,):
         toggle = Toggle(self, self.requests)
-        self.send_server('toggle')
+        toggle.send_command('toggle')
 
     def join(self, opponent):
         join = Join(self, self.requests)
-        self.send_server('join %s' % opponent)
+        join.send_command('join %s' % opponent)
 
     def login(self,):
         login = Login(self, self.requests, self.user)
-        self.send_server('login h h %s %s' % (self.user, self.password))
+        login.send_command('login h h %s %s' % (self.user, self.password))
 
     def command(self, cmd):
         a = cmd.split()
