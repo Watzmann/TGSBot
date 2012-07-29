@@ -48,6 +48,7 @@ class Toggle(Request):
             raise RuntimeError('TOGGLE got unexpected data: >%s<' % message)
         self.dispatch.toggles = self.toggles
         log.msg('TOGGLE applies '+'+'*40, logLevel=VERBOSE)
+        del message[:len(self.toggles)+1]
         if self.toggles['ready'] == 'NO':
             log.msg('TOGGLE sets ready '+'>'*35, logLevel=VERBOSE)
             self.set_ready()
@@ -75,6 +76,7 @@ class Set(Request):
             raise RuntimeError('SET got unexpected data: >%s<' % message)
         self.dispatch.settings = self.settings
         log.msg('SET applies '+'+'*40, logLevel=VERBOSE)
+        del message[:8]
         if self.settings['boardstyle'] != '3':
             log.msg('SET sets boardstyle '+'>'*35, logLevel=VERBOSE)
             self.set_boardstyle()

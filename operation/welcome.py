@@ -21,6 +21,8 @@ class Welcome(Request):
         log.msg('WELCOME applies '+'+'*40, logLevel=VERBOSE)
         self.purge()
         self.dispatch.login()
+        del message[0:len(message)]
+        return True
 
 class Login(Request):
 
@@ -63,6 +65,7 @@ class Login(Request):
         if expected_answer:
             log.msg('LOGIN applies '+'+'*40, logLevel=VERBOSE)
             self.purge()
+            del message[0:len(message)]
             self.dispatch.set_boardstyle()
             self.dispatch.query_status()
         else:

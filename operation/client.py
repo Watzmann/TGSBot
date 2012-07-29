@@ -8,6 +8,8 @@ from operation.settings import Toggle, Set
 from operation.play import Join
 from operation.config import ADMINISTRATORS, COMMANDS
 
+import sys
+
 TRACE = 15
 VERBOSE = 17
 
@@ -57,34 +59,40 @@ class Dispatch:
             self.send_server(answer)
 
     def parse(self, message):
-        lines = message.splitlines()
-        cmd_line = lines[0].split()
-        log.msg('='*80, logLevel=VERBOSE)
         log.msg('MESSAGE %s' % message, logLevel=logging.DEBUG)
-        log.msg('COMMAND LINE %s' % cmd_line, logLevel=logging.DEBUG)
-        log.msg('REQUEST %s' % self.requests, logLevel=logging.DEBUG)
-        message_done = False
-        checks = [0]
-        for e,l in enumerate(lines[1:],1):
-            if l in self.requests:
-                checks.append(e)
-        for c in checks:
-            if lines[c] in self.requests:
-                log.msg('ICH CHECKE ----------- %s' % lines[c], logLevel=TRACE)
+        lines = message.splitlines()
+        while len(lines) > 0:
+            first_line = lines[0]
+            cmd_line = first_line.split()
+            if len(cmd_line) == 0 or cmd_line[0] in ('5', '6'):
+                del lines[0]
+                continue
+            log.msg('='*80, logLevel=VERBOSE)
+            log.msg('COMMAND LINE %s' % cmd_line, logLevel=logging.DEBUG)
+            log.msg('REQUEST %s' % self.requests, logLevel=logging.DEBUG)
+            message_done = False
+
+
+            if first_line in self.requests:
+                log.msg('ICH CHECKE ----------- %s' % first_line, logLevel=TRACE)
                 # TODO: das funktioniert noch nicht.
                 #       Versuch mal den bot auf 'away' zu setzen und dann zu starten
                 #       Er bekommt die "away"-message als erste Zeile
-                request = self.requests.pop(lines[c])
-                message_done = request.received(lines[c:])
+                request = self.requests.pop(first_line)
+                log.msg('1 ################# %s' % len(lines), logLevel=logging.DEBUG)
+                message_done = request.received(lines)
+                log.msg('2 ################# %s' % len(lines), logLevel=logging.DEBUG)
             elif 'default' in self.requests:
-                log.msg('IN DEFAULT ----------- %s' % lines[c], logLevel=TRACE)
+                log.msg('IN DEFAULT ----------- %s' % first_line, logLevel=TRACE)
                 request = self.requests['default']
-                message_done = request.received(lines[c:])
+                log.msg('3 ################# %s' % len(lines), logLevel=logging.DEBUG)
+                message_done = request.received(lines)
+                log.msg('4 ################# %s' % len(lines), logLevel=logging.DEBUG)
 
 
             if not message_done:
-                if message.startswith('12 '):
-                    self.command(message[3:])
+                if first_line.startswith('12 '):
+                    self.command(first_line[3:])
                 elif len(cmd_line) > 3 and \
                      ' '.join(cmd_line[1:3]) == "wants to":
                     opponent = cmd_line[0]
@@ -97,6 +105,9 @@ class Dispatch:
                         log.msg('resuming a match with %s' % opponent,
                                 logLevel=logging.INFO)
                     self.join(opponent, ML)
-                else:
-                    log.msg('got from server: >%s<' % '\n'.join(lines[c:]),
-                            logLevel=logging.DEBUG)
+                if len(lines) > 0:
+                    del lines[0]
+
+
+        log.msg('got from server: >%s<' % '\n'.join(lines),
+                                                logLevel=logging.DEBUG)
