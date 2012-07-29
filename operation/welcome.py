@@ -1,6 +1,15 @@
 """Welcome message as login trigger and log in mechanics."""
 
+from twisted.python import log
 from operation.basics import Request, Response
+
+TRACE = 15
+VERBOSE = 17
+
+import logging
+logging.addLevelName(TRACE, 'TRACE')
+logging.addLevelName(VERBOSE, 'VERBOSE')
+print 'welcome could set logginglevel'
 
 class Welcome(Request):
     def __init__(self, dispatch, manage,):
@@ -8,6 +17,8 @@ class Welcome(Request):
         Request.__init__(self, dispatch, manage,)
 
     def received(self, message):
+        log.msg('WELCOME tests: %s' % message[0], logLevel=VERBOSE)
+        log.msg('WELCOME applies '+'+'*40, logLevel=VERBOSE)
         self.purge()
         self.dispatch.login()
 
@@ -43,13 +54,19 @@ class Login(Request):
         Request.__init__(self, dispatch, manage,)
 
     def received(self, message):
-##        print 'TESTE -------------------', message
+        if len(message) < 2:
+            first_line = message[0]
+        else:
+            first_line = message[1]
+        log.msg('LOGIN tests: %s' % first_line, logLevel=VERBOSE)
         expected_answer = self.expected.test(message)
-##        print 'FINDE -------------------', expected_answer
         if expected_answer:
+            log.msg('LOGIN applies '+'+'*40, logLevel=VERBOSE)
             self.purge()
             self.dispatch.set_boardstyle()
             self.dispatch.query_status()
+        else:
+            log.msg('LOGIN applies NOT '+'-'*36, logLevel=VERBOSE)
         return expected_answer
 
     def update(self,):

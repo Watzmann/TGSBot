@@ -1,6 +1,14 @@
 """Commands about toggles, settings, etc."""
 
+from twisted.python import log
 from operation.basics import Request
+
+TRACE = 15
+VERBOSE = 17
+
+import logging
+logging.addLevelName(TRACE, 'TRACE')
+logging.addLevelName(VERBOSE, 'VERBOSE')
 
 class Toggle(Request):
     """Query the toggles. From the response set dispatch.toggles.
@@ -31,17 +39,17 @@ class Toggle(Request):
 
     def received(self, message):
         self.toggles = {}
-        #print 'TOGGLE: READ MY LINES', message
+        log.msg('TOGGLE tests: %s' % message[0], logLevel=VERBOSE)
         try:
             for t in message[1:]:
-                #print 'TOGGLE: working on >%s<' % t
                 s = t.split()
                 self.toggles[s[0]] = s[-1]
         except:
             raise RuntimeError('TOGGLE got unexpected data: >%s<' % message)
         self.dispatch.toggles = self.toggles
-        #print 'TOGGLE: FIND READY', self.toggles['ready']
+        log.msg('TOGGLE applies '+'+'*40, logLevel=VERBOSE)
         if self.toggles['ready'] == 'NO':
+            log.msg('TOGGLE sets ready '+'>'*35, logLevel=VERBOSE)
             self.set_ready()
         self.purge()
 
@@ -56,17 +64,19 @@ class Set(Request):
 
     def received(self, message):
         self.settings = {}
-        #print 'SET: READ MY LINES', message
+        log.msg('SET tests: %s' % message[0], logLevel=VERBOSE)
         try:
             for t in message[1:8]:
-                #print 'SET: working on >%s<' % t
+                log.msg('SET: working on >%s<' % t, logLevel=logging.DEBUG)
                 s = t.split()
                 key = s[0].rstrip(':')
                 self.settings[key] = s[-1]
         except:
             raise RuntimeError('SET got unexpected data: >%s<' % message)
         self.dispatch.settings = self.settings
+        log.msg('SET applies '+'+'*40, logLevel=VERBOSE)
         if self.settings['boardstyle'] != '3':
+            log.msg('SET sets boardstyle '+'>'*35, logLevel=VERBOSE)
             self.set_boardstyle()
         self.purge()
 

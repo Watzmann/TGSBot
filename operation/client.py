@@ -1,10 +1,21 @@
+"""Client supplies classes to run the client."""
 
+from twisted.python import log
 from operation.basics import Request
 from operation.welcome import Welcome
 from operation.welcome import Login
 from operation.settings import Toggle, Set
 from operation.play import Join
 from operation.config import ADMINISTRATORS, COMMANDS
+
+TRACE = 15
+VERBOSE = 17
+
+import logging
+logging.addLevelName(TRACE, 'TRACE')
+logging.addLevelName(VERBOSE, 'VERBOSE')
+logging.basicConfig(level=logging.DEBUG,)
+print 'client set logginglevel'
 
 class Dispatch:
 
@@ -48,8 +59,9 @@ class Dispatch:
     def parse(self, message):
         lines = message.splitlines()
         cmd_line = lines[0].split()
-        print 'COMMAND LINE', cmd_line
-        print 'REQUEST', self.requests
+        log.msg('='*80, logLevel=VERBOSE)
+        log.msg('COMMAND LINE %s' % cmd_line, logLevel=logging.DEBUG)
+        log.msg('REQUEST %s' % self.requests, logLevel=logging.DEBUG)
         message_done = False
         checks = [0]
         for e,l in enumerate(lines[1:],1):
@@ -57,7 +69,7 @@ class Dispatch:
                 checks.append(e)
         for c in checks:
             if lines[c] in self.requests:
-                print 'ICH CHECKE -----------', lines[0]
+                log.msg('ICH CHECKE ----------- %s' % lines[c], logLevel=TRACE)
                 # TODO: das funktioniert noch nicht.
                 #       Versuch mal den bot auf 'away' zu setzen und dann zu starten
                 #       Er bekommt die "away"-message als erste Zeile
@@ -65,22 +77,24 @@ class Dispatch:
                 request.received(lines[c:])
                 message_done = True
             elif 'default' in self.requests:
-                print 'IN DEFAULT -----------'
+                log.msg('IN DEFAULT ----------- %s' % lines[c], logLevel=TRACE)
                 request = self.requests['default']
                 message_done = request.received(lines[c:])
             if not message_done:
                 if message.startswith('12 '):
-                    #print 'command (1):', message
                     self.command(message[3:])
                 elif len(cmd_line) > 3 and \
                      ' '.join(cmd_line[1:3]) == "wants to":
                     opponent = cmd_line[0]
                     if cmd_line[3] == 'play':
                         ML = int(cmd_line[5])
-                        print 'joining a %s point match with %s' % (ML, opponent)
+                        log.msg('joining a %s point match with %s' % (ML, opponent),
+                                logLevel=logging.INFO)
                     else:
                         ML = None
-                        print 'resuming a match with %s' % opponent
+                        log.msg('resuming a match with %s' % opponent,
+                                logLevel=logging.INFO)
                     self.join(opponent, ML)
                 else:
-                    print 'got from server: >%s<' % '\n'.join(lines[c:])
+                    log.msg('got from server: >%s<' % '\n'.join(lines[c:]),
+                            logLevel=logging.DEBUG)
