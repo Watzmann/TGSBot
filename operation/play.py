@@ -10,6 +10,10 @@ import logging
 logging.addLevelName(TRACE, 'TRACE')
 logging.addLevelName(VERBOSE, 'VERBOSE')
 
+from game import Board, logger, Logger
+logger.setLevel(logging.ERROR)
+board_logger = Logger(str(time.time()),logging.ERROR)
+
 class Join(Request):
 
     def __init__(self, dispatch, manage, opp, ML):
@@ -37,6 +41,7 @@ class Join(Request):
             self.purge()
             Play(self.dispatch, self.manage, self.opponent,
                                      self.ML, resume=self.resume)
+            del message[0]
         else:
             log.msg('JOIN applies NOT '+'-'*36, logLevel=VERBOSE)
         return expected_answer
@@ -119,9 +124,11 @@ class Play(Request):
                     for msg in message[2:]:
                         if msg.startswith('board'):
                             log.msg('ME starts', logLevel=VERBOSE)
-                            log.msg('board: %s' % s, logLevel=logging.DEBUG)
-                            rollout = msg
-                            continue
+                            log.msg('board: %s' % msg, logLevel=logging.DEBUG)
+                            self.status['board'] = Board(board_logger)
+                            self.status['board'].load(msg)
+                        if msg.startswith('Please move'):
+                            return True
                 if dice_me < dice_him:
                     waitfor = '%s makes the first move.' % opponent
                     for msg in message[2:]:
