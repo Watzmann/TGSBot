@@ -60,6 +60,7 @@ class Dispatch:
         lines = message.splitlines()
         cmd_line = lines[0].split()
         log.msg('='*80, logLevel=VERBOSE)
+        log.msg('MESSAGE %s' % message, logLevel=logging.DEBUG)
         log.msg('COMMAND LINE %s' % cmd_line, logLevel=logging.DEBUG)
         log.msg('REQUEST %s' % self.requests, logLevel=logging.DEBUG)
         message_done = False
@@ -74,12 +75,13 @@ class Dispatch:
                 #       Versuch mal den bot auf 'away' zu setzen und dann zu starten
                 #       Er bekommt die "away"-message als erste Zeile
                 request = self.requests.pop(lines[c])
-                request.received(lines[c:])
-                message_done = True
+                message_done = request.received(lines[c:])
             elif 'default' in self.requests:
                 log.msg('IN DEFAULT ----------- %s' % lines[c], logLevel=TRACE)
                 request = self.requests['default']
                 message_done = request.received(lines[c:])
+
+
             if not message_done:
                 if message.startswith('12 '):
                     self.command(message[3:])

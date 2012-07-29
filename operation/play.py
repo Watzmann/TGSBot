@@ -13,6 +13,8 @@ logging.addLevelName(VERBOSE, 'VERBOSE')
 class Join(Request):
 
     def __init__(self, dispatch, manage, opp, ML):
+        self.opponent = opp
+        self.ML = ML
         self.expected = self.expected_answer(opp, ML)
         Request.__init__(self, dispatch, manage,)
 
@@ -33,19 +35,66 @@ class Join(Request):
         if expected_answer:
             log.msg('JOIN applies '+'+'*40, logLevel=VERBOSE)
             self.purge()
-            Play(self.dispatch, self.manage, resume=self.resume)
+            Play(self.dispatch, self.manage, self.opponent,
+                                     self.ML, resume=self.resume)
         else:
             log.msg('JOIN applies NOT '+'-'*36, logLevel=VERBOSE)
         return expected_answer
 
 class Play(Request):
 
+##>
+##bonehead and mehrdad start a 5 point match.
+##>
+##** Player sorrytigger has joined you for a 3 point match.
+##Starting a new game with sorrytigger.
+##You rolled 5, sorrytigger rolled 1
+##It's your turn to move.
+##    13 14 15 16 17 18       19 20 21 22 23 24
+##   +------------------------------------------+ X: sorrytigger - score: 0
+##   | O           X    |   |  X              O |
+##   | O           X    |   |  X              O |
+##   | O           X    |   |  X                |
+##   | O                |   |  X                |
+##   | O                |   |  X                |
+##  v|                  |BAR|                   |    3-point match
+##   | X                |   |  O                |
+##   | X                |   |  O                |
+##   | X           O    |   |  O                |
+##   | X           O    |   |  O              X |
+##   | X           O    |   |  O              X |
+##   +------------------------------------------+ O: gutrune - score: 0
+##    12 11 10  9  8  7        6  5  4  3  2  1
+##
+##   BAR: O-0 X-0   OFF: O-0 X-0   Cube: 1  You rolled 5 1.
+##>
+##sorrytigger kibitzes: Hi and good luck, greetings from Germany
+##>
+##thewronghands wins a 3 point match against once  3-1 .
+
     class Answer(Response):
 
-        def __init__(self,):
+        def __init__(self, opponent, ML, resume):
             Response.__init__(self, '')
-            self.complex_answer(self.play_answer, [2, 1])
+            self.status = {}
+            if resume:
+                self.expected_answer = "Starting a new game with %s." % opponent
+                self.complex_answer(self.resume_answer, [opponent,])
+            else:
+                self.expected_answer = "Starting a new game with %s." % opponent
+                self.complex_answer(self.newgame_answer, [opponent, ML])
 
+##        def resume_answer(self, expected, message):
+##> turn: hannes.
+##match length: 5
+##points for helena: 0
+##points for hannes: 0
+## #board
+##> Please move 2 pieces.
+
+        def newgame_answer(self, expected, message):
+            opponent = expected[0]
+            ML = expected[1]
 ## starting a new game
 ## -----------------
 ##Starting a new game with helena.
@@ -54,36 +103,43 @@ class Play(Request):
 ## #board
 ##> Please move 2 pieces.
 
+            try:
+                if not message[1].startswith('You rolled'):
+                    return False
+                rollout = message[1]
+                for msg in message[2:]:
+                    if msg.startswith('You rolled'):
+                        rollout = msg
+                        continue
+                a, b = rollout.split(',')
+                dice_me = a.split(' ')[-1]
+                dice_him = b.split(' ')[-1]
+                self.status['dice'] = (dice_me, dice_him)
+                if dice_me > dice_him:
+                    for msg in message[2:]:
+                        if msg.startswith('board'):
+                            log.msg('ME starts', logLevel=VERBOSE)
+                            log.msg('board: %s' % s, logLevel=logging.DEBUG)
+                            rollout = msg
+                            continue
+                if dice_me < dice_him:
+                    waitfor = '%s makes the first move.' % opponent
+                    for msg in message[2:]:
+                        if msg == waitfor:
+                            log.msg('Opponent starts', logLevel=VERBOSE)
+                            return True
+            except:
+                return False
+            return True
 
-## resuming a game
-## -----------------
-##You are now playing with helena. Your running match was loaded.
-##> turn: hannes.
-##match length: 5
-##points for helena: 0
-##points for hannes: 0
-## #board
-##> Please move 2 pieces.
-
-
-        def play_answer(self, expected, message):
-            opponent = expected[0]
-            ML = expected[1]
-            if ML is None:
-                i_expect = "You are now playing with %s. " \
-                           "Your running match was loaded." % opponent
-            else:
-                i_expect = "** You are now playing a %s " \
-                           "point match with %s." % (ML, opponent)
-            return message[0] == i_expect
-
-    def __init__(self, dispatch, manage, resume=False):
-        self.expected = self.Answer()
+    def __init__(self, dispatch, manage, opponent, ML, resume=False):
+        self.expected = self.Answer(opponent, ML, resume)
         Request.__init__(self, dispatch, manage,)
 
     def received(self, message):
         log.msg('PLAY tests: %s' % message[0], logLevel=VERBOSE)
         expected_answer = self.expected.test(message)
+        status = self.expected.status
         if expected_answer:
             log.msg('PLAY applies '+'+'*40, logLevel=VERBOSE)
             self.purge()
@@ -92,4 +148,4 @@ class Play(Request):
         return expected_answer
 
     def update(self,):
-        self.manage['default'] = self
+        self.manage[self.expected.expected_answer] = self
