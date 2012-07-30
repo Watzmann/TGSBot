@@ -35,11 +35,11 @@ class Login(Request):
         def login_answer(self, expected, message):
             user = expected[0]
             try:
-                ret = not message[1].startswith('1 %s' % user)
-                ret += not message[2].startswith('2 %s' % user)
-                ret += not message[3].startswith('3')
-                ret += not message[4].startswith('+--')
-                m = 5
+                ret = not message[0].startswith('1 %s' % user)
+                ret += not message[1].startswith('2 %s' % user)
+                ret += not message[2].startswith('3')
+                ret += not message[3].startswith('+--')
+                m = 4
                 while not message[m].startswith('+--'):
                     m += 1
                 ret += not message[m+1].startswith('4')
@@ -56,10 +56,7 @@ class Login(Request):
         Request.__init__(self, dispatch, manage,)
 
     def received(self, message):
-        if len(message) < 2:
-            first_line = message[0]
-        else:
-            first_line = message[1]
+        first_line = message[0]
         log.msg('LOGIN tests: %s' % first_line, logLevel=VERBOSE)
         expected_answer = self.expected.test(message)
         if expected_answer:
