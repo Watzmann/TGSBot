@@ -15,8 +15,6 @@ TRACE = 15
 
 import logging
 logging.addLevelName(TRACE, 'TRACE')
-##logging.basicConfig(level=logging.DEBUG,)
-##print 'sibs-bot set logginglevel'
 
 NICK = 'tigerI'
 

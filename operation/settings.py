@@ -49,14 +49,19 @@ class Toggle(Request):
         self.dispatch.toggles = self.toggles
         log.msg('TOGGLE applies '+'+'*40, logLevel=VERBOSE)
         del message[:len(self.toggles)+1]
-        if self.toggles['ready'] == 'NO':
-            log.msg('TOGGLE sets ready '+'>'*35, logLevel=VERBOSE)
-            self.set_ready()
+        self.set_standard()
         self.purge()
 
-    def set_ready(self,):
-        self.dispatch.send_server('toggle ready')
-        self.dispatch.toggles['ready'] = 'YES'
+    def set_standard(self,):
+        for t,v in (('ready', 'YES'),
+                    ('notify', 'NO'),
+                    ('report', 'NO'),
+                    ('silent', 'YES'),
+                    ):
+            if self.toggles[t] != v:
+                log.msg('TOGGLE sets %s to %s' % (t,v) +'>'*30, logLevel=VERBOSE)
+            self.dispatch.send_server('toggle %s' % t)
+            self.dispatch.toggles[t] = v
 
 class Set(Request):
     def __init__(self, dispatch, manage,):

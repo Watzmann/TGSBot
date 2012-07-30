@@ -81,13 +81,13 @@ class Dispatch:
                 request = self.requests.pop(first_line)
                 log.msg('1 ################# %s' % len(lines), logLevel=logging.DEBUG)
                 message_done = request.received(lines)
-                log.msg('2 ################# %s' % len(lines), logLevel=logging.DEBUG)
+                log.msg('2 ################# %s (%s)' % (len(lines),message_done), logLevel=logging.DEBUG)
             elif 'default' in self.requests:
                 log.msg('IN DEFAULT ----------- %s' % first_line, logLevel=TRACE)
                 request = self.requests['default']
                 log.msg('3 ################# %s' % len(lines), logLevel=logging.DEBUG)
                 message_done = request.received(lines)
-                log.msg('4 ################# %s' % len(lines), logLevel=logging.DEBUG)
+                log.msg('4 ################# %s (%s)' % (len(lines),message_done), logLevel=logging.DEBUG)
 
 
             if not message_done:
@@ -109,5 +109,6 @@ class Dispatch:
                     del lines[0]
 
 
-        log.msg('got from server: >%s<' % '\n'.join(lines),
+        if len(lines) > 0:
+            log.msg('got from server/lines left: >%s<' % '\n'.join(lines),
                                                 logLevel=logging.DEBUG)
