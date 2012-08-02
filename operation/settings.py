@@ -58,10 +58,12 @@ class Toggle(Request):
                     ('report', 'NO'),
                     ('silent', 'YES'),
                     ):
+            log.msg('toggle %s == %s|%s#' % (t,v,self.toggles[t]), logLevel=logging.DEBUG)
             if self.toggles[t] != v:
-                log.msg('TOGGLE sets %s to %s' % (t,v) +'>'*30, logLevel=VERBOSE)
-            self.dispatch.send_server('toggle %s' % t)
-            self.dispatch.toggles[t] = v
+                log.msg('TOGGLE sets %s to %s  ' % (t,v) +'>'*30,
+                                                            logLevel=VERBOSE)
+                self.dispatch.send_server('toggle %s' % t)
+                self.dispatch.toggles[t] = v
 
 class Set(Request):
     def __init__(self, dispatch, manage,):
