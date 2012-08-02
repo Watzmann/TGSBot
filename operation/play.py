@@ -1,5 +1,6 @@
-"""Commands about toggles, settings, etc."""
+"""Commands about playing the match."""
 
+import sys
 from twisted.python import log
 from operation.basics import Request, Response
 
@@ -10,9 +11,11 @@ import logging
 logging.addLevelName(TRACE, 'TRACE')
 logging.addLevelName(VERBOSE, 'VERBOSE')
 
-from game import Board, logger, Logger
-logger.setLevel(logging.ERROR)
-board_logger = Logger(str(time.time()),logging.ERROR)
+sibs_path = '/var/develop/SIBS'
+if not sibs_path in sys.path:
+    sys.path.insert(0, sibs_path)
+
+from board import Board
 
 class Join(Request):
 
@@ -100,14 +103,6 @@ class Play(Request):
         def newgame_answer(self, expected, message):
             opponent = expected[0]
             ML = expected[1]
-## starting a new game
-## -----------------
-##Starting a new game with helena.
-##> You rolled 3, helena rolled 1
-##> It's your turn to move.
-## #board
-##> Please move 2 pieces.
-
             try:
                 if not message[1].startswith('You rolled'):
                     return False
@@ -121,20 +116,30 @@ class Play(Request):
                 dice_him = b.split(' ')[-1]
                 self.status['dice'] = (dice_me, dice_him)
                 if dice_me > dice_him:
+                    idx = 1
                     for msg in message[2:]:
+                        idx += 1
                         if msg.startswith('board'):
                             log.msg('ME starts', logLevel=VERBOSE)
                             log.msg('board: %s' % msg, logLevel=logging.DEBUG)
-                            self.status['board'] = Board(board_logger)
+                            self.status['board'] = Board()
                             self.status['board'].load(msg)
                         if msg.startswith('Please move'):
-                            return True
-                if dice_me < dice_him:
+                            log.msg('ME moves', logLevel=VERBOSE)
+                            del message[:idx]
+                            break
+                elif dice_me < dice_him:
+                    idx = 1
                     waitfor = '%s makes the first move.' % opponent
                     for msg in message[2:]:
+                        idx += 1
                         if msg == waitfor:
                             log.msg('Opponent starts', logLevel=VERBOSE)
-                            return True
+                            del message[:idx]
+                            break
+                # TODO: jetzt mussen folgende zwei zeilen 'umgehangt' werden
+##                self.expected_answer = "Starting a new game with %s." % opponent
+##                self.complex_answer(self.resume_answer, [opponent,])
             except:
                 return False
             return True
