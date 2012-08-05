@@ -124,6 +124,7 @@ class Play(Request):
                             log.msg('board: %s' % msg, logLevel=logging.DEBUG)
                             self.status['board'] = Board()
                             self.status['board'].load(msg)
+                            log.msg('board: %s' % self.status['board'].show_board('p1',2), logLevel=logging.DEBUG)
                         if msg.startswith('Please move'):
                             log.msg('ME moves', logLevel=VERBOSE)
                             del message[:idx]
