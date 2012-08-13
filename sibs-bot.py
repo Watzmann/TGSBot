@@ -10,6 +10,7 @@ from twisted.python import log
 import sys
 import random
 from operation.client import Dispatch
+from client.gnubg_client import set_up_gnubg
 
 TRACE = 15
 
@@ -56,5 +57,7 @@ class ComClientFactory(ClientFactory):
         reactor.callWhenRunning(reactor.stop)
 
 factory = ComClientFactory()
+# connect to a running gnubg instance
+factory.gnubg = set_up_gnubg()
 reactor.connectTCP('localhost', 8081, factory)
 reactor.run()
