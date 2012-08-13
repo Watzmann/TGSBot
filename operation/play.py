@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Commands about playing the match."""
 
 import sys
@@ -10,12 +11,6 @@ VERBOSE = 17
 import logging
 logging.addLevelName(TRACE, 'TRACE')
 logging.addLevelName(VERBOSE, 'VERBOSE')
-
-sibs_path = '/var/develop/SIBS'
-if not sibs_path in sys.path:
-    sys.path.insert(0, sibs_path)
-
-from board import Board
 
 class Join(Request):
 
@@ -82,8 +77,9 @@ class Play(Request):
 
     class Answer(Response):
 
-        def __init__(self, opponent, ML, resume):
+        def __init__(self, gnubg, opponent, ML, resume):
             Response.__init__(self, '')
+            self.gnubg = gnubg
             self.status = {}
             if resume:
                 self.expected_answer = "Starting a new game with %s." % opponent
@@ -99,6 +95,13 @@ class Play(Request):
 ##points for hannes: 0
 ## #board
 ##> Please move 2 pieces.
+
+## !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+##  Ich gebe den Bots n Flag mit (PlayBot).
+##  Damit können sie Infos abfragen (besonderer Commando-Satz).
+##  Dann wird ihnen vom Server signalisiert, dass von ihnen eine
+##    Aktion erwartet wird (Trigger). Mit Commandos holen sie die
+##    benötigte Info und können die Aktion ausführen.
 
         def newgame_answer(self, expected, message):
             opponent = expected[0]
@@ -119,12 +122,16 @@ class Play(Request):
                     idx = 1
                     for msg in message[2:]:
                         idx += 1
-                        if msg.startswith('board'):
+                        if msg.startswith('match_id'):
                             log.msg('ME starts', logLevel=VERBOSE)
-                            log.msg('board: %s' % msg, logLevel=logging.DEBUG)
-                            self.status['board'] = Board()
-                            self.status['board'].load(msg)
-                            log.msg('board: %s' % self.status['board'].show_board('p1',2), logLevel=logging.DEBUG)
+                            m,p = msg.split()[1].split(':')
+                            self.status['match_id'] = m
+                            self.status['position_id'] = p
+                            match_id = '%s:%s' % (m, p)
+                            log.msg('match_id: %s' % match_id, logLevel=logging.DEBUG)
+                            # rausfinden, ob ich dran
+                            # deferred Frage abschicken; wenn antwort, sofort senden
+                            self.oracle = self.gnubg.gnubg.ask_gnubg('bestMove: %s' % match_id)
                         if msg.startswith('Please move'):
                             log.msg('ME moves', logLevel=VERBOSE)
                             del message[:idx]
@@ -142,18 +149,34 @@ class Play(Request):
 ##                self.expected_answer = "Starting a new game with %s." % opponent
 ##                self.complex_answer(self.resume_answer, [opponent,])
             except:
+                raise
                 return False
             return True
 
+        def get_oracle(self,):
+            return getattr(self, 'oracle', None)
+
     def __init__(self, dispatch, manage, opponent, ML, resume=False):
-        self.expected = self.Answer(opponent, ML, resume)
+        self.gnubg = dispatch.protocol.factory.gnubg
+        self.opponent = opponent
+        self.ML = ML
+        self.expected = self.Answer(self.gnubg, opponent, ML, resume)
+        self.expected.send_move = self.send_move
         Request.__init__(self, dispatch, manage,)
+
+    def send_move(self, move):
+        print 'got move:', move, type(move)
+        mv = ' '.join(['m',] + [str(25-int(m)) for m in move.strip('()').split(',')])
+        self.send_command(mv)
 
     def received(self, message):
         log.msg('PLAY tests: %s' % message[0], logLevel=VERBOSE)
         expected_answer = self.expected.test(message)
-        status = self.expected.status
+        status = self.expected.status   # TODO: brauch ich das noch??
         if expected_answer:
+            oracle = self.expected.get_oracle()
+            if not oracle is None:
+                oracle.addCallback(self.send_move)
             log.msg('PLAY applies '+'+'*40, logLevel=VERBOSE)
             self.purge()
         else:
@@ -162,3 +185,8 @@ class Play(Request):
 
     def update(self,):
         self.manage[self.expected.expected_answer] = self
+
+class Move: # TODO: wird wohl nicht gebraucht - koennte aber :)
+
+    def __init__(self,):
+        pass

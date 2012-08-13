@@ -84,11 +84,11 @@ class Set(Request):
         self.dispatch.settings = self.settings
         log.msg('SET applies '+'+'*40, logLevel=VERBOSE)
         del message[:8]
-        if self.settings['boardstyle'] != '3':
-            log.msg('SET sets boardstyle '+'>'*35, logLevel=VERBOSE)
-            self.set_boardstyle()
+        if self.settings['boardstyle'] != '5':
+            log.msg('SET sets boardstyle to 5'+'>'*35, logLevel=VERBOSE)
+            self.set_boardstyle(5)
         self.purge()
 
-    def set_boardstyle(self,):
-        self.dispatch.send_server('set boardstyle 3')
-        self.dispatch.settings['boardstyle'] = '3'
+    def set_boardstyle(self, style):
+        self.dispatch.send_server('set boardstyle %d' % style)
+        self.dispatch.settings['boardstyle'] = str(style)
