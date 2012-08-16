@@ -76,16 +76,17 @@ class ComClientFactory(ClientFactory):
 
     def startedConnecting(self, connector):
         log.msg('Started to connect.', logLevel=TRACE)
-        #reactor.callLater(10, reactor.stop)
 
     def clientConnectionLost(self, connector, reason):
         log.msg('Lost connection. Reason: %s' % reason, logLevel=logging.INFO)
         reactor.callWhenRunning(reactor.stop)
 
+# TODO: muss reconnecting client sein
+
     def clientConnectionFailed(self, connector, reason):
         log.msg('Connection failed. Reason: %s' % reason, logLevel=logging.INFO)
         reactor.callWhenRunning(reactor.stop)
 
-def set_up_gnubg():
-    reactor.connectTCP('localhost', GNUBG, ComClientFactory())
+def set_up_gnubg(host='localhost', port=GNUBG):
+    reactor.connectTCP(host, port, ComClientFactory())
     return bot_gnubg_bridge
