@@ -26,48 +26,19 @@ class Welcome(Request):
 
 class Login(Request):
 
-    class Answer(Response):
-
-        def __init__(self, user):
-            Response.__init__(self, '')
-            self.complex_answer(self.login_answer, [user,])
-
-        def login_answer(self, expected, message):
-            user = expected[0]
-            try:
-                ret = not message[0].startswith('1 %s' % user)
-                ret += not message[1].startswith('2 %s' % user)
-                ret += not message[2].startswith('3')
-                ret += not message[3].startswith('+--')
-                m = 4
-                while not message[m].startswith('+--'):
-                    m += 1
-                ret += not message[m+1].startswith('4')
-                m = m + 3
-                while message[m].startswith('5 '):
-                    m += 1
-                ret += not message[m].startswith('6')
-            except:
-                return False
-            return not ret
-
-    def __init__(self, dispatch, manage, user):
-        self.expected = self.Answer(user)
+    def __init__(self, dispatch, manage, callback):
+        self.expected = "BOTUID "
+        self.callback = callback
         Request.__init__(self, dispatch, manage,)
 
     def received(self, message):
         first_line = message[0]
         log.msg('LOGIN tests: %s' % first_line, logLevel=VERBOSE)
-        expected_answer = self.expected.test(message)
-        if expected_answer:
-            log.msg('LOGIN applies '+'+'*40, logLevel=VERBOSE)
-            self.purge()
-            del message[0:len(message)]
-            self.dispatch.set_boardstyle()
-            self.dispatch.query_status()
-        else:
-            log.msg('LOGIN applies NOT '+'-'*36, logLevel=VERBOSE)
-        return expected_answer
-
-    def update(self,):
-        self.manage['default'] = self
+        uid = first_line.split()[1]
+        self.callback(uid)
+        log.msg('LOGIN applies '+'+'*40, logLevel=VERBOSE)
+        self.purge()
+        del message[0:1]
+        self.dispatch.set_boardstyle()
+        self.dispatch.query_status()
+        return True

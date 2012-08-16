@@ -25,11 +25,16 @@ class Dispatch:
         self.protocol = protocol
         self.user = user
         self.password = password
+        self.bot_uid = 0
         self.requests = {}
         welcome = Welcome(self, self.requests)
 
     def send_server(self, message):
         self.protocol.sendMessage(message)
+
+    def set_bot_uid(self, uid):
+        log.msg('My UID is %s' % uid, logLevel=logging.INFO)
+        self.bot_uid = uid
 
     def set_boardstyle(self,):
         settings = Set(self, self.requests)
@@ -44,7 +49,7 @@ class Dispatch:
         join.send_command('join %s' % opponent)
 
     def login(self,):
-        login = Login(self, self.requests, self.user)
+        login = Login(self, self.requests, self.set_bot_uid)
         login.send_command('bot login h h %s %s' % (self.user, self.password))
 
     def command(self, cmd):
@@ -73,16 +78,19 @@ class Dispatch:
             log.msg('REQUEST %s' % self.requests, logLevel=logging.DEBUG)
             message_done = False
 
-            if first_line in self.requests:
-                log.msg('ICH CHECKE ----------- %s' % first_line, logLevel=TRACE)
-                # TODO: das funktioniert noch nicht.
-                #       Versuch mal den bot auf 'away' zu setzen und dann zu starten
-                #       Er bekommt die "away"-message als erste Zeile
-                request = self.requests.pop(first_line)
-                log.msg('1 ################# %s' % len(lines), logLevel=logging.DEBUG)
-                message_done = request.received(lines)
-                log.msg('2 ################# %s (%s)' % (len(lines),message_done), logLevel=logging.DEBUG)
-            elif 'default' in self.requests:
+            for r in self.requests:
+                if first_line.startswith(r):
+                    log.msg('ICH CHECKE ----------- %s' % first_line, logLevel=TRACE)
+                    # TODO: das funktioniert noch nicht.
+                    #       Versuch mal den bot auf 'away' zu setzen und dann zu starten
+                    #       Er bekommt die "away"-message als erste Zeile
+                    request = self.requests.pop(r)
+                    log.msg('1 ################# %s' % len(lines), logLevel=logging.DEBUG)
+                    message_done = request.received(lines)
+                    log.msg('2 ################# %s (%s)' % (len(lines),message_done), logLevel=logging.DEBUG)
+                    break
+            if not message_done and 'default' in self.requests:
+                # TODO: schauen, ob man das noch braucht
                 log.msg('IN DEFAULT ----------- %s' % first_line, logLevel=TRACE)
                 request = self.requests['default']
                 log.msg('3 ################# %s' % len(lines), logLevel=logging.DEBUG)
