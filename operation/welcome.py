@@ -13,7 +13,7 @@ print 'welcome could set logginglevel'
 
 class Welcome(Request):
     def __init__(self, dispatch, manage,):
-        self.expected = "WELCOME TO"
+        self.expected = "login: "
         Request.__init__(self, dispatch, manage,)
 
     def received(self, message):

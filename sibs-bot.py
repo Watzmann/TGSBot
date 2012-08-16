@@ -58,6 +58,7 @@ class ComClientFactory(ClientFactory):
 
 factory = ComClientFactory()
 # connect to a running gnubg instance
-factory.gnubg = set_up_gnubg()
+# TODO: react to missing gnubg (either start one, or fail)
+factory.gnubg = set_up_gnubg(host='localhost', port=8083)
 reactor.connectTCP('localhost', 8081, factory)
 reactor.run()

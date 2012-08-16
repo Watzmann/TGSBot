@@ -17,7 +17,7 @@ import logging
 logging.addLevelName(TRACE, 'TRACE')
 logging.addLevelName(VERBOSE, 'VERBOSE')
 logging.basicConfig(level=logging.DEBUG,)
-print 'client set logginglevel'
+print 'client set logginglevel to', logging.getLevelName(logging.DEBUG)
 
 class Dispatch:
 
@@ -45,7 +45,7 @@ class Dispatch:
 
     def login(self,):
         login = Login(self, self.requests, self.user)
-        login.send_command('login h h %s %s' % (self.user, self.password))
+        login.send_command('bot login h h %s %s' % (self.user, self.password))
 
     def command(self, cmd):
         a = cmd.split()
@@ -59,6 +59,7 @@ class Dispatch:
             self.send_server(answer)
 
     def parse(self, message):
+        log.msg('#'*80, logLevel=logging.DEBUG)
         log.msg('MESSAGE %s' % message, logLevel=logging.DEBUG)
         lines = message.splitlines()
         while len(lines) > 0:
@@ -67,11 +68,10 @@ class Dispatch:
             if len(cmd_line) == 0 or cmd_line[0] in ('5', '6'):
                 del lines[0]
                 continue
-            log.msg('='*80, logLevel=VERBOSE)
+            log.msg('='*80, logLevel=logging.DEBUG)
             log.msg('COMMAND LINE %s' % cmd_line, logLevel=logging.DEBUG)
             log.msg('REQUEST %s' % self.requests, logLevel=logging.DEBUG)
             message_done = False
-
 
             if first_line in self.requests:
                 log.msg('ICH CHECKE ----------- %s' % first_line, logLevel=TRACE)
@@ -88,7 +88,6 @@ class Dispatch:
                 log.msg('3 ################# %s' % len(lines), logLevel=logging.DEBUG)
                 message_done = request.received(lines)
                 log.msg('4 ################# %s (%s)' % (len(lines),message_done), logLevel=logging.DEBUG)
-
 
             if not message_done:
                 if first_line.startswith('12 '):
@@ -107,7 +106,6 @@ class Dispatch:
                     self.join(opponent, ML)
                 if len(lines) > 0:
                     del lines[0]
-
 
         if len(lines) > 0:
             log.msg('got from server/lines left: >%s<' % '\n'.join(lines),
