@@ -16,8 +16,9 @@ VERBOSE = 17
 import logging
 logging.addLevelName(TRACE, 'TRACE')
 logging.addLevelName(VERBOSE, 'VERBOSE')
-logging.basicConfig(level=logging.DEBUG,)
-print 'client set logginglevel to', logging.getLevelName(logging.DEBUG)
+level = logging.DEBUG	
+logging.basicConfig(level=level,)
+print 'client set logginglevel to', logging.getLevelName(level)
 
 class Dispatch:
 
@@ -77,6 +78,9 @@ class Dispatch:
             log.msg('COMMAND LINE %s' % cmd_line, logLevel=logging.DEBUG)
             log.msg('REQUEST %s' % self.requests, logLevel=logging.DEBUG)
             message_done = False
+
+            if first_line.startswith('** '):
+                log.msg('from server: %s' % first_line, logLevel=logging.WARNING)
 
             for r in self.requests:
                 if first_line.startswith(r):

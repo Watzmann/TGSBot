@@ -165,7 +165,9 @@ class Play(Request):
         Request.__init__(self, dispatch, manage,)
 
     def send_move(self, move):
-        print 'got move:', move, type(move)
+        log.msg('got move: %s' % move, logLevel=logging.DEBUG)
+        # TODO: hier fehlt komplett die Behandlung, welche Richtung der Bot spielt
+        #       er wird bei den Lasttests auch mal selber einladen!!
         mv = ' '.join(['m',] + [str(25-int(m)) for m in move.strip('()').split(',')])
         self.send_command(mv)
 
@@ -175,10 +177,13 @@ class Play(Request):
         status = self.expected.status   # TODO: brauch ich das noch??
         if expected_answer:
             oracle = self.expected.get_oracle()
+            log.msg('does oracle work?? %s' % oracle, logLevel=logging.DEBUG)
             if not oracle is None:
                 oracle.addCallback(self.send_move)
             log.msg('PLAY applies '+'+'*40, logLevel=VERBOSE)
             self.purge()
+            Turn(self.dispatch, self.manage,)
+            del message[0]
         else:
             log.msg('PLAY applies NOT '+'-'*36, logLevel=VERBOSE)
         return expected_answer
@@ -190,3 +195,30 @@ class Move: # TODO: wird wohl nicht gebraucht - koennte aber :)
 
     def __init__(self,):
         pass
+
+class Turn(Request):
+
+    def __init__(self, dispatch, manage,):
+        self.gnubg = dispatch.protocol.factory.gnubg
+        self.expected = dispatch.bot_uid
+        Request.__init__(self, dispatch, manage,)
+
+    def send_move(self, move):
+        log.msg('got move: %s' % move, logLevel=DEBUG)
+        # TODO: hier fehlt komplett die Behandlung, welche Richtung der Bot spielt
+        #       er wird bei den Lasttests auch mal selber einladen!!
+        mv = ' '.join(['m',] + [str(25-int(m)) for m in move.strip('()').split(',')])
+        self.send_command(mv)
+
+    def received(self, message):
+        log.msg('TURN tests: %s' % message[0], logLevel=VERBOSE)
+        expected_reaction = message[0].split()
+        ret = len(expected_answer) > 1
+        if ret:
+            log.msg('TURN applies '+'+'*40, logLevel=VERBOSE)
+            self.purge()
+            Turn(self.dispatch, self.manage,)
+            del message[0]
+        else:
+            log.msg('PLAY applies NOT '+'-'*36, logLevel=VERBOSE)
+        return ret
