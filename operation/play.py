@@ -3,6 +3,7 @@
 
 import sys
 from twisted.python import log
+from twisted.internet import defer
 from operation.basics import Request, Response
 
 TRACE = 15
@@ -82,7 +83,7 @@ class Play(Request):
             self.gnubg = gnubg
             self.status = {}
             if resume:
-                self.expected_answer = "Starting a new game with %s." % opponent
+                self.expected_answer = "points for %s:" % opponent
                 self.complex_answer(self.resume_answer, [opponent,])
             else:
                 self.expected_answer = "Starting a new game with %s." % opponent
@@ -153,6 +154,10 @@ class Play(Request):
                 return False
             return True
 
+        def resume_answer(self, expected, message):
+            opponent = expected[0]
+            return True
+
         def get_oracle(self,):
             return getattr(self, 'oracle', None)
 
@@ -191,34 +196,97 @@ class Play(Request):
     def update(self,):
         self.manage[self.expected.expected_answer] = self
 
-class Move: # TODO: wird wohl nicht gebraucht - koennte aber :)
+class Action:
+    """Action objects can take one of four orders and then ask gnubg for
+    the proper action to take in this case.
+"""
+    def __init__(self, order, parameters, gnubg, callback):
+        log.msg('create action with (%s - %s)' % (order, parameters),
+                                                        logLevel=logging.DEBUG)
+        self.gnubg = gnubg
+        self.callback = callback
+        {'double': self._double,
+         'move': self._move,
+         'take': self._take,
+         'accept': self._accept
+         }[order](parameters)
 
-    def __init__(self,):
-        pass
+    def _double(self, parameters):
+        self.oracle = defer.Deferred()
+        self.oracle.addCallback(self.callback)
+        self.oracle.callback(False)
+
+    def _move(self, parameters):
+        self.oracle = self.gnubg.ask_gnubg('bestMove: %s' % parameters[0])
+        log.msg('got oracle: %s' % self.oracle, logLevel=logging.DEBUG)
+        if not self.oracle is None:
+            self.oracle.addCallback(self.callback)
+
+    def _take(self, parameters):
+        self.oracle = defer.Deferred()
+        self.oracle.addCallback(self.callback)
+        self.oracle.callback(False)
+
+    def _accept(self, parameters):
+        self.oracle = defer.Deferred()
+        self.oracle.addCallback(self.callback)
+        self.oracle.callback(False)
 
 class Turn(Request):
-
+    """A Turn() represents one turn in a game of backgammon. The server will
+    notify the bot of a turn to take. That notification is introduced by the
+    bot unique id (bot_uid) and composed of an 'order' and parameters.
+    An action has to be taken according to the given order.
+"""
     def __init__(self, dispatch, manage,):
         self.gnubg = dispatch.protocol.factory.gnubg
         self.expected = dispatch.bot_uid
+        self._callback = {'double': self.send_double,
+                          'move': self.send_move,
+                          'take': self.send_take,
+                          'accept': self.send_accept
+                         }
         Request.__init__(self, dispatch, manage,)
 
+    def send_double(self, double):
+        log.msg('got double decision: %s' % double, logLevel=logging.DEBUG)
+        self.send_command({True: 'double', False: 'roll'}[double])
+
     def send_move(self, move):
-        log.msg('got move: %s' % move, logLevel=DEBUG)
+        log.msg('got move: %s' % move, logLevel=logging.DEBUG)
         # TODO: hier fehlt komplett die Behandlung, welche Richtung der Bot spielt
         #       er wird bei den Lasttests auch mal selber einladen!!
+        # TODO:00: seine answer ist immer (n1, m1, n2, m2, 0, 0, 0, 0)
+        #          das muss berücksichtigt werden (anfangs hatte ich einfach auf
+        #          4 begrenzt.
+        #          Frage: was gibt es alles für Varianten??
+        mv = ' '.join(['m',] + [str(25-int(m)) for m in move.strip('()').split(',')])
+        self.send_command(mv)
+
+    def send_take(self, move):
+        log.msg('got double decision: %s' % double, logLevel=logging.DEBUG)
+        self.send_command({True: 'accept', False: 'reject'}[double])
+
+    def send_accept(self, move):
+        log.msg('got move: %s' % move, logLevel=logging.DEBUG)
         mv = ' '.join(['m',] + [str(25-int(m)) for m in move.strip('()').split(',')])
         self.send_command(mv)
 
     def received(self, message):
         log.msg('TURN tests: %s' % message[0], logLevel=VERBOSE)
         expected_reaction = message[0].split()
-        ret = len(expected_answer) > 1
+        ret = len(expected_reaction) > 2
         if ret:
+            uid, order = expected_reaction[:2]
+            parameters = expected_reaction[2:]
+            gnubg = self.gnubg.gnubg
+            callback = self._callback[order]
+            self.action = Action(order, parameters, gnubg, callback)
             log.msg('TURN applies '+'+'*40, logLevel=VERBOSE)
-            self.purge()
+            #self.purge() # TODO: erst purgen, wenn der callback stattgefunden hat.
+                         #       Das heißt, den purge als callback chain dranhängen.
             Turn(self.dispatch, self.manage,)
             del message[0]
         else:
-            log.msg('PLAY applies NOT '+'-'*36, logLevel=VERBOSE)
+            log.msg('TURN applies NOT '+'-'*36, logLevel=VERBOSE)
         return ret
