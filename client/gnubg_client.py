@@ -58,16 +58,23 @@ class Com(Protocol): # TODO: LineReceiver
         self.transport.loseConnection()
 
     def ask_gnubg(self, question):
+        """ask_gnubg() takes a commandline of the form
+        blablabla
+    and returns a deferred to fire the answer.
+    The command is referred to a gnubg server running on port xxxxxx
+"""
         command = question.split(':')
         self.custom_question[command[0]](':'.join(command[1:]).lstrip())
         self.answer = defer.Deferred()
         return self.answer
 
     def best_move(self, question):
-        log.msg('question: %s' % question, logLevel=logging.DEBUG)        
-        mid, pid = question.split(':')
+        log.msg('question: %s' % question, logLevel=logging.DEBUG)
+        match_id, nr_pieces = question.split()
+        mid, pid = match_id.split(':')
         self.sendMessage('mid:%s' % mid)
         self.sendMessage('pid:%s' % pid)
+        self.sendMessage('nrp:%s' % nr_pieces)
         self.sendMessage('cmd:bestMove')
 
 class ComClientFactory(ClientFactory):
