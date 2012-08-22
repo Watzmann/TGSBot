@@ -174,7 +174,7 @@ class Play(Request):
         # TODO: hier fehlt komplett die Behandlung, welche Richtung der Bot spielt
         #       er wird bei den Lasttests auch mal selber einladen!!
         mv = ' '.join(['m',] + [str(25-int(m)) for m in move.strip('()').split(',')])
-        self.send_command(mv)
+        #self.send_command(mv)
 
     def received(self, message):
         log.msg('PLAY tests: %s' % message[0], logLevel=VERBOSE)
@@ -208,7 +208,8 @@ class Action:
         {'double': self._double,
          'move': self._move,
          'take': self._take,
-         'accept': self._accept
+         'accept': self._accept,
+         'join': self._true
          }[order](parameters)
 
     def _double(self, parameters):
@@ -217,7 +218,8 @@ class Action:
         self.oracle.callback(False)
 
     def _move(self, parameters):
-        self.oracle = self.gnubg.ask_gnubg('bestMove: %s' % parameters[0])
+        self.oracle = self.gnubg.ask_gnubg('bestMove: %s %s' % \
+                                            (parameters[0], parameters[1]))
         log.msg('got oracle: %s' % self.oracle, logLevel=logging.DEBUG)
         if not self.oracle is None:
             self.oracle.addCallback(self.callback)
@@ -232,6 +234,11 @@ class Action:
         self.oracle.addCallback(self.callback)
         self.oracle.callback(False)
 
+    def _true(self, parameters):
+        self.oracle = defer.Deferred()
+        self.oracle.addCallback(self.callback)
+        self.oracle.callback(True)
+
 class Turn(Request):
     """A Turn() represents one turn in a game of backgammon. The server will
     notify the bot of a turn to take. That notification is introduced by the
@@ -243,8 +250,9 @@ class Turn(Request):
         self.expected = dispatch.bot_uid
         self._callback = {'double': self.send_double,
                           'move': self.send_move,
-                          'take': self.send_take,
-                          'accept': self.send_accept
+                          'take': self.send_accept,
+                          'accept': self.send_accept,
+                          'join': self.send_join,
                          }
         Request.__init__(self, dispatch, manage,)
 
@@ -256,21 +264,20 @@ class Turn(Request):
         log.msg('got move: %s' % move, logLevel=logging.DEBUG)
         # TODO: hier fehlt komplett die Behandlung, welche Richtung der Bot spielt
         #       er wird bei den Lasttests auch mal selber einladen!!
-        # TODO:00: seine answer ist immer (n1, m1, n2, m2, 0, 0, 0, 0)
+        # TODO:00: seine answer ist immer Länge 8: (n1, m1, n2, m2, 0, 0, 0, 0)
         #          das muss berücksichtigt werden (anfangs hatte ich einfach auf
         #          4 begrenzt.
         #          Frage: was gibt es alles für Varianten??
         mv = ' '.join(['m',] + [str(25-int(m)) for m in move.strip('()').split(',')])
         self.send_command(mv)
 
-    def send_take(self, move):
-        log.msg('got double decision: %s' % double, logLevel=logging.DEBUG)
-        self.send_command({True: 'accept', False: 'reject'}[double])
+    def send_accept(self, accept):
+        log.msg('got accept/take decision: %s' % accept, logLevel=logging.DEBUG)
+        self.send_command({True: 'accept', False: 'reject'}[accept])
 
-    def send_accept(self, move):
-        log.msg('got move: %s' % move, logLevel=logging.DEBUG)
-        mv = ' '.join(['m',] + [str(25-int(m)) for m in move.strip('()').split(',')])
-        self.send_command(mv)
+    def send_join(self, join):
+        log.msg('got join', logLevel=logging.DEBUG)
+        self.send_command('join')
 
     def received(self, message):
         log.msg('TURN tests: %s' % message[0], logLevel=VERBOSE)
