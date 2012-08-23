@@ -36,7 +36,8 @@ class Com(Protocol): # TODO: LineReceiver
 
     def __init__(self,):
         self.custom_question = {
-            'bestMove': self.best_move,
+            'bestMove': self._best_move,
+            'double': self._double,
             }
 
     def dataReceived(self, rawdata):
@@ -68,7 +69,7 @@ class Com(Protocol): # TODO: LineReceiver
         self.answer = defer.Deferred()
         return self.answer
 
-    def best_move(self, question):
+    def _best_move(self, question):
         log.msg('question: %s' % question, logLevel=logging.DEBUG)
         match_id, nr_pieces = question.split()
         mid, pid = match_id.split(':')
@@ -76,6 +77,13 @@ class Com(Protocol): # TODO: LineReceiver
         self.sendMessage('pid:%s' % pid)
         self.sendMessage('nrp:%s' % nr_pieces)
         self.sendMessage('cmd:bestMove')
+
+    def _double(self, question):
+        log.msg('question: %s' % question, logLevel=logging.DEBUG)
+        mid, pid = question.split(':')
+        self.sendMessage('mid:%s' % mid)
+        self.sendMessage('pid:%s' % pid)
+        self.sendMessage('cmd:double')
 
 class ComClientFactory(ClientFactory):
 

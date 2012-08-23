@@ -61,7 +61,8 @@ class Dispatch:
         if command in COMMANDS and user in ADMINISTRATORS:
             self.send_server(cmd_string)
         else:
-            answer = "tell %s I am a bot. Don't talk like that." % user
+            log.msg('%s says: %s' % cmd_string, logLevel=logging.INFO)
+            answer = "tell %s I am a bot. I don't know how to talk, yet. Sorry." % user
             self.send_server(answer)
 
     def parse(self, message):

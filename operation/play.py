@@ -213,14 +213,15 @@ class Action:
          }[order](parameters)
 
     def _double(self, parameters):
-        self.oracle = defer.Deferred()
-        self.oracle.addCallback(self.callback)
-        self.oracle.callback(False)
+        self.oracle = self.gnubg.ask_gnubg('double: %s' % parameters[0])
+        log.msg('got DOUBLE oracle: %s' % self.oracle, logLevel=logging.DEBUG)
+        if not self.oracle is None:
+            self.oracle.addCallback(self.callback)
 
     def _move(self, parameters):
         self.oracle = self.gnubg.ask_gnubg('bestMove: %s %s' % \
                                             (parameters[0], parameters[1]))
-        log.msg('got oracle: %s' % self.oracle, logLevel=logging.DEBUG)
+        log.msg('got MOVE oracle: %s' % self.oracle, logLevel=logging.DEBUG)
         if not self.oracle is None:
             self.oracle.addCallback(self.callback)
 
@@ -250,7 +251,7 @@ class Turn(Request):
         self.expected = dispatch.bot_uid
         self._callback = {'double': self.send_double,
                           'move': self.send_move,
-                          'take': self.send_accept,
+                          'take': self.send_take,
                           'accept': self.send_accept,
                           'join': self.send_join,
                          }
@@ -258,7 +259,12 @@ class Turn(Request):
 
     def send_double(self, double):
         log.msg('got double decision: %s' % double, logLevel=logging.DEBUG)
-        self.send_command({True: 'double', False: 'roll'}[double])
+        self.send_command({True: 'double', False: 'roll'}[double == 'double'])
+
+    def send_take(self, take):
+        log.msg('got take decision: %s' % double, logLevel=logging.DEBUG)
+        self.send_command({True: 'accept', False: 'reject'} \
+                                                [take in ('take', 'beaver')])
 
     def send_move(self, move):
         log.msg('got move: %s' % move, logLevel=logging.DEBUG)
@@ -272,7 +278,7 @@ class Turn(Request):
         self.send_command(mv)
 
     def send_accept(self, accept):
-        log.msg('got accept/take decision: %s' % accept, logLevel=logging.DEBUG)
+        log.msg('got accept decision: %s' % accept, logLevel=logging.DEBUG)
         self.send_command({True: 'accept', False: 'reject'}[accept])
 
     def send_join(self, join):
