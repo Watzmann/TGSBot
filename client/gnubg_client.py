@@ -85,23 +85,29 @@ class Com(Protocol): # TODO: LineReceiver
         self.sendMessage('pid:%s' % pid)
         self.sendMessage('cmd:double')
 
-class ComClientFactory(ClientFactory):
-
-    protocol = Com
-
+class ComClientFactory(ReconnectingClientFactory):
     def startedConnecting(self, connector):
         log.msg('Started to connect.', logLevel=TRACE)
 
+    def buildProtocol(self, addr):
+        log.msg('Connected to %s:%s.' % (self.host, self.port), logLevel=TRACE)
+        log.msg('Resetting reconnection delay.', logLevel=VERBOSE)
+        self.resetDelay()
+        return Com()
+
     def clientConnectionLost(self, connector, reason):
         log.msg('Lost connection. Reason: %s' % reason, logLevel=logging.INFO)
-        reactor.callWhenRunning(reactor.stop)
+        ReconnectingClientFactory.clientConnectionLost(self, connector, reason)
 
 # TODO: muss reconnecting client sein
 
     def clientConnectionFailed(self, connector, reason):
         log.msg('Connection failed. Reason: %s' % reason, logLevel=logging.INFO)
-        reactor.callWhenRunning(reactor.stop)
+        ReconnectingClientFactory.clientConnectionFailed(self, connector, reason)
 
 def set_up_gnubg(host='localhost', port=GNUBG):
-    reactor.connectTCP(host, port, ComClientFactory())
+    factory = ComClientFactory()
+    factory.host = host
+    factory.port = port
+    reactor.connectTCP(host, port, factory)
     return bot_gnubg_bridge
