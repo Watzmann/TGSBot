@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""Ein Twisted-Client als Entwicklungs-Hilfe/Tool für SIBS.
+"""Ein Twisted-Client als Entwicklungs-Hilfe/Tool for SIBS.
 Basiert auf client/twisted-client1.py. Das Reconnecting-Zeugs ist raus.
 """
 
@@ -9,6 +9,8 @@ from twisted.internet import reactor, defer
 from twisted.python import log
 import sys
 import random
+from optparse import OptionParser
+
 from operation.client import Dispatch
 from client.gnubg_client import set_up_gnubg
 
@@ -17,11 +19,12 @@ TRACE = 15
 import logging
 logging.addLevelName(TRACE, 'TRACE')
 
-NICK = 'tigerI'
+NICK = 'test_bot_I'
 
-log.startLogging(open('/var/log/SIBS/bot/%s.log' % NICK, 'a'))
-observer = log.PythonLoggingObserver()
-observer.start()
+def start_logging(nick):
+    log.startLogging(open('/var/log/SIBS/bot/%s.log' % nick, 'a'))
+    observer = log.PythonLoggingObserver()
+    observer.start()
 
 class Com(Protocol):
     def dataReceived(self, rawdata):
@@ -34,7 +37,9 @@ class Com(Protocol):
 
     def connectionMade(self,):
         log.msg('connectionMade', logLevel=TRACE)
-        self.dispatch = Dispatch(self, NICK, 'hallo')
+        user = self.factory.options.user
+        password = self.factory.options.password
+        self.dispatch = Dispatch(self, user, password)
 
     def dropConnection(self,):
         log.msg('dropConnection', logLevel=TRACE)
@@ -56,9 +61,37 @@ class ComClientFactory(ClientFactory):
         log.msg('Connection failed. Reason: %s' % reason, logLevel=logging.INFO)
         reactor.callWhenRunning(reactor.stop)
 
-factory = ComClientFactory()
-# connect to a running gnubg instance
-# TODO: react to missing gnubg (either start one, or fail)
-factory.gnubg = set_up_gnubg(host='localhost', port=8083)
-reactor.connectTCP('localhost', 8081, factory)
-reactor.run()
+def usage(progname):
+    usg = """usage: %prog [<gid>]
+  %prog """ + __doc__
+    parser = OptionParser(usg)
+    parser.add_option("-v", "--verbose",
+                  action="store_true", dest="verbose", default=False,
+                  help="print full entries to stdout")
+    parser.add_option("-u", "--user", default=NICK,
+                  action="store", dest="user",
+                  help="user name (nick).")
+    parser.add_option("-p", "--password", default='hallo',
+                  action="store", dest="password",
+                  help="users password.")
+    parser.add_option("-H", "--host", default='localhost',
+                  action="store", dest="host",
+                  help="host. (localhost)")
+    parser.add_option("-P", "--port", default='8081',
+                  action="store", dest="port",
+                  help="server port. (8081)")
+    return parser,usg
+
+if __name__ == "__main__":
+    parser,usg = usage(sys.argv[0])
+    (options, args) = parser.parse_args()
+
+    start_logging(options.user)
+    factory = ComClientFactory()
+    factory.options = options
+    # connect to a running gnubg instance
+    # TODO: react to missing gnubg (either start one, or fail)
+    server_port = int(options.port)
+    factory.gnubg = set_up_gnubg('localhost', port=8083)
+    reactor.connectTCP(options.host, server_port, factory)
+    reactor.run()
