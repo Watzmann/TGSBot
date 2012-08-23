@@ -15,9 +15,11 @@ from operation.client import Dispatch
 from client.gnubg_client import set_up_gnubg
 
 TRACE = 15
+VERBOSE = 17
 
 import logging
 logging.addLevelName(TRACE, 'TRACE')
+logging.addLevelName(VERBOSE, 'VERBOSE')
 
 NICK = 'test_bot_I'
 
@@ -27,6 +29,10 @@ def start_logging(nick):
     observer.start()
 
 class Com(Protocol):
+    def __init__(self, options, factory):
+        self.options = options
+        self.factory = factory
+
     def dataReceived(self, rawdata):
         data = rawdata.rstrip('\r\n')
         self.dispatch.parse(data)
@@ -37,8 +43,8 @@ class Com(Protocol):
 
     def connectionMade(self,):
         log.msg('connectionMade', logLevel=TRACE)
-        user = self.factory.options.user
-        password = self.factory.options.password
+        user = self.options.user
+        password = self.options.password
         self.dispatch = Dispatch(self, user, password)
 
     def dropConnection(self,):
@@ -53,15 +59,26 @@ class ComClientFactory(ReconnectingClientFactory):
         log.msg('Connected to %s:%s.' % (options.host, options.port), logLevel=TRACE)
         log.msg('Resetting reconnection delay.', logLevel=VERBOSE)
         self.resetDelay()
-        return Com()
+        return Com(self.options, self)
 
     def clientConnectionLost(self, connector, reason):
         log.msg('Lost connection. Reason: %s' % reason, logLevel=logging.INFO)
-        ReconnectingClientFactory.clientConnectionLost(self, connector, reason)
+        if getattr(self, 'restart', True):
+            ReconnectingClientFactory.clientConnectionLost(self, connector, reason)
+        else:
+            log.msg('Done - no restart', logLevel=logging.INFO)
+            reactor.callWhenRunning(reactor.stop)
 
     def clientConnectionFailed(self, connector, reason):
         log.msg('Connection failed. Reason: %s' % reason, logLevel=logging.INFO)
-        ReconnectingClientFactory.clientConnectionFailed(self, connector, reason)
+        if getattr(self, 'restart', True):
+            ReconnectingClientFactory.clientConnectionFailed(self, connector, reason)
+        else:
+            log.msg('Done - no restart', logLevel=logging.INFO)
+            reactor.callWhenRunning(reactor.stop)
+
+    def stop(self,):
+        self.restart = False
 
 def usage(progname):
     usg = """usage: %prog [<gid>]

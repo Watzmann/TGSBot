@@ -59,6 +59,8 @@ class Dispatch:
         command = a[1]
         cmd_string = ' '.join(a[1:])
         if command in COMMANDS and user in ADMINISTRATORS:
+            if command in ('end',):
+                self.protocol.factory.stop()
             self.send_server(cmd_string)
         else:
             log.msg('%s says: %s' % cmd_string, logLevel=logging.INFO)

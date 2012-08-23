@@ -4,7 +4,7 @@
 Basiert auf client/twisted-client1.py. Das Reconnecting-Zeugs ist raus.
 """
 
-from twisted.internet.protocol import Protocol, ClientFactory
+from twisted.internet.protocol import Protocol, ReconnectingClientFactory
 from twisted.internet import reactor, defer
 from twisted.python import log
 import sys
@@ -13,9 +13,11 @@ from operation.client import Dispatch
 
 GNUBG = 8083
 TRACE = 15
+VERBOSE = 17
 
 import logging
 logging.addLevelName(TRACE, 'TRACE')
+logging.addLevelName(VERBOSE, 'VERBOSE')
 
 class Bridge:
     def __init__(self,):
