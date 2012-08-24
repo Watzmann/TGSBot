@@ -37,7 +37,10 @@ class Join(Request):
         expected_answer = self.expected == message[0]
         if expected_answer:
             log.msg('JOIN applies '+'+'*40, logLevel=VERBOSE)
+            greetings = 'Hello! Enjoy this match. Good luck.'
+            self.send_command('tell %s %s' % (self.opponent, greetings))
             self.purge()
+            self.dispatch.opponent = self.opponent
             Play(self.dispatch, self.manage, self.opponent,
                                      self.ML, resume=self.resume)
             del message[0]
@@ -197,24 +200,31 @@ class Play(Request):
         self.manage[self.expected.expected_answer] = self
 
 class Action:
-    """Action objects can take one of four orders and then ask gnubg for
-    the proper action to take in this case.
+    """Action objects can take one of six orders and then, if neccessary, ask 
+    gnubg for the proper action to take in this case.
 """
     def __init__(self, order, parameters, gnubg, callback):
         log.msg('create action with (%s - %s)' % (order, parameters),
                                                         logLevel=logging.DEBUG)
         self.gnubg = gnubg
         self.callback = callback
-        {'double': self._double,
-         'move': self._move,
-         'take': self._take,
-         'accept': self._accept,
-         'join': self._true
+        {'double': self._double,    # state B - double or roll? resign?
+         'move': self._move,        # state E - which move? resign?
+         'take': self._take,        # state C - take the cube?
+         'accept': self._accept,    # state J - accept the resign?
+         'join': self._true,        # state G - return the neccessary 'join'
+         'relax': self._relax,      # state G - be polite and return thanks
          }[order](parameters)
 
     def _double(self, parameters):
         self.oracle = self.gnubg.ask_gnubg('double: %s' % parameters[0])
         log.msg('got DOUBLE oracle: %s' % self.oracle, logLevel=logging.DEBUG)
+        if not self.oracle is None:
+            self.oracle.addCallback(self.callback)
+
+    def _take(self, parameters):
+        self.oracle = self.gnubg.ask_gnubg('take: %s' % parameters[0])
+        log.msg('got TAKE oracle: %s' % self.oracle, logLevel=logging.DEBUG)
         if not self.oracle is None:
             self.oracle.addCallback(self.callback)
 
@@ -225,15 +235,16 @@ class Action:
         if not self.oracle is None:
             self.oracle.addCallback(self.callback)
 
-    def _take(self, parameters):
-        self.oracle = defer.Deferred()
-        self.oracle.addCallback(self.callback)
-        self.oracle.callback(False)
-
     def _accept(self, parameters):
         self.oracle = defer.Deferred()
         self.oracle.addCallback(self.callback)
         self.oracle.callback(False)
+
+    def _relax(self, parameters):
+        self.oracle = defer.Deferred()
+        self.oracle.addCallback(self.callback)
+        log.msg('sending relax: %s' % parameters[1], logLevel=logging.DEBUG)
+        self.oracle.callback(parameters[1] == 'True')
 
     def _true(self, parameters):
         self.oracle = defer.Deferred()
@@ -254,15 +265,20 @@ class Turn(Request):
                           'take': self.send_take,
                           'accept': self.send_accept,
                           'join': self.send_join,
+                          'relax': self.send_thanks,
                          }
         Request.__init__(self, dispatch, manage,)
 
     def send_double(self, double):
         log.msg('got double decision: %s' % double, logLevel=logging.DEBUG)
+
+        # TODO: resign decision:     gnubg.evaluate()
+        #       siehe auch send_move()
+
         self.send_command({True: 'double', False: 'roll'}[double == 'double'])
 
     def send_take(self, take):
-        log.msg('got take decision: %s' % double, logLevel=logging.DEBUG)
+        log.msg('got take decision: %s' % take, logLevel=logging.DEBUG)
         self.send_command({True: 'accept', False: 'reject'} \
                                                 [take in ('take', 'beaver')])
 
@@ -274,16 +290,40 @@ class Turn(Request):
         #          das muss berücksichtigt werden (anfangs hatte ich einfach auf
         #          4 begrenzt.
         #          Frage: was gibt es alles für Varianten??
+
+        # TODO: resign decision:     gnubg.evaluate()
+        #       siehe auch send_double()
+
         mv = ' '.join(['m',] + [str(25-int(m)) for m in move.strip('()').split(',')])
         self.send_command(mv)
 
     def send_accept(self, accept):
         log.msg('got accept decision: %s' % accept, logLevel=logging.DEBUG)
         self.send_command({True: 'accept', False: 'reject'}[accept])
+        msg = "tell %s I don't know how to handle resignations, yet. So I " \
+                        "simply turn it down. Sorry." % self.dispatch.opponent
+        self.send_command(msg)
 
     def send_join(self, join):
         log.msg('got join', logLevel=logging.DEBUG)
         self.send_command('join')
+
+    def send_thanks(self, congrats):
+        opponent = getattr(self.dispatch, 'opponent', False)
+        #log.msg('in send_thanks: (%s %s)' % (congrats, type(congrats)), logLevel=TRACE)
+        if not opponent:
+            log.msg('cannot send thanks: opponent missing!', logLevel=logging.DEBUG)
+            return
+        if congrats:
+            #log.msg('in send_thanks (true): (%s %s)' % (congrats, type(congrats)), logLevel=TRACE)
+            msg = "tell %s Congratulations and thanks for playing this " \
+                                                        "match :)." % opponent
+        else:
+            #log.msg('in send_thanks (false): (%s %s)' % (congrats, type(congrats)), logLevel=TRACE)
+            msg = "tell %s Thanks for playing this match :)." % opponent    
+        del self.dispatch.opponent
+        log.msg('sending thanks: %s' % msg, logLevel=VERBOSE)
+        self.send_command(msg)
 
     def received(self, message):
         log.msg('TURN tests: %s' % message[0], logLevel=VERBOSE)

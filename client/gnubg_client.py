@@ -40,6 +40,7 @@ class Com(Protocol): # TODO: LineReceiver
         self.custom_question = {
             'bestMove': self._best_move,
             'double': self._double,
+            'take': self._take,
             }
 
     def dataReceived(self, rawdata):
@@ -86,6 +87,13 @@ class Com(Protocol): # TODO: LineReceiver
         self.sendMessage('mid:%s' % mid)
         self.sendMessage('pid:%s' % pid)
         self.sendMessage('cmd:double')
+
+    def _take(self, question):
+        log.msg('question: %s' % question, logLevel=logging.DEBUG)
+        mid, pid = question.split(':')
+        self.sendMessage('mid:%s' % mid)
+        self.sendMessage('pid:%s' % pid)
+        self.sendMessage('cmd:take')
 
 class ComClientFactory(ReconnectingClientFactory):
     def startedConnecting(self, connector):
