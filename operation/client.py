@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 """Client supplies classes to run the client."""
 
 from os import getcwd
+from twisted.internet import reactor
 from twisted.python import log
 from operation.basics import Request
 from operation.welcome import Welcome
@@ -33,6 +35,7 @@ class Dispatch:
         self.password = password
         self.bot_uid = 0
         self.requests = {}
+        self.told_opponent = {}
         welcome = Welcome(self, self.requests)
 
     def send_server(self, message):
@@ -42,6 +45,10 @@ class Dispatch:
         log.msg('My UID is %s' % uid, logLevel=logging.INFO)
         self.bot_uid = uid
 
+    def delete_told_opponent(self, user):
+        if user in self.told_opponent:
+            del self.told_opponent[user]
+
     def set_boardstyle(self,):
         settings = Set(self, self.requests)
         settings.send_command('set')
@@ -50,9 +57,10 @@ class Dispatch:
         toggle = Toggle(self, self.requests)
         toggle.send_command('toggle')
 
-    def join(self, opponent, ML):
-        join = Join(self, self.requests, opponent, ML)
-        join.send_command('join %s' % opponent)
+    def join(self, opponent, ML, type_of_invitation):
+        join = Join(self, self.requests, opponent, ML, type_of_invitation)
+        if type_of_invitation == 0:
+            join.send_command('join %s' % opponent)
 
     def login(self,):
         login = Login(self, self.requests, self.set_bot_uid)
@@ -66,11 +74,16 @@ class Dispatch:
         if command in COMMANDS and user in ADMINISTRATORS:
             if command in ('end',):
                 self.protocol.factory.stop()
+            elif command == 'invite':
+                self.join(a[2], a[3], 1)
             self.send_server(cmd_string)
         else:
             log.msg('%s says: %s' % (user, cmd_string), logLevel=logging.INFO)
-            answer = "tell %s I am a bot. I don't know how to talk, yet. Sorry." % user
-            self.send_server(answer)
+            msg = "tell %s I am a bot. I don't know how to talk, yet. Sorry."
+            if not user in self.told_opponent:
+                self.told_opponent[user] = True
+                self.send_server(msg % user)
+                reactor.callLater(300., self.delete_told_opponent, user)
 
     def parse(self, message):
         log.msg('#'*80, logLevel=NOISY)
@@ -89,6 +102,8 @@ class Dispatch:
             message_done = False
 
             if first_line.startswith('** '):
+                # TODO hier gehört noch ein Abfangjäger für reichlich normale
+                #      Meldungen rein (** Player helena has left the game...)
                 log.msg('from server: %s' % first_line, logLevel=logging.WARNING)
 
             for r in self.requests:
@@ -119,7 +134,7 @@ class Dispatch:
                     if cmd_line[3] == 'play':
                         ML = int(cmd_line[5])
                         if ML < 30:
-                            self.join(opponent, ML)
+                            self.join(opponent, ML, 0)
                             log.msg('joining a %d point match with %s' % \
                                         (ML, opponent), logLevel=logging.INFO)
                         else:
@@ -132,7 +147,7 @@ class Dispatch:
                         ML = None
                         log.msg('resuming a match with %s' % opponent,
                                 logLevel=logging.INFO)
-                        self.join(opponent, ML)
+                        self.join(opponent, ML, 0)
                 if len(lines) > 0:
                     del lines[0]
 
