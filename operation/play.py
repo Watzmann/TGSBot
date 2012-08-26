@@ -14,29 +14,45 @@ logging.addLevelName(TRACE, 'TRACE')
 logging.addLevelName(VERBOSE, 'VERBOSE')
 
 class Join(Request):
+    message_new = {0: "** You are now playing a %s point match with %s.",
+                   1: "** Player %s has joined you for a %s point match.",
+                   }
+    message_resume = {0: "You are now playing with %s. " \
+                                        "Your running match was loaded.",
+                      1: "%s has joined you. Your running match was loaded.",
+                      }
+    ordered_arguments = {0: lambda a,b: (a,b),
+                         1: lambda a,b: (b,a),
+                         }
 
-    def __init__(self, dispatch, manage, opp, ML):
+    def __init__(self, dispatch, manage, opp, ML, type_of_invitation):
         self.opponent = opp
         self.ML = ML
-        self.expected = self.expected_answer(opp, ML)
+        self.expected = self.expected_answer(opp, ML, type_of_invitation)
         Request.__init__(self, dispatch, manage,)
 
-    def expected_answer(self, opponent, ML):
+    def expected_answer(self, opponent, ML, type_of_invitation):
         if ML is None:
-            i_expect = "You are now playing with %s. " \
-                       "Your running match was loaded." % opponent
+            i_expect = self.message_resume[type_of_invitation] % opponent
             self.resume = True
         else:
-            i_expect = "** You are now playing a %s " \
-                       "point match with %s." % (ML, opponent)
+            i_expect = self.message_new[type_of_invitation] % \
+                       self.ordered_arguments[type_of_invitation](ML, opponent)
             self.resume = False
         return i_expect
 
     def received(self, message):
         log.msg('JOIN tests: %s' % message[0], logLevel=VERBOSE)
-        expected_answer = self.expected == message[0]
+        line = message[0].split()
+        direction = line.pop()
+        my_line = ' '.join(line)
+        expected_answer = self.expected == my_line
         if expected_answer:
             log.msg('JOIN applies '+'+'*40, logLevel=VERBOSE)
+            if direction in ('(-)', '(+)'):
+                self.dispatch.direction = direction.strip('()')
+            else:
+                self.dispatch.direction = '+'
             greetings = 'Hello! Enjoy this match. Good luck.'
             self.send_command('tell %s %s' % (self.opponent, greetings))
             self.purge()
@@ -260,6 +276,7 @@ class Turn(Request):
     def __init__(self, dispatch, manage,):
         self.gnubg = dispatch.protocol.factory.gnubg
         self.expected = dispatch.bot_uid
+        self.direction = dispatch.direction
         self._callback = {'double': self.send_double,
                           'move': self.send_move,
                           'take': self.send_take,
@@ -284,17 +301,13 @@ class Turn(Request):
 
     def send_move(self, move):
         log.msg('got move: %s' % move, logLevel=logging.DEBUG)
-        # TODO: hier fehlt komplett die Behandlung, welche Richtung der Bot spielt
-        #       er wird bei den Lasttests auch mal selber einladen!!
-        # TODO:00: seine answer ist immer Länge 8: (n1, m1, n2, m2, 0, 0, 0, 0)
-        #          das muss berücksichtigt werden (anfangs hatte ich einfach auf
-        #          4 begrenzt.
-        #          Frage: was gibt es alles für Varianten??
-
         # TODO: resign decision:     gnubg.evaluate()
         #       siehe auch send_double()
-
-        mv = ' '.join(['m',] + [str(25-int(m)) for m in move.strip('()').split(',')])
+        if self.direction == '+':
+            mv = ' '.join(['m',] + \
+                        [str(25-int(m)) for m in move.strip('()').split(',')])
+        else:
+            mv = ' '.join(['m',] + move.strip('()').split(','))
         self.send_command(mv)
 
     def send_accept(self, accept):
