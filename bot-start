@@ -1,0 +1,11 @@
+#!/bin/bash
+
+LOG_DIR=/var/log/SIBS/bot
+BOT_DIR=/var/opt/sibs/bot
+
+start_bot() {
+  # ./sibs-bot.py -p4321 -u experimental_II|& tee /var/log/SIBS/bot/experimental_II.py.log
+  echo "$BOT_DIR/sibs-bot.py -p4321 -u $1 > $BOT_DIR/$1.py.log" | at now
+}
+
+start_bot $1
