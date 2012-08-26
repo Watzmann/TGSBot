@@ -1,5 +1,6 @@
 """Client supplies classes to run the client."""
 
+from os import getcwd
 from twisted.python import log
 from operation.basics import Request
 from operation.welcome import Welcome
@@ -10,13 +11,17 @@ from operation.config import ADMINISTRATORS, COMMANDS
 
 import sys
 
+NOISY = 7
 TRACE = 15
 VERBOSE = 17
 
 import logging
+logging.addLevelName(TRACE, 'NOISY')
 logging.addLevelName(TRACE, 'TRACE')
 logging.addLevelName(VERBOSE, 'VERBOSE')
-level = logging.DEBUG	
+level = NOISY
+if getcwd().startswith('/var/opt/sibs'):
+    level = max(level, logging.DEBUG)
 logging.basicConfig(level=level,)
 print 'client set logginglevel to', logging.getLevelName(level)
 
@@ -63,18 +68,19 @@ class Dispatch:
                 self.protocol.factory.stop()
             self.send_server(cmd_string)
         else:
-            log.msg('%s says: %s' % cmd_string, logLevel=logging.INFO)
+            log.msg('%s says: %s' % (user, cmd_string), logLevel=logging.INFO)
             answer = "tell %s I am a bot. I don't know how to talk, yet. Sorry." % user
             self.send_server(answer)
 
     def parse(self, message):
-        log.msg('#'*80, logLevel=logging.DEBUG)
-        log.msg('MESSAGE %s' % message, logLevel=logging.DEBUG)
+        log.msg('#'*80, logLevel=NOISY)
+        log.msg('MESSAGE %s' % message, logLevel=NOISY)
         lines = message.splitlines()
         while len(lines) > 0:
             first_line = lines[0]
             cmd_line = first_line.split()
-            if len(cmd_line) == 0 or cmd_line[0] in ('5', '6'):
+            if len(cmd_line) == 0 or cmd_line[0] in \
+                                        ('3', '4', '5', '6', '7', '8', '13'):
                 del lines[0]
                 continue
             log.msg('='*80, logLevel=logging.DEBUG)
@@ -108,17 +114,25 @@ class Dispatch:
                 if first_line.startswith('12 '):
                     self.command(first_line[3:])
                 elif len(cmd_line) > 3 and \
-                     ' '.join(cmd_line[1:3]) == "wants to":
+                                        ' '.join(cmd_line[1:3]) == "wants to":
                     opponent = cmd_line[0]
                     if cmd_line[3] == 'play':
                         ML = int(cmd_line[5])
-                        log.msg('joining a %s point match with %s' % (ML, opponent),
-                                logLevel=logging.INFO)
+                        if ML < 30:
+                            self.join(opponent, ML)
+                            log.msg('joining a %d point match with %s' % \
+                                        (ML, opponent), logLevel=logging.INFO)
+                        else:
+                            msg = "tell %s I do not as yet play matches " \
+                            "greater than ML 29 or unlimited. Sorry." % opponent
+                            self.send_server(msg)
+                            log.msg('turning down a %d point match with %s' % \
+                                        (ML, opponent), logLevel=logging.INFO)
                     else:
                         ML = None
                         log.msg('resuming a match with %s' % opponent,
                                 logLevel=logging.INFO)
-                    self.join(opponent, ML)
+                        self.join(opponent, ML)
                 if len(lines) > 0:
                     del lines[0]
 
