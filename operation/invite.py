@@ -54,4 +54,7 @@ def join(self, opponent, ML, type_of_invitation=0):
 
 def invitation(dispatch, manage, opponent, ML=-1):
     refusal = "** %s is already playing with someone else." % opponent
-    Busy(
+    Busy()
+
+def invite():
+    pass

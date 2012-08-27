@@ -5,28 +5,13 @@ Basiert auf client/twisted-client1.py. Das Reconnecting-Zeugs ist raus.
 """
 
 from twisted.internet.protocol import Protocol, ReconnectingClientFactory
-from twisted.internet import reactor, defer
+from twisted.internet import reactor
 from twisted.python import log
-import sys
-import random
-from optparse import OptionParser
-
-from operation.client import Dispatch
-from client.gnubg_client import set_up_gnubg
 
 TRACE = 15
 VERBOSE = 17
 
 import logging
-logging.addLevelName(TRACE, 'TRACE')
-logging.addLevelName(VERBOSE, 'VERBOSE')
-
-NICK = 'test_bot_I'
-
-def start_logging(nick):
-    log.startLogging(open('/var/log/SIBS/bot/%s.log' % nick, 'a'))
-    observer = log.PythonLoggingObserver()
-    observer.start()
 
 class Com(Protocol):
     def __init__(self, options, factory):
@@ -79,38 +64,3 @@ class ComClientFactory(ReconnectingClientFactory):
 
     def stop(self,):
         self.restart = False
-
-def usage(progname):
-    usg = """usage: %prog [<gid>]
-  %prog """ + __doc__
-    parser = OptionParser(usg)
-    parser.add_option("-v", "--verbose",
-                  action="store_true", dest="verbose", default=False,
-                  help="print full entries to stdout")
-    parser.add_option("-u", "--user", default=NICK,
-                  action="store", dest="user",
-                  help="user name (nick).")
-    parser.add_option("-p", "--password", default='hallo',
-                  action="store", dest="password",
-                  help="users password.")
-    parser.add_option("-H", "--host", default='localhost',
-                  action="store", dest="host",
-                  help="host. (localhost)")
-    parser.add_option("-P", "--port", default='8081',
-                  action="store", dest="port",
-                  help="server port. (8081)")
-    return parser,usg
-
-if __name__ == "__main__":
-    parser,usg = usage(sys.argv[0])
-    (options, args) = parser.parse_args()
-
-    start_logging(options.user)
-    factory = ComClientFactory()
-    factory.options = options
-    # connect to a running gnubg instance
-    # TODO: react to missing gnubg (either start one, or fail)
-    server_port = int(options.port)
-    factory.gnubg = set_up_gnubg('localhost', port=8083)
-    reactor.connectTCP(options.host, server_port, factory)
-    reactor.run()
