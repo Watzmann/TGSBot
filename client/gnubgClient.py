@@ -1,15 +1,9 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""Ein Twisted-Client als Entwicklungs-Hilfe/Tool für SIBS.
-Basiert auf client/twisted-client1.py. Das Reconnecting-Zeugs ist raus.
-"""
 
 from twisted.internet.protocol import Protocol, ReconnectingClientFactory
 from twisted.internet import reactor, defer
 from twisted.python import log
 import sys
-import random
-from operation.client import Dispatch
 
 GNUBG = 8083
 TRACE = 15
@@ -108,8 +102,6 @@ class ComClientFactory(ReconnectingClientFactory):
     def clientConnectionLost(self, connector, reason):
         log.msg('Lost connection. Reason: %s' % reason, logLevel=logging.INFO)
         ReconnectingClientFactory.clientConnectionLost(self, connector, reason)
-
-# TODO: muss reconnecting client sein
 
     def clientConnectionFailed(self, connector, reason):
         log.msg('Connection failed. Reason: %s' % reason, logLevel=logging.INFO)
