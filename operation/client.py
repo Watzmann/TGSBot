@@ -29,8 +29,7 @@ print 'client set logginglevel to', logging.getLevelName(level)
 
 class Dispatch:
 
-    def __init__(self, protocol, user, password):
-        self.protocol = protocol
+    def __init__(self, user, password):
         self.user = user
         self.password = password
         self.bot_uid = 0
@@ -49,13 +48,11 @@ class Dispatch:
         if user in self.told_opponent:
             del self.told_opponent[user]
 
-    def set_boardstyle(self,):
-        settings = Set(self, self.requests)
-        settings.send_command('set')
-
-    def query_status(self,):
+    def login_hook(self,):
         toggle = Toggle(self, self.requests)
         toggle.send_command('toggle')
+        settings = Set(self, self.requests)
+        settings.send_command('set')
 
     def login(self,):
         login = Login(self, self.requests, self.set_bot_uid)

@@ -1,7 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """Ein Twisted-Client als Playing Bot for SIBS.
-Basiert auf client/twisted-client1.py.
+  Basiert auf client/twisted-client1.py.
+
+  Example:
+    ./sibsBot.py -P8081 -u tigerI |& tee /var/log/SIBS/bot/tigerI.py.log
 """
 
 from twisted.internet import reactor, defer
@@ -58,6 +61,7 @@ if __name__ == "__main__":
     # connect to a running gnubg instance
     # TODO: react to missing gnubg (either start one, or fail)
     server_port = int(options.port)
+    factory.dispatcher = Dispatch(options.user, options.password)
     factory.gnubg = set_up_gnubg('localhost', port=GNUBG)
     reactor.connectTCP(options.host, server_port, factory)
     reactor.run()
