@@ -26,8 +26,8 @@ class Welcome(Request):
 
 class Login(Request):
 
-    def __init__(self, dispatch, manage, callback):
-        self.expected = "BOTUID "
+    def __init__(self, dispatch, manage, callback, expected="BOTUID "):
+        self.expected = expected
         self.callback = callback
         Request.__init__(self, dispatch, manage,)
 
@@ -39,6 +39,5 @@ class Login(Request):
         log.msg('LOGIN applies '+'+'*40, logLevel=VERBOSE)
         self.purge()
         del message[0:1]
-        self.dispatch.set_boardstyle()
-        self.dispatch.query_status()
+        self.dispatch.login_hook()
         return True

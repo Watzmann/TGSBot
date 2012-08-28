@@ -2,22 +2,19 @@
 # -*- coding: utf-8 -*-
 """An administration bot for script based administration tasks."""
 
+import sys
+
 from twisted.internet import reactor, defer
 from optparse import OptionParser
 from client.sibsClient import Com, ComClientFactory
 from sibsBot import start_logging
+from operation.admin import Dispatch
 
-# einloggen als admin
-# schleife
-#   user anlegen
-#     newUser aufrufen
-#     eventuelle daten direkt setzen
-#     user ausloggen
-
-def client_run(options):
+def client_run(options, admin_key):
     start_logging('admin')
     factory = ComClientFactory()
     factory.options = options
+    factory.dispatcher = Dispatch('administration', admin_key)
     reactor.connectTCP(options.host, int(options.port), factory)
     reactor.run()
 
@@ -27,7 +24,7 @@ def get_admin_key(options, args):
     elif len(args) > 0 and args[0] != '-':
         return args[0]
     elif len(args) > 0 and args[0] == '-':
-        return 'hallo'
+        return sys.stdin.readlines()[0].rstrip('\n')
     else:
         return 'not found'
 
@@ -53,7 +50,6 @@ def usage():
 if __name__ == "__main__":
     parser,usg = usage()
     (options, args) = parser.parse_args()
-#sys.argv[0]
     admin_key = get_admin_key(options, args)
 
-    client_run(options)
+    client_run(options, admin_key)

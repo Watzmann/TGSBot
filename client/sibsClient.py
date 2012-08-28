@@ -14,8 +14,7 @@ VERBOSE = 17
 import logging
 
 class Com(Protocol):
-    def __init__(self, options, factory):
-        self.options = options
+    def __init__(self, factory):
         self.factory = factory
 
     def dataReceived(self, rawdata):
@@ -28,9 +27,10 @@ class Com(Protocol):
 
     def connectionMade(self,):
         log.msg('connectionMade', logLevel=TRACE)
-        user = self.options.user
-        password = self.options.password
-        self.dispatch = Dispatch(self, user, password)
+        self.dispatch = self.factory.dispatcher
+        # TODO: wenn ich self.factory nur hier brauche, ist die frage, warum ich
+        #       nicht direkt dispatcher übergebe, statt factory
+        self.dispatch.protocol = self
 
     def dropConnection(self,):
         log.msg('dropConnection', logLevel=TRACE)
@@ -41,10 +41,11 @@ class ComClientFactory(ReconnectingClientFactory):
         log.msg('Started to connect.', logLevel=TRACE)
 
     def buildProtocol(self, addr):
-        log.msg('Connected to %s:%s.' % (options.host, options.port), logLevel=TRACE)
+        log.msg('Connected to %s:%s.' % (self.options.host, self.options.port),
+                                                                logLevel=TRACE)
         log.msg('Resetting reconnection delay.', logLevel=VERBOSE)
         self.resetDelay()
-        return Com(self.options, self)
+        return Com(self)
 
     def clientConnectionLost(self, connector, reason):
         log.msg('Lost connection. Reason: %s' % reason, logLevel=logging.INFO)
