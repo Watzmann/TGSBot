@@ -15,6 +15,8 @@ def client_run(options, admin_key):
     factory = ComClientFactory()
     factory.options = options
     factory.dispatcher = Dispatch('administration', admin_key)
+    if hasattr(options, 'command_file'):
+        factory.command_file = open(options.command_file, 'r')
     reactor.connectTCP(options.host, int(options.port), factory)
     reactor.run()
 
@@ -45,6 +47,9 @@ def usage():
     parser.add_option("-P", "--port", default='8081',
                   action="store", dest="port",
                   help="server port. (8081)")
+    parser.add_option("-f", "--file",
+                  action="store", dest="command_file",
+                  help="file with admin commands for bulk-scripting")
     return parser,usg
 
 if __name__ == "__main__":
