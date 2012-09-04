@@ -13,57 +13,6 @@ import logging
 logging.addLevelName(TRACE, 'TRACE')
 logging.addLevelName(VERBOSE, 'VERBOSE')
 
-class Join(Request):
-    message_new = {0: "** You are now playing a %s point match with %s.",
-                   1: "** Player %s has joined you for a %s point match.",
-                   }
-    message_resume = {0: "You are now playing with %s. " \
-                                        "Your running match was loaded.",
-                      1: "%s has joined you. Your running match was loaded.",
-                      }
-    ordered_arguments = {0: lambda a,b: (a,b),
-                         1: lambda a,b: (b,a),
-                         }
-
-    def __init__(self, dispatch, manage, opp, ML, type_of_invitation):
-        self.opponent = opp
-        self.ML = ML
-        self.expected = self.expected_answer(opp, ML, type_of_invitation)
-        Request.__init__(self, dispatch, manage,)
-
-    def expected_answer(self, opponent, ML, type_of_invitation):
-        if ML is None:
-            i_expect = self.message_resume[type_of_invitation] % opponent
-            self.resume = True
-        else:
-            i_expect = self.message_new[type_of_invitation] % \
-                       self.ordered_arguments[type_of_invitation](ML, opponent)
-            self.resume = False
-        return i_expect
-
-    def received(self, message):
-        log.msg('JOIN tests: %s' % message[0], logLevel=VERBOSE)
-        line = message[0].split()
-        direction = line.pop()
-        my_line = ' '.join(line)
-        expected_answer = self.expected == my_line
-        if expected_answer:
-            log.msg('JOIN applies '+'+'*40, logLevel=VERBOSE)
-            if direction in ('(-)', '(+)'):
-                self.dispatch.direction = direction.strip('()')
-            else:
-                self.dispatch.direction = '+'
-            greetings = 'Hello! Enjoy this match. Good luck.'
-            self.send_command('tell %s %s' % (self.opponent, greetings))
-            self.purge()
-            self.dispatch.opponent = self.opponent
-            Play(self.dispatch, self.manage, self.opponent,
-                                     self.ML, resume=self.resume)
-            del message[0]
-        else:
-            log.msg('JOIN applies NOT '+'-'*36, logLevel=VERBOSE)
-        return expected_answer
-
 class Play(Request):
 
 ##>
@@ -216,7 +165,7 @@ class Play(Request):
         self.manage[self.expected.expected_answer] = self
 
 class Action:
-    """Action objects can take one of six orders and then, if neccessary, ask 
+    """Action objects can take one of six orders and then, if appropriate, ask
     gnubg for the proper action to take in this case.
 """
     def __init__(self, order, parameters, gnubg, callback):
@@ -324,6 +273,7 @@ class Turn(Request):
     def send_thanks(self, congrats):
         opponent = getattr(self.dispatch, 'opponent', False)
         #log.msg('in send_thanks: (%s %s)' % (congrats, type(congrats)), logLevel=TRACE)
+        self.dispatch.relax_hook()
         if not opponent:
             log.msg('cannot send thanks: opponent missing!', logLevel=logging.DEBUG)
             return
@@ -333,7 +283,7 @@ class Turn(Request):
                                                         "match :)." % opponent
         else:
             #log.msg('in send_thanks (false): (%s %s)' % (congrats, type(congrats)), logLevel=TRACE)
-            msg = "tell %s Thanks for playing this match :)." % opponent    
+            msg = "tell %s Thanks for playing this match :)." % opponent
         del self.dispatch.opponent
         log.msg('sending thanks: %s' % msg, logLevel=VERBOSE)
         self.send_command(msg)

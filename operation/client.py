@@ -8,7 +8,7 @@ from operation.basics import Request
 from operation.welcome import Welcome
 from operation.welcome import Login
 from operation.settings import Toggle, Set
-from operation.invite import invite, join
+from operation.invite import invite, join, invite_bots
 from operation.config import ADMINISTRATORS, COMMANDS, MAX_MATCHLEN
 
 import sys
@@ -21,7 +21,7 @@ import logging
 logging.addLevelName(TRACE, 'NOISY')
 logging.addLevelName(TRACE, 'TRACE')
 logging.addLevelName(VERBOSE, 'VERBOSE')
-level = NOISY
+level = logging.INFO    # NOISY
 if getcwd().startswith('/var/opt/sibs'):
     level = max(level, logging.DEBUG)
 logging.basicConfig(level=level,)
@@ -53,6 +53,14 @@ class Dispatch:
         toggle.send_command('toggle')
         settings = Set(self, self.requests)
         settings.send_command('set')
+        self.relax_hook()
+
+    def relax_hook(self,):
+        if hasattr(self, 'saved'):
+            self.saved.purge()
+            del self.saved
+        if self.protocol.factory.options.auto_invite:
+            self.invitation = reactor.callLater(5., invite_bots, self)
 
     def login(self,):
         login = Login(self, self.requests, self.set_bot_uid)
@@ -64,10 +72,20 @@ class Dispatch:
         command = a[1]
         cmd_string = ' '.join(a[1:])
         if command in COMMANDS and user in ADMINISTRATORS:
+            log.msg('%s tells me to: %s' % \
+                                    (user, cmd_string), logLevel=logging.INFO)
             if command in ('end',):
                 self.protocol.factory.stop()
-            elif command == 'invite' and a[3] <= MAX_MATCHLEN:
-                invite(a[2], a[3])
+                self.send_server('wave')
+                self.send_server('wave')
+            elif command == 'invite':
+                if len(a) < 4:
+                    invite(self, a[2], None)
+                elif a[3] != 'unlimited' and int(a[3]) <= MAX_MATCHLEN:
+                    invite(self, a[2], a[3])
+                else:
+                    log.msg('turning down a %s point invitation with %s' % \
+                                            (a[3], a[2]), logLevel=logging.INFO)
             else:
                 self.send_server(cmd_string)
         else:
@@ -125,23 +143,24 @@ class Dispatch:
                                         ' '.join(cmd_line[1:3]) == "wants to":
                     opponent = cmd_line[0]
                     if cmd_line[3] == 'play':
-                        ML = int(cmd_line[5])
-                        if ML > 0 and ML <= MAX_MATCHLEN:
-                            join(opponent, ML)
-                            log.msg('joining a %d point match with %s' % \
+                        ML = cmd_line[5]
+                        if ML != 'unlimited' and \
+                                    int(ML) > 0 and int(ML) <= MAX_MATCHLEN:
+                            join(self, opponent, ML)
+                            log.msg('joining a %s point match with %s' % \
                                         (ML, opponent), logLevel=logging.INFO)
                         else:
                             msg = "tell %s I do not as yet play matches " \
                                   "greater than ML %d or unlimited. Sorry." % \
                                                     (opponent, MAX_MATCHLEN)
                             self.send_server(msg)
-                            log.msg('turning down a %d point match with %s' % \
+                            log.msg('turning down a %s point match with %s' % \
                                         (ML, opponent), logLevel=logging.INFO)
                     else:
                         ML = None
                         log.msg('resuming a match with %s' % opponent,
                                 logLevel=logging.INFO)
-                        join(opponent, ML)
+                        join(self, opponent, ML)
                 if len(lines) > 0:
                     del lines[0]
 

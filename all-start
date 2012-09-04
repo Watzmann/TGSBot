@@ -1,0 +1,41 @@
+#!/bin/bash
+
+progname=`basename $0`
+
+kill_bot () {
+  kill $1
+  sleep 1
+  nrbots=`ps aux | grep "sibsBot" | grep "python" | wc -l`
+  echo killed $1 $2 "($nrbots left)"
+  sleep 9
+}
+
+start_bot () {
+  echo "------------------------------------------------------------"
+  echo starting $1
+  ./bot-start $1 $2
+  sleep 10
+}
+
+for b in `cat - | grep -v '^#'`
+do
+  set `echo $b | sed 's/,/ /'`
+  bot=`ps aux | grep " $1 " | grep "python.*sibsBot" | gawk '{ print $2 " " $16 }'`
+
+  case "$progname" in
+    all-start)
+      test -n "$bot" && continue     # bot is running already
+      start_bot $1 $2
+      ;;
+    all-kill)
+      test -z "$bot" && continue     # bot is still running
+      set $bot
+      kill_bot $1 $2
+      ;;
+    *)
+      echo "unknown command $progname"
+      ;;
+  esac
+
+done
+

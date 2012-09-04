@@ -14,8 +14,9 @@ VERBOSE = 17
 import logging
 
 class Com(Protocol):
-    def __init__(self, factory):
-        self.factory = factory
+    def __init__(self, factory):      # factory is neccessary in protocol,
+        self.factory = factory        # since the dispatcher has to get hold
+                                      # of factory properties
 
     def dataReceived(self, rawdata):
         data = rawdata.rstrip('\r\n')
@@ -28,8 +29,6 @@ class Com(Protocol):
     def connectionMade(self,):
         log.msg('connectionMade', logLevel=TRACE)
         self.dispatch = self.factory.dispatcher
-        # TODO: wenn ich self.factory nur hier brauche, ist die frage, warum ich
-        #       nicht direkt dispatcher übergebe, statt factory
         self.dispatch.protocol = self
 
     def dropConnection(self,):
