@@ -42,6 +42,8 @@ class Toggle(Request):
         log.msg('TOGGLE tests: %s' % message[0], logLevel=VERBOSE)
         try:
             for t in message[1:]:
+                if len(t) < 3:
+                    break
                 s = t.split()
                 self.toggles[s[0]] = s[-1]
         except:

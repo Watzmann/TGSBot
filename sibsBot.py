@@ -49,6 +49,9 @@ def usage(progname):
     parser.add_option("-P", "--port", default='8081',
                   action="store", dest="port",
                   help="server port. (8081)")
+    parser.add_option("-I", "--auto-invite", default=False,
+                  action="store_true", dest="auto_invite",
+                  help="auto-invite other bots. (False)")
     return parser,usg
 
 if __name__ == "__main__":

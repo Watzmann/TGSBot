@@ -1,60 +1,151 @@
 """Enable bot to invite other players (i.e. other bots)."""
 
+import random
+from twisted.python import log
 from twisted.internet import defer
 from operation.basics import Request, Response
-from operation.play import Join
+from operation.play import Play
+
+TRACE = 15
+VERBOSE = 17
+
+import logging
+logging.addLevelName(TRACE, 'TRACE')
+logging.addLevelName(VERBOSE, 'VERBOSE')
 
 class Bots(Request):
     def __init__(self, dispatch, manage, callback):
         self.expected = "Playing bots:"
         Request.__init__(self, dispatch, manage,)
-        self.bots = defer.Deferred()
-        self.bots.addCallback(callback)
-        self.send_command('show bots_ready' % opponent)
+        self.answer = defer.Deferred()
+        self.answer.addCallback(callback)
+        self.send_command('show bots_ready')
 
     def received(self, message):
         self.settings = {}
         log.msg('BOTS tests: %s' % message[0], logLevel=VERBOSE)
         try:
             idx = message.index('')
-            self.bots = message[1:idx]
+            bots = message[1:idx]
+            del message[:idx+1]
         except ValueError:
-            self.bots = message[1:]
-        log.msg('BOTS: bots present: %s' % t, logLevel=logging.DEBUG)
+            bots = message[1:]
+            del message[:]
+        log.msg('BOTS: bots present: %s' % bots, logLevel=logging.DEBUG)
+        self.answer.callback(bots)
         log.msg('BOTS applies '+'+'*40, logLevel=VERBOSE)
         self.purge()
-        del message[:idx+1]
+
+class Join(Request):
+    message_new = {0: "** You are now playing a %s point match with %s.",
+                   1: "** Player %s has joined you for a %s point match.",
+                   }
+    message_resume = {0: "You are now playing with %s. " \
+                                        "Your running match was loaded.",
+                      1: "%s has joined you. Your running match was loaded.",
+                      }
+    ordered_arguments = {0: lambda a,b: (a,b),
+                         1: lambda a,b: (b,a),
+                         }
+
+    def __init__(self, dispatch, manage, opp, ML, type_of_invitation):
+        self.opponent = opp
+        self.ML = ML
+        self.expected = self.expected_answer(opp, ML, type_of_invitation)
+        self.busy = Busy(dispatch, manage, opp, self.expected)
+        Request.__init__(self, dispatch, manage,)
+
+    def expected_answer(self, opponent, ML, type_of_invitation):
+        if ML is None:
+            i_expect = self.message_resume[type_of_invitation] % opponent
+            self.resume = True
+        else:
+            i_expect = self.message_new[type_of_invitation] % \
+                       self.ordered_arguments[type_of_invitation](ML, opponent)
+            self.resume = False
+        return i_expect
+
+    def received(self, message):
+        log.msg('JOIN tests: %s' % message[0], logLevel=VERBOSE)
+        line = message[0].split()
+        direction = line.pop()
+        my_line = ' '.join(line)
+        expected_answer = self.expected == my_line
+        if expected_answer:
+            log.msg('JOIN applies '+'+'*40, logLevel=VERBOSE)
+            if direction in ('(-)', '(+)'):
+                self.dispatch.direction = direction.strip('()')
+            else:
+                self.dispatch.direction = '+'
+            greetings = 'Hello! Enjoy this match. Good luck.'
+            self.send_command('tell %s %s' % (self.opponent, greetings))
+            self.purge()
+            self.dispatch.opponent = self.opponent
+            self.dispatch.saved = Saved(self.dispatch, self.manage, self.opponent)
+            Play(self.dispatch, self.manage, self.opponent,
+                                     self.ML, resume=self.resume)
+            del message[0]
+        else:
+            log.msg('JOIN applies NOT '+'-'*36, logLevel=VERBOSE)
+        return expected_answer
 
 class Busy(Request):
-
-    def __init__(self, dispatch, manage, opponent, refusal, invitation):
-        self.expected = refusal
+    def __init__(self, dispatch, manage, opponent, invitation):
+        self.refusal1 = "** %s is already playing with someone else." % opponent
+        self.refusal2 = "** There's no saved match with %s. " \
+                                        "Please give a match length." % opponent
+        self.invitation = invitation
         Request.__init__(self, dispatch, manage,)
 
     def received(self, message):
-        self.settings = {}
         log.msg('BUSY tests: %s' % message[0], logLevel=VERBOSE)
-        if invitation in self.manage:
-            del self.manage[invitation]
+        if self.invitation in self.manage:
+            del self.manage[self.invitation]
         log.msg('BUSY applies '+'+'*40, logLevel=VERBOSE)
         self.purge()
         del message[0]
+        self.dispatch.relax_hook()
 
-def invite_bots(dispatch, manage):
-    invite = Invite(dispatch, manage)
+    def update(self,):
+        self.manage[self.refusal1] = self
+        self.manage[self.refusal2] = self
 
-        #join = Join(self, self.requests, opponent, ML, type_of_invitation)
-        #if type_of_invitation == 0:
-            #join.send_command('join %s' % opponent)
+class Saved(Request):
+    def __init__(self, dispatch, manage, opponent):
+        self.expected = "** Player %s has left the game. " \
+                                            "The game was saved." % opponent
+        Request.__init__(self, dispatch, manage,)
 
-def join(self, opponent, ML, type_of_invitation=0):
-    join = Join(self, self.requests, opponent, ML, type_of_invitation)
+    def received(self, message):
+        log.msg('SAVED tests: %s' % message[0], logLevel=VERBOSE)
+        log.msg('SAVED applies '+'+'*40, logLevel=VERBOSE)
+        self.purge()
+        del self.dispatch.saved
+        del message[0]
+        self.dispatch.relax_hook()
+
+def invite_bots(dispatch):
+    def invite_one(bots):
+        ML = random.choice((1,3,5,7,9))
+        if dispatch.user in bots:
+            bots.remove(dispatch.user)
+        if len(bots) > 0:
+            opponent = random.choice(bots)
+            invite(dispatch, opponent, ML)
+        else:
+            dispatch.relax_hook()
+
+    bots = Bots(dispatch, dispatch.requests, invite_one)
+
+def join(dispatch, opponent, ML, type_of_invitation=0):
+    join = Join(dispatch, dispatch.requests, opponent, ML, type_of_invitation)
     if type_of_invitation == 0:
         join.send_command('join %s' % opponent)
+    return join
 
-def invitation(dispatch, manage, opponent, ML=-1):
-    refusal = "** %s is already playing with someone else." % opponent
-    Busy()
-
-def invite():
-    pass
+def invite(dispatch, opponent, ML):
+    ret = Join(dispatch, dispatch.requests, opponent, ML, 1)
+    if ML is None:
+        ret.send_command('invite %s' % opponent)
+    else:
+        ret.send_command('invite %s %s' % (opponent, ML))
