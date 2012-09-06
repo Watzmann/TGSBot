@@ -7,7 +7,7 @@ from twisted.python import log
 from operation.basics import Request
 from operation.welcome import Welcome
 from operation.welcome import Login
-from operation.settings import Toggle, Set
+from operation.settings import Toggle, Set, GnubgSettings
 from operation.invite import invite, join, invite_bots
 from operation.config import ADMINISTRATORS, COMMANDS, MAX_MATCHLEN
 
@@ -35,6 +35,8 @@ class Dispatch:
         self.bot_uid = 0
         self.requests = {}
         self.told_opponent = {}
+        self.user_commands = {'info': self.user_info,
+                              }
         welcome = Welcome(self, self.requests)
 
     def send_server(self, message):
@@ -66,6 +68,14 @@ class Dispatch:
         login = Login(self, self.requests, self.set_bot_uid)
         login.send_command('bot login h h %s %s' % (self.user, self.password))
 
+    def user_info(self, user):
+        def return_info(infos):
+            info = "I am an expert playing bot"
+            self.send_server("tell %s %s" % (user, info))
+
+        gnubg = self.protocol.factory.gnubg.gnubg
+        GnubgSettings('get_player', [], gnubg, return_info)
+
     def command(self, cmd):
         a = cmd.split()
         user = a[0]
@@ -90,11 +100,14 @@ class Dispatch:
                 self.send_server(cmd_string)
         else:
             log.msg('%s says: %s' % (user, cmd_string), logLevel=logging.INFO)
-            msg = "tell %s I am a bot. I don't know how to talk, yet. Sorry."
-            if not user in self.told_opponent:
-                self.told_opponent[user] = True
-                self.send_server(msg % user)
-                reactor.callLater(300., self.delete_told_opponent, user)
+            if command in ('info',):
+                self.user_commands[command](user)
+            else:
+                msg = "tell %s I am a bot. I don't know how to talk, yet. Sorry."
+                if not user in self.told_opponent:
+                    self.told_opponent[user] = True
+                    self.send_server(msg % user)
+                    reactor.callLater(300., self.delete_told_opponent, user)
 
     def parse(self, message):
         log.msg('#'*80, logLevel=NOISY)
