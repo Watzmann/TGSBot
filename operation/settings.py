@@ -94,3 +94,21 @@ class Set(Request):
     def set_boardstyle(self, style):
         self.dispatch.send_server('set boardstyle %d' % style)
         self.dispatch.settings['boardstyle'] = str(style)
+
+class GnubgSettings:
+    """Action objects can take one of six orders and then, if appropriate, ask
+    gnubg for the proper action to take in this case.
+"""
+    def __init__(self, order, parameters, gnubg, callback):
+        log.msg('create gnubgSettings with (%s - %s)' % (order, parameters),
+                                                        logLevel=logging.DEBUG)
+        self.gnubg = gnubg
+        self.callback = callback
+        {'get_player': self._get_player,
+         }[order](parameters)
+
+    def _get_player(self, parameters):
+        self.oracle = self.gnubg.ask_gnubg('get_player')
+        log.msg('got GET_PLAYER oracle: %s' % self.oracle, logLevel=logging.DEBUG)
+        if not self.oracle is None:
+            self.oracle.addCallback(self.callback)
