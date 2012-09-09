@@ -35,6 +35,7 @@ class Bots(Request):
         self.answer.callback(bots)
         log.msg('BOTS applies '+'+'*40, logLevel=VERBOSE)
         self.purge()
+        return True
 
 class Join(Request):
     message_new = {0: "** You are now playing a %s point match with %s.",
@@ -80,6 +81,7 @@ class Join(Request):
             greetings = 'Hello! Enjoy this match. Good luck.'
             self.send_command('tell %s %s' % (self.opponent, greetings))
             self.purge()
+            self.busy.purge()
             self.dispatch.opponent = self.opponent
             self.dispatch.saved = Saved(self.dispatch, self.manage, self.opponent)
             Play(self.dispatch, self.manage, self.opponent,
@@ -105,6 +107,7 @@ class Busy(Request):
         self.purge()
         del message[0]
         self.dispatch.relax_hook()
+        return True
 
     def update(self,):
         self.manage[self.refusal1] = self
@@ -123,6 +126,7 @@ class Saved(Request):
         del self.dispatch.saved
         del message[0]
         self.dispatch.relax_hook()
+        return True
 
 def invite_bots(dispatch):
     def invite_one(bots):
