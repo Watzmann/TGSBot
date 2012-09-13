@@ -1,10 +1,17 @@
+"""Basic classes Request and Response for handling server commands."""
+
+import time
 
 class Request:
     def __init__(self, dispatch, manage,):
         self.dispatch = dispatch
         self.manage = manage
         self.update()
-        
+        # Some messages for use of inheriting classes
+        self.msg_tests = '%s tests: %%s' % self.label
+        self.msg_applies = '%s applies ' % self.label
+        self.msg_waited = '%s waited for answer %%s seconds' % self.label
+
     def received(self, message):
         print 'got expected answer: >%s<' % message
 
@@ -18,6 +25,7 @@ class Request:
 
     def send_command(self, command):
         self.dispatch.send_server(command)
+        self.sent_request = time.time()
 
 class Response:
     def __init__(self, answer):

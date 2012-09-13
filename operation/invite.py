@@ -1,6 +1,7 @@
 """Enable bot to invite other players (i.e. other bots)."""
 
 import random
+import time
 from twisted.python import log
 from twisted.internet import defer
 from operation.basics import Request, Response
@@ -16,6 +17,7 @@ logging.addLevelName(VERBOSE, 'VERBOSE')
 class Bots(Request):
     def __init__(self, dispatch, manage, callback):
         self.expected = "Playing bots:"
+        self.label = 'BOTS'
         Request.__init__(self, dispatch, manage,)
         self.answer = defer.Deferred()
         self.answer.addCallback(callback)
@@ -23,7 +25,7 @@ class Bots(Request):
 
     def received(self, message):
         self.settings = {}
-        log.msg('BOTS tests: %s' % message[0], logLevel=VERBOSE)
+        log.msg(self.msg_tests % message[0], logLevel=VERBOSE)
         try:
             idx = message.index('')
             bots = message[1:idx]
@@ -33,7 +35,9 @@ class Bots(Request):
             del message[:]
         log.msg('BOTS: bots present: %s' % bots, logLevel=logging.DEBUG)
         self.answer.callback(bots)
-        log.msg('BOTS applies '+'+'*40, logLevel=VERBOSE)
+        log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
+        time_used = time.time() - self.sent_request
+        log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
         self.purge()
         return True
 
@@ -54,6 +58,7 @@ class Join(Request):
         self.ML = ML
         self.expected = self.expected_answer(opp, ML, type_of_invitation)
         self.busy = Busy(dispatch, manage, opp, self.expected)
+        self.label = 'JOIN'
         Request.__init__(self, dispatch, manage,)
 
     def expected_answer(self, opponent, ML, type_of_invitation):
@@ -67,13 +72,15 @@ class Join(Request):
         return i_expect
 
     def received(self, message):
-        log.msg('JOIN tests: %s' % message[0], logLevel=VERBOSE)
+        log.msg(self.msg_tests % message[0], logLevel=VERBOSE)
         line = message[0].split()
         direction = line.pop()
         my_line = ' '.join(line)
         expected_answer = self.expected == my_line
         if expected_answer:
-            log.msg('JOIN applies '+'+'*40, logLevel=VERBOSE)
+            log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
+            time_used = time.time() - self.sent_request
+            log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
             if direction in ('(-)', '(+)'):
                 self.dispatch.direction = direction.strip('()')
             else:
@@ -97,13 +104,17 @@ class Busy(Request):
         self.refusal2 = "** There's no saved match with %s. " \
                                         "Please give a match length." % opponent
         self.invitation = invitation
+        self.label = 'BUSY'
+        self.sent_request = time.time()
         Request.__init__(self, dispatch, manage,)
 
     def received(self, message):
-        log.msg('BUSY tests: %s' % message[0], logLevel=VERBOSE)
+        log.msg(self.msg_tests % message[0], logLevel=VERBOSE)
         if self.invitation in self.manage:
             del self.manage[self.invitation]
-        log.msg('BUSY applies '+'+'*40, logLevel=VERBOSE)
+        log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
+        time_used = time.time() - self.sent_request
+        log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
         self.purge()
         del message[0]
         self.dispatch.relax_hook()
@@ -117,11 +128,12 @@ class Saved(Request):
     def __init__(self, dispatch, manage, opponent):
         self.expected = "** Player %s has left the game. " \
                                             "The game was saved." % opponent
+        self.label = 'SAVED'
         Request.__init__(self, dispatch, manage,)
 
     def received(self, message):
-        log.msg('SAVED tests: %s' % message[0], logLevel=VERBOSE)
-        log.msg('SAVED applies '+'+'*40, logLevel=VERBOSE)
+        log.msg(self.msg_tests % message[0], logLevel=VERBOSE)
+        log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
         self.purge()
         del self.dispatch.saved
         del message[0]
