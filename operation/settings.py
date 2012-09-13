@@ -1,5 +1,6 @@
 """Commands about toggles, settings, etc."""
 
+import time
 from twisted.python import log
 from operation.basics import Request
 
@@ -35,11 +36,12 @@ class Toggle(Request):
 """
     def __init__(self, dispatch, manage,):
         self.expected = "The current settings are:"
+        self.label = 'TOGGLE'
         Request.__init__(self, dispatch, manage,)
 
     def received(self, message):
         self.toggles = {}
-        log.msg('TOGGLE tests: %s' % message[0], logLevel=VERBOSE)
+        log.msg(self.msg_tests % message[0], logLevel=VERBOSE)
         try:
             for t in message[1:]:
                 if len(t) < 3:
@@ -47,9 +49,12 @@ class Toggle(Request):
                 s = t.split()
                 self.toggles[s[0]] = s[-1]
         except:
-            raise RuntimeError('TOGGLE got unexpected data: >%s<' % message)
+            err_msg = '%s got unexpected data: >%s<' % (self.label, message)
+            raise RuntimeError(err_msg)
         self.dispatch.toggles = self.toggles
-        log.msg('TOGGLE applies '+'+'*40, logLevel=VERBOSE)
+        log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
+        time_used = time.time() - self.sent_request
+        log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
         del message[:len(self.toggles)+1]
         self.set_standard()
         self.purge()
@@ -70,11 +75,12 @@ class Toggle(Request):
 class Set(Request):
     def __init__(self, dispatch, manage,):
         self.expected = "Settings of variables:"
+        self.label = 'SET'
         Request.__init__(self, dispatch, manage,)
 
     def received(self, message):
         self.settings = {}
-        log.msg('SET tests: %s' % message[0], logLevel=VERBOSE)
+        log.msg(self.msg_tests % message[0], logLevel=VERBOSE)
         try:
             for t in message[1:8]:
                 log.msg('SET: working on >%s<' % t, logLevel=logging.DEBUG)
@@ -82,9 +88,12 @@ class Set(Request):
                 key = s[0].rstrip(':')
                 self.settings[key] = s[-1]
         except:
-            raise RuntimeError('SET got unexpected data: >%s<' % message)
+            err_msg = '%s got unexpected data: >%s<' % (self.label, message)
+            raise RuntimeError(err_msg)
         self.dispatch.settings = self.settings
-        log.msg('SET applies '+'+'*40, logLevel=VERBOSE)
+        log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
+        time_used = time.time() - self.sent_request
+        log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
         del message[:8]
         if self.settings['boardstyle'] != '5':
             log.msg('SET sets boardstyle to 5'+'>'*35, logLevel=VERBOSE)
