@@ -178,7 +178,6 @@ class Action:
                                                         logLevel=logging.DEBUG)
         self.gnubg = gnubg
         self.callback = callback
-        self.sent_request = time.time()
         {'double': self._double,    # state B - double or roll? resign?
          'move': self._move,        # state E - which move? resign?
          'take': self._take,        # state C - take the cube?
@@ -245,7 +244,8 @@ class Turn(Request):
 
     def send_double(self, double):
         log.msg('got double decision: %s' % double, logLevel=logging.DEBUG)
-
+        self.msg_waited = 'double waited for answer %s seconds' % \
+                                                time.time() - start_time
         # TODO: resign decision:     gnubg.evaluate()
         #       siehe auch send_move()
 
@@ -305,6 +305,7 @@ class Turn(Request):
             parameters = expected_reaction[2:]
             gnubg = self.gnubg.gnubg
             callback = self._callback[order]
+            self.sent_action = time.time()
             self.action = Action(order, parameters, gnubg, callback)
             log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
             time_used = time.time() - self.sent_request
