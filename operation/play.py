@@ -187,7 +187,7 @@ class Action:
          }[order](parameters)
 
     def _double(self, parameters):
-        self.oracle = self.gnubg.ask_gnubg('double: %s' % parameters[0])
+        self.oracle = self.gnubg.ask_gnubg('double: %s resign' % parameters[0])
         log.msg('got DOUBLE oracle: %s' % self.oracle, logLevel=logging.DEBUG)
         if not self.oracle is None:
             self.oracle.addCallback(self.callback)
@@ -199,7 +199,7 @@ class Action:
             self.oracle.addCallback(self.callback)
 
     def _move(self, parameters):
-        self.oracle = self.gnubg.ask_gnubg('bestMove: %s %s' % \
+        self.oracle = self.gnubg.ask_gnubg('bestMove: %s %s resign' % \
                                             (parameters[0], parameters[1]))
         log.msg('got MOVE oracle: %s' % self.oracle, logLevel=logging.DEBUG)
         if not self.oracle is None:

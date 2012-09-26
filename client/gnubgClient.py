@@ -61,15 +61,20 @@ class Com(Protocol): # TODO: LineReceiver
     and returns a deferred to fire the answer.
     The command is referred to a gnubg server running on port xxxxxx
 """
-        command = question.split(':')
-        self.custom_question[command[0]](':'.join(command[1:]).lstrip())
+        args = question.split(':')
+        command = args[0]
+        parameters = ':'.join(args[1:]).lstrip()
+        self.custom_question[command](parameters)
         self.answer = defer.Deferred()
         return self.answer
 
     def _best_move(self, question):
         log.msg('question: %s' % question, logLevel=logging.DEBUG)
-        match_id, nr_pieces = question.split()
-        mid, pid = match_id.split(':')
+        arguments = question.split()
+        mid, pid = arguments[0].split(':')
+        nr_pieces = arguments[1]
+        if len(arguments) > 2 and arguments[2] == 'resign':
+             self.sendMessage('opt:consider resign')
         self.sendMessage('mid:%s' % mid)
         self.sendMessage('pid:%s' % pid)
         self.sendMessage('nrp:%s' % nr_pieces)
@@ -77,7 +82,11 @@ class Com(Protocol): # TODO: LineReceiver
 
     def _double(self, question):
         log.msg('question: %s' % question, logLevel=logging.DEBUG)
-        mid, pid = question.split(':')
+        arguments = question.split()
+        match_id = arguments[0]
+        mid, pid = match_id.split(':')
+        if len(arguments) > 1 and arguments[1] == 'resign':
+             self.sendMessage('opt:consider resign')
         self.sendMessage('mid:%s' % mid)
         self.sendMessage('pid:%s' % pid)
         self.sendMessage('cmd:double')
