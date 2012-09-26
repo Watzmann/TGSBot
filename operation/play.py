@@ -2,6 +2,7 @@
 """Commands about playing the match."""
 
 import sys
+import time
 from twisted.python import log
 from twisted.internet import defer
 from operation.basics import Request, Response
@@ -135,6 +136,8 @@ class Play(Request):
         self.ML = ML
         self.expected = self.Answer(self.gnubg, opponent, ML, resume)
         self.expected.send_move = self.send_move
+        self.label = 'PLAY'
+        self.sent_request = time.time()
         Request.__init__(self, dispatch, manage,)
 
     def send_move(self, move):
@@ -145,7 +148,7 @@ class Play(Request):
         #self.send_command(mv)
 
     def received(self, message):
-        log.msg('PLAY tests: %s' % message[0], logLevel=VERBOSE)
+        log.msg(self.msg_tests % message[0], logLevel=VERBOSE)
         expected_answer = self.expected.test(message)
         status = self.expected.status   # TODO: brauch ich das noch??
         if expected_answer:
@@ -153,7 +156,9 @@ class Play(Request):
             log.msg('does oracle work?? %s' % oracle, logLevel=logging.DEBUG)
             if not oracle is None:
                 oracle.addCallback(self.send_move)
-            log.msg('PLAY applies '+'+'*40, logLevel=VERBOSE)
+            log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
+            time_used = time.time() - self.sent_request
+            log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
             self.purge()
             Turn(self.dispatch, self.manage,)
             del message[0]
@@ -182,7 +187,7 @@ class Action:
          }[order](parameters)
 
     def _double(self, parameters):
-        self.oracle = self.gnubg.ask_gnubg('double: %s' % parameters[0])
+        self.oracle = self.gnubg.ask_gnubg('double: %s resign' % parameters[0])
         log.msg('got DOUBLE oracle: %s' % self.oracle, logLevel=logging.DEBUG)
         if not self.oracle is None:
             self.oracle.addCallback(self.callback)
@@ -194,7 +199,7 @@ class Action:
             self.oracle.addCallback(self.callback)
 
     def _move(self, parameters):
-        self.oracle = self.gnubg.ask_gnubg('bestMove: %s %s' % \
+        self.oracle = self.gnubg.ask_gnubg('bestMove: %s %s resign' % \
                                             (parameters[0], parameters[1]))
         log.msg('got MOVE oracle: %s' % self.oracle, logLevel=logging.DEBUG)
         if not self.oracle is None:
@@ -233,11 +238,14 @@ class Turn(Request):
                           'join': self.send_join,
                           'relax': self.send_thanks,
                          }
+        self.label = 'TURN'
+        self.sent_request = time.time()
         Request.__init__(self, dispatch, manage,)
 
     def send_double(self, double):
         log.msg('got double decision: %s' % double, logLevel=logging.DEBUG)
-
+        self.msg_waited = 'double waited for answer %s seconds' % \
+                                                time.time() - start_time
         # TODO: resign decision:     gnubg.evaluate()
         #       siehe auch send_move()
 
@@ -289,7 +297,7 @@ class Turn(Request):
         self.send_command(msg)
 
     def received(self, message):
-        log.msg('TURN tests: %s' % message[0], logLevel=VERBOSE)
+        log.msg(self.msg_tests % message[0], logLevel=VERBOSE)
         expected_reaction = message[0].split()
         ret = len(expected_reaction) > 2
         if ret:
@@ -297,8 +305,11 @@ class Turn(Request):
             parameters = expected_reaction[2:]
             gnubg = self.gnubg.gnubg
             callback = self._callback[order]
+            self.sent_action = time.time()
             self.action = Action(order, parameters, gnubg, callback)
-            log.msg('TURN applies '+'+'*40, logLevel=VERBOSE)
+            log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
+            time_used = time.time() - self.sent_request
+            log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
             #self.purge() # TODO: erst purgen, wenn der callback stattgefunden hat.
                          #       Das heißt, den purge als callback chain dranhängen.
             Turn(self.dispatch, self.manage,)

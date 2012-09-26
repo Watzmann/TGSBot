@@ -174,7 +174,8 @@ class Dispatch:
                         log.msg('resuming a match with %s' % opponent,
                                 logLevel=logging.INFO)
                         join(self, opponent, ML)
-                if len(lines) > 0:
+                if len(lines) > 0: # TODO: Scheisse, hier schmeiss ich unverarbeitetes weg?? :((
+                    log.msg('deleting command line: >%s<' % lines[0], logLevel=logging.DEBUG)
                     del lines[0]
 
         if len(lines) > 0:
