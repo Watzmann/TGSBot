@@ -37,7 +37,7 @@ class Com(Protocol):
 
 class ComClientFactory(ReconnectingClientFactory):
     def startedConnecting(self, connector):
-        log.msg('Started to connect.', logLevel=TRACE)
+        log.msg('Started to connect to sibs.', logLevel=TRACE)
 
     def buildProtocol(self, addr):
         log.msg('Connected to %s:%s.' % (self.options.host, self.options.port),

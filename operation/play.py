@@ -66,13 +66,6 @@ class Play(Request):
 ## #board
 ##> Please move 2 pieces.
 
-## !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-##  Ich gebe den Bots n Flag mit (PlayBot).
-##  Damit können sie Infos abfragen (besonderer Commando-Satz).
-##  Dann wird ihnen vom Server signalisiert, dass von ihnen eine
-##    Aktion erwartet wird (Trigger). Mit Commandos holen sie die
-##    benötigte Info und können die Aktion ausführen.
-
         def newgame_answer(self, expected, message):
             opponent = expected[0]
             ML = expected[1]
@@ -142,8 +135,7 @@ class Play(Request):
 
     def send_move(self, move):
         log.msg('got move: %s' % move, logLevel=logging.DEBUG)
-        # TODO: hier fehlt komplett die Behandlung, welche Richtung der Bot spielt
-        #       er wird bei den Lasttests auch mal selber einladen!!
+        # TODO: class Play needs to be cleaned up!!!!!
         mv = ' '.join(['m',] + [str(25-int(m)) for m in move.strip('()').split(',')])
         #self.send_command(mv)
 
@@ -199,16 +191,20 @@ class Action:
             self.oracle.addCallback(self.callback)
 
     def _move(self, parameters):
-        self.oracle = self.gnubg.ask_gnubg('bestMove: %s %s resign' % \
+        # No resign decision here. Gnubg does not either and it does not
+        # really make things worse, if we simply move and decide later.
+        self.oracle = self.gnubg.ask_gnubg('bestMove: %s %s' % \
                                             (parameters[0], parameters[1]))
         log.msg('got MOVE oracle: %s' % self.oracle, logLevel=logging.DEBUG)
         if not self.oracle is None:
             self.oracle.addCallback(self.callback)
 
     def _accept(self, parameters):
-        self.oracle = defer.Deferred()
-        self.oracle.addCallback(self.callback)
-        self.oracle.callback(False)
+        self.oracle = self.gnubg.ask_gnubg('accept: %s %s' % \
+                                            (parameters[0], parameters[1]))
+        log.msg('got ACCEPT oracle: %s' % self.oracle, logLevel=logging.DEBUG)
+        if not self.oracle is None:
+            self.oracle.addCallback(self.callback)
 
     def _relax(self, parameters):
         self.oracle = defer.Deferred()
@@ -244,57 +240,61 @@ class Turn(Request):
 
     def send_double(self, double):
         log.msg('got double decision: %s' % double, logLevel=logging.DEBUG)
-        self.msg_waited = 'double waited for answer %s seconds' % \
-                                                time.time() - start_time
-        # TODO: resign decision:     gnubg.evaluate()
-        #       siehe auch send_move()
+        # TODO: the upcoming message self.msg_waited looks wrong in what
+        #       lap it measures. It does probably erroneously overwrite
+        #       another self.msg_waited!!!!!!
 
-        self.send_command({True: 'double', False: 'roll'}[double == 'double'])
+        #self.msg_waited = 'double waited for answer %s seconds' % \
+         #                                       time.time() - start_time
+        if double.startswith('resign'):
+            self.send_command(double)
+        else:
+            result = double == 'double'
+            self.send_command({True: 'double', False: 'roll'}[result])
+        self.purge()
 
     def send_take(self, take):
         log.msg('got take decision: %s' % take, logLevel=logging.DEBUG)
         self.send_command({True: 'accept', False: 'reject'} \
                                                 [take in ('take', 'beaver')])
+        self.purge()
 
     def send_move(self, move):
         log.msg('got move: %s' % move, logLevel=logging.DEBUG)
-        # TODO: resign decision:     gnubg.evaluate()
-        #       siehe auch send_double()
+        # No resign decision here. See Action._move() above.
         if self.direction == '+':
             mv = ' '.join(['m',] + \
                         [str(25-int(m)) for m in move.strip('()').split(',')])
         else:
             mv = ' '.join(['m',] + move.strip('()').split(','))
         self.send_command(mv)
+        self.purge()
 
     def send_accept(self, accept):
         log.msg('got accept decision: %s' % accept, logLevel=logging.DEBUG)
-        self.send_command({True: 'accept', False: 'reject'}[accept])
-        msg = "tell %s I don't know how to handle resignations, yet. So I " \
-                        "simply turn it down. Sorry." % self.dispatch.opponent
-        self.send_command(msg)
+        self.send_command(accept)
+        self.purge()
 
     def send_join(self, join):
         log.msg('got join', logLevel=logging.DEBUG)
         self.send_command('join')
+        self.purge()
 
     def send_thanks(self, congrats):
         opponent = getattr(self.dispatch, 'opponent', False)
-        #log.msg('in send_thanks: (%s %s)' % (congrats, type(congrats)), logLevel=TRACE)
         self.dispatch.relax_hook()
         if not opponent:
             log.msg('cannot send thanks: opponent missing!', logLevel=logging.DEBUG)
             return
         if congrats:
-            #log.msg('in send_thanks (true): (%s %s)' % (congrats, type(congrats)), logLevel=TRACE)
             msg = "tell %s Congratulations and thanks for playing this " \
                                                         "match :)." % opponent
         else:
-            #log.msg('in send_thanks (false): (%s %s)' % (congrats, type(congrats)), logLevel=TRACE)
             msg = "tell %s Thanks for playing this match :)." % opponent
         del self.dispatch.opponent
         log.msg('sending thanks: %s' % msg, logLevel=VERBOSE)
         self.send_command(msg)
+        self.purge()
 
     def received(self, message):
         log.msg(self.msg_tests % message[0], logLevel=VERBOSE)
@@ -310,8 +310,6 @@ class Turn(Request):
             log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
             time_used = time.time() - self.sent_request
             log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
-            #self.purge() # TODO: erst purgen, wenn der callback stattgefunden hat.
-                         #       Das heißt, den purge als callback chain dranhängen.
             Turn(self.dispatch, self.manage,)
             del message[0]
         else:
