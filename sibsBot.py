@@ -49,6 +49,9 @@ def usage(progname):
     parser.add_option("-P", "--port", default='8081',
                   action="store", dest="port",
                   help="server port. (8081)")
+    parser.add_option("-s", "--strength", default='supremo',
+                  action="store", dest="strength",
+                  help="bots strength. (supremo)")
     parser.add_option("-I", "--auto-invite", default=False,
                   action="store_true", dest="auto_invite",
                   help="auto-invite other bots. (False)")
@@ -61,10 +64,13 @@ if __name__ == "__main__":
     start_logging(options.user)
     factory = ComClientFactory()
     factory.options = options
-    # connect to a running gnubg instance
-    # TODO: react to missing gnubg (either start one, or fail)
     server_port = int(options.port)
-    factory.dispatcher = Dispatch(options.user, options.password)
-    factory.gnubg = set_up_gnubg('localhost', port=GNUBG)
-    reactor.connectTCP(options.host, server_port, factory)
-    reactor.run()
+    factory.dispatcher = Dispatch(options.user, options.password, options.strength)
+    # connect to a running gnubg instance
+    gnubg = set_up_gnubg('localhost', port=GNUBG)
+    if not gnubg is None:    # TODO: react to missing gnubg (now start one)
+        factory.gnubg = gnubg
+        reactor.connectTCP(options.host, server_port, factory)
+        reactor.run()
+    else:
+        print "Can't find gnubg"

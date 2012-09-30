@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from twisted.internet.protocol import Protocol, ReconnectingClientFactory
+from twisted.internet.error import ConnectError
 from twisted.internet import reactor, defer
 from twisted.python import log
 import sys
@@ -31,10 +32,12 @@ bot_gnubg_bridge = Bridge()
 class Com(Protocol): # TODO: LineReceiver
 
     def __init__(self,):
+        self.uid = None
         self.custom_question = {
             'bestMove': self._best_move,
             'double': self._double,
             'take': self._take,
+            'accept': self._accept,
             }
 
     def dataReceived(self, rawdata):
@@ -73,6 +76,7 @@ class Com(Protocol): # TODO: LineReceiver
         arguments = question.split()
         mid, pid = arguments[0].split(':')
         nr_pieces = arguments[1]
+        self.sendMessage('uid:%s' % self.uid)
         if len(arguments) > 2 and arguments[2] == 'resign':
              self.sendMessage('opt:consider resign')
         self.sendMessage('mid:%s' % mid)
@@ -84,6 +88,7 @@ class Com(Protocol): # TODO: LineReceiver
         log.msg('question: %s' % question, logLevel=logging.DEBUG)
         arguments = question.split()
         match_id = arguments[0]
+        self.sendMessage('uid:%s' % self.uid)
         mid, pid = match_id.split(':')
         if len(arguments) > 1 and arguments[1] == 'resign':
              self.sendMessage('opt:consider resign')
@@ -93,14 +98,34 @@ class Com(Protocol): # TODO: LineReceiver
 
     def _take(self, question):
         log.msg('question: %s' % question, logLevel=logging.DEBUG)
+        self.sendMessage('uid:%s' % self.uid)
         mid, pid = question.split(':')
         self.sendMessage('mid:%s' % mid)
         self.sendMessage('pid:%s' % pid)
         self.sendMessage('cmd:take')
 
+    def _accept(self, question):
+        log.msg('question: %s' % question, logLevel=logging.DEBUG)
+        arguments = question.split()
+        match_id = arguments[0]
+        mid, pid = match_id.split(':')
+        self.sendMessage('uid:%s' % self.uid)
+        self.sendMessage('mid:%s' % mid)
+        self.sendMessage('pid:%s' % pid)
+        self.sendMessage('opt:%s' % arguments[1])
+        self.sendMessage('cmd:accept')
+
+    def set_uid_and_strength(self, uid, strength):
+        log.msg('setting bot strength: %s' % strength, logLevel=logging.DEBUG)
+        self.uid = uid
+        self.sendMessage('uid:%s' % uid)
+        self.sendMessage('opt:%s' % strength)
+        self.sendMessage('cmd:set_player')
+
 class ComClientFactory(ReconnectingClientFactory):
     def startedConnecting(self, connector):
-        log.msg('Started to connect.', logLevel=TRACE)
+        log.msg('Started to connect to gnubg.', logLevel=TRACE)
+        self.running = True
 
     def buildProtocol(self, addr):
         log.msg('Connected to %s:%s.' % (self.host, self.port), logLevel=TRACE)
@@ -114,11 +139,17 @@ class ComClientFactory(ReconnectingClientFactory):
 
     def clientConnectionFailed(self, connector, reason):
         log.msg('Connection failed. Reason: %s' % reason, logLevel=logging.INFO)
-        ReconnectingClientFactory.clientConnectionFailed(self, connector, reason)
+        self.running = False
+        raise ConnectError(string=reason)
+        reactor.callWhenRunning(reactor.stop)
 
-def set_up_gnubg(host='localhost', port=GNUBG):
+def set_up_gnubg(host='localhost', port=GNUBG, strength='supremo'):
     factory = ComClientFactory()
     factory.host = host
     factory.port = port
+    log.msg('About to connect to %s:%s.' % (host, port), logLevel=TRACE)
     reactor.connectTCP(host, port, factory)
-    return bot_gnubg_bridge
+    if factory.running:
+        return bot_gnubg_bridge
+    else:
+        return None
