@@ -29,9 +29,10 @@ print 'client set logginglevel to', logging.getLevelName(level)
 
 class Dispatch:
 
-    def __init__(self, user, password):
+    def __init__(self, user, password, strength='supremo'):
         self.user = user
         self.password = password
+        self.strength = strength
         self.bot_uid = 0
         self.requests = {}
         self.told_opponent = {}
@@ -45,6 +46,7 @@ class Dispatch:
     def set_bot_uid(self, uid):
         log.msg('My UID is %s' % uid, logLevel=logging.INFO)
         self.bot_uid = uid
+        self.protocol.factory.gnubg.gnubg.set_uid_and_strength(uid, self.strength)
 
     def delete_told_opponent(self, user):
         if user in self.told_opponent:
@@ -72,7 +74,7 @@ class Dispatch:
         def return_info(infos):
             info = "I am an expert playing bot"
             self.send_server("tell %s %s" % (user, info))
-
+# TODO
         gnubg = self.protocol.factory.gnubg.gnubg
         GnubgSettings('get_player', [], gnubg, return_info)
 
