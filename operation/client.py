@@ -39,6 +39,8 @@ class Dispatch:
         self.user_commands = {'info': self.user_info,
                               }
         welcome = Welcome(self, self.requests)
+    # TODO: wrong way to start login sequence
+    #       The way it works now it won't login again when reconnecting!
 
     def send_server(self, message):
         self.protocol.sendMessage(message)

@@ -66,6 +66,8 @@ if __name__ == "__main__":
     factory.options = options
     server_port = int(options.port)
     factory.dispatcher = Dispatch(options.user, options.password, options.strength)
+    # TODO: wrong way to start Dispatcher or better not to login in __init__()
+    #       The way it works now it won't login again when reconnecting!
     # connect to a running gnubg instance
     gnubg = set_up_gnubg('localhost', port=GNUBG)
     if not gnubg is None:    # TODO: react to missing gnubg (now start one)
