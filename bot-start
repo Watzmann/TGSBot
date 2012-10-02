@@ -8,7 +8,7 @@ start_bot() {
   # ./sibs-bot.py -P4321 -u experimental_II|& tee /var/log/SIBS/bot/experimental_II.py.log
   cd $BOT_DIR
   #echo "./sibsBot.py --port 4321 --user $1 > $LOG_DIR/$1.py.log 2>&1" | at now
-  echo "./sibsBot.py --port 8081 --user $1 -p $2 -I > $LOG_DIR/$1.py.log 2>&1" | at now
+  echo "./sibsBot.py --port 8081 --user $1 -p $2 -s $3 > $LOG_DIR/$1.py.log 2>&1" | at now
 }
 
-start_bot $1 $2
+start_bot $1 $2 $3
