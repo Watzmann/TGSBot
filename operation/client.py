@@ -27,6 +27,30 @@ if getcwd().startswith('/var/opt/sibs'):
 logging.basicConfig(level=level,)
 print 'client set logginglevel to', logging.getLevelName(level)
 
+class ResignHandler:
+
+    levels = dict(zip(('n', 'g', 'b'), (1, 2, 3)))
+
+    def __init__(self,):
+        self.reset()
+
+    def reset(self,):
+        self.level = 1
+
+    def possible(self, resign):
+        log.msg('in resign considering: %s' % resign, logLevel=TRACE)
+        proposed_level = self.levels[resign.split()[-1]]
+        log.msg('resign possible?? level: %d   proposed: %d' % \
+                        (self.level, proposed_level), logLevel=logging.DEBUG)
+        if proposed_level < self.level:
+            return ''
+        else:
+            self.level = proposed_level
+            return resign
+
+    def rejected(self,):
+        self.level = min(4, self.level + 1)
+
 class Dispatch:
 
     def __init__(self, user, password, strength='supremo'):
@@ -38,6 +62,7 @@ class Dispatch:
         self.told_opponent = {}
         self.user_commands = {'info': self.user_info,
                               }
+        self.resigns = ResignHandler()
         welcome = Welcome(self, self.requests)
     # TODO: wrong way to start login sequence
     #       The way it works now it won't login again when reconnecting!

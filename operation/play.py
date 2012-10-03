@@ -174,6 +174,7 @@ class Action:
          'move': self._move,        # state E - which move? resign?
          'take': self._take,        # state C - take the cube?
          'accept': self._accept,    # state J - accept the resign?
+         'rejected': self._rejected, #          handle reject to own resign
          'join': self._true,        # state G - return the neccessary 'join'
          'relax': self._relax,      # state G - be polite and return thanks
          }[order](parameters)
@@ -206,6 +207,10 @@ class Action:
         if not self.oracle is None:
             self.oracle.addCallback(self.callback)
 
+    def _rejected(self, parameters):
+        """Bots own resign has been rejected. This is just returned to Turn()."""
+        self.callback()
+
     def _relax(self, parameters):
         self.oracle = defer.Deferred()
         self.oracle.addCallback(self.callback)
@@ -231,6 +236,7 @@ class Turn(Request):
                           'move': self.send_move,
                           'take': self.send_take,
                           'accept': self.send_accept,
+                          'rejected': self.handle_rejections,
                           'join': self.send_join,
                           'relax': self.send_thanks,
                          }
@@ -247,7 +253,14 @@ class Turn(Request):
         #self.msg_waited = 'double waited for answer %s seconds' % \
          #                                       time.time() - start_time
         if double.startswith('resign'):
-            self.send_command(double)
+            log.msg('in resign consideration', logLevel=TRACE)
+            possible = self.dispatch.resigns.possible(double)
+            log.msg('got resign possible: %s' % possible, logLevel=logging.DEBUG)
+            if possible:
+                self.send_command(possible)
+            else:
+                self.send_command('roll')
+                self.dispatch.resigns.reset()
         else:
             result = double == 'double'
             self.send_command({True: 'double', False: 'roll'}[result])
@@ -275,9 +288,14 @@ class Turn(Request):
         self.send_command(accept)
         self.purge()
 
+    def handle_rejections(self,):
+        self.dispatch.resigns.rejected()
+        self.purge()
+
     def send_join(self, join):
         log.msg('got join', logLevel=logging.DEBUG)
         self.send_command('join')
+        self.dispatch.resigns.reset()
         self.purge()
 
     def send_thanks(self, congrats):
