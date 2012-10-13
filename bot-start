@@ -2,7 +2,7 @@
 
 LOG_DIR=/var/log/SIBS/bot
 #BOT_DIR=/var/opt/sibs/bot
-BOT_DIR=/var/develop/Python.git/SIBS/bot
+BOT_DIR=/var/develop/Python/Source.git/SIBS/bot
 
 start_bot() {
   # ./sibs-bot.py -P4321 -u experimental_II|& tee /var/log/SIBS/bot/experimental_II.py.log
