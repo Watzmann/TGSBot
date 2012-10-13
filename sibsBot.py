@@ -24,6 +24,7 @@ logging.addLevelName(TRACE, 'TRACE')
 logging.addLevelName(VERBOSE, 'VERBOSE')
 
 NICK = 'test_bot_I'
+KEEP_ALIVE = 300.
 
 def start_logging(nick):
     log.startLogging(open('/var/log/SIBS/bot/%s.log' % nick, 'a'))
@@ -49,9 +50,15 @@ def usage(progname):
     parser.add_option("-P", "--port", default='8081',
                   action="store", dest="port",
                   help="server port. (8081)")
+    parser.add_option("-k", "--keep-alive", default=KEEP_ALIVE,
+                  action="store", dest="keep_alive", type="float",
+                  help="keep alive lap in seconds. (%s)" % KEEP_ALIVE)
     parser.add_option("-s", "--strength", default='supremo',
                   action="store", dest="strength",
                   help="bots strength. (supremo)")
+    parser.add_option("-d", "--delay", default='0.3',
+                  action="store", dest="delay",
+                  help="delay setting. (0.3)")
     parser.add_option("-I", "--auto-invite", default=False,
                   action="store_true", dest="auto_invite",
                   help="auto-invite other bots. (False)")
@@ -65,7 +72,8 @@ if __name__ == "__main__":
     factory = ComClientFactory()
     factory.options = options
     server_port = int(options.port)
-    factory.dispatcher = Dispatch(options.user, options.password, options.strength)
+    factory.dispatcher = Dispatch(options.user, options.password,
+                                    options.strength, options.keep_alive)
     # TODO: wrong way to start Dispatcher or better not to login in __init__()
     #       The way it works now it won't login again when reconnecting!
     # connect to a running gnubg instance

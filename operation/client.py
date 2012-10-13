@@ -53,7 +53,7 @@ class ResignHandler:
 
 class Dispatch:
 
-    def __init__(self, user, password, strength='supremo'):
+    def __init__(self, user, password, strength='supremo', ka_lap=300.):
         self.user = user
         self.password = password
         self.strength = strength
@@ -62,13 +62,26 @@ class Dispatch:
         self.told_opponent = {}
         self.user_commands = {'info': self.user_info,
                               }
+        self.keepalive_lap = ka_lap
+        self.keep_alive = reactor.callLater(ka_lap, self.send_keepalive)
         self.resigns = ResignHandler()
         welcome = Welcome(self, self.requests)
     # TODO: wrong way to start login sequence
     #       The way it works now it won't login again when reconnecting!
 
+    def send_keepalive(self,):
+        self.send_server('ka')
+
+    def reset_keepalive(self,):
+        if self.keep_alive.active():
+            self.keep_alive.reset(self.keepalive_lap)
+        else:
+            self.keep_alive = reactor.callLater(self.keepalive_lap,
+                                                        self.send_keepalive)
+
     def send_server(self, message):
         self.protocol.sendMessage(message)
+        self.reset_keepalive()
 
     def set_bot_uid(self, uid):
         log.msg('My UID is %s' % uid, logLevel=logging.INFO)
@@ -83,6 +96,7 @@ class Dispatch:
         toggle = Toggle(self, self.requests)
         toggle.send_command('toggle')
         settings = Set(self, self.requests)
+        settings.set_delay_value(self.protocol.factory.options.delay)
         settings.send_command('set')
         self.relax_hook()
 
@@ -141,6 +155,7 @@ class Dispatch:
     def parse(self, message):
         log.msg('#'*80, logLevel=NOISY)
         log.msg('MESSAGE %s' % message, logLevel=NOISY)
+        self.reset_keepalive()
         lines = message.splitlines()
         while len(lines) > 0:
             first_line = lines[0]
