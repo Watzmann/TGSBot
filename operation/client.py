@@ -201,14 +201,17 @@ class Dispatch:
                     opponent = cmd_line[0]
                     if cmd_line[3] == 'play':
                         ML = cmd_line[5]
-                        if ML != 'unlimited' and \
-                                    int(ML) > 0 and int(ML) <= MAX_MATCHLEN:
+                        if ML == 'unlimited':
+                            join(self, opponent, ML, type_of_invitation=1)
+                            log.msg('joining an unlimited match with %s' % \
+                                            opponent, logLevel=logging.INFO)
+                        elif int(ML) > 0 and int(ML) <= MAX_MATCHLEN:
                             join(self, opponent, ML)
                             log.msg('joining a %s point match with %s' % \
                                         (ML, opponent), logLevel=logging.INFO)
                         else:
-                            msg = "tell %s I do not as yet play matches " \
-                                  "greater than ML %d or unlimited. Sorry." % \
+                            msg = "tell %s I do not play matches greater " \
+                                  "than ML %d. Sorry." % \
                                                     (opponent, MAX_MATCHLEN)
                             self.send_server(msg)
                             log.msg('turning down a %s point match with %s' % \
