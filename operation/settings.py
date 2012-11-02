@@ -78,6 +78,9 @@ class Set(Request):
         self.label = 'SET'
         Request.__init__(self, dispatch, manage,)
 
+    def set_delay_value(self, delay):
+        self._delay = delay
+
     def received(self, message):
         self.settings = {}
         log.msg(self.msg_tests % message[0], logLevel=VERBOSE)
@@ -98,7 +101,14 @@ class Set(Request):
         if self.settings['boardstyle'] != '5':
             log.msg('SET sets boardstyle to 5'+'>'*35, logLevel=VERBOSE)
             self.set_boardstyle(5)
+        if self.settings['delay'] != self._delay:
+            log.msg('SET sets delay '+'>'*35, logLevel=VERBOSE)
+            self.set_delay()
         self.purge()
+
+    def set_delay(self,):
+        self.dispatch.send_server('set delay %s' % self._delay)
+        self.dispatch.settings['delay'] = self._delay
 
     def set_boardstyle(self, style):
         self.dispatch.send_server('set boardstyle %d' % style)

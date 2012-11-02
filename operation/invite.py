@@ -43,14 +43,19 @@ class Bots(Request):
 
 class Join(Request):
     message_new = {0: "** You are now playing a %s point match with %s.",
-                   1: "** Player %s has joined you for a %s point match.",
+                   1: "** You are now playing an unlimited match with %s.",
+                   2: "** Player %s has joined you for a %s point match.",
+                   3: "** Player %s has joined you for an unlimited match.",
                    }
     message_resume = {0: "You are now playing with %s. " \
                                         "Your running match was loaded.",
-                      1: "%s has joined you. Your running match was loaded.",
+                      1: "You are now playing with %s. " \
+                                        "Your running match was loaded.",
+                      2: "%s has joined you. Your running match was loaded.",
+                      3: "%s has joined you. Your running match was loaded.",
                       }
     ordered_arguments = {0: lambda a,b: (a,b),
-                         1: lambda a,b: (b,a),
+                         2: lambda a,b: (b,a),
                          }
 
     def __init__(self, dispatch, manage, opp, ML, type_of_invitation):
@@ -65,6 +70,9 @@ class Join(Request):
         if ML is None:
             i_expect = self.message_resume[type_of_invitation] % opponent
             self.resume = True
+        elif ML == 'unlimited':
+            i_expect = self.message_new[type_of_invitation] % opponent
+            self.resume = False
         else:
             i_expect = self.message_new[type_of_invitation] % \
                        self.ordered_arguments[type_of_invitation](ML, opponent)
@@ -155,12 +163,12 @@ def invite_bots(dispatch):
 
 def join(dispatch, opponent, ML, type_of_invitation=0):
     join = Join(dispatch, dispatch.requests, opponent, ML, type_of_invitation)
-    if type_of_invitation == 0:
+    if type_of_invitation in (0, 1):
         join.send_command('join %s' % opponent)
     return join
 
 def invite(dispatch, opponent, ML):
-    ret = Join(dispatch, dispatch.requests, opponent, ML, 1)
+    ret = Join(dispatch, dispatch.requests, opponent, ML, 2)
     if ML is None:
         ret.send_command('invite %s' % opponent)
     else:
