@@ -32,7 +32,10 @@ def get_admin_key(options, args):
 
 def usage():
     usg = """usage: %prog [<admin-key>]
-  %prog """ + __doc__
+  %prog """ + __doc__ + """
+
+  Example:
+    cat <path to key-file> | ./adminBot.py - -f <path to command-file>"""
     parser = OptionParser(usg)
     parser.add_option("-v", "--verbose",
                   action="store_true", dest="verbose", default=False,
