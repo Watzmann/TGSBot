@@ -34,9 +34,9 @@ II. Architecture
   players. Messages from the server like 'player invites you to a 3 point match'
   are understood if neccessary and proper action is evoked.
 
-  During play special commands are received along with matchID/positonID strings.
-  These are handed over to the gnubg server instance to receive hints for
-  proper play.
+  During play special commands are received along with matchID/positonID
+  strings. These are handed over to the gnubg server instance to receive hints
+  for proper play.
 
   In order to receive these "special commands", the bot has to be registered
   with TGS. This registration can be done manually only. The registration has
@@ -77,9 +77,9 @@ II. Architecture
   Invites are always acknowledged and answered.
 
   Game play makes use of a special API. This works only for registered bots.
-  The messages issued in the course of a game/match have an enourmous variability
-  and make parsing very difficult and error prone. The API assumes that there
-  are few actions expected from a player. That is:
+  The messages issued in the course of a game/match have an enourmous varia-
+  bility and make parsing very difficult and error prone. The API assumes that
+  there are few actions expected from a player. That is:
     - double decision or roll
     - move decision
     - resign/accept decision
@@ -112,10 +112,10 @@ II. Architecture
   "login:" command. It then responds with a "login"-action. This special
   sequence is performed by an object of the "Welcome" class.
 
-  There may be several objects 'alive' at any given point. They all are registered
-  at the core of the bot, the dispatcher. This way the dispatcher knows what
-  messages are expected and dispatches control to the object that is set for,
-  whenever one of those messages occur.
+  There may be several objects 'alive' at any given point. They all are
+  registered at the core of the bot, the dispatcher. This way the dispatcher
+  knows what messages are expected and dispatches control to the object that is
+  set for, whenever one of those messages occur.
 
   A game is handled by a sequence of objects of the same class, namely "Turn".
   Other actions have their own dedicated classes, like "Set", "Toggle", and so
@@ -162,8 +162,9 @@ III. Features
   b. Autoinvite
   -------------
 
-  Normal operation of a bot is to have it log in and adjust some of his settings.
-  After that it repeatedly waits for an invitation and plays the match.
+  Normal operation of a bot is to have it log in and adjust some of his
+  settings. After that it repeatedly waits for an invitation and plays the
+  match.
   Autoinvite is useful to have bots play against each other and so test the
   backgammon server or put load on it.
 
