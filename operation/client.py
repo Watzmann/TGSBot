@@ -22,7 +22,7 @@ logging.addLevelName(TRACE, 'NOISY')
 logging.addLevelName(TRACE, 'TRACE')
 logging.addLevelName(VERBOSE, 'VERBOSE')
 level = logging.INFO    # NOISY
-if getcwd().startswith('/var/opt/sibs'):
+if getcwd().startswith('/var/opt/tgs'):
     level = max(level, logging.DEBUG)
 logging.basicConfig(level=level,)
 print 'client set logginglevel to', logging.getLevelName(level)

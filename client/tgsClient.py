@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""Ein Twisted-Client als Entwicklungs-Hilfe/Tool for SIBS.
-Basiert auf client/twisted-client1.py. Das Reconnecting-Zeugs ist raus.
+"""A twisted client as developing/testing tool for TGS.
+Based on client/twisted-client1.py.
 """
 
 from twisted.internet.protocol import Protocol, ReconnectingClientFactory
@@ -37,7 +37,7 @@ class Com(Protocol):
 
 class ComClientFactory(ReconnectingClientFactory):
     def startedConnecting(self, connector):
-        log.msg('Started to connect to sibs.', logLevel=TRACE)
+        log.msg('Started to connect to tgs.', logLevel=TRACE)
 
     def buildProtocol(self, addr):
         log.msg('Connected to %s:%s.' % (self.options.host, self.options.port),

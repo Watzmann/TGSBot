@@ -1,0 +1,171 @@
+Documentation TGS-Bots
+=======================
+
+TGS = TigerGammon Server
+TGS serves as machine/server for TigerGammon (http://tigergammon.com)
+
+I. Introduction
+---------------
+
+TGS-Bots are automated users for use on TigerGammon. They utilize special
+features of TGS to make programming easier and make them less dependent on
+changes in communication.
+
+TGS-Bots employ the 'twisted' library (http://) for communication
+with different servers.
+For the time being they are adapted for use with gnubg (http://gnubg.org) only.
+Adaption to Blitz (!?) is desired.
+
+TGS-Bots are implemented in Python (http://python.org). The language is object
+oriented. Knowledge of object orientation is neccessary to understand the
+concepts.
+
+II. Architecture
+----------------
+
+  a. General concepts
+  -------------------
+
+  A TGS-Bot connects to two servers:
+    - the tigergammon server TGS
+    - a gnubg server instance (with extensions to the Python API)
+
+  Communication is done with TGS. There is little communication with other
+  players. Messages from the server like 'player invites you to a 3 point match'
+  are understood if neccessary and proper action is evoked.
+
+  During play special commands are received along with matchID/positonID strings.
+  These are handed over to the gnubg server instance to receive hints for
+  proper play.
+
+  In order to receive these "special commands", the bot has to be registered
+  with TGS. This registration can be done manually only. The registration has
+  to be ordered from the TGS administrator.
+
+  The bot has a certain sequence of actions after connecting to TGS:
+    - logging in
+    - checking and adjusting its settings like 'toggle ready'
+
+  Then it waits for invitations. It will accept invitations up to ML 29 or
+  unlimited.
+
+  b. Twisted
+  ----------
+
+  Client-server architecture is realized using the Python library 'twisted'.
+  It is a framework for building non blocking client/server components. Main
+  feature is a event driven main loop in a module called 'reactor'.
+
+  By use of this library, bot-code is focused on functional features in the
+  package 'operation'. Client/server concerned code is restricted to a few
+  lines of code in the package 'client'.
+
+  c. Message parsing and Bot API
+  ------------------------------
+
+  Communication with TGS works via ascii messages. These messages are human
+  readable and are (mostly) the same as those sent to human players.
+  The messages are the servers answers to requests like 'settings'. In addition
+  the TGS issues a host of asynchronous messages to indicate other players
+  status changes or chat communication.
+
+  A certain set of these asynchronous messages are ignored completely. Others
+  are parsed and answered in a special context. I.e. a set of players is
+  known as administrators and there 'tell' messages are taken as commands.
+  'tells' from other players are turned down with a friendly answer.
+
+  Invites are always acknowledged and answered.
+
+  Game play makes use of a special API. This works only for registered bots.
+  The messages issued in the course of a game/match have an enourmous variability
+  and make parsing very difficult and error prone. The API assumes that there
+  are few actions expected from a player. That is:
+    - double decision or roll
+    - move decision
+    - resign/accept decision
+    - take decision
+  Since TGS knows what to expect, it provides the bot with a simple command
+  that describes exactly that expectation. Along with it it sends a
+  matchID/positionID string as used with gnubg. The bot can easily hand this on
+  to gnubg to get the artificial intelligence making the move/decision.
+
+  This API makes the bot independent of editorial (??) changes in the message
+  texts. The messages might even feature internationalization.
+
+  d. Basic communication scheme
+  -----------------------------
+
+  The bot will receive a certain asynchronous (unexpected) message and respond
+  with an action. Or vice versa it will perform an action (i.e. send a command)
+  and wait for a certain synchronous (expected) message.
+
+  In the first (unexpected) case only specified messages are recognized, others
+  are simply ignored. When a message is recognized an action from a specified
+  list of actions is triggered. I.e. a "<player> says: you are a stupid bot" is
+  taken to be a 'tell'-communication and ignored, as long as <player> is not an
+  administrator.
+
+  In the case of an expected message a different approach is chosen.
+  An expected message and the action to be taken in answer are considered an
+  entity that is represented by an object. E.g. when connecting the bot expects
+  a 'welcome' message (a whole bunch of lines) that is terminating with a
+  "login:" command. It then responds with a "login"-action. This special
+  sequence is performed by an object of the "Welcome" class.
+
+  There may be several objects 'alive' at any given point. They all are registered
+  at the core of the bot, the dispatcher. This way the dispatcher knows what
+  messages are expected and dispatches control to the object that is set for,
+  whenever one of those messages occur.
+
+  A game is handled by a sequence of objects of the same class, namely "Turn".
+  Other actions have their own dedicated classes, like "Set", "Toggle", and so
+  on.
+
+  e. Logging
+  ----------
+
+  Logging is performed at large. It utilizes the twisted logging module with
+  some sort of hooking mechanism. After development, this can be turned down
+  again in order to go easy on system ressources.
+
+  The modules are negotiating the logging level, so this looks rather messy and
+  should not distract from relevant code.
+
+  f. Modules
+  ----------
+
+  tgsBot.py:                    main module, user interface (commandline)
+
+  client/gnubgClient.py:        client server connection with gnubg
+  client/tgsClient.py           client server connection with TGS
+
+  operation/client.py:          main communication control (Dispatch)
+  operation/welcome.py:         logging in to TGS (Welcome, Login)
+  operation/settings.py:        adjust settings (Set, Toggle)
+  operation/invite.py:          invite and join (Join)
+  operation/play.py:            play games/matches (Play, Turn, Action)
+  operation/basics.py:          base classes for operational classes
+  operation/config.py:          configuration settings
+
+III. Features
+-------------
+
+  a. Reconnecting ability
+  -----------------------
+
+  Reconnection after a connection to a server is lost. This is mainly a
+  technique enabled by 'twisted' (twisted tutorial .......). For the time being
+  they DO reconnect, but the mechanics as yet do not allow the bots to take up
+  their activity that they were engaged with before they lost connection.
+  This means, they reconnect but don't work after reestablishing the connection.
+
+  b. Autoinvite
+  -------------
+
+  Normal operation of a bot is to have it log in and adjust some of his settings.
+  After that it repeatedly waits for an invitation and plays the match.
+  Autoinvite is useful to have bots play against each other and so test the
+  backgammon server or put load on it.
+
+IV. Operation
+-------------

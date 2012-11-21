@@ -1,10 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""Ein Twisted-Client als Playing Bot for SIBS.
-  Basiert auf client/twisted-client1.py.
+"""A twisted client that serves as playing bot for TGS.
+  Based on client/twisted-client1.py.
 
   Example:
-    ./sibsBot.py -P8081 -u tigerI |& tee /var/log/SIBS/bot/tigerI.py.log
+    ./tgsBot.py -P8081 -u tigerI |& tee /var/log/TGS/bot/tigerI.py.log
 """
 
 from twisted.internet import reactor, defer
@@ -14,7 +14,7 @@ from optparse import OptionParser
 
 from operation.client import Dispatch
 from client.gnubgClient import set_up_gnubg, GNUBG
-from client.sibsClient import Com, ComClientFactory
+from client.tgsClient import Com, ComClientFactory
 
 TRACE = 15
 VERBOSE = 17
@@ -27,7 +27,7 @@ NICK = 'test_bot_I'
 KEEP_ALIVE = 300.
 
 def start_logging(nick):
-    log.startLogging(open('/var/log/SIBS/bot/%s.log' % nick, 'a'))
+    log.startLogging(open('/var/log/TGS/bot/%s.log' % nick, 'a'))
     observer = log.PythonLoggingObserver()
     observer.start()
 

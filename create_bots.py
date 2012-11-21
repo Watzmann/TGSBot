@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Create a command-file for use of bulk registering bots with sibs.
+"""Create a command-file for use of bulk registering bots with tgs.
 
   Output is a command-file-structure like
       register_user <prefix>I <password>

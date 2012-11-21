@@ -5,7 +5,7 @@ progname=`basename $0`
 kill_bot () {
   kill $1
   sleep 1
-  nrbots=`ps aux | grep "sibsBot" | grep "python" | wc -l`
+  nrbots=`ps aux | grep "tgsBot" | grep "python" | wc -l`
   echo killed $1 $2 "($nrbots left)"
   sleep 9
 }
@@ -20,7 +20,7 @@ start_bot () {
 for b in `cat - | grep -v '^#'`
 do
   set `echo $b | sed 's/,/ /g'`
-  bot=`ps aux | grep " $1 " | grep "python.*sibsBot" | gawk '{ print $2 " " $16 }'`
+  bot=`ps aux | grep " $1 " | grep "python.*tgsBot" | gawk '{ print $2 " " $16 }'`
 
   case "$progname" in
     all-start)

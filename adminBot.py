@@ -6,8 +6,8 @@ import sys
 
 from twisted.internet import reactor, defer
 from optparse import OptionParser
-from client.sibsClient import Com, ComClientFactory
-from sibsBot import start_logging
+from client.tgsClient import Com, ComClientFactory
+from tgsBot import start_logging
 from operation.admin import Dispatch
 
 def client_run(options, admin_key):
