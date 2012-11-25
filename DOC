@@ -136,9 +136,11 @@ II. Architecture
 
   tgsBot.py:                    main module, user interface (commandline)
 
+  client/__init__.py:           neccessary to make this a python package
   client/gnubgClient.py:        client server connection with gnubg
   client/tgsClient.py           client server connection with TGS
 
+  operation/__init__.py:        neccessary to make this a python package
   operation/client.py:          main communication control (Dispatch)
   operation/welcome.py:         logging in to TGS (Welcome, Login)
   operation/settings.py:        adjust settings (Set, Toggle)
