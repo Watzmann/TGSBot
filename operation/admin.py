@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+#
+# (c) Copyright 2012 Andreas Hausmann
+# This file is part of TGSBot.
+# Permission to copy or use is limited. Please see LICENSE for information.
+#
 """Client supplies classes to run the admin client."""
 
 from os import getcwd

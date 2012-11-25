@@ -1,3 +1,8 @@
+#
+# (c) Copyright 2012 Andreas Hausmann
+# This file is part of TGSBot.
+# Permission to copy or use is limited. Please see LICENSE for information.
+#
 """Welcome message as login trigger and log in mechanics."""
 
 import time

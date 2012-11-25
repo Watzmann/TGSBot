@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+#
+# (c) Copyright 2012 Andreas Hausmann
+# This file is part of TGSBot.
+# Permission to copy or use is limited. Please see LICENSE for information.
+#
 
 from twisted.internet.protocol import Protocol, ReconnectingClientFactory
 from twisted.internet.error import ConnectError
