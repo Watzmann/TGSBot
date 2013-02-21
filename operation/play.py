@@ -230,8 +230,10 @@ class Action:
 class Turn(Request):
     """A Turn() represents one turn in a game of backgammon. The server will
     notify the bot of a turn to take. That notification is introduced by the
-    bot unique id (bot_uid) and composed of an 'order' and parameters.
-    An action has to be taken according to the given order.
+    bot unique id (bot_uid) and comprises a 'command' and parameters.
+    An action has to be taken according to the given command.
+
+    # TODO: Beispiel von solchen Messages!
 """
     def __init__(self, dispatch, manage,):
         self.gnubg = dispatch.protocol.factory.gnubg

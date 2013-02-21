@@ -206,7 +206,14 @@ class Dispatch:
                     opponent = cmd_line[0]
                     if cmd_line[3] == 'play':
                         ML = cmd_line[5]
-                        if ML == 'unlimited':
+                        if len(lines) > 1 and lines[1].startswith('WARNING: Don'):
+                            msg = "tell %s We have a saved game. Please join " \
+                                                "and let us finish that one :)."
+                            self.send_server(msg % opponent)
+                            invite(self, opponent, None)
+                        # TODO: hier eine Zeile weiter nach WARNING schauen und auf
+                        #       resume drängen
+                        elif ML == 'unlimited':
                             join(self, opponent, ML, type_of_invitation=1)
                             log.msg('joining an unlimited match with %s' % \
                                             opponent, logLevel=logging.INFO)
