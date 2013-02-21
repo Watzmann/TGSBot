@@ -70,9 +70,7 @@ class Dispatch:
         self.keepalive_lap = ka_lap
         self.keep_alive = reactor.callLater(ka_lap, self.send_keepalive)
         self.resigns = ResignHandler()
-        welcome = Welcome(self, self.requests)
-    # TODO: wrong way to start login sequence
-    #       The way it works now it won't login again when reconnecting!
+        Welcome(self, self.requests)
 
     def send_keepalive(self,):
         self.send_server('ka')
@@ -211,8 +209,6 @@ class Dispatch:
                                                 "and let us finish that one :)."
                             self.send_server(msg % opponent)
                             invite(self, opponent, None)
-                        # TODO: hier eine Zeile weiter nach WARNING schauen und auf
-                        #       resume drängen
                         elif ML == 'unlimited':
                             join(self, opponent, ML, type_of_invitation=1)
                             log.msg('joining an unlimited match with %s' % \

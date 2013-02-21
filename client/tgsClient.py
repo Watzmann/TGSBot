@@ -12,6 +12,7 @@ Based on client/twisted-client1.py.
 from twisted.internet.protocol import Protocol, ReconnectingClientFactory
 from twisted.internet import reactor
 from twisted.python import log
+from operation.welcome import Welcome
 
 TRACE = 15
 VERBOSE = 17
@@ -41,6 +42,11 @@ class Com(Protocol):
         self.transport.loseConnection()
 
 class ComClientFactory(ReconnectingClientFactory):
+    def reset_protocol_for_login(self,):
+        dispatch = self.dispatcher
+        dispatch.requests = {}
+        Welcome(dispatch, dispatch.requests)
+
     def startedConnecting(self, connector):
         log.msg('Started to connect to tgs.', logLevel=TRACE)
 
@@ -54,6 +60,7 @@ class ComClientFactory(ReconnectingClientFactory):
     def clientConnectionLost(self, connector, reason):
         log.msg('Lost connection. Reason: %s' % reason, logLevel=logging.INFO)
         if getattr(self, 'restart', True):
+            self.reset_protocol_for_login()
             ReconnectingClientFactory.clientConnectionLost(self, connector, reason)
         else:
             log.msg('Done - no restart', logLevel=logging.INFO)
@@ -62,6 +69,7 @@ class ComClientFactory(ReconnectingClientFactory):
     def clientConnectionFailed(self, connector, reason):
         log.msg('Connection failed. Reason: %s' % reason, logLevel=logging.INFO)
         if getattr(self, 'restart', True):
+            self.reset_protocol_for_login()
             ReconnectingClientFactory.clientConnectionFailed(self, connector, reason)
         else:
             log.msg('Done - no restart', logLevel=logging.INFO)
