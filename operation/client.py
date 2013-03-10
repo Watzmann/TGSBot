@@ -204,7 +204,9 @@ class Dispatch:
                     opponent = cmd_line[0]
                     if cmd_line[3] == 'play':
                         ML = cmd_line[5]
-                        if len(lines) > 1 and lines[1].startswith('WARNING: Don'):
+                        if len(lines) > 1 \
+                           and lines[1].startswith('WARNING: Don') \
+                           and not 'unlimited' in lines[1]:
                             msg = "tell %s We have a saved game. Please join " \
                                                 "and let us finish that one :)."
                             self.send_server(msg % opponent)
