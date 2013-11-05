@@ -31,9 +31,6 @@ def usage(progname):
     usg = """usage: %prog <prefix> <passwd>
   %prog """ + __doc__
     parser = OptionParser(usg)
-    #parser.add_option("-v", "--verbose",
-                  #action="store_true", dest="verbose", default=False,
-                  #help="print full entries to stdout")
     parser.add_option("-o", "--output",
                   action="store", dest="output",
                   help="output to file (command-file).")

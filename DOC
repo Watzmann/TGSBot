@@ -8,7 +8,8 @@ Documentation TGS-Bots
 =======================
 
 TGS = TigerGammon Server
-TGS serves as machine/server for TigerGammon (http://tigergammon.com)
+TGS serves as machine/server for TigerGammon (http://tigergammon.com), a
+    site for online backgammon play.
 
 I. Introduction
 ---------------
@@ -17,10 +18,10 @@ TGS-Bots are automated users for use on TigerGammon. They utilize special
 features of TGS to make programming easier and make them less dependent on
 changes in communication.
 
-TGS-Bots employ the 'twisted' library (http://) for communication
-with different servers.
+TGS-Bots employ the 'twisted' library (http://http://twistedmatrix.com/)
+for communication with different servers.
 For the time being they are adapted for use with gnubg (http://gnubg.org) only.
-Adaption to Blitz (!?) is desired.
+Adaption to Blitz (http://www.bgblitz.com) is desired.
 
 TGS-Bots are implemented in Python (http://python.org). The language is object
 oriented. Knowledge of object orientation is neccessary to understand the

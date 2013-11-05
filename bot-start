@@ -1,14 +1,17 @@
 #!/bin/bash
 
-LOG_DIR=/var/log/SIBS/bot
-#BOT_DIR=/var/opt/sibs/bot
-BOT_DIR=/var/develop/Python/Source.git/SIBS/bot
+BOT_DIR=/var/develop/Python/Source.git/TGS/bot
+
+LOG_DIR=/var/log/TGS/bot
+BOT_DIR=/var/opt/tgs/bot.tiga
+
+#BOT_DIR=/var/develop/Python/Source.git/TGS/bot
+#LOG_DIR=${BOT_DIR}/log
 
 start_bot() {
-  # ./sibs-bot.py -P4321 -u experimental_II|& tee /var/log/SIBS/bot/experimental_II.py.log
   cd $BOT_DIR
-  #echo "./sibsBot.py --port 4321 --user $1 > $LOG_DIR/$1.py.log 2>&1" | at now
-  echo "./sibsBot.py --port 8081 --user $1 -p $2 -s $3 > $LOG_DIR/$1.py.log 2>&1" | at now
+  echo "./tgsBot.py -H ti-ga.com --port 4321 --user $1 -p $2 -s $3 > $LOG_DIR/$1.py.log 2>&1" | at now
+#  echo "./tgsBot.py -H localhost --port 8081 --user $1 -p $2 -s $3 > $LOG_DIR/$1.py.log 2>&1" | at now
 }
 
 start_bot $1 $2 $3
