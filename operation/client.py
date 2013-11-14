@@ -156,6 +156,11 @@ class Dispatch:
                     reactor.callLater(300., self.delete_told_opponent, user)
 
     def parse(self, message):
+        def is_there_a_saved(lines):
+            for i in lines:
+                if i.startswith('WARNING: Don') and not 'unlimited' in i:
+                    return True
+            return False
         log.msg('#'*80, logLevel=NOISY)
         log.msg('MESSAGE %s' % message, logLevel=NOISY)
         self.reset_keepalive()
@@ -204,9 +209,7 @@ class Dispatch:
                     opponent = cmd_line[0]
                     if cmd_line[3] == 'play':
                         ML = cmd_line[5]
-                        if len(lines) > 1 \
-                           and lines[1].startswith('WARNING: Don') \
-                           and not 'unlimited' in lines[1]:
+                        if is_there_a_saved(lines):
                             msg = "tell %s We have a saved game. Please join " \
                                                 "and let us finish that one :)."
                             self.send_server(msg % opponent)
