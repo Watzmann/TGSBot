@@ -58,7 +58,8 @@ class ResignHandler:
 
 class Dispatch:
 
-    def __init__(self, user, password, strength='supremo', ka_lap=300.):
+    def __init__(self, user, password, strength='supremo', ka_lap=300.,
+                                                        ignore_resume=False):
         self.user = user
         self.password = password
         self.strength = strength
@@ -67,6 +68,7 @@ class Dispatch:
         self.told_opponent = {}
         self.user_commands = {'info': self.user_info,
                               }
+        self.ignore_resume = ignore_resume
         self.keepalive_lap = ka_lap
         self.keep_alive = reactor.callLater(ka_lap, self.send_keepalive)
         self.resigns = ResignHandler()
@@ -156,7 +158,9 @@ class Dispatch:
                     reactor.callLater(300., self.delete_told_opponent, user)
 
     def parse(self, message):
-        def is_there_a_saved(lines):
+        def need_to_resume(lines):
+            if self.ignore_resume:
+                return False
             for i in lines:
                 if i.startswith('WARNING: Don') and not 'unlimited' in i:
                     return True
@@ -209,7 +213,7 @@ class Dispatch:
                     opponent = cmd_line[0]
                     if cmd_line[3] == 'play':
                         ML = cmd_line[5]
-                        if is_there_a_saved(lines):
+                        if need_to_resume(lines):
                             msg = "tell %s We have a saved game. Please join " \
                                                 "and let us finish that one :)."
                             self.send_server(msg % opponent)

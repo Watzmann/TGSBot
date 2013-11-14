@@ -67,6 +67,9 @@ def usage(progname):
     parser.add_option("-I", "--auto-invite", default=False,
                   action="store_true", dest="auto_invite",
                   help="auto-invite other bots. (False)")
+    parser.add_option("-R", "--ignore-resume", default=False,
+                  action="store_true", dest="ignore_resume",
+                  help="ignore saved games when invited. (False)")
     return parser,usg
 
 if __name__ == "__main__":
@@ -78,7 +81,7 @@ if __name__ == "__main__":
     factory.options = options
     server_port = int(options.port)
     factory.dispatcher = Dispatch(options.user, options.password,
-                                    options.strength, options.keep_alive)
+                    options.strength, options.keep_alive, options.ignore_resume)
     # connect to a running gnubg instance
     gnubg = set_up_gnubg('localhost', port=GNUBG)
     if not gnubg is None:    # TODO: react to missing gnubg (now start one)
