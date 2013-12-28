@@ -4,17 +4,17 @@ progname=`basename $0`
 
 kill_bot () {
   kill $1
-  sleep 1
+  sleep 5
   nrbots=`ps aux | grep "tgsBot" | grep "python" | wc -l`
   echo killed $1 $2 "($nrbots left)"
-  sleep 9
+  sleep 2
 }
 
 start_bot () {
   echo "------------------------------------------------------------"
   echo starting $1
   ./bot-start $1 $2 $3
-  sleep 10
+  sleep 7
 }
 
 for b in `cat - | grep -v '^#'`
@@ -31,6 +31,16 @@ do
       test -z "$bot" && continue     # bot is still running
       set $bot
       kill_bot $1 $2
+      ;;
+    all-restart)
+      botnick=$1
+      pw=$2
+      strength=$3
+      if [ -n "$bot" ]; then
+        set $bot
+        kill_bot $1 $2
+      fi
+      start_bot $botnick $pw $strength
       ;;
     *)
       echo "unknown command $progname"
