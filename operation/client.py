@@ -91,11 +91,8 @@ class Dispatch:
     def set_bot_uid(self, uid):
         log.msg('My UID is %s' % uid, logLevel=logging.INFO)
         self.bot_uid = uid
-        factory = self.protocol.factory
-        for g in ('gnubg', 'hyperbg'):
-            gnubg = getattr(factory, g, None)
-            if not gnubg is None:
-                gnubg.gnubg.set_uid_and_strength(uid, self.strength)
+        for g in self.protocol.factory.gnubg.gnubg.values():
+            g.set_uid_and_strength(uid, self.strength)
 
     def get_gnubg(self):
         return self.current_gnubg

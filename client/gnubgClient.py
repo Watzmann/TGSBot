@@ -58,7 +58,7 @@ class Com(Protocol): # TODO: LineReceiver
     def connectionMade(self,):
         log.msg('connectionMade', logLevel=TRACE)
         self.bridge = bot_gnubg_bridge
-        bot_gnubg_bridge.set_gnubg(self, self.variation)
+        self.bridge.set_gnubg(self, self.variation)
 
     def dropConnection(self,):
         log.msg('dropConnection', logLevel=TRACE)
