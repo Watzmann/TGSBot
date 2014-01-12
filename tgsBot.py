@@ -84,11 +84,11 @@ if __name__ == "__main__":
                     options.strength, options.keep_alive, options.ignore_resume)
     # connect to a running gnubg instance
     for g, p in (('gnubg', GNUBG), ('hyperbg', HYPERBG)):
-        gnubg = set_up_gnubg('localhost', port=p)
+        gnubg = set_up_gnubg(g, 'localhost', port=p)
         if not gnubg is None:    # TODO: react to missing gnubg (now start one)
-            setattr(factory, g, gnubg)
+            factory.gnubg = gnubg
         else:
             print "Can't find", g
-    if hasattr(factory, 'gnubg'):
+    if hasattr(factory, 'gnubg') and 'gnubg' in factory.gnubg.gnubg:
         reactor.connectTCP(options.host, server_port, factory)
         reactor.run()

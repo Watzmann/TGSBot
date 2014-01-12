@@ -22,12 +22,12 @@ logging.addLevelName(VERBOSE, 'VERBOSE')
 
 class Bridge:
     def __init__(self,):
-        self.gnubg = None
+        self.gnubg = {}
         self.bot = None
 
-    def set_gnubg(self, gnubg_com):
+    def set_gnubg(self, gnubg_com, variation):
         """Set a protocol object to communicate with gnubg."""
-        self.gnubg = gnubg_com
+        self.gnubg[variation] = gnubg_com
 
     def set_bot(self, bot_com):
         """Set an object to communicate with bot."""
@@ -37,8 +37,9 @@ bot_gnubg_bridge = Bridge()
 
 class Com(Protocol): # TODO: LineReceiver
 
-    def __init__(self,):
+    def __init__(self, variation):
         self.uid = None
+        self.variation = variation
         self.custom_question = {
             'bestMove': self._best_move,
             'double': self._double,
@@ -57,8 +58,7 @@ class Com(Protocol): # TODO: LineReceiver
     def connectionMade(self,):
         log.msg('connectionMade', logLevel=TRACE)
         self.bridge = bot_gnubg_bridge
-        bot_gnubg_bridge.set_gnubg(self)
-        self.bridge = bot_gnubg_bridge
+        bot_gnubg_bridge.set_gnubg(self, self.variation)
 
     def dropConnection(self,):
         log.msg('dropConnection', logLevel=TRACE)
@@ -129,6 +129,9 @@ class Com(Protocol): # TODO: LineReceiver
         self.sendMessage('cmd:set_player')
 
 class ComClientFactory(ReconnectingClientFactory):
+    def __init__(self, variation):
+        self.variation = variation
+        
     def startedConnecting(self, connector):
         log.msg('Started to connect to gnubg.', logLevel=TRACE)
         self.running = True
@@ -137,7 +140,7 @@ class ComClientFactory(ReconnectingClientFactory):
         log.msg('Connected to %s:%s.' % (self.host, self.port), logLevel=TRACE)
         log.msg('Resetting reconnection delay.', logLevel=VERBOSE)
         self.resetDelay()
-        return Com()
+        return Com(self.variation)
 
     def clientConnectionLost(self, connector, reason):
         log.msg('Lost connection. Reason: %s' % reason, logLevel=logging.INFO)
@@ -149,8 +152,8 @@ class ComClientFactory(ReconnectingClientFactory):
         raise ConnectError(string=reason)
         reactor.callWhenRunning(reactor.stop)
 
-def set_up_gnubg(host='localhost', port=GNUBG, strength='supremo'):
-    factory = ComClientFactory()
+def set_up_gnubg(variation, host='localhost', port=GNUBG, strength='supremo'):
+    factory = ComClientFactory(variation)
     factory.host = host
     factory.port = port
     log.msg('About to connect to %s:%s.' % (host, port), logLevel=TRACE)

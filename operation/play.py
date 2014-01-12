@@ -70,7 +70,7 @@ class Play(Request):
                             log.msg('match_id: %s' % match_id, logLevel=logging.DEBUG)
                             # rausfinden, ob ich dran
                             # deferred Frage abschicken; wenn antwort, sofort senden
-                            self.oracle = self.gnubg.gnubg.ask_gnubg('bestMove: %s' % match_id)
+                            self.oracle = self.gnubg.ask_gnubg('bestMove: %s' % match_id)
                         if msg.startswith('Please move'):
                             log.msg('ME moves', logLevel=VERBOSE)
                             del message[:idx]
@@ -299,10 +299,9 @@ class Turn(Request):
         if ret:
             uid, order = expected_reaction[:2]
             parameters = expected_reaction[2:]
-            gnubg = self.gnubg.gnubg
             callback = self._callback[order]
             self.sent_action = time.time()
-            self.action = Action(order, parameters, gnubg, callback)
+            self.action = Action(order, parameters, self.gnubg, callback)
             log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
             time_used = time.time() - self.sent_request
             log.msg(self.msg_waited % time_used, logLevel=logging.INFO)

@@ -72,7 +72,6 @@ class Dispatch:
         self.keepalive_lap = ka_lap
         self.keep_alive = reactor.callLater(ka_lap, self.send_keepalive)
         self.resigns = ResignHandler()
-        self.current_gnubg = self.protocol.factory.gnubg
         Welcome(self, self.requests)
 
     def send_keepalive(self,):
@@ -117,7 +116,8 @@ class Dispatch:
         """It is called after a match has ended or to reset preparations
     for a match.
 """
-        self.current_gnubg = self.protocol.factory.gnubg
+        self.current_gnubg = self.protocol.factory.gnubg.gnubg['gnubg']
+        log.msg("Set current_gnubg to 'gnubg'")
         if hasattr(self, 'saved'):
             self.saved.purge()
             del self.saved
@@ -251,9 +251,10 @@ class Dispatch:
                                 logLevel=logging.INFO)
                         join(self, opponent, ML)
                 elif 'HyperGammon' in cmd_line:
-                    hyper = getattr(self.protocol.factory, 'hyperbg')
-                    if not hyper is None:
-                        self.current_gnubg = hyper
+                    bridge = self.protocol.factory.gnubg
+                    if 'hyperbg' in bridge.gnubg:
+                        self.current_gnubg = bridge.gnubg['hyperbg']
+                        log.msg("Set current_gnubg to 'hyperbg'")
                 if len(lines) > 0:
                     log.msg('deleting command line: >%s<' % lines[0], logLevel=logging.DEBUG)
                     del lines[0]
