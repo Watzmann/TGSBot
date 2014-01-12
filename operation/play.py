@@ -128,12 +128,14 @@ class Play(Request):
         def get_oracle(self,):
             return getattr(self, 'oracle', None)
 
-    def __init__(self, dispatch, manage, opponent, ML, resume=False):
+    def __init__(self, dispatch, manage, opponent, ML, resume=False,
+                                                       variation='standard'):
         self.gnubg = dispatch.protocol.factory.gnubg
         self.opponent = opponent
         self.ML = ML
         self.expected = self.Answer(self.gnubg, opponent, ML, resume)
         self.expected.send_move = self.send_move
+        self.variation = variation
         self.label = 'PLAY'
         self.sent_request = time.time()
         Request.__init__(self, dispatch, manage,)
@@ -157,7 +159,7 @@ class Play(Request):
             time_used = time.time() - self.sent_request
             log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
             self.purge()
-            Turn(self.dispatch, self.manage,)
+            Turn(self.dispatch, self.manage, self.variation)
             del message[0]
         else:
             log.msg('PLAY applies NOT '+'-'*36, logLevel=VERBOSE)
@@ -235,10 +237,11 @@ class Turn(Request):
 
     # TODO: Beispiel von solchen Messages!
 """
-    def __init__(self, dispatch, manage,):
+    def __init__(self, dispatch, manage, variation):
         self.gnubg = dispatch.protocol.factory.gnubg
         self.expected = dispatch.bot_uid
         self.direction = dispatch.direction
+        self.variation = variation
         self._callback = {'double': self.send_double,
                           'move': self.send_move,
                           'take': self.send_take,
@@ -335,7 +338,7 @@ class Turn(Request):
             log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
             time_used = time.time() - self.sent_request
             log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
-            Turn(self.dispatch, self.manage,)
+            Turn(self.dispatch, self.manage, self.variation)
             del message[0]
         else:
             log.msg('TURN applies NOT '+'-'*36, logLevel=VERBOSE)

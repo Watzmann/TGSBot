@@ -26,7 +26,7 @@ import logging
 logging.addLevelName(TRACE, 'NOISY')
 logging.addLevelName(TRACE, 'TRACE')
 logging.addLevelName(VERBOSE, 'VERBOSE')
-level = logging.INFO    # NOISY
+level = logging.DEBUG #INFO    # NOISY
 if getcwd().startswith('/var/opt/tgs'):
     level = max(level, logging.DEBUG)
 logging.basicConfig(level=level,)
@@ -219,11 +219,12 @@ class Dispatch:
                             self.send_server(msg % opponent)
                             invite(self, opponent, None)
                         elif ML == 'unlimited':
-                            join(self, opponent, ML, type_of_invitation=1)
+                            j = join(self, opponent, ML, type_of_invitation=1)
+                            self.joined = j
                             log.msg('joining an unlimited match with %s' % \
                                             opponent, logLevel=logging.INFO)
                         elif int(ML) > 0 and int(ML) <= MAX_MATCHLEN:
-                            join(self, opponent, ML)
+                            self.joined = join(self, opponent, ML)
                             log.msg('joining a %s point match with %s' % \
                                         (ML, opponent), logLevel=logging.INFO)
                         else:
@@ -237,8 +238,10 @@ class Dispatch:
                         ML = None
                         log.msg('resuming a match with %s' % opponent,
                                 logLevel=logging.INFO)
-                        join(self, opponent, ML)
-                if len(lines) > 0: # TODO: Scheisse, hier schmeiss ich unverarbeitetes weg?? :((
+                        self.joined = join(self, opponent, ML)
+                elif 'HyperGammon' in cmd_line and hasattr(self, 'joined'):
+                    self.joined.variation = 'hyper'
+                if len(lines) > 0:
                     log.msg('deleting command line: >%s<' % lines[0], logLevel=logging.DEBUG)
                     del lines[0]
 
