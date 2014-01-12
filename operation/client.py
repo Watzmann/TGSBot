@@ -247,7 +247,7 @@ class Dispatch:
                         log.msg('resuming a match with %s' % opponent,
                                 logLevel=logging.INFO)
                         join(self, opponent, ML)
-                elif 'HyperGammon' in cmd_line:
+                elif 'HyperGammon.' in cmd_line:
                     bridge = self.protocol.factory.gnubg
                     if 'hyperbg' in bridge.gnubg:
                         self.current_gnubg = bridge.gnubg['hyperbg']
