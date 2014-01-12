@@ -21,35 +21,6 @@ logging.addLevelName(VERBOSE, 'VERBOSE')
 
 class Play(Request):
 
-##>
-##bonehead and mehrdad start a 5 point match.
-##>
-##** Player sorrytigger has joined you for a 3 point match.
-##Starting a new game with sorrytigger.
-##You rolled 5, sorrytigger rolled 1
-##It's your turn to move.
-##    13 14 15 16 17 18       19 20 21 22 23 24
-##   +------------------------------------------+ X: sorrytigger - score: 0
-##   | O           X    |   |  X              O |
-##   | O           X    |   |  X              O |
-##   | O           X    |   |  X                |
-##   | O                |   |  X                |
-##   | O                |   |  X                |
-##  v|                  |BAR|                   |    3-point match
-##   | X                |   |  O                |
-##   | X                |   |  O                |
-##   | X           O    |   |  O                |
-##   | X           O    |   |  O              X |
-##   | X           O    |   |  O              X |
-##   +------------------------------------------+ O: gutrune - score: 0
-##    12 11 10  9  8  7        6  5  4  3  2  1
-##
-##   BAR: O-0 X-0   OFF: O-0 X-0   Cube: 1  You rolled 5 1.
-##>
-##sorrytigger kibitzes: Hi and good luck, greetings from Germany
-##>
-##thewronghands wins a 3 point match against once  3-1 .
-
     class Answer(Response):
 
         def __init__(self, gnubg, opponent, ML, resume):
@@ -128,14 +99,12 @@ class Play(Request):
         def get_oracle(self,):
             return getattr(self, 'oracle', None)
 
-    def __init__(self, dispatch, manage, opponent, ML, resume=False,
-                                                       variation='standard'):
-        self.gnubg = dispatch.protocol.factory.gnubg
+    def __init__(self, dispatch, manage, opponent, ML, resume=False):
+        self.gnubg = dispatch.get_gnubg()
         self.opponent = opponent
         self.ML = ML
         self.expected = self.Answer(self.gnubg, opponent, ML, resume)
         self.expected.send_move = self.send_move
-        self.variation = variation
         self.label = 'PLAY'
         self.sent_request = time.time()
         Request.__init__(self, dispatch, manage,)
@@ -159,7 +128,7 @@ class Play(Request):
             time_used = time.time() - self.sent_request
             log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
             self.purge()
-            Turn(self.dispatch, self.manage, self.variation)
+            Turn(self.dispatch, self.manage,)
             del message[0]
         else:
             log.msg('PLAY applies NOT '+'-'*36, logLevel=VERBOSE)
@@ -237,11 +206,10 @@ class Turn(Request):
 
     # TODO: Beispiel von solchen Messages!
 """
-    def __init__(self, dispatch, manage, variation):
-        self.gnubg = dispatch.protocol.factory.gnubg
+    def __init__(self, dispatch, manage,):
+        self.gnubg = dispatch.get_gnubg()
         self.expected = dispatch.bot_uid
         self.direction = dispatch.direction
-        self.variation = variation
         self._callback = {'double': self.send_double,
                           'move': self.send_move,
                           'take': self.send_take,
@@ -338,7 +306,7 @@ class Turn(Request):
             log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
             time_used = time.time() - self.sent_request
             log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
-            Turn(self.dispatch, self.manage, self.variation)
+            Turn(self.dispatch, self.manage,)
             del message[0]
         else:
             log.msg('TURN applies NOT '+'-'*36, logLevel=VERBOSE)

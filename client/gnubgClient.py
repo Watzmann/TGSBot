@@ -12,6 +12,7 @@ from twisted.python import log
 import sys
 
 GNUBG = 8083
+HYPERBG = 8084
 TRACE = 15
 VERBOSE = 17
 

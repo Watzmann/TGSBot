@@ -18,7 +18,7 @@ import sys
 from optparse import OptionParser
 
 from operation.client import Dispatch
-from client.gnubgClient import set_up_gnubg, GNUBG
+from client.gnubgClient import set_up_gnubg, GNUBG, HYPERBG
 from client.tgsClient import Com, ComClientFactory
 
 TRACE = 15
@@ -83,10 +83,12 @@ if __name__ == "__main__":
     factory.dispatcher = Dispatch(options.user, options.password,
                     options.strength, options.keep_alive, options.ignore_resume)
     # connect to a running gnubg instance
-    gnubg = set_up_gnubg('localhost', port=GNUBG)
-    if not gnubg is None:    # TODO: react to missing gnubg (now start one)
-        factory.gnubg = gnubg
+    for g, p in (('gnubg', GNUBG), ('hyperbg', HYPERBG)):
+        gnubg = set_up_gnubg('localhost', port=p)
+        if not gnubg is None:    # TODO: react to missing gnubg (now start one)
+            setattr(factory, g, gnubg)
+        else:
+            print "Can't find", g
+    if hasattr(factory, 'gnubg'):
         reactor.connectTCP(options.host, server_port, factory)
         reactor.run()
-    else:
-        print "Can't find gnubg"

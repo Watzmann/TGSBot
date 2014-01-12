@@ -26,7 +26,7 @@ import logging
 logging.addLevelName(TRACE, 'NOISY')
 logging.addLevelName(TRACE, 'TRACE')
 logging.addLevelName(VERBOSE, 'VERBOSE')
-level = logging.DEBUG #INFO    # NOISY
+level = logging.INFO    # NOISY
 if getcwd().startswith('/var/opt/tgs'):
     level = max(level, logging.DEBUG)
 logging.basicConfig(level=level,)
@@ -72,6 +72,7 @@ class Dispatch:
         self.keepalive_lap = ka_lap
         self.keep_alive = reactor.callLater(ka_lap, self.send_keepalive)
         self.resigns = ResignHandler()
+        self.current_gnubg = self.protocol.factory.gnubg
         Welcome(self, self.requests)
 
     def send_keepalive(self,):
@@ -91,7 +92,14 @@ class Dispatch:
     def set_bot_uid(self, uid):
         log.msg('My UID is %s' % uid, logLevel=logging.INFO)
         self.bot_uid = uid
-        self.protocol.factory.gnubg.gnubg.set_uid_and_strength(uid, self.strength)
+        factory = self.protocol.factory
+        for g in ('gnubg', 'hyperbg'):
+            gnubg = getattr(factory, g, None)
+            if not gnubg is None:
+                gnubg.gnubg.set_uid_and_strength(uid, self.strength)
+
+    def get_gnubg(self):
+        return self.current_gnubg
 
     def delete_told_opponent(self, user):
         if user in self.told_opponent:
@@ -106,6 +114,10 @@ class Dispatch:
         self.relax_hook()
 
     def relax_hook(self,):
+        """It is called after a match has ended or to reset preparations
+    for a match.
+"""
+        self.current_gnubg = self.protocol.factory.gnubg
         if hasattr(self, 'saved'):
             self.saved.purge()
             del self.saved
@@ -219,12 +231,11 @@ class Dispatch:
                             self.send_server(msg % opponent)
                             invite(self, opponent, None)
                         elif ML == 'unlimited':
-                            j = join(self, opponent, ML, type_of_invitation=1)
-                            self.joined = j
+                            join(self, opponent, ML, type_of_invitation=1)
                             log.msg('joining an unlimited match with %s' % \
                                             opponent, logLevel=logging.INFO)
                         elif int(ML) > 0 and int(ML) <= MAX_MATCHLEN:
-                            self.joined = join(self, opponent, ML)
+                            join(self, opponent, ML)
                             log.msg('joining a %s point match with %s' % \
                                         (ML, opponent), logLevel=logging.INFO)
                         else:
@@ -238,9 +249,11 @@ class Dispatch:
                         ML = None
                         log.msg('resuming a match with %s' % opponent,
                                 logLevel=logging.INFO)
-                        self.joined = join(self, opponent, ML)
-                elif 'HyperGammon' in cmd_line and hasattr(self, 'joined'):
-                    self.joined.variation = 'hyper'
+                        join(self, opponent, ML)
+                elif 'HyperGammon' in cmd_line:
+                    hyper = getattr(self.protocol.factory, 'hyperbg')
+                    if not hyper is None:
+                        self.current_gnubg = hyper
                 if len(lines) > 0:
                     log.msg('deleting command line: >%s<' % lines[0], logLevel=logging.DEBUG)
                     del lines[0]

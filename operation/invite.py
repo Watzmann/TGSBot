@@ -68,7 +68,6 @@ class Join(Request):
         self.ML = ML
         self.expected = self.expected_answer(opp, ML, type_of_invitation)
         self.busy = Busy(dispatch, manage, opp, self.expected)
-        self.variation = 'standard'
         self.label = 'JOIN'
         Request.__init__(self, dispatch, manage,)
 
@@ -105,8 +104,8 @@ class Join(Request):
             self.busy.purge()
             self.dispatch.opponent = self.opponent
             self.dispatch.saved = Saved(self.dispatch, self.manage, self.opponent)
-            Play(self.dispatch, self.manage, self.opponent, self.ML,
-                                resume=self.resume, variation=self.variation)
+            Play(self.dispatch, self.manage, self.opponent,
+                                     self.ML, resume=self.resume)
             del message[0]
         else:
             log.msg('JOIN applies NOT '+'-'*36, logLevel=VERBOSE)
