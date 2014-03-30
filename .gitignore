@@ -1,5 +1,6 @@
 #test_client.py
 admin_commands
 all-kill
+all-restart
 botlists
 log
