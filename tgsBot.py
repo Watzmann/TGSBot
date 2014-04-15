@@ -70,6 +70,9 @@ def usage(progname):
     parser.add_option("-R", "--ignore-resume", default=False,
                   action="store_true", dest="ignore_resume",
                   help="ignore saved games when invited. (False)")
+    parser.add_option("-E", "--evaluate", default=False,
+                  action="store_true", dest="evaluate_mwc",
+                  help="accept evaluation requests, only. (False)")
     return parser,usg
 
 if __name__ == "__main__":

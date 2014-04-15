@@ -45,6 +45,7 @@ class Com(Protocol): # TODO: LineReceiver
             'double': self._double,
             'take': self._take,
             'accept': self._accept,
+            'evaluate': self._evaluate,
             }
 
     def dataReceived(self, rawdata):
@@ -120,6 +121,14 @@ class Com(Protocol): # TODO: LineReceiver
         self.sendMessage('pid:%s' % pid)
         self.sendMessage('opt:%s' % arguments[1])
         self.sendMessage('cmd:accept')
+
+    def _evaluate(self, question):
+        log.msg('question: %s' % question, logLevel=logging.DEBUG)
+        self.sendMessage('uid:%s' % self.uid)
+        mid, pid = question.split(':')
+        self.sendMessage('mid:%s' % mid)
+        self.sendMessage('pid:%s' % pid)
+        self.sendMessage('cmd:evaluate')
 
     def set_uid_and_strength(self, uid, strength):
         log.msg('setting bot strength: %s' % strength, logLevel=logging.DEBUG)
