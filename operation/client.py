@@ -10,6 +10,7 @@ from os import getcwd
 from twisted.internet import reactor
 from twisted.python import log
 from operation.basics import Request
+from operation.mwc import MWC
 from operation.welcome import Welcome
 from operation.welcome import Login
 from operation.settings import Toggle, Set, GnubgSettings
@@ -102,12 +103,17 @@ class Dispatch:
             del self.told_opponent[user]
 
     def login_hook(self,):
-        toggle = Toggle(self, self.requests)
-        toggle.send_command('toggle')
-        settings = Set(self, self.requests)
-        settings.set_delay_value(self.protocol.factory.options.delay)
-        settings.send_command('set')
-        self.relax_hook()
+        if self.protocol.factory.options.evaluate_mwc:
+            self.send_server('register mwcEvaluation')
+            self.current_gnubg = self.protocol.factory.gnubg.gnubg['gnubg']
+            MWC(self, self.requests)
+        else:
+            toggle = Toggle(self, self.requests)
+            toggle.send_command('toggle')
+            settings = Set(self, self.requests)
+            settings.set_delay_value(self.protocol.factory.options.delay)
+            settings.send_command('set')
+            self.relax_hook()
 
     def relax_hook(self,):
         """It is called after a match has ended or to reset preparations

@@ -32,7 +32,7 @@ NICK = 'test_bot_I'
 KEEP_ALIVE = 300.
 
 def start_logging(nick):
-    log.startLogging(open('/var/log/TGS/bot/%s.log' % nick, 'a'))
+    log.startLogging(open('/var/log/TGS/bots/%s.log' % nick, 'a'))
     observer = log.PythonLoggingObserver()
     observer.start()
 
@@ -87,8 +87,9 @@ if __name__ == "__main__":
                     options.strength, options.keep_alive, options.ignore_resume)
     # connect to a running gnubg instance
     standard_running = True
-    for g, p in (('gnubg', GNUBG), ('hyperbg', HYPERBG)):
-        gnubg = set_up_gnubg(g, 'localhost', port=p)
+    for g, h, p in (('gnubg', 'themisto', GNUBG),
+                 ('hyperbg', 'localhost', HYPERBG)):
+        gnubg = set_up_gnubg(g, h, port=p)
         if not gnubg is None:    # TODO: react to missing gnubg (now start one)
             factory.gnubg = gnubg
             if g == 'gnubg':
