@@ -146,14 +146,20 @@ class Action:
                                                         logLevel=logging.DEBUG)
         self.gnubg = gnubg
         self.callback = callback
-        {'double': self._double,    # state B - double or roll? resign?
-         'move': self._move,        # state E - which move? resign?
-         'take': self._take,        # state C - take the cube?
-         'accept': self._accept,    # state J - accept the resign?
-         'rejected': self._rejected, #          handle reject to own resign
-         'join': self._true,        # state G - return the neccessary 'join'
-         'relax': self._relax,      # state G - be polite and return thanks
-         }[order](parameters)
+        self._parameters = parameters
+        self._order = {
+            'double': self._double,     # state B - double or roll? resign?
+            'move': self._move,         # state E - which move? resign?
+            'take': self._take,         # state C - take the cube?
+            'accept': self._accept,     # state J - accept the resign?
+            'rejected': self._rejected, #           handle reject to own resign
+            'join': self._true,         # state G - return the neccessary 'join'
+            'relax': self._relax,       # state G - be polite and return thanks
+            }[order]
+        self._order(parameters)
+
+    def redo(self,):
+        self._order(self._parameters)
 
     def _double(self, parameters):
         self.oracle = self.gnubg.ask_gnubg('double: %s resign' % parameters[0])
@@ -302,6 +308,7 @@ class Turn(Request):
             callback = self._callback[order]
             self.sent_action = time.time()
             self.action = Action(order, parameters, self.gnubg, callback)
+            self.dispatch.pending_action = self.action
             log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
             time_used = time.time() - self.sent_request
             log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
@@ -310,3 +317,8 @@ class Turn(Request):
         else:
             log.msg('TURN applies NOT '+'-'*36, logLevel=VERBOSE)
         return ret
+
+    def purge(self,):
+        if hasattr(self.dispatch, 'pending_action'):
+            del self.dispatch.pending_action
+        Request.purge(self)

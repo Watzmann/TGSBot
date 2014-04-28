@@ -57,9 +57,11 @@ class Com(Protocol): # TODO: LineReceiver
         self.transport.write(msg + '\r\n')
 
     def connectionMade(self,):
-        log.msg('connectionMade', logLevel=TRACE)
+        log.msg('connectionMade (%s)' % self.variation, logLevel=TRACE)
         self.bridge = bot_gnubg_bridge
         self.bridge.set_gnubg(self, self.variation)
+        if hasattr(self.bridge.bot, 'pending_action'):
+            self.bridge.bot_com.pending_action.redo()
 
     def dropConnection(self,):
         log.msg('dropConnection', logLevel=TRACE)
@@ -140,7 +142,7 @@ class Com(Protocol): # TODO: LineReceiver
 class ComClientFactory(ReconnectingClientFactory):
     def __init__(self, variation):
         self.variation = variation
-        
+
     def startedConnecting(self, connector):
         log.msg('Started to connect to gnubg.', logLevel=TRACE)
         self.running = True
@@ -152,13 +154,14 @@ class ComClientFactory(ReconnectingClientFactory):
         return Com(self.variation)
 
     def clientConnectionLost(self, connector, reason):
-        log.msg('Lost connection. Reason: %s' % reason, logLevel=logging.INFO)
+        log.msg('Lost connection (%s). Reason: %s' % (self.variation, reason),
+                                                          logLevel=logging.INFO)
         ReconnectingClientFactory.clientConnectionLost(self, connector, reason)
 
     def clientConnectionFailed(self, connector, reason):
-        log.msg('Connection failed. Reason: %s' % reason, logLevel=logging.INFO)
+        log.msg('Connection failed (%s). Reason: %s' % (self.variation, reason),
+                                                          logLevel=logging.INFO)
         self.running = False
-        raise ConnectError(string=reason)
         reactor.callWhenRunning(reactor.stop)
 
 def set_up_gnubg(variation, host='localhost', port=GNUBG, strength='supremo'):

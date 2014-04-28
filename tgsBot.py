@@ -92,6 +92,7 @@ if __name__ == "__main__":
         gnubg = set_up_gnubg(g, h, port=p)
         if not gnubg is None:    # TODO: react to missing gnubg (now start one)
             factory.gnubg = gnubg
+            gnubg.set_bot(factory.dispatcher)
             if g == 'gnubg':
                 standard_running = True
         else:
