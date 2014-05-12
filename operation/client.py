@@ -65,6 +65,7 @@ class Dispatch:
         self.password = password
         self.strength = strength
         self.bot_uid = 0
+        self.login_sequence = 'bot login h h %s %s' % (self.user, self.password)
         self.requests = {}
         self.told_opponent = {}
         self.user_commands = {'info': self.user_info,
@@ -88,6 +89,10 @@ class Dispatch:
     def send_server(self, message):
         self.protocol.sendMessage(message)
         self.reset_keepalive()
+
+    def stop(self, reason):
+        log.msg('Stopping for reason: %s' % reason, logLevel=logging.INFO)
+        reactor.stop()
 
     def set_bot_uid(self, uid):
         log.msg('My UID is %s' % uid, logLevel=logging.INFO)
@@ -129,7 +134,7 @@ class Dispatch:
 
     def login(self,):
         login = Login(self, self.requests, self.set_bot_uid)
-        login.send_command('bot login h h %s %s' % (self.user, self.password))
+        login.send_command(self.login_sequence)
 
     def user_info(self, user):
         def return_info(infos):

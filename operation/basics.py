@@ -12,7 +12,7 @@ class Request:
         self.dispatch = dispatch
         self.manage = manage
         self.update()
-        # Some messages for use of inheriting classes
+        # Some messages for use in inheriting classes
         self.msg_tests = '%s tests: %%s' % self.label
         self.msg_applies = '%s applies ' % self.label
         self.msg_waited = '%s waited for answer %%s seconds' % self.label

@@ -32,22 +32,33 @@ class Welcome(Request):
         return True
 
 class Login(Request):
-
-    def __init__(self, dispatch, manage, callback, expected="BOTUID "):
+    def __init__(self, dispatch, manage, callback, expected="BOTUID"):
         self.expected = expected
         self.callback = callback
         self.label = 'LOGIN'
         Request.__init__(self, dispatch, manage,)
+        # Add two more expected messages in case login fails!
+        self.login_failed = "** User not known or wrong password."
+        self.manage[self.login_failed] = self
+        self.logged_in_already = "** Warning: You are already logged in."
+        self.manage[self.logged_in_already] = self
 
     def received(self, message):
         first_line = message[0]
         log.msg(self.msg_tests % first_line, logLevel=VERBOSE)
-        uid = first_line.split()[1]
-        self.callback(uid)
+        if first_line.startswith(self.expected):
+            uid = first_line.split()[1]
+            self.callback(uid)
+        elif first_line == self.login_failed:
+            self.dispatch.stop("login failed")
+        elif first_line == self.logged_in_already:
+            self.send_command(self.dispatch.login_sequence)
+            del self.manage[self.login_failed]
         log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
         time_used = time.time() - self.sent_request
         log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
-        self.purge()
         del message[0:1]
-        self.dispatch.login_hook()
+        if first_line.startswith(self.expected):
+            self.purge()
+            self.dispatch.login_hook()
         return True
