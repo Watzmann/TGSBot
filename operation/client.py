@@ -10,7 +10,7 @@ from os import getcwd
 from twisted.internet import reactor
 from twisted.python import log
 from operation.basics import Request
-from operation.mwc import MWC
+from operation.mwc import MWC, Register
 from operation.welcome import Welcome
 from operation.welcome import Login
 from operation.settings import Toggle, Set, GnubgSettings
@@ -109,8 +109,9 @@ class Dispatch:
 
     def login_hook(self,):
         if self.protocol.factory.options.evaluate_mwc:
-            self.send_server('register mwcEvaluation')
             self.current_gnubg = self.protocol.factory.gnubg.gnubg['gnubg']
+            reg = Register(self, self.requests)
+            reg.send_command('register mwcEvaluation')
             MWC(self, self.requests)
         else:
             toggle = Toggle(self, self.requests)
@@ -187,6 +188,7 @@ class Dispatch:
             return False
         log.msg('#'*80, logLevel=NOISY)
         log.msg('MESSAGE %s' % message, logLevel=NOISY)
+        log.msg('#'*80, logLevel=NOISY)                     # WORK:00:
         self.reset_keepalive()
         lines = message.splitlines()
         while len(lines) > 0:

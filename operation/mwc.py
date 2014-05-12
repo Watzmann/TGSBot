@@ -78,3 +78,24 @@ class MWC(Request):
         else:
             log.msg('MWC applies NOT '+'-'*36, logLevel=VERBOSE)
         return ret
+
+class Register(Request):
+    """Register takes care of completing registration as an evaluation bot.
+    This is mainly to have the server send pending calls after bot login.
+    It gives the server sufficient time for an answer.
+"""
+    def __init__(self, dispatch, manage):
+        self.expected = "** Registered you as 'mwcEvaluation'"
+        self.label = 'REGISTER'
+        Request.__init__(self, dispatch, manage,)
+
+    def received(self, message):
+        first_line = message[0]
+        log.msg(self.msg_tests % first_line, logLevel=VERBOSE)
+        log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
+        time_used = time.time() - self.sent_request
+        log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
+        del message[0:1]
+        self.purge()
+        self.send_command('send pending-mwcEvaluation')
+        return True
