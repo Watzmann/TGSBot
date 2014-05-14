@@ -70,6 +70,7 @@ class Play(Request):
                             log.msg('match_id: %s' % match_id, logLevel=logging.DEBUG)
                             # rausfinden, ob ich dran
                             # deferred Frage abschicken; wenn antwort, sofort senden
+                            log.msg('NEED ORACLE 73', logLevel=TRACE)
                             self.oracle = self.gnubg.ask_gnubg('bestMove: %s' % match_id)
                         if msg.startswith('Please move'):
                             log.msg('ME moves', logLevel=VERBOSE)
@@ -162,13 +163,13 @@ class Action:
         self._order(self._parameters)
 
     def _double(self, parameters):
-        self.oracle = self.gnubg.ask_gnubg('double: %s resign' % parameters[0])
+        self.oracle = self.gnubg().ask_gnubg('double: %s resign' % parameters[0])
         log.msg('got DOUBLE oracle: %s' % self.oracle, logLevel=logging.DEBUG)
         if not self.oracle is None:
             self.oracle.addCallback(self.callback)
 
     def _take(self, parameters):
-        self.oracle = self.gnubg.ask_gnubg('take: %s' % parameters[0])
+        self.oracle = self.gnubg().ask_gnubg('take: %s' % parameters[0])
         log.msg('got TAKE oracle: %s' % self.oracle, logLevel=logging.DEBUG)
         if not self.oracle is None:
             self.oracle.addCallback(self.callback)
@@ -176,14 +177,14 @@ class Action:
     def _move(self, parameters):
         # No resign decision here. Gnubg does not either and it does not
         # really make things worse, if we simply move and decide later.
-        self.oracle = self.gnubg.ask_gnubg('bestMove: %s %s' % \
+        self.oracle = self.gnubg().ask_gnubg('bestMove: %s %s' % \
                                             (parameters[0], parameters[1]))
         log.msg('got MOVE oracle: %s' % self.oracle, logLevel=logging.DEBUG)
         if not self.oracle is None:
             self.oracle.addCallback(self.callback)
 
     def _accept(self, parameters):
-        self.oracle = self.gnubg.ask_gnubg('accept: %s %s' % \
+        self.oracle = self.gnubg().ask_gnubg('accept: %s %s' % \
                                             (parameters[0], parameters[1]))
         log.msg('got ACCEPT oracle: %s' % self.oracle, logLevel=logging.DEBUG)
         if not self.oracle is None:
@@ -213,7 +214,7 @@ class Turn(Request):
     # TODO: Beispiel von solchen Messages!
 """
     def __init__(self, dispatch, manage,):
-        self.gnubg = dispatch.get_gnubg()
+        self.gnubg = dispatch.get_gnubg
         self.expected = dispatch.bot_uid
         self.direction = dispatch.direction
         self._callback = {'double': self.send_double,

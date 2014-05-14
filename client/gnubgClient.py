@@ -5,11 +5,13 @@
 # Permission to copy or use is limited. Please see LICENSE for information.
 #
 
+import sys
+import os
+
 from twisted.internet.protocol import Protocol, ReconnectingClientFactory
 from twisted.internet.error import ConnectError
 from twisted.internet import reactor, defer
 from twisted.python import log
-import sys
 
 GNUBG = 8083
 HYPERBG = 8084
@@ -60,8 +62,9 @@ class Com(Protocol): # TODO: LineReceiver
         log.msg('connectionMade (%s)' % self.variation, logLevel=TRACE)
         self.bridge = bot_gnubg_bridge
         self.bridge.set_gnubg(self, self.variation)
+        self.bridge.bot.set_bot_uid()
         if hasattr(self.bridge.bot, 'pending_action'):
-            self.bridge.bot_com.pending_action.redo()
+            self.bridge.bot.pending_action.redo()
 
     def dropConnection(self,):
         log.msg('dropConnection', logLevel=TRACE)
@@ -157,12 +160,31 @@ class ComClientFactory(ReconnectingClientFactory):
         log.msg('Lost connection (%s). Reason: %s' % (self.variation, reason),
                                                           logLevel=logging.INFO)
         ReconnectingClientFactory.clientConnectionLost(self, connector, reason)
+        self.yelp()
 
     def clientConnectionFailed(self, connector, reason):
         log.msg('Connection failed (%s). Reason: %s' % (self.variation, reason),
                                                           logLevel=logging.INFO)
         self.running = False
-        reactor.callWhenRunning(reactor.stop)
+        ReconnectingClientFactory.clientConnectionLost(self, connector, reason)
+        self.yelp()
+
+    def yelp(self,):
+        """Setting a semaphore about missing connection. This should signal
+    need for help to a monitoring tool.
+"""
+        if not hasattr(self, 'semaphore'):
+            self.semaphore = Semaphore()
+
+class Semaphore:
+
+    _sem_path = ".semaphores"
+
+    def __init__(self,):
+        _sem_name = "1"
+        fpath = os.path.join(self._sem_path, _sem_name)
+        self._semaphore = open(fpath, 'w')
+        self._semaphore.close()
 
 def set_up_gnubg(variation, host='localhost', port=GNUBG, strength='supremo'):
     factory = ComClientFactory(variation)

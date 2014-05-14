@@ -94,14 +94,16 @@ class Dispatch:
         log.msg('Stopping for reason: %s' % reason, logLevel=logging.INFO)
         reactor.stop()
 
-    def set_bot_uid(self, uid):
+    def set_bot_uid(self, uid=0):
         log.msg('My UID is %s' % uid, logLevel=logging.INFO)
-        self.bot_uid = uid
-        for g in self.protocol.factory.gnubg.gnubg.values():
-            g.set_uid_and_strength(uid, self.strength)
+        if not self.bot_uid and uid:
+            self.bot_uid = uid
+        if self.bot_uid and hasattr(self, 'protocol'):
+            for g in self.protocol.factory.gnubg.gnubg.values():
+                g.set_uid_and_strength(self.bot_uid, self.strength)
 
     def get_gnubg(self):
-        return self.current_gnubg
+        return self.protocol.factory.gnubg.gnubg[self.current_gnubg]
 
     def delete_told_opponent(self, user):
         if user in self.told_opponent:
@@ -109,7 +111,8 @@ class Dispatch:
 
     def login_hook(self,):
         if self.protocol.factory.options.evaluate_mwc:
-            self.current_gnubg = self.protocol.factory.gnubg.gnubg['gnubg']
+            self.current_gnubg = 'gnubg'
+            log.msg("Set current_gnubg to 'gnubg'")
             reg = Register(self, self.requests)
             reg.send_command('register mwcEvaluation')
             MWC(self, self.requests)
@@ -125,7 +128,7 @@ class Dispatch:
         """It is called after a match has ended or to reset preparations
     for a match.
 """
-        self.current_gnubg = self.protocol.factory.gnubg.gnubg['gnubg']
+        self.current_gnubg = 'gnubg'
         log.msg("Set current_gnubg to 'gnubg'")
         if hasattr(self, 'saved'):
             self.saved.purge()
@@ -263,7 +266,7 @@ class Dispatch:
                 elif 'HyperGammon.' in cmd_line:
                     bridge = self.protocol.factory.gnubg
                     if 'hyperbg' in bridge.gnubg:
-                        self.current_gnubg = bridge.gnubg['hyperbg']
+                        self.current_gnubg = 'hyperbg'
                         log.msg("Set current_gnubg to 'hyperbg'")
                 if len(lines) > 0:
                     log.msg('deleting command line: >%s<' % lines[0], logLevel=logging.DEBUG)
