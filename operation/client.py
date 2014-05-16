@@ -96,7 +96,7 @@ class Dispatch:
 
     def set_bot_uid(self, uid=0):
         log.msg('My UID is %s' % uid, logLevel=logging.INFO)
-        if not self.bot_uid and uid:
+        if uid:
             self.bot_uid = uid
         if self.bot_uid and hasattr(self, 'protocol'):
             for g in self.protocol.factory.gnubg.gnubg.values():
