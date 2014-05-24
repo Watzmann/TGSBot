@@ -186,7 +186,7 @@ class Dispatch:
             if self.ignore_resume:
                 return False
             for i in lines:
-                if i.startswith('WARNING: Don') and not 'unlimited' in i:
+                if i.startswith('WARNING: You have a') and not 'unlimited' in i:
                     return True
             return False
         log.msg('#'*80, logLevel=NOISY)
