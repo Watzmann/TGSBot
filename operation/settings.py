@@ -69,6 +69,7 @@ class Toggle(Request):
                     ('notify', 'NO'),
                     ('report', 'NO'),
                     ('silent', 'YES'),
+                    ('moreboards', 'YES'),
                     ):
             log.msg('toggle %s == %s|%s#' % (t,v,self.toggles[t]), logLevel=logging.DEBUG)
             if self.toggles[t] != v:

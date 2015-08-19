@@ -13,11 +13,10 @@ from twisted.internet.protocol import Protocol, ReconnectingClientFactory
 from twisted.internet import reactor
 from twisted.python import log
 from operation.welcome import Welcome
+from logging import INFO
 
 TRACE = 15
 VERBOSE = 17
-
-import logging
 
 class Com(Protocol):
     def __init__(self, factory):      # factory is neccessary in protocol,
@@ -29,7 +28,7 @@ class Com(Protocol):
         self.dispatch.parse(data)
 
     def sendMessage(self, msg):
-        log.msg('>> %s' % msg, logLevel=logging.INFO)
+        log.msg('>> %s' % msg, logLevel=INFO)
         self.transport.write(msg + '\r\n')
 
     def connectionMade(self,):
@@ -58,21 +57,21 @@ class ComClientFactory(ReconnectingClientFactory):
         return Com(self)
 
     def clientConnectionLost(self, connector, reason):
-        log.msg('Lost connection. Reason: %s' % reason, logLevel=logging.INFO)
+        log.msg('Lost connection. Reason: %s' % reason, logLevel=INFO)
         if getattr(self, 'restart', True):
             self.reset_protocol_for_login()
             ReconnectingClientFactory.clientConnectionLost(self, connector, reason)
         else:
-            log.msg('Done - no restart', logLevel=logging.INFO)
+            log.msg('Done - no restart', logLevel=INFO)
             reactor.callWhenRunning(reactor.stop)
 
     def clientConnectionFailed(self, connector, reason):
-        log.msg('Connection failed. Reason: %s' % reason, logLevel=logging.INFO)
+        log.msg('Connection failed. Reason: %s' % reason, logLevel=INFO)
         if getattr(self, 'restart', True):
             self.reset_protocol_for_login()
             ReconnectingClientFactory.clientConnectionFailed(self, connector, reason)
         else:
-            log.msg('Done - no restart', logLevel=logging.INFO)
+            log.msg('Done - no restart', logLevel=INFO)
             reactor.callWhenRunning(reactor.stop)
 
     def stop(self,):

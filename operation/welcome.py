@@ -8,14 +8,10 @@
 import time
 from twisted.python import log
 from operation.basics import Request, Response
+from logging import INFO
 
 TRACE = 15
 VERBOSE = 17
-
-import logging
-logging.addLevelName(TRACE, 'TRACE')
-logging.addLevelName(VERBOSE, 'VERBOSE')
-print 'welcome could set logginglevel'
 
 class Welcome(Request):
     def __init__(self, dispatch, manage,):
@@ -56,7 +52,7 @@ class Login(Request):
             del self.manage[self.login_failed]
         log.msg(self.msg_applies + '+'*40, logLevel=VERBOSE)
         time_used = time.time() - self.sent_request
-        log.msg(self.msg_waited % time_used, logLevel=logging.INFO)
+        log.msg(self.msg_waited % time_used, logLevel=INFO)
         del message[0:1]
         if first_line.startswith(self.expected):
             self.purge()
