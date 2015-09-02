@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# (c) Copyright 2012 Andreas Hausmann
+# (c) Copyright Andreas Hausmann
 # This file is part of TGSBot.
 # Permission to copy or use is limited. Please see LICENSE for information.
 #
@@ -37,6 +37,125 @@ class Bridge:
 
 bot_gnubg_bridge = Bridge()
 
+class TestGame:
+    class TestData:
+        def __init__(self, filename):
+            self.filename = filename
+            self.testfile = open(filename)
+
+        def oracle(self, action, args):
+            success, answer = self.checked_line(action, args)
+            if success:
+                log.msg('line passed checks: %s' % answer, logLevel=logging.INFO)
+                return answer
+            else:
+                log.msg('WHAT THE FUCK', logLevel=logging.ERROR)
+                return ''
+
+        def checked_line(self, action, args):
+            line = self.get_line()
+            v = line.pop(0)
+            passed = v == action
+            if passed:
+                for a in args:
+                    v = line.pop(0)
+                    passed = passed and v == a
+                    if not passed:
+                        break
+            if not passed:
+                log.msg('testfile (%s) line failed checks\n%s\n%s %s' %
+                        (self.filename, v, action, args), logLevel=logging.ERROR)
+                return False, None
+            return True, line
+
+        def get_line(self,):
+            def _get_next():
+                for line in self.testfile:
+                    yield line              # TODO: close file
+            line = ''
+            while not line:
+                line = _get_next().next()
+                l = line.strip().split()
+                if len(l) == 0 or l[0].startswith('#'):
+                    line = ''
+                    continue
+            return l
+
+    def __init__(self, testgame):
+        self.uid = None
+        self.testfilename = testgame
+        self.data = self.TestData(testgame)
+        self.custom_question = {
+            'bestMove': self._best_move,
+            'double': self._double,
+            'take': self._take,
+            'accept': self._accept,
+            }
+
+    def connectionMade(self,):
+        log.msg('connectionMade (%s)' % self.testfilename, logLevel=TRACE)
+        self.bridge = bot_gnubg_bridge
+        self.bridge.set_gnubg(self, 'gnubg') # TODO: sollte sein: self.variation)
+        self.bridge.bot.set_bot_uid()
+        self.bot_name = self.bridge.bot.user
+        log.msg('... and I am called %s' % self.bot_name, logLevel=VERBOSE)
+
+    def dropConnection(self,):
+        log.msg('dropConnection', logLevel=TRACE)
+        self.transport.loseConnection()
+
+    def ask_gnubg(self, question):
+        """ask_gnubg() takes a commandline of the form
+        blablabla
+    and returns a deferred to fire the answer.
+    The command is referred to a gnubg server running on port xxxxxx
+"""
+        args = question.split(':')
+        self.answer = defer.Deferred()
+        reactor.callInThread(self.custom_question[args[0]], *args[1:])
+        return self.answer
+
+    def _best_move(self, *arguments):
+        log.msg('question: %s' % ' '.join(arguments), logLevel=logging.DEBUG)
+        result = self.data.oracle('move', ':'.join(arguments).split())
+        result = '(%s)' % ', '.join(result)
+        log.msg('got answer: %s' % result, logLevel=logging.DEBUG)
+        self.answer.callback(result)
+
+    def _double(self, *arguments):
+        log.msg('question: %s' % ' '.join(arguments), logLevel=logging.DEBUG)
+        # match_id = arguments[0]
+        # self.sendMessage('uid:%s' % self.uid)
+        # mid, pid = match_id.split(':')
+        # if len(arguments) > 1 and arguments[1] == 'resign':
+        #      self.sendMessage('opt:consider resign')
+        # self.sendMessage('mid:%s' % mid)
+        # self.sendMessage('pid:%s' % pid)
+        # self.sendMessage('cmd:double')
+        self.answer.callback('nodouble')
+
+    def _take(self, question):
+        log.msg('question: %s' % question, logLevel=logging.DEBUG)
+        self.sendMessage('uid:%s' % self.uid)
+        mid, pid = question.split(':')
+        self.sendMessage('mid:%s' % mid)
+        self.sendMessage('pid:%s' % pid)
+        self.sendMessage('cmd:take')
+
+    def _accept(self, question):
+        log.msg('question: %s' % question, logLevel=logging.DEBUG)
+        arguments = question.split()
+        match_id = arguments[0]
+        mid, pid = match_id.split(':')
+        self.sendMessage('uid:%s' % self.uid)
+        self.sendMessage('mid:%s' % mid)
+        self.sendMessage('pid:%s' % pid)
+        self.sendMessage('opt:%s' % arguments[1])
+        self.sendMessage('cmd:accept')
+
+    def set_uid_and_strength(self, uid, strength):
+        log.msg('IGNORE setting bot strength!', logLevel=logging.DEBUG)
+
 class Com(Protocol): # TODO: LineReceiver
 
     def __init__(self, variation):
@@ -65,6 +184,11 @@ class Com(Protocol): # TODO: LineReceiver
         self.bridge.bot.set_bot_uid()
         if hasattr(self.bridge.bot, 'pending_action'):
             self.bridge.bot.pending_action.redo()
+# TODO       if hasattr(self.factory, 'semaphore'):
+#            self.factory.semaphore.remove()
+#       laut     client.get_gnubg() hat das protocol die factory als Attribut
+# TODO I think it is better to bind semaphores to bots, but not their factory
+#      Anyway: how many factories are there for 18 bots??
 
     def dropConnection(self,):
         log.msg('dropConnection', logLevel=TRACE)
@@ -182,17 +306,28 @@ class Semaphore:
 
     def __init__(self,):
         _sem_name = "1"
-        fpath = os.path.join(self._sem_path, _sem_name)
-        self._semaphore = open(fpath, 'w')
+        self.spath = os.path.join(self._sem_path, _sem_name)
+        self._semaphore = open(self.spath, 'w')
         self._semaphore.close()
+
+    def remove(self,):
+        if hasattr(self, 'spath'):
+            os.remove(self.spath)
+
 
 def set_up_gnubg(variation, host='localhost', port=GNUBG, strength='supremo'):
     factory = ComClientFactory(variation)
     factory.host = host
     factory.port = port
-    log.msg('About to connect to %s:%s.' % (host, port), logLevel=TRACE)
+    log.msg('About to connect to %s:%s (%s).' % (host, port, variation), logLevel=TRACE)
     reactor.connectTCP(host, port, factory)
     if factory.running:
         return bot_gnubg_bridge
     else:
         return None
+
+def set_up_testgame(testfile='testgame'):
+    protocol = TestGame(testfile)
+    log.msg('About to instantiate testfile %s.' % (testfile,), logLevel=TRACE)
+    reactor.callLater(0., protocol.connectionMade)
+    return bot_gnubg_bridge

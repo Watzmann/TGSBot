@@ -110,6 +110,8 @@ class Dispatch:
             del self.told_opponent[user]
 
     def login_hook(self,):
+        self.autoinvite = self.protocol.factory.options.auto_invite
+        self.nr_games = self.protocol.factory.options.number_of_games
         if self.protocol.factory.options.evaluate_mwc:
             self.current_gnubg = 'gnubg'
             log.msg("Set current_gnubg to 'gnubg'")
@@ -133,8 +135,13 @@ class Dispatch:
         if hasattr(self, 'saved'):
             self.saved.purge()
             del self.saved
-        if self.protocol.factory.options.auto_invite:
+        if self.autoinvite:
+            if self.nr_games == 1:
+                self.autoinvite = False
+            elif self.nr_games > 0:
+                self.nr_games -= 1
             self.invitation = reactor.callLater(5., invite_bots, self)
+        # hier "Testspiel starten". Dazu auch den "dice" setzen (eigener user)
 
     def login(self,):
         login = Login(self, self.requests, self.set_bot_uid)
