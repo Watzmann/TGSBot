@@ -79,6 +79,7 @@ class TestGame:
                 if len(l) == 0 or l[0].startswith('#'):
                     line = ''
                     continue
+            log.msg('read and returning this line:\n%s' % l, logLevel=logging.ERROR)
             return l
 
     def __init__(self, testgame):

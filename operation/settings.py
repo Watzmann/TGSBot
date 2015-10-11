@@ -110,6 +110,8 @@ class Set(Request):
         if self.settings['delay'] != self._delay:
             log.msg('SET sets delay '+'>'*35, logLevel=VERBOSE)
             self.set_delay()
+        if getattr(self, '_set_dice', ''):
+            self._set_dice()
         self.purge()
 
     def set_delay(self,):

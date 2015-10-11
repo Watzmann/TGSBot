@@ -109,6 +109,8 @@ class Dispatch:
         if user in self.told_opponent:
             del self.told_opponent[user]
 
+    auto_invite_hook = invite_bots
+
     def login_hook(self,):
         self.autoinvite = self.protocol.factory.options.auto_invite
         self.nr_games = self.protocol.factory.options.number_of_games
@@ -140,8 +142,7 @@ class Dispatch:
                 self.autoinvite = False
             elif self.nr_games > 0:
                 self.nr_games -= 1
-            self.invitation = reactor.callLater(5., invite_bots, self)
-        # hier "Testspiel starten". Dazu auch den "dice" setzen (eigener user)
+            self.invitation = reactor.callLater(5., self.auto_invite_hook)
 
     def login(self,):
         login = Login(self, self.requests, self.set_bot_uid)
