@@ -52,7 +52,7 @@ def invite_testbot(dispatch):
         ML = dispatch.get_invite_ML()
         opp = dispatch.get_invite_player()
         log.msg("invite_one in .....testbot %s %s" % (ML, opp))
-        if opp in bots:
+        if opp in bots and ML is not None:
             invite(dispatch, opp, ML)
         else:
             dispatch.relax_hook()
@@ -74,7 +74,13 @@ class DispatchTest(Dispatch):
         return 'playerX'
 
     def get_invite_ML(self):
-        return self.invite_MLs.next()
+        try:
+            ML = self.invite_MLs.next()
+        except StopIteration:
+            log.msg("Stop auto invite testbot!")
+            self.autoinvite = False
+            ML = None
+        return ML
 
     def login_hook(self,):
         pfos = self.protocol.factory.options

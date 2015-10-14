@@ -44,15 +44,14 @@ class TestGame:
             self.testfile = open(filename)
 
         def oracle(self, action, args):
-            success, answer = self.checked_line(action, args)
+            success, answer = self.check_line(action, args)
             if success:
                 log.msg('line passed checks: %s' % answer, logLevel=logging.INFO)
                 return answer
             else:
-                log.msg('WHAT THE FUCK', logLevel=logging.ERROR)
-                return ''
+                raise ValueError('Match parameters and test data mismatch.')
 
-        def checked_line(self, action, args):
+        def check_line(self, action, args):
             line = self.get_line()
             v = line.pop(0)
             passed = v == action
@@ -125,34 +124,28 @@ class TestGame:
 
     def _double(self, *arguments):
         log.msg('question: %s' % ' '.join(arguments), logLevel=logging.DEBUG)
-        # match_id = arguments[0]
-        # self.sendMessage('uid:%s' % self.uid)
-        # mid, pid = match_id.split(':')
-        # if len(arguments) > 1 and arguments[1] == 'resign':
-        #      self.sendMessage('opt:consider resign')
-        # self.sendMessage('mid:%s' % mid)
-        # self.sendMessage('pid:%s' % pid)
-        # self.sendMessage('cmd:double')
-        self.answer.callback('nodouble')
+        args = [arguments[0].strip(), arguments[1].split()[0]]
+        result = self.data.oracle('double', [':'.join(args), '0'])
+        result = ' '.join(result) if result[0] == 'resign' else result[0]
+        log.msg('got answer: %s' % result, logLevel=logging.DEBUG)
+        self.answer.callback(result)
 
-    def _take(self, question):
-        log.msg('question: %s' % question, logLevel=logging.DEBUG)
-        self.sendMessage('uid:%s' % self.uid)
-        mid, pid = question.split(':')
-        self.sendMessage('mid:%s' % mid)
-        self.sendMessage('pid:%s' % pid)
-        self.sendMessage('cmd:take')
+    def _take(self, *arguments):
+        log.msg('question: %s' % ' '.join(arguments), logLevel=logging.DEBUG)
+        args = [a.strip() for a in arguments]
+        result = self.data.oracle('take', [':'.join(args), '0'])
+        result = result[0]
+        log.msg('got answer: %s' % result, logLevel=logging.DEBUG)
+        self.answer.callback(result)
 
-    def _accept(self, question):
-        log.msg('question: %s' % question, logLevel=logging.DEBUG)
-        arguments = question.split()
-        match_id = arguments[0]
-        mid, pid = match_id.split(':')
-        self.sendMessage('uid:%s' % self.uid)
-        self.sendMessage('mid:%s' % mid)
-        self.sendMessage('pid:%s' % pid)
-        self.sendMessage('opt:%s' % arguments[1])
-        self.sendMessage('cmd:accept')
+    def _accept(self, *arguments):
+        log.msg('question: %s' % ' '.join(arguments), logLevel=logging.DEBUG)
+        a = arguments[1].split()
+        args = [arguments[0].strip(), a[0]]
+        result = self.data.oracle('accept', [':'.join(args), a[1]])
+        result = result[0]
+        log.msg('got answer: %s' % result, logLevel=logging.DEBUG)
+        self.answer.callback(result)
 
     def set_uid_and_strength(self, uid, strength):
         log.msg('IGNORE setting bot strength!', logLevel=logging.DEBUG)
