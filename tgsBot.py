@@ -19,7 +19,7 @@ from optparse import OptionParser
 
 from operation.client import Dispatch
 from client.gnubgClient import set_up_gnubg, GNUBG, HYPERBG
-from client.tgsClient import Com, ComClientFactory
+from client.tgsClient import ComClientFactory
 
 TRACE = 15
 VERBOSE = 17
@@ -36,10 +36,8 @@ def start_logging(nick):
     observer = log.PythonLoggingObserver()
     observer.start()
 
-def usage(progname):
-    usg = """usage: %prog [<gid>]
-  %prog """ + __doc__
-    parser = OptionParser(usg)
+def get_parser(usg_text):
+    parser = OptionParser(usg_text)
     parser.add_option("-v", "--verbose",
                   action="store_true", dest="verbose", default=False,
                   help="print full entries to stdout")
@@ -58,18 +56,28 @@ def usage(progname):
     parser.add_option("-k", "--keep-alive", default=KEEP_ALIVE,
                   action="store", dest="keep_alive", type="float",
                   help="keep alive lap in seconds. (%s)" % KEEP_ALIVE)
-    parser.add_option("-s", "--strength", default='supremo',
-                  action="store", dest="strength",
-                  help="bots strength. (supremo)")
     parser.add_option("-d", "--delay", default='0.3',
                   action="store", dest="delay",
                   help="delay setting. (0.3)")
     parser.add_option("-I", "--auto-invite", default=False,
                   action="store_true", dest="auto_invite",
                   help="auto-invite other bots. (False)")
+    parser.add_option("-n", "--number-of-games", default=-1,
+                  action="store", dest="number_of_games", type="int",
+                  help="play a limited number of games via auto-invite.      "
+                       " (-1 = unlimited)")
     parser.add_option("-R", "--ignore-resume", default=False,
                   action="store_true", dest="ignore_resume",
                   help="ignore saved games when invited. (False)")
+    return parser
+
+def usage(progname):
+    usg = """usage: %prog [<gid>]
+  %prog """ + __doc__
+    parser = get_parser(usg)
+    parser.add_option("-s", "--strength", default='supremo',
+                  action="store", dest="strength",
+                  help="bots strength. (supremo)")
     parser.add_option("-E", "--evaluate", default=False,
                   action="store_true", dest="evaluate_mwc",
                   help="accept evaluation requests, only. (False)")
