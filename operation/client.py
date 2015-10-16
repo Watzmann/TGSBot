@@ -128,11 +128,15 @@ class Dispatch:
         """It is called after a match has ended or to reset preparations
     for a match.
 """
+        def _toggle_ready():
+            toggle = Toggle(self, self.requests)
+            toggle.send_command('toggle')
         self.current_gnubg = 'gnubg'
         log.msg("Set current_gnubg to 'gnubg'")
         if hasattr(self, 'saved'):
             self.saved.purge()
             del self.saved
+        reactor.callLater(5, _toggle_ready)
         if self.protocol.factory.options.auto_invite:
             self.invitation = reactor.callLater(5., invite_bots, self)
 
