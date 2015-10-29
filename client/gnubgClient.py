@@ -39,17 +39,18 @@ bot_gnubg_bridge = Bridge()
 
 class TestGame:
     class TestData:
-        def __init__(self, filename):
+        def __init__(self, filename, setdice, setinvites):
             self.filename = filename
             self.testfile = open(filename)
+            setdice(self.testfile.readline())
+            setinvites(self.testfile.readline())
 
         def oracle(self, action, args):
             success, answer = self.check_line(action, args)
-            if success:
-                log.msg('line passed checks: %s' % answer, logLevel=logging.INFO)
-                return answer
-            else:
-                raise ValueError('Match parameters and test data mismatch.')
+            if not success:
+                raise ValueError('Match parameters mismatch test data:'
+                                 '\n>%s<' % answer)
+            return answer
 
         def check_line(self, action, args):
             line = self.get_line()
@@ -78,13 +79,14 @@ class TestGame:
                 if len(l) == 0 or l[0].startswith('#'):
                     line = ''
                     continue
-            log.msg('read and returning this line:\n%s' % l, logLevel=logging.ERROR)
+            log.msg('read and returning this line:\n%s' % l, logLevel=logging.INFO)
             return l
 
     def __init__(self, testgame):
         self.uid = None
         self.testfilename = testgame
-        self.data = self.TestData(testgame)
+        self.data = self.TestData(testgame, self.set_dice_filename,
+                                  self.set_invites)
         self.custom_question = {
             'bestMove': self._best_move,
             'double': self._double,
@@ -149,6 +151,25 @@ class TestGame:
 
     def set_uid_and_strength(self, uid, strength):
         log.msg('IGNORE setting bot strength!', logLevel=logging.DEBUG)
+
+    def set_invites(self, invites):
+        a = invites.rstrip('\n').split(':')
+        if not a[0] == 'invites':
+            raise KeyError("Expected token is not 'invites' (%s)" % a[0])
+        self._invites = a[1].split('#')[0].split()
+        print "## INVITES", self._invites
+
+    def get_invites(self,):
+        return self._invites
+
+    def set_dice_filename(self, line):
+        a = line.rstrip('\n').split(':')
+        if not a[0] == 'dice':
+            raise KeyError("Expected token is not 'dice' (%s)" % a[0])
+        self._dice_filename = a[1]
+
+    def get_dice_filename(self,):
+        return self._dice_filename
 
 class Com(Protocol): # TODO: LineReceiver
 

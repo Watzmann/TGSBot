@@ -39,8 +39,8 @@ def start_logging(nick):
     observer.start()
 
 class SetTest(Set):
-    def set_dice_file(self, dice_filename):
-        self._dice = dice_filename
+    def set_dice_file(self,):
+        self._dice = self.dispatch.get_gnubg().get_dice_filename()
 
     def _set_dice(self,):
         log.msg('SET sets dice to %s %s' % (self._dice, '>'*35),
@@ -63,11 +63,9 @@ def invite_testbot(dispatch):
 class DispatchTest(Dispatch):
     auto_invite_hook = invite_testbot
 
-    def _set_invite_MLs(self, invitations_filename):
-        invs = open(invitations_filename)
-        MLs = invs.readline().rstrip('\n').split()
-        invs.close()
-        for ml in MLs:
+    def _set_invite_MLs(self,):
+        print "INVITES", self.get_gnubg().get_invites()
+        for ml in self.get_gnubg().get_invites():
             yield ml
 
     def get_invite_player(self):
@@ -84,19 +82,22 @@ class DispatchTest(Dispatch):
 
     def login_hook(self,):
         pfos = self.protocol.factory.options
-        self.autoinvite = pfos.auto_invite
+        self.autoinvite = bool(self.get_gnubg().get_dice_filename())
         toggle = Toggle(self, self.requests)
         toggle.send_command('toggle')
         if self.autoinvite:
             self.nr_games = pfos.number_of_games
-            self.invite_MLs = self._set_invite_MLs(pfos.invitations)
+            self.invite_MLs = self._set_invite_MLs()
             settings = SetTest(self, self.requests)
-            settings.set_dice_file(pfos.dice)
+            settings.set_dice_file()
         else:
             settings = Set(self, self.requests)
         settings.set_delay_value(pfos.delay)
         settings.send_command('set')
         self.relax_hook()
+
+    def get_gnubg(self):
+        return self.protocol.factory.gnubg.gnubg['gnubg']
 
 def set_options(o):
     o.evaluate_mwc = False
@@ -120,10 +121,6 @@ if __name__ == "__main__":
                     ka_lap=options.keep_alive)
     options.number_of_games = -1
     options.testgame = args[0]
-    if len(args) > 1:
-        options.auto_invite = True
-        options.dice = args[1]
-        options.invitations = args[2]
     bridge = set_up_testgame(options.testgame)
     if not bridge is None:
         factory.gnubg = bridge
