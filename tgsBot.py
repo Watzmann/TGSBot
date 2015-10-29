@@ -95,7 +95,7 @@ if __name__ == "__main__":
                     options.strength, options.keep_alive, options.ignore_resume)
     # connect to a running gnubg instance
     standard_running = True
-    for g, h, p in (('gnubg', 'themisto', GNUBG),
+    for g, h, p in (('gnubg', 'localhost', GNUBG),
                  ('hyperbg', 'localhost', HYPERBG)):
         gnubg = set_up_gnubg(g, h, port=p)
         if not gnubg is None:    # TODO: react to missing gnubg (now start one)
