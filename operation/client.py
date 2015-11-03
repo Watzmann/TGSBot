@@ -60,7 +60,7 @@ class ResignHandler:
 class Dispatch:
 
     def __init__(self, user, password, strength='supremo', ka_lap=300.,
-                                                        ignore_resume=False):
+                 ignore_resume=False, fixed_opponent=''):
         self.user = user
         self.password = password
         self.strength = strength
@@ -68,6 +68,7 @@ class Dispatch:
         self.login_sequence = 'bot login h h %s %s' % (self.user, self.password)
         self.requests = {}
         self.told_opponent = {}
+        self.f_opponent = fixed_opponent
         self.user_commands = {'info': self.user_info,
                               }
         self.ignore_resume = ignore_resume

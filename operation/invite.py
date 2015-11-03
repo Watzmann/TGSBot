@@ -158,7 +158,9 @@ def invite_bots(dispatch):
         ML = random.choice((1,3,5,7,9))
         if dispatch.user in bots:
             bots.remove(dispatch.user)
-        if len(bots) > 0:
+        if dispatch.f_opponent and dispatch.f_opponent in bots:
+            invite(dispatch, dispatch.f_opponent, ML)
+        elif len(bots) > 0:
             opponent = random.choice(bots)
             invite(dispatch, opponent, ML)
         else:

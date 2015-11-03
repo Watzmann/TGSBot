@@ -62,6 +62,9 @@ def get_parser(usg_text):
     parser.add_option("-I", "--auto-invite", default=False,
                   action="store_true", dest="auto_invite",
                   help="auto-invite other bots. (False)")
+    parser.add_option("-O", "--opponent", default='',
+                  action="store", dest="fixed_opponent",
+                  help="auto-invite only this opponent. ('')")
     parser.add_option("-n", "--number-of-games", default=-1,
                   action="store", dest="number_of_games", type="int",
                   help="play a limited number of games via auto-invite.      "
@@ -92,7 +95,8 @@ if __name__ == "__main__":
     factory.options = options
     server_port = int(options.port)
     factory.dispatcher = Dispatch(options.user, options.password,
-                    options.strength, options.keep_alive, options.ignore_resume)
+                                  options.strength, options.keep_alive,
+                                  options.ignore_resume, options.fixed_opponent)
     # connect to a running gnubg instance
     standard_running = False
     for g, h, p in (('gnubg', 'localhost', GNUBG),
