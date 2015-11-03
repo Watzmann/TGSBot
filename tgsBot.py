@@ -94,11 +94,11 @@ if __name__ == "__main__":
     factory.dispatcher = Dispatch(options.user, options.password,
                     options.strength, options.keep_alive, options.ignore_resume)
     # connect to a running gnubg instance
-    standard_running = True
+    standard_running = False
     for g, h, p in (('gnubg', 'localhost', GNUBG),
                  ('hyperbg', 'localhost', HYPERBG)):
         gnubg = set_up_gnubg(g, h, port=p)
-        if not gnubg is None:    # TODO: react to missing gnubg (now start one)
+        if gnubg is not None:    # TODO: react to missing gnubg (now start one)
             factory.gnubg = gnubg
             gnubg.set_bot(factory.dispatcher)
             if g == 'gnubg':

@@ -118,7 +118,8 @@ if __name__ == "__main__":
     factory.options = options
     server_port = int(options.port)
     factory.dispatcher = DispatchTest(options.user, options.password,
-                    ka_lap=options.keep_alive)
+                                      ka_lap=options.keep_alive,
+                                      ignore_resume=options.ignore_resume)
     options.number_of_games = -1
     options.testgame = args[0]
     bridge = set_up_testgame(options.testgame)
